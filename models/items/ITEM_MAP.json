@@ -28,8 +28,8 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.712,
-    0.9,
+    0.708,
+    0.901,
     0.566
    ],
    "children": [
@@ -46,8 +46,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.01,
-        -0.22728,
-        -0.29072
+        -0.22732,
+        -0.29063
        ],
        "quat": [
         0.687215,
@@ -134,10 +134,12 @@
         1.0
        ],
        "hide": [
-        "Mannequin:Box001xcsa001_12 - Default_0"
+        "Mannequin:Box001xcsa001_12 - Default_0",
+        "Mannequin:Box001bdfbdf001_08 - Default_0"
        ],
        "hide_three": [
-        "MannequinBox001xcsa001_12_-_Default_0"
+        "MannequinBox001xcsa001_12_-_Default_0",
+        "MannequinBox001bdfbdf001_08_-_Default_0"
        ]
       }
      ],
@@ -154,8 +156,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.008,
-        -0.22097,
-        -0.0502
+        -0.22099,
+        -0.05013
        ],
        "quat": [
         0.600316,
@@ -257,7 +259,7 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.7,
+    0.698,
     0.86,
     0.517
    ],
@@ -275,7 +277,7 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.01,
-        -0.20577,
+        -0.20579,
         -0.26808
        ],
        "quat": [
@@ -363,10 +365,12 @@
         1.0
        ],
        "hide": [
-        "Mannequin:Box001xcsa001_12 - Default_0"
+        "Mannequin:Box001xcsa001_12 - Default_0",
+        "Mannequin:Box001bdfbdf001_08 - Default_0"
        ],
        "hide_three": [
-        "MannequinBox001xcsa001_12_-_Default_0"
+        "MannequinBox001xcsa001_12_-_Default_0",
+        "MannequinBox001bdfbdf001_08_-_Default_0"
        ]
       }
      ],
@@ -383,8 +387,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.008,
-        -0.19833,
-        -0.04042
+        -0.19834,
+        -0.04041
        ],
        "quat": [
         0.600316,
@@ -488,7 +492,7 @@
    "size_m": [
     0.793,
     1.331,
-    0.789
+    0.788
    ],
    "children": [
     "armor_bile_shroud_pauldron_L",
@@ -503,9 +507,9 @@
        "bone": "mixamorig:Spine2",
        "bone_three": "mixamorigSpine2",
        "pos": [
-        -0.01296,
-        -0.42793,
-        -0.39159
+        -0.01324,
+        -0.4279,
+        -0.39125
        ],
        "quat": [
         0.687215,
@@ -592,10 +596,12 @@
         1.0
        ],
        "hide": [
-        "Mannequin:Box001xcsa001_12 - Default_0"
+        "Mannequin:Box001xcsa001_12 - Default_0",
+        "Mannequin:Box001bdfbdf001_08 - Default_0"
        ],
        "hide_three": [
-        "MannequinBox001xcsa001_12_-_Default_0"
+        "MannequinBox001xcsa001_12_-_Default_0",
+        "MannequinBox001bdfbdf001_08_-_Default_0"
        ]
       }
      ],
@@ -611,9 +617,9 @@
        "bone": "mixamorig:Spine2",
        "bone_three": "mixamorigSpine2",
        "pos": [
-        -0.01037,
-        -0.41735,
-        -0.06996
+        -0.0106,
+        -0.41728,
+        -0.06974
        ],
        "quat": [
         0.600316,
@@ -715,7 +721,7 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.717,
+    0.711,
     0.689,
     0.521
    ],
@@ -944,7 +950,7 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.715,
+    0.71,
     0.7,
     0.471
    ],
@@ -962,7 +968,7 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.01,
-        -0.14471,
+        -0.14473,
         -0.24291
        ],
        "quat": [
@@ -1070,7 +1076,7 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.008,
-        -0.1393,
+        -0.13932,
         -0.03798
        ],
        "quat": [
@@ -1173,8 +1179,8 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.769,
-    0.898,
+    0.766,
+    0.897,
     0.514
    ],
    "children": [
@@ -1193,8 +1199,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.01,
-        -0.1827,
-        -0.24721
+        -0.18308,
+        -0.24694
        ],
        "quat": [
         0.687215,
@@ -1347,8 +1353,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.008,
-        -0.1745,
-        -0.03215
+        -0.17481,
+        -0.03189
        ],
        "quat": [
         0.600316,
@@ -1496,7 +1502,7 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.755,
+    0.752,
     0.897,
     0.491
    ],
@@ -1516,8 +1522,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.01,
-        -0.18309,
-        -0.24719
+        -0.18308,
+        -0.24694
        ],
        "quat": [
         0.687215,
@@ -1670,8 +1676,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.008,
-        -0.17486,
-        -0.03205
+        -0.17481,
+        -0.03189
        ],
        "quat": [
         0.600316,
@@ -1819,7 +1825,7 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.755,
+    0.752,
     0.897,
     0.499
    ],
@@ -1839,8 +1845,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.01,
-        -0.18309,
-        -0.24719
+        -0.18308,
+        -0.24694
        ],
        "quat": [
         0.687215,
@@ -1993,8 +1999,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.008,
-        -0.17486,
-        -0.03205
+        -0.17481,
+        -0.03189
        ],
        "quat": [
         0.600316,
@@ -2142,8 +2148,8 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.755,
-    0.898,
+    0.752,
+    0.897,
     0.504
    ],
    "children": [
@@ -2162,8 +2168,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.01,
-        -0.1827,
-        -0.24721
+        -0.18308,
+        -0.24694
        ],
        "quat": [
         0.687215,
@@ -2316,8 +2322,8 @@
        "bone_three": "mixamorigSpine2",
        "pos": [
         -0.008,
-        -0.1745,
-        -0.03215
+        -0.17481,
+        -0.03189
        ],
        "quat": [
         0.600316,
@@ -2465,8 +2471,8 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.241,
-    0.308,
+    0.342,
+    0.321,
     0.532
    ],
    "children": [],
@@ -2478,9 +2484,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -5e-05,
-        -0.09149,
-        0.01983
+        -0.0,
+        -0.09179,
+        0.01402
        ],
        "quat": [
         -0.02271,
@@ -2512,9 +2518,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -0.00157,
-        -0.08953,
-        0.04262
+        -0.00177,
+        -0.09612,
+        0.05748
        ],
        "quat": [
         -0.008055,
@@ -2523,9 +2529,9 @@
         0.999934
        ],
        "scale": [
-        0.93,
-        0.93,
-        0.93
+        1.0,
+        1.0,
+        1.0
        ],
        "hide": [],
        "hide_three": []
@@ -2547,8 +2553,8 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.36,
-    0.35,
+    0.3,
+    0.313,
     0.446
    ],
    "children": [],
@@ -2560,9 +2566,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        5e-05,
-        -0.09251,
-        -0.0164
+        0.0,
+        -0.0922,
+        -0.00641
        ],
        "quat": [
         -0.02271,
@@ -2594,9 +2600,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -0.00103,
-        -0.08948,
-        0.00517
+        -0.0015,
+        -0.0959,
+        0.03477
        ],
        "quat": [
         -0.008055,
@@ -2605,9 +2611,9 @@
         0.999934
        ],
        "scale": [
-        0.93,
-        0.93,
-        0.93
+        1.0,
+        1.0,
+        1.0
        ],
        "hide": [],
        "hide_three": []
@@ -2643,7 +2649,7 @@
        "bone_three": "mixamorigHead",
        "pos": [
         0.0,
-        -0.09288,
+        -0.09282,
         -0.014
        ],
        "quat": [
@@ -2676,9 +2682,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -0.00112,
-        -0.08993,
-        0.00764
+        -0.00141,
+        -0.09635,
+        0.02633
        ],
        "quat": [
         -0.008055,
@@ -2687,9 +2693,9 @@
         0.999934
        ],
        "scale": [
-        0.93,
-        0.93,
-        0.93
+        1.0,
+        1.0,
+        1.0
        ],
        "hide": [],
        "hide_three": []
@@ -2724,8 +2730,8 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -2e-05,
-        -0.15252,
+        -0.0003,
+        -0.15256,
         -0.00853
        ],
        "quat": [
@@ -2758,9 +2764,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -0.00189,
-        -0.1517,
-        0.01148
+        -0.00255,
+        -0.16286,
+        0.03045
        ],
        "quat": [
         -0.008055,
@@ -2769,9 +2775,9 @@
         0.999934
        ],
        "scale": [
-        0.93,
-        0.93,
-        0.93
+        1.0,
+        1.0,
+        1.0
        ],
        "hide": [],
        "hide_three": []
@@ -2793,8 +2799,8 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.379,
-    0.417,
+    0.307,
+    0.368,
     0.413
    ],
    "children": [],
@@ -2806,9 +2812,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        9e-05,
-        -0.09155,
-        0.00512
+        0.0,
+        -0.09217,
+        -0.00503
        ],
        "quat": [
         -0.02271,
@@ -2840,9 +2846,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -0.00124,
-        -0.08914,
-        0.02742
+        -0.00152,
+        -0.09592,
+        0.03631
        ],
        "quat": [
         -0.008055,
@@ -2851,9 +2857,9 @@
         0.999934
        ],
        "scale": [
-        0.93,
-        0.93,
-        0.93
+        1.0,
+        1.0,
+        1.0
        ],
        "hide": [],
        "hide_three": []
@@ -2888,9 +2894,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -2e-05,
+        -0.00014,
         -0.15276,
-        -0.01368
+        -0.01384
        ],
        "quat": [
         -0.02271,
@@ -2922,9 +2928,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -0.00183,
-        -0.15179,
-        0.00615
+        -0.00231,
+        -0.16292,
+        0.02454
        ],
        "quat": [
         -0.008055,
@@ -2933,9 +2939,9 @@
         0.999934
        ],
        "scale": [
-        0.93,
-        0.93,
-        0.93
+        1.0,
+        1.0,
+        1.0
        ],
        "hide": [],
        "hide_three": []
@@ -2957,9 +2963,9 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.256,
+    0.372,
     0.307,
-    0.385
+    0.386
    ],
    "children": [],
    "worn": {
@@ -2971,8 +2977,8 @@
        "bone_three": "mixamorigHead",
        "pos": [
         0.0,
-        -0.09212,
-        -0.00368
+        -0.09214,
+        -0.00364
        ],
        "quat": [
         -0.02271,
@@ -3004,9 +3010,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -0.00124,
-        -0.08946,
-        0.01832
+        -0.00154,
+        -0.09592,
+        0.03785
        ],
        "quat": [
         -0.008055,
@@ -3015,9 +3021,9 @@
         0.999934
        ],
        "scale": [
-        0.93,
-        0.93,
-        0.93
+        1.0,
+        1.0,
+        1.0
        ],
        "hide": [],
        "hide_three": []
@@ -3039,7 +3045,7 @@
    ],
    "floorScale": 1,
    "size_m": [
-    0.502,
+    0.503,
     0.312,
     0.367
    ],
@@ -3053,8 +3059,8 @@
        "bone_three": "mixamorigHead",
        "pos": [
         -0.0,
-        -0.09171,
-        0.01634
+        -0.0917,
+        0.01643
        ],
        "quat": [
         -0.02271,
@@ -3086,9 +3092,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -0.00148,
-        -0.08964,
-        0.03901
+        -0.0018,
+        -0.09609,
+        0.06016
        ],
        "quat": [
         -0.008055,
@@ -3097,9 +3103,9 @@
         0.999934
        ],
        "scale": [
-        0.93,
-        0.93,
-        0.93
+        1.0,
+        1.0,
+        1.0
        ],
        "hide": [],
        "hide_three": []
@@ -3168,9 +3174,9 @@
        "bone": "mixamorig:Head",
        "bone_three": "mixamorigHead",
        "pos": [
-        -0.00143,
-        -0.08967,
-        0.03462
+        -0.00174,
+        -0.09613,
+        0.05534
        ],
        "quat": [
         -0.008055,
@@ -3179,9 +3185,9 @@
         0.999934
        ],
        "scale": [
-        0.93,
-        0.93,
-        0.93
+        1.0,
+        1.0,
+        1.0
        ],
        "hide": [],
        "hide_three": []
