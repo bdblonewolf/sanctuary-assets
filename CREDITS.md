@@ -8,3 +8,13 @@
 - **skeleton_animated** (game/skeleton_animated.glb): This work is based on "Skeleton animated" (https://sketchfab.com/3d-models/skeleton-animated-9210377c7a514cf6b48a31b9d3991ff3) by danielmclogan (https://sketchfab.com/danielmclogan) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 - **worn_banner** (game/worn_banner.glb): This work is based on "Worn Medieval Banner" (https://sketchfab.com/3d-models/worn-medieval-banner-5f20fa1e87fb4042822356cc489bd984) by LewisBaker (https://sketchfab.com/LewisBaker) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 - **knight_anim** (models/knight_anim.glb) and **weapon_sword** (models/weapon_sword.glb): knight base "Plated Knight - Medieval" (https://sketchfab.com/3d-models/plated-knight-medieval-24fd61c662414344bcb81ddc62fd1e3b) by Ulrik Langvandsbråten (https://sketchfab.com/best3deu) licensed under CC-BY-4.0; animations from Adobe Mixamo (baked into the model, not redistributed raw).
+
+## Hero weapons (Stage 8) - baked into Mixamo hand-bone space, grit/gothic texture pass
+- models/weapon_axe.glb: KayKit Character Pack: Adventurers 1.0 "axe_1handed" by Kay Lousberg (kaylousberg.com), CC0 1.0
+- models/weapon_greataxe.glb: KayKit Adventurers "axe_2handed" by Kay Lousberg, CC0 1.0 (head narrowed)
+- models/weapon_greatsword.glb: KayKit Adventurers "sword_2handed" by Kay Lousberg, CC0 1.0
+- models/weapon_staff.glb: KayKit Adventurers "staff" by Kay Lousberg, CC0 1.0
+- models/weapon_wand.glb: KayKit Adventurers "wand" by Kay Lousberg, CC0 1.0
+- models/weapon_shield.glb: KayKit Adventurers "shield_badge" by Kay Lousberg, CC0 1.0
+- models/weapon_arrow.glb: KayKit Adventurers "arrow" by Kay Lousberg, CC0 1.0
+- models/weapon_bow.glb: procedural longbow made in Blender for this project, CC0 1.0
