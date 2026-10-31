@@ -4124,274 +4124,334 @@
  },
  "weapons": {
   "Parish Blade": {
-   "glb": "models/weapon_sword.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_parish_blade.glb",
+   "fallback": "models/weapon_sword.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "sword",
+   "icon": "wpn_parish_blade"
   },
   "Ash Saber": {
-   "glb": "models/weapon_sword.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_ash_saber.glb",
+   "fallback": "models/weapon_sword.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "sword",
+   "icon": "wpn_ash_saber"
   },
   "Spire Falchion": {
-   "glb": "models/weapon_sword.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_spire_falchion.glb",
+   "fallback": "models/weapon_sword.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "sword",
+   "icon": "wpn_spire_falchion"
   },
   "Briar Hatchet": {
-   "glb": "models/weapon_axe.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_briar_hatchet.glb",
+   "fallback": "models/weapon_axe.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "greataxe",
+   "icon": "wpn_briar_hatchet"
   },
   "Cinder Axe": {
-   "glb": "models/weapon_axe.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_cinder_axe.glb",
+   "fallback": "models/weapon_axe.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "greataxe",
+   "icon": "wpn_cinder_axe"
   },
   "Sable Cleaver": {
-   "glb": "models/weapon_axe.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_sable_cleaver.glb",
+   "fallback": "models/weapon_axe.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "greataxe",
+   "icon": "wpn_sable_cleaver"
   },
   "Ferry Pike": {
-   "glb": "models/weapon_spear.glb",
-   "fallback": "models/weapon_staff.glb",
+   "glb": "models/weapons/weapon_ferry_pike.glb",
+   "fallback": "models/weapon_spear.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "staff",
+   "icon": "wpn_ferry_pike"
   },
   "Mourning Spear": {
-   "glb": "models/weapon_spear.glb",
-   "fallback": "models/weapon_staff.glb",
+   "glb": "models/weapons/weapon_mourning_spear.glb",
+   "fallback": "models/weapon_spear.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "staff",
+   "icon": "wpn_mourning_spear"
   },
   "Lid Glaive": {
-   "glb": "models/weapon_spear.glb",
+   "glb": "models/weapons/weapon_lid_glaive.glb",
+   "fallback": "models/weapon_spear.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "staff",
+   "icon": "wpn_lid_glaive"
+  },
+  "Chapel Maul": {
+   "glb": "models/weapons/weapon_chapel_maul.glb",
+   "fallback": "models/weapon_mace.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "sword",
+   "icon": "wpn_chapel_maul"
+  },
+  "Mercy Hammer": {
+   "glb": "models/weapons/weapon_mercy_hammer.glb",
+   "fallback": "models/weapon_mace.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "sword",
+   "icon": "wpn_mercy_hammer"
+  },
+  "Inquisitor's Nail": {
+   "glb": "models/weapons/weapon_inquisitors_nail.glb",
+   "fallback": "models/weapon_mace.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "sword",
+   "icon": "wpn_inquisitors_nail"
+  },
+  "Timber Axe": {
+   "glb": "models/weapons/weapon_timber_axe.glb",
+   "fallback": "models/weapon_greataxe.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "greataxe",
+   "icon": "wpn_timber_axe"
+  },
+  "War Axe": {
+   "glb": "models/weapons/weapon_war_axe.glb",
+   "fallback": "models/weapon_greataxe.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "greataxe",
+   "icon": "wpn_war_axe"
+  },
+  "Kingrender": {
+   "glb": "models/weapons/weapon_kingrender.glb",
+   "fallback": "models/weapon_greataxe.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "greataxe",
+   "icon": "wpn_kingrender"
+  },
+  "Stitched Blade": {
+   "glb": "models/weapons/weapon_stitched_blade.glb",
+   "fallback": "models/weapon_dagger.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "dagger",
+   "icon": "wpn_stitched_blade"
+  },
+  "Seam Knife": {
+   "glb": "models/weapons/weapon_seam_knife.glb",
+   "fallback": "models/weapon_dagger.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "dagger",
+   "icon": "wpn_seam_knife"
+  },
+  "Widow Stitch": {
+   "glb": "models/weapons/weapon_widow_stitch.glb",
+   "fallback": "models/weapon_dagger.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "dagger",
+   "icon": "wpn_widow_stitch"
+  },
+  "Yew Longbow": {
+   "glb": "models/weapons/weapon_yew_longbow.glb",
+   "fallback": "models/weapon_bow.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "bow",
+   "icon": "wpn_yew_longbow"
+  },
+  "Ash Longbow": {
+   "glb": "models/weapons/weapon_ash_longbow.glb",
+   "fallback": "models/weapon_bow.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "bow",
+   "icon": "wpn_ash_longbow"
+  },
+  "Spire Longbow": {
+   "glb": "models/weapons/weapon_spire_longbow.glb",
+   "fallback": "models/weapon_bow.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "bow",
+   "icon": "wpn_spire_longbow"
+  },
+  "Wicker Bow": {
+   "glb": "models/weapons/weapon_wicker_bow.glb",
+   "fallback": "models/weapon_bow.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "bow",
+   "icon": "wpn_wicker_bow"
+  },
+  "Thorn Wicker": {
+   "glb": "models/weapons/weapon_thorn_wicker.glb",
+   "fallback": "models/weapon_bow.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "bow",
+   "icon": "wpn_thorn_wicker"
+  },
+  "Spite Wicker": {
+   "glb": "models/weapons/weapon_spite_wicker.glb",
+   "fallback": "models/weapon_bow.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1,
+   "set": "bow",
+   "icon": "wpn_spite_wicker"
+  },
+  "Ash Staff": {
+   "glb": "models/weapons/weapon_ash_staff.glb",
    "fallback": "models/weapon_staff.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
-  },
-  "Chapel Maul": {
-   "glb": "models/weapon_mace.glb",
-   "fallback": "models/weapon_sword.glb",
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Mercy Hammer": {
-   "glb": "models/weapon_mace.glb",
-   "fallback": "models/weapon_sword.glb",
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Inquisitor's Nail": {
-   "glb": "models/weapon_mace.glb",
-   "fallback": "models/weapon_sword.glb",
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Timber Axe": {
-   "glb": "models/weapon_greataxe.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "War Axe": {
-   "glb": "models/weapon_greataxe.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Kingrender": {
-   "glb": "models/weapon_greataxe.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Stitched Blade": {
-   "glb": "models/weapon_dagger.glb",
-   "fallback": "models/weapon_sword.glb",
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Seam Knife": {
-   "glb": "models/weapon_dagger.glb",
-   "fallback": "models/weapon_sword.glb",
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Widow Stitch": {
-   "glb": "models/weapon_dagger.glb",
-   "fallback": "models/weapon_sword.glb",
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Yew Longbow": {
-   "glb": "models/weapon_bow.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Ash Longbow": {
-   "glb": "models/weapon_bow.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Spire Longbow": {
-   "glb": "models/weapon_bow.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Wicker Bow": {
-   "glb": "models/weapon_bow.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Thorn Wicker": {
-   "glb": "models/weapon_bow.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Spite Wicker": {
-   "glb": "models/weapon_bow.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
-  },
-  "Ash Staff": {
-   "glb": "models/weapon_staff.glb",
-   "fallback": null,
-   "grid": [
-    1,
-    3
-   ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "staff",
+   "icon": "wpn_ash_staff"
   },
   "Chapel Staff": {
-   "glb": "models/weapon_staff.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_chapel_staff.glb",
+   "fallback": "models/weapon_staff.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "staff",
+   "icon": "wpn_chapel_staff"
   },
   "Weald Staff": {
-   "glb": "models/weapon_staff.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_weald_staff.glb",
+   "fallback": "models/weapon_staff.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "staff",
+   "icon": "wpn_weald_staff"
   },
   "Sting Wand": {
-   "glb": "models/weapon_wand.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_sting_wand.glb",
+   "fallback": "models/weapon_wand.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "wand",
+   "icon": "wpn_sting_wand"
   },
   "Thorn Wand": {
-   "glb": "models/weapon_wand.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_thorn_wand.glb",
+   "fallback": "models/weapon_wand.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "wand",
+   "icon": "wpn_thorn_wand"
   },
   "Omen Wand": {
-   "glb": "models/weapon_wand.glb",
-   "fallback": null,
+   "glb": "models/weapons/weapon_omen_wand.glb",
+   "fallback": "models/weapon_wand.glb",
    "grid": [
     1,
     3
    ],
-   "floorScale": 1
+   "floorScale": 1,
+   "set": "wand",
+   "icon": "wpn_omen_wand"
   }
  },
  "worn_doc": "bases[*].worn[bodyKey] (knight = models/knight_anim.glb, npc_male_regular = combat NPC male_regular.glb): parts[] lists every independently equippable node (root + children such as _pauldron_L/R, _fauld, _tasset_L/R). To equip: take node from the atlas (detach children from the root), attach it to the skeleton bone named bone_three (three.js-sanitized name; bone = original glTF name), set position=pos, quaternion=quat [x,y,z,w], scale=scale (bone-local, y-up, from bind pose). Hide body meshes in that part's hide_three (sanitized node names; hide = original names); unequip = remove the node and unhide only meshes no other equipped part still hides. children lists child node names; floor/icon use is unchanged (root node with children as-is)."
