@@ -1,0 +1,445 @@
+{
+ "cell": 128,
+ "width": 2048,
+ "height": 1920,
+ "icons": {
+  "armor_wick_coat": {
+   "x": 0,
+   "y": 0,
+   "w": 256,
+   "h": 384
+  },
+  "armor_silt_hauberk": {
+   "x": 256,
+   "y": 0,
+   "w": 256,
+   "h": 384
+  },
+  "armor_bile_shroud": {
+   "x": 512,
+   "y": 0,
+   "w": 256,
+   "h": 384
+  },
+  "armor_tanners_vest": {
+   "x": 768,
+   "y": 0,
+   "w": 256,
+   "h": 384
+  },
+  "armor_ash_brigandine": {
+   "x": 1024,
+   "y": 0,
+   "w": 256,
+   "h": 384
+  },
+  "armor_spire_harness": {
+   "x": 1280,
+   "y": 0,
+   "w": 256,
+   "h": 384
+  },
+  "armor_parish_plate": {
+   "x": 1536,
+   "y": 0,
+   "w": 256,
+   "h": 384
+  },
+  "armor_grave_plate": {
+   "x": 1792,
+   "y": 0,
+   "w": 256,
+   "h": 384
+  },
+  "armor_obsidian_cuirass": {
+   "x": 0,
+   "y": 384,
+   "w": 256,
+   "h": 384
+  },
+  "helm_bent_brow": {
+   "x": 256,
+   "y": 384,
+   "w": 256,
+   "h": 256
+  },
+  "helm_ash_sallet": {
+   "x": 512,
+   "y": 384,
+   "w": 256,
+   "h": 256
+  },
+  "helm_rite_crown": {
+   "x": 768,
+   "y": 384,
+   "w": 256,
+   "h": 256
+  },
+  "helm_mourner_hood": {
+   "x": 1024,
+   "y": 384,
+   "w": 256,
+   "h": 256
+  },
+  "helm_grave_visor": {
+   "x": 1280,
+   "y": 384,
+   "w": 256,
+   "h": 256
+  },
+  "helm_weald_cowl": {
+   "x": 1536,
+   "y": 384,
+   "w": 256,
+   "h": 256
+  },
+  "helm_iron_skull": {
+   "x": 1792,
+   "y": 384,
+   "w": 256,
+   "h": 256
+  },
+  "helm_bone_casque": {
+   "x": 0,
+   "y": 768,
+   "w": 256,
+   "h": 256
+  },
+  "helm_spire_mask": {
+   "x": 256,
+   "y": 768,
+   "w": 256,
+   "h": 256
+  },
+  "shield_wicker_round": {
+   "x": 512,
+   "y": 768,
+   "w": 256,
+   "h": 256
+  },
+  "shield_ash_guard": {
+   "x": 768,
+   "y": 768,
+   "w": 256,
+   "h": 256
+  },
+  "shield_crypt_round": {
+   "x": 1024,
+   "y": 768,
+   "w": 256,
+   "h": 256
+  },
+  "shield_briar_targe": {
+   "x": 1280,
+   "y": 768,
+   "w": 256,
+   "h": 256
+  },
+  "shield_grave_wall": {
+   "x": 1536,
+   "y": 768,
+   "w": 256,
+   "h": 256
+  },
+  "shield_spire_targe": {
+   "x": 1792,
+   "y": 768,
+   "w": 256,
+   "h": 256
+  },
+  "shield_parish_kite": {
+   "x": 0,
+   "y": 1024,
+   "w": 256,
+   "h": 256
+  },
+  "shield_war_tower": {
+   "x": 256,
+   "y": 1024,
+   "w": 256,
+   "h": 256
+  },
+  "shield_obsidian_aegis": {
+   "x": 512,
+   "y": 1024,
+   "w": 256,
+   "h": 256
+  },
+  "gloves_wick_wraps": {
+   "x": 768,
+   "y": 1024,
+   "w": 256,
+   "h": 256
+  },
+  "gloves_ash_grips": {
+   "x": 1024,
+   "y": 1024,
+   "w": 256,
+   "h": 256
+  },
+  "gloves_spire_hands": {
+   "x": 1280,
+   "y": 1024,
+   "w": 256,
+   "h": 256
+  },
+  "gloves_tanner_mitts": {
+   "x": 1536,
+   "y": 1024,
+   "w": 256,
+   "h": 256
+  },
+  "gloves_grave_claws": {
+   "x": 1792,
+   "y": 1024,
+   "w": 256,
+   "h": 256
+  },
+  "gloves_bile_grasp": {
+   "x": 0,
+   "y": 1280,
+   "w": 256,
+   "h": 256
+  },
+  "gloves_chapel_gloves": {
+   "x": 256,
+   "y": 1280,
+   "w": 256,
+   "h": 256
+  },
+  "gloves_war_gauntlets": {
+   "x": 512,
+   "y": 1280,
+   "w": 256,
+   "h": 256
+  },
+  "gloves_inquisitors_hands": {
+   "x": 768,
+   "y": 1280,
+   "w": 256,
+   "h": 256
+  },
+  "misc_book": {
+   "x": 1024,
+   "y": 1280,
+   "w": 128,
+   "h": 256
+  },
+  "belt_ferry_cord": {
+   "x": 1152,
+   "y": 1280,
+   "w": 256,
+   "h": 128
+  },
+  "belt_ash_sash": {
+   "x": 1408,
+   "y": 1280,
+   "w": 256,
+   "h": 128
+  },
+  "belt_spire_cord": {
+   "x": 1664,
+   "y": 1280,
+   "w": 256,
+   "h": 128
+  },
+  "belt_tanner_sash": {
+   "x": 0,
+   "y": 1536,
+   "w": 256,
+   "h": 128
+  },
+  "belt_grave_cinch": {
+   "x": 256,
+   "y": 1536,
+   "w": 256,
+   "h": 128
+  },
+  "belt_weald_belt": {
+   "x": 512,
+   "y": 1536,
+   "w": 256,
+   "h": 128
+  },
+  "belt_chapel_girdle": {
+   "x": 768,
+   "y": 1536,
+   "w": 256,
+   "h": 128
+  },
+  "belt_war_girdle": {
+   "x": 1024,
+   "y": 1536,
+   "w": 256,
+   "h": 128
+  },
+  "belt_obsidian_belt": {
+   "x": 1280,
+   "y": 1536,
+   "w": 256,
+   "h": 128
+  },
+  "ring_copper_band": {
+   "x": 1536,
+   "y": 1536,
+   "w": 128,
+   "h": 128
+  },
+  "ring_ash_signet": {
+   "x": 1664,
+   "y": 1536,
+   "w": 128,
+   "h": 128
+  },
+  "ring_spire_circle": {
+   "x": 1792,
+   "y": 1536,
+   "w": 128,
+   "h": 128
+  },
+  "ring_tin_loop": {
+   "x": 1920,
+   "y": 1536,
+   "w": 128,
+   "h": 128
+  },
+  "ring_grave_loop": {
+   "x": 0,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "ring_weald_loop": {
+   "x": 128,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "ring_chapel_ring": {
+   "x": 256,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "ring_war_band": {
+   "x": 384,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "ring_inquisitors_seal": {
+   "x": 512,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "amulet_bone_charm": {
+   "x": 640,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "amulet_ash_eye": {
+   "x": 768,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "amulet_spire_stone": {
+   "x": 896,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "amulet_chapel_locket": {
+   "x": 1024,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "amulet_grave_heart": {
+   "x": 1152,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "amulet_weald_bead": {
+   "x": 1280,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "amulet_tin_pendant": {
+   "x": 1408,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "amulet_war_beads": {
+   "x": 1536,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "amulet_obsidian_tear": {
+   "x": 1664,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "misc_potion": {
+   "x": 1792,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "misc_manapotion": {
+   "x": 1920,
+   "y": 1664,
+   "w": 128,
+   "h": 128
+  },
+  "misc_portal": {
+   "x": 0,
+   "y": 1792,
+   "w": 128,
+   "h": 128
+  },
+  "misc_scroll": {
+   "x": 128,
+   "y": 1792,
+   "w": 128,
+   "h": 128
+  },
+  "misc_bossstone": {
+   "x": 256,
+   "y": 1792,
+   "w": 128,
+   "h": 128
+  },
+  "misc_key": {
+   "x": 384,
+   "y": 1792,
+   "w": 128,
+   "h": 128
+  },
+  "misc_jewel": {
+   "x": 512,
+   "y": 1792,
+   "w": 128,
+   "h": 128
+  },
+  "misc_rune": {
+   "x": 640,
+   "y": 1792,
+   "w": 128,
+   "h": 128
+  },
+  "misc_gold": {
+   "x": 768,
+   "y": 1792,
+   "w": 128,
+   "h": 128
+  }
+ }
+}

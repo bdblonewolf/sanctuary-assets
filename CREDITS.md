@@ -18,3 +18,6 @@
 - models/weapon_shield.glb: KayKit Adventurers "shield_badge" by Kay Lousberg, CC0 1.0
 - models/weapon_arrow.glb: KayKit Adventurers "arrow" by Kay Lousberg, CC0 1.0
 - models/weapon_bow.glb: procedural longbow made in Blender for this project, CC0 1.0
+
+## Item models and icons (models/items/, icons/)
+- items_*.glb, items_icons.png/json, ITEM_MAP.json: original procedural work built in Blender 4.2 by bdblonewolf (no third-party meshes or textures). Diablo II item art was used only as silhouette inspiration; no Blizzard images are included.

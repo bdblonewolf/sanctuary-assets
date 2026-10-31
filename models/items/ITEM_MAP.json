@@ -1,0 +1,1522 @@
+{
+ "version": 1,
+ "repo": "https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/",
+ "atlases": [
+  "models/items/items_armor.glb",
+  "models/items/items_belts.glb",
+  "models/items/items_gloves.glb",
+  "models/items/items_helms.glb",
+  "models/items/items_jewelry.glb",
+  "models/items/items_misc.glb",
+  "models/items/items_shields.glb"
+ ],
+ "icons": {
+  "png": "icons/items_icons.png",
+  "json": "icons/items_icons.json"
+ },
+ "lookup": "1) quest items: kinds.quest_ring / kinds.quest_scroll by type; 2) bases[item.base]; 3) for type potion/manapotion/portal/jewel/rune/book use kinds[type]; scroll: bossStone->kinds.bossstone, keyId->kinds.key, else kinds.scroll; gold loot ->kinds.gold; 4) weapons[item.base]; else old sprite",
+ "bases": {
+  "Wick Coat": {
+   "type": "armor",
+   "tier": "normal",
+   "glb": "models/items/items_armor.glb",
+   "node": "armor_wick_coat",
+   "icon": "armor_wick_coat",
+   "grid": [
+    2,
+    3
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.71,
+    0.724,
+    0.24
+   ]
+  },
+  "Silt Hauberk": {
+   "type": "armor",
+   "tier": "exceptional",
+   "glb": "models/items/items_armor.glb",
+   "node": "armor_silt_hauberk",
+   "icon": "armor_silt_hauberk",
+   "grid": [
+    2,
+    3
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.71,
+    0.724,
+    0.24
+   ]
+  },
+  "Bile Shroud": {
+   "type": "armor",
+   "tier": "elite",
+   "glb": "models/items/items_armor.glb",
+   "node": "armor_bile_shroud",
+   "icon": "armor_bile_shroud",
+   "grid": [
+    2,
+    3
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.71,
+    0.82,
+    0.275
+   ]
+  },
+  "Tanner's Vest": {
+   "type": "armor",
+   "tier": "normal",
+   "glb": "models/items/items_armor.glb",
+   "node": "armor_tanners_vest",
+   "icon": "armor_tanners_vest",
+   "grid": [
+    2,
+    3
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.46,
+    0.61,
+    0.276
+   ]
+  },
+  "Ash Brigandine": {
+   "type": "armor",
+   "tier": "exceptional",
+   "glb": "models/items/items_armor.glb",
+   "node": "armor_ash_brigandine",
+   "icon": "armor_ash_brigandine",
+   "grid": [
+    2,
+    3
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.46,
+    0.61,
+    0.276
+   ]
+  },
+  "Spire Harness": {
+   "type": "armor",
+   "tier": "elite",
+   "glb": "models/items/items_armor.glb",
+   "node": "armor_spire_harness",
+   "icon": "armor_spire_harness",
+   "grid": [
+    2,
+    3
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.7,
+    0.72,
+    0.276
+   ]
+  },
+  "Parish Plate": {
+   "type": "armor",
+   "tier": "normal",
+   "glb": "models/items/items_armor.glb",
+   "node": "armor_parish_plate",
+   "icon": "armor_parish_plate",
+   "grid": [
+    2,
+    3
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.8,
+    0.738,
+    0.343
+   ]
+  },
+  "Grave Plate": {
+   "type": "armor",
+   "tier": "exceptional",
+   "glb": "models/items/items_armor.glb",
+   "node": "armor_grave_plate",
+   "icon": "armor_grave_plate",
+   "grid": [
+    2,
+    3
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.8,
+    0.803,
+    0.343
+   ]
+  },
+  "Obsidian Cuirass": {
+   "type": "armor",
+   "tier": "elite",
+   "glb": "models/items/items_armor.glb",
+   "node": "armor_obsidian_cuirass",
+   "icon": "armor_obsidian_cuirass",
+   "grid": [
+    2,
+    3
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.8,
+    0.803,
+    0.344
+   ]
+  },
+  "Bent Brow": {
+   "type": "helm",
+   "tier": "normal",
+   "glb": "models/items/items_helms.glb",
+   "node": "helm_bent_brow",
+   "icon": "helm_bent_brow",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.277,
+    0.289,
+    0.265
+   ]
+  },
+  "Ash Sallet": {
+   "type": "helm",
+   "tier": "exceptional",
+   "glb": "models/items/items_helms.glb",
+   "node": "helm_ash_sallet",
+   "icon": "helm_ash_sallet",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.308,
+    0.371,
+    0.332
+   ]
+  },
+  "Rite Crown": {
+   "type": "helm",
+   "tier": "elite",
+   "glb": "models/items/items_helms.glb",
+   "node": "helm_rite_crown",
+   "icon": "helm_rite_crown",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.372,
+    0.336,
+    0.434
+   ]
+  },
+  "Mourner Hood": {
+   "type": "helm",
+   "tier": "normal",
+   "glb": "models/items/items_helms.glb",
+   "node": "helm_mourner_hood",
+   "icon": "helm_mourner_hood",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.406,
+    0.406,
+    0.355
+   ]
+  },
+  "Grave Visor": {
+   "type": "helm",
+   "tier": "exceptional",
+   "glb": "models/items/items_helms.glb",
+   "node": "helm_grave_visor",
+   "icon": "helm_grave_visor",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.405,
+    0.408,
+    0.37
+   ]
+  },
+  "Weald Cowl": {
+   "type": "helm",
+   "tier": "elite",
+   "glb": "models/items/items_helms.glb",
+   "node": "helm_weald_cowl",
+   "icon": "helm_weald_cowl",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.51,
+    0.406,
+    0.379
+   ]
+  },
+  "Iron Skull": {
+   "type": "helm",
+   "tier": "normal",
+   "glb": "models/items/items_helms.glb",
+   "node": "helm_iron_skull",
+   "icon": "helm_iron_skull",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.375,
+    0.369,
+    0.302
+   ]
+  },
+  "Bone Casque": {
+   "type": "helm",
+   "tier": "exceptional",
+   "glb": "models/items/items_helms.glb",
+   "node": "helm_bone_casque",
+   "icon": "helm_bone_casque",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.376,
+    0.285,
+    0.441
+   ]
+  },
+  "Spire Mask": {
+   "type": "helm",
+   "tier": "elite",
+   "glb": "models/items/items_helms.glb",
+   "node": "helm_spire_mask",
+   "icon": "helm_spire_mask",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.425,
+    0.336,
+    0.349
+   ]
+  },
+  "Wicker Round": {
+   "type": "shield",
+   "tier": "normal",
+   "glb": "models/items/items_shields.glb",
+   "node": "shield_wicker_round",
+   "icon": "shield_wicker_round",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.57,
+    0.57,
+    0.072
+   ]
+  },
+  "Ash Guard": {
+   "type": "shield",
+   "tier": "exceptional",
+   "glb": "models/items/items_shields.glb",
+   "node": "shield_ash_guard",
+   "icon": "shield_ash_guard",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.57,
+    0.57,
+    0.072
+   ]
+  },
+  "Crypt Round": {
+   "type": "shield",
+   "tier": "elite",
+   "glb": "models/items/items_shields.glb",
+   "node": "shield_crypt_round",
+   "icon": "shield_crypt_round",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.57,
+    0.57,
+    0.077
+   ]
+  },
+  "Briar Targe": {
+   "type": "shield",
+   "tier": "normal",
+   "glb": "models/items/items_shields.glb",
+   "node": "shield_briar_targe",
+   "icon": "shield_briar_targe",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.424,
+    0.424,
+    0.125
+   ]
+  },
+  "Grave Wall": {
+   "type": "shield",
+   "tier": "exceptional",
+   "glb": "models/items/items_shields.glb",
+   "node": "shield_grave_wall",
+   "icon": "shield_grave_wall",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.5,
+    0.8,
+    0.106
+   ]
+  },
+  "Spire Targe": {
+   "type": "shield",
+   "tier": "elite",
+   "glb": "models/items/items_shields.glb",
+   "node": "shield_spire_targe",
+   "icon": "shield_spire_targe",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.424,
+    0.424,
+    0.215
+   ]
+  },
+  "Parish Kite": {
+   "type": "shield",
+   "tier": "normal",
+   "glb": "models/items/items_shields.glb",
+   "node": "shield_parish_kite",
+   "icon": "shield_parish_kite",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.767,
+    0.69,
+    0.082
+   ]
+  },
+  "War Tower": {
+   "type": "shield",
+   "tier": "exceptional",
+   "glb": "models/items/items_shields.glb",
+   "node": "shield_war_tower",
+   "icon": "shield_war_tower",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.767,
+    0.69,
+    0.082
+   ]
+  },
+  "Obsidian Aegis": {
+   "type": "shield",
+   "tier": "elite",
+   "glb": "models/items/items_shields.glb",
+   "node": "shield_obsidian_aegis",
+   "icon": "shield_obsidian_aegis",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.767,
+    0.69,
+    0.113
+   ]
+  },
+  "Wick Wraps": {
+   "type": "gloves",
+   "tier": "normal",
+   "glb": "models/items/items_gloves.glb",
+   "node": "gloves_wick_wraps",
+   "icon": "gloves_wick_wraps",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.167,
+    0.264,
+    0.084
+   ]
+  },
+  "Ash Grips": {
+   "type": "gloves",
+   "tier": "exceptional",
+   "glb": "models/items/items_gloves.glb",
+   "node": "gloves_ash_grips",
+   "icon": "gloves_ash_grips",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.167,
+    0.264,
+    0.084
+   ]
+  },
+  "Spire Hands": {
+   "type": "gloves",
+   "tier": "elite",
+   "glb": "models/items/items_gloves.glb",
+   "node": "gloves_spire_hands",
+   "icon": "gloves_spire_hands",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.167,
+    0.264,
+    0.084
+   ]
+  },
+  "Tanner Mitts": {
+   "type": "gloves",
+   "tier": "normal",
+   "glb": "models/items/items_gloves.glb",
+   "node": "gloves_tanner_mitts",
+   "icon": "gloves_tanner_mitts",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.167,
+    0.261,
+    0.084
+   ]
+  },
+  "Grave Claws": {
+   "type": "gloves",
+   "tier": "exceptional",
+   "glb": "models/items/items_gloves.glb",
+   "node": "gloves_grave_claws",
+   "icon": "gloves_grave_claws",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.167,
+    0.302,
+    0.084
+   ]
+  },
+  "Bile Grasp": {
+   "type": "gloves",
+   "tier": "elite",
+   "glb": "models/items/items_gloves.glb",
+   "node": "gloves_bile_grasp",
+   "icon": "gloves_bile_grasp",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.167,
+    0.264,
+    0.084
+   ]
+  },
+  "Chapel Gloves": {
+   "type": "gloves",
+   "tier": "normal",
+   "glb": "models/items/items_gloves.glb",
+   "node": "gloves_chapel_gloves",
+   "icon": "gloves_chapel_gloves",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.167,
+    0.264,
+    0.084
+   ]
+  },
+  "War Gauntlets": {
+   "type": "gloves",
+   "tier": "exceptional",
+   "glb": "models/items/items_gloves.glb",
+   "node": "gloves_war_gauntlets",
+   "icon": "gloves_war_gauntlets",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.185,
+    0.274,
+    0.094
+   ]
+  },
+  "Inquisitor's Hands": {
+   "type": "gloves",
+   "tier": "elite",
+   "glb": "models/items/items_gloves.glb",
+   "node": "gloves_inquisitors_hands",
+   "icon": "gloves_inquisitors_hands",
+   "grid": [
+    2,
+    2
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.185,
+    0.274,
+    0.094
+   ]
+  },
+  "Ferry Cord": {
+   "type": "belt",
+   "tier": "normal",
+   "glb": "models/items/items_belts.glb",
+   "node": "belt_ferry_cord",
+   "icon": "belt_ferry_cord",
+   "grid": [
+    2,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.482,
+    0.364,
+    0.141
+   ]
+  },
+  "Ash Sash": {
+   "type": "belt",
+   "tier": "exceptional",
+   "glb": "models/items/items_belts.glb",
+   "node": "belt_ash_sash",
+   "icon": "belt_ash_sash",
+   "grid": [
+    2,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.482,
+    0.364,
+    0.141
+   ]
+  },
+  "Spire Cord": {
+   "type": "belt",
+   "tier": "elite",
+   "glb": "models/items/items_belts.glb",
+   "node": "belt_spire_cord",
+   "icon": "belt_spire_cord",
+   "grid": [
+    2,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.482,
+    0.364,
+    0.165
+   ]
+  },
+  "Tanner Sash": {
+   "type": "belt",
+   "tier": "normal",
+   "glb": "models/items/items_belts.glb",
+   "node": "belt_tanner_sash",
+   "icon": "belt_tanner_sash",
+   "grid": [
+    2,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.532,
+    0.38,
+    0.084
+   ]
+  },
+  "Grave Cinch": {
+   "type": "belt",
+   "tier": "exceptional",
+   "glb": "models/items/items_belts.glb",
+   "node": "belt_grave_cinch",
+   "icon": "belt_grave_cinch",
+   "grid": [
+    2,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.532,
+    0.38,
+    0.087
+   ]
+  },
+  "Weald Belt": {
+   "type": "belt",
+   "tier": "elite",
+   "glb": "models/items/items_belts.glb",
+   "node": "belt_weald_belt",
+   "icon": "belt_weald_belt",
+   "grid": [
+    2,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.532,
+    0.38,
+    0.087
+   ]
+  },
+  "Chapel Girdle": {
+   "type": "belt",
+   "tier": "normal",
+   "glb": "models/items/items_belts.glb",
+   "node": "belt_chapel_girdle",
+   "icon": "belt_chapel_girdle",
+   "grid": [
+    2,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.587,
+    0.38,
+    0.084
+   ]
+  },
+  "War Girdle": {
+   "type": "belt",
+   "tier": "exceptional",
+   "glb": "models/items/items_belts.glb",
+   "node": "belt_war_girdle",
+   "icon": "belt_war_girdle",
+   "grid": [
+    2,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.587,
+    0.38,
+    0.084
+   ]
+  },
+  "Obsidian Belt": {
+   "type": "belt",
+   "tier": "elite",
+   "glb": "models/items/items_belts.glb",
+   "node": "belt_obsidian_belt",
+   "icon": "belt_obsidian_belt",
+   "grid": [
+    2,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.587,
+    0.392,
+    0.084
+   ]
+  },
+  "Copper Band": {
+   "type": "ring",
+   "tier": "normal",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_copper_band",
+   "icon": "ring_copper_band",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.027,
+    0.004
+   ]
+  },
+  "Ash Signet": {
+   "type": "ring",
+   "tier": "exceptional",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_ash_signet",
+   "icon": "ring_ash_signet",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.027,
+    0.006
+   ]
+  },
+  "Spire Circle": {
+   "type": "ring",
+   "tier": "elite",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_spire_circle",
+   "icon": "ring_spire_circle",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.031,
+    0.008
+   ]
+  },
+  "Tin Loop": {
+   "type": "ring",
+   "tier": "normal",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_tin_loop",
+   "icon": "ring_tin_loop",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.027,
+    0.004
+   ]
+  },
+  "Grave Loop": {
+   "type": "ring",
+   "tier": "exceptional",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_grave_loop",
+   "icon": "ring_grave_loop",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.027,
+    0.004
+   ]
+  },
+  "Weald Loop": {
+   "type": "ring",
+   "tier": "elite",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_weald_loop",
+   "icon": "ring_weald_loop",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.027,
+    0.004
+   ]
+  },
+  "Chapel Ring": {
+   "type": "ring",
+   "tier": "normal",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_chapel_ring",
+   "icon": "ring_chapel_ring",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.029,
+    0.014
+   ]
+  },
+  "War Band": {
+   "type": "ring",
+   "tier": "exceptional",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_war_band",
+   "icon": "ring_war_band",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.033,
+    0.014
+   ]
+  },
+  "Inquisitor's Seal": {
+   "type": "ring",
+   "tier": "elite",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_inquisitors_seal",
+   "icon": "ring_inquisitors_seal",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.033,
+    0.014
+   ]
+  },
+  "Bone Charm": {
+   "type": "amulet",
+   "tier": "normal",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "amulet_bone_charm",
+   "icon": "amulet_bone_charm",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 3.5,
+   "size_m": [
+    0.147,
+    0.218,
+    0.024
+   ]
+  },
+  "Ash Eye": {
+   "type": "amulet",
+   "tier": "exceptional",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "amulet_ash_eye",
+   "icon": "amulet_ash_eye",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 3.5,
+   "size_m": [
+    0.147,
+    0.218,
+    0.048
+   ]
+  },
+  "Spire Stone": {
+   "type": "amulet",
+   "tier": "elite",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "amulet_spire_stone",
+   "icon": "amulet_spire_stone",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 3.5,
+   "size_m": [
+    0.147,
+    0.241,
+    0.033
+   ]
+  },
+  "Chapel Locket": {
+   "type": "amulet",
+   "tier": "normal",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "amulet_chapel_locket",
+   "icon": "amulet_chapel_locket",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 3.5,
+   "size_m": [
+    0.147,
+    0.213,
+    0.024
+   ]
+  },
+  "Grave Heart": {
+   "type": "amulet",
+   "tier": "exceptional",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "amulet_grave_heart",
+   "icon": "amulet_grave_heart",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 3.5,
+   "size_m": [
+    0.147,
+    0.219,
+    0.033
+   ]
+  },
+  "Weald Bead": {
+   "type": "amulet",
+   "tier": "elite",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "amulet_weald_bead",
+   "icon": "amulet_weald_bead",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 3.5,
+   "size_m": [
+    0.147,
+    0.283,
+    0.04
+   ]
+  },
+  "Tin Pendant": {
+   "type": "amulet",
+   "tier": "normal",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "amulet_tin_pendant",
+   "icon": "amulet_tin_pendant",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 3.5,
+   "size_m": [
+    0.147,
+    0.209,
+    0.008
+   ]
+  },
+  "War Beads": {
+   "type": "amulet",
+   "tier": "exceptional",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "amulet_war_beads",
+   "icon": "amulet_war_beads",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 3.5,
+   "size_m": [
+    0.272,
+    0.324,
+    0.024
+   ]
+  },
+  "Obsidian Tear": {
+   "type": "amulet",
+   "tier": "elite",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "amulet_obsidian_tear",
+   "icon": "amulet_obsidian_tear",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 3.5,
+   "size_m": [
+    0.147,
+    0.235,
+    0.036
+   ]
+  },
+  "Gold": {
+   "type": "gold",
+   "tier": null,
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_gold",
+   "icon": "misc_gold",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 1,
+   "size_m": [
+    0.136,
+    0.154,
+    0.031
+   ]
+  }
+ },
+ "kinds": {
+  "potion": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_potion",
+   "icon": "misc_potion",
+   "floorScale": 1.5,
+   "size_m": [
+    0.09,
+    0.09,
+    0.14
+   ]
+  },
+  "manapotion": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_manapotion",
+   "icon": "misc_manapotion",
+   "floorScale": 1.5,
+   "size_m": [
+    0.09,
+    0.09,
+    0.14
+   ]
+  },
+  "portal": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_portal",
+   "icon": "misc_portal",
+   "floorScale": 1.5,
+   "size_m": [
+    0.2,
+    0.056,
+    0.056
+   ]
+  },
+  "scroll": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_scroll",
+   "icon": "misc_scroll",
+   "floorScale": 1.5,
+   "size_m": [
+    0.2,
+    0.056,
+    0.056
+   ]
+  },
+  "bossstone": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_bossstone",
+   "icon": "misc_bossstone",
+   "floorScale": 1.5,
+   "size_m": [
+    0.2,
+    0.056,
+    0.056
+   ]
+  },
+  "key": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_key",
+   "icon": "misc_key",
+   "floorScale": 2.5,
+   "size_m": [
+    0.2,
+    0.056,
+    0.056
+   ]
+  },
+  "book": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_book",
+   "icon": "misc_book",
+   "floorScale": 1.5,
+   "size_m": [
+    0.17,
+    0.23,
+    0.056
+   ]
+  },
+  "jewel": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_jewel",
+   "icon": "misc_jewel",
+   "floorScale": 3,
+   "size_m": [
+    0.045,
+    0.043,
+    0.065
+   ]
+  },
+  "rune": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_rune",
+   "icon": "misc_rune",
+   "floorScale": 3,
+   "size_m": [
+    0.05,
+    0.07,
+    0.018
+   ]
+  },
+  "gold": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_gold",
+   "icon": "misc_gold",
+   "floorScale": 1.5,
+   "size_m": [
+    0.136,
+    0.154,
+    0.031
+   ]
+  },
+  "quest_ring": {
+   "type": "ring",
+   "tier": "elite",
+   "glb": "models/items/items_jewelry.glb",
+   "node": "ring_spire_circle",
+   "icon": "ring_spire_circle",
+   "grid": [
+    1,
+    1
+   ],
+   "floorScale": 5,
+   "size_m": [
+    0.027,
+    0.031,
+    0.008
+   ],
+   "note": "reuse elite ring"
+  },
+  "quest_scroll": {
+   "glb": "models/items/items_misc.glb",
+   "node": "misc_scroll",
+   "icon": "misc_scroll",
+   "floorScale": 1.5,
+   "size_m": [
+    0.2,
+    0.056,
+    0.056
+   ],
+   "note": "reuse scroll"
+  }
+ },
+ "weapons": {
+  "Parish Blade": {
+   "glb": "models/weapon_sword.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Ash Saber": {
+   "glb": "models/weapon_sword.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Spire Falchion": {
+   "glb": "models/weapon_sword.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Briar Hatchet": {
+   "glb": "models/weapon_axe.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Cinder Axe": {
+   "glb": "models/weapon_axe.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Sable Cleaver": {
+   "glb": "models/weapon_axe.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Ferry Pike": {
+   "glb": "models/weapon_spear.glb",
+   "fallback": "models/weapon_staff.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Mourning Spear": {
+   "glb": "models/weapon_spear.glb",
+   "fallback": "models/weapon_staff.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Lid Glaive": {
+   "glb": "models/weapon_spear.glb",
+   "fallback": "models/weapon_staff.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Chapel Maul": {
+   "glb": "models/weapon_mace.glb",
+   "fallback": "models/weapon_sword.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Mercy Hammer": {
+   "glb": "models/weapon_mace.glb",
+   "fallback": "models/weapon_sword.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Inquisitor's Nail": {
+   "glb": "models/weapon_mace.glb",
+   "fallback": "models/weapon_sword.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Timber Axe": {
+   "glb": "models/weapon_greataxe.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "War Axe": {
+   "glb": "models/weapon_greataxe.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Kingrender": {
+   "glb": "models/weapon_greataxe.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Stitched Blade": {
+   "glb": "models/weapon_dagger.glb",
+   "fallback": "models/weapon_sword.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Seam Knife": {
+   "glb": "models/weapon_dagger.glb",
+   "fallback": "models/weapon_sword.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Widow Stitch": {
+   "glb": "models/weapon_dagger.glb",
+   "fallback": "models/weapon_sword.glb",
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Yew Longbow": {
+   "glb": "models/weapon_bow.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Ash Longbow": {
+   "glb": "models/weapon_bow.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Spire Longbow": {
+   "glb": "models/weapon_bow.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Wicker Bow": {
+   "glb": "models/weapon_bow.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Thorn Wicker": {
+   "glb": "models/weapon_bow.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Spite Wicker": {
+   "glb": "models/weapon_bow.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Ash Staff": {
+   "glb": "models/weapon_staff.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Chapel Staff": {
+   "glb": "models/weapon_staff.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Weald Staff": {
+   "glb": "models/weapon_staff.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Sting Wand": {
+   "glb": "models/weapon_wand.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Thorn Wand": {
+   "glb": "models/weapon_wand.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  },
+  "Omen Wand": {
+   "glb": "models/weapon_wand.glb",
+   "fallback": null,
+   "grid": [
+    1,
+    3
+   ],
+   "floorScale": 1
+  }
+ }
+}
