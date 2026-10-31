@@ -1,0 +1,558 @@
+{
+ "modular_dungeon_kit": [
+  {
+   "name": "Tile3_01_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_01_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_01_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Banner_01_lambert16_0",
+   "mesh": "Banner_01_lambert16_0"
+  },
+  {
+   "name": "BarrelBroken_01_lambert4_0",
+   "mesh": "BarrelBroken_01_lambert4_0"
+  },
+  {
+   "name": "BarrelOpen_01_lambert4_0",
+   "mesh": "BarrelOpen_01_lambert4_0"
+  },
+  {
+   "name": "Braiser_01_lambert5_0",
+   "mesh": "Braiser_01_lambert5_0"
+  },
+  {
+   "name": "BarrelClosed_01_lambert4_0",
+   "mesh": "BarrelClosed_01_lambert4_0"
+  },
+  {
+   "name": "Pillar_01_lambert6_0",
+   "mesh": "Pillar_01_lambert6_0"
+  },
+  {
+   "name": "Rock_01_lambert7_0",
+   "mesh": "Rock_01_lambert7_0"
+  },
+  {
+   "name": "Rock2_01_lambert8_0",
+   "mesh": "Rock2_01_lambert8_0"
+  },
+  {
+   "name": "WallTorch_01_lambert9_0",
+   "mesh": "WallTorch_01_lambert9_0"
+  },
+  {
+   "name": "Wall_01_lambert10_0",
+   "mesh": "Wall_01_lambert10_0"
+  },
+  {
+   "name": "Wall2_01_Wall_02:lambert5SG1_0",
+   "mesh": "Wall2_01_Wall_02:lambert5SG1_0"
+  },
+  {
+   "name": "Wall3_01_lambert11_0",
+   "mesh": "Wall3_01_lambert11_0"
+  },
+  {
+   "name": "Wall4_01_lambert12_0",
+   "mesh": "Wall4_01_lambert12_0"
+  },
+  {
+   "name": "Banner_02_lambert14_0",
+   "mesh": "Banner_02_lambert14_0"
+  },
+  {
+   "name": "Banner_03_lambert15_0",
+   "mesh": "Banner_03_lambert15_0"
+  },
+  {
+   "name": "Tile2_02_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_02_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_02_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_03_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_03_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_03_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_04_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_04_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_04_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_05_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_05_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_06_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_07_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_08_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_05_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_06_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_06_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_07_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_07_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_08_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_010_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_09_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_08_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_010_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_011_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_011_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_012_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_014_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_015_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_09_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_016_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_012_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_013_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_010_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_017_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_011_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_012_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_014_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_013_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_015_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_016_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_014_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_015_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_016_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_018_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_019_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_020_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_017_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_018_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_019_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_020_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_021_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_022_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Wall4_02_lambert12_0",
+   "mesh": "Wall4_01_lambert12_0"
+  },
+  {
+   "name": "Pillar_02_lambert6_0",
+   "mesh": "Pillar_01_lambert6_0"
+  },
+  {
+   "name": "Pillar_03_lambert6_0",
+   "mesh": "Pillar_01_lambert6_0"
+  },
+  {
+   "name": "Tile1_023_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_024_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_025_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_026_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_021_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_022_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Pillar_04_lambert6_0",
+   "mesh": "Pillar_01_lambert6_0"
+  },
+  {
+   "name": "Pillar_05_lambert6_0",
+   "mesh": "Pillar_01_lambert6_0"
+  },
+  {
+   "name": "Wall2_02_Wall_02:lambert5SG1_0",
+   "mesh": "Wall2_01_Wall_02:lambert5SG1_0"
+  },
+  {
+   "name": "Tile2_017_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_023_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_027_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Pillar_06_lambert6_0",
+   "mesh": "Pillar_01_lambert6_0"
+  },
+  {
+   "name": "BarrelBroken_02_lambert4_0",
+   "mesh": "BarrelBroken_01_lambert4_0"
+  },
+  {
+   "name": "BarrelClosed_02_lambert4_0",
+   "mesh": "BarrelClosed_01_lambert4_0"
+  },
+  {
+   "name": "Braiser_02_lambert5_0",
+   "mesh": "Braiser_01_lambert5_0"
+  },
+  {
+   "name": "Braiser_03_lambert5_0",
+   "mesh": "Braiser_01_lambert5_0"
+  },
+  {
+   "name": "BarrelClosed_03_lambert4_0",
+   "mesh": "BarrelClosed_01_lambert4_0"
+  },
+  {
+   "name": "WallTorch_02_lambert9_0",
+   "mesh": "WallTorch_01_lambert9_0"
+  },
+  {
+   "name": "WallTorch_03_lambert9_0",
+   "mesh": "WallTorch_01_lambert9_0"
+  },
+  {
+   "name": "WallTorch_04_lambert9_0",
+   "mesh": "WallTorch_01_lambert9_0"
+  },
+  {
+   "name": "Rock_02_lambert7_0",
+   "mesh": "Rock_01_lambert7_0"
+  },
+  {
+   "name": "Rock_03_lambert7_0",
+   "mesh": "Rock_01_lambert7_0"
+  },
+  {
+   "name": "Rock2_02_lambert8_0",
+   "mesh": "Rock2_01_lambert8_0"
+  },
+  {
+   "name": "Rock2_03_lambert8_0",
+   "mesh": "Rock2_01_lambert8_0"
+  },
+  {
+   "name": "Tile1_028_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_029_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_024_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_025_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile3_026_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_030_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Tile1_031_lambert2_0",
+   "mesh": "Tile1_01_lambert2_0"
+  },
+  {
+   "name": "Wall_03_lambert10_0",
+   "mesh": "Wall_01_lambert10_0"
+  },
+  {
+   "name": "Pillar_07_lambert6_0",
+   "mesh": "Pillar_01_lambert6_0"
+  },
+  {
+   "name": "Tile3_027_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Pillar_08_lambert6_0",
+   "mesh": "Pillar_01_lambert6_0"
+  },
+  {
+   "name": "Wall2_03_Wall_02:lambert5SG1_0",
+   "mesh": "Wall2_01_Wall_02:lambert5SG1_0"
+  },
+  {
+   "name": "Tile3_028_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_018_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_019_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Tile2_020_lambert2_0",
+   "mesh": "Tile2_01_lambert2_0"
+  },
+  {
+   "name": "Pillar_09_lambert6_0",
+   "mesh": "Pillar_01_lambert6_0"
+  },
+  {
+   "name": "Wall3_02_lambert11_0",
+   "mesh": "Wall3_01_lambert11_0"
+  },
+  {
+   "name": "Banner_04_lambert16_0",
+   "mesh": "Banner_01_lambert16_0"
+  },
+  {
+   "name": "Tile3_029_lambert2_0",
+   "mesh": "Tile3_01_lambert2_0"
+  },
+  {
+   "name": "Banner_05_lambert16_0",
+   "mesh": "Banner_01_lambert16_0"
+  },
+  {
+   "name": "WallTorch_05_lambert9_0",
+   "mesh": "WallTorch_01_lambert9_0"
+  }
+ ],
+ "dungeon_props": [
+  {
+   "name": "Altar_and_Book_2_standardSurface6_0",
+   "mesh": "Altar_and_Book_2_standardSurface6_0"
+  },
+  {
+   "name": "Floor_Section_3_standardSurface2_0",
+   "mesh": "Floor_Section_3_standardSurface2_0"
+  },
+  {
+   "name": "Floor_Quarter_Section_5_standardSurface3_0",
+   "mesh": "Floor_Quarter_Section_5_standardSurface3_0"
+  },
+  {
+   "name": "Floor_Quarter_Section_5_standardSurface2_0",
+   "mesh": "Floor_Quarter_Section_5_standardSurface2_0"
+  },
+  {
+   "name": "Torch_5_standardSurface5_0",
+   "mesh": "Torch_5_standardSurface5_0"
+  },
+  {
+   "name": "Torch_5_standardSurface4_0",
+   "mesh": "Torch_5_standardSurface4_0"
+  },
+  {
+   "name": "Torch_5_standardSurface3_0",
+   "mesh": "Torch_5_standardSurface3_0"
+  },
+  {
+   "name": "Wall_10_standardSurface2_0",
+   "mesh": "Wall_10_standardSurface2_0"
+  },
+  {
+   "name": "Door_6_standardSurface2_0",
+   "mesh": "Door_6_standardSurface2_0"
+  },
+  {
+   "name": "Alcove_4_standardSurface2_0",
+   "mesh": "Alcove_4_standardSurface2_0"
+  },
+  {
+   "name": "Alcove_4_standardSurface3_0",
+   "mesh": "Alcove_4_standardSurface3_0"
+  },
+  {
+   "name": "Portcullis_3_standardSurface5_0",
+   "mesh": "Portcullis_3_standardSurface5_0"
+  },
+  {
+   "name": "Candle_56677_standardSurface3_0",
+   "mesh": "Candle_56677_standardSurface3_0"
+  },
+  {
+   "name": "Pillar_6_standardSurface4_0",
+   "mesh": "Pillar_6_standardSurface4_0"
+  },
+  {
+   "name": "Pillar_6_standardSurface5_0",
+   "mesh": "Pillar_6_standardSurface5_0"
+  },
+  {
+   "name": "Hallway_Path_3_standardSurface2_0",
+   "mesh": "Hallway_Path_3_standardSurface2_0"
+  },
+  {
+   "name": "Stairs_3_standardSurface2_0",
+   "mesh": "Stairs_3_standardSurface2_0"
+  }
+ ]
+}
