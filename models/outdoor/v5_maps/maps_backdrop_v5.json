@@ -1,0 +1,938 @@
+{
+ "version": 1,
+ "stage": "12B",
+ "conventions": {
+  "units": "1 unit = 1 m, glTF Y-up, origin = ring centre = map centre",
+  "map_placement": "map tile (x,y) -> world (x - w/2, 0, y - h/2): tile x runs +X (east), tile y runs +Z (south); north = -Z",
+  "yaw": "bearing = atan2(-z, x) in degrees (0 = east/+X, 90 = north/-Z, 180 = west/-X, 270 = south/+Z); all files are authored for rotationY = 0 and maps are axis-aligned, so rotationY is 0 for every map",
+  "quadrants": "q = floor(((bearing + 45) mod 360) / 90): 0=E (315..45), 1=N (45..135), 2=W (135..225), 3=S (225..315); boundaries on the diagonals",
+  "fog_rule": "use glb_v5_maps/fog_valley_banks_v5_quads.glb (nodes fog_E/N/W/S, same quadrant rule) instead of glb_v5 fog_valley_banks_v5.glb; hide the per-map hide_fog_nodes (sea quadrants, all four on islands maps) so no valley fog floats over open water",
+  "node_names": "near file: near_land_{Q} (+ child trees_land_{Q}_n), near_sea_{Q} (+ trees_sea_{Q}_n), water_{Q}, apron_{Q}; mid/far quad files: mid_{Q}/far_{Q} (+ trees_mid_{Q})",
+  "rule": "for each quadrant show near_land_Q + apron_Q (+ mid_Q, far_Q) if land; show near_sea_Q (+ hide mid_Q, far_Q, apron_Q) if sea; water_Q shown only on sea quadrants (land near rings contain gorges below sea level that would flood); hidden on land-only maps",
+  "seams": "land/land and land/sea quadrants meet on the diagonals; sea quads keep full land height on the diagonals (headlands) and carry 4 m skirts on their radial edges, so any land/sea combination closes",
+  "sea_y": -0.4,
+  "apron_y": -0.1,
+  "inner_edge": "lip at y=0 on radius = class (>= corner distance + ~6 m); near outer edge 288 m meets glb_v5 mid (inner ~280 m)",
+  "tree_lod_bands_m": "near-file trees: LOD0 < class+59, LOD1 < class+129, LOD2 beyond; instance json trees_near_c{R}_{S}_instances.json lists them with set/quad so the engine can hide by quadrant",
+  "fade": "COLOR_0.a = aerial-fade weight ss(60,2000,R) as glb_v5"
+ },
+ "classes": {
+  "23": {
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c23_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c23_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c23_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c23_dead.glb"
+   },
+   "has_sea_quads": false,
+   "tree_instances": {
+    "summer": "glb_v5_maps/trees_near_c23_summer_instances.json",
+    "autumn": "glb_v5_maps/trees_near_c23_autumn_instances.json"
+   }
+  },
+  "30": {
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c30_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c30_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c30_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c30_dead.glb"
+   },
+   "has_sea_quads": true,
+   "tree_instances": {
+    "summer": "glb_v5_maps/trees_near_c30_summer_instances.json",
+    "autumn": "glb_v5_maps/trees_near_c30_autumn_instances.json"
+   }
+  },
+  "36": {
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c36_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c36_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c36_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c36_dead.glb"
+   },
+   "has_sea_quads": false,
+   "tree_instances": {
+    "summer": "glb_v5_maps/trees_near_c36_summer_instances.json",
+    "autumn": "glb_v5_maps/trees_near_c36_autumn_instances.json"
+   }
+  },
+  "42": {
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c42_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c42_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c42_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c42_dead.glb"
+   },
+   "has_sea_quads": true,
+   "tree_instances": {
+    "summer": "glb_v5_maps/trees_near_c42_summer_instances.json",
+    "autumn": "glb_v5_maps/trees_near_c42_autumn_instances.json"
+   }
+  },
+  "52": {
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c52_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c52_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c52_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c52_dead.glb"
+   },
+   "has_sea_quads": true,
+   "tree_instances": {
+    "summer": "glb_v5_maps/trees_near_c52_summer_instances.json",
+    "autumn": "glb_v5_maps/trees_near_c52_autumn_instances.json"
+   }
+  }
+ },
+ "maps": {
+  "wild": {
+   "size_tiles": [
+    72,
+    56
+   ],
+   "corner_m": 45.6,
+   "rotationY_deg": 0,
+   "kind": "sea",
+   "radius_class": 52,
+   "inner_edge_m": 52,
+   "clearance_m": 6.4,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "sea",
+    "S": "land"
+   },
+   "sea_segments": [
+    "W"
+   ],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c52_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c52_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c52_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c52_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_sea_W",
+    "near_land_S",
+    "apron_S",
+    "water_W"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [
+    "mid_W",
+    "far_W"
+   ],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": [
+    "fog_W"
+   ]
+  },
+  "briarE": {
+   "size_tiles": [
+    52,
+    40
+   ],
+   "corner_m": 32.8,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 42,
+   "inner_edge_m": 42,
+   "clearance_m": 9.2,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c42_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c42_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c42_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c42_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "duneW": {
+   "size_tiles": [
+    28,
+    16
+   ],
+   "corner_m": 16.1,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 23,
+   "inner_edge_m": 23,
+   "clearance_m": 6.9,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c23_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c23_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c23_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c23_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "desert": {
+   "size_tiles": [
+    36,
+    30
+   ],
+   "corner_m": 23.4,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 30,
+   "inner_edge_m": 30,
+   "clearance_m": 6.6,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c30_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c30_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c30_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c30_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "isle": {
+   "size_tiles": [
+    44,
+    36
+   ],
+   "corner_m": 28.4,
+   "rotationY_deg": 0,
+   "kind": "islands",
+   "radius_class": null,
+   "islands": {
+    "summer": "glb_v5_maps/backdrop_islands_isle_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_islands_isle_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_islands_isle_winter.glb",
+    "dead": "glb_v5_maps/backdrop_islands_isle_dead.glb"
+   },
+   "quadrants": {
+    "E": "sea",
+    "N": "sea",
+    "W": "sea",
+    "S": "sea"
+   },
+   "near": null,
+   "mid": null,
+   "far": null,
+   "note": "open sea all round: islands file only (islets 400-1500 m + water_E/N/W/S); no near/mid/far rings",
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": [
+    "fog_E",
+    "fog_N",
+    "fog_W",
+    "fog_S"
+   ]
+  },
+  "waste": {
+   "size_tiles": [
+    50,
+    42
+   ],
+   "corner_m": 32.6,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 42,
+   "inner_edge_m": 42,
+   "clearance_m": 9.4,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c42_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c42_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c42_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c42_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "coast": {
+   "size_tiles": [
+    42,
+    56
+   ],
+   "corner_m": 35.0,
+   "rotationY_deg": 0,
+   "kind": "sea",
+   "radius_class": 42,
+   "inner_edge_m": 42,
+   "clearance_m": 7.0,
+   "quadrants": {
+    "E": "sea",
+    "N": "land",
+    "W": "sea",
+    "S": "sea"
+   },
+   "sea_segments": [
+    "E",
+    "W",
+    "S"
+   ],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c42_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c42_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c42_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c42_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_sea_E",
+    "near_land_N",
+    "apron_N",
+    "near_sea_W",
+    "near_sea_S",
+    "water_W",
+    "water_E",
+    "water_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [
+    "mid_E",
+    "far_E",
+    "mid_W",
+    "far_W",
+    "mid_S",
+    "far_S"
+   ],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": [
+    "fog_E",
+    "fog_W",
+    "fog_S"
+   ]
+  },
+  "bluffs": {
+   "size_tiles": [
+    52,
+    44
+   ],
+   "corner_m": 34.1,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 42,
+   "inner_edge_m": 42,
+   "clearance_m": 7.9,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c42_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c42_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c42_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c42_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "mires": {
+   "size_tiles": [
+    40,
+    34
+   ],
+   "corner_m": 26.2,
+   "rotationY_deg": 0,
+   "kind": "islands",
+   "radius_class": null,
+   "islands": {
+    "summer": "glb_v5_maps/backdrop_islands_mires_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_islands_mires_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_islands_mires_winter.glb",
+    "dead": "glb_v5_maps/backdrop_islands_mires_dead.glb"
+   },
+   "quadrants": {
+    "E": "sea",
+    "N": "sea",
+    "W": "sea",
+    "S": "sea"
+   },
+   "near": null,
+   "mid": null,
+   "far": null,
+   "note": "open sea all round: islands file only (islets 400-1500 m + water_E/N/W/S); no near/mid/far rings",
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": [
+    "fog_E",
+    "fog_N",
+    "fog_W",
+    "fog_S"
+   ]
+  },
+  "ridge": {
+   "size_tiles": [
+    44,
+    46
+   ],
+   "corner_m": 31.8,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 42,
+   "inner_edge_m": 42,
+   "clearance_m": 10.2,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c42_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c42_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c42_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c42_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "ascent": {
+   "size_tiles": [
+    32,
+    30
+   ],
+   "corner_m": 21.9,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 30,
+   "inner_edge_m": 30,
+   "clearance_m": 8.1,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c30_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c30_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c30_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c30_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "iron": {
+   "size_tiles": [
+    38,
+    24
+   ],
+   "corner_m": 22.5,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 30,
+   "inner_edge_m": 30,
+   "clearance_m": 7.5,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c30_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c30_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c30_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c30_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "flotsam": {
+   "size_tiles": [
+    36,
+    28
+   ],
+   "corner_m": 22.8,
+   "rotationY_deg": 0,
+   "kind": "sea",
+   "radius_class": 30,
+   "inner_edge_m": 30,
+   "clearance_m": 7.2,
+   "quadrants": {
+    "E": "land",
+    "N": "sea",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [
+    "N"
+   ],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c30_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c30_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c30_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c30_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_sea_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S",
+    "water_N"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [
+    "mid_N",
+    "far_N"
+   ],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": [
+    "fog_N"
+   ]
+  },
+  "weald": {
+   "size_tiles": [
+    44,
+    40
+   ],
+   "corner_m": 29.7,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 36,
+   "inner_edge_m": 36,
+   "clearance_m": 6.3,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c36_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c36_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c36_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c36_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "tollarch": {
+   "size_tiles": [
+    22,
+    18
+   ],
+   "corner_m": 14.2,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 23,
+   "inner_edge_m": 23,
+   "clearance_m": 8.8,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c23_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c23_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c23_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c23_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "spireroots": {
+   "size_tiles": [
+    22,
+    18
+   ],
+   "corner_m": 14.2,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 23,
+   "inner_edge_m": 23,
+   "clearance_m": 8.8,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c23_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c23_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c23_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c23_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  },
+  "ashcamps": {
+   "size_tiles": [
+    22,
+    18
+   ],
+   "corner_m": 14.2,
+   "rotationY_deg": 0,
+   "kind": "land",
+   "radius_class": 23,
+   "inner_edge_m": 23,
+   "clearance_m": 8.8,
+   "quadrants": {
+    "E": "land",
+    "N": "land",
+    "W": "land",
+    "S": "land"
+   },
+   "sea_segments": [],
+   "near": {
+    "summer": "glb_v5_maps/backdrop_near_c23_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_near_c23_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_near_c23_winter.glb",
+    "dead": "glb_v5_maps/backdrop_near_c23_dead.glb"
+   },
+   "near_show_nodes": [
+    "near_land_E",
+    "apron_E",
+    "near_land_N",
+    "apron_N",
+    "near_land_W",
+    "apron_W",
+    "near_land_S",
+    "apron_S"
+   ],
+   "mid": {
+    "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+   },
+   "far": {
+    "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+    "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+    "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+    "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+   },
+   "hide_mid_far_nodes": [],
+   "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+   "hide_fog_nodes": []
+  }
+ },
+ "shared": {
+  "sky": "glb_v5/sky_dome_v5_*.glb, sky_cloud_layers_v5.glb, fog_valley_banks_v5.glb, fx_*_v5.glb unchanged",
+  "shore_foam": "glb_v5_maps/shore_foam_strips_v5.glb",
+  "shore_rocks": "glb_v5_maps/shore_rock_kit_v5.glb"
+ }
+}
