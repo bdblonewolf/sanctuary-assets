@@ -1,0 +1,50 @@
+[
+ {
+  "name": "idle",
+  "group": "idle",
+  "source": "Sword and Shield Pack/sword and shield idle.fbx",
+  "frames": 109,
+  "duration_s": 3.6,
+  "root": "inplace"
+ },
+ {
+  "name": "walk",
+  "group": "walk",
+  "source": "Sword and Shield Pack/sword and shield walk.fbx",
+  "frames": 34,
+  "duration_s": 1.1,
+  "root": "inplace"
+ },
+ {
+  "name": "attack1",
+  "group": "attack",
+  "source": "Sword and Shield Pack/sword and shield slash.fbx",
+  "frames": 46,
+  "duration_s": 1.5,
+  "root": "inplace"
+ },
+ {
+  "name": "attack2",
+  "group": "attack",
+  "source": "Sword and Shield Pack/sword and shield attack.fbx",
+  "frames": 71,
+  "duration_s": 2.33,
+  "root": "inplace"
+ },
+ {
+  "name": "hit",
+  "group": "hit",
+  "source": "Sword and Shield Pack/sword and shield impact.fbx",
+  "frames": 22,
+  "duration_s": 0.7,
+  "root": "inplace"
+ },
+ {
+  "name": "death",
+  "group": "death",
+  "source": "Sword and Shield Pack/sword and shield death.fbx",
+  "frames": 70,
+  "duration_s": 2.3,
+  "root": "inplace"
+ }
+]

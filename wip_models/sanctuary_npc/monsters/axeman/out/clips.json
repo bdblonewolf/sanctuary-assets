@@ -1,0 +1,50 @@
+[
+ {
+  "name": "idle",
+  "group": "idle",
+  "source": "Pro Melee Axe Pack/standing idle.fbx",
+  "frames": 55,
+  "duration_s": 1.8,
+  "root": "inplace"
+ },
+ {
+  "name": "walk",
+  "group": "walk",
+  "source": "Pro Melee Axe Pack/standing walk forward.fbx",
+  "frames": 41,
+  "duration_s": 1.33,
+  "root": "inplace"
+ },
+ {
+  "name": "attack1",
+  "group": "attack",
+  "source": "Pro Melee Axe Pack/standing melee attack horizontal.fbx",
+  "frames": 73,
+  "duration_s": 2.4,
+  "root": "inplace"
+ },
+ {
+  "name": "attack2",
+  "group": "attack",
+  "source": "Pro Melee Axe Pack/standing melee attack downward.fbx",
+  "frames": 69,
+  "duration_s": 2.27,
+  "root": "inplace"
+ },
+ {
+  "name": "hit",
+  "group": "hit",
+  "source": "Pro Melee Axe Pack/standing react large gut.fbx",
+  "frames": 45,
+  "duration_s": 1.47,
+  "root": "inplace"
+ },
+ {
+  "name": "death",
+  "group": "death",
+  "source": "singles/Dying.fbx",
+  "frames": 133,
+  "duration_s": 4.4,
+  "root": "inplace"
+ }
+]
