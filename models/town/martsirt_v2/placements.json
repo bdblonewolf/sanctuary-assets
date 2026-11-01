@@ -1,0 +1,2695 @@
+{
+ "header": {
+  "file": "placements.json",
+  "generator": "martsirt_v2/_tools/mk_placements_v2.py (v1 placements x0.75 toward the square; piece scale 1.0; nudges listed in v2.nudges)",
+  "coordinates": "three.js world, meters, Y up. +x = east, +z = south, -z = north (Briarwood road), town square centre at (0,0,0). pos = piece origin (GLB origin is base-centre of footprint at ground level). rotY = radians about +Y, applied as object.rotation.y. Unrotated GLBs face SOUTH (+z): their front door / main facade is on +z.",
+  "piece": "GLB path relative to the sanctuary-assets repo root. v2 drop-in: buildings/*_shared.glb in martsirt_v2 replace the v1 ones (window glow added); props, kit, materials unchanged except materials/manifest.json gains m_window_glow*. Shared materials: models/town/martsirt_v2/materials/manifest.json. The Weeping Angel shrine is included (models/shrines/shrine_weeping_angel.glb, unchanged).",
+  "status": "'built' = GLB exists now (bytes given); 'planned' = placeholder, path reserved, engine should draw a grey box of `footprint` (buildings) or skip (props).",
+  "node_conventions": {
+   "col_*": "Invisible box colliders (static). Use mesh bounds as AABB/OBB; never render.",
+   "npc_spot_<role>": "Empty; NPC stand/sit/work spot. Its -Z(glTF)/forward axis is facing; e.g. npc_spot_innkeeper, npc_spot_smith.",
+   "nav_entry_outside / nav_entry_inside / nav_*": "Empties either side of the main door for pathfinding enter/exit; other nav_* (nav_cellar_down, nav_upper_corridor) are interior waypoints.",
+   "fx_<type>_*": "Empty marking an FX emitter: fx_fire, fx_embers, fx_smoke_chimney, fx_steam, fx_drip, fx_glow_window, fx_candle, fx_dust. Spawn particle system / point light at node transform; nothing in GLB lights.",
+   "sway_*": "Rigid hanging object (lantern, sign iron) pivoting at node origin; drive small pendulum rotation.",
+   "cloth_* / banner": "Cloth mesh; vertex attribute _pin (1 = pinned, 0 = free) for vertex-shader or cloth sim wind.",
+   "sign_*": "Readable signboard (parent of the sign mesh, pivot at hinge); can also sway.",
+   "door_*": "Door leaf with pivot at hinge for open/close.",
+   "ground_mud / ground_clutter / decals": "Optional local mud apron, straw, stones and decals; engine may drop these if it has its own terrain.",
+   "win_glow_*": "Thin emissive quad just inside a lit window (material m_window_glow / _dim / _faint, emissiveFactor ~#ffb060, extras.emissiveStrength 4/2/0.9). extras.flicker=true -> modulate emissive intensity. Single-sided, faces out. Never collides.",
+   "fx_glow_window_*": "Empty 0.3 m outside a lit window: spawn a warm point light. extras: color, intensity (0-1 relative), distance_m, flicker."
+  },
+  "v2": {
+   "note": "MARTSIRT v2 - town pulled in to 3/4 spacing (Brian: \"the exact same layout but scooted inwards\"). Every v1 position scaled by 0.75 about the square (0,0); building/prop GLBs are NOT scaled. Footprints de-overlapped with >=2 m lanes, 7 m N-S road and branch lanes kept walkable, palisade/curtains/gatehouse refitted, props re-laid. Window glow added to buildings.",
+   "scale": 0.75,
+   "palisade_ellipse_semi_axes_m": [
+    67.5,
+    60.0
+   ],
+   "palisade_extent_m": [
+    135.0,
+    120.0
+   ],
+   "v1_palisade_extent_m": [
+    180,
+    160
+   ],
+   "gates": {
+    "north": "open gap |x|<8 on the N-S road at z=-60 (watch-house stands inside it, as v1)",
+    "south": "gatehouse at (0,59.1), curtain stubs (+-6,60)",
+    "postern_ne": "4 m gap at (48.6, -41.7) on the lodge path (new in v2; v1 wall cut through the lodge)"
+   },
+   "roads": [
+    {
+     "label": "N-S high road",
+     "width_m": 7.0,
+     "points": [
+      [
+       0,
+       -67.5
+      ],
+      [
+       0,
+       67.5
+      ]
+     ]
+    },
+    {
+     "label": "west road: square-inn-forge",
+     "width_m": 4.0,
+     "points": [
+      [
+       -4.5,
+       0
+      ],
+      [
+       -22.5,
+       4.5
+      ],
+      [
+       -43.5,
+       -13.5
+      ]
+     ]
+    },
+    {
+     "label": "chapel road: square-chapel door",
+     "width_m": 4.0,
+     "points": [
+      [
+       4.5,
+       -3
+      ],
+      [
+       30.0,
+       -24.8
+      ]
+     ]
+    },
+    {
+     "label": "mill lane",
+     "width_m": 3.0,
+     "points": [
+      [
+       0,
+       30
+      ],
+      [
+       -15,
+       30
+      ],
+      [
+       -46.13,
+       30
+      ]
+     ]
+    },
+    {
+     "label": "stable lane",
+     "width_m": 3.0,
+     "points": [
+      [
+       0,
+       30
+      ],
+      [
+       25.5,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "lodge path (north of the chapel, through the postern)",
+     "width_m": 2.5,
+     "points": [
+      [
+       15,
+       -22.5
+      ],
+      [
+       20.5,
+       -35.5
+      ],
+      [
+       31,
+       -41.0
+      ],
+      [
+       46.5,
+       -41.3
+      ],
+      [
+       48.6,
+       -41.7
+      ],
+      [
+       52.4,
+       -47.1
+      ]
+     ]
+    },
+    {
+     "label": "herb lane: square-market-Ysara gate",
+     "width_m": 3.0,
+     "points": [
+      [
+       0,
+       7.5
+      ],
+      [
+       12.5,
+       28.0
+      ],
+      [
+       20.95,
+       26.9
+      ]
+     ]
+    },
+    {
+     "label": "cottage lane: inn-Ness",
+     "width_m": 2.5,
+     "points": [
+      [
+       -22.5,
+       9
+      ],
+      [
+       -27,
+       43.5
+      ]
+     ]
+    }
+   ],
+   "nudges": [
+    {
+     "name": "4 Graveyard",
+     "scaled": [
+      36.0,
+      -10.5
+     ],
+     "v2": [
+      40.0,
+      -6.0
+     ],
+     "why": "scaled (36,-10.5) left a 3.8 m chapel forecourt (shrine did not fit) and its NW corner sat on the chapel branch path; moved 4 m E / 4.5 m S -> 8.3 m forecourt, 5+ m off the path"
+    },
+    {
+     "name": "6 Quill's scriptorium",
+     "scaled": [
+      6.0,
+      -25.5
+     ],
+     "v2": [
+      7.5,
+      -25.5
+     ],
+     "why": "scaled x=6.0 put its west wall 0.6 m into the 7 m N-S road; moved 1.5 m east (wall now 1 m off the road edge)"
+    },
+    {
+     "name": "7 South gatehouse (Ilyra)",
+     "scaled": [
+      0.0,
+      59.32
+     ],
+     "v2": [
+      0.0,
+      59.1
+     ],
+     "why": "snapped onto the new palisade ring (curtain sockets local z=+0.9 -> ring z=60)"
+    },
+    {
+     "name": "12 Watch-house + gibbet",
+     "scaled": [
+      0.0,
+      -54.0
+     ],
+     "v2": [
+      0.0,
+      -52.5
+     ],
+     "why": "scaled z=-54 left 1.4 m to the north wall line; kept the v1 ~3 m stand-off (z=-52.5)"
+    },
+    {
+     "name": "8 Miller's house + wheel",
+     "scaled": [
+      -54.0,
+      30.0
+     ],
+     "v2": [
+      -49.63,
+      27.57
+     ],
+     "why": "scaled spot poked through the smaller palisade; pulled 5.00 m toward the square for 2.5 m wall clearance"
+    },
+    {
+     "name": "10 Orrin's lodge",
+     "scaled": [
+      48.0,
+      -46.5
+     ],
+     "v2": [
+      52.0,
+      -51.0
+     ],
+     "why": "v1 lodge straddled the palisade (wall cut through it, Bram unreachable). v2: lodge sits fully outside the NE wall (~2 m clear) and a 4 m postern gap is opened where its path crosses the ring"
+    }
+   ],
+   "lamp_notes": [
+    "N-S high road: no clear spot near t=7.5",
+    "N-S high road: no clear spot near t=67.5",
+    "N-S high road: no clear spot near t=127.5",
+    "west road: square-inn-forge: no clear spot near t=7.5",
+    "herb lane: square-market-Ysara gate: no clear spot near t=7.5",
+    "cottage lane: inn-Ness: no clear spot near t=19.5"
+   ],
+   "tree_notes": [
+    "dead_tree_6: (60.00,-30.00) -> (62.42,-31.21)",
+    "dead_tree_8: (-63.00,-22.50) -> (-66.86,-23.88)",
+    "dead_tree_9: (58.50,36.00) -> (59.67,36.72)",
+    "dead_tree_10: (-10.50,61.50) -> (-10.92,63.98)"
+   ]
+  }
+ },
+ "counts": {
+  "total": 181,
+  "built": 181
+ },
+ "placements": [
+  {
+   "name": "1 Salted Kettle inn",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/inn/bld_inn_salted_kettle_shared.glb",
+   "pos": [
+    -22.5,
+    0.0,
+    4.5
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    16,
+    12
+   ],
+   "bytes": 4097152
+  },
+  {
+   "name": "2 Wolchen's Forge",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/forge/v2/bld_forge_wolchen_v2_shared.glb",
+   "pos": [
+    -43.5,
+    0.0,
+    -13.5
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    12,
+    10
+   ],
+   "bytes": 3025628
+  },
+  {
+   "name": "3 Chapel of St. Noll",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/chapel_st_noll/bld_chapel_st_noll_shared.glb",
+   "pos": [
+    33.0,
+    0.0,
+    -30.0
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    24,
+    12
+   ],
+   "bytes": 1907244
+  },
+  {
+   "name": "3b chapel_st_noll_tower",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/chapel_st_noll/bld_chapel_st_noll_tower_shared.glb",
+   "pos": [
+    23.75,
+    0.0,
+    -30.0
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "attach_to": "3 Chapel of St. Noll",
+   "footprint": [
+    4.5,
+    4.5
+   ],
+   "bytes": 1055672
+  },
+  {
+   "name": "4 Graveyard",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/graveyard/bld_graveyard_st_noll_shared.glb",
+   "pos": [
+    40.0,
+    0.0,
+    -6.0
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    24,
+    18
+   ],
+   "bytes": 1563776
+  },
+  {
+   "name": "5 Ysara's herbs",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/herbs_ysara/bld_herbs_ysara_shared.glb",
+   "pos": [
+    22.5,
+    0.0,
+    19.5
+   ],
+   "rotY": -0.2618,
+   "status": "built",
+   "footprint": [
+    10,
+    8
+   ],
+   "bytes": 3354988
+  },
+  {
+   "name": "6 Quill's scriptorium",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/scriptorium_quill/bld_scriptorium_quill_shared.glb",
+   "pos": [
+    7.5,
+    0.0,
+    -25.5
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    8,
+    8
+   ],
+   "bytes": 3547008
+  },
+  {
+   "name": "7 South gatehouse (Ilyra)",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/bld_gatehouse_south_shared.glb",
+   "pos": [
+    0.0,
+    0.0,
+    59.1
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    10.6,
+    8.6
+   ],
+   "bytes": 3303288
+  },
+  {
+   "name": "gate_curtain_W",
+   "kind": "wall",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_curtain_wall_4m_shared.glb",
+   "pos": [
+    -6.0,
+    0.0,
+    60.0
+   ],
+   "rotY": 0,
+   "status": "built",
+   "attach_to": "7 South gatehouse (Ilyra)",
+   "bytes": 123804
+  },
+  {
+   "name": "gate_curtain_E",
+   "kind": "wall",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_curtain_wall_4m_shared.glb",
+   "pos": [
+    6.0,
+    0.0,
+    60.0
+   ],
+   "rotY": 0,
+   "status": "built",
+   "attach_to": "7 South gatehouse (Ilyra)",
+   "bytes": 123804
+  },
+  {
+   "name": "8 Miller's house + wheel",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/mill/bld_mill_shared.glb",
+   "pos": [
+    -49.63,
+    0.0,
+    27.57
+   ],
+   "rotY": 0.3491,
+   "status": "built",
+   "footprint": [
+    12,
+    10
+   ],
+   "bytes": 2834228
+  },
+  {
+   "name": "9 Ness's cottage",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/cottage_ness/bld_cottage_ness_shared.glb",
+   "pos": [
+    -27.0,
+    0.0,
+    43.5
+   ],
+   "rotY": -0.1745,
+   "status": "built",
+   "footprint": [
+    8,
+    6
+   ],
+   "bytes": 2270760
+  },
+  {
+   "name": "10 Orrin's lodge",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/lodge_orrin/bld_lodge_orrin_shared.glb",
+   "pos": [
+    52.0,
+    0.0,
+    -51.0
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    8,
+    8
+   ],
+   "bytes": 1228596
+  },
+  {
+   "name": "11 Stable + yard",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/stable/bld_stable_shared.glb",
+   "pos": [
+    25.5,
+    0.0,
+    42.0
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    14,
+    10
+   ],
+   "bytes": 2380848
+  },
+  {
+   "name": "12 Watch-house + gibbet",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared.glb",
+   "pos": [
+    0.0,
+    0.0,
+    -52.5
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    8,
+    6
+   ],
+   "bytes": 1329628
+  },
+  {
+   "name": "14 town_square",
+   "kind": "building",
+   "piece": "models/town/martsirt_v2/buildings/square/bld_square_shared.glb",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rotY": -0.0,
+   "status": "built",
+   "footprint": [
+    16,
+    16
+   ],
+   "bytes": 3591452
+  },
+  {
+   "name": "herb_fence_0",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    18.26,
+    0.0,
+    12.15
+   ],
+   "rotY": -0.2618,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_1",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    20.19,
+    0.0,
+    12.67
+   ],
+   "rotY": -0.2618,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_2",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    22.12,
+    0.0,
+    13.19
+   ],
+   "rotY": -0.2618,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_3",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    24.05,
+    0.0,
+    13.7
+   ],
+   "rotY": -0.2618,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_4",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    25.98,
+    0.0,
+    14.22
+   ],
+   "rotY": -0.2618,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_5",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    27.92,
+    0.0,
+    14.74
+   ],
+   "rotY": -0.2618,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_6",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    29.85,
+    0.0,
+    15.26
+   ],
+   "rotY": -0.2618,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_7",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    30.56,
+    0.0,
+    16.48
+   ],
+   "rotY": -1.8326,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_8",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    30.04,
+    0.0,
+    18.41
+   ],
+   "rotY": -1.8326,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_9",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    29.52,
+    0.0,
+    20.35
+   ],
+   "rotY": -1.8326,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_10",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    29.0,
+    0.0,
+    22.28
+   ],
+   "rotY": -1.8326,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_11",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    28.49,
+    0.0,
+    24.21
+   ],
+   "rotY": -1.8326,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_12",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    27.97,
+    0.0,
+    26.14
+   ],
+   "rotY": -1.8326,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_13",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    26.74,
+    0.0,
+    26.85
+   ],
+   "rotY": -3.4034,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_14",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    24.81,
+    0.0,
+    26.33
+   ],
+   "rotY": -3.4034,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_15",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    22.88,
+    0.0,
+    25.81
+   ],
+   "rotY": -3.4034,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_16",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    19.02,
+    0.0,
+    24.78
+   ],
+   "rotY": -3.4034,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_17",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    17.08,
+    0.0,
+    24.26
+   ],
+   "rotY": -3.4034,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_18",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    15.15,
+    0.0,
+    23.74
+   ],
+   "rotY": -3.4034,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_19",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    14.44,
+    0.0,
+    22.52
+   ],
+   "rotY": 1.309,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_20",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    14.96,
+    0.0,
+    20.59
+   ],
+   "rotY": 1.309,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_21",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    15.48,
+    0.0,
+    18.65
+   ],
+   "rotY": 1.309,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_22",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    16.0,
+    0.0,
+    16.72
+   ],
+   "rotY": 1.309,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_23",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    16.51,
+    0.0,
+    14.79
+   ],
+   "rotY": 1.309,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "herb_fence_24",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_fence_wattle_2m.glb",
+   "pos": [
+    17.03,
+    0.0,
+    12.86
+   ],
+   "rotY": 1.309,
+   "status": "built",
+   "bytes": 17628
+  },
+  {
+   "name": "market_stall_cloth",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_market_stall_a.glb",
+   "pos": [
+    5.67,
+    0.0,
+    10.84
+   ],
+   "rotY": -1.054,
+   "status": "built",
+   "bytes": 100412
+  },
+  {
+   "name": "market_stall_fish",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_market_stall_b.glb",
+   "pos": [
+    7.49,
+    0.0,
+    13.83
+   ],
+   "rotY": -1.0842,
+   "status": "built",
+   "bytes": 160796
+  },
+  {
+   "name": "market_stall_tallow",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_market_stall_c.glb",
+   "pos": [
+    9.31,
+    0.0,
+    16.81
+   ],
+   "rotY": -0.9969,
+   "status": "built",
+   "bytes": 161652
+  },
+  {
+   "name": "market_stall_scrap",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_market_stall_d.glb",
+   "pos": [
+    11.13,
+    0.0,
+    19.8
+   ],
+   "rotY": -1.0979,
+   "status": "built",
+   "bytes": 136476
+  },
+  {
+   "name": "prop_cart_broken",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_cart_broken.glb",
+   "pos": [
+    7.39,
+    0.0,
+    25.95
+   ],
+   "rotY": 2.4684,
+   "status": "built",
+   "bytes": 193988
+  },
+  {
+   "name": "prop_crate_stack",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_crate_stack.glb",
+   "pos": [
+    12.41,
+    0.0,
+    22.66
+   ],
+   "rotY": -1.1132,
+   "status": "built",
+   "bytes": 29300
+  },
+  {
+   "name": "market_barrels",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_barrel_group.glb",
+   "pos": [
+    5.08,
+    0.0,
+    21.5
+   ],
+   "rotY": 2.6184,
+   "status": "built",
+   "bytes": 164924
+  },
+  {
+   "name": "inn_barrels",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_barrel_group.glb",
+   "pos": [
+    -5.4,
+    0.0,
+    9.4
+   ],
+   "rotY": -0.6981,
+   "status": "built",
+   "bytes": 164924
+  },
+  {
+   "name": "forge_crates",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_crate_stack.glb",
+   "pos": [
+    16.5,
+    0.0,
+    -0.75
+   ],
+   "rotY": -1.2217,
+   "status": "built",
+   "bytes": 29300
+  },
+  {
+   "name": "15 shrine_weeping_angel",
+   "kind": "interactable",
+   "piece": "models/shrines/shrine_weeping_angel.glb",
+   "pos": [
+    37.5,
+    0.0,
+    -20.65
+   ],
+   "rotY": 0.0,
+   "status": "built",
+   "footprint": [
+    2.4,
+    2.4
+   ],
+   "bytes": 3920292
+  },
+  {
+   "name": "lamp_post_0",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    4.0,
+    0.0,
+    -48.0
+   ],
+   "rotY": -1.5708,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_1",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -4.0,
+    0.0,
+    -36.0
+   ],
+   "rotY": -1.5708,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_2",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -4.0,
+    0.0,
+    -24.0
+   ],
+   "rotY": -1.5708,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_3",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -4.0,
+    0.0,
+    -12.0
+   ],
+   "rotY": -1.5708,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_4",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -4.0,
+    0.0,
+    12.0
+   ],
+   "rotY": -1.5708,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_5",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -4.0,
+    0.0,
+    24.0
+   ],
+   "rotY": -1.5708,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_6",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    4.0,
+    0.0,
+    36.0
+   ],
+   "rotY": -1.5708,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_7",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -4.0,
+    0.0,
+    48.0
+   ],
+   "rotY": -1.5708,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_8",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -11.17,
+    0.0,
+    4.24
+   ],
+   "rotY": -2.8966,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_9",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -38.93,
+    0.0,
+    -6.29
+   ],
+   "rotY": 2.433,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_10",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    8.58,
+    0.0,
+    -9.77
+   ],
+   "rotY": 0.7073,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_11",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    20.95,
+    0.0,
+    -13.77
+   ],
+   "rotY": 0.7073,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_12",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -7.5,
+    0.0,
+    32.0
+   ],
+   "rotY": -3.1416,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_13",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -22.5,
+    0.0,
+    28.0
+   ],
+   "rotY": -3.1416,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_14",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -34.5,
+    0.0,
+    32.0
+   ],
+   "rotY": -3.1416,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_15",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    8.54,
+    0.0,
+    31.81
+   ],
+   "rotY": -0.4398,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_16",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    16.79,
+    0.0,
+    40.11
+   ],
+   "rotY": -0.4398,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_17",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    19.53,
+    0.0,
+    -28.73
+   ],
+   "rotY": 1.1706,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_18",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    26.33,
+    0.0,
+    -40.53
+   ],
+   "rotY": 0.4825,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_19",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    38.53,
+    0.0,
+    -39.4
+   ],
+   "rotY": 0.0194,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_20",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    13.42,
+    0.0,
+    25.67
+   ],
+   "rotY": -1.0232,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_21",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -25.21,
+    0.0,
+    16.21
+   ],
+   "rotY": -1.7005,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "lamp_post_22",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_lamp_post_iron.glb",
+   "pos": [
+    -24.45,
+    0.0,
+    37.49
+   ],
+   "rotY": -1.7005,
+   "status": "built",
+   "bytes": 21156
+  },
+  {
+   "name": "palisade_0",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    9.9,
+    0.0,
+    -59.33
+   ],
+   "rotY": -0.1312,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_1",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    13.7,
+    0.0,
+    -58.73
+   ],
+   "rotY": -0.1822,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_2",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    17.46,
+    0.0,
+    -57.93
+   ],
+   "rotY": -0.2337,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_3",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    21.17,
+    0.0,
+    -56.95
+   ],
+   "rotY": -0.2857,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_4",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    24.82,
+    0.0,
+    -55.77
+   ],
+   "rotY": -0.3382,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_5",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    28.41,
+    0.0,
+    -54.4
+   ],
+   "rotY": -0.3914,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_6",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    31.92,
+    0.0,
+    -52.84
+   ],
+   "rotY": -0.4453,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_7",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    35.34,
+    0.0,
+    -51.09
+   ],
+   "rotY": -0.5002,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_8",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    38.65,
+    0.0,
+    -49.16
+   ],
+   "rotY": -0.556,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_9",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    41.86,
+    0.0,
+    -47.04
+   ],
+   "rotY": -0.6128,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_10",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    44.93,
+    0.0,
+    -44.74
+   ],
+   "rotY": -0.6708,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_11",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    50.65,
+    0.0,
+    -39.62
+   ],
+   "rotY": -0.7905,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_12",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    53.27,
+    0.0,
+    -36.81
+   ],
+   "rotY": -0.8522,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_13",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    55.7,
+    0.0,
+    -33.84
+   ],
+   "rotY": -0.9153,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_14",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    57.94,
+    0.0,
+    -30.72
+   ],
+   "rotY": -0.9798,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_15",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    59.98,
+    0.0,
+    -27.46
+   ],
+   "rotY": -1.0456,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_16",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    61.79,
+    0.0,
+    -24.08
+   ],
+   "rotY": -1.1126,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_17",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    63.37,
+    0.0,
+    -20.58
+   ],
+   "rotY": -1.1808,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_18",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    64.7,
+    0.0,
+    -16.98
+   ],
+   "rotY": -1.2501,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_19",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    65.79,
+    0.0,
+    -13.3
+   ],
+   "rotY": -1.3203,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_20",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    66.61,
+    0.0,
+    -9.55
+   ],
+   "rotY": -1.3913,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_21",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    67.15,
+    0.0,
+    -5.75
+   ],
+   "rotY": -1.4629,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_22",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    67.43,
+    0.0,
+    -1.92
+   ],
+   "rotY": -1.5348,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_23",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    67.43,
+    0.0,
+    1.92
+   ],
+   "rotY": -1.6068,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_24",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    67.15,
+    0.0,
+    5.75
+   ],
+   "rotY": -1.6787,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_25",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    66.61,
+    0.0,
+    9.55
+   ],
+   "rotY": -1.7503,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_26",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    65.79,
+    0.0,
+    13.3
+   ],
+   "rotY": -1.8213,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_27",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    64.7,
+    0.0,
+    16.98
+   ],
+   "rotY": -1.8915,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_28",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    63.37,
+    0.0,
+    20.58
+   ],
+   "rotY": -1.9608,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_29",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    61.79,
+    0.0,
+    24.08
+   ],
+   "rotY": -2.029,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_30",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    59.98,
+    0.0,
+    27.46
+   ],
+   "rotY": -2.096,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_31",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    57.94,
+    0.0,
+    30.72
+   ],
+   "rotY": -2.1618,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_32",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    55.7,
+    0.0,
+    33.84
+   ],
+   "rotY": -2.2262,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_33",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    53.27,
+    0.0,
+    36.81
+   ],
+   "rotY": -2.2894,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_34",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    50.65,
+    0.0,
+    39.62
+   ],
+   "rotY": -2.3511,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_35",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    47.87,
+    0.0,
+    42.26
+   ],
+   "rotY": -2.4116,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_36",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    44.93,
+    0.0,
+    44.74
+   ],
+   "rotY": -2.4708,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_37",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    41.86,
+    0.0,
+    47.04
+   ],
+   "rotY": -2.5288,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_38",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    38.65,
+    0.0,
+    49.16
+   ],
+   "rotY": -2.5856,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_39",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    35.34,
+    0.0,
+    51.09
+   ],
+   "rotY": -2.6414,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_40",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    31.92,
+    0.0,
+    52.84
+   ],
+   "rotY": -2.6963,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_41",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    28.41,
+    0.0,
+    54.4
+   ],
+   "rotY": -2.7502,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_42",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    24.82,
+    0.0,
+    55.77
+   ],
+   "rotY": -2.8034,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_43",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    21.17,
+    0.0,
+    56.95
+   ],
+   "rotY": -2.8559,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_44",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    17.46,
+    0.0,
+    57.93
+   ],
+   "rotY": -2.9079,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_45",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    13.7,
+    0.0,
+    58.73
+   ],
+   "rotY": -2.9593,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_46",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    9.9,
+    0.0,
+    59.33
+   ],
+   "rotY": -3.0104,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_47",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -9.9,
+    0.0,
+    59.33
+   ],
+   "rotY": 3.0104,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_48",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -13.7,
+    0.0,
+    58.73
+   ],
+   "rotY": 2.9593,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_49",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -17.46,
+    0.0,
+    57.93
+   ],
+   "rotY": 2.9079,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_50",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -21.17,
+    0.0,
+    56.95
+   ],
+   "rotY": 2.8559,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_51",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -24.82,
+    0.0,
+    55.77
+   ],
+   "rotY": 2.8034,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_52",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -28.41,
+    0.0,
+    54.4
+   ],
+   "rotY": 2.7502,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_53",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -31.92,
+    0.0,
+    52.84
+   ],
+   "rotY": 2.6963,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_54",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -35.34,
+    0.0,
+    51.09
+   ],
+   "rotY": 2.6414,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_55",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -38.65,
+    0.0,
+    49.16
+   ],
+   "rotY": 2.5856,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_56",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -41.86,
+    0.0,
+    47.04
+   ],
+   "rotY": 2.5288,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_57",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -44.93,
+    0.0,
+    44.74
+   ],
+   "rotY": 2.4708,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_58",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -47.87,
+    0.0,
+    42.26
+   ],
+   "rotY": 2.4116,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_59",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -50.65,
+    0.0,
+    39.62
+   ],
+   "rotY": 2.3511,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_60",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -53.27,
+    0.0,
+    36.81
+   ],
+   "rotY": 2.2894,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_61",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -55.7,
+    0.0,
+    33.84
+   ],
+   "rotY": 2.2262,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_62",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -57.94,
+    0.0,
+    30.72
+   ],
+   "rotY": 2.1618,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_63",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -59.98,
+    0.0,
+    27.46
+   ],
+   "rotY": 2.096,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_64",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -61.79,
+    0.0,
+    24.08
+   ],
+   "rotY": 2.029,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_65",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -63.37,
+    0.0,
+    20.58
+   ],
+   "rotY": 1.9608,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_66",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -64.7,
+    0.0,
+    16.98
+   ],
+   "rotY": 1.8915,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_67",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -65.79,
+    0.0,
+    13.3
+   ],
+   "rotY": 1.8213,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_68",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -66.61,
+    0.0,
+    9.55
+   ],
+   "rotY": 1.7503,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_69",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -67.15,
+    0.0,
+    5.75
+   ],
+   "rotY": 1.6787,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_70",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -67.43,
+    0.0,
+    1.92
+   ],
+   "rotY": 1.6068,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_71",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -67.43,
+    0.0,
+    -1.92
+   ],
+   "rotY": 1.5348,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_72",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -67.15,
+    0.0,
+    -5.75
+   ],
+   "rotY": 1.4629,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_73",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -66.61,
+    0.0,
+    -9.55
+   ],
+   "rotY": 1.3913,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_74",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -65.79,
+    0.0,
+    -13.3
+   ],
+   "rotY": 1.3203,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_75",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -64.7,
+    0.0,
+    -16.98
+   ],
+   "rotY": 1.2501,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_76",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -63.37,
+    0.0,
+    -20.58
+   ],
+   "rotY": 1.1808,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_77",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -61.79,
+    0.0,
+    -24.08
+   ],
+   "rotY": 1.1126,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_78",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -59.98,
+    0.0,
+    -27.46
+   ],
+   "rotY": 1.0456,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_79",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -57.94,
+    0.0,
+    -30.72
+   ],
+   "rotY": 0.9798,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_80",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -55.7,
+    0.0,
+    -33.84
+   ],
+   "rotY": 0.9153,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_81",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -53.27,
+    0.0,
+    -36.81
+   ],
+   "rotY": 0.8522,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_82",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -50.65,
+    0.0,
+    -39.62
+   ],
+   "rotY": 0.7905,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_83",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -47.87,
+    0.0,
+    -42.26
+   ],
+   "rotY": 0.73,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_84",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -44.93,
+    0.0,
+    -44.74
+   ],
+   "rotY": 0.6708,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_85",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -41.86,
+    0.0,
+    -47.04
+   ],
+   "rotY": 0.6128,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_86",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -38.65,
+    0.0,
+    -49.16
+   ],
+   "rotY": 0.556,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_87",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -35.34,
+    0.0,
+    -51.09
+   ],
+   "rotY": 0.5002,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_88",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -31.92,
+    0.0,
+    -52.84
+   ],
+   "rotY": 0.4453,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_89",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -28.41,
+    0.0,
+    -54.4
+   ],
+   "rotY": 0.3914,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_90",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -24.82,
+    0.0,
+    -55.77
+   ],
+   "rotY": 0.3382,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_91",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -21.17,
+    0.0,
+    -56.95
+   ],
+   "rotY": 0.2857,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_92",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -17.46,
+    0.0,
+    -57.93
+   ],
+   "rotY": 0.2337,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_93",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -13.7,
+    0.0,
+    -58.73
+   ],
+   "rotY": 0.1822,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "palisade_94",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "pos": [
+    -9.9,
+    0.0,
+    -59.33
+   ],
+   "rotY": 0.1312,
+   "status": "built",
+   "bytes": 75212
+  },
+  {
+   "name": "dead_tree_0",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_a.glb",
+   "pos": [
+    -37.5,
+    0.0,
+    -37.5
+   ],
+   "rotY": -3.367,
+   "status": "built",
+   "bytes": 87112
+  },
+  {
+   "name": "dead_tree_1",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_b.glb",
+   "pos": [
+    -60.0,
+    0.0,
+    0.0
+   ],
+   "rotY": -2.2977,
+   "status": "built",
+   "bytes": 80552
+  },
+  {
+   "name": "dead_tree_2",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_c.glb",
+   "pos": [
+    52.5,
+    0.0,
+    15.0
+   ],
+   "rotY": -0.3644,
+   "status": "built",
+   "bytes": 74732
+  },
+  {
+   "name": "dead_tree_3",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_a.glb",
+   "pos": [
+    -15.0,
+    0.0,
+    -45.0
+   ],
+   "rotY": -3.1883,
+   "status": "built",
+   "bytes": 87112
+  },
+  {
+   "name": "dead_tree_4",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_b.glb",
+   "pos": [
+    45.0,
+    0.0,
+    52.5
+   ],
+   "rotY": -0.2356,
+   "status": "built",
+   "bytes": 80552
+  },
+  {
+   "name": "dead_tree_5",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_c.glb",
+   "pos": [
+    -45.0,
+    0.0,
+    52.5
+   ],
+   "rotY": -2.7247,
+   "status": "built",
+   "bytes": 74732
+  },
+  {
+   "name": "dead_tree_6",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_a.glb",
+   "pos": [
+    62.42,
+    0.0,
+    -31.21
+   ],
+   "rotY": -0.4389,
+   "status": "built",
+   "bytes": 87112
+  },
+  {
+   "name": "dead_tree_7",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_b.glb",
+   "pos": [
+    15.0,
+    0.0,
+    -52.5
+   ],
+   "rotY": -0.57,
+   "status": "built",
+   "bytes": 80552
+  },
+  {
+   "name": "dead_tree_8",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_c.glb",
+   "pos": [
+    -66.86,
+    0.0,
+    -23.88
+   ],
+   "rotY": -2.6673,
+   "status": "built",
+   "bytes": 74732
+  },
+  {
+   "name": "dead_tree_9",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_a.glb",
+   "pos": [
+    59.67,
+    0.0,
+    36.72
+   ],
+   "rotY": -5.1953,
+   "status": "built",
+   "bytes": 87112
+  },
+  {
+   "name": "dead_tree_10",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_b.glb",
+   "pos": [
+    -10.92,
+    0.0,
+    63.98
+   ],
+   "rotY": -0.7779,
+   "status": "built",
+   "bytes": 80552
+  },
+  {
+   "name": "dead_tree_11",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2/props/prop_tree_dead_c.glb",
+   "pos": [
+    40.5,
+    0.0,
+    -55.5
+   ],
+   "rotY": -1.4027,
+   "status": "built",
+   "bytes": 74732
+  }
+ ]
+}

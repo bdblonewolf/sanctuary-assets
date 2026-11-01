@@ -1,0 +1,384 @@
+{
+ "version": 2,
+ "units": "1 texture tile = 2 m (box UV scale 0.5)",
+ "materials": {
+  "m_stone_rubble_soot": {
+   "source": "polyhaven:rustic_stone_wall",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_stone_rubble_soot_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_stone_rubble_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_stone_rubble_soot_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_stone_rubble_soot_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_stone_rubble_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_stone_rubble_soot_orm.jpg"
+   }
+  },
+  "m_stone_ashlar_limestone": {
+   "source": "polyhaven:castle_wall_varriation",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_stone_ashlar_limestone_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_stone_ashlar_limestone_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_stone_ashlar_limestone_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_stone_ashlar_limestone_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_stone_ashlar_limestone_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_stone_ashlar_limestone_orm.jpg"
+   }
+  },
+  "m_wood_beam_soot": {
+   "source": "polyhaven:weathered_planks",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_wood_beam_soot_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_wood_beam_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_wood_beam_soot_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_wood_beam_soot_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_wood_beam_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_wood_beam_soot_orm.jpg"
+   }
+  },
+  "m_wood_planking_old": {
+   "source": "polyhaven:old_planks_02",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_wood_planking_old_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_wood_planking_old_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_wood_planking_old_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_wood_planking_old_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_wood_planking_old_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_wood_planking_old_orm.jpg"
+   }
+  },
+  "m_wood_floor_old": {
+   "source": "polyhaven:old_wood_floor",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_wood_floor_old_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_wood_floor_old_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_wood_floor_old_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_wood_floor_old_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_wood_floor_old_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_wood_floor_old_orm.jpg"
+   }
+  },
+  "m_wall_daub_limewash": {
+   "source": "polyhaven:worn_mossy_plasterwall",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_wall_daub_limewash_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_wall_daub_limewash_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_wall_daub_limewash_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_wall_daub_limewash_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_wall_daub_limewash_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_wall_daub_limewash_orm.jpg"
+   }
+  },
+  "m_wall_plaster_soot": {
+   "source": "polyhaven:worn_plaster_wall",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_wall_plaster_soot_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_wall_plaster_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_wall_plaster_soot_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_wall_plaster_soot_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_wall_plaster_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_wall_plaster_soot_orm.jpg"
+   }
+  },
+  "m_roof_slate_moss": {
+   "source": "polyhaven:roof_slates_02",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_roof_slate_moss_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_roof_slate_moss_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_roof_slate_moss_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_roof_slate_moss_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_roof_slate_moss_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_roof_slate_moss_orm.jpg"
+   }
+  },
+  "m_roof_thatch": {
+   "source": "polyhaven:thatch_roof_angled",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_roof_thatch_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_roof_thatch_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_roof_thatch_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_roof_thatch_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_roof_thatch_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_roof_thatch_orm.jpg"
+   }
+  },
+  "m_roof_shingle": {
+   "source": "polyhaven:roof_planks",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_roof_shingle_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_roof_shingle_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_roof_shingle_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_roof_shingle_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_roof_shingle_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_roof_shingle_orm.jpg"
+   }
+  },
+  "m_ground_flagstone": {
+   "source": "polyhaven:slate_floor_02",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_ground_flagstone_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_ground_flagstone_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_ground_flagstone_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_ground_flagstone_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_ground_flagstone_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_ground_flagstone_orm.jpg"
+   }
+  },
+  "m_ground_mud": {
+   "source": "polyhaven:muddy_tracks",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_ground_mud_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_ground_mud_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_ground_mud_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_ground_mud_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_ground_mud_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_ground_mud_orm.jpg"
+   }
+  },
+  "m_metal_wrought_rust": {
+   "source": "polyhaven:rust_coarse_01",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_metal_wrought_rust_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_metal_wrought_rust_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_metal_wrought_rust_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_metal_wrought_rust_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_metal_wrought_rust_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_metal_wrought_rust_orm.jpg"
+   }
+  },
+  "m_brick_soot": {
+   "source": "polyhaven:dark_brick_wall",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_brick_soot_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_brick_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_brick_soot_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_brick_soot_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_brick_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_brick_soot_orm.jpg"
+   }
+  },
+  "m_ground_cobble": {
+   "source": "polyhaven:cobblestone_floor_08",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_ground_cobble_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_ground_cobble_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_ground_cobble_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_ground_cobble_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_ground_cobble_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_ground_cobble_orm.jpg"
+   }
+  },
+  "m_glass_stained": {
+   "source": "procedural",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_glass_stained_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_glass_stained_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_glass_stained_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_glass_stained_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_glass_stained_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_glass_stained_orm.jpg"
+   }
+  },
+  "m_cloth_banner_anvil": {
+   "source": "procedural",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_cloth_banner_anvil_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_cloth_banner_anvil_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_cloth_banner_anvil_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_cloth_banner_anvil_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_cloth_banner_anvil_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_cloth_banner_anvil_orm.jpg"
+   }
+  },
+  "m_sign_anvil": {
+   "source": "procedural",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_sign_anvil_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_sign_anvil_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_sign_anvil_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_sign_anvil_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_sign_anvil_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_sign_anvil_orm.jpg"
+   }
+  },
+  "m_sign_kettle": {
+   "source": "procedural+polyhaven:old_planks_02",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_sign_kettle_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_sign_kettle_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_sign_kettle_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_sign_kettle_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_sign_kettle_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_sign_kettle_orm.jpg"
+   }
+  },
+  "m_cloth_linen": {
+   "source": "procedural",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_cloth_linen_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_cloth_linen_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_cloth_linen_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_cloth_linen_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_cloth_linen_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_cloth_linen_orm.jpg"
+   }
+  },
+  "m_decal_atlas": {
+   "source": "procedural",
+   "license": "CC0",
+   "alphaMode": "BLEND",
+   "cells_3x2": [
+    "soot",
+    "rain_streaks",
+    "moss",
+    "mud_splash",
+    "puddle",
+    "straw"
+   ],
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_decal_atlas_bc.png",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_decal_atlas_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_decal_atlas_orm.jpg"
+   },
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_decal_atlas_bc.png",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_decal_atlas_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_decal_atlas_orm.jpg"
+   }
+  },
+  "m_salt_crust": {
+   "source": "procedural crystal facets + polyhaven:castle_wall_varriation (grime luminance), src/gentex_salt.py",
+   "license": "CC0",
+   "tiling_m": 2.0,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_salt_crust_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_salt_crust_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_salt_crust_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_salt_crust_bc.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_salt_crust_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_salt_crust_orm.jpg"
+   }
+  },
+  "m_glass_soot": {
+   "source": "procedural soot/smear (src/gentex_glass.py)",
+   "license": "CC0",
+   "tiling_m": 0.3,
+   "tex_2k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_2k/m_glass_soot_bc.jpg",
+    "emissive": "models/town/martsirt_v2/materials/tex_2k/m_glass_soot_e.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_2k/m_glass_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_2k/m_glass_soot_orm.jpg"
+   },
+   "tex_1k": {
+    "baseColor": "models/town/martsirt_v2/materials/tex_1k/m_glass_soot_bc.jpg",
+    "emissive": "models/town/martsirt_v2/materials/tex_1k/m_glass_soot_e.jpg",
+    "normal": "models/town/martsirt_v2/materials/tex_1k/m_glass_soot_n.jpg",
+    "orm": "models/town/martsirt_v2/materials/tex_1k/m_glass_soot_orm.jpg"
+   }
+  }
+ },
+ "repo_note": "paths are repo-relative; load via uT(path,bust)",
+ "v2_local_materials": {
+  "note": "Martsirt v2: window glow cards (win_glow_* nodes) use LOCAL untextured materials, not library textures. emissiveFactor = #ffb060 (linear [1.0,0.434,0.117]), no KHR extensions; multiply by material extras.emissiveStrength at load (same convention as m_window_candlelit / m_peat_embers). Single-sided, dark base colour so the card reads as a dark pane when emissive is off.",
+  "m_window_glow": {
+   "emissiveStrength": 4.0,
+   "use": "bright lit windows"
+  },
+  "m_window_glow_dim": {
+   "emissiveStrength": 2.2,
+   "use": "dim / back rooms / upper floors"
+  },
+  "m_window_glow_faint": {
+   "emissiveStrength": 0.9,
+   "use": "mill, stable - a single faint candle"
+  },
+  "m_window_glow_faint_glass": {
+   "emissiveStrength": 0.9,
+   "alphaMode": "BLEND",
+   "alpha": 0.55,
+   "use": "chapel chancel lancets"
+  },
+  "flicker": "node extras.flicker true on a win_glow_* card or fx_glow_window_* empty = runtime should modulate intensity (candle/hearth flicker)"
+ }
+}
