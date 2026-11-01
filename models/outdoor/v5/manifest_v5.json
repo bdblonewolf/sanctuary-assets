@@ -1,0 +1,136 @@
+{
+  "date": "2026-11-01",
+  "dir": "glb_v5/",
+  "src": "src_v5/",
+  "renders": "v5/",
+  "backdrop": {
+    "files": "backdrop_mountain_ring_v5_{summer,autumn,winter,dead}_{near,mid,far}.glb",
+    "materials": {
+      "near": [
+        "ms_bd5_near_rock",
+        "ms_bd5_near_snow",
+        "ms_bd5_near_canopy"
+      ],
+      "mid": "ms_bd5_mid_s*",
+      "far": "ms_bd5_far_s0..s7 (one baked 2K jpeg albedo per 45\u00b0 sector)"
+    },
+    "seasonSwitch": "swap whole GLB set per season (same geometry)",
+    "vertexColors": "COLOR_0 VEC4 ubyte: rgb multiply base colour, a = aerial fade weight smoothstep(60,2000,R_xz) -> mix(col, fogColor, a*0.6)",
+    "renderState": "opaque, castShadow=false, receiveShadow optional (near only)"
+  },
+  "sky": {
+    "files": "sky_dome_v5_{dusk,day,overcast,dead}.glb",
+    "material": "m_sky_v5_<sky> unlit (black base, emissive tex, strength 1)",
+    "renderState": {
+      "renderOrder": -1000,
+      "depthWrite": false,
+      "fog": false,
+      "frustumCulled": false,
+      "followCameraXZ": true
+    },
+    "radius_m": 3800
+  },
+  "clouds": {
+    "file": "sky_cloud_layers_v5.glb",
+    "material": "m_cloud_stratus_v5 BLEND unlit",
+    "renderState": {
+      "renderOrder": -999,
+      "depthWrite": false,
+      "fog": false,
+      "followCameraXZ": true
+    },
+    "tint": {
+      "dusk": [
+        0.62,
+        0.42,
+        0.5
+      ],
+      "day": [
+        1,
+        1,
+        1
+      ],
+      "overcast": [
+        0.62,
+        0.64,
+        0.68
+      ],
+      "dead": [
+        0.55,
+        0.53,
+        0.38
+      ]
+    }
+  },
+  "fogColor": {
+    "summer_day": "#cbd4df",
+    "overcast": "#bcc0c5",
+    "forest_valley": "#adb5b8",
+    "winter_dusk": "#959bad",
+    "dusk": "#a2a2b5",
+    "dead": "#a2a28e",
+    "near_far_m": [
+      150,
+      2600
+    ],
+    "note": "start points; previews pass through AgX"
+  },
+  "fogBanks": {
+    "file": "fog_valley_banks_v5.glb",
+    "material": "m_fog_bank_v5 BLEND",
+    "edges": "feathered in texture alpha",
+    "renderState": {
+      "depthWrite": false,
+      "fog": true
+    },
+    "tint": "season fog colour x0.9-1.0",
+    "scrollU_per_s": 0.002
+  },
+  "godrays": {
+    "file": "fx_godrays_v5.glb",
+    "nodes": "fx_godray_00..13 (extras fx=godray, blend=additive)",
+    "material": "m_fx_godray_v5",
+    "renderState": {
+      "blending": "AdditiveBlending",
+      "depthWrite": false,
+      "fog": false
+    },
+    "opacity": 0.35
+  },
+  "crows": {
+    "file": "fx_crow_flock_v5.glb",
+    "markers": "fx_crow_flock_01..03 empties with count/radius_m/speed_mps"
+  },
+  "orthoCamera": "gameplay ortho cam cannot show the ring: draw sky+clouds+ring with a perspective camera matching yaw/pitch at player XZ first, clear depth, then the ortho pass",
+  "skyPerSeason": {
+    "summer": [
+      "day",
+      "dusk",
+      "overcast(forest)"
+    ],
+    "autumn": [
+      "overcast",
+      "day"
+    ],
+    "winter": [
+      "dusk"
+    ],
+    "dead": [
+      "dead"
+    ]
+  },
+  "thirdParty": [
+    {
+      "asset": "Poly Haven rock_face_03",
+      "license": "CC0",
+      "url": "https://polyhaven.com/a/rock_face_03",
+      "use": "ms_bd5_near_rock (season graded)"
+    },
+    {
+      "asset": "Poly Haven snow_field_aerial",
+      "license": "CC0",
+      "url": "https://polyhaven.com/a/snow_field_aerial",
+      "use": "ms_bd5_near_snow"
+    }
+  ]
+}
