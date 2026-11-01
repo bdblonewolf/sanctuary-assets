@@ -1,0 +1,17 @@
+STAGE 11C: SOFTER TOWN SHADOWS (small fix)
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed. Keep the town darkness exactly as it is.
+
+FACTS
+- 3D view class oE. lights() creates the moon SpotLight (stored as this.moon, castShadow true, shadow.mapSize 1024, shadow.bias -4e-4). Renderer uses shadowMap.type=1 (PCFShadowMap, which supports shadow.radius).
+- showMartsirt(e,t,n) runs when in the 3D town; consider() hides townGroup when leaving town. Stage 11B made torch pool slots 0 and 1 shadow-casting PointLights.
+
+STEPS
+1. In showMartsirt: this.moon.shadow.radius=6, this.moon.shadow.blurSamples=16; torch pool slots 0 and 1: shadow.radius=4. Where consider() hides townGroup (leaving town): restore this.moon.shadow.radius=1 and blurSamples=8, slots 0 and 1 shadow.radius=1. No other light, color or intensity changes.
+2. Test, then publish. In 3D town: building shadows have soft edges, overall brightness unchanged. Outside town: shadows as before.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

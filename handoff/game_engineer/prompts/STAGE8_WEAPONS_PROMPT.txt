@@ -1,0 +1,52 @@
+STAGE 8: HERO WEAPONS BY EQUIPPED TYPE (3D hero only)
+
+RULES
+- Change only the 3D hero weapon/animation code (the hero rig class: buildKnight, parkSword, poseHero, playHero, startLight, finishClip, iT, DC). No game logic, balance, items, save, controls, UI or 2D renderer changes.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+
+FACTS (live bundle)
+- DC.heroWeaponUrl = weapon_sword_v2.glb. buildKnight() loads it, bones via sT(n,"mixamorigRightHand"|"mixamorigHips"|"mixamorigSpine2"), sockets hand/hip/back.
+- parkSword(armed): hand = identity; hip = pos(.1105,.0394,.4039) quat(-.2023,.9157,-.3282,.112).
+- iT = clip map {sword, peace, deaths}. oT(clip) strips hips root motion. rT = town set. finishClip swaps at ss_draw 42% / ss_sheath 67%.
+- Weapon kind: game armKind() reads eq.weapon base+name -> "bow"|"staff"|"wand"|"axe"|"spear"|"mace"|"dagger"|"sword". twoHand(item): hands===2 or name has bow/staff. eq.shield is the offhand.
+- Bow shots and wand bolts use the same attack: swingLen, swingT, swingHit = swingLen*.58 (arrow leaves at swingHit).
+
+ASSETS (base https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/models/)
+weapon_axe, weapon_greataxe, weapon_greatsword, weapon_bow, weapon_arrow, weapon_staff, weapon_wand, weapon_shield (.glb). All are pre-baked: identity offset in the grip bone = correct grip.
+
+STEPS
+1. Config: add DC.heroWeapons = {axe, greataxe, greatsword, bow, arrow, staff, wand, shield} URLs. Keep heroWeaponUrl for sword.
+2. Loading: load each GLB once on first need, cache the scene, clone per use. A failed load warns once and falls back to sword.
+3. Weapon set from equipped item: kind = armKind(). Map: sword/dagger/spear/mace -> sword; axe -> greataxe if twoHand or name has great/battle/war/double/broad, else axe; "great sword"/claymore/two-handed sword -> greatsword; bow, staff, wand as is. No weapon -> unarmed.
+4. Clip sets in iT (all clips exist in knight_anim.glb):
+ axe: idle axe_idle, walk axe_walk, run axe_run, light [axe_attack_1, axe_attack_2, axe_attack_3], heavy axe_attack_heavy, hit axe_hit, draw ss_draw, sheath ss_sheath.
+ two-hand (greataxe, greatsword): idle gs_idle, walk ss_walk, run gs_run, light [gs_attack_1, gs_attack_2, gs_attack_3], heavy gs_attack_heavy, hit gs_hit, draw gs_draw, sheath axe_sheath.
+ staff: idle magic_idle, walk magic_walk, run magic_run, light [magic_attack_2h, magic_cast_2h], hit magic_hit, draw axe_draw, sheath axe_sheath.
+ wand: same with magic_attack_1h, magic_cast_1h, draw ss_draw, sheath ss_sheath.
+ bow: idle bow_idle, walk bow_walk, run bow_run, shot bow_draw then bow_release, hit bow_hit, draw bow_equip, sheath bow_sheath.
+ Keep iT.sword, peace, deaths. Death stays iT.deaths.
+5. Sockets: add leftHand (mixamorigLeftHand) and leftArm (mixamorigLeftForeArm) groups. In hand: weapon -> right hand identity; bow -> leftHand identity; shield -> leftArm identity.
+ Stowed (pos, quat xyzw, relative to bone):
+ sword  Hips   (.1105,.0394,.4039) (-.2023,.9157,-.3282,.112)
+ axe    Hips   (.1203,.1274,.1770) (.4905,.6408,-.396,.4382)
+ wand   Hips   (.1997,.1391,.2029) (.8507,.094,.055,.5143)
+ greataxe Spine2 (.2197,-.3503,-.3043) (-.5727,.3576,.6243,.3929)
+ greatsword Spine2 (-.2836,.2844,-.2148) (.3929,.6243,-.3576,.5727)
+ staff  Spine2 (.0395,-.142,-.1706) (-.6638,-.1232,.1372,.7248)
+ bow    Spine2 (-.0511,-.0693,-.2304) (.3609,.8212,.4377,.0611)
+ shield Spine2 (-.1487,-.0905,-.1832) (.4374,.4356,-.5795,.5321)
+ Swap points in finishClip (clip progress): ss_draw 42% / ss_sheath 67% (sword, axe, wand); gs_draw 64% / axe_sheath 46% (greataxe, greatsword); axe_draw 42% / axe_sheath 59% (staff); bow_equip 29% / bow_sheath 38% (bow). Shield moves at the same moment as the weapon.
+6. Shield shows only with a one-hand weapon (sword, axe, wand) and eq.shield set. Hide it for two-hand, bow, staff.
+7. Bow shot: on attack start play bow_draw scaled to reach its end at swingHit, then bow_release. Show weapon_arrow on the right hand (identity) from shot start until swingHit, hide it after. Arrow stays visible during the draw.
+8. Unarmed: no weapon meshes, peace clips everywhere, attacks use ss_attack_1 without a mesh.
+9. Live swap: when the weapon kind or shield changes, remove old meshes, attach new ones in the current state (stowed in town, in hand in combat). No reload, no stutter.
+
+TEST
+- Town: each type stowed correctly, no floating or clipping.
+- Wilds: sword+shield, axe+shield, wand+shield, greataxe, greatsword, staff, bow: draw, attacks, hit, sheath, death.
+- Bow: arrow shows during draw and vanishes at release in time with the 2D arrow.
+- Swap weapons in the inventory in town and in combat.
+- Console: no new errors or missing clip warnings.
+
+REPORT
+What changed (files/functions), which steps passed, any step that failed and why, console output.

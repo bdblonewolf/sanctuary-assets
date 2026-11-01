@@ -1,0 +1,56 @@
+STAGE A4 - Overworld theme: one looping track replaces the old dread drone outdoors
+
+Goal: In every outdoor zone (the 17 zones the 3D view treats as outdoor, e.g. Briarwood, Ashen Coast), play the new 4:46 overworld theme as ONE looping AudioBufferSource on its own gain node into the music bus, and fade the dread bus (old dread/overworld.ogg) to 0 there. Ogg plays first, with an m4a fallback. The file is decoded once and cached. Caves and church-type rooms keep the old dread drone, stone rooms keep wild/*, and town (with or without the A3 Martsirt theme) is unchanged. Rain and wind are untouched. Works with or without A1 and A3.
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- Audio code is not drawing code. This stage edits only the audio class, its music manager, its level table and the one per-frame audio call site listed in STEP 3.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed.
+- Edit the source that builds into the current bundle (after 12D). Find code by the quoted anchors. Minified names below are from live routes-CEphLWvJ.js and will have shifted (12D, A3). Re-check every name and anchor on the structure, not the letters.
+- Keep a single AudioContext. Do not remove wireDread(), the dread bus, dread/overworld.ogg or the wild/* loops. Caves and church-type rooms still use them.
+- No other audio changes. Leave rain, wind, setWeather, setGale, levels, the compressor, setFire, voices and any A1/A3 code as they are.
+
+FACTS
+- Files (pushed, 200, CORS `access-control-allow-origin: *`):
+  - PT = `https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/`
+  - PT + `audio/dread/overworld_theme.ogg?v=a4`: Vorbis q6, 44.1 kHz stereo, 5,279,214 bytes, exactly 12610723 samples (285.957 s), -23.0 LUFS.
+  - PT + `audio/dread/overworld_theme.m4a?v=a4`: AAC 192k, 44.1 kHz stereo, 7,117,152 bytes, same level. It holds the loop with 4096 extra wrap samples at each end, so AAC priming and padding never land in the loop.
+- Loop rule, the same for both files: T = 12610723 / 44100; a = max(0, (buffer.duration - T) / 2); loopStart = a; loopEnd = a + T; start at offset a. For the ogg, a = 0. For the m4a, a lands inside the wrap region whether or not the browser trims priming (tested both ways: seam error is below the codec noise).
+- Loader: `async function ll(e, t)` does fetch(cl(t)) → arrayBuffer → `e.decodeAudioData(r.slice(0))` and returns null on any failure. `cl(e)` builds `/audio/${e}` under the site base path. Ramp helper: `ul(node, target, now, secs)`.
+- Level table `var sl = {`, anchor `crossfade: 2, bonfireRadius: 5, fireFade: 2`, holds `townBus: .9, stoneBus: .74, dreadBus: .8, dread: 'dread/overworld.ogg'`.
+- Music manager `var dl = class`, anchor `delayWet = []` / `voices = new Map`. `wireDread() { this.loop(sl.dread, this.dread, 1) }`. setZone(e, t) (A3 adds a 3rd argument p): builds a key, `if (n === this.mixKey) return;`, then ramps town / stone / dread with `ul(..., sl.crossfade)`. The dread line is `ul(this.dread, e && t === 'dread' ? sl.dreadBus : 0, r, sl.crossfade)`.
+- Audio class `hl`: field `mood`, `setMood(e)`, `pump(e)` calls `this.manager?.ensure(), this.manager?.setZone(...)`. unlock(): `r` is the music bus (`r.gain.value = .82`, or .7 after A1); the dread bus `u` (`u.gain.value = 0, u.connect(r)`) is passed in `this.manager = new dl(t, i, a, u, o)` (A3 adds a 6th argument h).
+- Per-frame call site in the game class: `n = this.world.id`, then `this.audio.setMood(r ? 'town' : i ? 'stone' : 'dread')`, then `this.audio.pump(t)`, then `this.audio.setWeather(this.rain, this.fog)`.
+- Outdoor test: the 3D view's consider() calls `this.edge.sync(bE(e) ? e : null, yE(e.id))`. `bE(e) = !e.martsirt && !_E(e.id) && !gE(e.id) && !hE(e.id)` (_E = church-type set plus church*/castle*, gE = cave set, hE = town set). Every bE zone has mood 'dread'.
+  - Outdoor (new theme): wild, briarE, duneW, desert, isle, waste, coast, bluffs, mires, ridge, ascent, iron, flotsam, weald, tollarch, spireroots, ashcamps.
+  - Dread drone stays: den, vault, root, sink, chasm, hollow, gaol, hull, sewer, undercroft, reliquary, fontnave, ashfont, antechamber, stacks, choir, tallyden, mirth, wealdedge, the six Margins and the two Ubers.
+  - Stone (wild/*), unchanged: crypts, nave, church*, castle*. Town, unchanged: town, lut, market, cottage, taproom, inn, house, bastion.
+- Level: old dread bed as heard (file -20.4 LUFS x dreadBus .8 x music .82 through the compressor) measures -19.9 LUFS. The theme at owBus 1.08 measures -19.9 LUFS through the same chain (ogg and m4a). The A3 Martsirt theme uses the same 2 s linear fade, so Martsirt <-> Briarwood is one even 2 s crossfade.
+
+STEPS
+1. Level table. Add `owBus: 1.08`, `owFade: 2`, `owOgg: 'https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/audio/dread/overworld_theme.ogg?v=a4'`, `owM4a:` the same URL ending `overworld_theme.m4a?v=a4` (full literal strings; do not reference PT, sl is defined before it), `owSamples: 12610723`, `owRate: 44100` to `sl`.
+2. Loader. Add `async function llUrl(e, url)`: the same body as ll but `fetch(url)` instead of `fetch(cl(t))`. Returns null on any failure. If A3 already added an equivalent full-URL loader, reuse it instead.
+3. Outdoor flag. In the audio class add the field `outdoor = false` and `setOutdoor(e) { this.outdoor = e }`. In pump, right before the setZone call, add `this.manager && (this.manager.outdoor = this.outdoor)`. At the per-frame call site, add `this.audio.setOutdoor(bE(this.world))` right before `this.audio.setMood(...)`, using the same outdoor test the 3D view passes to edge.sync (export/import it if it lives in another file).
+4. Overworld bus. In unlock(), next to the dread bus `u`, create `w = t.createGain()` with `w.gain.value = 0` and `w.connect(r)` (music bus). Pass it as the last constructor argument of `new dl(...)` (7th with A3, 6th without) and store it as `this.ow` in the manager. Add the manager fields `outdoor = false`, `owBuf = null`, `owLoad = null`, `owSrc = null`, `owWant = false`, `owTimer = 0`, `owFailed = false`.
+5. Load once. Add the manager method `loadOw()`. If `this.owLoad` is set, return it. Otherwise set `this.owLoad` to a promise that picks the order (`new Audio().canPlayType('audio/ogg; codecs="vorbis"')` non-empty → `[owOgg, owM4a]`, else `[owM4a, owOgg]`), tries `llUrl(this.ctx, url)` on the first and, if null, on the second, stores the result and its format in `this.owBuf` / `this.owFmt`, and returns it (null if both fail). Decode only on the first outdoor entry, never in ensure(), never twice.
+6. setZone. Keep its signature. Compute `w = e && t === 'dread' && this.outdoor && !this.owFailed`. Append `(w ? 'W' : '')` to the key before the mixKey check. Change only the dread line target to `e && t === 'dread' && !w ? sl.dreadBus : 0`. Town, stone (and A3 theme) lines stay unchanged. Then call `w ? this.owOn() : this.owOff()`.
+7. owOn(). Set `this.owWant = true` and clear `owTimer`.
+   - If `this.owSrc` exists, `ul(this.ow, sl.owBus, now, sl.owFade)` and return.
+   - Otherwise `this.loadOw().then(b => ...)`. When `b` is set, `this.owWant` is still true and `this.owSrc` is still null: create one BufferSource (`buffer = b`, `loop = true`), T = owSamples / owRate, a = max(0, (b.duration - T) / 2), `loopStart = a`, `loopEnd = a + T`, connect to `this.ow`, set the ow gain to 0 at now (cancelScheduledValues + setValueAtTime), `start(now, a)`, `ul(this.ow, sl.owBus, now, sl.owFade)`, store in `this.owSrc`, and log once per start: `[a4] overworld fmt=<ogg|m4a> dur=<b.duration.toFixed(3)> loop=<a.toFixed(4)>..<(a+T).toFixed(4)> rate=<ctx.sampleRate>`.
+   - If both formats failed: log `[a4] overworld decode failed` once, set `owFailed = true` and `this.mixKey = ''`, so the next setZone brings the old dread bed back outdoors. No retries.
+8. owOff(). Set `this.owWant = false`, then `ul(this.ow, 0, now, sl.owFade)`. If `owSrc` exists, set `owTimer = setTimeout(..., (sl.owFade + 0.5) * 1000)` that stops and disconnects the source and sets `owSrc = null`. owOn() clears this timer, so a quick return keeps the same source. No second source at any time.
+9. Build once, check the console, publish.
+
+TEST (live, 3D view on)
+- Enter Briarwood. You hear only the new theme (no old drone under it), at about the old outdoor loudness. One `[a4] overworld fmt=...` line. Ashen Coast and Briarwood East: same source keeps playing, no restart, no new `[a4]` line.
+- Loop seam: if feasible, stay outdoors for 4:50 after the `[a4]` line and listen across the 4:46 point. No click, gap or level jump.
+- Martsirt <-> Briarwood: one even 2 s crossfade both ways (A3 theme out, overworld in, and back). Go back and forth within 2 s: no restart, no double playback.
+- Den, Black Vault, a church-type boss room: old dread drone as before, no overworld theme. Crypts/nave/church/castle: wild/* as before. Taproom/inn/Qadren/Highmarket: as before.
+- Rain and wind: same as before, outdoors and indoors.
+- iOS Safari (iPhone, if available): enter Briarwood, confirm it plays and note the `[a4]` fmt. If no device, write "iOS not tested".
+- Mute/unmute outdoors still works.
+- Console clean: one `[a4]` line per start (plus `[a1]`/`[a3]` lines if those stages are in).
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

@@ -1,0 +1,39 @@
+STAGE 11: SHEATH FIX + MARTSIRT TOWN IN 3D + SHRINES
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: no extra features, no guessing; if a name in FACTS is not found, stop and report.
+- Do not change LT, swapOf for other sets, IT, or any existing asset URL except heroAnimUrl.
+
+FACTS (live bundle routes-BNTm3p9J.js, Xw=?v=10a)
+- Repo base Yw = https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/ ; uT(path,bust) = Yw+path(+Xw). Rw(url) = cached GLTF load, zw(scene) = shadow/colour fix.
+- AC.heroAnimUrl = models/knight_anim.glb?v=8f. New file: models/knight_anim_v10b.glb (scabbard "Object001ccc_11": body = indices 0..2304, throat last).
+- 3D view class XT: bindScabbard -> this.scabbards; parkSword(armed); swapOf(set) sword/default {draw:.42,sheath:.67}; finishClip parks at transAt. consider(world,x,y) -> buildZone(lib,world,x,y); clearZone(); torchPos[] feeds placeLights; poseNpcs places world.npcs at (n.x,0,n.y). 1 tile = 1 m, hero 1.86 m.
+- Game class RE: enter(area,x,y) does this.world=Ec(area); toggleView3d(); blocked()->ps(world). Ec('town') -> ic() (40x34 grid, rc('town','Martsirt',grid,props,[],npcs,[],lights,exits,0,spawn)). Town NPCs: Wolchen (smith), Ysara (healer), Ilyra (herald), Quill (scribe), Bram (quest).
+- Town data (all repo paths, load with uT(path,true)):
+  models/town/martsirt/martsirt_world.json = {origin:[92,88], w:184, h:178, solid (base64 bitset, bit i=y*w+x, LSB first), spawn:[x,y], npcs:{Wolchen:[x,y],...}, exits:[{x,y,to,sx,sy,label}], arrive:{wild,church1,coast,castle1,cottage,taproom:[x,y]}, lights:[{x,y,bon}]}. All coords already in tiles.
+  models/town/martsirt/placements.json: placements[] {name, kind building|wall|prop, piece (repo path), pos [x,y,z] metres, rotY radians}. Add origin to place: x+92, z+88.
+  models/town/martsirt/materials/manifest.json: materials[name].tex_1k {baseColor, normal, orm} repo paths. ORM: R=AO, G=roughness, B=metal. 1 tile of texture = 2 m.
+- GLB node conventions: col_* = colliders (never render, already baked into solid), npc_spot_*, nav_*, fx_* = empties; sway_waterwheel rotates on local X (~0.15 rad/s); portcullis stays at its rest height (no animation). Emissive materials carry userData.emissiveStrength.
+- Shrines: prop {kind:'shrine', x, y, style, looted, label}. Styles speed/lightning/xp/might/fire/cold/magic/curse go through takeShrine(style); tap -> interact checks i.looted ("The shrine is spent."), curse swallow rule, then looted=true + takeShrine. sprinkleShrines() adds them outside town; town memory (refillHours=6) keeps looted. The 3D view draws no shrine today.
+- Player ailments: poison/poisonDps, burnT/burnDps, curseT. Regen buff shrineHpT = +4% max HP per second (boon "knit").
+- Shrine models (Y up, metres, base at 0): models/shrines/shrine_basic.glb, models/shrines/shrine_weeping_angel.glb. Nodes: col_* (hide), interact, fx_* (hide), angel also water_basin.
+- Weeping angel town spot: tile (138,59), rotY 0, footprint 3x3 tiles 137..139 x 58..60.
+
+STEPS
+1. Sheath fix. Set AC.heroAnimUrl to uT('models/knight_anim_v10b.glb')+'?v=10b'. In parkSword, for each mesh in this.scabbards: armed -> geometry.setDrawRange(0,2304); sheathed -> setDrawRange(0,Infinity). In swapOf change only the last (sword/default) return to {draw:.36, sheath:.78}.
+2. Data preload. Add AC.townMartsirt=true. At startup (once, next to pT()) fetch martsirt_world.json, placements.json and manifest.json into a module object martsirtData. On any fetch error: console.warn('[3d] martsirt failed') and leave martsirtData null (old town stays).
+3. Town world. Add function mtWorld(): g=us(martsirtData.w,martsirtData.h); decode martsirtData.solid into g.solid; take npcs from ic() and set x,homeX / y,homeY from martsirtData.npcs[name] (keep everything else); lights2D = martsirtData.lights mapped to {x,y,r:90,warm:true}; return rc('town','Martsirt',g,[],[],npcs,[],lights2D,martsirtData.exits,0,{x:martsirtData.spawn[0],y:martsirtData.spawn[1]}) with .martsirt=true. In Ec('town'): use mtWorld() only when AC.townMartsirt && martsirtData && the 3D view is on (module flag set by toggleView3d); else ic() unchanged.
+4. Enter/toggle. In RE.enter: remember the previous area before overwriting; if the new world has .martsirt, place the player at martsirtData.arrive[prev] ?? martsirtData.spawn before the blocked check. In toggleView3d: after switching, if world.id==='town', call this.enter('town',0,0) then set player to world.spawn (so 2D and 3D each get their own town).
+5. 3D load (progressive). In XT add townGroup (Group, position (0,0,0), added to scene, hidden by default) and loadMartsirt(), called once when first needed:
+   a) ground first: PlaneGeometry(184,178) rotated flat, centred at (92,0,89), MeshStandardMaterial from manifest m_ground_mud tex_1k, RepeatWrapping, repeat (92,89), roughness 1, metalness 0, receiveShadow.
+   b) then buildings and walls sorted by distance to the player, one Rw per frame (await, then next requestAnimationFrame), then props: load each unique prop piece once and clone for every placement.
+   c) each loaded scene: position (pos x+92, pos y, pos z+88), rotation.y=rotY; hide nodes starting col_ nav_ npc_spot_ fx_; materials whose name is in the manifest get map (sRGB), normalMap, ORM as aoMap+roughnessMap+metalnessMap (channel 0), flipY=false, RepeatWrapping; textures cached per material name; vertexColors=true when the mesh has COLOR_0; emissiveIntensity=userData.emissiveStrength if set; specularIntensity=0 if the material has it and the name starts m_ground; names starting m_decal: depthWrite=false + polygonOffset. Buildings castShadow, props no castShadow.
+6. Town render. In consider(): if world.martsirt: on first build of this world call clearZone(), push martsirtData.lights to torchPos as {x,z:y,bon}, add the same exit marker buildZone uses at each martsirtData.exits entry, show townGroup, start loadMartsirt if not started, return (no buildZone). Otherwise hide townGroup. In frame(): rotate every sway_waterwheel node on X by 0.15*dt.
+7. Shrine logic. Add AC.shrineBasicUrl=uT('models/shrines/shrine_basic.glb') and AC.shrineAngelUrl=uT('models/shrines/shrine_weeping_angel.glb'). In mtWorld() add prop {kind:'shrine',x:138.5,y:59.5,style:'angel'} and set g.solid for tiles 137..139 x 58..60. In takeShrine add style 'angel' first: set poison, poisonDps, burnT, burnDps, curseT to 0 (and chillT, frozen, shockT to 0 only if present on the player); shrineHpT=shrineSpan(30); say "The angel weeps. Your wounds close." In the interact curse-swallow check skip style 'angel'. Cooldown = existing looted + town memory.
+8. Shrine 3D. In XT add shrineGroup (in scene). placeShrines(world): clear it; for each world.props kind 'shrine' in range, clone Rw(style==='angel'?AC.shrineAngelUrl:AC.shrineBasicUrl) scene at (x,0,y), angel rotation.y=0; hide col_*, interact, fx_*. Call it at the end of buildZone and in the town branch of consider(). If a model fails, skip it.
+9. Test, then publish. New character, toggle 3D in town. Screenshots: (1) town overview zoomed out, (2) south gate, (3) square with the well, (4) forge with Wolchen in front, (5) sword drawn, (6) sword sheathed (no throat/handle showing when drawn), (7) weeping angel in the chapel forecourt, (8) a basic shrine in a dungeon or wild zone, (9) status after using the angel while poisoned (poison gone, knit shown). Walk into a wall: blocked. Talk to Wolchen: shop opens. Take the BRIARWOOD exit (north road) and come back: arrive at the north road. Toggle 3D off: old 2D town draws as before.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

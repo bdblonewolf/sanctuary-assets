@@ -1,0 +1,155 @@
+SANCTUARY - STAGE 12B: MAP-PINNED BORDERS, OCEAN, BIGGER ISLE, BRIARWOOD ANGEL
+
+Goal: outdoor maps get the Diablo-style edge. Natural barriers (mountains, cliffs, forest) sit on the border band, the existing solid tiles keep the collision, and a map-hugging env ring carries the land or sea on past the map so the world looks endless. Sea sides get a real ocean. Everything lives in the main scene, is drawn by the main camera, is pinned to the map, and holds up at max zoom-out. This also removes the floating black slab.
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed.
+- STEP 1 and the solid tiles in STEP 2 change map data only (map size, generation params, prop coordinates). That is not 2D drawing code.
+- Night darkness, the hero gear light radius, the 11D sun, Martsirt town and all dungeons/interiors stay as they are.
+
+FACTS (verified against the live bundle)
+- Live bundle: assets/index-3hCT99Bp.js + assets/routes-_LaUNfst.js. 3D view class = bE, game class = cD.
+- Outdoor test: nE(area) = !area.martsirt && !$T(id) && !QT(id) && !ZT(id). Season: tE(id) returns summer/autumn/winter/dead.
+- Tile (x,y) sits at world (x+.5, 0, y+.5). Floors are at y=0. One tile = 1 m.
+- Main camera: Gy(38, aspect, .12, 120), pitch 50 deg, dist 6-40 (default 14). At dist 40 the ground at the top of the screen is ~25 m past the hero and the top corners are ~36 m to each side.
+- Scene fog: tg(460812, 16, 46), set only in the constructor and in moodTown. Clear colour 460812. At dist 40 the hero is 40 m from the camera, so the whole view is ~80% fog. This is the black slab.
+- Stage 12 backdrop: syncBackdrop(e,t,n) sets bgOn=nE(e), pins bgGroup to the PLAYER (t,n), and loads season rings, sky, clouds, banks, rays and crows into a separate bgScene/bgCam. The frame renders bgScene, clears depth, then renders the scene. prepRing(root) clones materials with vertexColors and fog and mixes in fogColor by vColor.a*0.6.
+- buildZone(lib,world,px,py): builds tiles within PT=24 of the player and rebuilds after the player moves FT=8. Water tiles (IT=4) become waterGeo/waterMat planes at y .02. RT=Set(town,wild) put lib.rock on solid tiles. Other outdoor areas put kit walls on solid tiles.
+- Helpers: Jw(url) loads a GLTF with caching and returns null on failure. XT(f) = 'https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/models/outdoor/v5/' + f + WT, with WT = '?v=12' (this stage sets it to '?v=12b'). Ns(a,b) is a 0..1 integer hash.
+- The three-letter areas tollarch, spireroots and ashcamps are built by Lc(id): Ss(22,18,W.Wall) with a Stone floor K(1,1,20,16). They are outdoor (nE true) and are 22x18.
+- Tile enum W: Grass 0, Grass2 1, Dirt 2, Road 3, Water 4, Bridge 5, Sand 6, Sand2 7, Stone 8, Wall 11, Plaza 12.
+- 2D border template (the data we rebuild in 3D):
+  - Rs: in-map edge band. Edge distance u<=1 is solid (invisible collision). u 2-4, on lattice (x+2y)%4==0 with Ns<=.62, places props: mountain style shelf/sand (w 1.35-1.8), else tree, or rock style bone/dune.
+  - Fs: off-map. Edge peaks every 3 tiles at .46 inside the edge (w 3.1-5.0) and at 1.38 (w 3.4-4.9). An off-map lattice from -8 to w+8 adds peaks (w 1.6-4.3), far trees (w .42-1.37) and small rocks over water cells.
+  - All of these are already in world.props: kind mountain/tree/rock, with style and w. Off-map ones have x<0, y<0, x>w or y>h.
+- Map sizes (tiles = metres) and ring files. One ring file per map: id = the map id, except tollarch, spireroots and ashcamps, which share s22x18. Sea quadrants come from the ring's near_sea_Q show list:
+
+  | Map | Size | Ring id | Sea quadrants |
+  |---|---|---|---|
+  | wild | 72x56 | wild | W |
+  | coast | 42x56 | coast | E, W, S |
+  | flotsam | 36x28 | flotsam | N |
+  | briarE | 52x40 | briarE | - |
+  | waste | 50x42 | waste | - |
+  | bluffs | 52x44 | bluffs | - |
+  | ridge | 44x46 | ridge | - |
+  | weald | 44x40 | weald | - |
+  | desert | 36x30 | desert | - |
+  | ascent | 32x30 | ascent | - |
+  | iron | 38x24 | iron | - |
+  | duneW | 28x16 | duneW | - |
+  | tollarch | 22x18 | s22x18 | - |
+  | spireroots | 22x18 | s22x18 | - |
+  | ashcamps | 22x18 | s22x18 | - |
+  | isle | 96x80 (NEW, was 44x36) | isle | all (+ islands v2) |
+  | mires | 40x34 | mires | all (+ islands v2) |
+
+  Any other outdoor area has no ring entry: skip STEP 5 for it.
+- New asset base: MT(f) = 'https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/models/outdoor/v5_maps/' + f + WT (so '?v=12b').
+- Files under MT (convention: origin = map centre, north = -Z, rotationY 0):
+  - rect/backdrop_near_rect_{ringId}_{season}.glb (season from tE). Top-level nodes: near_land_{Q} (child trees_land_{Q}_0), apron_{Q}, and on maps with sea also near_sea_{Q} (child trees_sea_{Q}_0) and water_{Q}. Q is E/N/W/S. Materials ms_bd5_trees, ms_bd5_near_ground, ms_bd5_near_canopy, ms_bd5_near_rock, ms_bd5m_water_*.
+    - Inner lip at y=0: a rounded rectangle 1.5 m outside the map edge (half extents w/2+1.5, h/2+1.5), corner radius 2.5 m. The first ~8 m past the lip is a near-flat shelf (<0.3 m), then the slopes rise; the outer edge is r=288.
+    - apron_{Q}: flat, y=-0.1, from 3 m INSIDE the map edge to 1 m past the lip (land quadrants only).
+    - isle and mires rings are sea slopes only: near_sea_Q (top y -0.8) + water_Q, no land or headlands.
+    - rect/trees_near_rect_*_instances.json are not needed (the trees are already in the GLB).
+  - backdrop_islands_{isle|mires}_v2_{season}.glb (islands v2). Nodes: islets (headlands 15-31 m tall and islets/skerries from ~9 m off the map edge out to 60 m, plus outer isles), water_E/N/W/S (y -0.4) and horizon_fog (2550 m dome). Sized for isle 96x80 and mires 40x34. The v1 backdrop_islands_* files are NOT used.
+  - shore_rock_kit_v5.glb. Nodes shore_rock_a_boulder, _b_slab, _c_stack, _d_cluster, _e_seastack, each with a child col_* collider (never render). Origin = waterline. Place at y=-0.4.
+  - shore_foam_strips_v5.glb. Nodes shore_foam_strip_8m and shore_foam_strip_16m run along local X, with the land edge at local z=0 and the sea toward local +Z. Render state: transparent, depthWrite false, polygonOffset -1, y=-0.37. Scroll the map: offset.y += 0.045*dt, offset.x += 0.006*dt, plus v += 0.06*sin(t*0.9). Yaw so local +Z faces the sea: S edge 0, E edge +PI/2, N edge PI, W edge -PI/2.
+  - statues/statue_angel_hero_bust.glb. Nodes statue_angel_hero_bust and col_base. 2.29 m tall, wings span X +-1.4 m.
+- Quadrant of a point relative to the map centre: q = floor(((deg(atan2(-dz,dx)) + 45) mod 360) / 90), 0=E 1=N 2=W 3=S.
+- Existing v5 trees: XT('trees/tree_{conifer_a|conifer_b|conifer_c|decid_a|decid_b}_v5.glb'). Meshes tree_<arch>_LOD0/LOD1. Unit height 1 m, base at origin, COLOR_0 = AO. Material: vertexColors, flatShading, DoubleSide. Tint per instance with setColorAt.
+- Ocean normal map: XT('ocean/ocean_normal_v1.jpg'). Tileable. Repeat 1 per 24 m, normalScale .6, two copies scrolling at different speeds.
+
+STEPS
+
+STEP 1 - Isle becomes 96x80 (map data only)
+In Sc():
+- Ss(44,36,..) becomes Ss(96,80,..). Keep the Es grass mix.
+- Replace the four water K(...) bands with an irregular coast. For every tile: d = min(x, y, 95-x, 79-y) and band = 4 + floor(7*n(x,y)), where n is a smooth value noise from Ns on a 9-tile grid with smoothstep blend (seed offsets +101, +57). Force band = 4 for x 43..54 and y >= 60 (landing bay). If d < band, G(e,x,y,W.Water,true).
+- Then any non-water tile with a 4-neighbour of water becomes W.Sand (not solid). This gives a beach strip.
+- Clearing K(e,35,27,61,48,W.Dirt,false). Pier K(e,46,73,51,75,W.Bridge,false).
+- Landing group:
+  - boat (48.5,76.15)
+  - bonfire and its light (48.5,67.4)
+  - Holt (48.5,74.2) with home the same
+  - spawn {x:48.5,y:72.2}
+  - zs/Vs safe centre (48.5,72)
+  - Os keep-clear [{48.5,73,r6},{48.5,67,r3}]
+- Tomb and body random positions: multiply x by 96/44 and y by 80/36. Chests (40.1,36.4) and (57.6,32). Crate (44.5,33.8). Barrel (53.2,38.2).
+- Counts: Os 26 -> 60, ks bone 12 -> 24, zs enemies 8 -> 16, Vs nests 4 -> 8. Keep cap 8 and danger 5.
+In cc(), isle block: ac mountains at (18.3,22.7), (74.6,27.6), (66.3,58.2). sc path (48.5,70) -> (22.3,18.7). oc (22.3,18.2,1.6). Flowers a(20.1,20.4,5). Chest (22.3,18.2). Tombs (18.3,16.4) and (26.6,16.9). Mark (20.1,21.3).
+In ec(), isle block: Xs [[52.8,58.7],[62,49.3],[70.3,40.9]]. Zs (70.7,36.9). Qs (27.5,53.8).
+The ferry TO isle (Holt elsewhere, ferry:{to:`isle`,sx:21.5,sy:29.2,cost:1e4}) becomes sx:48.5, sy:72.2. The ferry back to wild is unchanged.
+Leave the isle level entry as it is. Old saved positions inside the isle are already handled: enter() moves a blocked player to the nearest open tile or the spawn.
+
+STEP 2 - Briarwood angel (wild)
+- Map data: in the wild builder (the one that ends `return Rs(e,n,s,`trees`),hc(`wild`,`Briarwood`,...)`), keep hc's returned world. Set world.solid=1 on tiles (23,21), (24,21), (23,22), (24,22), then return it. Do not add a prop, so 2D just has solid tiles.
+- 3D: when the area is wild, load MT('statues/statue_angel_hero_bust.glb') once with Jw. Hide col_base (visible=false). Place the statue at world (24, 0, 22) with rotationY 0 (faces +Z, toward the camera). It casts and receives shadows like other props. Remove it when leaving wild.
+
+STEP 3 - One render pass, fog that follows zoom, wider outdoor window
+- In syncBackdrop: always set this.bgOn=false and never call loadSeason, loadSky, loadClouds, loadBanks, loadRays or loadCrows. The frame then renders only this.scene with this.camera. Leave those methods in place, unused.
+- Every frame, for nE areas that are not Martsirt: k = this.dist - 14, then scene.fog.near = 16+k and scene.fog.far = 46+k. Restore 16/46 when leaving. At default zoom (14) nothing changes.
+- In buildZone, for nE areas use a window of 40 instead of PT in both the bounds and the abs() check. Everything else keeps PT.
+
+STEP 4 - Natural barriers instead of kit walls
+- In buildZone, for nE non-RT areas, a solid tile that is not W.Wall gets lib.rock, exactly as RT does, unless a border prop (STEP 4b) stands on that tile, in which case it gets nothing. W.Wall tiles keep kit walls. Collision is unchanged.
+- 4b. When the area changes, build this.dress (a Group in this.scene, cleared on area change, not windowed) from world.props:
+  - mountain (style peak or none): procedural rock cone. ConeGeometry(1,1,7,4), with vertices jittered by Ns keyed on the rounded prop position. Radius .55*w+.4, height 2.2*w+1.2.
+  - mountain style shelf: CylinderGeometry(.45,1,6,2). Radius .75*w+.3, stretched 1.5x along the nearest map edge. Height 1.3*w+1.2.
+  - mountain style sand: flat dune. Radius .9*w, height .5*w+.3.
+  - rock (style none/bone/dune; skip print/stain): small truncated cone. Radius .32*w*(0.8..1.2 by Ns), height .8*radius.
+  - tree: v5 instanced trees. LOD0 inside the map, LOD1 off-map.
+    - Height: 6.5-9.5 by Ns. Far style: 6*w+3. Giant 14. Blackroot 9.
+    - Width = height * 0.9-1.1. rotY from Ns.
+    - Arch and tint by season:
+      - summer: 70% conifer a/b/c tint (.011,.029,.017), 30% decid a/b tint (.04,.07,.02).
+      - autumn: 60% decid tint (.265,.062,.015), the rest conifer tint (.012,.028,.015).
+      - winter: conifer only, tint (.06,.07,.075).
+      - dead or style dead: conifer_c, tint (.03,.026,.02), height x.7.
+      - Blackroot: conifer_c tint (.01,.012,.01).
+  - Rock material: the ms_bd5_near_rock material taken from the loaded near file (STEP 5). When there is none, use MeshStandardMaterial with vertexColors, dark base #2b2a2c -> light top #6d6a66 (winter top #c9ced3), flatShading.
+  - Instance every shape by kind (InstancedMesh), so it costs a few draw calls.
+- 4c. Off-map props: the ring now covers all ground from 1.5 m outside the edge. Keep an off-map prop only if its quadrant is land and it is within 3 m of the map edge (these edge peaks hide the seam). Drop every other off-map prop, including all off-map props on sea quadrants and on isle/mires (STEP 6 dresses the sea). In-map props are unchanged.
+- 4d. Hero see-through: on dress, statue, ring (STEP 5) and islets (STEP 5) materials, onBeforeCompile discards a 2x2 screen-door pattern for fragments within 1.6 m of the camera->hero segment, nearer the camera than the hero and above y .6. Uniforms are updated every frame from this.camera.position and the hero position.
+
+STEP 5 - Map-hugging rect ring (one file per map)
+- Set WT to '?v=12b' (cache bust for XT and MT).
+- On entering an nE area listed in the FACTS table, load MT('rect/backdrop_near_rect_{ringId}_{season}.glb') with Jw. Areas not in the table get no ring.
+- Add the clone to this.scene at (w/2, 0, h/2), no scaling, no rotation (ring origin = map centre, north = -Z = smaller tile y). Never move it with the player.
+- Node visibility (top-level nodes; hiding a parent hides its child trees):
+  - land quadrant Q: show near_land_Q and apron_Q.
+  - sea quadrant Q: show near_sea_Q.
+  - hide everything else, including every water_Q (STEP 6 draws the sea).
+- Material prep for every mesh: do what prepRing does (vertexColors, fog, the vColor.a fogColor mix), plus discard any fragment whose world XZ is inside the map rectangle [0,w]x[0,h]. Keep this discard: the apron starts 3 m inside the edge and would cover in-map water and sit 0.1 m under the floors. With it there is no overlap with the game ground, so no polygonOffset is needed.
+- isle and mires: also load MT('backdrop_islands_{id}_v2_{season}.glb'). Show islets. Hide water_E/N/W/S and horizon_fog (the STEP 6 ocean and the scene fog replace them). Same pin, same prep.
+- Do not load mid/far quads, fog banks, sky, clouds, rays or crows. They are outside the main camera's 120 m far plane and view.
+- Remove all of this on area change. Log once per area: [12b] id ring=<ringId> season sea=<quads> islands=<v2|none>.
+
+STEP 6 - Ocean, foam, shore rocks, islets
+- For nE areas with any water tile, or with sea quadrants: stop drawing the per-tile water planes. Add one ocean plane (PlaneGeometry 520x520, centred on the map) at y=-0.4.
+- Ocean material: MeshStandardMaterial, roughness .22, metalness .18, normalMap = ocean normal (two scrolling samples combined in onBeforeCompile as in Stage 12 seaMat, uSeaT time uniform).
+  - Colour comes from a distance texture: a DataTexture over the map +-32 tiles, LinearFilter, ClampToEdge, chamfer distance from each water cell to the nearest land cell, r = min(dist/12, 1).
+  - Off-map cells count as water if their quadrant is a sea quadrant of the ring (FACTS table, the near_sea_Q nodes shown in STEP 5). Otherwise they count as land.
+  - Colour: mix teal #1e4f4c (dist 0) -> #0d2a33 (dist 4) -> #061119 (dist 12+). mires uses #2a3824 -> #10180e.
+  - Shader foam: where dist < 1 tile, add noise-broken foam #a9b4b0 at up to .55 alpha.
+- Foam strips: walk land/water tile edges, both in-map and against off-map sea cells. Merge straight runs of 4+ tiles. Place shore_foam_strip_8m clones scaled along X to run/8, centred on the run at the land edge, yawed per the edge table. Animate with one shared clone of the strip material.
+- Shore rocks: for water cells 4-adjacent to land with Ns > .78, place shore_rock_kit a/b/d. Random yaw from Ns, scale .8-1.3, y=-0.4. For water cells 2-5 tiles from land with Ns > .97, place e_seastack. Hide every col_* child. No collision.
+- Islets: on a 7-tile lattice over water cells 6-30 tiles from land with Ns > .8, place c_stack, e_seastack or b_slab scaled 2.5-5x, y=-0.4. Skip this on isle and mires (islands v2 fills that water). On isle and mires, also skip any shore rock or seastack more than 6 m outside the map edge, so nothing overlaps the v2 islets.
+- Build all of this once per area into this.dress.
+
+STEP 7 - Build, publish, screenshot test
+Build once, check the console, publish. Then take screenshots at max zoom-out (dist 40) unless stated:
+1. isle: on arrival at the pier, then at the NE coast. Expect ocean all round, teal-to-deep water, foam, shore rocks, v2 headlands and islets off the coast, no black slab.
+2. isle: walk the ferry both ways (wild -> isle arrival at the pier, isle -> wild).
+3. mires: shoreline with the v2 islets.
+4. wild: north edge midpoint and south edge midpoint (nearest walkable tile to (36,2) and (36,53)). Expect ring ground right up to the edge, no bare band, no black gap.
+5. wild: east border, west sea edge, and the angel at tile (24,22).
+6. iron (winter): east border. Expect snow conifers on the ring, no black canopy blobs.
+7. coast: south sea side. ridge: inland cliffs. tollarch: whole room inside its ring.
+8. wild at night, dist 14: darkness and gear light radius match before.
+9. Martsirt town and one dungeon: unchanged.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

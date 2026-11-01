@@ -1,0 +1,38 @@
+STAGE 12F - REAL GREEN TREES IN THE MAP (3D)
+
+Goal: In-map forest trees (Briarwood and every zone using the conifer/decid archetypes) become the textured gnarled oaks and dark pines, with seasons. Far rings, off-map trees, dead trees and plants stay as they are.
+
+RULES
+New features are 3D only. Do not touch any 2D drawing code.
+If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+Be strict: change only what is listed.
+
+FACTS (live build routes-DhpRp7AU.js, minified names)
+- Asset base FT, loader Yw. New files (all 200): FT + `models/outdoor/v3trees/<name>.glb?v=12f`
+  tree_oak_gnarled_lush, tree_oak_gnarled_b_lush, tree_oak_gnarled_autumn, tree_oak_gnarled_bare, tree_pine_dark, tree_pine_dark_snow
+- Each GLB: node sway_<mesh> with child mesh nodes <mesh>_LOD0 and <mesh>_LOD1. Mesh names: tree_oak_gnarled (lush+autumn), tree_oak_gnarled_b, tree_oak_gnarled_bare, tree_pine_dark (both pines).
+  Each LOD has 2 primitives (three.js loads it as a Group with 2 child meshes): bark (m_out_bark) + leaf cards (alphaMode MASK, doubleSided).
+  COLOR_0 is a sway weight, not a colour. Native height: oaks 8.5 / 8.0 / bare 7.4 m, pines 14.0 m.
+- Edge class build(e,t,n): t = season (`summer`/`autumn`/`winter`/`dead`). Trees BT=[conifer_a,conifer_b,conifer_c,decid_a,decid_b] load via `...BT.map((e) => Yw(WT(`trees/tree_${e}_v5.glb`)))`, then this.placeDress(e,t,v,b,_,x,l).
+- placeDress: `r.kind === 'tree'` -> aE(t,r.style,r.x,r.y,s) gives {arch,tint,height,width,ry}; n = in-map 0.45 / off-map 1; items go into map p keyed `${e.arch}:${+!!i}` (`:0` = in-map). Spawn loop: `for (let [e, t] of p)` -> eE(o.scene,`tree_${n}_LOD${r}`), one shared flat material g, this.spawn(c,g,t). spawn() makes the InstancedMesh + 12C fade twin and uses item.tint as instance colour. Hash QT(x,y).
+
+STEPS
+1. Load. In build, start next to the plants promise `o`: a promise that loads only this season's v3 files (Yw(...).catch(()=>null)):
+   summer: oak_gnarled_lush, oak_gnarled_b_lush, pine_dark. autumn: oak_gnarled_autumn, pine_dark. winter: oak_gnarled_bare, pine_dark_snow. dead: none.
+   Await it after `[c, l] = await o`, keep the token check, pass the result as a new 8th argument to placeDress.
+2. Pick. In placeDress, for tree items with key suffix `:0` only (in-map, not dead-remapped, not style `far`), choose a v3 tree instead of pushing to p:
+   arch conifer_* -> pine (pine_dark, winter pine_dark_snow). arch decid_* -> summer oak_gnarled_lush if QT(r.x+5,r.y)<0.6 else oak_gnarled_b_lush; autumn oak_gnarled_autumn.
+   Winter: aE only returns conifers, so make QT(r.x+3,r.y+1)<0.3 an oak_gnarled_bare instead of the pine.
+   Uniform scale k = 1.5 * e.height * 0.45 / nativeHeight (sx=sy=sz=k), ry = e.ry, tint [1.5,1.6,1.4] on leaves, [1,1,1] on bark. Collect per GLB file in a new Map v3p.
+   If the season's GLB failed to load, fall back to the current v5 path for that tree.
+3. Spawn. For each file in v3p: find node `<mesh>_LOD0`, traverse its child meshes (bark + leaves). For each child: geometry clone -> this.madeGeo; material clone (cache per file+child) with vertexColors=false, flatShading=false, side=2, keep the GLB alphaTest, onBeforeCompile=(e)=>this.hook(e,this.uClipDress,!1), customProgramCacheKey=()=>`e12f-tree`, push to this.madeMat; then this.spawn(geo, mat, items).
+   Do not change spawn(), off-map `:1` trees, far rings, dead trees, plants or the 12E dropSkin code.
+4. Log once per zone: `[12f] trees ${e.id} season=${t} pine=N oak=N bare=N fallback=N`.
+
+TEST
+- Briarwood (wild), summer: textured gnarled oaks and dark pines with leaf cards in the forest, no blob or star-cone trees inside the map; far ring unchanged; fade near the player still works.
+- briarE and isle: same trees. A winter zone: snow pines plus some bare oaks. Coast/weald (dead): unchanged.
+- Console: [12f] line per zone, no errors, no 404s. Walk zone to zone 3 times: phone stays smooth.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

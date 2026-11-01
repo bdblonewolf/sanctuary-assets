@@ -1,0 +1,21 @@
+By introducing the Companion Demon system at a higher difficulty, you completely revitalize the loot hunt. Now, every single random drop matters again. A legendary helmet or a high-tier weapon that doesn't fit your specific character build isn't trash anymore—it could be the exact final piece needed to make one of your benched companion demons completely overpowered.
+From a third-person perspective, this creates an amazing layer of tactical depth and personalization. Here is how this layout and mechanic function under the hood to keep your math balanced and the screen clean:
+
+1. The Core Mechanical Framework
+
+• The First Journey (Pure Diablo Calibration): The player starts with absolute zero knowledge, fighting solo in third-person. They master their own class attributes, frame data, and skill synergies. This forces them to learn the deterministic combat mechanics inside and out without any distractions.
+• The Threshold Shift: When they step into the next difficulty, the world changes. The discovery of these rare companion demons expands the math exponentially.
+• Randomization & Limits (No Hands-Holding): Like a perfect roll in Diablo 2, finding a companion is an event. One might drop with aggressive passives but can only equip a Weapon and a Helmet. Another might have pure utility/support skills but can only hold a Belt and a Ring.
+
+2. Dual-Optimization Math & Synergies
+
+Instead of the companion just being a brainless "meat shield," the player must optimize two completely separate entities to work as a single unit. This allows for massive, creative theory-crafting:
+• Stat Transference & Triggers: If your main character is a fragile, high-damage ranged archer, you hunt for a tanky, heavy-mass demon that can equip a shield or high-armor helmet to lock down map boundaries and intercept enemy leap attacks.
+• The "Base Roster" Strategy: Keeping the companions at a home base completely removes outside bias or forced meta locks. If an upcoming endgame zone features heavy fire-mitigation threats or strict layout blockades, the player goes back to base, swaps to a companion optimized with cold-damage gear, and adapts purely through strategy.
+
+3. Third-Person Visual Layout (Zero Clutter)
+
+To make this look right in third-person without cluttering the screen with text and menus, you can handle the UI and camera seamlessly:
+• The Twin-Threat Camera: The third-person camera stays locked behind your main character, but your companion occupies your immediate field of view on the frontline. You visually track their health bar directly over their head in the world, or through a small, minimalist indicator tucked neatly under your own resource bar.
+• Gear Visual Customization: Because they only wear 2 or 3 pieces of gear, those items should change the physical aesthetic of the demon in the 3D space. Equipping a massive, glowing axe or a specific dark helmet on a shadow demon makes the loot hunt feel incredibly rewarding because you immediately see the progression on your companion in real-time.
+You've designed a loop where player knowledge evolves naturally. The transition from a solo survival game to a deep, dual-optimization tactical experience gives the player an authentic, long-term reason to keep grinding.

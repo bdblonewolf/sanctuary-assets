@@ -1,0 +1,28 @@
+STAGE 5: 3D VIEW RENDERS THE REAL GAME (replace the showcase room)
+
+RULES (strict)
+- Touch only: the 3D class LT, the 3D branches of frame(), the rAF loop's 3D branch, and the 3D branches of onDown/onMove/wheel. Nothing else.
+- Do not change game logic, tick(), balance, makeEnemy, saves, world builders (Ec and its zone functions), or any 2D code (paint, xo/So, draw*). No 2D fixes.
+- No new shadow-casting lights. Keep the one moon SpotLight as the only caster. Torches/braziers: PointLight castShadow=false, max 6 active, nearest to player.
+- Reuse geometry/materials; use InstancedMesh for floor and wall pieces; dispose everything on zone change.
+- Work in the stages below. Report after each. If a step fails twice, stop and report. No retry loops.
+- Build once at the end, check browser console for errors, then publish.
+
+FACTS IN THE CODE (use these, do not search for alternatives)
+- Zone: this.world (from Ec(id)); this.world.id, .w, .h, .tiles (Uint array, index y*w+x, values enum W: Grass0..Stone8,Cave9,Blood10,Wall11,Plaza12,Plank13,Rug14,Water4), .solid (1=blocked), .props [{kind,x,y,style}] (kinds: torch, lamp, bonfire, pillar, barrel, crate, chest, tomb, arch, stairs, rock, pew, bookshelf...), .lights, .npcs [{name,x,y,hide,ash}], .exits [{x,y,to,sx,sy}], .spawn.
+- Collision: ps(world,x,y) and this.blocked(x,y). World unit = 1 tile. Use 3D: x3 = world.x, z3 = world.y, 1 tile = 1 unit (scale kit pieces to 1).
+- Player: this.player.x, .y, .facing (2D iso angle; use this.worldFacing() for ground heading), .hp, .maxHp, .swingT/.swing (attack anim), this.speed (move speed), this.mode (`play`/`dead`).
+- Monsters: this.enemies [{x,y,hp,maxHp,kind,rarity,boss,facing,state,stateT,flash (hit),dying,hidden,buried,scale}]. Loot: this.loot [{x,y,item,gold,bob}]. Projectiles: this.projs [{x,y,kind}].
+- Zone change: this.enter(id,x,y) replaces this.world and resets enemies/loot/projs. Detect via this.world.id change (or object identity) in LT and rebuild.
+- Loop: frame(e) currently returns early when this.view3d after stepRoom(e), so tick() never runs in 3D. The rAF loop then calls this.room.frame(this.frameDt,this.roomX,this.roomZ,this.roomVx,this.roomVz,moving).
+- 2D input: onDown converts screen->world with So(this.cam(),x,y), sets this.target={x,y}, uses this.foeAt(...) to set attackFocus/pointerAttack/attackOnce + faceHero. Stick: setStick -> this.stickX/stickY. Skills: castSkill(). Keys via this.held().
+
+STEP 1 - Game runs in 3D. In frame(): delete the view3d early-return and the stepRoom call so the normal update/tick path runs in both views. Remove stepRoom and roomX/roomZ/roomVx/roomVz/roomSpeed/roomTarget usage. Keep Q/E yaw and wheel/pinch zoom (room.nudgeYaw, nudgeDist, gesture).
+STEP 2 - Input. In onDown/onMove 3D branch: room.pick(x,y,viewW,viewH) must intersect the ground plane only (y=0) and return world {x,y} (x=hit.x, y=hit.z), no clamp to the old room. Then run the SAME logic as 2D after So(): this.target={x,y}; foe check by nearest enemy within 0.9 tiles of the pick point (not dying/hidden) -> faceHero, attackFocus, pointerAttack, attackOnce, target = foe. Two-finger tap still pinch/rotate (gesture), not castSkill. Joystick/keys/skill buttons already feed the real player; leave them.
+STEP 3 - Zone geometry. Replace the showcase room build in LT with buildZone(world): only tiles within 24 tiles of the player are built (rebuild chunk when player moves >8 tiles from last build center). Floor tiles: Tile1/Tile2/Tile3 pieces from modular_dungeon_kit.glb (see models/pieces_index.json), instanced, pick by hash of x,y. solid/Wall11 tiles: Wall_01..Wall4 pieces on edges facing an open tile, instanced. Water: dark flat plane. Outdoor zones (town/wild): plain dark-tinted floor material, no walls except solid tiles as low rock/Rock pieces. Props: torch/lamp -> WallTorch piece + flame; bonfire -> brazier.glb; pillar -> Pillar piece; barrel/crate/chest -> dungeon_props.glb or kit Barrel pieces; arch/stairs/exits -> glowing marker; others -> skip. Banners (worn_banner.glb, scale 0.0046) only on 1 of every ~12 wall faces. Remove the old torches/pickables/showcase.
+STEP 4 - Actors. Hero: plated_knight_rigged.glb at player x/y, rotation from worldFacing(); clip Run if this.speed>0.15, Attack while player.swingT>0, Hit on hp drop, Death when mode===`dead`, else Idle (crossfade 0.15s). Monsters: one pooled clone per enemy object (Map keyed by enemy). kind skeleton/zombie-like -> skeleton_animated.glb (Take 001; lunge when state attacking/cd reset, tilt on flash>0, sink+fade when dying); boss or rarity rare -> armored_guard_knight.glb; other kinds -> existing simple meshes tinted. Hide hidden/buried. Scale by e.scale. Remove clones for enemies no longer in this.enemies. NPCs: knight clone tinted dark brown, Idle, skip hide>0. Loot: small emissive octahedron, gold-colored for gold, bobbing. Projs: small emissive sphere.
+STEP 5 - Camera and lights. Camera orbits the real player (yaw from nudgeYaw, dist from nudgeDist, clamp dist 6-40), smooth follow. Moon SpotLight follows the player as the only shadow caster. Keep LT.frame(dt) signature simple: frame(dt, game) reading game state; update the rAF call accordingly. Keep HUD overlay above the 3D canvas.
+STEP 6 - Build, check console (no errors, no missing asset 404s), test: walk to an exit -> new zone builds and old one is disposed; tap enemy -> attack; die -> Death clip. Publish.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then: FPS seen in 3D on phone, any console errors, files changed.

@@ -1,0 +1,29 @@
+STAGE 10: WORN GEAR + PER-BASE WEAPONS (3D hero only)
+
+RULES
+- Change only the 3D code: item-map loader (Xw, uT, mT, hT, gT, _T, vT), ItemIcon (oD), and the hero rig in the 3D scene class GT (buildKnight, readSet, syncGear, mountGear, parkSword, putLocal, loadProp, propUrl, AC, jT, MT).
+- New features are 3D only. Do not touch any 2D drawing code.
+- No game logic, stats, items, save or controls changes.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+
+FACTS (live bundle)
+- Xw = "?v=9c"; uT(path, bust) = repo base + path + (bust ? Xw : ""). mT() fetches models/items/ITEM_MAP.json and icons with Xw; atlases fill Zw (node name -> Object3D); weapons[].glb / fallback are preloaded into Qw keyed by uT(glb,false) (no cache bust).
+- gT({item}) returns bases[item.base] or, for type "weapon", weapons[item.base]. vT(item) crops the sheet using gT(...).icon || .node. ItemIcon = oD({it,color}) -> <img src={vT(it)}> else aD (old SVG).
+- AC.heroAnimUrl = knight_anim.glb?v=8f; AC.heroWeaponUrl = weapon_sword_v2.glb; AC.heroWeapons = {axe, greataxe, greatsword, bow, arrow, staff, wand, shield, dagger, holster_*}. propUrl(set) = set==="sword" ? AC.heroWeaponUrl : AC.heroWeapons[set]. loadProp caches per set in propCache.
+- readSet(e) reads e.eq.weapon (base+name, lowercased): bow / staff / wand|sting / axe|hatchet|cleaver -> greataxe / spear|pike|glaive|mace|maul|hammer -> sword / dagger|knife|stitch|fang -> dagger / hands===2 -> greatsword / else sword. "Thorn Wicker", "Spite Wicker" and "Inquisitor's Nail" match no keyword.
+- syncGear(player) -> readSet, canShield, showScabbard, dropHolster, then mountGear(set, shield, token). parkSword: armed -> putLocal(mesh, set==="bow" ? rig.leftHand : rig.hand, [0,0,0],[0,0,0,1]); stowed -> MT[set] on hipBone/spineBone.
+- buildKnight: model = AC.heroAnimUrl scene, bones found by FT(root,"mixamorigRightHand" | "mixamorigLeftHand" | "mixamorigLeftForeArm" | "mixamorigHips" | "mixamorigSpine2").
+- Knight body meshes (three.js names): MannequinBox001bdfbdf001_08_-_Default_0, MannequinBox001cc001_06_-_Default_0, MannequinBox001xcsa001_12_-_Default_0, MannequinBox013_07_-_Default_0, MannequinObject001cc001_09_-_Default_0, MannequinObject001ccc_11_-_Default_0 (scabbard), MannequinObject008_10_-_Default_0, MannequinObject011_13_-_Default_0. hide_three in ITEM_MAP uses these names.
+- ITEM_MAP (new): weapons[base] = {glb:"models/weapons/weapon_<slug>.glb", fallback:"models/weapon_<set>.glb", set, icon:"wpn_<slug>", grid, floorScale}. bases[base].worn.knight.parts[] = {node, bone_three, pos, quat [x,y,z,w], scale, hide_three}. All weapon glbs are in the same hand-bone space as the per-set files (identity offset).
+
+STEPS
+1. Cache bust: set Xw = "?v=10a". Load weapons[].glb and fallback with the bust too (uT(glb,true)) and key Qw the same way in hT and _T. ItemIcon (oD/vT) keeps using gT(...).icon, so weapons now show the wpn_* sheet icons; keep aD as the fallback.
+2. Set from the map: at the top of readSet, if the loaded ITEM_MAP has weapons[e.eq.weapon.base].set, return it ("sword"|"dagger"|"greataxe"|"bow"|"staff"|"wand"). The map already sends spear/pike/glaive to "staff" and mace/maul/hammer/nail to "sword". Keep the keyword chain as the fallback.
+3. Per-base hero weapon: in mountGear, for the equipped weapon use the Object3D from _T(weapons[base]) (glb, then fallback) cloned; if none, use loadProp(set) as today (AC.heroWeapons). Clip set, stow transform (MT), holsters and shield rule stay keyed by set. Scabbard shows only for set "sword" when the base is a blade (not mace/maul/hammer/nail); maces hang at the hip with no scabbard. Re-mount when the base changes, not only the set (pendingKey = set + base + shield).
+4. Worn helm and body armor: for e.eq.helm and e.eq.armor (whatever slot keys the player uses), read bases[item.base].worn.knight.parts. For each part: clone Zw.get(part.node) without its children, find the bone FT(rig.root, part.bone_three), add it, set position=pos, quaternion=quat, scale=scale. Hide every knight mesh named in part.hide_three while that part is worn.
+5. Parts are separate: chest, pauldron_L, pauldron_R, fauld, tasset_L, tasset_R are each added and removed as their own object, tracked in a Map keyed slot+node. On unequip/change remove only that slot's parts, then re-show any mesh no remaining part hides.
+6. Re-sync: call the worn sync from syncGear (every equip change) and once after buildKnight / load, keyed by helm+armor base so it does nothing when unchanged.
+7. Test: equip in turn a sword, mace, spear, dagger, axe, greatsword, staff, wand, each bow (Yew Longbow, Thorn Wicker, Spite Wicker); then each helm and armor, then remove them. Check: each base shows its own model in hand and when stowed; spears use staff clips and stow, maces use sword clips and show no scabbard; bows sit in the left hand; inventory/stash/vendor weapon icons are the new sheet icons (no old SVG); armor parts follow the body with no body mesh poking through; removing gear brings the body meshes back; reload keeps it all.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

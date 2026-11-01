@@ -1,0 +1,55 @@
+SANCTUARY 3D - STAGE 4: real gritted hero, enemies, dungeon pieces and orb HUD.
+
+RULES FOR THIS RUN (budget is limited)
+- Do the steps in order. Report after each step. If a step fails twice, stop and report. No retry loops.
+- Work only in the 3D renderer (src/render3d/ and the 3D room class) and the HUD orbs. Do not change game logic, combat, skills, items or balance.
+- 3D View (beta) OFF must still be the current 2D game.
+- Every model keeps its current KayKit version as a fallback if loading fails. Never block gameplay on a load.
+- Download every file below into public/assets3d/sanctuary/ (or public/hud/ for the HUD) and load it from there. Only use the URL directly if the download fails.
+- Load each GLB once, cache it and clone it per instance (SkeletonUtils.clone). Share materials. Do not re-grit, recolor or tint these models: they are already gritted. Only set castShadow/receiveShadow, SRGB color space on their textures, and envMap intensity.
+- Do only what is listed. No extra features, no redesign, no refactor of working code. Do not test endlessly: build, check the console for errors, publish.
+
+BASE = https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main
+
+STEP 0 - 3D HOTFIX FIRST (stutter + flicker). Small edits only.
+a) Torch shadows: delete the syncTorchShadows call in the render loop, and the method itself. Set castShadow = false on every torch PointLight permanently (they keep their light and flicker). The overhead "moon" SpotLight is the only shadow caster: castShadow = true, map 1024 (512 when low).
+b) Overlaps: whenever a loaded model replaces an old primitive (shell/walls, pillars, steps, banners, brackets), remove the old mesh from the scene and dispose its geometry/material. Do not just hide it. Anything snapped onto a surface sits 0.01 out from it, or uses polygonOffset (factor -1, units -1).
+c) View blockers: each frame, raycast once from the camera to the hero's chest. Walls, pillars and props it hits fade to opacity 0.25. Everything else returns to 1. Fade over 0.2 s, and stay faded 0.4 s after the ray stops hitting. Only toggle material.transparent when a fade starts or ends. Give each faded object one cloned material, made once and reused.
+d) After all models finish loading (end of dressAll and after the Stage 4 swaps), call renderer.compile(scene, camera) once.
+Report Step 0 before continuing.
+
+STEP 1 - HERO (top priority)
+- File: BASE/models/plated_knight_rigged.glb (about 9 MB). Show the KayKit knight until it finishes loading, then swap.
+- It has Mixamo bones (three.js names them like mixamorigHips, mixamorigRightHand) and these clips: Idle, Walk, Run, Attack, Hit, Death.
+- In src/render3d/assets3d.js set heroModelUrl to the new file and heroAnims to { idle:"Idle", walk:"Walk", run:"Run", attack:"Attack", hit:"Hit", death:"Death" }. Use the same state mapping and 0.15 s cross-fade as Stage 3.
+- Scale it to the same height as the old hero, with its feet on the floor. Set yawOffset so it faces its movement direction.
+- Remove the separate KayKit sword from the hero. The plated knight already holds its own sword.
+- The sword reads thin from the isometric camera. Find the sword mesh or material and add a faint rim of cold light (a small emissive boost, #9fb4c8 at 0.15). If the sword tip clips into the floor during Idle, after each mixer update rotate mixamorigRightForeArm about 12 degrees upward on top of the animation.
+- Death: if the body sinks into the floor at the end, raise the hero root slightly during the Death clip so it lies on top of the floor.
+
+STEP 2 - ENEMIES
+- Skeletons: BASE/models/skeleton_animated.glb. Its only clip is "Take 001", a shambling walk. Use it for walk (timeScale 1.0) and idle (timeScale 0.3).
+  - Attack: a quick forward lean and lunge of the root (0.3 s) on top of the clip.
+  - Hit: a short backward tilt.
+  - Death: tip over and sink into the floor over 1 s, then remove it as now.
+  - Replace both Skeleton_Minion and Skeleton_Warrior with it. Make Warriors 15% bigger.
+- Elite or boss enemies: BASE/models/armored_guard_knight.glb. Its only clip is "Idle". Use Idle while it stands, and slide it with a slight bob while it moves. Attack, hit and death work the same as the skeletons. If no elite type exists, place one by the barred gate as non-combat decoration only (Idle loop, no AI, no collision changes).
+
+STEP 3 - DUNGEON PIECES
+- Files: BASE/models/modular_dungeon_kit.glb, BASE/models/dungeon_props.glb, BASE/models/brazier.glb and BASE/models/worn_banner.glb. Find pieces by name with getObjectByName and clone them.
+- In modular_dungeon_kit the useful names are Wall_01_lambert10_0, Wall3_01_lambert11_0, Wall4_01_lambert12_0, Pillar_01_lambert6_0, WallTorch_01_lambert9_0, BarrelClosed_01_lambert4_0, BarrelBroken_01_lambert4_0, Rock_01_lambert7_0 and Banner_01/02/03.
+- In dungeon_props the useful names are Pillar_6_*, Door_6_*, Portcullis_3_*, Alcove_4_*, Altar_and_Book_2_*, Torch_5_* and Candle_*. Pieces split into several meshes share a prefix: clone all meshes with that prefix together.
+- Replace the KayKit walls and pillars with these (pillars from Pillar_6 or Pillar_01). Scale them to the Stage 3 wall height. The pillars currently render pure black: they must get the scene lighting and a real stone texture.
+- Put a wall torch model at each existing torch light. Put 1 or 2 braziers (brazier.glb) in the room, each with a warm light that does not cast shadows.
+- worn_banner.glb is very large: scale it by about 0.0046 to make it about 1.7 m tall. Use it in place of the plane banners, keeping the Stage 3 sway if it's easy. If not, hang it still.
+- Add 1 altar with a book, 1 or 2 alcoves and a few candles. Keep the barrels and crates from Stage 3.
+
+STEP 4 - ORB HUD
+- Files: BASE/hud/orb_red.png (health), BASE/hud/orb_blue.png (mana) and BASE/hud/frame_sheet.jpg (an ornate frame reference). Use the frame sheet only if a clean piece can be cut from it. If not, leave it out.
+- Replace the current health and mana circles with these orb images. The liquid fill level follows current/max (a clip-path or mask from the bottom up), with the number centered. Keep the current positions and sizes, or make them slightly bigger. Apply to both 2D and 3D modes.
+
+STEP 5 - CREDITS AND PERFORMANCE
+- Add a "Credits" button to Settings that shows the text of BASE/CREDITS.md (fetch it once, or copy it into the repo). It is required by the CC-BY license.
+- No new shadow-casting lights anywhere (the moon spotlight stays the only one). New lights from braziers, candles and the chandelier never cast shadows. Skip mixer updates for enemies more than 25 m from the hero. If an FPS toggle exists, report the FPS before and after this stage.
+
+Report at the end, in a few lines: what loaded, what fell back to KayKit, any missing names, and the FPS.

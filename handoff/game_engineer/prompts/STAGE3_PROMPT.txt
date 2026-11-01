@@ -1,0 +1,75 @@
+SANCTUARY 3D - STAGE 3: real models, real dungeon pieces, torches.
+
+RULES FOR THIS RUN (budget is limited)
+- Do steps in order. If a step fails twice, stop and report; no retry loops.
+- Work ONLY inside the 3D renderer (src/render3d/ or wherever Stages 1-2 put it). Do not touch game logic, combat, skills, items, UI menus or balance.
+- The 2D game must stay exactly as it is. Settings > "3D View (beta)" OFF = current game.
+- If a model fails to load, keep the current primitive as fallback. Never block gameplay on a load.
+- All assets are CC0. Download them into the repo under public/assets3d/ (keep the folder names below) and load from there. Only fall back to the public URL if downloading fails.
+- Keep the look: dark, gritty, torchlit Diablo-style stone dungeon. Keep the existing ACES tone mapping, hemisphere light, hero fill light, light-shaft cone and fog.
+
+SOURCE URLS
+KK_CHAR = https://raw.githubusercontent.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0/main/addons/kaykit_character_pack_adventures
+KK_SKEL = https://raw.githubusercontent.com/KayKit-Game-Assets/KayKit-Character-Pack-Skeletons-1.0/main/addons/kaykit_character_pack_skeletons
+KK_DUN  = https://raw.githubusercontent.com/KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0/main/addons/kaykit_dungeon_remastered/Assets/gltf
+PH_MOD  = https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/<id>/<id>_1k.gltf
+PH_TEX  = https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/<name>/<name>_<map>_1k.jpg   (already used in Stage 2)
+- KayKit character .glb files reference an external texture in the same folder: fetch it too (knight_texture.png, skeleton_texture.png).
+- KayKit sword .gltf files need their .bin and knight_texture.png from the same folder.
+- Poly Haven .gltf files need their .bin and textures. Get the exact file list from https://api.polyhaven.com/files/<id> (send a User-Agent header, e.g. "User-Agent: SanctuaryBuild/1.0", or it returns 403). Keep the relative paths the .gltf expects.
+
+STEP 0 - SETUP (small)
+- Create src/render3d/assets3d.js with one config object, e.g.:
+  heroModelUrl: "/assets3d/kaykit/Knight.glb"
+  heroAnims: { idle: "Idle", walk: "Walking_A", run: "Running_A", attack: "1H_Melee_Attack_Slice_Diagonal", hit: "Hit_A", death: "Death_A" }
+  enemyModels: { warrior: "/assets3d/kaykit/Skeleton_Warrior.glb", minion: "/assets3d/kaykit/Skeleton_Minion.glb" }
+  plus targetHeight, yawOffset and tint per model.
+- Write one generic loader: GLTFLoader + SkeletonUtils.clone for instancing + an AnimationMixer per instance + a playState(name) helper that cross-fades (0.15 s), plays loops for idle/walk/run, and LoopOnce + clampWhenFinished for attack/hit/death. Missing clip names must log a warning, not crash.
+- Write one gritMaterial(mesh, tint) helper: for each MeshStandardMaterial, multiply color toward #8a8580 (color.multiply), roughness 0.8, metalness max 0.3, keep the map. Mark textures with SRGBColorSpace.
+- Comment at the top: "KayKit chibi models are STAND-INS. A realistic hero/enemy model will replace them later; change only this config."
+
+STEP 1 - HERO (top priority)
+- Download KK_CHAR/Characters/gltf/Knight.glb and KK_CHAR/Characters/gltf/knight_texture.png.
+- Replace the blocky hero with the Knight via the generic loader. Scale it to the old hero height. Face the existing facing value.
+- Map game states to clips: idle -> Idle; moving -> Walking_A (Running_A if the hero speed is above the walk threshold); basic attack or melee skill -> 1H attack; took damage -> Hit_A (do not interrupt an attack); dead -> Death_A (hold the last frame); respawn -> Idle.
+- Apply gritMaterial.
+- Sword: download KK_CHAR/Assets/gltf/sword_1handed.gltf (+ .bin). Attach it to the bone/object named "handslot.r" (getObjectByName). If "handslot.r" is missing, attach to the right hand bone and log it.
+- Hero casts shadows. Delete or hide the old primitive meshes only when the model has loaded.
+
+STEP 2 - SKELETON ENEMIES
+- Download KK_SKEL/Characters/gltf/Skeleton_Warrior.glb, Skeleton_Minion.glb and skeleton_texture.png.
+- Load each model ONCE, then clone per enemy (SkeletonUtils.clone). Use the same config, state mapping and gritMaterial (tint a bit greyer/grimier, e.g. #7d786e).
+- Heavier/elite skeletons -> Warrior; normal -> Minion.
+- On spawn: play Skeletons_Awaken_Floor once, then Idle. Only if it is cheap; skip it if spawns are frequent or if it delays combat. Death -> Death_A, then fade out or remove as the current code does.
+- Update all mixers in the existing render loop with one delta. Skip mixer updates for enemies far outside the camera view.
+
+STEP 3 - ENVIRONMENT
+a) Floor: make the cobblestone_floor_08 stones about 3.5x bigger (divide the texture repeat by about 3.5 on diff, nor_gl and rough together).
+b) Walls: about 2x taller than now. Use KK_DUN/wall.gltf.glb (plus wall_arched.gltf.glb, wall_doorway.glb, wall_gated.gltf.glb for variety) as the layout pieces, snapped to the existing wall positions. Scale Y about 2. Replace their material with the Stage 2 castle_brick_07 PBR (diff + nor_gl + rough). Use world-scaled UVs or a triplanar-style repeat so the bricks do not stretch after the Y scale. Darken slightly.
+c) Pillars: replace the brown tube pillars with KK_DUN/wall_pillar.gltf.glb (or pillar_decorated.gltf.glb for free-standing ones), same height as the new walls, castle_brick_07 PBR material.
+d) Stairs: replace the ramp with KK_DUN/stairs.gltf.glb (stairs_walled.gltf.glb where it sits against a wall), stone PBR material. Do not change the walkable collision; this is visual only.
+e) Banners: take the texture from KK_DUN/banner_patternA_red.gltf.glb and put it on a PlaneGeometry (about 1 x 2.5, 4 x 10 segments) hanging on 2-4 walls. Darken the texture toward #6a5a50. Add a gentle sway in the vertex shader via material.onBeforeCompile: offset z by sin(time*1.3 + uv.y*3.0) * 0.06 * (1.0 - uv.y), so the top stays fixed. Use DoubleSide.
+
+STEP 4 - REALISTIC PROPS (Poly Haven, glTF 1k, CC0)
+Download with the .bin and textures (see SOURCE URLS):
+- large_castle_door: on 1 wall as a sealed door.
+- large_iron_gate: in 1 archway or doorway.
+- kite_shield: 1-2 as wall decor (or as the hero's offhand on "handslot.l" if it reads well; wall decor is the default).
+- wooden_barrels_01: 1-2 clusters in corners.
+- wooden_crate_01: 2-3 near the barrels.
+- lantern_chandelier_01: 1 hanging over the room center, with one weak warm light (no shadow).
+Place them tastefully along the walls, never on the walk paths or over spawns. Scale to real size (a door about 3 m, a barrel about 1 m). Apply mild darkening only; keep their PBR maps. Props cast shadows; none of them blocks movement.
+OPTIONAL (only if everything above is done): treasure_chest is 103k tris. Use it only if simplified first (e.g. @gltf-transform/cli simplify to about 10k tris); otherwise skip it.
+
+STEP 5 - TORCHES
+- Download KK_DUN/torch_mounted.gltf.glb. Mount on the walls about every 6-8 m, at about 2.2 m height.
+- Each torch gets a warm PointLight #ff9a40, intensity about 3-4, distance about 8, decay 2, with a flicker: intensity *= 0.85 + 0.15 * noise(time*8 + seed) (use sum of sines; each torch has its own seed). Add a small additive flame sprite or emissive at the tip.
+- Shadow cap: at most 3 shadow-casting point lights at a time (the ones nearest the hero; shadow map 512). All others castShadow = false. Hard cap of about 12 torch lights in the scene; beyond that use the emissive flame only.
+
+STEP 6 - REPORT
+Report briefly:
+- What you changed (files, assets downloaded with their paths under public/assets3d/).
+- What you skipped or what failed, and why (with the error text).
+- Clip names actually used for hero and skeletons.
+- Rough triangle count and draw calls in the main room, and FPS on desktop if you can see it.
+- Confirm that the 2D view still works with the 3D toggle OFF.

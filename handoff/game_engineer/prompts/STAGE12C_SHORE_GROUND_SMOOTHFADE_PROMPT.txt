@@ -1,0 +1,140 @@
+STAGE 12C - Smooth occlusion fade, splat outdoor ground, sand shore band, rounded map corners
+
+Goal: (A) Replace the FIX1 Bayer dither (visible 4x4 pixel grid) with a real alpha fade: each faded dress instance is drawn by a second, transparent InstancedMesh, so a tree between the camera and the hero becomes about 38% opaque, with no pixel grid. (B) Replace the dungeon kit floor tiles on outdoor maps (yE zones: not Martsirt, not dungeons, churches or town interiors) with one splat-blended ground mesh per zone, textured by season, with soft noise-broken transitions. Where there is sea, add a dry/wet sand band along the coast, shelve the ground under the water instead of ending on a square 0.4 m step, and round the map corners to match the backdrop ring lip. Kit beaches and cliffs are stage 12D. 3D only.
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed.
+- Edit the source that builds into the current bundle (index-B6zd1c8M.js / routes-BESGfWrN.js). Minified names below come from that bundle; find the matching source by the quoted anchors.
+- Walkability, collision, tiles, pathing, mobs and the hero height stay exactly as they are. Only visuals change.
+- Dungeons, churches, town interiors and Martsirt (addTownGround, m_ground_blend) are untouched. Kit floors stay on every non-yE zone.
+- Keep the hero x-ray silhouette, updateFade, the ring in-map discard (uClip), ring, islets, ocean, foam and shore rocks as they are, except where a step says otherwise.
+- New asset URLs use ?v=12c. Do not change the existing ?v=12b cache-bust (FT / sE).
+
+FACTS (current bundle)
+- three r187. Fragment chunk order ends: opaque_fragment, tonemapping, colorspace, fog_fragment, premultiplied_alpha. Minified: InstancedMesh X_, InstancedBufferAttribute H_, Mesh w_, MeshStandardMaterial Kv, PlaneGeometry Pv, DataTexture R_, TextureLoader jy, Vector2 Jm, Color Z. Constants: RepeatWrapping kf=1000, ClampToEdge Af=1001, LinearFilter Ff=1006, UnsignedByte Rf=1009, RGBAFormat $f=1023, sRGB nm=`srgb`, linear rm=`srgb-linear`.
+- Asset base PT = `https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/`. RT = per-zone ring table (`wild: { ring: ..., sea: ... }`), BT(id, tiles, w, h) = zone has sea or any water tile, IT = 4 (Water), WT(x, y, w, h) = off-map quadrant, LT = [E, N, W, S].
+- Tile enum: Grass 0, Grass2 1, Dirt 2, Road 3, Water 4, Bridge 5, Sand 6, Sand2 7, Stone 8, Cave 9, Blood 10, Wall 11, Plaza 12, Plank 13, Rug 14.
+- vE(id) season: winter (iron, ascent), autumn (tollarch), dead (waste, ashcamps, coast, spireroots, weald), else summer. yE(zone) = outdoor.
+- Edge class JT (search `edge12b`). Fields madeGeo, madeMat, madeTex, madeInst, fades, uMap, uClipDress, group, dummy, tint. wipe() resets fades, disposes madeInst/madeGeo/madeMat/madeTex and empties group.
+- JT.hook(e, t, n): n = ring flag. Fragment `#include <common>` block holds `const float BAY[16] = ...` and `void edgeCut()`. Its second `if (vFade > 0.001) { ivec2 q = ...; if ((BAY[...` block is the Bayer dither.
+- JT.spawn(e, t, n): `let r = new X_(e, t, n.length);` builds matrices, optional setColorAt, sets attribute `aFade` (H_) on the geometry e, then `this.fades.push({ attr: c, ... }), this.madeInst.push(r), this.group.add(r)`. Trees use the shared material p (DoubleSide, vertexColors), rocks/cones use m. Both keyed `e12b-dress`.
+- JT.build(e, t, n): `let r = RT[e.id], i = BT(...), [a, o, s, c, l, u, ...d] = await Promise.all([...])`, then `if (n !== this.token || this.current !== e) return;`, then placeRing / placeIslands / placeDress / `i && this.placeOcean(e, f, l, s?.scene ?? null, c?.scene ?? null)` / statue / `[12b]` log.
+- JT.placeOcean(e, t, n, r, i): a = w, o = h, s = w+64, c = h+64, l = Float32Array(s*c), land predicate `u(n, r)` (in-map: tile !== IT; off-map: !t.has(WT(...))). Seeds `l[...] = u(t - 32, e - 32) ? 0 : 1e6`, then two chamfer loops (forward, backward). Then `let f = new Uint8Array(s * c * 4)` writes R = clamp(l-1, 0, 12)/12, A = 255, and `let p = new R_(f, s, c, $f, Rf)` (linear, clamp, no mips, flipY false). The ocean shader only reads `.r`. Cell (tx, ty) sits at index (ty+32)*s + (tx+32).
+- Backdrop ring inner lip: rounded rectangle 1.5 m outside the map edge, corner radius 2.5 m. The ring is placed at (w/2, 0, h/2). The land-side apron sits at y=-0.1 from 3 m inside the map edge to 1 m past the lip. Sea level is -0.4.
+- 3D view class LE: constructor `(this.edge = new JT(this.scene))`. consider(e, t, n) calls `this.edge.sync(yE(e) ? e : null, vE(e.id))` every frame and rebuilds the zone when `this.built !== e`. buildZone(e, t, n, r): `a = yE(t)`, `v = i ? e.floorsDark : e.floors`, floor push `(v.length && l[OE(g, y) % v.length].push({ x: h, y: 0, z: _, ry: ... }), i)`.
+- Martsirt template for a splat ground: LE.addTownGround (search `town-ground-v1`): Kv + onBeforeCompile, varying vWorldXZ, normals via `tbn * mapN`, roughnessFactor replace, uv = xz.
+- New ground textures (1K jpg, tileable, OpenGL normals), PT + `models/outdoor/v5_ground/materials/<set>/t_ground_<set>_{albedo,normal}.jpg?v=12c`. Sets and tiling (metres per repeat): grass_dark 3, grass_dead 3, ash 2, dirt_mud 2.5, road 4, sand_coast 6, sand_desert 8. Road is directional: texture V runs along the road, U across it. Do not load the _orm files.
+
+STEPS
+1. Smooth fade, shader. In JT.hook add a 4th parameter f (fade pass). In the fragment `#include <common>` block delete the `const float BAY[16] ...` line, and replace the whole `if (vFade > 0.001) { ... }` block in edgeCut() with the single line `${f ? 'if (vFade < 0.001) discard;' : 'if (vFade > 0.001) discard;'}` for every non-ring material. For the ring (n true) emit no vFade line at all. When f is true, also replace `#include <fog_fragment>` with `#include <fog_fragment>\ngl_FragColor.a *= 1.0 - 0.62 * vFade;` (the ring branch never has f). Existing callers pass f = false.
+
+2. Smooth fade, twin mesh. In JT add a field `fadeMats = new Map()`. In JT.spawn, right after `let r = new X_(e, t, n.length);` and its matrix/colour loop:
+   - get the fade material: `let fm = this.fadeMats.get(t);` if missing, `fm = t.clone()`, `fm.transparent = true`, `fm.depthWrite = false`, `fm.onBeforeCompile = (s) => this.hook(s, this.uClipDress, false, true)`, `fm.customProgramCacheKey = () => 'e12b-dress-fade'`, then `this.madeMat.push(fm)` and `this.fadeMats.set(t, fm)`. Keep side and vertexColors from the clone.
+   - `let fr = new X_(e, fm, n.length); fr.instanceMatrix = r.instanceMatrix; if (r.instanceColor) fr.instanceColor = r.instanceColor;` with `fr.renderOrder = 3`, `fr.castShadow = false`, `fr.receiveShadow = false`, `fr.frustumCulled = false`.
+   - Next to `this.madeInst.push(r), this.group.add(r)` also push and add fr. aFade stays on the shared geometry, so updateFade needs no change.
+   In JT.wipe add `this.fadeMats.clear()`.
+
+3. Signed coast field. In JT.placeOcean:
+   - wrap the two existing chamfer loops in a local function `ch(arr)` and call `ch(l)`;
+   - build a second Float32Array `g` (seeds: `u(...) ? 1e6 : 0`) and call `ch(g)`;
+   - per cell compute the signed distance `sg = l > 0 ? l - 0.5 : 0.5 - g` (negative on land, 0 on the coast line, positive at sea) and store it in a new Float32Array `this.coastS`;
+   - in the `f` loop also write the B channel: `f[e*4+2] = Math.round(Math.min(1, Math.max(0, (sg + 8) / 16)) * 255)`. Keep R and A unchanged;
+   - after p is made, set `this.coastTex = p` and `this.coastSpan = [s, c]`.
+   In JT.wipe set coastS, coastTex and coastSpan to null.
+
+4. Ground textures. Add a field `gTex = new Map()` (persistent across zones, never disposed in wipe) and a method `gLoad(set, kind)`, kind `albedo` or `normal`. It caches a Promise per path in gTex and loads PT + `models/outdoor/v5_ground/materials/${set}/t_ground_${set}_${kind}.jpg?v=12c` with `new jy()`. Set colorSpace to nm (albedo) or rm (normal), wrapS and wrapT to kf, and anisotropy 4. Keep the loader's default flipY (true). Resolve null on error.
+
+5. Layer choice. Add a function `groundSet(id, season)` returning { L: [L0, L1, L2, L3], tile: [m0, m1, m2, m3], frost, tint, ash }:
+   - L1 = dirt_mud (2.5), L2 = road (4).
+   - waste, ashcamps: L0 = ash (2), L3 = sand_coast (6), ash true.
+   - desert, duneW: L0 = grass_dark (3), L3 = sand_desert (8).
+   - everything else: L3 = sand_coast (6). L0 = grass_dark (3) for summer and autumn, grass_dead (3) for dead and winter.
+   - frost = 0.55 for winter, else 0. tint = [1.08, 0.95, 0.78] for autumn, else [1, 1, 1].
+
+6. Load with the zone. In JT.build compute `let gs = groundSet(e.id, t);` before the Promise.all. Append the 8 texture loads to the end of the Promise.all array in the order L0 albedo, L0 normal, L1 albedo, L1 normal, L2 albedo, L2 normal, L3 albedo, L3 normal, and take them back off the end of `d` before d is used for trees (`let gt = d.splice(d.length - 8, 8);`). The existing token check then covers them. At the end of build, after the placeOcean / statue calls and before the log, call `this.placeGround(e, gs, gt, !!r)`.
+
+7. Splat texture. In a new JT.placeGround(e, gs, gt, ring), build an RGBA8 DataTexture at 2 texels per tile over tiles -2 .. w+1 and -2 .. h+1 (size SW = 2*(w+4), SH = 2*(h+4)). Each texel reads the tile at (clamp(floor(i/2) - 2, 0, w-1), clamp(floor(j/2) - 2, 0, h-1)). R = dirt, G = road, B = L3 (sand), 0..1 floats first:
+   - Grass 0: 0/0/0. Grass2: 0.25/0/0. Dirt, Cave, Blood: 1/0/0. Wall: 0.5/0/0. Road, Bridge, Plaza, Plank, Rug: 0/1/0. Water, Sand: 0/0/1. Sand2: 0.2/0/0.8.
+   - Stone: 0.3/0/0 when gs.ash, else 0.4/0/0.6.
+   - A = road direction: for road-group tiles count road-group neighbours left+right (hx) and up+down (hz). A = 1 when hx > hz, else 0.
+   Blur all four channels with a 3x3 box filter twice, then write bytes. Use R_(data, SW, SH, $f, Rf) with colorSpace ``, mag/min Ff, wrap Af, flipY false, generateMipmaps false, needsUpdate true. Push to madeTex.
+
+8. Ground mesh. Still in placeGround:
+   - M = ring ? 1.7 : 0. Geometry `new Pv(w + 2*M, h + 2*M, Math.ceil(w + 2*M), Math.ceil(h + 2*M))`, then `rotateX(-Math.PI / 2)` and `translate(w / 2, 0, h / 2)` (world coords; the mesh stays at the origin).
+   - Set the uv attribute to (x, z) of each vertex.
+   - If this.coastS exists, set each vertex y to `-0.8 * smoothstep(-0.3, 0.9, sd)`. sd is sampled bilinearly from coastS at fx = x + 32 - 0.5, fz = z + 32 - 0.5 (stride coastSpan[0], indices clamped).
+   - computeVertexNormals(). Push to madeGeo.
+   - Material `new Kv({ color: 0xffffff, roughness: 0.95, metalness: 0, map: gt[0], normalMap: gt[1] })`. Push to madeMat. Key `e12c-ground`. Mesh w_, receiveShadow true, castShadow false, frustumCulled false, renderOrder 0. Add it to the group.
+   - Then `this.groundFor = e; this.onGround?.();`. In JT.wipe set `this.groundFor = null`.
+   - If gt[0] or gt[1] is null, skip the ground (keep kit floors) and warn once `[12c] ground textures failed`.
+
+9. Ground shader (onBeforeCompile). Uniforms: tL1, tL2, tL3 (gt[2], gt[4], gt[6]), tN1, tN2, tN3 (gt[3], gt[5], gt[7]), tGSplat, tCoast (this.coastTex or the splat as a dummy), uCoastOn (coastTex ? 1 : 0), uCoastSpan (coastSpan), uGSpan (w+4, h+4), uTileM (vec4 of the four tilings), uFrost, uTint (vec3), uMap (w, h), uLip (vec3: M, ring ? 2.7 : 0, ring ? 1 : 0).
+   Vertex: after `#include <common>` add `varying vec2 vGW;`. After `#include <worldpos_vertex>` add `vGW = (modelMatrix * vec4(transformed, 1.0)).xz;`.
+   Fragment: after `#include <common>` add vGW, the uniforms, and:
+     float gH(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+     float gN(vec2 p) { vec2 i = floor(p); vec2 f = fract(p); f = f * f * (3.0 - 2.0 * f);
+       return mix(mix(gH(i), gH(i + vec2(1.0, 0.0)), f.x), mix(gH(i + vec2(0.0, 1.0)), gH(i + vec2(1.0, 1.0)), f.x), f.y); }
+     float gL(vec3 c) { return dot(c, vec3(0.3, 0.59, 0.11)); }
+   Replace `#include <map_fragment>` with:
+     if (uLip.z > 0.5) {
+       vec2 lq = abs(vGW - uMap * 0.5) - (uMap * 0.5 + vec2(uLip.x - uLip.y));
+       if (length(max(lq, 0.0)) + min(max(lq.x, lq.y), 0.0) > uLip.y) discard;
+     }
+     float gSd = uCoastOn > 0.5 ? texture2D(tCoast, (vGW + 32.0) / uCoastSpan).b * 16.0 - 8.0 : -8.0;
+     if (gSd > 1.2) discard;
+     float gNz = gN(vGW * 0.45);
+     float gSdN = gSd + (gNz - 0.5) * 0.8;
+     vec2 gq = vGW + (vec2(gNz, gN(vGW * 0.45 + 17.3)) - 0.5) * 1.6;
+     vec4 gS = texture2D(tGSplat, (gq + 2.0) / uGSpan);
+     float gSand = uCoastOn > 0.5 ? 1.0 - smoothstep(1.5, 4.0, -gSdN) : 0.0;
+     vec3 gW3 = vec3(gS.r * (1.0 - gSand), gS.g * (1.0 - gSand), max(gS.b, gSand));
+     float gRs = step(0.5 + (gNz - 0.5) * 0.3, gS.a);
+     vec2 gU0 = vGW / uTileM.x;
+     vec2 gRu = mix(vGW, vGW.yx, gRs) / uTileM.z;
+     vec3 a0 = texture2D(map, gU0).rgb;
+     a0 = mix(a0, texture2D(map, gU0 * 0.37 + 0.31).rgb, 0.35) * uTint;
+     a0 = mix(a0, vec3(0.78, 0.80, 0.84) * (0.75 + 0.5 * gL(a0)), uFrost * smoothstep(0.3, 0.7, gN(vGW * 0.18 + 5.1)));
+     vec3 a1 = texture2D(tL1, vGW / uTileM.y).rgb;
+     vec3 a2 = texture2D(tL2, gRu).rgb;
+     vec3 a3 = texture2D(tL3, vGW / uTileM.w).rgb;
+     vec4 gWv = vec4(clamp(1.0 - gW3.r - gW3.g - gW3.b, 0.0, 1.0), gW3);
+     vec4 gX = gWv + vec4(gL(a0), gL(a1), gL(a2), gL(a3)) * 0.6 * smoothstep(0.0, 0.15, gWv);
+     float gM = max(max(gX.x, gX.y), max(gX.z, gX.w)) - 0.12;
+     vec4 gB = max(gX - gM, 0.0);
+     gB /= (gB.x + gB.y + gB.z + gB.w + 1e-5);
+     vec3 gAlb = a0 * gB.x + a1 * gB.y + a2 * gB.z + a3 * gB.w;
+     gAlb *= mix(0.88, 1.08, gN(vGW / 40.0 + 3.7));
+     float gWet = uCoastOn > 0.5 ? 1.0 - smoothstep(0.0, 1.2, -gSdN) : 0.0;
+     gAlb *= mix(1.0, 0.62, gWet) * mix(1.0, 0.55, smoothstep(0.0, 0.9, gSd));
+     diffuseColor.rgb *= gAlb;
+   Replace `#include <roughnessmap_fragment>` with `float roughnessFactor = mix(0.95, 0.45, gWet);`.
+   Replace `#include <normal_fragment_maps>` with (same tbn pattern as town-ground-v1):
+     #ifdef USE_NORMALMAP_TANGENTSPACE
+     vec3 n0 = texture2D(normalMap, gU0).xyz * 2.0 - 1.0;
+     vec3 n1 = texture2D(tN1, vGW / uTileM.y).xyz * 2.0 - 1.0;
+     vec3 n2 = texture2D(tN2, gRu).xyz * 2.0 - 1.0;
+     n2.xy = mix(n2.xy, n2.yx, gRs);
+     vec3 n3 = texture2D(tN3, vGW / uTileM.w).xyz * 2.0 - 1.0;
+     vec3 mapN = n0 * gB.x + n1 * gB.y + n2 * gB.z + n3 * gB.w;
+     mapN.xy *= normalScale * (1.0 - 0.6 * gWet);
+     normal = normalize(tbn * mapN);
+     #endif
+
+10. Floor handover. In the LE constructor, right after `(this.edge = new JT(this.scene))`, add `this.edge.onGround = () => { this.built = null; };`. In LE.buildZone, define `let G = a && this.edge.groundFor === t;` and change the floor push to `(v.length && !G && l[OE(g, y) % v.length].push({...}), i)`. Water-tile handling, rocks and walls are unchanged.
+
+11. Log. At the end of placeGround: `console.log('[12c] ground ' + e.id + ' base=' + gs.L[0] + ' sand=' + gs.L[3] + ' season ' + season + ' coast=' + (this.coastTex ? 'yes' : 'no'))`. Pass season into placeGround or read it from gs.
+
+TEST (screenshots of each, phone-size window, 3D on)
+1. Briarwood (wild): stand behind a large tree so it hides the hero. The tree fades to a smooth see-through (about 38%) with no pixel grid and comes back smoothly when you walk out. The hero x-ray still shows behind walls/rocks that do not fade.
+2. Blackwater (isle) at Brian's shore spot: grass blends through a sand band into wet dark sand, and the ground slopes under the water. No blue stone tiles, no tile grid, no square step at the waterline.
+3. A map corner on a sea side (isle NW) and one on a land side (Cinder Barrens / waste): the ground corner is rounded and meets the ring lip with no gap, no square corner and no visible apron seam.
+4. Ashen coast (coast): dead/shingle ground set, sand band along the E/W/S sea, and roads blend into dirt with soft edges.
+5. One winter map (iron) and one desert map: frost patches on winter grass; desert sand base. No visible grid on either.
+6. Martsirt: unchanged (town-ground-v1 still in use).
+7. One dungeon (any): kit floor unchanged, no ground mesh.
+8. Console: one `[12c] ground ...` line per outdoor zone and no new errors or shader warnings.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

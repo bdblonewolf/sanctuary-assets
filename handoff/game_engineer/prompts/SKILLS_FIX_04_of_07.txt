@@ -1,0 +1,159 @@
+SANCTUARY SKILLS FIX - PIECE 4 OF 7. Read and keep this piece; do not start building until all pieces are pasted.
+
+(continues the table from the previous piece)
+
+|Wd wand_frostburst|1.05→35 %RD per burst|HIT|—|RULE: range 4m and -18% attack speed|10: every 4th bolt arms the next Frost Nova: +15% radius and it chills 10% (bosses: half; freeze still capped at 20%)|the wand fires a short-range ball that bursts into a mini nova at 4m|
+|St blizzard_cane|0.6→20 %RD per pulse|HIT|—|RULE: -15% move speed while the mist follows you|15: pulses chill 10% more for each foe in them|the staff swing trails a cold mist that pulses a nova every 1.5s|
+|Sh winter_bulwark|0.9→30 %RD per release|HIT|—|block −5%|15: releases also give 3% damage reduction for 2s|a blocked hit frosts the shield; your next swing releases a small nova|
+|**Ironjaw Trap** `ironjaw`|||||||
+|Sw jaw_riposte|0.9→30 %RD on the riposte bolt|BOLT|knockback|RULE: -8% swing speed; must be hit first|10: the riposte bolt knocks the attacker 1m (bosses: flinch)|a sword parry within 1s of being hit snaps a tiny Ironjaw at your feet that fires 1 bolt|
+|Ax spring_cleaver|0.6→20 %RD on the spring kick|HIT|stun|IAS −10 raw|15: a kicked foe that hits another foe staggers both 0.2s (stun cap 12%; bosses: flinch)|every 4th axe chop buries a spring in the foe that kicks it 1m on its next hit taken|
+|Sp staked_line|0.7→25 %RD per stake|BOLT|—|IAS −10 raw|10: max 2 stakes; the 3rd replaces the oldest|spear thrusts drive a stake 2m ahead; a foe crossing the stake takes an Ironjaw bolt|
+|Ma hammer_plate|0.75→25 %RD on the plate|HIT|—|RULE: -12% attack speed; slams root you 0.3s|15: the plate fires 2 bolts, not 4, and costs no mana|mace slams set an armed Ironjaw plate under the target (arms in 0.3s)|
+|Dg wire_stitch|0.04→2 tripwires active (max 2)|OTHER|root|RULE: -8% stab damage; wire snaps beyond 4m|10: pins follow root boss rules (bosses: flinch only)|dagger stabs stitch a tripwire between you and the foe; the next foe through it is pinned 0.3s|
+|Bw bolt_launcher|0.5→15 %RD per landed arrow trap|BOLT|—|RULE: -10% arrow damage on misses only|15: landed traps count toward the 3-trap cap|arrows that hit the ground arm a 1-shot Ironjaw where they land|
+|Wd sprung_wand|0.8→25 % shove distance toward the nearest trap|AREA|—|IAS −12 raw|10: a foe shoved onto an armed trap triggers it at once|the wand's bolt carries a spring; on hit the foe is shoved 1m toward your nearest trap|
+|St trapwright_staff|0.03→1 re-armed shots per swing (max 1)|OTHER|—|RULE: -15% swing speed; only works within 4m of the trap|15: re-armed shots cannot exceed the trap's shot cap|staff swings re-arm your oldest spent Ironjaw for 1 more shot|
+|Sh jaw_guard|0.06→1 bolts per block (max 1)|DEF|—|block −6%|10: the bolt cannot stun bosses; it only flinches|blocking with a shield fires one Ironjaw bolt back at the attacker|
+|**Blight Cask** `blightcask`|||||||
+|Sw venom_edge|0.9→30 % poison chance per hit in the cloud (poison cap 40%)|CHANCE|poison|RULE: -8% swing damage outside clouds|10: stacks follow the cask's stack cap|sword hits on a foe inside a Blight cloud add 1 poison stack|
+|Ax cask_splitter|0.5→20 % of the poison's remaining damage copied|DOT|—|IAS −10 raw|15: a copied poison cannot split again|axe chops on a poisoned foe split its poison onto 1 neighbour within 2m|
+|Sp lance_drip|0.75→25 % of Blight Cask poison per thrust|DOT|—|IAS −8 raw|10: drip refreshes only when a cask bursts|spear tips drip venom: the next 3 thrusts after a cask bursts deal poison damage over 2s|
+|Ma rot_maul|1→35 % of one poison tick dealt instantly|DOT|—|IAS −12 raw|15: a cracked foe cannot be cracked again for 3s|mace hits on foes with 3+ poison stacks crack them, dealing the next tick at once|
+|Dg needle_hand|0.6→20 %RD per stab|BOLT|—|dmg ×0.94|10: needles from stabs never burst into clouds|dagger stabs fire one cask needle at the nearest other foe|
+|Bw plague_volley|0.6→20 % poison chance on carried arrows (poison cap 40%)|CHANCE|—|IAS −10 raw|10: carried poison is half strength on bosses|arrows that pass through a Blight cloud carry its poison for 4m|
+|Wd miasma_wand|0.6→20 % of Blight poison per second in the puff|DOT|—|IAS −12 raw|15: max 3 puffs at once; puffs pause boss regen|the wand's bolt leaves a 1m poison puff where it lands for 1.5s|
+|St fumigator|0.75→25 % cloud size after a fan|OTHER|—|RULE: -10% swing speed; staff hits deal no direct damage inside clouds|10: a cloud can be fanned once|staff swings fan existing Blight clouds 1.5m in the swing direction|
+|Sh rot_ward|0.06→1 poison stacks per block (max 1)|DEF|—|block −6%|10: bosses take half the poison|blocking inside your Blight cloud poisons the attacker for 2s|
+|**Rime Caltrop** `rimecaltrop`|||||||
+|Sw frostbite_blade|0.75→25 % extra chill per hit (bosses: half; 25% boss slow cap)|SLOW|chill|IAS −8 raw|10: each foe can only take this once per 2s|sword hits on foes with 2+ caltrop chill add one more shard of chill|
+|Ax ice_splinter|0.6→20 %RD per splinter|BOLT|—|IAS −10 raw|15: splinters cannot freeze; once per freeze (boss rules unchanged)|axe chops on frozen foes break the ice into 2 shards that chill nearby foes|
+|Sp rime_pike|0.7→25 % chill carried forward|OTHER|slow|IAS −8 raw|10: carried chill cannot stack above 40% (bosses: half)|spear thrusts against chilled foes push the chill 2m forward to the next foe|
+|Ma glacial_hammer|0.04→1 shards counted per hit (max 1)|BOLT|freeze|RULE: -12% attack speed; every second mace hit costs 1 mana|15: freeze still once per 5s per foe; bosses 0.5s then 1s immunity|mace hits on a caltrop-chilled foe count as one caltrop shard toward its freeze|
+|Dg cold_needle|0.6→20 %RD per micro-caltrop|BOLT|—|dmg ×0.94|10: micro-caltrops cannot freeze (boss rules unchanged)|dagger stabs plant a micro-caltrop that fires 1 shard after 1s|
+|Bw hail_tip|0.5→15 % slow on frost-tip hits (bosses: half)|SLOW|—|RULE: -10% draw speed away from caltrops|10: tips last while you stand near the caltrop; moving away ends them|arrows from inside 3m of a caltrop gain a frost tip that slows 10%|
+|Wd frost_relay|0.04→1 relayed shards per bolt (max 1)|BOLT|—|IAS −12 raw|15: each caltrop relays once per 1s|wand bolts that pass a caltrop make it fire 1 shard at the bolt's target|
+|St winter_staff|0.75→25 % chill in the swept ring|HIT|—|RULE: -10% swing speed; must be within 3m of a caltrop|10: the ring cannot freeze and fades after 1.5s (bosses: half chill)|staff swings sweep caltrop chill into a 2m ring around you|
+|Sh rime_bulwark|0.5→15 % chill on block (bosses: half)|SLOW|—|block −6%|10: chill from blocks cannot freeze (bosses: half)|blocking chills the attacker 20% for 2s|
+|**Thunderkiln Trap** `thunderkiln`|||||||
+|Sw kiln_tempered|0.6→20 % of Fuse burst on sword Fuses|HIT|—|IAS −8 raw|15: sword Fuses are once per 3s per foe|sword hits alternate fire and lightning like the kiln; hitting both on one foe in 2s triggers a small Fuse|
+|Ax stoke_chop|0.04→1 instant kiln bolts per chop (max 1)|BOLT|—|RULE: -10% attack speed; must be within 4m of the kiln|10: stoking cannot exceed the kiln's shot cap|axe chops on a foe near your kiln stoke it: the kiln's next bolt fires at once|
+|Sp lightning_rod|0.6→20 % of kiln lightning dmg on the jump|BOLT|shock|IAS −8 raw|10: one jump per bolt; the rod cannot re-jump|spear thrusts plant a rod that the kiln's lightning bolts jump to once, hitting 1 extra foe|
+|Ma anvil_kiln|0.75→25 % bonus on anvil hits|OTHER|—|RULE: -10% attack speed; mace crits disabled|15: anvil hits never crit|mace hits on a foe hit by the kiln within 2s deal a steady 15% bonus (never crit)|
+|Dg spark_flint|0.6→20 % of kiln bolt dmg per flint bolt|BOLT|—|dmg ×0.94|10: flint bolts do not count as kiln shots|dagger stabs strike sparks; every 5th stab throws a kiln bolt of the opposite element|
+|Bw kiln_fletch|0.5→15 % ignite/shock chance on fletched arrows (caps 40%/35%)|CHANCE|ignite|IAS −10 raw|10: fletched arrows lose the element after 6m|arrows shot over your kiln pick up its current element and ignite or shock|
+|Wd dual_wand|0.6→20 % of Fuse burst on wand Fuses|HIT|—|IAS −12 raw|15: wand Fuses are once per 3s per foe|the wand alternates fire and lightning bolts and fires a Fuse on the 4th|
+|St bellows_staff|0.03→1 bonus kiln bolts per 4 swings (max 1)|BOLT|—|RULE: -12% swing speed; staff swings deal no damage while pumping|15: bonus bolts cannot exceed the shot cap +1|staff swings pump your kiln: +1 kiln bolt per 4 swings|
+|Sh kiln_brace|0.1→3 % barrier per vent|HEAL|—|block −6%|10: one vent per 2s|blocking near your kiln vents a heat pulse for 2% barrier|
+|**Hearthward Aura** `hearthward`|||||||
+|Sw warm_steel|0.03→0.6 % max life per hit to members|HEAL|—|dmg ×0.92|10: life from hits is shared, not doubled, for members below 35%|sword hits restore 0.2% max life to every member inside Hearthward|
+|Ax hearth_chop|0.15→5 % max life per ember|HEAL|—|IAS −10 raw|15: max 3 embers on the ground|axe kills inside the ring drop an ember that heals the first member to touch it 3%|
+|Sp line_holder|0.15→5 % armour per stack|DEF|—|RULE: -8% thrust speed; you must stay inside your own ring|10: stacks fall off at once if you leave the ring|spear thrusts inside the ring give +3% armour to members for 3s (max 5 stacks)|
+|Ma anvil_hearth|0.3→10 % damage reduction on hit foes|DEBUFF|weaken|IAS −10 raw|15: one stack per foe|mace hits on foes inside the ring reduce their damage by 5% for 2s|
+|Dg kindle_knife|0.06→2 % max life per stab|HEAL|—|dmg ×0.94|10: only works inside Hearthward|dagger stabs on a foe below 35% life heal you 1% max life|
+|Bw hearth_arrow|0.04→1 % max life per hit to nearest member|HEAL|—|IAS −8 raw|10: you heal half when you are the nearest member|arrows hitting foes inside your ring heal the member nearest that foe 0.3%|
+|Wd ember_wand|0.05→1.5 % max life per second on the patch|HEAL|—|IAS −12 raw|10: max 2 patches; patches only spawn inside the ring|wand bolts leave a 1s warm patch that heals members standing in it|
+|St hearthstaff|0.6→20 % of one second of Hearthward regen per pulse|HEAL|—|IAS −10 raw|15: one pulse per 1.5s|staff swings pulse Hearthward regen once for all members|
+|Sh hearthshield|0.06→2 % max life per block|HEAL|—|block −6%|10: heals once per 1s|blocks inside the ring heal you 1% max life|
+|**Knell Aura** `knell`|||||||
+|Sw bell_edge|0.04→1 extra Peal per 3rd hit (max 1)|OTHER|—|dmg ×0.92|10: still tolls at 9 (bosses count normally)|sword hits add 1 extra Peal on every 3rd hit|
+|Ax toll_reaper|0.8→25 % Ninth Peal bonus on axe hits|HIT|—|IAS −10 raw|15: the empowered chop also hits a 3m arc|the axe chop that spends a Ninth Peal deals the bonus to every foe in a 2m arc|
+|Sp bell_line|0.6→20 % of the hit on planted lines|OTHER|—|RULE: -8% thrust speed; aura radius −2m while planted|10: you can plant once per 6s|spear thrusts plant a bell-post 3m ahead; foes between you and it add 1 Peal each when hit|
+|Ma clapper|0.75→25 % knockback distance (bosses: flinch)|AREA|—|IAS −12 raw|15: knockback only on the Ninth Peal hit|mace hits that spend a Ninth Peal knock trash back 1m|
+|Dg quick_toll|0.6→20 % crit damage on the Ninth Peal hit|CRIT|—|dmg ×0.94|10: that stab always crits|a dagger stab that spends a Ninth Peal gains crit damage|
+|Bw peal_volley|0.5→15 % armour ignored by Ninth Peal arrows|DEBUFF|—|IAS −10 raw|15: arrows inside 6m add no Peal|arrows add Peal only beyond 6m; the arrow that spends a Ninth Peal ignores armour|
+|Wd ringing_wand|0.03→1 Peal threshold reduction (max 1)|OTHER|—|IAS −12 raw|15: threshold cannot go below 8|wand bolts lower the Peal count needed to toll by 1 while you hold the wand|
+|St tolling_staff|0.6→20 % Ninth Peal bonus shared to servants|OTHER|—|IAS −10 raw|10: servants keep it 2s|the staff swing that tolls also gives servants the Ninth Peal bonus|
+|Sh bell_shield|0.06→2 Peals per block (max 2)|DEF|—|block −6%|10: bosses add 1|blocking adds 2 Peals|
+|**Truesight Aura** `truesight`|||||||
+|Sw read_blade|0.75→25 % attack rating on read foes|DEF|—|IAS −8 raw|10: only works inside Truesight|sword hits on read foes cannot be dodged|
+|Ax weakpoint_chop|0.3→10 % exposure|OTHER|—|IAS −10 raw|15: exposure cannot stack|axe crits on read foes expose them: +6% damage taken from you for 2s|
+|Sp lineup_thrust|0.03→1 pierces per thrust (max 1; +1 projectile cap)|BOLT|—|IAS −8 raw|10: pierce only between read foes|spear thrusts on read foes pierce to the next read foe in line|
+|Ma telegraph_mace|0.6→20 % dodge vs telegraphed attacks|DEF|—|IAS −10 raw|15: only one foe telegraphed at a time|mace hits show the foe's next attack 0.3s earlier to you|
+|Dg gap_finder|0.5→15 % armour ignored|DEBUFF|—|dmg ×0.94|10: armour ignored only on read foes|dagger stabs on read foes ignore 8% armour|
+|Bw true_arrow|0.75→25 % attack rating on full-draw arrows|DEF|—|IAS −10 raw|10: curving arrows lose 1m range|arrows at read foes curve up to 15° and never miss at full draw|
+|Wd seer_wand|0.5→15 % hit chance for allies on revealed foes|CHANCE|—|IAS −12 raw|15: max 3 revealed foes|wand bolts reveal foes for 3s, making them read anywhere|
+|St oracle_staff|0.6→20 % dodge cut on staff-read foes|DEF|—|IAS −10 raw|10: staff reads do not reveal invisible foes|staff swings read every foe in the arc for 4s, even outside the aura|
+|Sh sighted_guard|0.3→10 % block chance vs read foes|CHANCE|—|FRW −6%|10: only vs read foes|blocks against read foes have +5% block chance|
+|**Undertow Aura** `undertow`|||||||
+|Sw drowning_cut|0.45→15 % damage to Drowned foes|DMG|—|IAS −8 raw|10: also on foes below 50% Life outside the aura|sword hits on Drowned foes deal bonus damage|
+|Ax undertow_chop|0.06→2 m extra pull per chop (max 2)|AREA|—|IAS −10 raw|15: bosses ignore it|axe chops drag Drowned trash 1m toward you|
+|Sp tide_thrust|0.3→10 % damage reduction|DEF|—|IAS −8 raw|10: only against Drowned foes in front, within 4m|spear thrusts give you damage reduction against Drowned foes for 2s|
+|Ma sinking_blow|0.5→15 % slow on Drowned foes|SLOW|slow|RULE: -10% attack speed|15: slowed Drowned foes can't be knocked away|mace hits slow Drowned foes for 2s|
+|Dg drowned_name|0.06→2 % Max Mana per Drowned kill|HEAL|—|RULE: -6% stab damage|10: once per foe|dagger kills on Drowned foes restore extra Mana|
+|Bw anchor_arrow|0.45→15 % arrow damage on pulled foes|DMG|—|IAS −10 raw|10: one anchor at a time|arrows anchor a foe; Undertow pulls it twice as fast for 2s|
+|Wd tide_wand|0.5→15 % Drowned damage reduction extra|DEBUFF|—|IAS −12 raw|15: each foe once per 4s|wand bolts deepen Drowned: the foe deals extra −% Damage for 2s|
+|St shepherd_tide|0.06→2 pull distance m (max 2)|AREA|—|IAS −10 raw|10: pulled foes lose their target 0.3s|staff swings pull Drowned trash 2m toward you|
+|Sh breakwater|0.5→15 % of blocked damage as barrier|HEAL|—|block −6%|10: barrier lasts 3s; only against Drowned attackers|blocks against Drowned foes give you a barrier|
+|**Glacier** `glacier`|||||||
+|Sw icicle_edge|1.5→50 %RD per icicle|HIT|—|IAS −8 raw|15: the icicle pierces 1 foe|the blade grows an icicle that breaks off on every 5th hit and flies 6m|
+|Ax glacier_cleaver|1.2→40 %RD added as cold per chop|HIT|—|IAS −15 raw|10: chops on frozen foes shatter for an extra 20% of Glacier dmg|the axe head is solid ice; hits are heavier but slower|
+|Sp frozen_pike_throw|1.8→60 %RD per thrown copy|HIT|freeze|RULE: after a throw your next thrust is 30% slower|10: the copy freezes the first foe 0.4s (once per 6s per foe; boss rules)|every 6th thrust hurls an ice copy of the spear down a 7m line|
+|Ma permafrost_hammer|0.45→15 %RD per ice layer per hit|HIT|—|RULE: -4% attack speed per layer|15: at 4 layers your next hit cracks them all as a cold burst|hits encase the mace in ice layers (max 4); each layer adds weight|
+|Dg frost_fang|1.05→35 %RD per shatter|HIT|—|RULE: -8% leech on these hits|10: a shatter makes the foe take 8% more cold damage for 3s|stabs leave ice shards in the foe; a 4th shard shatters them|
+|Bw glacial_shaft|1.5→50 %RD per shaft|HIT|—|RULE: ice shafts fly 30% slower|15: shafts that travel 6m+ chill the target 15% (bosses: half)|every 3rd arrow is a heavy ice shaft that flies slower and hits much harder|
+|Wd wand_glacier|1.5→50 %RD per spear|BOLT|—|IAS −20 raw|20: spears that kill leave an ice spike that blocks one projectile|the wand fires a small Glacier spear with no mana cost|
+|St ice_shelf|0.75→25 %RD on shelf shatter|HIT|—|RULE: you cannot attack through your own shelf|10: the shelf blocks enemy projectiles too|staff swings raise a 1s ice shelf in front of you that blocks melee foes|
+|Sh glacier_face|0.6→20 % chill on blocked attackers|SLOW|chill|RULE: -8% move speed while holding the slab|10: the 3rd block in 5s freezes the attacker 0.5s (once per 8s; boss rules)|the shield becomes a slab of ice; blocks chill the attacker 20% (bosses: half)|
+|**Hoarfrost** `hoarfrost`|||||||
+|Sw rime_footwork|0.75→25 % slow on rime (bosses: half, cap 25%)|SLOW|slow|dmg ×0.94|10: rime under 3+ foes joins into one Hoarfrost patch|each hit leaves rime under the foe; foes on rime are slower|
+|Ax frost_furrow|0.6→20 %RD per second in the furrow|DOT|—|IAS −10 raw|15: furrows that cross form a 1.5m frozen junction|chops gouge a frozen furrow 2m long that chills foes crossing it|
+|Sp frost_fence|0.75→25 %RD per fence touch|HIT|—|RULE: posts vanish if you move more than 4m away|15: the fence slows 20% (bosses: half)|thrusts plant a 1s frost post; 2 posts link with an icy fence|
+|Ma deep_freeze_pound|0.45→15 % patch radius per hit (max 6)|AREA|—|RULE: -12% move speed while standing on your patch|10: at max size the patch pulses a cold tick|hits drive rime into the ground under you, forming a patch that grows with each hit|
+|Dg frostbite_nick|0.6→20 %RD per second of frostbite|DOT|—|RULE: -5% damage on the stab itself|10: frostbite on 3 foes at once links them; one being hit chills the others|stabs give frostbite: foes slowed by you take a little cold over 3s|
+|Bw rime_arrow|0.6→20 %RD per second on the patch|DOT|—|proj spd ×0.92|15: patches under a foe hit by 2 arrows freeze it 0.3s (once per 6s; boss rules)|arrows hitting the ground or a foe lay a 1.5s rime patch|
+|Wd wand_hoarfrost|0.9→30 %RD per second on the painted patch|DOT|—|RULE: attack hits the ground, not the foe, and -10% speed|10: one painted patch at a time; repainting moves it|the wand paints a 2m Hoarfrost patch at the target point, no mana cost|
+|St frost_cane_drag|0.45→15 %RD per second on the drag line|DOT|—|FRW −10%|15: the line hardens into a 1s wall where you stop|the staff drags frost along the ground as you walk|
+|Sh frozen_ground_stance|0.6→20 %RD per second in the ring|DOT|—|RULE: -10% move speed while raised|10: foes in the ring hit you 10% slower (bosses: half)|while your shield is raised, the ground under you freezes in a 2m ring|
+|**Volt** `spark`|||||||
+|Sw static_blade|1.5→50 %RD per fork|HIT|—|dmg ×0.94|10: forks seek the foe with the most charges first|every hit charges the blade; at 8 charges the next hit forks a Volt to 2 foes|
+|Ax thunder_hatchet|1.2→40 %RD per crackle|HIT|shock|IAS −8 raw|15: a crackle on a boss shocks it (counts toward the shock cap)|chops on a foe hit by Volt in the last 3s crackle to one foe nearby|
+|Sp lightning_rod_spear|0.9→30 %RD per bolt|BOLT|—|IAS −10 raw|10: bolts double when it is raining or Storm Call is active|the spear tip is a lightning rod: thrusts call a thin bolt from above|
+|Ma capacitor_mace|0.6→20 %RD per stored charge|HIT|stun|RULE: charge is lost if you take a hit|15: the discharge stuns trash 0.3s (bosses: flinch)|hits store charge; your next miss or a 2s pause discharges it as a ring|
+|Dg jitter_stabs|0.45→15 %RD per hop spark|HIT|—|RULE: you can't stop the hops; they may pull you out of auras|10: hop sparks jump to the nearest foe|stabs make you twitch: 25% chance per stab to hop 1m sideways with a spark|
+|Bw volt_tipped|0.9→30 %RD per leap|HIT|—|RULE: -10% arrow damage on the Volt arrow|15: leaps cannot leap again (no chains past 2)|every 3rd arrow carries Volt, leaping to 2 nearby foes after the hit|
+|Wd wand_volt|1.35→45 %RD per homing bolt|BOLT|—|IAS −15 raw|10: bolts jump once to a second foe|the wand fires a homing Volt with no mana cost|
+|St charge_staff|0.9→30 %RD per forked bolt|BOLT|—|IAS −12 raw|15: forked bolts shock (counts toward the shock cap)|each staff swing adds static; 4 swings release a forked bolt to 3 foes|
+|Sh grounded_shield|0.75→25 %RD per zap|BOLT|—|block −5%|10: a zap on a shocked foe slows it 10% (bosses: half)|a blocked hit grounds through the shield and zaps the attacker|
+|**Storm Call** `stormcall`|||||||
+|Sw stormbrand_sword|2.1→70 %RD per strike|HIT|—|RULE: swings 7 and 8 are 25% slower|10: strikes on a foe already shocked hit twice (cannot re-trigger)|swing a sword at the sky: every 7th swing calls a Storm Call strike on your target|
+|Ax wind_reap|0.75→25 %RD per gusted bolt|BOLT|knockback|IAS −10 raw|15: gusts push light foes 0.5m|axe swings whip up a gust that carries 2 small bolts to foes in 4m|
+|Sp skypierce|0.9→30 %RD per falling bolt|BOLT|—|RULE: nothing happens if you don't kill (pure tempo)|15: bolts prefer foes the spear has hit|the spear points up after each kill; a bolt falls on the nearest foe every 1s for 3s|
+|Ma thunderhead_mace|1.2→40 %RD per cloud strike|HIT|—|RULE: the cloud fades if you stop hitting for 2s|10: the cloud follows you 30% faster while Wolf Howl or haste is active|hits build a cloud over your head; every 2s it strikes the foe you hit most|
+|Dg squall_dance|0.6→20 %RD per squall bolt|BOLT|—|RULE: stationary stabs get nothing|10: squall bolts chain once to a foe within 2m|stabbing while moving calls a bolt behind you every 1s|
+|Bw storm_volley|0.9→30 %RD per rained bolt|BOLT|—|RULE: 2s charge; no arrows while charging|15: bolts land on different foes when possible|a 2s draw fires an arrow that stops in the air and rains 4 bolts|
+|Wd wand_storm|0.6→20 %RD per seeking bolt|BOLT|—|RULE: -15% attack speed and range 6m; sparks you stand in shock you for 1%/s|10: bolts that miss stay as a 1s spark; a Storm Call cast within 2s of a spark echoes 25% of its first tick (1 echo per cast)|the wand points and the sky answers: 2 small seeking bolts per attack, no mana|
+|St eye_of_storm|0.45→15 %RD per ring tick|HIT|pull|RULE: -8% move speed while the ring spins; ring costs 1 mana per second|20: the ring pulls light foes 0.5m inward; spells cast inside the ring cost 10% less mana|swinging the staff overhead spins a 3m storm ring around you|
+|Sh lightning_shield_ward|0.9→30 %RD per block bolt|DEF|—|block −6%|15: block bolts chain once to a foe behind it|thunder bounces off a raised shield: each block calls a bolt on the attacker|
+|**Arc Whip** `arcwhip`|||||||
+|Sw whipblade|0.6→20 %RD added per lash|AREA|—|RULE: -10% swing damage and no block while lashing|10: the lash tip hits a second foe in line|the sword uncoils into a 3.5m whip of lightning|
+|Ax arc_hook|0.45→15 %RD per hook|AREA|pull|IAS −8 raw|15: hooked foes take the next chop as a shock (counts toward the shock cap)|axe hits pull a lightning hook that drags the next foe 1m toward you|
+|Sp crackling_reach|0.9→30 %RD on the extended crackle|AREA|—|IAS −6 raw|10: crackles fork into a 2-way Y|thrusts crackle 1m beyond the spear tip, hitting foes just out of reach|
+|Ma thunderclap_mace|0.75→25 %RD per clap arc|AREA|—|IAS −10 raw|15: claps stagger trash 0.2s (bosses: flinch)|every 3rd hit is a thunderclap that arcs 2m in a half circle|
+|Dg live_wire|0.6→20 %RD per wire cross|AREA|—|RULE: wires snap if you go further than 5m|10: two wires cross to make a net that slows 10% (bosses: half)|stabs string a wire between you and the foe for 2s; foes crossing it take damage|
+|Bw tether_arrow|0.45→15 %RD per tether zap|AREA|—|dmg ×0.94|15: tethers from 2 arrows to one foe join into a whip crack|arrows leave a lightning tether to you for 1s that zaps foes on the line|
+|Wd wand_arcwhip|0.9→30 %RD per lash|AREA|shock|RULE: range 4m instead of 7.4m|10: the lash shocks on its tip (counts toward the shock cap)|the wand becomes a 4m lightning whip, no mana cost|
+|St retort_lash|0.75→25 %RD per retort lash|AREA|—|IAS −10 raw|15: a retort on a foe that hurt you twice in 2s shocks it|staff hits snap a lightning whip back at the last foe that hurt you (within 6m)|
+|Sh spark_gap|0.6→20 %RD per arc|AREA|—|block −5%|10: the arc leaps to a 2nd attacker within 2m|a raised shield and the weapon form a spark gap; blocks arc back to the attacker|
+|**Holy Bolt** `holy`|||||||
+|Sw blessed_blade|1.5→50 %RD per bolt|BOLT|—|IAS −8 raw|10: bolts heal you 1% of max life per foe they pass|every 5th swing fires a Holy Bolt from the blade tip down your facing|
+|Ax judgment_chop|0.9→30 %RD per ring|BOLT|—|RULE: -15% dmg vs living beasts|15: a ring that kills turns the corpse unraisable|chops on undead and demons ring with holy light that spreads to the nearest of their kind|
+|Sp sunlit_thrust|0.06→2 % max life per second in the sunlight|HEAL|—|IAS −8 raw|10: sunlight burns foes for 15% of Holy Bolt dmg per second|thrusts trail sunlight; allies (and you) standing in it regen life|
+|Ma church_bell|1.2→40 %RD per bell peal|BOLT|stun|IAS −12 raw|15: a peal also cleanses one curse from you|each mace hit tolls a bell; at 4 tolls nearby foes are dazed 0.5s (bosses: flinch)|
+|Dg vow_dagger|0.9→30 %RD per second while consecrated|DOT|—|RULE: -6% leech|10: a consecrated foe hit by allies or summons also takes the rune damage|stabs carve a holy rune; 3 runes on one foe consecrate it for 3s|
+|Bw halo_arrow|0.6→20 %RD per halo pass|BOLT|—|proj spd ×0.90|15: blinded foes miss you 15% more for 2s|arrows trail a halo; foes the halo passes through are blinded 0.5s|
+|Wd wand_holy|1.35→45 %RD per bolt|BOLT|—|IAS −15 raw|10: bolts that pass through you heal 2%|the wand fires a homing Holy Bolt that returns life, no mana cost|
+|St pilgrims_crook|0.75→25 %RD per flash|BOLT|pull|FRW −10%|15: the flash heals you 0.5% per foe hooked|staff swings hook foes in front 1m toward you with a holy flash|
+|Sh aegis_light|0.15→5 % max life healed per block|HEAL|—|block −5%|10: the flare also reflects one projectile back|blocking flares holy light; you heal a little per block|
+|**Consecrate** `consecrate`|||||||
+|Sw altar_stance|0.9→30 %RD per second around you|DOT|—|RULE: bonus ends the moment you move and you need 1.5s still to regain it; -10% move speed while consecrated|10: consecrated ground grants +5% block while you stand on it|standing still 1s makes the ground under you consecrated, empowering your swings|
+|Ax hallowed_hew|0.1→3 % max life per second on a scar|HEAL|—|IAS −8 raw|15: scars also burn foes for 15% of Consecrate dmg per second|chops on a foe leave a 1m blessed scar; scars heal you when you stand on them|
+|Sp processional|0.6→20 %RD per second on the line|DOT|—|IAS −10 raw|10: the line moves forward 1m per second|thrusts mark a 3m processional line; foes on it take holy damage each second|
+|Ma sanctum_slam|0.75→25 %RD per second in the circle|DOT|—|IAS −12 raw|15: undead in the circle are slowed 20% (bosses: half)|every 5th hit sanctifies a 2.5m circle for 3s|
+|Dg whetted_prayer|1.2→40 % Consecrate area per bead|OTHER|—|dmg ×0.94|10: at 10 beads your stabs spread holy ground under the foe|each stab adds a prayer bead (max 10); beads make your next Consecrate stronger|
+|Bw holy_ground_arrow|0.45→15 %RD per second per circle|DOT|—|dmg ×0.92|15: circles touching each other link up|arrows that hit the ground sanctify a 1m circle for 2s|
+|Wd wand_consecrate|0.6→20 %RD per second in the pool|DOT|—|RULE: attack lands on the ground, not the foe, and -18% attack speed|10: one pool at a time; you heal 0.3%/s standing in it|the wand pours holy ground in a 1.5m pool at the target, no mana cost|
+|St shepherds_circle|0.6→20 %RD per second in the circle|DOT|—|RULE: you must stay inside; leaving ends it|20: foes inside take 5% more holy damage|the staff draws a circle around you while you swing; it holds while you stay in it|
+|Sh sanctuary_wall|0.45→15 %RD per second in front|DOT|weaken|RULE: -8% move speed while raised|10: foes in the half circle deal 5% less damage|raising the shield sanctifies a half circle in front|
+|**Smite** `smite`|||||||
+|Sw verdict_strike|0.5→10 % chance per swing to Smite|CHANCE|crit|IAS −6 raw|15: a Smite on a foe below 30% life is guaranteed to crit|every swing has a 10% chance to become a Smite with no mana cost|

@@ -1,0 +1,25 @@
+STAGE 11B: SHRINES (BASIC + WEEPING ANGEL) - for a build that already has Stage 11
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: no extra features, no guessing; if a name in FACTS is not found, stop and report.
+- Do not change existing shrine styles, their numbers, or any existing asset URL.
+
+FACTS
+- Stage 11 is in: AC.townMartsirt, martsirtData, mtWorld() (returns the town world with .martsirt=true), XT.townGroup, XT.consider() town branch. If any is missing, stop and report.
+- uT(path) = repo URL, Rw(url) = cached GLTF load.
+- Shrines: prop {kind:'shrine', x, y, style, looted, label}. Styles speed/lightning/xp/might/fire/cold/magic/curse go through RE.takeShrine(style). Tap interact: if i.looted say "The shrine is spent."; else a cursed player with fate<0 has a non-curse shrine swallowed; else looted=true + takeShrine. sprinkleShrines() places them outside town; hand-placed ones exist in zones. Town memory (refillHours=6) keeps looted state. The 3D view draws no shrine today (buildZone handles torch/lamp/bonfire/pillar/barrel/crate/chest/arch/stairs only).
+- Player ailments: poison/poisonDps, burnT/burnDps, curseT. Regen buff shrineHpT = +4% max HP per second (boon "knit"), shrineSpan(s) scales duration by fate.
+- Models (Y up, metres, base at 0): models/shrines/shrine_basic.glb, models/shrines/shrine_weeping_angel.glb. Nodes: col_* (hide), interact (empty), fx_* (hide); angel also water_basin.
+- Weeping angel: only in town, tile (138,59), rotY 0 (faces +z), footprint 3x3 tiles 137..139 x 58..60 (open ground today, chapel forecourt).
+
+STEPS
+1. URLs. Add AC.shrineBasicUrl=uT('models/shrines/shrine_basic.glb') and AC.shrineAngelUrl=uT('models/shrines/shrine_weeping_angel.glb').
+2. Town angel. In mtWorld() add prop {kind:'shrine',x:138.5,y:59.5,style:'angel'} and set g.solid for tiles 137..139 x 58..60. No angel anywhere else.
+3. Angel effect. In takeShrine add style 'angel' first: set poison, poisonDps, burnT, burnDps, curseT to 0 (and chillT, frozen, shockT to 0 only if present on the player); shrineHpT=shrineSpan(30); say "The angel weeps. Your wounds close." In the interact curse-swallow check skip style 'angel'. Cooldown = existing looted + town memory.
+4. Shrine 3D. In XT add shrineGroup (in scene). placeShrines(world): clear it; for each world.props kind 'shrine' in range, clone Rw(style==='angel'?AC.shrineAngelUrl:AC.shrineBasicUrl) scene at (x,0,y), angel rotation.y=0; hide col_*, interact, fx_*. Call it at the end of buildZone and in the town branch of consider(). If a model fails, skip it.
+5. Test, then publish. Toggle 3D. Screenshots: (1) weeping angel in the chapel forecourt, (2) a basic shrine in a dungeon or wild zone, (3) status after using the angel while poisoned (poison gone, knit shown), (4) tap the angel again: "The shrine is spent." Basic shrine effects unchanged.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

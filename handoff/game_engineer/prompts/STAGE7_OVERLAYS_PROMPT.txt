@@ -1,0 +1,21 @@
+STAGE 7: 3D OVERLAYS (DAMAGE NUMBERS, NAMES, HP BARS, BUBBLES, MINIMAP)
+
+RULES (strict)
+- Change only 3D overlay drawing. No game logic, balance, save, controls, 2D view changes, hero/sword or animation code.
+- Spell effects, weather, fog, day/night are NOT in this stage.
+- New features are 3D only. The only 2D-renderer change allowed is the overlayOnly flag in STEP 2.
+- If a step fails twice, stop and report. No retry loops. Build once at the end, check the console, publish.
+
+CAUSE
+- In 3D the game loop calls this.room.frame(...) and returns, and paint() starts with "if(this.view3d) return". The 2D canvas is set to opacity 0. So the 2D renderer (the big function paint() calls with {view, world, player, enemies, loot, floaters, target, showMinimap, chart, ...}) never runs in 3D.
+- That renderer places everything with the iso helper (world x,y -> sx,sy using 32*zoom / 16*zoom) and pixel lifts like sy-20*zoom, sy-40*zoom.
+- The 3D class already has project(x,y,w,h) (ground point y=0 -> screen) and the engine has toScreen(x,y), which uses it in 3D. skipBubble and enemy picking already use toScreen.
+
+STEP 1 - Overlay canvas. Keep the 2D canvas on top of the 3D canvas (same size, pointer-events unchanged). In 3D set its opacity to 1 instead of 0 and clear it each frame, so it is a transparent overlay. 2D mode unchanged.
+STEP 2 - Overlay pass. After this.room.frame(...) in 3D, call a new paintOverlay(ctx) that calls the same 2D renderer with the same data plus a flag overlayOnly:true. With overlayOnly the renderer skips floor, tiles, props, trees, walls, units, shadows, vfx ground/over, lights, haze, rain, fog and night tint, and draws only: floaters (damage numbers), loot item names, enemy names + HP bars, the target ring/top target and boss HP bar, NPC names and chat bubbles, caption/toast, and the minimap or chart (showMinimap/chart).
+STEP 3 - Projection. In those overlay draws, replace the iso helper call with a pos(x,y,lift) function from the view: 2D = old iso helper then sy - lift*zoom (same as now); 3D = room.project on a point raised by height h (add an optional height to project: this.hit.set(x,h,y)). Map 2D lifts to 3D heights: lift 20 (enemy bar) ~ 1.9, 40 (bubble, NPC name) ~ 2.3, floaters start ~ 1.6 and rise as now. Boss/big mobs use their scale. Hide anything behind the camera (projected z > 1).
+STEP 4 - Sizes. In 3D use a fixed overlay scale (about zoom 1) for fonts, bar width and bubbles, so they do not grow or shrink oddly with 3D zoom. Minimap draws in screen space exactly as 2D.
+STEP 5 - Test in 3D. Hit monsters: damage numbers rise from them. HP bars and names sit over monsters and follow them when the camera rotates and zooms. Hover/target shows the top target bar; bosses show the boss bar. Ground items show names. Town NPCs show names and chat bubbles above heads; tapping a bubble still works (skipBubble). Minimap shows in the same spot as 2D; the map opens. Switch to 2D: everything looks exactly as before. Build, check console, publish.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

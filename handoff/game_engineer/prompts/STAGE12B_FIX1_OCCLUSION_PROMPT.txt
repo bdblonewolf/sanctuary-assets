@@ -1,0 +1,74 @@
+STAGE 12B-FIX1 - Occlusion: hero x-ray silhouette, whole-object dither fade, in-map tree/mountain scale
+
+Goal: Remove the 12B screen-door circle (the hard 2x2 dithered disc cut around the hero) and replace it with the Diablo approach. (1) The hero is drawn a second time as a muted warm silhouette wherever scenery hides it. (2) Instanced dress (trees, mountain cones, shelves, dunes, small rocks) standing between the camera and the hero fades as a whole object to a soft 35% dither, then fades back. (3) In-map 3D trees and interior mountain cones are scaled down. The pale-green blob in Brian's isle screenshot is an in-map 12B tree drawn 6.5-9.5 m tall and 6-8 m wide, about 4-5x the hero. 3D only.
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed.
+- Edit the source that builds into the current bundle (index-rnn4x2SB.js / routes-DWORE8MA.js). Minified names below come from that bundle; find the matching source by the quoted anchors.
+- Never fade or discard the zone ground/floors, the backdrop ring (backdrop_near_rect_*), the islets, the ocean or foam. Keep the ring's in-map discard (uClip) exactly as it is.
+- No new assets, no new files on the asset repo, no cache-bust change.
+
+FACTS (current bundle)
+- Edge class JT (search `edge12b`). Fields: uCam, uHero, uMap, uClipDress, uClipRing, uSea, madeInst, madeGeo, madeMat, group, dummy, tint.
+- JT.tick(camX, camY, camZ, heroX, heroZ, dt) sets uCam/uHero, animates sea and foam. Called every frame from the 3D view: `this.edge.tick(this.camera.position.x, ...)`.
+- JT.wipe() disposes madeInst/madeGeo/madeMat/madeTex and empties group.
+- JT.hook(shader, clipUniform, isRing) holds the fragment function `void edgeCut()`. Its first line is the in-map discard (keep). Everything after it is the 4d circle (remove): from `vec3 ab = uHero - uCam;` through the block `if (t < 0.985 && vEdgeWp.y > 0.6 && distance(vEdgeWp, closest) < 1.6) { ... discard; }`.
+- JT.prep(obj, isRing): clones materials, sets onBeforeCompile = hook, customProgramCacheKey `e12b-ring` / `e12b-dress`. The ring and islets use prep(..., true).
+- JT.placeDress(zone, season, landQuads, rockMat, treeGlbs): builds cone geometries this.cone(1..4) (ConeGeometry jv(1,1,7,4), base y=0), shelf o = Av(.45,1,6,2) translated +3, dune s, rock c; buckets u[0..6]. Mountain peak branch: `t = 0.55 * a + 0.4, n = 2.2 * a + 1.2;` (sx/sz = t radius, sy = n height). Off-map flag is `i` (`let i = r.x < 0 || r.y < 0 || r.x > e.w || r.y > e.h;`). Tree branch: `let e = XT(t, r.style, r.x, r.y, a), n = +!!i, ...` pushes `sx: e.width, sy: e.height, sz: e.width`. Tree spawn: `let s = GT(o.scene, \`tree_${n}_LOD${r}\`)` then `this.spawn(s, p, t)`. s is the cached GLB geometry. Tree material p is shared, hooked with uClipDress, key `e12b-dress`.
+- JT.spawn(geo, mat, list): `new X_(e, t, n.length)` (X_ = InstancedMesh), per-instance matrix from x,0,z / ry / sx,sy,sz, optional setColorAt tint, pushes to madeInst and group. Used only by placeDress.
+- XT(season, style, x, y, w): tree height `6.5 + UT(n, r + 4) * 3` (far `6*i+3`, giant 14, blackroot 9, dead x0.7), width = height x (0.9-1.1). Tree GLBs are unit height 1 with a single mesh per LOD (no separate canopy), so trees fade as a whole.
+- 3D view class LE: heroRoot (Group in scene; hero at heroRoot.position = (player.x, 0, player.y)). Knight rig from buildKnight() is added with `this.heroRoot.add(e.root)`. Body meshes are SkinnedMesh (class I_). Worn gear, weapons and scabbard are plain meshes parented to bones (applyWorn: `i.add(a)`), and parts can be hidden by visible=false. Fallback hero (nT) is also added under heroRoot.
+- LE.frame(): after `this.edge.tick(...)` it renders with `this.bgOn ? (... this.renderer.render(this.scene, this.camera) ...) : this.renderer.render(this.scene, this.camera)`.
+- three constants in this build: depthFunc GreaterDepth = 6; blending CustomBlending = 5 (blendSrc 204 SrcAlpha, blendDst 205 OneMinusSrcAlpha by default). The state code applies blending when `!(blending === 1 && transparent === false)`, so a material with blending 5 and transparent false still blends while staying in the OPAQUE list (sorted by renderOrder). InstancedBufferAttribute = H_. MeshBasicMaterial = f_. Mesh = w_. SkinnedMesh = I_.
+- Existing renderOrder use: foam 2 (transparent list), sky/backdrop -1000/-999, one overlay 10. Dress, ring and zone meshes are 0.
+
+STEPS
+1. Remove the circle. In JT.hook's `edgeCut()`, delete the 4d block from `vec3 ab = uHero - uCam;` to the closing brace of the `if (t < 0.985 ...)` block. Keep the first `if (uClip > 0.5 ...) discard;` line. Leave the uCam/uHero uniforms and JT.tick as they are.
+
+2. Per-instance fade attribute. In JT.spawn, after the instance loop:
+   - call `e.computeBoundingBox()`. Let gr = max(|min.x|, |max.x|, |min.z|, |max.z|) and gh = max.y.
+   - create `const f = new H_(new Float32Array(n.length), 1)` and `e.setAttribute('aFade', f)`.
+   - push to a new array this.fades: `{ attr: f, x, z, r, h }`, where x/z/r/h are Float32Arrays per instance: r = 0.85 * gr * max(sx, sz) and h = gh * sy.
+   - In placeDress, clone the tree geometry before spawning: `const g = s.clone(); this.madeGeo.push(g); this.spawn(g, p, t);` so the cached GLB is not touched.
+   - In JT.wipe(), reset `this.fades.length = 0` (declare `fades = []` with the other fields).
+
+3. Fade shader. In JT.hook:
+   - vertex: after `#include <common>` add `varying float vFade;` and, under `#ifdef USE_INSTANCING`, `attribute float aFade;`. After the vEdgeWp line add `#ifdef USE_INSTANCING` `vFade = aFade;` `#else` `vFade = 0.0;` `#endif`.
+   - fragment: add `varying float vFade;` and a 4x4 Bayer table `const float BAY[16] = float[16](0.,8.,2.,10.,12.,4.,14.,6.,3.,11.,1.,9.,15.,7.,13.,5.);`. At the end of edgeCut() add: `if (vFade > 0.001) { ivec2 q = ivec2(mod(gl_FragCoord.xy, 4.0)); if ((BAY[q.x + q.y * 4] + 0.5) / 16.0 < vFade * 0.65) discard; }`. This leaves 35% coverage at full fade.
+   - Change no other line of the hook.
+
+4. Fade update. At the end of JT.tick(e, t, n, r, i, a):
+   - camera C = (e, t, n); hero H = (r, 0, i).
+   - targets: (r, 1.0, i), (r, 1.7, i), and (r, 1.0, i) shifted ±0.4 m along the XZ perpendicular of C→H.
+   - for every fades record and every instance k with XZ distance to H under 14 m: for each target T, let s = clamp(projection of the instance centre (x, z) onto segment C→T in XZ, 0.02, 0.98). The instance is hit if the XZ distance from the centre to the segment point at s is < r[k] and C.y + (T.y - C.y) * s < h[k].
+   - move attr.array[k] toward 1 if hit, else 0, by a / 0.15 per frame (clamp 0..1). Set attr.needsUpdate = true only when a value changed.
+   - Instances 14 m or more from H go back to 0 at the same rate.
+
+5. X-ray hero silhouette (LE).
+   - Make one shared material this.xrayMat = new f_({ color: 0xb8834e, opacity: 0.45, transparent: false, blending: 5, depthWrite: false, depthTest: true, depthFunc: 6, fog: false, toneMapped: false }).
+   - Add LE.xraySync(), called every frame in LE.frame() right before the render. It traverses this.heroRoot. For every mesh m (isMesh, not tagged userData.xray):
+     - set m.renderOrder = 2;
+     - if m has no xray child yet, create x:
+       - if m.isSkinnedMesh: `x = new I_(m.geometry, this.xrayMat); x.bind(m.skeleton, m.bindMatrix); x.bindMode = m.bindMode;`
+       - otherwise: `x = new w_(m.geometry, this.xrayMat)`.
+       - Then set x.userData.xray = true, x.renderOrder = 1, x.frustumCulled = false, x.castShadow = false, x.receiveShadow = false; leave x at identity local transform; m.add(x); store it as m.userData.xrayChild.
+   - The draw order is then: dress/ground at renderOrder 0, then the x-ray at 1 (tested only against scenery depth), then the hero at 2. The hero never x-rays through its own limbs, and the silhouette shows only where scenery covers the hero. Hidden parts (visible=false) hide their x-ray child automatically. Do not change mobs, NPCs or the render calls themselves.
+
+6. In-map scale.
+   - Trees: in placeDress's tree branch, use `const k = i || r.style === 'far' ? 1 : 0.45;` and push `sx: e.width * k, sy: e.height * k, sz: e.width * k`. Typical in-map trees become 2.9-4.3 m (giant 6.3, blackroot 4.1); off-map and far trees stay as they are.
+   - Mountains: in the peak branch, when `!i` and min(r.x, e.w - r.x, r.y, e.h - r.y) > 3, clamp `t = Math.min(t, 2.2)` and `n = Math.min(n, 4.0)`. Border-band and off-map peaks stay as they are.
+   - Keep the rock material as is (ms_bd5_near_rock from the ring GLB, else fallbackRock e12b-rock). It is never green.
+
+7. Build once, check the console, publish.
+
+8. TEST (3D view on, take screenshots):
+   a. Isle (Blackwater), the same shore spot as Brian's screenshot (south-west beach near the shore rocks, ocean upper-left). There is no circle, the trees there are about 2x hero height, and any tree between camera and hero shows a soft whole-tree dither.
+   b. Wild: walk behind a tree. The tree fades to the dither in about 0.15 s and back after you leave, and the hero silhouette shows through any part still covering the hero.
+   c. Walk behind a big rock or mountain cone (wild or coast). The same fade appears, and the cone is no taller than about 4 m.
+   d. Martsirt: walk behind a house. The house does not fade, and the warm hero silhouette shows through the wall.
+   e. In every shot the ground, ring, islets and ocean have no holes, and the hero shows no x-ray tint where it is in plain view.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

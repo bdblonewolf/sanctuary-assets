@@ -1,0 +1,86 @@
+STAGE 12E - Trees and plants: biome plant sets in outdoor 3D
+
+Goal: Outdoor maps get plants that fit their biome. Dead trees use the new dead-tree GLBs. Warm sand and coast zones get date palms, cacti, agave and scrub. Green wild zones keep the forest archetypes and add scrub. Plants are placed by a deterministic hash, only on solid edge tiles or as small non-blocking scatter, and are kept clear of roads, exits, NPCs and spawns. Each GLB is one InstancedMesh with the 12C fade twin. Also fixes the GPU texture leak on zone change (8 skeleton bone textures, 12x12, leaked per change). Requires 12D. 3D only.
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed.
+- Edit the source that builds into the current bundle (12D build: index-Bb23fn_Q.js / routes-BRGAGLf9.js). Find code by the quoted anchors. Minified names are from routes-BRGAGLf9.js. They shifted since 12D, so use these.
+- Walkability, collision, tiles, props and pathing stay unchanged. Plants are visuals only.
+- Do not change the ring, islets, ocean, foam, ground, shore kit or the forest archetype trees (conifer/decid).
+- Plant URLs use ?v=12e. There is one season set (no season variants exist for these files).
+
+FACTS
+- Files: FT + `models/outdoor/v5/plants/<file>?v=12e` (all return 200):
+  - plant_palm_date_a_v5.glb (9.8 m), plant_palm_date_b_v5.glb (8.5 m), plant_palm_date_c_v5.glb (7.0 m, dying)
+  - plant_cactus_column_a_v5.glb (3.2 m), plant_cactus_cluster_b_v5.glb (2.6 m), plant_agave_a_v5.glb (3.4 m incl. stalk), plant_scrub_bush_a_v5.glb (1 m tall, 2 m wide)
+  - tree_dead_a_v5.glb (7.2 m), tree_dead_b_v5.glb (6.2 m)
+  - textures/plant_atlas_v5_color.jpg, textures/plant_atlas_v5_alpha.png
+- Every GLB has one mesh named after the file (e.g. `plant_agave_a_v5`). Units are metres, Y up, base at y=0.
+  - Plant material is `mat_plant_atlas_v5`. Its embedded texture is a partial palette, so do not reuse it. Use the shared atlas material below.
+  - Dead tree material is `ms_deadwood_v5`, with its own embedded texture. Clone that material.
+- Edge class XT (search `edge12b`). build(e, t, n): e = zone, t = season, n = token. `...BT.map((e) => Yw(WT(`trees/tree_${e}_v5.glb`)))` is in the Promise.all. `this.placeDress(e, t, h, _, m)` comes after `this.kitLay = i ? this.layoutKit(e, h, t) : null`. wipe() disposes madeInst/madeGeo/madeMat/madeTex.
+- placeDress(e, t, n, r, i) loops `for (let r of e.props)`. `r.kind === `tree`` uses `QT(t, r.style, r.x, r.y, a)` -> {arch, tint, height, width, ry}. Its scale is `c = i || r.style === `far` ? 1 : 0.45` (i = off-map).
+  - Props of kind palm, cactus and bush are not drawn in 3D today.
+  - Live counts: coast has 30 tree:dead and 12 bush:thorn. desert has 15 cactus and duneW has 8. flotsam 41, waste 42, bluffs 30, weald 39, ascent 33 and mires 8 tree:dead.
+- spawn(geo, mat, items {x, z, ry, sx, sy, sz}) makes the InstancedMesh and the fade twin. Give each spawn its own `geometry.clone()`, pushed to madeGeo (spawn adds aFade to the geometry).
+- Helpers:
+  - Yw(url) = cached GLB load (null on fail).
+  - qT(scene, meshName) = geometry. JT(scene, matName) = material.
+  - GT(x, y) = hash 0..1.
+  - LE(zone, x, y) = solid. RE(zone, x, y) = walkable in-map.
+  - W = {Road 3, Water 4, Bridge 5, Sand 6, Sand2 7, Wall 11, Plaza 12, Plank 13}.
+  - My = TextureLoader. nm = sRGB colour space. qv = MeshStandardMaterial. this.uClipDress.
+- Season set uE.dead = waste, ashcamps, coast, spireroots, weald.
+- Zone fields: e.exits, e.npcs, e.spawns (all with x, y), e.spawn {x, y}, and e.kitLay?.cover (a Set of tile keys y*w+x).
+
+STEPS
+1. Load. Add `PT12E = (f) => FT + 'models/outdoor/v5/plants/' + f + '?v=12e'` next to WT. PLANTS = the 9 GLB names above, without .glb.
+   - In build, just before the existing `o = await Promise.all([...])`, start `const plP = Promise.all([Promise.all(PLANTS.map((f) => Yw(PT12E(f + '.glb')))), this.plantAtlas()])`. Do not add it to that array, so the `o.splice(o.length - 8, 8)` indexes stay the same.
+   - Right after the Promise.all, `const [plG, plT] = await plP;`, then the existing token check. Make `pl = new Map(PLANTS.map((f, i) => [f, plG[i]]))` and pass pl and plT to placeDress as 6th and 7th arguments.
+   - `plantAtlas()`: cache the promise once on XT as `this.plantTex`. Load both atlas files with `new My().load`, resolving null on error. Set `color.colorSpace = nm`, and `flipY = false` on both. Do not push them to madeTex; they are kept like gTex.
+2. Materials (in placeDress, only when used):
+   - Plant material: `new qv({ map: color, alphaMap: alpha, alphaTest: 0.5, side: 2, vertexColors: true, roughness: 0.88, metalness: 0 })`. If plT is null, skip all plant_* files.
+   - Dead-tree materials: one per file, `JT(scene, 'ms_deadwood_v5').clone()`.
+   - On each: onBeforeCompile = `(s) => this.hook(s, this.uClipDress, false)`, key `e12b-dress`, pushed to madeMat.
+3. Remap existing props (in the props loop; the off-map skip rules are unchanged):
+   - Dead trees: kind tree with style `dead`, or season `t === 'dead'` with style not blackroot / giant / far. Instead of the QT conifer path, add an item to `tree_dead_a_v5` or `tree_dead_b_v5` by `GT(r.x + 7, r.y) < 0.5`. Use k = QT(...).height * c / 7.2, so sx = sy = sz = k, and ry = QT(...).ry.
+   - kind `cactus`: plant_cactus_column_a_v5 or plant_cactus_cluster_b_v5 by GT(r.x, r.y + 5) < 0.5.
+   - kind `palm`: palm a / b / c by floor(GT * 3).
+   - kind `bush`: plant_scrub_bush_a_v5.
+   - Cactus, palm and bush use the step 4 scale and ry.
+   - All other trees keep the QT path. If a GLB is null, fall back to the old path for trees and skip plants.
+4. Scatter. Make a table SET[zone id] of file lists, picked by `floor(GT(x + 3, y + 1) * list.length)`:
+   - desert, duneW: column, column, cluster, cluster, agave, agave, scrub, palm_a
+   - flotsam: palm_c, palm_c, agave, scrub, scrub
+   - isle: scrub, scrub, agave
+   - coast, waste, ashcamps, spireroots, mires: dead_a, dead_b, scrub, scrub
+   - weald, bluffs, wild, briarE, ridge: scrub
+   - Not listed (iron, ascent, tollarch, others): no scatter.
+   Candidate tiles x 1..w-2, y 1..h-2, all must hold:
+   - LE true, tile not Water / Wall / Road / Bridge / Plaza / Plank, and the key is not in kitLay?.cover;
+   - at least one 4-neighbour is RE walkable (edge tiles only);
+   - more than 1.5 tiles from every prop, and more than 2.5 from mountain props;
+   - more than 3 tiles from every exit, npc, spawns entry and e.spawn;
+   - GT(x + 0.37, y + 0.71) < 0.3.
+   Stop at 32 items per zone (this cap replaces LOD for mobile; there is no per-frame LOD). Position: tile centre + (GT - 0.5) * 0.5 jitter. ry = GT * 2PI. Scale k * (0.85 + 0.3 * GT), with k: palm 0.38, column 0.45, cluster 0.45, agave 0.3, scrub 0.6, dead 0.4.
+5. Isle palms (non-blocking). On isle only, also take walkable W.Sand / Sand2 tiles with a 4-neighbour Water tile, keeping the same distance rules and the GT < 0.3 test. Add palm_a / palm_b, k 0.38, at most 12. They are visual only; collision is unchanged.
+6. Spawn. Group items by file. For each file: `qT(scene, file)` -> `geo.clone()` -> madeGeo -> `this.spawn(geo, mat, items)`. Use the plant mat for plant_*, and the dead mat for tree_dead_*. Log once: `[12e] plants <id> dead=<n> cactus=<n> palm=<n> agave=<n> scrub=<n>`.
+7. Leak fix (room class, outside XT). Add `dropSkin(root) { root.traverse((o) => { o.isSkinnedMesh && o.skeleton && o.skeleton.dispose(); }); }`. Call it on the removed root (`t.root`, `n.root`, `t.root`) right after `removeFromParent()` in:
+   - `n.has(e) || (t.root.removeFromParent(), this.mobs.delete(e))`
+   - `t.has(e) || (n.root.removeFromParent(), this.npcs.delete(e))`
+   - `n.has(e) || (t.root.removeFromParent(), this.lootViews.delete(e))`
+   Skeleton.dispose only frees boneTexture, and three rebuilds it if the skeleton is still used, so it is safe.
+
+TEST (screenshots of each, phone-size window, 3D on)
+1. Ashen coast: dead trees use the new gnarled GLB (not brown cones), scrub sits on the thorn bush spots, and nothing is on the road or the beach kit.
+2. Desert and The Narrow: cacti on the cactus props, plus agave, scrub and a few palms on rock edges. No plant blocks an exit or a walkable lane visually.
+3. Bleak Flotsam and Blackwater: dying palms and agave on Flotsam, and palms on the isle shore sand. Cut-out fronds show no black boxes or a white halo.
+4. Briarwood: forest trees unchanged plus some scrub. Weald blackroot and giant trees are unchanged.
+5. Walk behind a dead tree and a palm: both fade smoothly (12C fade) and come back.
+6. Leak: in the console, read `__eng.room.renderer.info.memory.textures`, then enter wild -> coast -> wild -> coast. The count rises by no more than 2 per round trip (before the fix it rose 8 per change). Mobs and NPCs still animate after you return.
+7. Console: one `[12e] plants ...` line per outdoor zone, and no new errors or `[3d] asset failed` warnings.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

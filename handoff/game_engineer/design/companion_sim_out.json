@@ -1,0 +1,268 @@
+{
+ "nightmare": {
+  "band": [
+   52,
+   68
+  ],
+  "in_band": 1.0,
+  "mean": 60.04,
+  "sd": 4.58,
+  "p1": 52.2,
+  "p50": 60.0,
+  "p99": 67.8,
+  "combos": 84,
+  "combo_mean_spread_pct": 2.88,
+  "strictly_best_combo": false,
+  "top": [
+   {
+    "combo": "armor+shield+weapon",
+    "n": 521,
+    "mean_q1": 61.32,
+    "p10": 47.6,
+    "p90": 67.9,
+    "base": 11.7,
+    "passive": 9.6
+   },
+   {
+    "combo": "armor+helm+weapon",
+    "n": 534,
+    "mean_q1": 60.95,
+    "p10": 46.9,
+    "p90": 66.5,
+    "base": 12.0,
+    "passive": 11
+   },
+   {
+    "combo": "gloves+shield+weapon",
+    "n": 534,
+    "mean_q1": 60.67,
+    "p10": 47.1,
+    "p90": 66.9,
+    "base": 12.4,
+    "passive": 12.2
+   }
+  ],
+  "bottom": [
+   {
+    "combo": "belt+gloves+ring",
+    "n": 699,
+    "mean_q1": 59.78,
+    "p10": 50.1,
+    "p90": 65.6,
+    "base": 17.0,
+    "passive": 22.8
+   },
+   {
+    "combo": "belt+gloves+weapon",
+    "n": 573,
+    "mean_q1": 59.73,
+    "p10": 47.5,
+    "p90": 65.4,
+    "base": 13.4,
+    "passive": 16.3
+   },
+   {
+    "combo": "belt+gloves+shield",
+    "n": 487,
+    "mean_q1": 59.59,
+    "p10": 48.8,
+    "p90": 65.4,
+    "base": 14.7,
+    "passive": 18.9
+   }
+  ],
+  "three_slot_share": 0.3,
+  "avg_base_2slot": 17.4,
+  "avg_base_3slot": 13.9,
+  "avg_pass_2slot": 22.8,
+  "avg_pass_3slot": 16.6,
+  "dps_share_p10_p50_p90": [
+   17.1,
+   19.4,
+   21.6
+  ]
+ },
+ "hell": {
+  "band": [
+   62,
+   78
+  ],
+  "in_band": 1.0,
+  "mean": 70.0,
+  "sd": 4.61,
+  "p1": 62.2,
+  "p50": 70.0,
+  "p99": 77.8,
+  "combos": 84,
+  "combo_mean_spread_pct": 1.27,
+  "strictly_best_combo": false,
+  "top": [
+   {
+    "combo": "amulet+belt+helm",
+    "n": 391,
+    "mean_q1": 70.47,
+    "p10": 58.8,
+    "p90": 76.6,
+    "base": 19.5,
+    "passive": 25.0
+   },
+   {
+    "combo": "armor+helm+weapon",
+    "n": 533,
+    "mean_q1": 70.44,
+    "p10": 55.2,
+    "p90": 77.2,
+    "base": 14.4,
+    "passive": 18.1
+   },
+   {
+    "combo": "belt+gloves+shield",
+    "n": 508,
+    "mean_q1": 70.4,
+    "p10": 58.7,
+    "p90": 77.0,
+    "base": 19.8,
+    "passive": 24.6
+   }
+  ],
+  "bottom": [
+   {
+    "combo": "gloves+helm+ring",
+    "n": 759,
+    "mean_q1": 69.72,
+    "p10": 59.3,
+    "p90": 75.8,
+    "base": 20.4,
+    "passive": 25.4
+   },
+   {
+    "combo": "gloves+helm+weapon",
+    "n": 590,
+    "mean_q1": 69.69,
+    "p10": 56.1,
+    "p90": 77.1,
+    "base": 14.6,
+    "passive": 21.1
+   },
+   {
+    "combo": "amulet+belt+gloves",
+    "n": 429,
+    "mean_q1": 69.58,
+    "p10": 59.0,
+    "p90": 75.4,
+    "base": 20.1,
+    "passive": 25.5
+   }
+  ],
+  "three_slot_share": 0.301,
+  "avg_base_2slot": 23.7,
+  "avg_base_3slot": 17.4,
+  "avg_pass_2slot": 26.5,
+  "avg_pass_3slot": 22.8,
+  "dps_share_p10_p50_p90": [
+   17.5,
+   19.5,
+   21.3
+  ]
+ },
+ "margins": {
+  "band": [
+   72,
+   88
+  ],
+  "in_band": 1.0,
+  "mean": 79.85,
+  "sd": 4.56,
+  "p1": 72.1,
+  "p50": 79.9,
+  "p99": 87.8,
+  "combos": 84,
+  "combo_mean_spread_pct": 1.86,
+  "strictly_best_combo": false,
+  "top": [
+   {
+    "combo": "amulet+gloves+helm",
+    "n": 433,
+    "mean_q1": 80.56,
+    "p10": 69.9,
+    "p90": 87.0,
+    "base": 25.5,
+    "passive": 27.0
+   },
+   {
+    "combo": "helm+shield+weapon",
+    "n": 499,
+    "mean_q1": 80.41,
+    "p10": 64.9,
+    "p90": 87.3,
+    "base": 18.5,
+    "passive": 23.9
+   },
+   {
+    "combo": "gloves+helm+shield",
+    "n": 477,
+    "mean_q1": 80.4,
+    "p10": 68.2,
+    "p90": 86.6,
+    "base": 24.3,
+    "passive": 26.1
+   }
+  ],
+  "bottom": [
+   {
+    "combo": "amulet+belt",
+    "n": 1975,
+    "mean_q1": 79.36,
+    "p10": 71.0,
+    "p90": 84.8,
+    "base": 35.5,
+    "passive": 27.8
+   },
+   {
+    "combo": "belt+gloves",
+    "n": 2537,
+    "mean_q1": 79.35,
+    "p10": 71.5,
+    "p90": 84.6,
+    "base": 37.4,
+    "passive": 27.9
+   },
+   {
+    "combo": "belt+ring",
+    "n": 3117,
+    "mean_q1": 79.07,
+    "p10": 71.4,
+    "p90": 84.7,
+    "base": 39.3,
+    "passive": 27.7
+   }
+  ],
+  "three_slot_share": 0.299,
+  "avg_base_2slot": 32.3,
+  "avg_base_3slot": 23.9,
+  "avg_pass_2slot": 27.7,
+  "avg_pass_3slot": 26.4,
+  "dps_share_p10_p50_p90": [
+   17.8,
+   19.5,
+   21.1
+  ]
+ },
+ "pace": {
+  "nightmare": {
+   "analytic_h": 5.4,
+   "sim_h": 5.1,
+   "pity_share": 0.0544
+  },
+  "hell": {
+   "analytic_h": 4.83,
+   "sim_h": 4.63,
+   "pity_share": 0.0377
+  },
+  "margins": {
+   "analytic_h": 4.28,
+   "sim_h": 4.14,
+   "pity_share": 0.0244
+  }
+ }
+}

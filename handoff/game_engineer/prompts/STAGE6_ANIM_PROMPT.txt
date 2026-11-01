@@ -1,0 +1,33 @@
+STAGE 6: ANIMATED KNIGHT HERO IN 3D (HERO ONLY)
+
+RULES (strict)
+- Change only 3D hero rendering/animation code in the 3D class dT (loadHero, poseHero, TC config). No game logic, balance, save, controls, swing timing or 2D changes. Monsters and NPCs stay as they are (fillNpc keeps its current model).
+- If a step fails twice, stop and report. No retry loops. Build once at the end, check the console, publish.
+
+FACTS (current bundle)
+- TC.heroModelUrl = /assets3d/sanctuary/plated_knight_rigged.glb with clip map CC; loadHero() loads it via Uw(...) with fallback TC.heroFallbackUrl; poseHero(e,t) picks idle/run/attack/hit/death from e.mode==='dead', this.prevHp vs player.hp, player.swingT>0, e.speed>.15.
+- Swing timing: player.swingLen (full swing), player.swingT counts down from swingLen, hit lands at player.swingHit = swingLen*0.58 (i.e. when swingT reaches swingLen-swingHit).
+- Town check: engine inTown() (world.id town/lut/market/...). Enemies: this.enemies. The game has no player block action (only passive gearBlock) - no block anims this stage.
+
+ASSETS (public, CORS ok)
+- HERO_URL = https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/models/knight_anim.glb (knight body, no sword, 71 clips, bones mixamorig:*; three.js strips the colon, so names read mixamorigRightHand etc. - find bones by name with the colon removed)
+- SWORD_URL = https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/models/weapon_sword.glb (mesh already in RightHand bone space: identity offset in the hand)
+
+STEP 1 - Load. Add TC.heroAnimUrl=HERO_URL, TC.heroWeaponUrl=SWORD_URL. In loadHero use GLTFLoader for HERO_URL, scale to the same targetHeight 1.86, one AnimationMixer, actions for every clip by name. Keep the old model/Uw path only as fallback if the load fails. Strip root motion: for every clip, drop the x/z values of the mixamorigHips position track (keep y) so the game position drives the hero.
+STEP 2 - Sockets. No socket bones exist; create empty Object3D sockets: HandSocket child of mixamorigRightHand (offset 0,0,0 rot 0,0,0); HipSheath child of mixamorigHips on the left side; BackSheath child of mixamorigSpine2 (unused for now). Tunable constants at top: HIP_SHEATH_POS=[-0.18,-0.05,0.06], HIP_SHEATH_ROT=[0,0,2.6], BACK_SHEATH_POS=[0,0.1,-0.15], BACK_SHEATH_ROT=[0,0,0.6] (bone-local units after scale; tune by eye). Load SWORD_URL once; attach to HipSheath when sheathed, HandSocket when drawn.
+STEP 3 - Clip map table. One object HERO_CLIPS keyed by weapon set, only 'sword' filled now:
+  sword: { idle:'ss_idle', walk:'ss_walk', run:'ss_run', light:['ss_attack_1','ss_attack_2','ss_attack_3'], heavy:'ss_attack_heavy', hit:'ss_hit', draw:'ss_draw', sheath:'ss_sheath', death:'ss_death' }
+  peace: { idle:'town_idle', walk:'unarmed_walk', run:'unarmed_run', fidget:['town_look_around','town_weight_shift'] }
+  deaths: ['ss_death','death_dying','death_backwards','death_fall_back','death_forward','death_left','death_right']
+  Leave commented empty slots for gs_, axe_, bow_, magic_ sets (clips exist in the file; no models yet, do not wire them).
+STEP 4 - Peace/combat. armed flag. Go peace when inTown() is true, or no enemy in this.enemies (alive) within 8 tiles for 4s: play sheath once (0.6s crossfade-out), move sword to HipSheath at 60% of the clip, then peace set. Go combat when an alive enemy is within 8 tiles or player.swingT>0: play draw at 1.6x speed, move sword to HandSocket at 40% of the clip, then sword set. An attack during draw skips straight to the attack clip with the sword in hand.
+STEP 5 - poseHero states (keep its existing detection order: death > hit > attack > move > idle). Crossfade 0.2s between loops, 0.1s into attack/hit.
+  - move: e.speed>.15 -> run clip; small speed (<.6 of max) -> walk. Scale run/walk timeScale with speed so feet do not slide.
+  - attack: on swingT rising from 0, pick a random light clip (not the same twice in a row); heavy clip when the swing comes from a skill cast (if no clean read-only signal exists, use light only and say so in REPORT). Set timeScale so the clip's contact moment lands at swingHit: contact at 45% of light clips, 55% of heavy; timeScale = (clipDuration*contact)/swingHit. Play once, clampWhenFinished, then return to loop.
+  - hit: one-shot ss_hit (or peace: same clip), not while attacking.
+  - death: random clip from deaths, LoopOnce, clampWhenFinished (hold last frame). Reset to idle when mode leaves 'dead'.
+  - idle in peace: town_idle, every 8-12s play one fidget once.
+STEP 6 - Test in 3D: town shows sword on hip and town idle/unarmed walk/run; leave town, walk to skeletons -> draw, combat run; attacks alternate and the sword hit lands with the damage number; taking damage plays a hit; 4s with no foes near -> sheath; die -> death holds; 2D view unchanged. Build, check console, publish.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any), files changed, and which signal was used for heavy attacks.

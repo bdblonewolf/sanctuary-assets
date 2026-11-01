@@ -1,0 +1,171 @@
+SANCTUARY SKILLS FIX - PIECE 6 OF 7. Read and keep this piece; do not start building until all pieces are pasted.
+
+(continues the table from the previous piece)
+
+|Wd wand_flashstep|0.6→20 %RD per flash|HEAL|blind|RULE: range drops to 4m and you go where you shoot|10: flash bursts blind for 1s|the wand flashes: attacks blink you 1.5m toward the target and burst|
+|St vaulting_staff|0.75→25 %RD on the landing|HEAL|—|IAS −10 raw|20: the landing knocks trash 1m|every 4th swing pole-vaults you 3m forward, landing in a slam|
+|Sh shield_charge|0.6→20 %RD per shield charge|HEAL|—|block −6%|10: the charge pushes trash 1.5m|blocks charge up; the 3rd block charges you 3m shield-first|
+|**Bulwark** `bulwark`|||||||
+|Sw bastion_cut|0.45→15 % max life absorbed per plate|HEAL|—|dmg ×0.92|10: at 5 plates your swing knocks trash back 0.5m|each swing adds a Bulwark plate (max 5); plates soak hits and fade in 4s|
+|Ax stalwart_chop|0.6→20 % of Bulwark's barrier added as damage|HEAL|—|IAS −10 raw|15: refreshing Bulwark at full adds 2% to its size|chops on foes that hit you in the last 2s hit harder and refresh Bulwark|
+|Sp pike_wall|0.6→20 % of Bulwark-scaled dmg per tip hit|HIT|—|RULE: you are rooted while the spear is planted and -15% damage when you move|10: foes stop for 0.2s on the tip|planting the spear (hold attack) makes a wall; foes walking into the tip take hits|
+|Ma iron_anvil|0.9→30 % armour per forge|DEF|—|IAS −12 raw|15: at 3 forges you shrug off one stun (players only; no boss effect)|hits forge your armour; every 4th hit adds +armour for 5s (max 3)|
+|Dg guard_break|0.45→15 % armour reduced per stab (max 15)|DEF|weaken|dmg ×0.94|10: guard-broken foes deal 5% less to you|stabs reduce the foe's armour; foes that hit you lose more|
+|Bw watchtower|0.15→5 % max life barrier per arrow|HEAL|—|RULE: moving resets the watchtower|15: while barriered your arrows pierce 1 foe|standing still 1s makes your arrows build a Bulwark barrier|
+|Wd wand_bulwark|0.15→5 % max life barrier per cast|HEAL|—|RULE: you deal no attack damage|10: full barriers burst for 30% of their size around you|the wand casts a small barrier on you each attack instead of a bolt|
+|St rampart_staff|0.45→15 % of Bulwark-scaled dmg per wall push|AREA|knockback|IAS −12 raw|20: walls stop enemy projectiles|staff swings knock a 1s wall of force in front of you|
+|Sh tower_stance|0.3→10 % block chance added|CHANCE|—|FRW −15%|10: blocked hits restore 1 mana|your shield blocks 10% more and every block refreshes Bulwark 0.5s|
+|**War Cry** `warcry`|||||||
+|Sw battle_shout_blade|0.3→10 % damage per shout|DMG|—|IAS −6 raw|10: shouts make trash flee 0.5s (bosses: immune)|every 10th swing lets out a short warcry: +damage for 3s|
+|Ax berserkers_roar|0.3→10 % attack speed per roar (max 5)|SPEED|—|RULE: -10% max life|15: roars at 5 stacks heal 2%|chops while below 50% life roar, adding attack speed|
+|Sp rallying_spear|0.3→10 % damage to allies/summons|DMG|—|RULE: banners fall after 6s|10: you near the banner gain +5% armour|thrusts raise a banner on kills; allies/summons near it hit harder|
+|Ma warhorn_mace|0.03→1 s added to the daze|DUR|stun|IAS −12 raw|15: warhorns also restore 3 mana|every 6th hit sounds a warhorn that dazes trash 0.4s (bosses: flinch)|
+|Dg taunt_stab|0.3→10 % damage taken by taunted foes|DEBUFF|—|RULE: taunted foes deal +5% to you|10: taunting a boss gives 5% damage reduction to your allies|stabs taunt; taunted foes hit harder but take more from you|
+|Bw war_whistle|0.06→2 s added to flee|DUR|fear|dmg ×0.92|15: fleeing foes take 10% more from arrows|arrows whistle; trash hit by 3 whistling arrows flee|
+|Wd wand_warcry|0.3→10 % attack speed to allies and summons|SPEED|—|RULE: you deal no attack damage|10: shouts heal summons 1%|the wand lets out a short shout instead of a bolt: allies and summons hit faster|
+|St chanting_staff|0.3→10 % damage per hymn|DMG|—|IAS −12 raw|20: hymns stack twice|staff swings chant; 4 swings complete a battle hymn (+5% damage for 4s)|
+|Sh clangour|0.3→10 % damage reduction per taunted foe (max 3)|DEF|—|RULE: you stop attacking for 1s while clanging|10: clanging restores 2 mana|bashing the shield with your weapon (no attack) roars and taunts in 4m|
+|**Frost Ward** `frostward`|||||||
+|Sw frost_guard_blade|0.6→20 % chill on attackers (bosses: half)|SLOW|chill|dmg ×0.92|10: chilled attackers take 10% of Frost Ward dmg|swings coat you in frost; foes hitting you are chilled|
+|Ax winter_hew|0.15→5 s Frost Ward added per chop|DUR|—|IAS −10 raw|15: refreshing at full spawns a frost shard at the foe|chops on chilled foes refresh Frost Ward 0.5s|
+|Sp icewall_thrust|0.6→20 %RD per post hit|HIT|—|IAS −8 raw|10: posts block one projectile each|thrusts raise an ice post behind the foe; foes knocked into it take damage|
+|Ma cold_iron_guard|0.15→5 % damage reduction per hit|DEF|—|IAS −12 raw|15: at max your next hit is a frost slam|hits harden your skin; each grants 2% damage reduction (max 10%)|
+|Dg frozen_heart|0.03→1 s refresh per stab|DUR|—|dmg ×0.92|10: refreshes give +5% attack speed for 2s|stabs on frozen foes refresh Frost Ward 1s|
+|Bw frost_fletch|0.45→15 %RD per arrow|BOLT|—|proj spd ×0.88|15: frost arrows that kill shield you 1%|arrows with Frost Ward up chill (bosses: half) and pierce 1 foe|
+|Wd wand_frostward|0.3→10 % max life barrier per shard|HEAL|—|IAS −20 raw|10: shards that kill add twice|the wand fires an ice shard that also adds to your Frost Ward barrier|
+|St glacial_shell_staff|0.6→20 % armour per shell|DEF|—|IAS −15 raw|20: the 3rd shell bursts for 30% of Frost Ward dmg|staff swings shell you in ice: +armour for 2s (max 3)|
+|Sh ice_mirror|0.3→10 % chance to reflect|CHANCE|freeze|block −8%|10: reflected projectiles freeze 0.3s (once per 8s; boss rules)|while blocking with Frost Ward up, enemy projectiles bounce back chilled|
+|**Telekinesis** `telekinesis`|||||||
+|Sw flying_sword|0.9→30 %RD per flight|SPEED|—|RULE: you swing nothing while the sword is away|10: the returning sword hits foes on the way back|every 4th swing launches the sword 5m forward, then it returns|
+|Ax throwing_axe_mind|0.45→15 %RD per hover hit|HIT|pull|RULE: you're unarmed until it returns (2s)|15: hovering axes pull trash 0.5m|holding attack throws the axe; it hovers over the target hitting it|
+|Sp levitating_pike|0.45→15 %RD per float thrust|HIT|—|RULE: -15% your own thrust speed|10: float thrusts reach 3m|the spear floats beside you and thrusts on its own at nearby foes|
+|Ma gravity_mace|0.6→20 %RD per pull|AREA|pull|IAS −10 raw|15: pulled foes collide for 10% of Telekinesis dmg|hits pull foes in 2m 0.5m toward the target|
+|Dg orbiting_knives|0.3→10 %RD per orbit cut|HIT|—|dmg ×0.90|10: 3 knives spin faster|stabs set a knife in orbit around you (max 3); orbiting knives cut foes|
+|Bw guided_arrow|0.3→10 %RD per guided arrow|BOLT|—|proj spd ×0.90|15: guided arrows never miss stationary foes|arrows curve toward foes you move your cursor near|
+|Wd wand_shove|0.45→15 %RD per shove|HIT|knockback|IAS −15 raw|10: shoved foes hitting walls take double|the wand pushes; attacks fire a telekinetic shove that knocks trash 2m|
+|St levitate_staff|0.6→20 %RD on landing|HIT|—|IAS −15 raw|20: lifted foes can't attack|the staff lifts foes it hits 0.4s into the air (bosses: flinch)|
+|Sh repulsor_shield|0.3→10 %RD per push|AREA|—|block −6%|10: pushed foes knock others down|blocks push the attacker 1m away telekinetically|
+|**Hex** `hex`|||||||
+|Sw cursed_edge|0.15→5 % damage taken per stack|DEBUFF|—|dmg ×0.94|10: 5 stacks spread one stack to neighbours|swings deepen Hex on the target: +damage taken per swing (max 5)|
+|Ax hexed_hatchet|0.9→30 %RD per curse burst|HIT|—|IAS −10 raw|15: curse bursts curse neighbours 2s|chops on hexed foes chop away a curse into a burst|
+|Sp warding_hex|0.3→10 % damage taken by cursed foes|DEBUFF|—|IAS −8 raw|10: runes slow 10% (bosses: half)|thrusts carve hex runes in the air; foes passing them are cursed 2s|
+|Ma voodoo_mace|0.45→15 % of hit dmg copied|HIT|—|IAS −12 raw|15: copied hits can't copy again|hits on a hexed foe also hit a random hexed foe within 5m|
+|Dg witch_needle|0.3→10 % damage reduction from weakened foes|DEBUFF|weaken|dmg ×0.94|10: weakened foes give 2 mana when hit|stabs pin a curse; every 3rd stab makes the foe weak for 2s|
+|Bw hex_bolt_arrow|0.6→20 %RD per shadow arrow|BOLT|—|dmg ×0.90|15: shadow arrows hex what they hit|arrows into hexed foes split a shadow arrow to the nearest foe|
+|Wd wand_hex|0.3→10 % damage taken by the hexed foe|DEBUFF|—|RULE: you deal no direct damage|10: one hexed foe at a time; switching is free|the wand hexes the target with no mana cost, no damage|
+|St grimoire_staff|0.15→5 % damage taken per swing hex|DEBUFF|—|IAS −15 raw|20: hexing 4+ foes gives you 3 mana|staff swings hex all foes in the arc for 2s|
+|Sh evil_eye_shield|0.15→5 % damage taken by cursed foes|DEBUFF|—|block −5%|10: cursed foes deal 3% less; Hex applied while blocking spreads to 1 nearby foe|the shield has an eye; foes looking at it (in front) are cursed|
+|**Mind Snare** `snare`|||||||
+|Sw tripwire_slash|0.03→1 s added to stumble|DUR|—|dmg ×0.94|10: stumbled foes take 10% more from your next swing|swings drop a tripwire behind the foe; foes crossing it stumble 0.3s|
+|Ax bear_trap_chop|0.9→30 %RD per trap snap|HIT|root|IAS −12 raw|15: traps root trash 0.5s (bosses: immune; boss rules)|chops set a bear trap under the foe (max 2)|
+|Sp net_spear|0.15→5 % slow from the net (bosses: half, cap 30%)|SLOW|slow|IAS −8 raw|10: netted foes can't dash|every 5th thrust throws a net 3m wide|
+|Ma shackle_mace|0.3→10 % weaken per shackle|DEBUFF|—|IAS −10 raw|15: the 4th shackle roots 0.3s (once per 6s; boss rules)|hits shackle the foe to the ground; shackled foes hit less hard|
+|Dg hamstring|0.6→20 % stab damage vs slowed foes|SLOW|—|RULE: -6% damage vs unslowed foes|10: hamstrung foes can't run away|stabs cut the hamstring; slowed foes take more stab damage|
+|Bw bola_shot|0.06→2 s tangle duration|DUR|—|RULE: -12% arrow damage on bolas|15: tangled foes are pulled toward each other|every 4th arrow is a bola that tangles legs|
+|Wd wand_lasso|0.45→15 %RD per lasso|HIT|—|IAS −18 raw|10: lassoed foes are slowed 15% (bosses: half)|the wand fires an energy lasso that drags trash 2m toward you|
+|St snare_circle|0.3→10 % slow in the ring (bosses: half)|SLOW|—|IAS −12 raw|20: the ring tightens over 2s|staff swings draw a snare ring; foes inside are slowed 10%|
+|Sh grappling_shield|0.03→1 s added to the hook|DUR|—|block −6%|10: hooked foes take 10% more; hooking a foe refunds 3 mana|blocking hooks the attacker; it can't move 0.3s|
+|**Blink Step** `blinkstep`|||||||
+|Sw phantom_cut|0.15→5 m blink distance|AREA|—|dmg ×0.94|10: the first swing after a blink crits 10% more|swings blink you 1m to the foe if out of reach|
+|Ax warp_chop|0.6→20 % of chop damage dealt by the image|HIT|—|IAS −10 raw|15: images draw aggro 1s|every 5th chop leaves a mirror image that chops once more|
+|Sp ghost_lunge|0.06→2 s untouchable|DUR|—|RULE: you go where you thrust, 2m each time|10: the lunge hits every foe passed|thrusts blink you 2m and leave you untouchable 0.2s (1s cooldown)|
+|Ma quake_blink|0.9→30 %RD per quake|HIT|—|IAS −10 raw|15: quakes stagger trash 0.3s (bosses: flinch)|hitting after a blink makes a 2m quake|
+|Dg shadow_swap|0.45→15 %RD per swap|HIT|—|RULE: swapping can drop you into hazards; 1 in 6 stabs moves you|10: swapped foes are dazed 0.5s|every 6th stab swaps places with the foe|
+|Bw blink_shot|0.45→15 %RD on the blink arrow|BOLT|—|RULE: you can't control blink direction|15: blink arrows pierce|every 4th arrow blinks you 2m sideways as you loose it|
+|Wd wand_blink|0.3→10 % damage on the landing burst per rank|DMG|—|RULE: -15% attack speed and you go where you shoot|10: landing bursts blind 0.5s|the wand blinks you to where the bolt lands (2s cooldown)|
+|St step_staff|0.45→15 %RD per step sweep|HIT|—|IAS −12 raw|20: steps pass through foes|staff swings step you 1.5m forward, sweeping as you go|
+|Sh after_image_shield|0.06→2 s image duration|DUR|—|block −6%|10: images explode for 20% of Blink Step dmg|blocking leaves an after-image that takes the next hit|
+|**Veil** `veil`|||||||
+|Sw veiled_strike|1.5→50 %RD on the opener|HIT|—|RULE: -8% swing damage after the opener|10: opening kills refresh Veil 1s|the first swing from Veil deals heavy bonus damage and keeps you veiled|
+|Ax ghost_axe|0.45→15 % damage vs foes not facing you|DMG|—|IAS −10 raw|15: invisible chops don't draw aggro|chops on foes not looking at you are invisible to them|
+|Sp smoke_thrust|0.03→1 s added to the veil|DUR|blind|IAS −8 raw|10: foes in the puff miss 15%|every 4th thrust releases a smoke puff; you're veiled 0.5s|
+|Ma muffled_hammer|0.3→10 % damage vs unaware foes|DMG|—|IAS −12 raw|15: silent kills veil you 1s|hits are silent: they don't wake nearby trash|
+|Dg assassin_mark|0.45→15 % crit chance vs marked|CRIT|—|RULE: -8% stab damage vs unmarked|10: marked foes deal 5% less damage to you|stabs from veil mark the foe; marked foes take crit stabs|
+|Bw ghost_arrow|0.45→15 % damage from veil|DMG|—|RULE: each Veil arrow costs 1 mana; you are revealed for 1s after each Veil arrow|15: veil arrows pierce|arrows from Veil don't break it; each costs 1 mana|
+|Wd wand_veil|0.03→1 s veil per orb|DUR|—|RULE: you deal no damage with the orb|10: veiled attacks after the orb crit|the wand fires a smoke orb that veils you for 0.5s, no damage|
+|St mist_staff|0.3→10 % dodge in mist|DEF|—|IAS −12 raw|20: mist slows foes 10% (bosses: half)|staff swings trail mist; standing in mist you are harder to hit|
+|Sh shroud_shield|0.03→1 s veil per block|DUR|—|block −6%|10: veil from blocks gives +10% move speed|each block wraps you in Veil for a moment so foes lose track of you|
+|**Dread** `dread`|||||||
+|Sw dread_blade|0.06→2 s added to the flee|DUR|—|dmg ×0.94|10: fleeing foes take 10% more|swings deepen dread; at 5 dread, trash flees 1s (bosses: immune)|
+|Ax fearmonger|0.45→15 % of chop damage on the second hit|HIT|—|IAS −12 raw|15: second hits can't trigger effects|chops on frightened foes land twice, the second as a free echo hit|
+|Sp terror_spike|0.06→2 s of fear|DUR|fear|IAS −8 raw|10: fearful foes drop 2 mana|thrusts drive a spike of fear; foes behind the target flee|
+|Ma dread_bell|0.3→10 % weaken per bell|DEBUFF|weaken|IAS −10 raw|15: bells refresh on kills|every 6th hit rings a dread bell that weakens foes in 3m|
+|Dg nightmare_stab|0.6→20 %RD per nightmare|HIT|—|dmg ×0.94|10: nightmares jump on death|stabs plant a nightmare; the foe takes damage when it attacks|
+|Bw howling_arrow|0.03→1 s added to the fright|DUR|—|dmg ×0.92|15: frightened foes run into others|arrows howl; trash near the impact are frightened 0.5s|
+|Wd wand_dread|0.45→15 %RD per bolt|BOLT|—|IAS −15 raw|10: dread bolts that kill fear neighbours|the wand fires a dread bolt that slows 10% (bosses: half)|
+|St reaper_staff|0.45→15 % bonus vs frightened|OTHER|—|IAS −12 raw|20: scything a frightened foe extends its fear|staff swings scythe through fear; frightened foes take 20% more|
+|Sh gorgon_shield|0.03→1 s added to the fright|DUR|—|block −6%|10: frightened attackers can't attack|blocking frightens the attacker 0.5s (bosses: flinch)|
+|**Elemental Consume** `elemconsume`|||||||
+|Sw devouring_edge|0.9→30 %RD per eaten status|HIT|—|RULE: -8% swing damage; does nothing on foes with no status|10: eating 3 different statuses in 4s restores 5 mana|swings eat one status off the foe (oldest first) and deal a burst for it|
+|Ax status_harvest|0.6→20 %RD per status consumed|HIT|—|IAS −12 raw|15: consumed statuses can't be reapplied by this chop|every 5th chop consumes all statuses on the target for a large burst|
+|Sp conduit_pike|0.03→1 status transfers per thrust (max 1)|OTHER|—|IAS −8 raw|10: transferred statuses keep 50% of their remaining time|thrusts carry a consumed status 3m forward, applying it to the next foe|
+|Ma crucible_mace|0.75→25 %RD per fusion|HIT|—|IAS −12 raw|15: fusions pause boss regen like a DoT|hits fuse two statuses on a foe into a single burst|
+|Dg siphon_stab|0.3→10 % chance for the coated element to re-apply (counts toward that cap)|CHANCE|—|dmg ×0.92|10: coats stack 2 different elements|stabs steal a status from the foe and coat the dagger with it for 3s|
+|Bw absorbing_arrow|0.45→15 %RD per carried status|HIT|—|dmg ×0.90|15: carried statuses can't chain past 2 foes|arrows consume one status and carry it to the next foe hit|
+|Wd wand_consume|0.6→20 %RD per pulse|HIT|—|IAS −15 raw|10: only fires if the target has a status; otherwise fizzles|the wand fires a consume pulse at the target, no mana cost|
+|St well_staff|0.6→20 %RD per stored status|HIT|—|IAS −12 raw|20: the burst is the element you stored most|staff swings collect statuses from foes into the staff (max 4) and release them as a burst on the 4th|
+|Sh null_shield|0.06→2 statuses removed per block (max 1)|DEF|—|block −6%|10: removed statuses give 2% barrier|each block burns one harmful status off you (oldest first)|
+|**Bone Fan** `fanbone`|||||||
+|Sw spine_fan_blade|0.6→20 %RD per bone|BOLT|—|IAS −8 raw|10: fan bones count toward the +2 projectile cap|every 5th swing throws a 3-bone fan in front|
+|Ax ribspread|0.45→15 %RD per rib|BOLT|—|RULE: needs corpses|15: ribs pierce 1|chops on corpses fling ribs in a 5-way fan|
+|Sp bone_tines|0.3→10 %RD per tine|BOLT|—|IAS −10 raw|10: centre tine pierces|the spear tip splits into 3 bone tines; thrusts hit in a narrow fan|
+|Ma shatter_spray|0.6→20 %RD per shard|BOLT|—|IAS −10 raw|15: shards from bosses fire every 20% life|kills shatter the foe into a fan of bone shards|
+|Dg knuckle_throw|0.6→20 %RD per knucklebone|BOLT|—|dmg ×0.94|10: knucklebones return 1 mana|every 4th stab throws 2 knucklebones at nearby foes|
+|Bw bone_fan_volley|0.6→20 %RD per fan arrow|BOLT|—|proj spd ×0.90|15: fan arrows count toward the +2 projectile cap|every 5th shot is a 3-arrow bone fan|
+|Wd wand_fan|0.3→10 %RD per bone|BOLT|—|IAS −18 raw|10: close-range fans hit one foe with all 3|the wand fires a 3-bone fan, no mana cost|
+|St ossified_staff|0.3→10 %RD per ring bone|BOLT|—|IAS −15 raw|20: ring bones slow 5% (bosses: half); each bone ring hit returns 1 mana (max 5 per ring)|staff swings send a ring of bones outward|
+|Sh bone_spikes_shield|0.45→15 %RD per block bone|DEF|—|block −6%|10: block bones pierce 1|blocks fire a short 3-bone fan back|
+|**Javelin** `javelin`|||||||
+|Sw sword_toss|1.2→40 %RD per toss|BOLT|—|IAS −8 raw|10: tosses pierce 1|every 6th swing throws a phantom sword like a javelin 8m|
+|Ax tomahawk|0.9→30 %RD per tomahawk|BOLT|—|RULE: you're unarmed 1.5s|15: returning hits are 50%|holding attack throws the axe 7m; it returns|
+|Sp true_javelin|1.2→40 %RD per throw|BOLT|—|IAS −10 raw|10: throws pierce all foes in 6m|the spear is thrown on every 3rd attack and reforms in your hand|
+|Ma hammer_throw|0.9→30 %RD per bowl|BOLT|—|RULE: you're unarmed 1s|15: bowled trash fall 0.3s (bosses: flinch)|every 5th hit hurls the mace 6m; it bowls through foes|
+|Dg knife_fan|0.3→10 %RD per knife|BOLT|—|dmg ×0.92|10: knives count as from behind|stabs also throw a knife at the nearest other foe in 6m|
+|Bw harpoon|0.6→20 %RD per harpoon|BOLT|pull|IAS −10 raw|15: pulled foes take +10% from melee|every 4th arrow is a harpoon that pulls trash 2m to you|
+|Wd wand_spear_throw|0.75→25 %RD per javelin|BOLT|—|IAS −15 raw|10: piercing 2 refunds 1 mana|the wand fires a fast javelin of force that pierces 2|
+|St pole_hurl|0.45→15 %RD per zap|BOLT|—|RULE: you're unarmed until recall|20: recall by attacking again|holding attack hurls the staff 8m; it stays planted 2s, zapping foes near it|
+|Sh shield_disc|0.45→15 %RD per bounce|BOLT|—|RULE: no block for 1s while the disc flies|10: bounces stagger trash 0.2s|every 4th block throws the shield like a disc; it bounces to 3 foes|
+|**Star Lash** `starlash`|||||||
+|Sw starsteel|1.2→40 %RD per falling star|BOLT|—|dmg ×0.92|10: falling stars blind 0.5s|swings fling stardust; at 10 dust a star falls on the target|
+|Ax comet_chop|0.6→20 %RD per comet|BOLT|—|IAS −12 raw|15: comets hitting 3+ foes leave starlight that heals 1%|chops call a small comet after a 1s delay|
+|Sp constellation|0.75→25 %RD per constellation lash|BOLT|—|IAS −8 raw|10: constellations last 3s|thrusts pin a star; 3 stars connect to make a lashing constellation|
+|Ma nova_mace|0.9→30 %RD per nova|BOLT|—|IAS −10 raw|15: novas restore 3 mana|every 7th hit makes a small star nova|
+|Dg astral_shiv|0.3→10 % crit chance in the dark|CRIT|—|RULE: in light: no bonus|10: in light, stabs reveal invisible foes|stabs at night (or in dark zones) crit 10% more|
+|Bw falling_star_arrow|0.6→20 %RD per lash|BOLT|—|dmg ×0.92|15: lashes from the star can't trigger further stars|every 5th arrow becomes a shooting star that lashes 2 nearby foes|
+|Wd wand_starlash|0.6→20 %RD per bounce|BOLT|—|IAS −15 raw|10: bounces on the same foe twice if alone|the wand fires a small star lash that bounces between 2 foes, no mana|
+|St astrolabe|0.3→10 %RD per orbit lash|BOLT|—|IAS −12 raw|20: orbit stars light the area (no darkness penalty)|staff swings orbit a small star around you (max 2) that lashes nearby foes|
+|Sh starguard|0.03→1 s blind added|DUR|blind|block −6%|10: blinded foes miss 20%|blocking flashes; foes in front are blinded 0.5s|
+|**Aimed Shot** `aimed`|||||||
+|Sw measured_cut|0.9→30 %RD on aimed cuts|HIT|—|RULE: you must wait to gain it|10: aimed cuts can't miss|waiting 1s between swings makes the next swing an aimed cut|
+|Ax marksmans_hatchet|0.6→20 %RD on the 3rd chop|HIT|—|RULE: switching target resets the count|15: weak-point chops pierce armour 15%|chops on the same foe 3 times in a row hit its weak point|
+|Sp precision_thrust|0.6→20 %RD at max reach|AREA|—|RULE: close-range thrusts -15%; spear reach puts you in melee range|10: max-reach thrusts slow 10% (bosses: half)|thrusts that land at the very tip of max reach hit a weak point|
+|Ma sure_blow|0.3→10 % crit at max focus|CRIT|—|IAS −8 raw|15: focus is lost when you are hit|every hit gains 10% hit chance on its next hit and +crit at 100%|
+|Dg vital_strike|0.75→25 %RD on vital hits|HIT|—|RULE: you must study 1s per new foe|10: vitals on trash crit|stabs on a foe you've studied for 1s hit a vital|
+|Bw steady_draw|0.9→30 %RD per steady arrow|BOLT|—|RULE: moving breaks steady and -10% damage|15: steady arrows pierce 1|standing still for 0.5s makes every arrow an Aimed Shot at 40%|
+|Wd wand_aimed|1.8→60 %RD per pinpoint|HIT|crit|RULE: 0.8s charge, no other attacks|10: pinpoint bolts crit 15% more on bosses|the wand charges 0.8s and fires a single pinpoint bolt|
+|St surveyor_staff|0.6→20 %RD on the marked foe|HIT|—|IAS −10 raw|20: marks last 4s|staff swings mark the furthest foe hit; your next attack on it hits its weak point|
+|Sh sighting_shield|0.6→20 %RD on the follow-up|HIT|—|block −6%|10: follow-ups can't miss|after a block, your next attack is an aimed attack|
+
+## G. Speed system (Diablo-style breakpoints)
+Engine stays 25 fps.
+1. Attack frames = max(ceil(base/2), ceil(base×100/(100+EIAS))). EIAS = floor(120×IAS/(120+IAS)), cap 75. Raw IAS = gear + Haste + Knell (7+r, cap 35) + Stride + shrine (+30) − Bound tradeoffs. Remove the random weapon speed modifier and the elite/exceptional speed bonus. Base frames by weapon class: dagger 11, sword 13, wand 14, bow 14, spear 15, axe 15, staff 17, mace 18.
+2. Cast frames: same formula with raw FCR (gear FCR + Knell + Stride). Example: Sword at 0 gear IAS with Knell r10 (+17%) = 12 frames; Knell r20 (+27%) + 13% gear reaches the +40% Sword 10-frame breakpoint; Cinderwake Knell r20 alone (+27%) reaches the +23% 11-frame FCR breakpoint. Base by class: Cinderwake 13, Gravewell 14, Longmark 16, Ironvow 17. Remove the 35% gearFcr cap.
+3. Weapon-swing rites (Wide Cut, Blade Dance, Execute, Rupture, Blind Shield Rush, Javelin, Aimed Shot, Smite) use attack frames +2; all other rites use cast frames. Item procs and Echo cost no frames.
+4. Delete dead `e.atkSpd`.
+5. Breakpoints (frames at raw %): Sword 13/12/11/10/9/8 at 0/10/23/40/72/133. Mace 18/17/16/15/14/13/12/11 at 0/7/15/24/39/58/86/138. Axe and Spear 15/14/13/12/11/10/9 at 0/9/19/32/54/86/152. Dagger 11/10/9/8/7 at 0/11/29/56/113. Bow and Wand 14/13/12/11/10/9/8 at 0/9/20/37/60/105/200. Staff 17/16/15/14/13/12/11/10 at 0/8/16/27/42/65/102/168. FCR: Cinderwake 13→8 at 0/10/23/40/72/133; Gravewell 14→8 at 0/9/20/37/60/105/200; Longmark 16→10 at 0/8/18/30/48/75/120; Ironvow 17→10 at 0/8/16/27/42/65/102/168.
+6. Character sheet: `Attack Speed: 11 frames (2.27/s). Next: 10 frames at +40% (need +17%).`, same for `Faster Cast Rate`. Weapon tooltip: `Attack Speed: Fast (13 frames)`. Labels: ≤11 Very Fast, 12–13 Fast, 14–15 Normal, 16–17 Slow, 18+ Very Slow.
+7. Keep every unique item's IAS/FCR roll as written; they feed raw IAS/FCR.
+
+## H. Acceptance checks: write `scripts/audit_skills.mjs`, run `node scripts/audit_skills.mjs`, it must exit 0
+- Counts: assert 51 rites in `st`, 38 passives in `wt`, 4 class passives, 4 auras (Hearthward, Truesight, Knell, Undertow), 18 item auras/procs, 2 multishot rites (section B4), 153 synergies, 459 Bound rows; every one is visited by a check below; print the counts; fail if any count differs or any id is unvisited.
+- Rites: for every rite at ranks 1/10/20 (Gravewell, level 30, weapon 10–20, no gear) assert `pt()` avg equals the Appendix "after" value ±1, and the tooltip numbers equal the computed values.
+- Passives and class passives: for each, sim a tick and assert every tooltip line fires (rank 12 effects, resist breaks, Grit DR, Stride speed, Resonance swap refund, Toll Death's Door, etc.).
+- Auras: assert `wrathbanner`/`kinship` no longer exist in `st`/`A`/books and a save holding them migrates to `knell`/`undertow` (ranks, `auraOn`, Bound, hotbar). Player + servant inside 6 yd and one outside; assert each aura's numbers apply inside only at r1/10/20; Knell: raw IAS and FCR rise by 7+r, the 9th Peal gives +(20+2r)% to the next hit only, r10 free rite, r20 stagger; Undertow: foe Damage −(5+r)%, pull speed, Mana on Drowned kill, r10 drag, r20 barrier cap 10%. Lighting a 3rd aura is refused; 2 lit reserve 30% Max Mana; equipping all 6 item auras reserves 0 and still lets 2 rite auras be lit; item auras apply at their level. No aura blurb or `It` line contains "Two auras" or "Reserves"; every aura tooltip shows `Reserves 15% Mana` once.
+- Projectiles (B4): Javelin count at ranks 1/4/5/11/12/19/20 = 1/1/2/2/3/3/4; Aimed Shot at 1/2/3/5/6/9/10/14/15/19/20 = 1/1/2/2/3/3/4/4/5/5/6; with +10 Rites from gear count is unchanged; with synProj count never exceeds 4/6; a single dummy hit by a full volley takes exactly one hit (center 100%); 6 dummies in the fan each take one hit, extras at 50%/40%; mana cost matches; tooltip `Fires N Javelins`/`Fires N Arrows`.
+- Item procs: force each proc; assert the real rite fired (Frost Ward buff applied, Meteor rain, etc.).
+- Synergies: for each of the 153 keys at rank 1 and at its bp rank, assert a code path changed something (damage, radius, status, heal…) and no text-only rows remain.
+- Bound: for each of the 459 rows, bind the rite, equip that weapon kind, hit a dummy; assert mechanic fired, status applies at its chance (1000 rolls ±5%), tradeoff applied, bonus at bonusRank.
+- AR skills (B3): for each of the 9 AR skills at ranks 1/10/20 with a fixed weapon, assert hit range == floor(sheetHit.lo×(1+D%)+addLo) .. floor(sheetHit.hi×(1+D%)+addHi) (e.g. Javelin r1, 85–139 weapon, Mark 30 linear, no ED: 113–188); equip a stronger weapon and assert all 9 + basic rise and every spell/trap/aura `pt()` is unchanged; assert Smite never misses, the other 8 roll AR with x(rank); assert crit/Execute/Berserk chain applies; assert boundMul is not applied to AR skills; assert tooltip shows `+D% Damage. +AR% Attack Rating.` and the sheet range matches.
+- Passives (B5): for each of the 38 passives, for r = 2..12 assert the computed stat (damage, Life, Defense, Mana, speed, splash, orbit hit, gold/MF, ED/AR) differs from r−1 by at least the per-point value in the B5 table (>0 and ≥ 1.5% damage-equivalent for damage rows); Needle at 3/4/7/8/11/12 also changes arrow count only at 4/8/12; Kindling/Frostbite/Stormglass lower foe resist by 1 per point; Whetstone AR is read in combat (not only the sheet); a save holding `passives.stride = 10, fleetfoot = 8` loads as Fleetfoot 12 with +6 refunded; a save with an unknown passive id or a passive at 15 is refunded and clamped; no key outside `wt` remains in `passives`. Each tooltip total equals the computed value.
+- Speed: for every weapon class and class FCR table assert frames at each listed raw % equal the table and at (listed −1)% are one frame slower; weapon-swing rites change with IAS and not FCR; Stride 10 stacks adds raw IAS and FCR.
+

@@ -1,0 +1,42 @@
+STAGE 11E - MARTSIRT v2.2: CREEK, DRESSING, ONE BLENDED GROUND (3D TOWN ONLY)
+
+RULES
+New features are 3D only. Do not touch any 2D drawing code.
+If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+Be strict: change only what is listed.
+Towns stay fully revealed (no fog of war).
+Do not change NPCs, lights, exits, the bonfire/campfire/torch fire shadows, moodTown, or the sun-follows-hour code from 11D.
+This replaces the 11D cobble ground swap in town. Outdoor maps are untouched.
+
+FACTS (names from the live bundle routes-DTsPNEEK.js)
+Raw base ps = https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/ , bust ms = ?v=10a , vs(path) = ps + path + ms , ys = vs.
+Town folder const hs = `models/town/martsirt_v2/` (bs()/xs() fetch hs+martsirt_world.json, hs+placements.json, hs+materials/manifest.json into gs).
+New town folder: models/town/martsirt_v2_2/ (same file names; every placement piece already points at martsirt_v2_2).
+New ground folder: models/town/ground_v1/ (manifest.json, martsirt_splat.png, martsirt_ao.png, g_grass_bc/_n.jpg, g_dirt_bc/_n.jpg, g_stone_bc/_n.jpg, g_mud_bc/_n.jpg).
+Grid 162 x 154, origin [81,76]. World X/Z = tile x/y (1 tile = 1 m). Placement pos + origin = world.
+Rc() builds the town (solid bitset from martsirt_world.json; angel placed from the shrine_weeping_angel placement with 3x3 solid). v2_2 world: 144 water tiles, all solid; bridge tiles (creek_footbridge) not solid.
+3D view class bE: frame(e,t) (this.time, t.hour, this.wheels, this.moon, this.sunOff), lights(), moodTown(), showMartsirt -> loadMartsirt, addTownGround(w,h), placeTown(scene,e,cast), prepTown, paintTown(mat,entry), townMap(url,isColor) (flipY false, RepeatWrapping), townGroup, ownedGeo, ownedMat.
+three names: Kv = MeshStandardMaterial, w_ = Mesh, Pv = PlaneGeometry, jy = TextureLoader, kf = RepeatWrapping, X = Vector3, Z = Color.
+loadMartsirt: buildings/walls via placeTown(scene,e,true); every other kind except interactable via placeTown(scene,e,false). Kind `dressing` (6 entries, all at pos [0,0,0], rotY 0) therefore already loads, but with castShadow false.
+Dressing GLBs (no images, materials bound by name through materials/manifest.json): dressing/creek.glb (nodes water_creek, creek_banks, creek_reeds), dress_trees.glb (trees_bark, trees_leaves), dress_rocks.glb, dress_fences.glb, dress_graveyard.glb, dress_clutter.glb. Materials m_dress_atlas, m_dress_foliage (alphaCutoff 0.5, double sided), m_water_creek (roughness 0.12, flow along +V, 0.35 m/s = 0.175 V per second).
+col_* meshes in dressing have no material; placeTown already hides col_/nav_/npc_spot_/fx_ and ground_mud.
+Ground meshes inside building GLBs to hide: ground_mud (all buildings, already hidden), ground_bay_mud (forge), plaza (bld_square, the dark square), decals_square (bld_square). No path strip meshes exist in any GLB.
+ground_v1 splat: RGB PNG 648x616 (4 px per m) covering the whole grid. R = dark dirt, G = cobble, B = creek mud, grass = 1-(R+G+B). Sample with uv = worldXZ / (162,154), no V flip (row 0 = world z 0, load flipY false). martsirt_ao.png: L8, multiply albedo, 1 = no darkening.
+Layer tiling in metres: grass 2.0, dirt 2.35, cobble (g_stone, the original m_ground_cobble) 2.0, mud 1.3. Normals are OpenGL (+Y up).
+Angel shrine: tile 124,48 (placement pos [43.13,0,-27.95]).
+
+STEPS
+1. Change hs to `models/town/martsirt_v2_2/`. Keep ms = ?v=10a. Nothing else in bs()/xs()/Rc().
+2. Dressing shadows: in loadMartsirt pass cast = true for kind `dressing`. In placeTown, for meshes named water_creek or creek_banks set castShadow false, receiveShadow true. Trees, rocks, fences, graveyard and clutter cast and receive. For m_dress_foliage meshes set material.alphaTest 0.5 and side DoubleSide, and give them a customDepthMaterial only if leaf shadows render as solid quads.
+3. Collision: no code. Water and dressing collision come from the v2_2 solid bitset in Rc(); col_* stays hidden. Check: the creek blocks the player, the footbridge at about tile 41,61 is walkable.
+4. Creek water: in prepTown, when the material name is m_water_creek, clone it once, roughness 0.12, metalness 0, keep its normalMap with RepeatWrapping, castShadow false on the mesh, store it as this.creekMat. In frame(): if (this.creekMat?.normalMap) this.creekMat.normalMap.offset.y = -0.175 * this.time (also offset .map if present). Ripples must move downstream; if they run uphill flip the sign once.
+5. New ground: rewrite addTownGround(w,h) to build one Pv(w,h) plane (rotateX(-PI/2), at w/2,0,h/2, castShadow false, receiveShadow true). Set its uv attribute to world metres (u = x, v = z) so all layers share one orientation. Material: Kv {color white, roughness 0.95, metalness 0, specularIntensity 0}, map = g_grass_bc, normalMap = g_grass_n (townMap, RepeatWrapping, repeat 1, flipY false). onBeforeCompile adds uniforms tDirt, tDirtN, tCob, tCobN, tMud, tMudN, tSplat, tAO, uGrid = vec2(162,154), uTile = vec4(2.0, 2.35, 2.0, 1.3) and a varying vWorldXZ from the world position. In the fragment: s = texture2D(tSplat, vWorldXZ/uGrid).rgb; g = clamp(1.0 - s.r - s.g - s.b, 0.0, 1.0); albedo = grass*g + dirt*s.r + cob*s.g + mud*s.b, each sampled at vWorldXZ / its tile; grass also mixed 50/50 with a second sample at uv/5.4 + 0.37 to break tiling; multiply by texture2D(tAO, vWorldXZ/uGrid).r. Replace the map sample in map_fragment with this albedo and the normal map sample in normal_fragment_maps with the same weights over the four normal maps. Roughness: 0.95, lowered to 0.7 where s.b (wet mud) is high. Remove the old m_ground_cobble ground code. Push geometry, material and textures to ownedGeo/ownedMat. Load all ground textures from models/town/ground_v1/ via vs().
+6. Hide the old ground meshes: in placeTown's traverse also hide meshes named ground_bay_mud, plaza and decals_square (ground_mud stays hidden). Keep floor_*, floor_flags, ground_clutter, ash_bed, grave_mound and garden_beds.
+7. Contact darkening is the tAO multiply from step 5. No decals, no extra planes.
+8. Shadows (soft PCF stays): ground plane receive only; buildings, walls, trees and rocks cast and receive. On this.moon.shadow set bias -0.0002 and normalBias 0.02 (from -0.0004 / 0.04) to cut peter-panning at wall bases; if acne shows on roofs set normalBias 0.03. Do not change mapSize, near/far, radius or the fire light shadows.
+9. Keep as is: sun follows t.hour (11D), moodTown town ambient and fog, wheels, torch/door glow, and the angel shrine at tile 124,48 (check it still stands beside the graveyard after the reload).
+10. Optional, cheap: leaf sway on m_dress_foliage only. onBeforeCompile on that material, uniform uTime fed from this.time in frame(): transformed.xz += 0.04 * clamp(position.y - 1.5, 0.0, 4.0) * vec2(sin(uTime*1.3 + position.x*0.35), cos(uTime*1.1 + position.z*0.35)). Skip this step if it costs more than 1 ms per frame.
+11. Test: build once, load the town in 3D, and take four screenshots: the square and bonfire at noon, the creek and footbridge at dusk, the inn front at night, and one wide view from the south gate. Expect: no flat beige floor, no dark square under the plaza, no jagged aprons, cobble main roads with broken edges into dirt and grass, dark dirt lanes, mud along the creek, water flowing, trees and rocks casting shadows. Console must show `[3d] townLights` and no `[3d] martsirt failed`. Then publish.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

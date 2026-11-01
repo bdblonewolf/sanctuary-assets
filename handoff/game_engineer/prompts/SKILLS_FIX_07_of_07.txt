@@ -1,0 +1,60 @@
+SANCTUARY SKILLS FIX - PIECE 7 OF 7. This is the last piece. Now implement everything from pieces 1 to 7 in order.
+
+## Appendix: all 51 rites, avg hit (Gravewell, level 30, weapon 10–20 damage, no gear/synergy), ranks 1/10/20, now vs after section C
+| Rite | id | group | r1 now | r10 now | r20 now | r1 after | r10 after | r20 after | r20 % of group median after |
+|---|---|---|---|---|---|---|---|---|---|
+|Fireball|fireball|spell-single|454|716.5|1009|454|716.5|1009|249%|
+|Meteor Shower|meteor|spell-aoe|299|472.5|665|299|472.5|665|197%|
+|Inferno|inferno|spell-aoe|240|380|534|240|380|534|158%|
+|Cinder Bed|cinder|spell-aoe|235|371|522.5|235|371|522.5|155%|
+|Frost Nova|nova|spell-aoe|262.5|414|583.5|262.5|414|583.5|173%|
+|Glacier|glacier|spell-single|463|731|1029|463|731|1029|253%|
+|Hoarfrost|hoarfrost|spell-aoe|167.5|265|373|167.5|265|373|111%|
+|Volt|spark|spell-single|241.5|382.5|538|241.5|382.5|538|133%|
+|Storm Call|stormcall|spell-single|234|370|521|234|370|521|128%|
+|Arc Whip|arcwhip|spell-aoe|283.5|447.5|630|283.5|447.5|630|187%|
+|Holy Bolt|holy|spell-single|182.5|288.5|406|182.5|288.5|406|100%|
+|Consecrate|consecrate|spell-aoe|137.5|217.5|306|137.5|217.5|306|91%|
+|Smite|smite|weapon-melee|36|57|80|21.5|51|84|scales with weapon: see B3 DPS table|
+|Blood Soaked|bloodsoaked|spell-single|219|346|487|15|18|22|scales with weapon: see B3 DPS table|
+|Mercy|mercy|spell-aoe|354|560|787.5|354|560|787.5|233%|
+|Crimson Lance|crimson|spell-single|175|276.5|390|175|276.5|390|96%|
+|Bone Spear|bonespear|spell-single|123|194|274|123|194|274|67%|
+|Raise Bone|summon|utility|146.5|231.5|326.5|146.5|231.5|326.5|n/a (buff/heal/aura)|
+|Grave Burst|graveburst|spell-aoe|151.5|240|337.5|151.5|240|337.5|100%|
+|Thorn Coat|thorncoat|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|Briar Snare|briar|spell-aoe|81.5|128.5|181|103.5|163.5|230.5|68%|
+|Wolf Howl|wolfhowl|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|Regrowth|regrowth|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|Locust Cloud|locust|spell-aoe|125.5|199|280|125.5|199|280|83%|
+|Wide Cut|cleave|weapon-melee|13.5|21.5|31.5|15|18|22|scales with weapon: see B3 DPS table|
+|Blade Dance|bladedance|weapon-melee|13.5|21|30|15|18|22|scales with weapon: see B3 DPS table|
+|Execute|execute|weapon-melee|16.5|25.5|36.5|15|18|22|scales with weapon: see B3 DPS table|
+|Rupture|rupture|weapon-melee|15|23|33|15|18|22|scales with weapon: see B3 DPS table|
+|Blind Shield Rush|blindrush|weapon-melee|12|18.5|26|15|18|22|scales with weapon: see B3 DPS table|
+|Bulwark|bulwark|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|War Cry|warcry|spell-aoe|94|149|210|94|149|210|62%|
+|Frost Ward|frostward|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|Telekinesis|telekinesis|spell-aoe|107.5|170|240|107.5|170|240|71%|
+|Hex|hex|spell-single|113.5|179|252.5|113.5|179|252.5|62%|
+|Mind Snare|snare|spell-aoe|74|117.5|165|102|162|227.5|67%|
+|Blink Step|blinkstep|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|Veil|veil|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|Dread|dread|spell-aoe|56.5|89|125.5|97|152.5|215|64%|
+|Elemental Consume|elemconsume|spell-aoe|105|166.5|235|105|166.5|235|70%|
+|Bone Fan|fanbone|spell-aoe (5 bolts ×0.72 each; values are per-cast pt() before the ×0.72 split)|59|94|132.5|59|94|132.5|141% if all 5 bolts hit, 57% if 2 hit (spread fan: OK)|
+|Javelin|javelin|weapon-ranged|30|48|67.5|21.5|51|84|scales with weapon: see B3 DPS table|
+|Star Lash|starlash|spell-single|163.5|258|363.5|163.5|258|363.5|90%|
+|Aimed Shot|aimed|weapon-ranged|24|38|54|16|19|22.5|scales with weapon: see B3 DPS table|
+|Ironjaw Trap|ironjaw|spell-trap|71.5|114|160.5|71.5|114|160.5|76%|
+|Blight Cask|blightcask|spell-trap|31.5|50.5|71.5|66|106|150|71%|
+|Rime Caltrop|rimecaltrop|spell-trap|96|152.5|214|96|152.5|214|101%|
+|Thunderkiln Trap|thunderkiln|spell-trap|95|150|211.5|95|150|211.5|100%|
+|Hearthward Aura|hearthward|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|Knell Aura|knell|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|Truesight Aura|truesight|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+|Undertow Aura|undertow|utility|0|0|0|0|0|0|n/a (buff/heal/aura)|
+
+When done, list what you finished and what you skipped and why.
+'All' means every rite, skill, aura and passive in the build; do not skip any.
+

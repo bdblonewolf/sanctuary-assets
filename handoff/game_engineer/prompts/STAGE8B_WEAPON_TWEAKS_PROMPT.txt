@@ -1,0 +1,35 @@
+STAGE 8B: HERO WEAPON TWEAKS (3D hero only)
+
+RULES
+- Change only the 3D hero weapon code (hero rig class: buildKnight, readSet, canShield, swapOf, clipSet, syncGear, mountGear, parkSword, putLocal, loadProp, propUrl, iT, rT, DC).
+- New features are 3D only. Do not touch any 2D drawing code.
+- No game logic, balance, items, save or controls changes.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+
+FACTS (live bundle)
+- DC.heroAnimUrl = knight_anim.glb. DC.heroWeaponUrl = weapon_sword_v2.glb. DC.heroWeapons = {axe, greataxe, greatsword, bow, arrow, staff, wand, shield}. propUrl(e) = e==="sword" ? DC.heroWeaponUrl : DC.heroWeapons[e].
+- readSet(e) returns "unarmed"|"bow"|"staff"|"wand"|"axe"|"greataxe"|"greatsword"|"sword". Dagger/knife/stitch/fang currently fall into "sword".
+- canShield(set,e) allows shield for sword, axe, wand. swapOf(set) gives draw/sheath swap fractions. clipSet() = rT[this.setId] (unarmed -> rT.sword). nT = two-hand clip set (gs_idle, ss_walk, gs_run, gs_attack_1/2/3, gs_attack_heavy, gs_hit, gs_draw, axe_sheath).
+- parkSword: armed -> putLocal(mesh, rig.hand, [0,0,0],[0,0,0,1]); stowed -> iT[set] on rig.hipBone ("hips") or rig.spineBone ("spine" = mixamorigSpine2).
+- iT.sword = hips pos(.1105,.0394,.4039) quat(-.2023,.9157,-.3282,.112).
+- The knight body has a built-in sword-scabbard mesh. three.js node name: "MannequinObject001ccc_11_-_Default_0" (match with name.includes("Object001ccc_11")).
+- Asset base: https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/models/
+  knight_anim.glb (updated, same name, 75 clips; adds dagger_attack_1, dagger_attack_2, dagger_attack_3, dagger_attack_heavy), weapon_dagger.glb, holster_dagger.glb, holster_back.glb. All pre-baked: identity offset in the named bone = correct placement.
+
+STEPS
+1. Asset refresh (asset only). knight_anim.glb was re-uploaded under the same name with the arm and hand weights fixed, and weapon_greataxe.glb and weapon_axe.glb were re-uploaded with a sturdy wooden haft sized like the sword grip, a leather-wrapped grip, iron bands and caps, and a forged axe head. Append "?v=8f" to DC.heroAnimUrl, DC.heroWeapons.greataxe and DC.heroWeapons.axe. No other code change.
+2. Scabbard: after the knight is built and on every syncGear, set the mesh whose name includes "Object001ccc_11" to visible only when setId==="sword". Hidden for wand, bow, staff, axe, greataxe, greatsword, dagger and unarmed.
+3. Axe is two-handed: in readSet, every axe/hatchet/cleaver returns "greataxe" (never "axe"). canShield returns false for "greataxe" (remove "axe" from the allowed list). The greataxe set uses weapon_greataxe.glb and rT.greataxe (= nT). Keep swapOf greataxe {draw:.64,sheath:.46}.
+4. Back holster: add DC.heroWeapons.holster_back = base+"holster_back.glb". When setId is "greataxe", "greatsword" or "staff", mount one clone on rig.spineBone with putLocal(mesh, rig.spineBone, [0,0,0], [0,0,0,1]) and keep it visible both stowed and armed. Remove it for every other set. Stowed two-hand weapons keep their existing iT spine transforms.
+5. Dagger set:
+   a. Add DC.heroWeapons.dagger = base+"weapon_dagger.glb" and DC.heroWeapons.holster_dagger = base+"holster_dagger.glb".
+   b. readSet: when the game's armKind() would return "dagger" (dagger, knife, stitch, fang), return "dagger" instead of "sword".
+   c. iT.dagger = {bone:"hips", pos:[.1105,.0394,.4039], quat:[-.2023,.9157,-.3282,.112]} (same as iT.sword).
+   d. rT.dagger = {idle:"ss_idle", walk:"ss_walk", run:"ss_run", light:["dagger_attack_1","dagger_attack_2","dagger_attack_3"], heavy:"dagger_attack_heavy", hit:"ss_hit", draw:"ss_draw", sheath:"ss_sheath"}.
+   e. swapOf("dagger") = {draw:.42, sheath:.67}. canShield allows "dagger".
+   f. Holster: when setId==="dagger", mount one holster_dagger clone on rig.hipBone with putLocal(mesh, rig.hipBone, [.1105,.0394,.4039], [-.2023,.9157,-.3282,.112]); visible stowed and armed. Remove it for every other set.
+   g. Dagger attacks use the same light/heavy path as the sword (startLight, swing timing unchanged).
+6. Test: equip in turn sword, dagger, axe, greatsword, staff, wand, bow, unarmed; in town and in a fight. Check: sword shows the scabbard and no other set does; dagger stabs/slashes and sits in the hip holster when stowed; any axe is held two-handed with no shield and stows on the back holster; greatsword and staff stow on the back holster; wand walk/attack shows no stretched faces.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

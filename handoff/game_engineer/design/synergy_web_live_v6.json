@@ -1,0 +1,2967 @@
+{
+ "v": 6,
+ "books": [
+  {
+   "k": "fireball",
+   "n": "Fireball",
+   "locks": [
+    "telekinesis",
+    "hoarfrost"
+   ],
+   "buffs": [
+    {
+     "t": "meteor",
+     "id": "guided_stone",
+     "pp": 1,
+     "u": "% landing radius on the homing stone",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "the homing stone bursts into a Fireball that flies on down your facing"
+      ]
+     ],
+     "d": "one stone per cast homes onto the largest pack",
+     "proj": 1,
+     "k": "AREA"
+    },
+    {
+     "t": "spark",
+     "id": "ember_jumps",
+     "pp": 1,
+     "u": "% of the jump's damage per second as a 1s burn",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "the final leap detonates as a 1.5m fireball blast"
+      ]
+     ],
+     "d": "every Volt jump leaves an ember burning on the foe it struck",
+     "st": [
+      "ignite"
+     ],
+     "k": "DOT"
+    },
+    {
+     "t": "thorncoat",
+     "id": "cinder_thorns",
+     "pp": 0.8,
+     "u": "% of reflected damage per second as burning",
+     "cap": 30,
+     "bp": [
+      [
+       20,
+       "when the coat expires it bursts into a 3m ring of fire for 50% of everything it reflected"
+      ]
+     ],
+     "d": "Thorn Coat reflects as fire and sets attackers alight",
+     "st": [
+      "ignite"
+     ],
+     "k": "DOT"
+    }
+   ]
+  },
+  {
+   "k": "meteor",
+   "n": "Meteor Shower",
+   "locks": [
+    "spark",
+    "blindrush"
+   ],
+   "buffs": [
+    {
+     "t": "inferno",
+     "id": "skyfire",
+     "pp": 1,
+     "u": "% of cone damage on impact",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "the meteor leaves a molten crater that burns the ground for 2s"
+      ]
+     ],
+     "d": "every third Inferno drops a small meteor at the tip of the cone",
+     "st": [
+      "burning_ground"
+     ],
+     "k": "HIT"
+    },
+    {
+     "t": "stormcall",
+     "id": "firestorm",
+     "pp": 0.8,
+     "u": "% of bolt damage per second as burning",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "a foe struck by 2 bolts at once erupts in a 1.5m blast"
+      ]
+     ],
+     "d": "Storm Call bolts strike as fire and lightning and set foes alight",
+     "st": [
+      "ignite"
+     ],
+     "k": "DOT"
+    },
+    {
+     "t": "thunderkiln",
+     "id": "skyfire_charge",
+     "pp": 1,
+     "u": "% kiln damage after a Meteor lands within 4m of the kiln",
+     "cap": 35,
+     "bp": [
+      [
+       15,
+       "a Meteor that strikes the kiln itself refills 1 shot (once per kiln)"
+      ]
+     ],
+     "d": "a Meteor stone landing beside a kiln supercharges its next 3 bolts",
+     "k": "HIT"
+    }
+   ]
+  },
+  {
+   "k": "inferno",
+   "n": "Inferno",
+   "locks": [
+    "hoarfrost",
+    "glacier"
+   ],
+   "buffs": [
+    {
+     "t": "fireball",
+     "id": "flame_wake",
+     "pp": 0.8,
+     "u": "% of hit per second on the flame line",
+     "cap": 30,
+     "bp": [
+      [
+       20,
+       "on impact Fireball blows a 2.5m cone of Inferno flame out behind the target"
+      ]
+     ],
+     "d": "Fireball leaves a 1s line of flame along its flight path",
+     "st": [
+      "burning_ground"
+     ],
+     "k": "KEEP"
+    },
+    {
+     "t": "cinder",
+     "id": "bellows",
+     "pp": 1,
+     "u": "% bed radius gained per second it lives",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "the fanned bed flares, and foes entering it panic and turn back once"
+      ]
+     ],
+     "d": "an Inferno blown across a Cinder Bed fans it, and the bed spreads",
+     "k": "AREA"
+    },
+    {
+     "t": "elemconsume",
+     "id": "heat_sink",
+     "pp": 0.06,
+     "u": "mana refunded per burning foe in the pulse",
+     "cap": 2.5,
+     "bp": [
+      [
+       15,
+       "the pulse extinguishes your own burns and grants +30% fire resistance for 2s"
+      ]
+     ],
+     "d": "Elemental Consume draws heat out of burning foes as mana",
+     "k": "COST"
+    }
+   ]
+  },
+  {
+   "k": "cinder",
+   "n": "Cinder Bed",
+   "locks": [
+    "ironjaw",
+    "locust"
+   ],
+   "buffs": [
+    {
+     "t": "fireball",
+     "id": "ember_tail",
+     "pp": 1,
+     "u": "% explosion radius per bed crossed",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "the soaked-up bed moves to the impact point"
+      ]
+     ],
+     "d": "a Fireball flying over a Cinder Bed soaks up its fire",
+     "k": "AREA"
+    },
+    {
+     "t": "meteor",
+     "id": "kindling",
+     "pp": 0.8,
+     "u": "% chance per stone to scatter 3 embers",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "stones landing on a bed reset its duration"
+      ]
+     ],
+     "d": "stones that land on a Cinder Bed throw burning debris",
+     "k": "KEEP"
+    },
+    {
+     "t": "elemconsume",
+     "id": "fuel_reserve",
+     "pp": 1,
+     "u": "% pulse radius per active bed",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "a pulse cast inside a bed makes you immune to slows for 2s"
+      ]
+     ],
+     "d": "each Cinder Bed you have active widens the pulse",
+     "k": "AREA"
+    }
+   ]
+  },
+  {
+   "k": "nova",
+   "n": "Frost Nova",
+   "locks": [
+    "hearthward",
+    "arcwhip"
+   ],
+   "buffs": [
+    {
+     "t": "spark",
+     "id": "cold_snap",
+     "pp": 0.6,
+     "u": "% armour lost by jump targets",
+     "cap": 25,
+     "bp": [
+      [
+       10,
+       "the last leap releases a 1m mini Frost Nova"
+      ]
+     ],
+     "d": "Volt jumps leave frost sparks that make their targets brittle",
+     "k": "DEBUFF"
+    },
+    {
+     "t": "blindrush",
+     "id": "frost_shield",
+     "pp": -0.6,
+     "u": "% damage taken from foes you rushed through (3s)",
+     "cap": -25,
+     "bp": [
+      [
+       10,
+       "the rush ends in a ring of frost"
+      ]
+     ],
+     "d": "rushing through foes coats your shield in frost",
+     "k": "DEBUFF"
+    },
+    {
+     "t": "dread",
+     "id": "cold_dread",
+     "pp": 0.6,
+     "u": "% more cold damage taken by feared foes",
+     "cap": 25,
+     "bp": [
+      [
+       20,
+       "feared foes that are chilled skip their next attack"
+      ]
+     ],
+     "d": "frightened foes are more vulnerable to cold",
+     "k": "DEBUFF"
+    }
+   ]
+  },
+  {
+   "k": "glacier",
+   "n": "Glacier",
+   "locks": [
+    "inferno",
+    "regrowth"
+   ],
+   "buffs": [
+    {
+     "t": "nova",
+     "id": "ice_pillar",
+     "pp": 2,
+     "u": "% pillar life",
+     "cap": 60,
+     "bp": [
+      [
+       15,
+       "hitting the pillar with Glacier shatters it into 6 outward shards (shards cannot freeze)"
+      ]
+     ],
+     "d": "Frost Nova raises a 2s ice pillar at your feet that blocks projectiles",
+     "proj": 1,
+     "k": "HEAL"
+    },
+    {
+     "t": "spark",
+     "id": "superconductor",
+     "pp": 1,
+     "u": "% jump range between chilled foes",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "Volt gains +1 jump when it starts on a frozen foe (cap +2 per cast)"
+      ]
+     ],
+     "d": "Volt jumps between chilled foes lose no damage",
+     "proj": 1,
+     "k": "AREA"
+    },
+    {
+     "t": "warcry",
+     "id": "glacial_roar",
+     "pp": 0.8,
+     "u": "% chill strength from the shout (bosses: half)",
+     "cap": 30,
+     "bp": [
+      [
+       20,
+       "the shout freezes foes that were already chilled for 0.8s (boss rules apply)"
+      ]
+     ],
+     "d": "War Cry's slow becomes a deep chill",
+     "st": [
+      "chill",
+      "freeze"
+     ],
+     "k": "SLOW"
+    }
+   ]
+  },
+  {
+   "k": "hoarfrost",
+   "n": "Hoarfrost",
+   "locks": [
+    "fireball",
+    "inferno"
+   ],
+   "buffs": [
+    {
+     "t": "nova",
+     "id": "rime_ring",
+     "pp": 1,
+     "u": "% slow in the rime ring (bosses: half)",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "foes caught by both the nova and a Hoarfrost patch freeze for 0.6s (once per 4s per foe; boss rules apply)"
+      ]
+     ],
+     "d": "Frost Nova leaves a 2s rime ring on the ground at its edge",
+     "st": [
+      "chill"
+     ],
+     "k": "KEEP"
+    },
+    {
+     "t": "glacier",
+     "id": "brittle_spear",
+     "pp": 1,
+     "u": "% extra damage from your next fire or lightning hit (Brittle, 3s)",
+     "cap": 35,
+     "bp": [
+      [
+       15,
+       "a Glacier passing through a Hoarfrost patch splits into 2 spears (+1 projectile)"
+      ]
+     ],
+     "d": "Glacier hits make foes Brittle",
+     "proj": 1,
+     "k": "HIT"
+    },
+    {
+     "t": "frostward",
+     "id": "ward_freezer",
+     "pp": 1.5,
+     "u": "% ward duration",
+     "cap": 45,
+     "bp": [
+      [
+       10,
+       "an attacker struck by the ward 5 times freezes for 1s (once per 6s; bosses 50% duration and 1s immunity)"
+      ]
+     ],
+     "d": "the ward holds longer and keeps count of hits from each attacker",
+     "st": [
+      "freeze"
+     ],
+     "k": "DUR"
+    }
+   ]
+  },
+  {
+   "k": "spark",
+   "n": "Volt",
+   "locks": [
+    "briar",
+    "meteor"
+   ],
+   "buffs": [
+    {
+     "t": "stormcall",
+     "id": "volt_lightning_rod",
+     "pp": 1,
+     "u": "% shock potency on foes Volt struck",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "Storm Call gains +1 bolt when 3 or more foes are Volt-struck"
+      ]
+     ],
+     "d": "Storm Call bolts seek out foes Volt struck in the last 2s",
+     "st": [
+      "shock +proj"
+     ],
+     "proj": 1,
+     "k": "OTHER"
+    },
+    {
+     "t": "arcwhip",
+     "id": "whip_tip_jump",
+     "pp": 1,
+     "u": "% of whip damage on the jump",
+     "cap": 40,
+     "bp": [
+      [
+       15,
+       "the jump can leap once more (it cannot re-arc)"
+      ]
+     ],
+     "d": "the tip of the lash fires a Volt jump from the farthest foe it hit",
+     "proj": 1,
+     "k": "BOLT"
+    },
+    {
+     "t": "elemconsume",
+     "id": "capacitor",
+     "pp": -0.6,
+     "u": "% Elemental Consume mana cost per stored charge (COST, synCost)",
+     "cap": -25,
+     "bp": [
+      [
+       10,
+       "a pulse that spends 5 charges also restores 5% mana"
+      ]
+     ],
+     "d": "each lightning rite you cast stores a charge, and the pulse spends them",
+     "k": "COST"
+    }
+   ]
+  },
+  {
+   "k": "stormcall",
+   "n": "Storm Call",
+   "locks": [
+    "warcry",
+    "thorncoat"
+   ],
+   "buffs": [
+    {
+     "t": "inferno",
+     "id": "ionized_flame",
+     "pp": 1,
+     "u": "% more Storm Call damage taken by ionized foes",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "the cone throws one crackling bolt at the farthest foe"
+      ]
+     ],
+     "d": "foes the cone hits are ionized",
+     "proj": 1,
+     "k": "DEBUFF"
+    },
+    {
+     "t": "hoarfrost",
+     "id": "charged_frost",
+     "pp": 0.8,
+     "u": "% shock chance per second on the patch",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "Storm Call bolts hitting a foe on Hoarfrost arc to every foe on the patch (arcs cannot shock or re-arc; max 6)"
+      ]
+     ],
+     "d": "the patch conducts electricity",
+     "st": [
+      "shock"
+     ],
+     "k": "CHANCE"
+    },
+    {
+     "t": "arcwhip",
+     "id": "static_lash",
+     "pp": 1,
+     "u": "% chance to gain double static",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "the called bolts shock (they cannot call more bolts)"
+      ]
+     ],
+     "d": "each lash builds static (max 5), and full static makes the next lash call down a bolt on each foe hit",
+     "st": [
+      "shock"
+     ],
+     "k": "CHANCE"
+    }
+   ]
+  },
+  {
+   "k": "arcwhip",
+   "n": "Arc Whip",
+   "locks": [
+    "nova",
+    "cleave"
+   ],
+   "buffs": [
+    {
+     "t": "cinder",
+     "id": "plasma_bed",
+     "pp": 1,
+     "u": "% faster bed ticks for 3s",
+     "cap": 40,
+     "bp": [
+      [
+       15,
+       "a superheated bed crackles, striking one foe on it with a small bolt each second"
+      ]
+     ],
+     "d": "whipping across a Cinder Bed superheats it",
+     "k": "SPEED"
+    },
+    {
+     "t": "glacier",
+     "id": "ice_conductor",
+     "pp": 0.8,
+     "u": "% of the spear's damage to foes crossing the tether",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "the tether lingers for 1s after impact"
+      ]
+     ],
+     "d": "the ice spear trails a lightning tether back to you",
+     "k": "BOLT"
+    },
+    {
+     "t": "hoarfrost",
+     "id": "drifting_patch",
+     "pp": 0.04,
+     "u": "m per second of patch drift toward the nearest foe",
+     "cap": 2,
+     "bp": [
+      [
+       10,
+       "whipping a patch splits it in two"
+      ]
+     ],
+     "d": "the patch creeps toward foes",
+     "k": "AREA"
+    }
+   ]
+  },
+  {
+   "k": "holy",
+   "n": "Holy Bolt",
+   "locks": [
+    "knell",
+    "blightcask"
+   ],
+   "buffs": [
+    {
+     "t": "regrowth",
+     "id": "radiant_mend",
+     "pp": 1,
+     "u": "% of overheal converted to a holy shield",
+     "cap": 50,
+     "bp": [
+      [
+       10,
+       "casting Regrowth blinds foes within 3m for 1s (they miss 50%)"
+      ]
+     ],
+     "d": "overhealing from Regrowth becomes a holy shield",
+     "k": "HEAL"
+    },
+    {
+     "t": "locust",
+     "id": "scarab_purge",
+     "pp": 1,
+     "u": "% chance per second to strip one buff or shield",
+     "cap": 40,
+     "bp": [
+      [
+       15,
+       "foes inside the cloud cannot regenerate"
+      ]
+     ],
+     "d": "golden scarabs in the cloud strip buffs and shields from foes",
+     "k": "CHANCE"
+    },
+    {
+     "t": "starlash",
+     "id": "constellation",
+     "pp": 1,
+     "u": "% of lash damage per second to every linked foe",
+     "cap": 35,
+     "bp": [
+      [
+       20,
+       "a completed 5-star constellation collapses into a 3m holy nova"
+      ]
+     ],
+     "d": "each needle sets a star on a foe, and 3 starred foes link into a constellation",
+     "k": "DOT"
+    }
+   ]
+  },
+  {
+   "k": "consecrate",
+   "n": "Consecrate",
+   "locks": [
+    "rimecaltrop",
+    "graveburst"
+   ],
+   "buffs": [
+    {
+     "t": "holy",
+     "id": "sanctified_path",
+     "pp": 0.05,
+     "u": "% max life healed per second standing in the strip",
+     "cap": 2,
+     "bp": [
+      [
+       15,
+       "a bolt that hits a foe standing in Consecrate splits in two (+1 projectile)"
+      ]
+     ],
+     "d": "Holy Bolt leaves a 1s strip of holy ground along its path that heals you",
+     "proj": 1,
+     "k": "HEAL"
+    },
+    {
+     "t": "smite",
+     "id": "hallowed_slam",
+     "pp": 1,
+     "u": "% radius of the mini ground",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "foes caught in a mini ground are Judged, and your next Smite on them always crits"
+      ]
+     ],
+     "d": "a Smite on consecrated ground leaves a mini Consecrate (1m, 2s)",
+     "st": [
+      "crit"
+     ],
+     "k": "AREA"
+    },
+    {
+     "t": "hex",
+     "id": "anathema",
+     "pp": 0.5,
+     "u": "% resistance lost by allies within 2m of the hexed foe",
+     "cap": 20,
+     "bp": [
+      [
+       20,
+       "the hex spreads to 1 nearby foe if the hexed foe is standing on Consecrate"
+      ]
+     ],
+     "d": "the hexed foe cannot be healed or shielded, and its nearby allies lose resistance",
+     "k": "DEBUFF"
+    }
+   ]
+  },
+  {
+   "k": "smite",
+   "n": "Smite",
+   "locks": [
+    "mercy",
+    "thunderkiln"
+   ],
+   "buffs": [
+    {
+     "t": "holy",
+     "id": "judgment_bolt",
+     "pp": 1,
+     "u": "% of the bolt's damage added to your next melee hit on the marked foe",
+     "cap": 40,
+     "bp": [
+      [
+       15,
+       "marked foes that die release a 2m holy burst"
+      ]
+     ],
+     "d": "Holy Bolt marks the foe it hits for judgment",
+     "k": "BOLT"
+    },
+    {
+     "t": "bulwark",
+     "id": "faith_charges",
+     "pp": 0.8,
+     "u": "% more next melee damage per holy charge",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "with 5 charges, the brace ends in a hammer slam that heals you 3% max life"
+      ]
+     ],
+     "d": "each blow the brace blocks stores a holy charge (max 5)",
+     "k": "DMG"
+    },
+    {
+     "t": "starlash",
+     "id": "close_quarters",
+     "pp": 1,
+     "u": "% more life returned within 2m",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "point-blank needles silence casters for 1s"
+      ]
+     ],
+     "d": "needles fired at close range drink deeper",
+     "k": "HEAL"
+    }
+   ]
+  },
+  {
+   "k": "bloodsoaked",
+   "n": "Blood Soaked",
+   "locks": [
+    "starlash",
+    "rimecaltrop"
+   ],
+   "buffs": [
+    {
+     "t": "mercy",
+     "id": "vein_pulse",
+     "pp": 1,
+     "u": "% pulse radius per bleeding foe nearby",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "a Mercy cast while you are above 90% life costs mana instead of life"
+      ]
+     ],
+     "d": "the pulse reaches further toward foes that are bleeding",
+     "k": "AREA"
+    },
+    {
+     "t": "bonespear",
+     "id": "red_marrow",
+     "pp": 1,
+     "u": "% of the mana cost paid in life instead",
+     "cap": 50,
+     "bp": [
+      [
+       15,
+       "spears paid for in life leave a 2s blood trail that makes foes standing in it bleed"
+      ]
+     ],
+     "d": "Bone Spear can be paid for partly in life",
+     "st": [
+      "bleed"
+     ],
+     "k": "COST"
+    },
+    {
+     "t": "summon",
+     "id": "blood_bond",
+     "pp": 0.4,
+     "u": "% of your drain shared with your skeletons",
+     "cap": 20,
+     "bp": [
+      [
+       10,
+       "you can pay 10% life instead of mana to re-raise a fallen skeleton instantly"
+      ]
+     ],
+     "d": "your skeletons share in your Blood Soaked lifesteal",
+     "k": "HEAL"
+    }
+   ]
+  },
+  {
+   "k": "mercy",
+   "n": "Mercy",
+   "locks": [
+    "truesight",
+    "smite"
+   ],
+   "buffs": [
+    {
+     "t": "crimson",
+     "id": "pained_refund",
+     "pp": 1,
+     "u": "% life cost refunded per pained foe pierced",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "a lance through 3 or more Pained foes leaves a blood pool that heals you 1% per second"
+      ]
+     ],
+     "d": "foes Mercy hit in the last 3s are Pained, and piercing them refunds the lance's cost (overall cost cuts capped at 50%)",
+     "k": "COST"
+    },
+    {
+     "t": "summon",
+     "id": "blood_offering",
+     "pp": 1,
+     "u": "% of the mana cost paid in life",
+     "cap": 50,
+     "bp": [
+      [
+       15,
+       "skeletons raised with life become blood skeletons whose hits heal you for 0.5% of the damage"
+      ]
+     ],
+     "d": "Raise Bone can be paid for in life",
+     "k": "COST"
+    },
+    {
+     "t": "hearthward",
+     "id": "merciful_hearth",
+     "pp": 0.03,
+     "u": "% max life per second extra regen for members below half life",
+     "cap": 0.6,
+     "bp": [
+      [
+       10,
+       "healing from Mercy on a member inside the ring also heals every other member for 15% of it (once per cast)"
+      ]
+     ],
+     "d": "Mercy's blood-warmth lingers inside the Hearthward ring",
+     "k": "HEAL"
+    }
+   ]
+  },
+  {
+   "k": "crimson",
+   "n": "Crimson Lance",
+   "locks": [
+    "regrowth",
+    "bonespear"
+   ],
+   "buffs": [
+    {
+     "t": "bloodsoaked",
+     "id": "blood_debt",
+     "pp": 0.8,
+     "u": "% more drain",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "Blood Soaked hits on a foe that a Crimson Lance pierced refund the lance's life cost"
+      ]
+     ],
+     "d": "life you spent on Crimson Lance in the last 5s strengthens the drain of your next Blood Soaked",
+     "k": "HEAL"
+    },
+    {
+     "t": "execute",
+     "id": "exsanguinate",
+     "pp": 1,
+     "u": "% of the blow as Hemorrhage over 3s",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "Execute kills spray blood that heals you for 3% max life"
+      ]
+     ],
+     "d": "Execute on a foe below 50% life opens a Hemorrhage",
+     "st": [
+      "bleed"
+     ],
+     "k": "HIT"
+    },
+    {
+     "t": "fanbone",
+     "id": "blood_shards",
+     "pp": 0.05,
+     "u": "% max life drunk per shard hit on a bleeding foe",
+     "cap": 2,
+     "bp": [
+      [
+       5,
+       "a Bone Fan cast at full life fires +1 shard"
+      ]
+     ],
+     "d": "shards passing through bleeding foes drink their blood",
+     "proj": 1,
+     "k": "HEAL"
+    }
+   ]
+  },
+  {
+   "k": "bonespear",
+   "n": "Bone Spear",
+   "locks": [
+    "crimson",
+    "knell"
+   ],
+   "buffs": [
+    {
+     "t": "graveburst",
+     "id": "spear_seeds",
+     "pp": 1,
+     "u": "% bonus burst per seed",
+     "cap": 40,
+     "bp": [
+      [
+       15,
+       "each detonated seed flings 2 shards at nearby foes (shards cannot seed)"
+      ]
+     ],
+     "d": "foes pierced by Bone Spear in the last 3s carry bone seeds, and Grave Burst detonates them",
+     "proj": 1,
+     "k": "HIT"
+    },
+    {
+     "t": "telekinesis",
+     "id": "impale",
+     "pp": 0.02,
+     "u": "s impale root (bosses: half)",
+     "cap": 1,
+     "bp": [
+      [
+       10,
+       "a foe shoved into another foe pins them together, and both take the shove damage"
+      ]
+     ],
+     "d": "foes shoved into a wall or another foe are impaled on bone",
+     "st": [
+      "root"
+     ],
+     "k": "DUR"
+    },
+    {
+     "t": "fanbone",
+     "id": "calcify",
+     "pp": 0.8,
+     "u": "% armour shred for each shard after the first on one foe",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "a foe hit by all 5 shards is ossified, slowed 40% for 2s"
+      ]
+     ],
+     "d": "shards that strike the same foe calcify it",
+     "st": [
+      "slow"
+     ],
+     "k": "DEBUFF"
+    }
+   ]
+  },
+  {
+   "k": "summon",
+   "n": "Raise Bone",
+   "locks": [
+    "blightcask",
+    "starlash"
+   ],
+   "buffs": [
+    {
+     "t": "bonespear",
+     "id": "reforged_lance",
+     "pp": 1.5,
+     "u": "% spear width after reforging",
+     "cap": 50,
+     "bp": [
+      [
+       15,
+       "the spear carries the skeleton along to the far end of its line"
+      ]
+     ],
+     "d": "a Bone Spear fired through one of your skeletons is reforged around it, and the skeleton heals 10%",
+     "k": "AREA"
+    },
+    {
+     "t": "graveburst",
+     "id": "corpse_fuse",
+     "pp": 1,
+     "u": "% of the skeleton's life added as burst damage",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "the exploded skeleton re-forms instantly (once per 12s)"
+      ]
+     ],
+     "d": "Grave Burst can be cast on one of your skeletons, which detonates and re-forms after 3s",
+     "k": "HEAL"
+    },
+    {
+     "t": "hex",
+     "id": "grave_curse",
+     "pp": 0.1,
+     "u": "s risen-skeleton lifetime (base 2s)",
+     "cap": 6,
+     "bp": [
+      [
+       15,
+       "risen skeletons cast a weak Hex (40% slow) on their first target"
+      ]
+     ],
+     "d": "a foe that dies while hexed rises as a temporary skeleton that fights for you",
+     "k": "KEEP"
+    }
+   ]
+  },
+  {
+   "k": "graveburst",
+   "n": "Grave Burst",
+   "locks": [
+    "consecrate",
+    "briar"
+   ],
+   "buffs": [
+    {
+     "t": "bloodsoaked",
+     "id": "splinter_drain",
+     "pp": 0.6,
+     "u": "% more drain per splinter",
+     "cap": 25,
+     "bp": [
+      [
+       10,
+       "Grave Burst rips the splinters out, and each one bursts for a small blast"
+      ]
+     ],
+     "d": "each cut lodges a bone splinter in the foe (max 5)",
+     "k": "HEAL"
+    },
+    {
+     "t": "mercy",
+     "id": "ossified_pulse",
+     "pp": 0.6,
+     "u": "% slow on bleeding foes (bosses: half)",
+     "cap": 25,
+     "bp": [
+      [
+       15,
+       "calcified foes killed by Mercy shatter in a bone burst for 40% (cannot chain)"
+      ]
+     ],
+     "d": "the pulse calcifies foes that are bleeding",
+     "st": [
+      "slow"
+     ],
+     "k": "SLOW"
+    },
+    {
+     "t": "crimson",
+     "id": "marrow_lance",
+     "pp": 1.5,
+     "u": "% of the life cost refunded per spiked kill",
+     "cap": 50,
+     "bp": [
+      [
+       5,
+       "the lance pierces +1 foe"
+      ]
+     ],
+     "d": "each foe the lance pierces gets a marrow spike",
+     "proj": 1,
+     "k": "COST"
+    }
+   ]
+  },
+  {
+   "k": "thorncoat",
+   "n": "Thorn Coat",
+   "locks": [
+    "stormcall",
+    "elemconsume"
+   ],
+   "buffs": [
+    {
+     "t": "wolfhowl",
+     "id": "bramble_run",
+     "pp": 0.8,
+     "u": "% of your thorn value per foe you run through",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "foes you run past are poisoned for 3s"
+      ]
+     ],
+     "d": "while howling, running through foes scratches them with thorns",
+     "st": [
+      "poison"
+     ],
+     "k": "OTHER"
+    },
+    {
+     "t": "regrowth",
+     "id": "bark_skin",
+     "pp": -0.6,
+     "u": "% damage taken for 3s after a heal",
+     "cap": -25,
+     "bp": [
+      [
+       15,
+       "the bark reflects the first melee hit you take in full"
+      ]
+     ],
+     "d": "heals leave a layer of bark on your skin",
+     "k": "DEBUFF"
+    },
+    {
+     "t": "locust",
+     "id": "nettle_swarm",
+     "pp": 0.8,
+     "u": "% of bite damage per second per nettle stack",
+     "cap": 30,
+     "bp": [
+      [
+       20,
+       "foes with 10 stacks are blinded for 2s"
+      ]
+     ],
+     "d": "bites stack nettle poison",
+     "st": [
+      "poison"
+     ],
+     "k": "DOT"
+    }
+   ]
+  },
+  {
+   "k": "briar",
+   "n": "Briar Snare",
+   "locks": [
+    "graveburst",
+    "spark"
+   ],
+   "buffs": [
+    {
+     "t": "meteor",
+     "id": "seed_fall",
+     "pp": 1,
+     "u": "% thicket slow (bosses: half)",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "the next stone shatters the thickets into a spray of thorn shrapnel"
+      ]
+     ],
+     "d": "stones land as seed pods that sprout 1s thorn thickets",
+     "st": [
+      "slow"
+     ],
+     "k": "SLOW"
+    },
+    {
+     "t": "smite",
+     "id": "thornhammer",
+     "pp": 0.8,
+     "u": "% of the Smite hit per proc (max 5 procs in 4s)",
+     "cap": 30,
+     "bp": [
+      [
+       20,
+       "when the foe dies the thorns burst and root nearby foes for 0.5s"
+      ]
+     ],
+     "d": "Smite drives thorns into the foe, and your later hits on it make the thorns bite",
+     "st": [
+      "root"
+     ],
+     "k": "HIT"
+    },
+    {
+     "t": "blightcask",
+     "id": "rooted_rot",
+     "pp": 0.8,
+     "u": "% poison damage per second while the foe is rooted",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "a rooted foe that dies to poison sprouts a briar that roots one neighbour for 0.5s (once per 4s)"
+      ]
+     ],
+     "d": "poison from the cask ticks harder on foes held by roots",
+     "k": "DUR"
+    }
+   ]
+  },
+  {
+   "k": "wolfhowl",
+   "n": "Wolf Howl",
+   "locks": [
+    "bulwark",
+    "frostward"
+   ],
+   "buffs": [
+    {
+     "t": "inferno",
+     "id": "wildfire_trail",
+     "pp": 1,
+     "u": "% trailing cone duration",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "the trail leaves a 2s strip of wildfire behind you"
+      ]
+     ],
+     "d": "an Inferno cast while howling trails after you like a flamethrower for 1s",
+     "st": [
+      "burning_ground"
+     ],
+     "k": "DUR"
+    },
+    {
+     "t": "briar",
+     "id": "ripening_roots",
+     "pp": 0.6,
+     "u": "% more melee damage taken per second rooted",
+     "cap": 25,
+     "bp": [
+      [
+       10,
+       "roots break only after taking 3 hits instead of timing out (bosses: normal duration)"
+      ]
+     ],
+     "d": "the longer a foe stays rooted, the harder your melee hits it",
+     "k": "DEBUFF"
+    },
+    {
+     "t": "undertow",
+     "id": "pack_bond",
+     "pp": 1,
+     "u": "% wolf damage against Drowned foes",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "a wolf that would die in the aura is instead set to 1 life and leaves 1s later (once per wolf)"
+      ]
+     ],
+     "d": "howling wolves tear at what the tide drags in",
+     "k": "DMG"
+    }
+   ]
+  },
+  {
+   "k": "regrowth",
+   "n": "Regrowth",
+   "locks": [
+    "glacier",
+    "crimson"
+   ],
+   "buffs": [
+    {
+     "t": "briar",
+     "id": "feeding_roots",
+     "pp": 0.1,
+     "u": "% max life healed per rooted foe per second",
+     "cap": 4,
+     "bp": [
+      [
+       10,
+       "roots flower when they expire, leaving a 2s healing bloom that heals 2% max life per second"
+      ]
+     ],
+     "d": "rooted foes feed their life back to you through the roots",
+     "k": "HEAL"
+    },
+    {
+     "t": "wolfhowl",
+     "id": "second_wind",
+     "pp": 1.5,
+     "u": "% howl duration",
+     "cap": 45,
+     "bp": [
+      [
+       15,
+       "if you fall below 30% life while howling, Regrowth casts itself for free (once per 30s)"
+      ]
+     ],
+     "d": "casting Wolf Howl also cleanses one slow or chill from you",
+     "k": "DUR"
+    },
+    {
+     "t": "cleave",
+     "id": "sap_edge",
+     "pp": 0.04,
+     "u": "% max life per second per Sap stack",
+     "cap": 1.5,
+     "bp": [
+      [
+       10,
+       "the second cut lashes out vines that pull 1% max life from each foe hit"
+      ]
+     ],
+     "d": "each foe hit gives you a Sap stack (max 10, 3s) that heals you",
+     "k": "HEAL"
+    }
+   ]
+  },
+  {
+   "k": "locust",
+   "n": "Locust Cloud",
+   "locks": [
+    "cinder",
+    "truesight"
+   ],
+   "buffs": [
+    {
+     "t": "consecrate",
+     "id": "plague_altar",
+     "pp": 0.8,
+     "u": "% of ground damage per locust bite",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "when the ground ends, the swarm migrates onto the nearest foe as a 2s mini Locust Cloud"
+      ]
+     ],
+     "d": "the ground spawns a locust every second that bites a foe standing on it",
+     "k": "HIT"
+    },
+    {
+     "t": "briar",
+     "id": "infested_roots",
+     "pp": 0.8,
+     "u": "% of snare damage per second as poison",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "a rooted foe that dies bursts and roots one neighbour (no further spread)"
+      ]
+     ],
+     "d": "the roots hatch larvae that poison rooted foes",
+     "st": [
+      "poison"
+     ],
+     "k": "DOT"
+    },
+    {
+     "t": "wolfhowl",
+     "id": "swarm_screen",
+     "pp": 0.6,
+     "u": "% of incoming projectiles intercepted",
+     "cap": 25,
+     "bp": [
+      [
+       20,
+       "the howl sends the swarm onto the nearest elite for 3s"
+      ]
+     ],
+     "d": "a buzzing swarm follows you while you howl and catches projectiles",
+     "k": "BOLT"
+    }
+   ]
+  },
+  {
+   "k": "cleave",
+   "n": "Wide Cut",
+   "locks": [
+    "arcwhip",
+    "telekinesis"
+   ],
+   "buffs": [
+    {
+     "t": "execute",
+     "id": "follow_through",
+     "pp": 0.8,
+     "u": "% of the blow dealt to one adjacent foe",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "Execute kills trigger a Wide Cut that costs nothing (once per 3s; outside the cost clamp)"
+      ]
+     ],
+     "d": "if Wide Cut hit the foe in the last 1.5s, Execute follows through into an adjacent foe",
+     "k": "HIT"
+    },
+    {
+     "t": "rupture",
+     "id": "double_tear",
+     "pp": 0.8,
+     "u": "% of the hit nicked into up to 2 adjacent foes",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "Rupture becomes a two-hit combo when used right after Wide Cut"
+      ]
+     ],
+     "d": "the Rupture cut nicks up to 2 adjacent foes",
+     "k": "HIT"
+    },
+    {
+     "t": "aimed",
+     "id": "point_blank_draw",
+     "pp": -0.6,
+     "u": "% cast time within 1s of a Wide Cut",
+     "cap": -25,
+     "bp": [
+      [
+       15,
+       "point-blank shots also land the cut's 40% second cut"
+      ]
+     ],
+     "d": "an Aimed Shot fired right after a cut skips most of the draw",
+     "k": "DUR"
+    }
+   ]
+  },
+  {
+   "k": "bladedance",
+   "n": "Blade Dance",
+   "locks": [
+    "veil",
+    "dread"
+   ],
+   "buffs": [
+    {
+     "t": "bloodsoaked",
+     "id": "whirling_drain",
+     "pp": 0.8,
+     "u": "% of the cut dealt to each foe in the spin radius",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "drained life beyond your maximum becomes a 3s blade barrier"
+      ]
+     ],
+     "d": "a Blood Soaked cast within 1s of a spin cuts every foe in the spin radius",
+     "k": "AREA"
+    },
+    {
+     "t": "mercy",
+     "id": "red_cyclone",
+     "pp": 1,
+     "u": "% chance for a second wave (it cannot repeat itself)",
+     "cap": 35,
+     "bp": [
+      [
+       20,
+       "the waves leave a 1s blood slick that makes foes stumble on their next step"
+      ]
+     ],
+     "d": "the pulse spins outward and can roll out a second wave",
+     "k": "CHANCE"
+    },
+    {
+     "t": "rupture",
+     "id": "lacerations",
+     "pp": 1,
+     "u": "% deeper bleed per laceration consumed",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "consuming 5 lacerations at once inflicts Open Wounds"
+      ]
+     ],
+     "d": "each foe Blade Dance hit in the last 3s carries a laceration that Rupture consumes",
+     "st": [
+      "wound"
+     ],
+     "k": "DOT"
+    }
+   ]
+  },
+  {
+   "k": "execute",
+   "n": "Execute",
+   "locks": [
+    "hex",
+    "veil"
+   ],
+   "buffs": [
+    {
+     "t": "bladedance",
+     "id": "reaping_spin",
+     "pp": 1,
+     "u": "% spin damage against foes below 50% life",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "each kill during the spin adds one more revolution (max +2)"
+      ]
+     ],
+     "d": "the spin ends with a reaping arc aimed at wounded foes",
+     "k": "HEAL"
+    },
+    {
+     "t": "rupture",
+     "id": "deep_tear",
+     "pp": 1,
+     "u": "% faster second bleed per 10% life missing",
+     "cap": 35,
+     "bp": [
+      [
+       15,
+       "a foe that the bleed drops below 15% life is executed outright (non-boss)"
+      ]
+     ],
+     "d": "Rupture's second bleed ticks faster the more wounded the foe is",
+     "st": [
+      "bleed"
+     ],
+     "k": "HEAL"
+    },
+    {
+     "t": "aimed",
+     "id": "killshot",
+     "pp": 0.6,
+     "u": "% crit chance against foes below 50% life",
+     "cap": 25,
+     "bp": [
+      [
+       20,
+       "a killing Aimed Shot refunds its cost, and your next one within 2s pierces +1"
+      ]
+     ],
+     "d": "Aimed Shot is deadlier against wounded foes",
+     "st": [
+      "crit +proj"
+     ],
+     "proj": 1,
+     "k": "CRIT"
+    }
+   ]
+  },
+  {
+   "k": "rupture",
+   "n": "Rupture",
+   "locks": [
+    "fanbone",
+    "snare"
+   ],
+   "buffs": [
+    {
+     "t": "crimson",
+     "id": "torn_vessel",
+     "pp": 0.8,
+     "u": "% of the foe's missing life as bonus damage (bosses: one third)",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "the lance leaves a blood trail behind it that restores 2% life when you walk through it"
+      ]
+     ],
+     "d": "Crimson Lance hits on foes that Rupture cut in the last 3s tear them open",
+     "k": "HEAL"
+    },
+    {
+     "t": "javelin",
+     "id": "barbed_head",
+     "pp": 1,
+     "u": "% of Javelin damage when ripped out",
+     "cap": 40,
+     "bp": [
+      [
+       5,
+       "Javelin pierces +1 foe"
+      ]
+     ],
+     "d": "barbed heads stay lodged until your next melee hit rips them out",
+     "proj": 1,
+     "k": "BOLT"
+    },
+    {
+     "t": "aimed",
+     "id": "artery_shot",
+     "pp": 0.8,
+     "u": "% less healing on the foe",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "an Aimed Shot on a foe cut by Rupture makes its next attack miss"
+      ]
+     ],
+     "d": "Aimed Shot nicks an artery, cutting the foe's healing",
+     "k": "DEBUFF"
+    }
+   ]
+  },
+  {
+   "k": "blindrush",
+   "n": "Blind Shield Rush",
+   "locks": [
+    "meteor",
+    "hex"
+   ],
+   "buffs": [
+    {
+     "t": "bulwark",
+     "id": "momentum_brace",
+     "pp": 2,
+     "u": "% brace duration when cast right after a dash",
+     "cap": 50,
+     "bp": [
+      [
+       10,
+       "the first blow the brace blocks staggers the attacker for 0.5s (bosses only flinch)"
+      ]
+     ],
+     "d": "Bulwark cast within 1s of a rush or dash lasts longer",
+     "st": [
+      "stun"
+     ],
+     "k": "DUR"
+    },
+    {
+     "t": "warcry",
+     "id": "battering_shout",
+     "pp": 0.03,
+     "u": "m outward push",
+     "cap": 1.5,
+     "bp": [
+      [
+       15,
+       "foes pushed into walls are dazed for 1s (bosses only flinch)"
+      ]
+     ],
+     "d": "the shout physically shoves foes outward",
+     "st": [
+      "knockback",
+      "stun"
+     ],
+     "k": "AREA"
+    },
+    {
+     "t": "fanbone",
+     "id": "shield_scatter",
+     "pp": 1.2,
+     "u": "% wider fan arc",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "shards that hit stumbling foes inflict Open Wounds"
+      ]
+     ],
+     "d": "a Bone Fan cast within 1s of a rush fires from where the rush ended, in a wider arc",
+     "st": [
+      "wound"
+     ],
+     "k": "AREA"
+    }
+   ]
+  },
+  {
+   "k": "bulwark",
+   "n": "Bulwark",
+   "locks": [
+    "elemconsume",
+    "wolfhowl"
+   ],
+   "buffs": [
+    {
+     "t": "cleave",
+     "id": "shield_sweep",
+     "pp": 0.8,
+     "u": "% frontal damage blocked for 1s after each cut",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "blocked hits charge the next cut with an extra second cut"
+      ]
+     ],
+     "d": "while Bulwark holds, each cut sweeps your shield across the front",
+     "k": "DEF"
+    },
+    {
+     "t": "frostward",
+     "id": "glacial_bastion",
+     "pp": 0.5,
+     "u": "% of blocked damage stored as cold",
+     "cap": 20,
+     "bp": [
+      [
+       15,
+       "the release freezes attackers that hit you 5 or more times (boss rules apply)"
+      ]
+     ],
+     "d": "with Bulwark up, the ward stores blocked damage and releases it as a cold nova when it ends",
+     "st": [
+      "freeze"
+     ],
+     "k": "DEF"
+    },
+    {
+     "t": "javelin",
+     "id": "spear_wall",
+     "pp": 2,
+     "u": "% spear-wall duration",
+     "cap": 50,
+     "bp": [
+      [
+       15,
+       "foes running into the wall are impaled and suffer Open Wounds"
+      ]
+     ],
+     "d": "javelins thrown while braced stick in the ground as a 2s wall that blocks one attack each",
+     "st": [
+      "wound"
+     ],
+     "k": "DUR"
+    }
+   ]
+  },
+  {
+   "k": "warcry",
+   "n": "War Cry",
+   "locks": [
+    "dread",
+    "stormcall"
+   ],
+   "buffs": [
+    {
+     "t": "bulwark",
+     "id": "shout_brace",
+     "pp": 0.03,
+     "u": "s root on foes within 3m when Bulwark is cast (DUR, root)",
+     "cap": 1.5,
+     "bp": [
+      [
+       15,
+       "each taunted foe adds 2% damage reduction to the brace (max 5)"
+      ]
+     ],
+     "d": "casting Bulwark also shouts and taunts foes within 3m",
+     "k": "DUR"
+    },
+    {
+     "t": "frostward",
+     "id": "frost_bellow",
+     "pp": 1,
+     "u": "% ward radius",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "ward-chilled attackers have their attack cancelled (once per 4s)"
+      ]
+     ],
+     "d": "the ward roars outward and reaches further",
+     "k": "AREA"
+    },
+    {
+     "t": "knell",
+     "id": "roaring_peal",
+     "pp": 2,
+     "u": "% chance a War Cry hit adds 2 Peals instead of 1",
+     "cap": 50,
+     "bp": [
+      [
+       10,
+       "a War Cry that hits 3+ foes tolls the Ninth Peal at once"
+      ]
+     ],
+     "d": "War Cry rings the bell harder",
+     "k": "CHANCE"
+    }
+   ]
+  },
+  {
+   "k": "frostward",
+   "n": "Frost Ward",
+   "locks": [
+    "wolfhowl",
+    "ironjaw"
+   ],
+   "buffs": [
+    {
+     "t": "holy",
+     "id": "cold_light",
+     "pp": 1,
+     "u": "% more life returned from chilled foes",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "a bolt that kills a chilled foe adds 1s to Frost Ward"
+      ]
+     ],
+     "d": "Holy Bolt returns more life from chilled foes",
+     "k": "HEAL"
+    },
+    {
+     "t": "blindrush",
+     "id": "ice_ram",
+     "pp": 0.6,
+     "u": "% attack speed lost by foes in the lane",
+     "cap": 25,
+     "bp": [
+      [
+       15,
+       "the rush ends by raising an ice wall that blocks projectiles for 2s"
+      ]
+     ],
+     "d": "the rush leaves a frozen lane behind you where foes slip and fumble",
+     "k": "SLOW"
+    },
+    {
+     "t": "rimecaltrop",
+     "id": "warded_rime",
+     "pp": 0.6,
+     "u": "% damage reduction while standing within 3m of a Rime Caltrop",
+     "cap": 20,
+     "bp": [
+      [
+       10,
+       "while Frost Ward is up, a caltrop that runs out of shots fires 1 last shard (once per caltrop)"
+      ]
+     ],
+     "d": "standing near your own caltrop thickens the ward's frost",
+     "k": "DEF"
+    }
+   ]
+  },
+  {
+   "k": "telekinesis",
+   "n": "Telekinesis",
+   "locks": [
+    "cleave",
+    "fireball"
+   ],
+   "buffs": [
+    {
+     "t": "hex",
+     "id": "gravity_hex",
+     "pp": 2,
+     "u": "% pull strength",
+     "cap": 50,
+     "bp": [
+      [
+       10,
+       "a hexed foe that dies collapses into a 3m gravity well that pulls foes in for 2s"
+      ]
+     ],
+     "d": "the hexed foe drags nearby foes toward itself",
+     "st": [
+      "pull"
+     ],
+     "k": "KEEP"
+    },
+    {
+     "t": "snare",
+     "id": "crushing_knot",
+     "pp": 0.6,
+     "u": "% of knot damage per second pinned",
+     "cap": 25,
+     "bp": [
+      [
+       15,
+       "the knot implodes when it expires, dealing 40% of its damage"
+      ]
+     ],
+     "d": "pinned foes are slowly crushed, and the crush stacks each second they stay pinned",
+     "k": "DOT"
+    },
+    {
+     "t": "ironjaw",
+     "id": "tripwire_pull",
+     "pp": 1.5,
+     "u": "% of a bolt's knockback reversed into a pull toward the trap",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "a foe pulled onto the trap's plate is pinned 0.4s (root cap 15%; bosses flinch)"
+      ]
+     ],
+     "d": "Ironjaw bolts drag foes toward the trap instead of pushing them away",
+     "st": [
+      "knockback"
+     ],
+     "k": "AREA"
+    }
+   ]
+  },
+  {
+   "k": "hex",
+   "n": "Hex",
+   "locks": [
+    "blindrush",
+    "execute"
+   ],
+   "buffs": [
+    {
+     "t": "blinkstep",
+     "id": "hex_swap",
+     "pp": 2,
+     "u": "% blink range when targeting a hexed foe",
+     "cap": 50,
+     "bp": [
+      [
+       15,
+       "the swapped foe is confused for 1s and attacks its allies (non-boss)"
+      ]
+     ],
+     "d": "blinking onto a hexed foe swaps your places",
+     "k": "AREA"
+    },
+    {
+     "t": "veil",
+     "id": "curse_mirror",
+     "pp": 0.8,
+     "u": "% weaken on attackers that miss you",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "an attacker who misses 3 times is Hexed"
+      ]
+     ],
+     "d": "blows that miss you while veiled curse the attacker",
+     "st": [
+      "weaken"
+     ],
+     "k": "DEBUFF"
+    },
+    {
+     "t": "dread",
+     "id": "creeping_doom",
+     "pp": 0.6,
+     "u": "% damage taken per second feared",
+     "cap": 25,
+     "bp": [
+      [
+       20,
+       "a non-elite foe feared for 4s or more breaks and flees for good"
+      ]
+     ],
+     "d": "fear eats at foes, and they take more damage the longer it lasts",
+     "st": [
+      "fear"
+     ],
+     "k": "DEBUFF"
+    }
+   ]
+  },
+  {
+   "k": "snare",
+   "n": "Mind Snare",
+   "locks": [
+    "rupture",
+    "javelin"
+   ],
+   "buffs": [
+    {
+     "t": "hoarfrost",
+     "id": "frozen_thought",
+     "pp": 0.8,
+     "u": "% cast and attack speed lost while in both",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "foes in both forget their target for 1s"
+      ]
+     ],
+     "d": "foes standing in both Mind Snare and Hoarfrost think and move sluggishly",
+     "k": "SLOW"
+    },
+    {
+     "t": "smite",
+     "id": "mind_break",
+     "pp": 0.6,
+     "u": "% chance to fear a pinned foe for 2s (non-elite) (CHANCE, fear)",
+     "cap": 20,
+     "bp": [
+      [
+       10,
+       "feared foes explode when fear ends: 1.5m splash for 30% of the Smite hit"
+      ]
+     ],
+     "d": "smiting a pinned foe can break its will, so it fights for you",
+     "k": "CHANCE"
+    },
+    {
+     "t": "dread",
+     "id": "dread_knot",
+     "pp": 1,
+     "u": "% Dread radius near a knot",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "feared foes flee into the nearest knot instead of away from you"
+      ]
+     ],
+     "d": "Dread cast inside a Mind Snare doubles the knot's duration",
+     "k": "AREA"
+    }
+   ]
+  },
+  {
+   "k": "blinkstep",
+   "n": "Blink Step",
+   "locks": [
+    "undertow",
+    "aimed"
+   ],
+   "buffs": [
+    {
+     "t": "glacier",
+     "id": "folded_ice",
+     "pp": 1,
+     "u": "% Glacier flight speed",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "arriving at the spear releases a frost ring"
+      ]
+     ],
+     "d": "a Blink Step cast while Glacier is in flight swaps you with the spear",
+     "k": "SPEED"
+    },
+    {
+     "t": "snare",
+     "id": "anchor_knot",
+     "pp": 1,
+     "u": "% blink range toward a knot",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "blinking into a knot re-pins every foe in it"
+      ]
+     ],
+     "d": "Blink Step can target any Mind Snare knot, even past walls",
+     "k": "AREA"
+    },
+    {
+     "t": "veil",
+     "id": "phase_veil",
+     "pp": 0.03,
+     "u": "s Veil added per blink",
+     "cap": 1.5,
+     "bp": [
+      [
+       15,
+       "blinking out of melee gives a 2s shield that absorbs the next hit (max 10% Max Life)"
+      ]
+     ],
+     "d": "each blink extends Veil",
+     "k": "DUR"
+    }
+   ]
+  },
+  {
+   "k": "veil",
+   "n": "Veil",
+   "locks": [
+    "execute",
+    "bladedance"
+   ],
+   "buffs": [
+    {
+     "t": "nova",
+     "id": "phantom_nova",
+     "pp": 0.03,
+     "u": "s root on foes within 2m of where Frost Nova was cast (DUR, root)",
+     "cap": 1.5,
+     "bp": [
+      [
+       10,
+       "1s later a second Frost Nova pulses at that spot for 40% power (cannot echo)"
+      ]
+     ],
+     "d": "casting Frost Nova leaves a frozen afterimage of you that taunts foes",
+     "k": "DUR"
+    },
+    {
+     "t": "telekinesis",
+     "id": "ghost_hands",
+     "pp": 0.8,
+     "u": "% miss chance for shoved foes (3s)",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "Telekinesis also yanks one ranged foe toward you"
+      ]
+     ],
+     "d": "shoved foes are disoriented and miss attacks",
+     "st": [
+      "pull"
+     ],
+     "k": "CHANCE"
+    },
+    {
+     "t": "snare",
+     "id": "luring_knot",
+     "pp": 0.8,
+     "u": "% of foe speed drawn toward the knot",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "casting Mind Snare grants you Veil for 1s"
+      ]
+     ],
+     "d": "the knot is invisible and lures foes within 3m toward it",
+     "st": [
+      "pull"
+     ],
+     "k": "SPEED"
+    }
+   ]
+  },
+  {
+   "k": "dread",
+   "n": "Dread",
+   "locks": [
+    "bladedance",
+    "warcry"
+   ],
+   "buffs": [
+    {
+     "t": "telekinesis",
+     "id": "panic_shove",
+     "pp": 0.03,
+     "u": "s of terrified flight",
+     "cap": 1.5,
+     "bp": [
+      [
+       10,
+       "terrified foes knock down any foe they run into"
+      ]
+     ],
+     "d": "shoved foes are terrified and flee",
+     "st": [
+      "fear"
+     ],
+     "k": "DUR"
+    },
+    {
+     "t": "blinkstep",
+     "id": "nightmare_step",
+     "pp": 0.8,
+     "u": "% less damage dealt by foes at your arrival point",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "your departure point leaves a 2s shadow that keeps unsettling foes"
+      ]
+     ],
+     "d": "arriving beside foes fills them with dread",
+     "st": [
+      "weaken"
+     ],
+     "k": "DEBUFF"
+    },
+    {
+     "t": "veil",
+     "id": "haunting_veil",
+     "pp": 1,
+     "u": "% Veil duration per feared foe nearby",
+     "cap": 40,
+     "bp": [
+      [
+       20,
+       "Veil ends with a scream that fears nearby foes for 2s"
+      ]
+     ],
+     "d": "the veil lasts longer while foes around you are afraid",
+     "st": [
+      "fear"
+     ],
+     "k": "DUR"
+    }
+   ]
+  },
+  {
+   "k": "elemconsume",
+   "n": "Elemental Consume",
+   "locks": [
+    "thorncoat",
+    "bulwark"
+   ],
+   "buffs": [
+    {
+     "t": "fireball",
+     "id": "triad_core",
+     "pp": 0.8,
+     "u": "% chill on impact",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "the impact also arcs a lightning jump (it cannot shock)"
+      ]
+     ],
+     "d": "a Fireball cast within 3s of a pulse carries the triad and chills on impact",
+     "st": [
+      "chill +proj"
+     ],
+     "proj": 1,
+     "k": "SLOW"
+    },
+    {
+     "t": "stormcall",
+     "id": "elemental_rotation",
+     "pp": 0.5,
+     "u": "% shred of the struck element's resistance",
+     "cap": 20,
+     "bp": [
+      [
+       10,
+       "a foe hit by all three within 3s is Overloaded: your next hit on it deals +25%"
+      ]
+     ],
+     "d": "bolts cycle fire, then cold, then lightning",
+     "k": "DEBUFF"
+    },
+    {
+     "t": "arcwhip",
+     "id": "prism_lash",
+     "pp": 0.6,
+     "u": "% penetration of your best element",
+     "cap": 25,
+     "bp": [
+      [
+       20,
+       "the lash strikes as all three elements at once and uses the target's lowest resistance"
+      ]
+     ],
+     "d": "the lash takes the element of your highest-ranked elemental rite",
+     "k": "DEBUFF"
+    }
+   ]
+  },
+  {
+   "k": "fanbone",
+   "n": "Bone Fan",
+   "locks": [
+    "thunderkiln",
+    "rupture"
+   ],
+   "buffs": [
+    {
+     "t": "summon",
+     "id": "bone_quiver",
+     "pp": 1,
+     "u": "% chance for a skeleton to pick up a stray shard",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "skeletons throw a 3-shard mini fan (these shards cannot be picked up)"
+      ]
+     ],
+     "d": "your skeletons pick up stray Bone Fan shards and throw them back",
+     "k": "CHANCE"
+    },
+    {
+     "t": "graveburst",
+     "id": "shrapnel_ring",
+     "pp": 0.8,
+     "u": "% of the burst dealt by the outer ring",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "the outer ring fires inward again 0.5s later"
+      ]
+     ],
+     "d": "Grave Burst adds a second, outer ring of shrapnel",
+     "k": "HIT"
+    },
+    {
+     "t": "warcry",
+     "id": "rattling_shout",
+     "pp": 0.04,
+     "u": "mana per bone fragment",
+     "cap": 1.5,
+     "bp": [
+      [
+       10,
+       "shouting again flings the fragments at the nearest foe"
+      ]
+     ],
+     "d": "foes the shout hits drop bone fragments you can walk over for mana",
+     "k": "COST"
+    }
+   ]
+  },
+  {
+   "k": "javelin",
+   "n": "Javelin",
+   "locks": [
+    "snare",
+    "undertow"
+   ],
+   "buffs": [
+    {
+     "t": "cleave",
+     "id": "thrown_cut",
+     "pp": 1,
+     "u": "% of Javelin damage hurled through",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "the second cut becomes a spinning spear throw (+1 projectile)"
+      ]
+     ],
+     "d": "cutting a foe with a javelin in it hurls the javelin on through the cut",
+     "proj": 1,
+     "k": "BOLT"
+    },
+    {
+     "t": "bladedance",
+     "id": "spear_spin",
+     "pp": 0.8,
+     "u": "% spin reach",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "the spin flings javelins out in 4 directions (counts as the +1 projectile; the 4 spears share one target cap)"
+      ]
+     ],
+     "d": "you spin with a spear, reaching further",
+     "proj": 1,
+     "k": "AREA"
+    },
+    {
+     "t": "execute",
+     "id": "pinning_blow",
+     "pp": 0.6,
+     "u": "% higher Execute life threshold on javelin-struck foes",
+     "cap": 25,
+     "bp": [
+      [
+       20,
+       "Execute nails the corpse down as a 3s spike obstacle"
+      ]
+     ],
+     "d": "a lodged javelin makes the foe count as more wounded for Execute",
+     "k": "HEAL"
+    }
+   ]
+  },
+  {
+   "k": "starlash",
+   "n": "Star Lash",
+   "locks": [
+    "summon",
+    "bloodsoaked"
+   ],
+   "buffs": [
+    {
+     "t": "consecrate",
+     "id": "falling_stars",
+     "pp": 1,
+     "u": "% of ground damage per star",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "a star that hits a foe at the centre stuns it for 0.5s (bosses only flinch)"
+      ]
+     ],
+     "d": "every second a star falls on a random foe standing on the ground",
+     "st": [
+      "stun"
+     ],
+     "k": "BOLT"
+    },
+    {
+     "t": "thorncoat",
+     "id": "needle_coat",
+     "pp": 1.5,
+     "u": "% of normal thorns reflected at range",
+     "cap": 50,
+     "bp": [
+      [
+       15,
+       "each reflected needle heals you for 1% max life"
+      ]
+     ],
+     "d": "thorns fly back as holy needles, so ranged attackers are hit too",
+     "k": "AREA"
+    },
+    {
+     "t": "locust",
+     "id": "fireflies",
+     "pp": 0.8,
+     "u": "% crit chance from your hits against lit foes",
+     "cap": 25,
+     "bp": [
+      [
+       20,
+       "a lit foe that dies releases a firefly that seeks a new foe (cannot release again)"
+      ]
+     ],
+     "d": "the swarm turns into fireflies that light up the foes they bite",
+     "st": [
+      "crit"
+     ],
+     "k": "CRIT"
+    }
+   ]
+  },
+  {
+   "k": "aimed",
+   "n": "Aimed Shot",
+   "locks": [
+    "blinkstep",
+    "hearthward"
+   ],
+   "buffs": [
+    {
+     "t": "bladedance",
+     "id": "arrow_harvest",
+     "pp": 1,
+     "u": "% more spin damage per lodged arrow",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "the spin rips the arrows out, refunding 1 mana each"
+      ]
+     ],
+     "d": "arrows from Aimed Shot stay lodged in foes for 3s",
+     "k": "BOLT"
+    },
+    {
+     "t": "javelin",
+     "id": "twin_shot",
+     "pp": 1,
+     "u": "% Javelin projectile speed",
+     "cap": 40,
+     "bp": [
+      [
+       15,
+       "a javelin that follows an arrow ignores 30% armour"
+      ]
+     ],
+     "d": "a Javelin thrown within 1s of an Aimed Shot follows the arrow's path",
+     "k": "SPEED"
+    },
+    {
+     "t": "truesight",
+     "id": "called_shot",
+     "pp": 0.8,
+     "u": "% crit chance on Aimed Shot against foes inside Truesight (crit cap 70%)",
+     "cap": 25,
+     "bp": [
+      [
+       15,
+       "a full-draw Aimed Shot on a read foe marks it Exposed: +10% damage taken from you for 3s (once per 6s)"
+      ]
+     ],
+     "d": "foes read by the aura are easier to line up for a full-draw shot",
+     "st": [
+      "expose"
+     ],
+     "k": "CRIT"
+    }
+   ]
+  },
+  {
+   "k": "ironjaw",
+   "n": "Ironjaw Trap",
+   "locks": [
+    "cinder",
+    "frostward"
+   ],
+   "buffs": [
+    {
+     "t": "blightcask",
+     "id": "cracked_seal",
+     "pp": 1,
+     "u": "% chance a cask needle staggers its target 0.3s (stun cap 12%; bosses flinch 0.01s)",
+     "cap": 12,
+     "bp": [
+      [
+       10,
+       "a staggered foe takes one extra poison stack (max stacks still apply)"
+      ]
+     ],
+     "d": "Ironjaw springs crack the cask wider so its needles hit with weight",
+     "st": [
+      "stagger"
+     ],
+     "k": "CHANCE"
+    },
+    {
+     "t": "rimecaltrop",
+     "id": "brittle_impact",
+     "pp": 1.2,
+     "u": "% bolt damage against chilled foes",
+     "cap": 40,
+     "bp": [
+      [
+       15,
+       "a bolt that knocks a frozen foe shatters the ice for 25% of the bolt as cold damage (once per freeze)"
+      ]
+     ],
+     "d": "Ironjaw bolts hit harder on foes the caltrop has chilled",
+     "k": "BOLT"
+    },
+    {
+     "t": "blindrush",
+     "id": "springboard",
+     "pp": 2,
+     "u": "% Blind Shield Rush distance when it starts on your trap",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "the trap you launch from fires one free bolt at the first foe you hit (once per trap)"
+      ]
+     ],
+     "d": "rushing off an Ironjaw plate launches you farther",
+     "k": "HEAL"
+    }
+   ]
+  },
+  {
+   "k": "blightcask",
+   "n": "Blight Cask",
+   "locks": [
+    "holy",
+    "summon"
+   ],
+   "buffs": [
+    {
+     "t": "rimecaltrop",
+     "id": "numbing_venom",
+     "pp": 0.8,
+     "u": "% chill strength on poisoned foes (bosses: half)",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "a poisoned foe frozen by a caltrop takes its remaining poison at once (once per freeze; boss rules apply)"
+      ]
+     ],
+     "d": "poison numbs the limbs so the caltrop chill bites deeper",
+     "k": "SLOW"
+    },
+    {
+     "t": "thunderkiln",
+     "id": "volatile_fumes",
+     "pp": 1,
+     "u": "% Fuse burst damage on poisoned foes",
+     "cap": 35,
+     "bp": [
+      [
+       15,
+       "a Fuse burst on a poisoned foe leaves a 1.5m burning-poison puddle for 2s (once per 4s)"
+      ]
+     ],
+     "d": "the kiln's Fuse ignites lingering cask fumes",
+     "k": "DOT"
+    },
+    {
+     "t": "cinder",
+     "id": "toxic_embers",
+     "pp": 0.8,
+     "u": "% Cinder Bed burn on poisoned foes",
+     "cap": 30,
+     "bp": [
+      [
+       20,
+       "a foe standing in Cinder Bed with 3+ poison stacks is weakened: \u221215% damage for 2s (once per 5s)"
+      ]
+     ],
+     "d": "Cinder Bed smoke carries the cask's venom",
+     "st": [
+      "weaken"
+     ],
+     "k": "DOT"
+    }
+   ]
+  },
+  {
+   "k": "rimecaltrop",
+   "n": "Rime Caltrop",
+   "locks": [
+    "bloodsoaked",
+    "consecrate"
+   ],
+   "buffs": [
+    {
+     "t": "thunderkiln",
+     "id": "thermal_shock",
+     "pp": 1,
+     "u": "% kiln fire-bolt damage on chilled foes",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "a chilled foe hit by both kiln elements loses its chill and takes a 20% thermal burst (once per 3s)"
+      ]
+     ],
+     "d": "hot bolts crack chilled flesh",
+     "k": "BOLT"
+    },
+    {
+     "t": "hearthward",
+     "id": "frost_hearth",
+     "pp": 1,
+     "u": "% max life barrier for members when an enemy freezes inside the ring",
+     "cap": 25,
+     "bp": [
+      [
+       15,
+       "frozen foes inside the ring deal \u221220% damage for 2s after they thaw (once per freeze)"
+      ]
+     ],
+     "d": "every freeze near the hearth gives the circle a frost barrier",
+     "k": "HEAL"
+    },
+    {
+     "t": "blinkstep",
+     "id": "caltrop_wake",
+     "pp": 1,
+     "u": "% chill on foes near your Blink Step departure point",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "the dropped caltrop fires 2 shards before it melts (once per blink; cannot freeze)"
+      ]
+     ],
+     "d": "blinking away drops a spent caltrop that chills foes who follow",
+     "k": "SLOW"
+    }
+   ]
+  },
+  {
+   "k": "thunderkiln",
+   "n": "Thunderkiln Trap",
+   "locks": [
+    "fanbone",
+    "smite"
+   ],
+   "buffs": [
+    {
+     "t": "hearthward",
+     "id": "kiln_warmth",
+     "pp": 0.02,
+     "u": "% max life per second regen for members within 3m of a kiln",
+     "cap": 0.5,
+     "bp": [
+      [
+       10,
+       "an active kiln inside the ring also grants +5% armour to members"
+      ]
+     ],
+     "d": "the kiln's heat warms the hearth ring",
+     "k": "HEAL"
+    },
+    {
+     "t": "knell",
+     "id": "steady_peal",
+     "pp": 1,
+     "u": "% chance a kiln bolt adds 1 Peal",
+     "cap": 40,
+     "bp": [
+      [
+       15,
+       "a Ninth Peal while a kiln is armed resets that kiln's shot timer (once per 3s)"
+      ]
+     ],
+     "d": "the kiln's even rhythm keeps the count",
+     "k": "CHANCE"
+    },
+    {
+     "t": "starlash",
+     "id": "storm_constellation",
+     "pp": 0.8,
+     "u": "% shock chance on Star Lash hits near a kiln",
+     "cap": 30,
+     "bp": [
+      [
+       20,
+       "a shocked foe hit by Star Lash makes the kiln fire one bonus lightning bolt (once per kiln)"
+      ]
+     ],
+     "d": "Star Lash draws lightning from a nearby kiln",
+     "k": "CHANCE"
+    }
+   ]
+  },
+  {
+   "k": "hearthward",
+   "n": "Hearthward Aura",
+   "locks": [
+    "aimed",
+    "nova"
+   ],
+   "buffs": [
+    {
+     "t": "knell",
+     "id": "tempered_peal",
+     "pp": 0.6,
+     "u": "% damage reduction for 2s after a Ninth Peal",
+     "cap": 20,
+     "bp": [
+      [
+       10,
+       "a Ninth Peal while Hearthward is active heals members 1% max life (once per 2s)"
+      ]
+     ],
+     "d": "each toll tempers the members who rang it",
+     "k": "DEF"
+    },
+    {
+     "t": "truesight",
+     "id": "steady_breath",
+     "pp": 1,
+     "u": "% attack rating for members at full life",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "members at full life cannot be blinded while inside both rings"
+      ]
+     ],
+     "d": "calm, healed hands aim truer",
+     "k": "HEAL"
+    },
+    {
+     "t": "regrowth",
+     "id": "hearth_bloom",
+     "pp": 1.2,
+     "u": "% Regrowth healing on members inside the ring",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "Regrowth cast inside the ring also heals every member at 50% value (once per cast)"
+      ]
+     ],
+     "d": "the hearth makes Regrowth bloom for the whole circle",
+     "k": "HEAL"
+    }
+   ]
+  },
+  {
+   "k": "knell",
+   "n": "Knell Aura",
+   "locks": [
+    "bonespear",
+    "holy"
+   ],
+   "buffs": [
+    {
+     "t": "truesight",
+     "id": "peal_focus",
+     "pp": 0.6,
+     "u": "% crit chance for 2s after a Ninth Peal (crit cap 70%)",
+     "cap": 20,
+     "bp": [
+      [
+       15,
+       "a crit inside that window adds 1 Peal (once per 2s)"
+      ]
+     ],
+     "d": "on the toll every opening shows",
+     "k": "CRIT"
+    },
+    {
+     "t": "undertow",
+     "id": "tide_fury",
+     "pp": 1,
+     "u": "% minion damage against Drowned foes",
+     "cap": 30,
+     "bp": [
+      [
+       10,
+       "a minion kill on a Drowned foe counts as 2 drowned names"
+      ]
+     ],
+     "d": "servants strike in time with the bell at what the tide holds",
+     "k": "DMG"
+    },
+    {
+     "t": "thorncoat",
+     "id": "spite_peal",
+     "pp": 1,
+     "u": "% Thorn Coat reflect for 2s after a Ninth Peal",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "each reflected hit adds 1 Peal (max once per foe per 1s)"
+      ]
+     ],
+     "d": "the toll hardens the thorns",
+     "k": "OTHER"
+    }
+   ]
+  },
+  {
+   "k": "truesight",
+   "n": "Truesight Aura",
+   "locks": [
+    "locust",
+    "mercy"
+   ],
+   "buffs": [
+    {
+     "t": "undertow",
+     "id": "watchful_tide",
+     "pp": 0.6,
+     "u": "% dodge for members against Drowned foes",
+     "cap": 20,
+     "bp": [
+      [
+       10,
+       "Drowned foes have \u221210% Attack Rating against members"
+      ]
+     ],
+     "d": "reading the foe warns the whole circle",
+     "k": "DEF"
+    },
+    {
+     "t": "ironjaw",
+     "id": "plate_reading",
+     "pp": 1,
+     "u": "% armour ignored by Ironjaw bolts on read foes",
+     "cap": 25,
+     "bp": [
+      [
+       15,
+       "a read foe pinned by Ironjaw has \u221215% dodge for 3s"
+      ]
+     ],
+     "d": "Ironjaw bolts strike the weak joints Truesight reveals",
+     "k": "DEBUFF"
+    },
+    {
+     "t": "bonespear",
+     "id": "marrow_sight",
+     "pp": 0.6,
+     "u": "% Bone Spear crit chance on read foes (crit cap 70%)",
+     "cap": 20,
+     "bp": [
+      [
+       10,
+       "a Bone Spear crit on a read foe pierces 1 extra foe (once per cast; +1 projectile cap)"
+      ]
+     ],
+     "d": "spears thrown at read foes find the gaps",
+     "proj": 1,
+     "k": "CRIT"
+    }
+   ]
+  },
+  {
+   "k": "undertow",
+   "n": "Undertow Aura",
+   "locks": [
+    "blinkstep",
+    "javelin"
+   ],
+   "buffs": [
+    {
+     "t": "ironjaw",
+     "id": "tide_trigger",
+     "pp": 1,
+     "u": "% faster arming for Ironjaw traps thrown inside Undertow",
+     "cap": 40,
+     "bp": [
+      [
+       10,
+       "Undertow pulls foes toward your nearest armed Ironjaw instead of you"
+      ]
+     ],
+     "d": "the tide drags prey to the spring",
+     "k": "SPEED"
+    },
+    {
+     "t": "blightcask",
+     "id": "plague_tide",
+     "pp": 0.8,
+     "u": "% poison duration from casks on Drowned foes",
+     "cap": 30,
+     "bp": [
+      [
+       15,
+       "minion hits on a poisoned foe add 1 poison stack (max once per minion per 2s; stacks still capped)"
+      ]
+     ],
+     "d": "the cask's venom rides the undertow",
+     "k": "DUR"
+    },
+    {
+     "t": "consecrate",
+     "id": "sanctified_tide",
+     "pp": 1,
+     "u": "% Consecrate healing on members inside Undertow",
+     "cap": 35,
+     "bp": [
+      [
+       10,
+       "a foe dying on Consecrate inside Undertow counts as 2 drowned names"
+      ]
+     ],
+     "d": "hallowed ground over drowned names",
+     "k": "HEAL"
+    }
+   ]
+  }
+ ]
+}

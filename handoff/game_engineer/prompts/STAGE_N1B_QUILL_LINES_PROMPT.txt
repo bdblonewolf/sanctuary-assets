@@ -1,0 +1,83 @@
+STAGE N1b - QUILL LINES V2 (text only; run after N1a is published)
+
+RULES
+New features are 3D only. Do not touch any 2D drawing code.
+If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+Be strict: change only what is listed.
+Text swaps only. Keep every id, who, when, cond, truth, pri, cd, price and number as it is. Inside JSON strings, keep the escaping valid (no raw double quotes).
+
+FACTS (the source names may differ from the bundle; find each line by the OLD text, which is unique unless a note says otherwise)
+- Quill lines live in: gc() Quill.lines[0..6]; var es -> Quill[0..2]; interaction lines quill_i01-03; Gn talk JSON (quill_t01-t12); Kn rumour JSON (quill_r01-r06); the banter list (ban_05, ban_06, ban_09); Zn.side.firstread and the plea override; the story chain pn (plague1, plague3).
+- "The oldest scripture nameth no fate" appears 3 times: change gc() lines[6] and es Quill[2] only, not the lore "body" text.
+- "Ysmer took the binding knife" appears 2 times: change only quill_r02 (rumours), not the quest JSON.
+- "I ate the bread." appears 2 times: the talk line quill_t01 and ban_05 la; both have their own entries below.
+
+STEPS
+1. gc() Quill.lines (OLD start => NEW):
+   [0] "I keep to the southwest corner of the square" => My scriptorium standeth north of the square, the narrow tower with the patched slates. Seek me there. The rest of the town I do not walk. Not by daylight.
+   [1] "The shelves scarce keep a rite. I do" => The shelves scarce keep a rite. I do, at ten thousand gold, and the price bendeth not. Ask not where I come by them. I would only tell thee something pleasant.
+   [2] "Slay four foes and I shall let thee choose" => Slay four foes and I shall lay six tomes before thee. Thou choosest one. I choose nothing for thee. I have chosen for others, and I keep a list.
+   [3] "Read a tome and it stayeth. Forty-five" => Read a tome and it stayeth with thee. Forty-five readings is the ceiling. I have known men reach for a forty-sixth. Hush. I have known nothing.
+   [4] "Some doors slam shut when thou openest another" => Some rites shut a door when thou openest them. Choose with care, friend. A door that closeth softly is still a door closed.
+   [5] "A ring of plain or magic make sitteth" => A ring sitteth with the books, of plain or magic make. Leave and return, and both shall have changed. Rare I do not sell. Rare things have owners, and owners come asking.
+   [6] "The oldest scripture nameth no fate" (gc copy) => The oldest scripture nameth no fate, only the burden of a choice, and no promise that it saveth thee. I copied that line myself. Twice. The second time I believed it.
+2. es Quill barks:
+   [0] "I keep the southwest corner, off the road" => North of the square, the tower with the slit window. That is mine. Knock softly. The coffer hath ears.
+   [1] "Ten thousand gold a rite. The price bendeth not" => Ten thousand gold a rite. The price bendeth not, not for friend nor grudge. Friends, I find, are the dearer customers.
+   [2] "The oldest scripture nameth no fate" (es copy) => The oldest scripture nameth no fate. Only the burden of a choice. I have carried a few. Mind thy step upon the stair.
+   Add [3]: Thou didst not see me here, and I did not see thee. A fair trade, and the night keepeth the ledger.
+3. Interaction, talk and rumour lines (by id):
+   quill_i01 => Choose thine own tome. Should I choose, I would choose wrong a-purpose, and smile the while. Better thine own hand.
+   quill_i02 => Read it not here. Not with that thing in the coffer listening. Read it out of doors, by day, where the light hath witnesses.
+   quill_i03 => It is warmer today. I am writing that down, which I perceive is precisely what it wanteth. Well. We each keep our ledger.
+   quill_t01 => Ysara brought bread. I ate the bread, every crumb, as I swore. Tell her so, an thou passest her garden. Tell her naught of the second loaf.
+   quill_t02 => Bram will not cross my threshold. A sensible man. Were it not my room, I would stand out yonder with him and count his trees.
+   quill_t03 => I have ceased to lock the coffer. Hide the tome, and it learneth the room. Leave it be, and it learneth me. A lock is a confession, friend. I had rather be learned.
+   quill_t04 => Four, and the leather went from warm to hot. I would fain call it a fever. It is not, and thou knowest it is not, and we shall both say fever if any asketh.
+   quill_t05 => The script moveth when I look away. I have taken to looking away a-purpose, to see whether it groweth lazy. It doth not. Neither do I. We are well matched.
+   quill_t06 => She ordered the register burned, and I carried the torch. I have not said so aloud before. Ysmer carried nothing. He only left. Do me the kindness of not deciding which of us to pity.
+   quill_t07 => Ysmer had good hands. That is the worst I can say of him. Steady hands, good paper, and never once a wasted line. I envied the hands. Tell no one. Envy is a debt.
+   quill_t08 => It is cold. The book. Cold as a step-stone. I sat with it the night through, waiting for it to warm again. I know not what I wanted. Write not that down.
+   quill_t09 => Thou didst die with a book in thy pack. I looked. Forgive me, I always look. Still thine, still blank where thy name should sit. Fascinating. Forgive me that also.
+   quill_t10 => I have begun a page for thee. Facts only: where thou wentest, what thou slewest. Someone ought to keep it who is not the tome. Where the page sleepeth is mine own affair.
+   quill_t11 => Damp ruineth paper, and the tome loveth damp. Twice I have moved the coffer. Damp still. I begin to think it is not the weather.
+   quill_t12 => The tome hath a page for thee now. Not thy name. A space where it goeth. Very neat, very patient. I have stood mine inkpot upon it. A small rudeness, but mine.
+   quill_r01 => That tome came up the south road wrapped in a fishing net. The carter would take no coin for it. He wanted it gone, and I wanted it near. Only one of us was wise.
+   quill_r02 => Ysmer took the binding knife when he went into the sea. I gave it him. I thought he would turn it on himself. In a manner of speaking, he did. Thou hadst this not from me.
+   quill_r03 => Sable saith she can read any rite upon her shelf. Sable can read prices. A useful gift. I have it also. I hide it better.
+   quill_r04 => Holt bringeth me paper from Highmarket, more than one poor scribe could need. The good mills there ceased last winter. Something in the Vault drinketh the water.
+   quill_r05 => The Abbess's choir sang a week after the burning. None stood in the loft. I listened from the stair. I did not go up. That is the whole of my courage, in one breath.
+   quill_r06 => Ilyra's prayers are four hundred years old. I copy them for her. The grammar is perfect. Hers is better. Tell her not. She would thank me, and I could not bear it.
+4. Banter (only la plays in town now):
+   ban_05 la => I ate the bread. Truly. Every crumb.
+   ban_06 la => Thy third prayer beareth a scribal error. Four hundred years old, and I have not the heart to mend it.
+   ban_09: swap a and b so Quill speaks first. la => I carried her torch, and thou madest mine irons. Drink?   lb => Wolchen's old la text.
+5. Quill-only branches (add "e.name === 'Quill'"; Sable and other scribes keep the old text):
+   moodLine "I was reading. Speak." => I was reading. Speak low, and speak.
+   openShelf "Leave and return for a new set. Rare I do not sell." => Tomes are ten thousand gold. The ring is plain or magic, priced on its own. Leave and return, and the shelf will have thought better of itself. Rare I do not sell.
+   cold bark "I am cold, and I am not crossing the square." => I am cold, and I cross not the square. The scriptorium keepeth what warmth I have.
+   Boss Stone "Lay the stone on the desk. Six rites" => Lay the stone upon the desk. Six rites. One of them riseth. Watch which. I shall pretend I did not.
+6. Quests and location text:
+   firstread (live override Zn.side.firstread): offer => Slay four upon the south road of Briarwood. Shamblers, mostly. They will not be missed, not even by themselves. Then choose one tome of the six. One only. I am not made of rites, whatever Holt telleth thee.
+     progress => Four on the south road, then back to Quill at his scriptorium, north of Martsirt square. Easy blood, as these things go.
+     doneText => Four lie still. Choose thy rite. The rest stay upon the shelf at full price. Friendship I give freely. Books I do not.
+     after => That one is thine. Read it from thy pack. The others are ten thousand still, and I am still not sorry. A little sorry. Not enough to lower the price.
+   plea after "The great doors stay shut until somebody" => The great doors stay shut until someone on the street side remembereth they are there. Not today. Today thou hast a road to walk, and I a letter to lose somewhere safe.
+   plague1 after: quote 'If I hide it, it will learn the room.' => 'Hide it, and it learneth the room.'
+   plague3 offer (base and the override with "There's a book in it for you"): Quill's quote => 'It nameth the coast,' he says. 'The drowned are practising the letters. Put four of them back in the sand ere they learn the whole word. There is a book in this for thee. Not mine. One the plague hath not edited.'
+   plague3 doneText quote => 'Learn it far from the tome. I would not have them share a room. They would compare notes.'
+   plague3 after quote => 'Wynn hath been sweeping round the salt statues and calling it piety. She hath seen the grammar in the faces. Go to the wreck. Spare her the reading of this.'
+   Both "Quill waits in the southwest corner" => Quill keeps his scriptorium, north of the square.
+   Both "Tomes are rare. Quill wanders Martsirt." => Tomes are rare. Quill keeps them, north of Martsirt square.
+   Narration stays as it is; change only the quoted speech.
+   Log once at boot: "[n1] quill lines N swapped".
+7. Build once, run, check the console, publish.
+
+TEST
+- The console shows "[n1] quill lines N swapped" with N about 48, and no JSON parse errors.
+- Talk to Quill a few times: the lines are archaic and none mention "southwest corner". Sable's shelf text is unchanged.
+- The town enter text and the rite panel say "north of the square". In the town, Quill's banter (ban_09) opens with "I carried her torch".
+- Search the bundle: no Quill text says "southwest corner" or "wanders Martsirt".
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

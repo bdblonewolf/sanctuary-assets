@@ -1,0 +1,169 @@
+SANCTUARY SKILLS FIX - PIECE 5 OF 7. Read and keep this piece; do not start building until all pieces are pasted.
+
+(continues the table from the previous piece)
+
+|Ax headsmans_smite|1.2→40 %RD on full-life foes|HEAL|—|RULE: -10% dmg vs foes below full life|10: the first chop on a boss each 10s counts as full life|chops on a foe at full life are Smites|
+|Sp smite_lunge|1.5→50 %RD on the lunge|HIT|—|RULE: you can't block during the lunge|10: the lunge passes through the first foe|a long thrust (hold 0.4s) lunges 2m and lands as a Smite|
+|Ma hammer_of_dawn|0.9→30 %RD added per hit|HIT|stun|IAS −18 raw|15: the 10th hit on one foe stuns it 0.5s (bosses: flinch)|the mace turns to holy steel; every hit is a mini Smite with a flash of light|
+|Dg penance_stab|1.8→60 %RD from behind|HIT|—|RULE: front stabs -10% damage|10: from behind, the Smite also heals you 1%|stabbing from behind a foe makes the stab a Smite|
+|Bw smiting_arrow|1.5→50 %RD at close range|AREA|knockback|RULE: -15% arrow damage beyond 3m|15: close-range kills push nearby foes 1m|arrows that hit within 3m of you count as Smites|
+|Wd wand_smite|1.2→40 %RD per rod strike|HIT|—|RULE: range drops from 7.4m to melee (1.2m)|10: rod strikes heal 0.5% max life|the wand becomes a short holy rod: melee Smites with no mana cost|
+|St crozier_smite|0.9→30 %RD per slam|HIT|fear|IAS −10 raw|15: slams on undead fear them 1s (bosses: immune)|every 3rd staff swing lands as a 2m Smite slam|
+|Sh shield_of_judgment|1.2→40 %RD on the counter bash|HIT|—|block −6%|10: the counter bash stuns 0.3s (bosses: flinch)|a bash after a block (within 1s) is a Smite|
+|**Blood Soaked** `bloodsoaked`|||||||
+|Sw crimson_edge|0.9→30 %RD added per swing|HIT|—|RULE: each swing costs 1 life (cannot kill you)|10: kills refund 3% max life|swings cost 1 life each and cut much deeper|
+|Ax gore_chop|0.6→20 %RD per second of gore|DOT|bleed|IAS −8 raw|15: gore on 3 foes doubles your leech for 2s|chops open a gore wound that drains to you over 2s|
+|Sp vein_skewer|0.45→15 % of damage shared to the linked foe|HIT|—|IAS −6 raw|10: links heal you 1% when either dies|thrusts that pierce 2 foes link their blood; damage to one bleeds the other a little|
+|Ma tenderiser|0.6→20 %RD per bruise burst|HIT|—|IAS −10 raw|15: bruises on bosses stop their regen like any DoT|mace hits bruise; bruised foes bleed when hit by anything else|
+|Dg bloodletter|0.6→20 % leech on stabs|HEAL|—|RULE: -10% max life|10: a full vial also gives +10% attack speed for 3s|every stab draws blood that fills a vial (max 10); full vials heal 5%|
+|Bw blood_fletching|0.45→15 % of arrow dmg returned as life|HEAL|—|RULE: each arrow costs 1 life|10: arrows that kill refund the life cost twice|arrows are fletched with your blood: each costs 1 life and drinks a little back|
+|Wd wand_bloodsoaked|0.9→30 %RD per dart|BOLT|—|RULE: each dart costs 2 life|15: darts that hit bleeding foes heal 1%|the wand fires a blood dart that costs life instead of nothing and drains on hit|
+|St haemal_staff|0.45→15 %RD per ring touch|HIT|—|RULE: -12% swing speed and -5% max life|15: the ring grows 0.3m per foe drained|the staff spins a blood ring that drains every foe it touches|
+|Sh spiked_boss|0.6→20 % bleed chance on blocked attackers|CHANCE|bleed|block −5%|10: bleeding attackers heal you 0.5% when they hit your shield|blocked attackers are spiked; spikes make them bleed|
+|**Mercy** `mercy`|||||||
+|Sw mercy_sweep|0.9→30 %RD per mercy pulse|HIT|—|RULE: -8% dmg vs foes above 50% life|10: mercy pulses heal you 1% per foe touched|a swing on a foe below 20% life is a mercy cut that pulses outward|
+|Ax bleed_tide|1.2→40 %RD per tide break|HIT|pull|IAS −10 raw|15: the break pulls bleeding foes 1m in|chops build a red tide; at 6 hits the tide breaks in a 2.5m pulse|
+|Sp merciful_reach|0.6→20 % of their bleed returned as life|HEAL|—|IAS −6 raw|10: drinking a bleed ends it but deals its remaining damage now|thrusts on bleeding foes extend 1m and drink their bleed|
+|Ma heart_pound|0.75→25 %RD per heartbeat|HIT|—|IAS −12 raw|15: heartbeats synchronise with your life: below 50% they come every 3rd hit|every 4th hit pounds a heartbeat pulse 2m around you|
+|Dg last_rites|1.2→40 %RD per last-rites pulse|HIT|—|IAS −8 raw|10: last rites refund 5 mana|stabs on a foe that's about to die (below 10%) finish it and pulse to neighbours|
+|Bw red_rain_arrow|0.6→20 %RD per mist burst|HIT|—|proj spd ×0.90|15: mist heals you 0.5% per foe inside|arrows into bleeding foes burst in a small red mist|
+|Wd wand_mercy|0.75→25 %RD per pulse|HIT|—|RULE: range 3m (point blank)|10: pulses cost 1% life but heal 0.5% per foe hit|the wand releases a 3m Mercy pulse around you, no mana cost|
+|St pulse_staff|0.45→15 %RD per echo pulse|HIT|—|IAS −12 raw|20: an echo pulse cannot echo; it heals 0.3% per foe|the staff thrums: every swing echoes as a delayed Mercy pulse 1s later|
+|Sh mercy_shield|0.45→15 %RD per block wave|DEF|—|block −6%|10: block waves heal you 0.5%|each block releases a small Mercy wave around you that hits nearby foes|
+|**Crimson Lance** `crimson`|||||||
+|Sw crimson_runner|0.6→20 %RD per thrown lance|HIT|—|RULE: each swing costs 1 life|10: lances pierce 1 foe|each swing throws a thin blood lance 4m on|
+|Ax lance_haft|0.9→30 % armour ignored by chops|DEBUFF|bleed|IAS −10 raw|15: chops that ignore 20%+ armour bleed (counts toward bleed cap)|the axe gains a crimson spike; chops pierce armour|
+|Sp blood_pike|0.75→25 %RD added per pierce|HIT|—|RULE: each thrust costs 2 life|10: piercing a 3rd foe heals 1%|the spear becomes a crimson pike: thrusts pierce through 3 foes|
+|Ma clot_maul|0.45→15 % clot slow (cap 25% with boss rules)|SLOW|slow|IAS −10 raw|15: a clotted foe that is hit by a lance shatters the clot for 30% of Crimson Lance dmg|hits clot the foe's blood; clotted foes move 10% slower (bosses: half)|
+|Dg needle_lance|0.9→30 %RD per needle|BOLT|—|dmg ×0.94|15: needles return to you, healing 0.5% each|every 3rd stab flings a needle lance at the nearest other foe|
+|Bw crimson_draw|1.5→50 %RD on the full draw|HIT|—|RULE: 1.2s draw, each costs 3 life|10: a full-draw kill refunds the life|drawing costs life; a full draw fires a blood lance that pierces all|
+|Wd wand_crimson|1.2→40 %RD per lance|HIT|—|RULE: each attack costs 2 life|15: lances that pierce 2 refund 1 life|the wand shoots a lance that pierces 2 foes, paid with 2 life|
+|St crimson_quarterstaff|0.6→20 %RD on the second hit|HIT|—|IAS −15 raw|10: the jab pierces 1m behind the target|the staff's two ends drip blood: each swing hits twice, the 2nd as a lance jab|
+|Sh lancet_rim|0.3→10 % of blocked damage returned as life|HEAL|—|block −5%|10: drinking at full life stores a 5% barrier|the shield edge is a lancet: blocks prick the attacker and you drink|
+|**Bone Spear** `bonespear`|||||||
+|Sw marrow_edge|1.5→50 %RD per erupting spear|BOLT|—|IAS −8 raw|15: the spear erupts toward the foe behind|every swing sheds bone splinters into the foe; 6 splinters erupt as a spear|
+|Ax ossuary_cleaver|1.2→40 %RD per corpse launch|BOLT|—|RULE: needs corpses; no bonus without them|10: launched corpses pierce 1 foe|chops on a corpse launch it as a bone projectile (one per corpse)|
+|Sp spine_spear|0.6→20 %RD added per thrust|BOLT|—|IAS −10 raw|10: thrusts pierce bone-marked foes|the spear becomes a spine: thrusts extend with bone, reaching 3.5m|
+|Ma bone_mallet|0.6→20 % Bone Spear damage taken by cracked foes|DEBUFF|—|IAS −10 raw|15: 4 cracks shatter into 3 bone shards flying outward|hits crack the foe's bones; cracked foes take more from Bone Spear|
+|Dg ribcage_guard|1.2→40 % max life soaked per rib|HEAL|—|IAS −12 raw|15: lost ribs fly at the attacker|stabs build a ribcage of bone around you (max 5 ribs) that each soak one hit|
+|Bw femur_bow|0.45→15 %RD per bone dart|BOLT|—|proj spd ×0.85|10: darts that pierce 2 drop a bone you can pick up for 5 mana|the bow is restrung with sinew; every arrow becomes a bone dart that pierces 1 foe|
+|Wd marrow_siphon_wand|1.8→60 %RD per siphon spear|BOLT|—|RULE: 1.0s channel to fire; you move at -25% while channelling|15: siphoning a cursed foe takes 1s and returns 4 mana; your next Bone Spear within 3s pierces +1|the wand draws marrow from a foe in 6m; after 1.5s it fires back as a spear|
+|St bone_scythe_staff|0.6→20 %RD per reap|BOLT|—|IAS −15 raw|10: each foe reaped adds +2% move speed for 2s (max 10%)|the staff grows a bone blade: wide 2.5m reaping swings|
+|Sh bone_buckler|0.75→25 %RD per shard|BOLT|—|block −6%|10: splintering 5 times rebuilds the shield with +5% block for 4s|the shield becomes bone; blocks splinter it and shards fly at foes|
+|**Raise Bone** `summon`|||||||
+|Sw commander_blade|0.75→25 % skeleton attack speed vs the marked foe|SPEED|—|RULE: -10% your own swing damage|10: skeletons hitting the marked foe heal 1% each hit|your swings mark a target; skeletons focus it and hit faster|
+|Ax harvest_bones|0.2→6 s added to the heap skeleton's lifetime|HEAL|—|IAS −8 raw|15: heap skeletons explode for 30% of Raise Bone dmg when they expire|chop kills drop a bone heap; standing on it raises a short-lived skeleton (8s)|
+|Sp phalanx_spear|0.6→20 %RD per skeleton thrust|BOLT|—|RULE: -12% move speed while 2+ skeletons are in line|10: phalanx skeletons pierce 1 foe|your skeletons line up beside your thrust and thrust with you|
+|Ma ossuary_drum|0.9→30 % skeleton armour per hit (max 10 stacks)|DEF|—|IAS −10 raw|15: at 10 stacks skeletons taunt for 1s|hits drum on bone; skeletons near you gain armour|
+|Dg soul_tag|1→30 % skeleton life per soul (max 10)|HEAL|—|dmg ×0.92|10: a skeleton with 5+ souls hits in a 1m arc|stabs tag a foe; when it dies its soul joins your next skeleton as +life|
+|Bw bone_lure_arrow|1→30 % skeleton move speed toward markers|SPEED|—|dmg ×0.92|10: skeletons arriving at a marker strike in a 1.5m slam|arrows leave a bone marker; skeletons rush the marker 30% faster|
+|Wd wand_conductor|0.9→30 %RD per ordered lunge|BOLT|—|RULE: you deal no direct damage; all damage via skeletons; skeletons -10% life|15: ordered lunges cannot be dodged; each lunge that lands cuts your next spell cast 5% (max 3 stacks)|the wand stops firing; instead each attack orders a skeleton to lunge at the target|
+|St lich_staff|0.45→15 %RD per wisp bite|BOLT|—|IAS −15 raw|20: a 3rd wisp turns the trio into a short-lived skeleton|staff swings raise a bone wisp that orbits you for 6s and bites nearby foes (max 3)|
+|Sh bone_wall_shield|0.06→2 s added to the guard skeleton|DUR|—|block −8%|10: guard skeletons counter-strike for 20% of Raise Bone dmg|blocking calls a skeleton to stand in front of you for 2s|
+|**Grave Burst** `graveburst`|||||||
+|Sw tomb_strike|0.9→30 %RD per detonation|HIT|—|IAS −8 raw|10: detonations can't chain into another detonation|kills with the sword detonate the corpse for a small Grave Burst|
+|Ax grave_digger|1.05→35 %RD per grave burst|HIT|—|IAS −10 raw|15: graves pull foes 0.5m toward the centre|chops dig a little grave; foes standing on 3 graves take a burst|
+|Sp stake_burst|1.2→40 %RD per stake burst|HIT|—|IAS −6 raw|10: stakes stick in bosses: every 5 stakes burst (bosses take 50%)|thrusts stake the foe; staked foes burst on death|
+|Ma coffin_nail|1.2→40 %RD per coffin burst|HIT|knockback|IAS −12 raw|15: the burst knocks back trash 1m (bosses: flinch)|every hit drives a nail; at 4 nails the foe bursts like a coffin bursting|
+|Dg crypt_whisper|0.9→30 %RD per whisper burst|HIT|—|dmg ×0.94|10: whisper bursts curse foes to take 5% more bone dmg|stabs whisper; every 6th stab bursts a 1.5m grave around the target|
+|Bw tomb_seed_arrow|0.9→30 %RD per seed burst|HIT|—|dmg ×0.92|15: seeds can be re-planted only once per foe|arrows plant a grave seed; seeds burst when a foe dies within 2m|
+|Wd wand_graveburst|0.75→25 %RD per pop|HIT|—|IAS −18 raw|10: pops on corpses are 50% bigger|the wand pops a 1.5m grave burst at the target, no mana cost|
+|St sexton_staff|0.6→20 %RD per tamped grave|HIT|—|IAS −12 raw|20: tamped graves raise a 3s bone ward over you|staff swings tamp graves; every 4th swing bursts all graves in 3m|
+|Sh cairn_shield|0.9→30 %RD per cairn|HIT|—|block −6%|10: the cairn gives 5% damage reduction for 3s|blocks stack stones; 5 stones burst outward as a cairn|
+|**Thorn Coat** `thorncoat`|||||||
+|Sw thornhilt|0.6→20 % of Thorn Coat reflect per flung thorn|OTHER|poison|dmg ×0.94|10: flung thorns poison 2s|while Thorn Coat is active your swings fling a thorn at the foe that last hit you|
+|Ax bramble_bite|0.6→20 %RD per foe attack|HIT|—|IAS −10 raw|15: bramble on 3 foes gives you 5% damage reduction|chops sprout thorns on the foe; it takes thorn damage when it attacks you|
+|Sp bramble_fence_thrust|0.45→15 %RD per snag|HIT|—|RULE: stakes block your own thrusts and -8% thrust speed|10: snagged foes are slowed 15% (bosses: half)|thrusts plant a thorn stake; foes walking into it are snagged|
+|Ma hedgehog_maul|0.15→5 %RD per spine per attack|HIT|—|IAS −10 raw|15: at 10 spines your next hit sprays them all outward|every hit adds a spine to you (max 10); attackers hit spines|
+|Dg nettle_stab|0.3→10 % damage reduction on nettled foes (max 15)|DEF|weaken|dmg ×0.94|10: nettled foes attacking you poison themselves|stabs sting with nettle: foes deal less damage briefly|
+|Bw burr_arrow|0.45→15 %RD per metre moved|HIT|—|dmg ×0.92|15: bosses ignore movement; burrs pop on them every 2s|arrows carry burrs that stick; burred foes take thorn damage when they move|
+|Wd wand_thorncoat|0.6→20 %RD per stack (max 5)|HIT|poison|RULE: you deal no direct attack damage|10: 5 stacks make Thorn Coat poison attackers|the wand doesn't fire; each attack refreshes Thorn Coat on you and adds a stack|
+|St thicket_staff|0.45→15 %RD per second in the thicket|DOT|—|IAS −12 raw|15: foes in the thicket can't charge or dash|staff swings grow a 1.5m thicket at the swing point that lasts 3s|
+|Sh rosebriar_buckler|0.75→25 %RD per block|DEF|root|FRW −8%|10: snared foes can't move 0.3s (once per 6s; boss rules)|a thorned shield: blocked attackers take thorn damage and are snared|
+|**Briar Snare** `briar`|||||||
+|Sw briar_cut|0.6→20 %RD per lash|BOLT|—|IAS −6 raw|10: lines from 2 swings cross into a snare knot|swing arcs leave a briar line that lashes foes who cross it|
+|Ax root_splitter|0.9→30 %RD per root burst|HIT|root|IAS −12 raw|15: root bursts root trash 0.4s (bosses: immune; boss rules)|chops on the ground split roots that burst up under the nearest foe|
+|Sp bramble_lance|0.6→20 %RD per tendril|HIT|—|IAS −8 raw|10: tendrils curl back and hit a second time|thrusts send briar tendrils 3m forward along the ground from the tip|
+|Ma stomp_garden|0.75→25 %RD per ring|HIT|—|IAS −10 raw|15: the ring leaves thorny ground that slows 10% (bosses: half)|every 4th hit makes briars burst from the ground in a 2m ring|
+|Dg vine_garotte|1.05→35 %RD per choke|HIT|—|dmg ×0.94|10: choked foes cannot cast for 1s (bosses: 0.3s)|stabs loop a vine around the foe; 3 loops choke it|
+|Bw seed_shot|0.6→20 %RD per sprout|HIT|—|proj spd ×0.90|15: sprouts in a group of 3 become a briar patch|arrows plant seeds that sprout briar 1s later|
+|Wd wand_briar|0.9→30 %RD per briar|HIT|—|IAS −18 raw|10: briars under a rooted foe spread to a neighbour (root uses boss rules)|the wand grows a briar under the target, no mana cost|
+|St druid_furrow|0.45→15 %RD per second in the furrow|DOT|—|IAS −15 raw|20: furrows meet to create a junction that roots 0.3s (once per 8s; boss rules)|staff swings plough a 4m briar furrow forward|
+|Sh thorn_hedge_shield|0.45→15 %RD per second at the hedge|DOT|—|RULE: -10% move speed while raised|10: the hedge blocks 1 projectile per second|raising the shield grows a briar hedge in front|
+|**Wolf Howl** `wolfhowl`|||||||
+|Sw pack_blade|0.45→15 % of Wolf Howl's attack speed bonus applied to the swing|SPEED|—|RULE: -6% damage solo (no allies or summons)|10: pack swings heal 0.3% each|each swing on a foe someone else hit in the last 2s gains pack bonus|
+|Ax howling_cleave|0.06→2 s added to howl fear|DUR|fear|IAS −10 raw|15: fleeing foes take 10% more damage|every 5th chop is a howl that makes nearby trash flee 1s (bosses: immune)|
+|Sp alpha_lunge|0.15→5 s Wolf Howl refreshed per lunge (max 4s)|DUR|—|RULE: you can't stop the lunge|10: lunges pass through foes|thrusts lunge you 1m forward; lunging into a pack refreshes Wolf Howl's speed|
+|Ma moonbreaker|1.2→40 %RD per call|HIT|—|IAS −12 raw|15: the wolf bites the target's closest ally too|hits shine moonlight; every 6th hit calls a spectral wolf to bite once|
+|Dg wolfs_tooth|0.45→15 % attack speed vs prey|SPEED|—|RULE: -10% vs non-marked|10: prey that runs from you is slowed 15% (bosses: half)|stabs mark prey; marked prey takes faster stabs|
+|Bw hunters_howl|0.3→10 % attack speed per howl stack|SPEED|—|dmg ×0.94|15: 3 stacks fire one free arrow|arrows that kill make you howl: +attack speed for 2s, stacking 3 times|
+|Wd wand_howl|0.45→15 %RD per howl|HIT|—|RULE: range 4m and -15% attack speed|10: howls make trash flee 0.5s (bosses: immune)|the wand lets out a 4m howl instead of a bolt that dazes and damages|
+|St shepherds_howl|0.3→10 % move speed for allies/summons|SPEED|—|IAS −10 raw|15: summons in the arc hit 10% faster for 2s|staff swings howl along their arc; allies and summons in it run 10% faster|
+|Sh den_shield|0.3→10 % damage reduction per summon nearby (max 3)|DEF|—|block −5%|10: summons that shield you hit back for 20% of their dmg|blocking howls; adjacent summons shield you for 1s|
+|**Regrowth** `regrowth`|||||||
+|Sw green_edge|0.06→2 % max life per hit over 3s|HEAL|—|dmg ×0.92|10: healing over full life becomes a 3% barrier|swings that hit heal you over 3s|
+|Ax sapwood_axe|0.15→5 % max life per sap|HEAL|—|IAS −10 raw|15: sap on a foe slows it 10% (bosses: half)|chops drip sap; walking over sap heals you|
+|Sp spring_pike|0.2→6 % max life per flower|HEAL|—|IAS −8 raw|10: flowers bloom into an extra Regrowth tick when you are below 40%|thrusts water the ground; flowers sprout and heal you on contact|
+|Ma bloom_hammer|0.45→15 % of Regrowth's heal per burst as damage|HEAL|—|IAS −12 raw|15: bursts heal nearby summons 1%|hits make flowers burst on the target, damaging and healing you|
+|Dg graft_stab|0.06→2 % max life per bud|HEAL|—|dmg ×0.94|10: buds on bosses bloom every 5s|stabs graft a bud onto the foe; when it dies the bud heals you 2%|
+|Bw life_arrow|0.3→10 % max life per life-arrow|HEAL|—|RULE: every 4th arrow deals no damage|10: life arrows fired at summons heal them 3x|every 4th arrow heals you instead of damaging (target takes no hit)|
+|Wd wand_regrowth|0.3→10 % max life healed per mote|HEAL|—|RULE: you deal no attack damage|10: motes that hit a full-life target become a 2% barrier|the wand fires a green mote that heals the nearest ally/summon (or you), no mana|
+|St grove_staff|0.06→2 % max life per second in the grove|HEAL|—|IAS −15 raw|20: groves overlap to double the heal at the centre|staff swings lay a 2m grove ring around you for 3s; it heals 1%/s|
+|Sh bark_shield|0.6→20 % armour per bark (max 5 stacks)|DEF|—|RULE: -6% move speed at 5 stacks|10: at 5 stacks your next block heals 3%|blocking grows bark: +armour stacking 5 times|
+|**Locust Cloud** `locust`|||||||
+|Sw swarm_saber|0.45→15 %RD per second per latched swarm|DOT|—|dmg ×0.94|10: swarms on dying foes jump to a neighbour|swings shake loose locusts that latch onto the foe|
+|Ax hive_axe|1.2→40 %RD per hive burst|HIT|poison|IAS −10 raw|15: hive bursts poison all in 2m (counts toward poison cap)|every 6th chop splits a hive on the target; a locust swarm bursts from it|
+|Sp plague_tip|0.9→30 %RD per hatch|HIT|—|IAS −8 raw|10: hatched locusts seek a foe within 4m|thrusts inject locust eggs that hatch after 2s|
+|Ma carapace_crusher|0.6→20 %RD per acid spray|HIT|—|IAS −10 raw|15: acid makes foes take 5% more poison|hits crush locusts; crushed locusts spray acid on the foe|
+|Dg maggot_blade|0.3→10 % armour eaten per second (max 15)|DEF|—|dmg ×0.94|10: larvae become a swarm at 15% armour eaten|stabs leave larvae; larvae eat armour each second|
+|Bw swarm_quiver|0.45→15 %RD per second per cloud|DOT|—|dmg ×0.88|15: clouds drift toward the nearest foe|arrows split into a cloud of locusts on impact that buzz for 2s|
+|Wd wand_locust|0.75→25 %RD per locust per hit (2 hits)|HIT|—|IAS −15 raw|10: locusts that kill split in two|the wand sends a short-lived locust that seeks foes, no mana cost|
+|St plague_censer|0.3→10 %RD per second in the cloud|DOT|—|IAS −12 raw|20: the cloud grows with each swing (max 3m)|the staff becomes a censer; swings spread a locust cloud that follows you|
+|Sh hive_shield|0.6→20 %RD per block|DEF|poison|block −5%|10: stinging locusts poison 2s|blocks shake locusts loose that sting the attacker|
+|**Wide Cut** `cleave`|||||||
+|Sw wide_arc_sword|0.6→20 %RD added per foe past the first|HIT|—|RULE: -10% damage vs a lone foe|10: hitting 4+ foes refunds 2 mana|sword swings widen to a 160 degree arc|
+|Ax follow_through|0.9→30 %RD on the backswing|HIT|—|RULE: you are rooted 0.2s per chop|15: the backswing hits behind you too|after a chop the axe swings back automatically for a second, weaker arc|
+|Sp sweeping_haft|0.75→25 %RD per sweep|HIT|knockback|IAS −8 raw|10: the sweep pushes trash 0.5m|every 3rd thrust becomes a 360 degree haft sweep|
+|Ma ground_cleave|0.75→25 %RD per crack|HIT|—|IAS −12 raw|15: cracks deal 50% more to foes standing on consecrated or frozen ground|mace hits cleave the ground: a 3m crack runs forward|
+|Dg twin_carve|0.45→15 %RD per carve|HIT|—|RULE: -10% reach|10: X-carve centre hits crit 10% more often|dagger swings carve twice in an X, each half as wide|
+|Bw scatter_arrow|0.6→20 %RD per fanned arrow|BOLT|—|proj spd ×0.90|15: fanned arrows count toward the +2 projectile cap|every 4th arrow fans into 3 arrows in a cleave-wide cone|
+|Wd wand_sweep|0.75→25 %RD per sweep|HIT|—|RULE: range drops to 3m and -22% vs single foes|10: the sweep's element matches the wand's main element|the wand sweeps a short 3m arc of energy instead of a bolt|
+|St whirl_staff|0.45→15 %RD per spin|HIT|—|RULE: -15% swing speed and -10% move|20: spins slow foes 5% (bosses: half)|the staff spins: each attack hits all foes around you once|
+|Sh shield_sweep|0.75→25 %RD per shield sweep|HEAL|—|block −6%|10: the sweep knocks trash down 0.3s (bosses: flinch)|a bash after a block sweeps 2m in front|
+|**Blade Dance** `bladedance`|||||||
+|Sw dancers_step|0.6→20 %RD on the step swing|HIT|—|RULE: you cannot stand still on a step|10: steps dodge one projectile|every 3rd swing you step 1m to the side and swing again|
+|Ax reel_and_chop|1.05→35 %RD on the finisher|HIT|—|IAS −12 raw|15: the finisher pulls trash 0.5m in|chops spin you half a turn; 2 spins finish with a heavy 360 chop|
+|Sp pike_waltz|0.6→20 %RD on the double thrust|HIT|—|IAS −8 raw|10: waltzing gives +5% dodge|thrusts alternate left and right in a waltz; every 4th is double|
+|Ma hammer_pirouette|0.9→30 %RD per pirouette|HIT|—|IAS −10 raw|15: pirouettes cancel enemy grabs|every 5th hit is a pirouette that hits all foes around you|
+|Dg flurry|0.3→10 %RD added per stab in the burst|HIT|—|RULE: 0.5s pause after each burst|10: the 3rd stab of a burst crits 10% more often|stabs come in bursts of 3 quick stabs, then a short pause|
+|Bw dancing_quiver|0.45→15 %RD per paired arrow|BOLT|—|RULE: standing still: -15% arrow damage|15: paired arrows count toward the +2 projectile cap|while moving you fire 2 arrows at once at 60% each|
+|Wd wand_ribbons|0.45→15 %RD per ribbon|HIT|—|IAS −15 raw|10: ribbons return after 4m|the wand fires 3 ribbon blades that spiral out|
+|St staff_twirl|0.3→10 %RD per twirl hit|HIT|—|RULE: -20% move speed while twirling|20: twirling deflects 1 projectile every 2s|holding attack twirls the staff, hitting every 0.25s in 1.8m|
+|Sh parry_dance|0.45→15 %RD on the dash swing|HIT|—|block −5%|10: dash swings pass through foes|after a block, your next swing has a 1m dash|
+|**Execute** `execute`|||||||
+|Sw coup_de_grace|0.3→10 % life threshold added|HEAL|—|RULE: -6% damage above 50% life|10: bosses take +25% from this instead below 15%|swings on foes below 15% life are killing blows (non-boss)|
+|Ax beheader|1.5→50 %RD per 10% missing life|HEAL|—|IAS −10 raw|15: beheading a trash foe refunds 5 mana|every 8th chop is an execute chop that deals heavy damage scaled by missing life|
+|Sp impale|0.03→1 s added to the pin|DUR|root|IAS −8 raw|10: pinned foes take +15% from your next thrust|thrusts on foes below 30% pin them to the ground 0.5s (bosses: flinch)|
+|Ma final_blow|0.9→30 %RD per final blow|HIT|—|IAS −12 raw|15: a final blow on trash knocks the corpse into foes behind|hits on a foe below 25% count as an Execute|
+|Dg mercy_stroke|0.6→20 % life threshold added for the stroke|HEAL|—|RULE: front stabs -8% damage|10: on bosses the stroke deals 30% of Execute dmg|stabs from behind on a foe below 40% instantly execute it (non-boss)|
+|Bw finishing_shot|1.2→40 %RD per finishing shot|HIT|—|RULE: -8% arrow damage above 50% life|15: finishing kills ricochet to the lowest foe nearby|arrows on foes below 20% are Execute shots|
+|Wd wand_execute|0.9→30 %RD on bosses when touched|HIT|—|RULE: you deal no attack damage to unmarked foes|10: mark one foe at a time|the wand fires a red mark; marked foes below 25% are executed when touched (non-boss)|
+|St headsman_staff|0.6→20 %RD per missing 10%|HIT|—|IAS −10 raw|15: slams that kill spread a 5% damage buff for 3s|staff swings on low-life foes are slams that deal more by missing life|
+|Sh shield_rim_finisher|0.3→10 % threshold added|OTHER|—|block −6%|10: on bosses: 20% of Execute dmg; a rim finisher refunds 15% of the next Crimson Lance cost|bashing a foe below 20% executes it (non-boss)|
+|**Rupture** `rupture`|||||||
+|Sw seam_ripper|1.05→35 %RD per rupture|HIT|bleed|dmg ×0.92|10: ruptures spill blood that heals you 1%|swings open seams; a foe with 4 seams ruptures|
+|Ax splinter_axe|0.6→20 %RD per splinter|BOLT|—|IAS −8 raw|15: bosses: splinters rupture on their next attack|chops leave splinters that rupture when the foe moves|
+|Sp lance_rupture|0.9→30 %RD per pierce rupture|HIT|—|IAS −8 raw|10: ruptured foes are slowed 10% (bosses: half)|thrusts that pierce 2 foes rupture the first|
+|Ma pressure_point|1.2→40 %RD per pressure rupture|HIT|—|IAS −10 raw|15: ruptures pause boss regen for 4s|every hit adds pressure (max 5); at 5, the foe ruptures and resets|
+|Dg vein_slit|0.75→25 %RD per crit rupture|CRIT|—|RULE: -6% crit damage|10: crit ruptures reduce the foe's next hit on you by 10%|stabs that crit open the vein and make the foe rupture at once|
+|Bw bursting_arrowhead|0.9→30 %RD per arrowhead rupture|BOLT|—|proj spd ×0.92|15: ruptures spray shrapnel to 2 neighbours|arrowheads lodge; the 3rd lodged head ruptures|
+|Wd wand_rupture|0.9→30 %RD per implosion|HIT|—|IAS −18 raw|10: implosions in a bleeding foe hit twice|the wand bolt implodes inside the foe after 1s|
+|St fault_line_staff|0.6→20 %RD per fault rupture|HIT|—|IAS −12 raw|20: fault ruptures knock trash up 0.3s (bosses: flinch)|staff swings crack a fault; foes on it rupture on your 3rd swing|
+|Sh burst_rim|0.75→25 %RD per block rupture|DEF|—|block −5%|10: the rupture refunds 3% life|blocked attackers build rupture; 3 blocks rupture them|
+|**Blind Shield Rush** `blindrush`|||||||
+|Sw blinding_dash|0.45→15 %RD per dash|HEAL|blind|RULE: you can't control the dash direction|10: blinded foes miss 20% for 2s|every 6th swing dashes you 3m through foes, blinding them|
+|Ax charge_cleave|0.9→30 %RD on the rush chop|HEAL|knockback|IAS −10 raw|15: rush chops knock trash back 1m|after 2s without attacking your next chop rushes you 4m to the target|
+|Sp lance_charge|0.9→30 %RD on the charge|HEAL|—|RULE: 1s cooldown between charges|10: the charge hits every foe in the line|holding attack 0.5s charges you 5m along the spear|
+|Ma ram_hammer|0.75→25 %RD per ram|HEAL|—|RULE: -10% damage when standing still|15: ram hits blind 1s|hits after moving 3m+ are ram hits that stagger trash 0.4s (bosses: flinch)|
+|Dg shadow_hop|0.45→15 %RD per hop stab|HEAL|—|RULE: you can't choose when to hop|10: hop stabs count as from behind|stabs hop you behind the target (2s cooldown)|
+|Bw retreat_shot|0.6→20 %RD on the kick arrow|HEAL|—|RULE: every 5th arrow moves you 2m back, even into hazards|15: the kick blinds foes within 1.5m|every 5th arrow kicks you 2m backward|

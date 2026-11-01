@@ -1,0 +1,26 @@
+STAGE 9 - 3D ITEM MODELS ON THE FLOOR + NEW ITEM ICONS
+
+RULES
+- Change ONLY how loot is drawn in the 3D room and which image item icons use.
+- Do NOT touch game logic, item stats, affixes, drop rates, balance, save data, controls or grid sizes (di() stays as is).
+- New features are 3D only. Do not touch any 2D drawing code (the shared inventory/stash/vendor/tooltip UI icons in step 5 are allowed).
+- If any step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+
+FACTS
+- Asset base: https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/
+- Map: models/items/ITEM_MAP.json. Fields: bases{base name -> glb,node,icon,grid,floorScale}, kinds{potion,manapotion,portal,scroll,bossstone,key,book,jewel,rune,gold,quest_ring,quest_scroll}, weapons{base -> glb,fallback}.
+- Atlases (one named node per item, origin at floor contact, already in floor pose, meters): models/items/items_armor, items_helms, items_shields, items_gloves, items_belts, items_jewelry, items_misc (.glb).
+- Icons: icons/items_icons.png + icons/items_icons.json ({cell:128, icons{node:{x,y,w,h}}}). Each rect matches the item's grid aspect.
+- Loot today: room.syncLoot() draws this.lootMeshes with this.gemGeo/gemMat (goldMat for gold), y = 0.42 + bob. drop() pushes {x,y,item,life,bob,hop,hop0,fromX,fromY}; spillGold pushes {gold:n,...}.
+- 2D icons today: jE({it,color}) inline SVG. Rarity colors: ci.
+
+STEPS
+1. Loader: at room start fetch ITEM_MAP.json?v=9c and load each atlas GLB once (append ?v=9c to every atlas and icon URL) with the existing GLTFLoader (cache, no re-loads). Index nodes by name. Also load weapon GLBs listed in weapons (use fallback if a file 404s).
+2. Lookup itemNode(loot): gold loot -> kinds.gold; it.quest -> kinds.quest_ring (type ring) or kinds.quest_scroll; bases[it.base]; else by type: potion, manapotion, portal, jewel, rune, book -> kinds[type]; scroll with bossStone -> kinds.bossstone, with keyId -> kinds.key, else kinds.scroll; weapon -> weapons[it.base]. No match -> keep the current gem mesh.
+3. 3D loot: in syncLoot, replace the gem with a clone of the node, children included (share geometry/materials, no per-frame clones). Scale by floorScale. Drop arc: keep the existing hop/from path, then settle flat on the floor (y = 0) with a small bounce; no endless bob once settled. Random yaw per drop, fixed for its life. Rarity: common none; uncommon/rare/epic/legendary get a soft ground glow disc in the ci color; legendary also a thin vertical light beam. Keep the existing hover label and click hitbox.
+4. Pickup: unchanged.
+5. Icons: one shared helper ItemIcon(it). If the node has a rect in items_icons.json, draw that atlas region (CSS background or canvas) sized to the slot cell; else fall back to jE. Use it in inventory, stash, vendor, equipped slots, cursor-held item and tooltips, in both modes. Keep the rarity color border/tint as now.
+6. Test: drop one of each type (helm, armor, shield, gloves, belt, ring, amulet, potion, scroll, book, jewel, rune, gold, a weapon) in a dev room; confirm models lie on the floor, glow shows for rare+, pickup works, icons fill their cells, no console errors. Remove any test code after.
+
+REPORT
+One line per step (OK / FAILED + why), any console errors, list of files changed.

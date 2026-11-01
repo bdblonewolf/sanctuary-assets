@@ -1,0 +1,63 @@
+STAGE A1 - Audio de-crackle: limiter, levels, loop seams, voice cap, ramps
+
+Goal: Remove the crackle, static and clicks in the game audio. Add a real limiter at the end of the chain and lower the levels that sum past full scale. Make the rain/wind noise loop seamless. Cap simultaneous sound voices. Schedule one-shots 20 ms ahead. Fade instead of hard stops on voices and mute. Stop the music loops of zones you are not in. Sound design, music choice and which sounds play when stay as they are.
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- Audio code is not drawing code; this stage edits only the audio class and its music manager.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed.
+- Keep a single AudioContext. No new audio files, no new dependencies.
+
+FACTS (verified in live bundle routes-_LaUNfst.js; minified names may differ in source, so find them by the anchors)
+- Audio class (minified hl), created once as `audio = new hl` in the game class.
+  - unlock() creates the context: `let e = window.AudioContext || window.webkitAudioContext`.
+  - Chain: buses → master → compressor → destination, with `l.threshold.value = -16, l.knee.value = 8, l.ratio.value = 2.4, l.attack.value = .004, l.release.value = .18`, `n.connect(l), l.connect(t.destination)`, master `n.gain.value = +!this.muted`, music `r.gain.value = .82`.
+  - rain/wind: `this.loopNoise(s, 900, .45), this.loopNoise(c, 420, .28)`. loopNoise(bus, cutoff, gain) builds a 2 s random-walk buffer (`o = o * .94 + t * .06, a[e] = o * 2.2`) and loops it with no seam fade. That is a step every 2 s.
+  - toggleMute(): `this.master?.gain.setValueAtTime(+!this.muted, ...)`, an instant jump.
+  - One-shot rate limits: `hitStamp/hitN` (`> 80`, `>= 4`), `swishStamp/swishN` (`> 90`, `>= 3`), `riteStamp/riteN` (`> 120`, `>= 3`). No global voice cap. One-shots start at `ctx.currentTime` (e.g. `let o = n.currentTime + a` in hit()).
+  - cue(t0, bus, def, gain), flesh/cling/heavy/crunch/contact/slash, beast, organ, ching, levelHum, gate(), gasp() build oscillator/noise nodes per call.
+  - gate() and gasp() allocate a new noise buffer every call (`e.createBuffer(1, o, e.sampleRate)` with `Math.random() * 2 - 1`).
+  - noise() caches a 0.4 s buffer in `noiseBuf`.
+- Music manager (minified dl), anchored by `delayWet = []`, `voices = new Map`.
+  - ensure() starts everything once: wireTown(), wireWild(), wireDread(), loadVoices().
+  - wireTown(): guitar (+ two delaySend feedback lines), nylon, pad, woodwind, clockwork loops, plus humUnder().
+  - wireWild(): drone, hollow, metal. wireDread(): overworld dread loop.
+  - setZone(on, mood) crossfades the bus gains only (ramp helper `ul(node, target, now, secs)`, `crossfade: 2`). All loops keep running at gain 0.
+  - Level table anchor: `crossfade: 2, bonfireRadius: 5, fireFade: 2, delayL: .38, delayR: .57, delayFeedback: .48, delayDamp: 1200, delayWet: .66, delayWetNear: .462`.
+  - loop(path, bus, gain) starts a looping BufferSource once decoded. Buffers come from the fetch+decodeAudioData helper.
+  - speak(female): `this.voiceSrc?.stop()`, a hard stop, then the new source connects straight to voiceGain.
+
+STEPS
+1. Limiter + levels. In unlock():
+   - after the existing compressor, add a second DynamicsCompressor as limiter (threshold -3, knee 0, ratio 20, attack 0.001, release 0.1): compressor → limiter → destination
+   - master gain when unmuted: 1 → 0.8
+   - music bus .82 → 0.7
+   In the level table:
+   - delayFeedback .48 → 0.35
+   - delayWet .66 → 0.45
+   - delayWetNear .462 → 0.32
+2. Seamless noise loop. In loopNoise(): generate the buffer as now, then crossfade the last 50 ms into the first 50 ms with equal power: for i in 0..N-1 (N = 0.05*sampleRate), a[i] = a[i]*sin(x) + a[len-N+i]*cos(x), where x = (i/N)*PI/2. Set the loop to play samples N..len (source.loopStart = N/sampleRate, loopEnd = len/sampleRate) so the faded head joins the tail.
+3. Cached noise for gate/gasp. Build the gate (1.15 s) and gasp (1.05 s, smoothed) noise buffers once on first use and reuse them. Same content and gains as today.
+4. 24-voice cap. Add `voices = 0` and `peakVoices = 0` to the audio class, and a helper `track(src)`: voices++, peakVoices = max(peakVoices, voices), and src.onended decrements voices.
+   - Call track() on every one-shot source start in cue, hit's helpers, swish, rite, beast, organ, ching, levelHum, gate, gasp, greet/voice. For a voice made of several sources, track only the longest one.
+   - At the top of hit(), swish(), cue() and beast(): return if voices >= 24.
+   - hit(): window `> 80` → `> 100`, cap `>= 4` → `>= 3`.
+   - Music loops and rain/wind are not counted.
+5. 20 ms lead. Every one-shot that uses `currentTime` as its start time uses `currentTime + 0.02` instead (hit, swish, rite, cue callers, beast, organ, ching, levelHum, gate, gasp, greet). Relative offsets stay unchanged.
+6. Fades on stop/mute.
+   - toggleMute(): replace setValueAtTime with `cancelScheduledValues(now)` + `setTargetAtTime(target, now, 0.03)`, target 0.8 or 0.
+   - speak(): give each voice source its own GainNode into voiceGain, fading in 0 → 1 over 10 ms. To stop the previous voice, ramp its gain to 0 over 30 ms (linearRamp) and call `stop(now + 0.04)`.
+7. Stop loops for zones you are not in. In the music manager, keep the loop sources per group (town / wild / dread; the town group includes guitar, nylon, pad, woodwind, clockwork and the hum source) and keep their decoded buffers.
+   - In setZone(), after a group's bus has faded to 0, wait crossfade + 1 s (setTimeout 3000 ms, cancelled if the zone changes back), then stop and disconnect that group's sources.
+   - When a group becomes active again, recreate its loop sources from the cached buffers (no refetch) before ramping its bus up.
+   - Delay-line nodes and gains stay connected.
+   - The first ensure() behaviour stays: everything is decoded once.
+8. Build once, check the console, publish.
+9. TEST (live, 3D view on):
+   - Stand in Martsirt town near the bonfire with music playing; fight a group (AoE skill) for 60 s; then go outdoors with rain (or wait for rain) for 60 s.
+   - Expect no crackle, static, periodic tick or clicks on mute/unmute or NPC greetings.
+   - Log `[a1] peakVoices=<n> voices=<n>` every 5 s and report the highest peakVoices seen (should be <= 24). Leave it in.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

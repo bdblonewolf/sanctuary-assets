@@ -1,0 +1,93 @@
+STAGE P1 - Monster/NPC pathing: subtle bounce, unstick, 3D smoothing
+
+Goal: Monsters and NPCs get stuck wiggling against props, walls and corners. Fix the shared movement code so a unit that touches an obstacle is pushed out along the contact normal, gets a tiny damped sideways nudge (always to the same side for that unit) and slides around instead of flip-flopping. Add a stuck rule that actually detects wiggling. Then smooth how units are shown in the 3D view. Players must never see a hop or a pop.
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- Shared game logic/sim code (movement, collision, AI steering, pathfinding in the game class) is allowed and is not 2D drawing.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed.
+- No new files unless a step says so. No gameplay tuning beyond the numbers given here (speed, damage, aggro and AI modes stay as they are).
+- All new per-tick amounts are dt-scaled (frame rate independent). "Per tick at 60 fps" values are given only for reference.
+
+FACTS (verified in live bundle routes-_LaUNfst.js; minified names may differ in source, so find them by the anchors)
+- Game class (minified cD) methods, names kept in the bundle:
+  - slide(x0,y0,x1,y1): axis-separated slide; tries full move, then x only, then y only.
+  - blockedRadius(x,y): `let n = .22; return this.blocked(e, t) || this.blocked(e + n, t) || ...`. Only 4 axis points, fixed .22 radius.
+  - blocked(x,y) = solid tile OR softProp(x,y). softProp uses the per-prop radius table (anchor: `bush: .36, chair: .3, stool: .26, bench: .38`).
+  - steer(e, tx, ty, speed, dt, weave, o=false): adds weave `Math.sin(e.anim * (2.3 + (e.variant ?? 0) * .37) + (e.variant ?? 0)) * a`. When the move achieves less than 45% (`x < y * .45`), it does `e.vx *= .25` and picks the perpendicular side that slid farther that tick (`d >= f ? o : u`). That memoryless pick is the wiggle.
+  - coast(e, dt, k) and stepActor(e, tx, ty, speed, dt) also move through slide().
+  - flankPoint(e): returns a goal recomputed every tick, with a blocked fallback (`this.blocked(f, p) && (f = e.x + ...`). stageApproach(e, dist, spd, dt) calls it via steer.
+  - loosen(e, oldX, oldY, wants, dt): `Math.hypot(e.x - t, e.y - n) > .012` resets pin; after `pin >= .45` it teleports to nearestOpen(x,y,2.6).
+  - separate(): O(n^2) push for player, enemies, allies and NPCs. Body/body push `Math.min(u, .07)`; foe push `Math.min(.01, u * .35)`; per-kind radius from the function with `case \`player\`: return { r: .34, mass: 1.7 }`. A push into a blocked spot is cancelled (`this.blockedRadius(_, v) || r.set(_, v)`).
+  - separateNpcs(dt): NPC-only tangential push, `Math.min(.22, (.58 - Math.min(c, .58)) * 1.2) * e`. Called at `this.separateNpcs(e)`.
+  - routeOpen(x0,y0,x1,y1): NPC A*, 4-neighbour, open list re-sorted each loop, cap `v++ < 240`. Used by aimNpc.
+  - stepNpc(e, tx, ty, spd, dt, door): point collision via npcBlocked; `e.stall` accumulates; callers drop the target at `stall >= .7`.
+- 3D class (minified bE):
+  - poseMobs(e, dt): `e.root.position.set(a.x, ..., a.y), e.root.rotation.y = uE(a.facing)`; walk test is per frame: `let c = Math.hypot(a.x - e.lx, a.y - e.ly) > .012`, then `c && (u = \`walk\`)` and `playState(u)`.
+  - poseNpcs(e): `e.root.position.set(n.x, 0, n.y), e.actor?.update(.016)`. No rotation and never leaves idle. fillNpc loads the hero model with clip set `{ idle: \`Idle\`, walk: \`Walk\`, run: \`Run\`, ... }`, so the NPC actor has a `walk` clip.
+  - The facing-to-yaw helper used by poseMobs (minified uE) is the one to reuse for NPCs (NPC `facing` uses the same convention via faceNpc: `e.facing = Math.atan2(t + n, t - n)`).
+
+STEPS
+1. Collision hull. Add `hullRadius(unit)` to the game class:
+   - enemy: (per-kind r from the separate() radius function) x (unit.scale ?? 1), clamped to 0.18-0.45
+   - ally: 0.22
+   - NPC: 0.30
+   Add `blockedHull(x, y, r)`, which checks blocked() at the center plus 8 points at distance r: 4 axis points and 4 diagonals at r*0.7071. Add `contactNormal(x, y, r)`:
+   - returns {nx, ny, depth} or null
+   - for each blocked sample point, add the unit vector from that point toward the center, then normalize the sum; for a prop circle, use (pos - prop)/|pos - prop| instead
+   - depth = r - distance for props; for tiles, distance into the nearest solid cell edge, capped at r
+   Keep blockedRadius() as is for other callers. Use blockedHull in the steps below only.
+2. Contact resolver + subtle bounce. Add `resolveContact(unit, r, dt)`, called right after the unit's slide() move inside steer(), coast(), stepActor() and stepNpc().
+   - If contactNormal returns a hit: move out along the normal by min(depth, 3.6*dt) (0.06 m per tick at 60 fps) and remove the inward velocity, `v -= min(0, v·n) * n`, keeping the tangent part so the unit slides.
+   - Side: per unit, fixed for life. `unit.bSide ??= hash & 1 ? 1 : -1`. Hash enemies/allies from a module counter assigned on first use (`(seq * 2654435761) >>> 0`); hash NPCs from the char codes of `name`.
+   - Tangent t = bSide * (-ny, nx).
+   - On a new contact (no contact last tick, and more than 0.15 s since the last arm, and unit.bounce < 0.005), set `unit.bounce` by hull size: 0.02 m if r < 0.25, 0.05 m if r > 0.40, else 0.035 m.
+   - Every tick while unit.bounce > 0.0005: pos += t * unit.bounce * 0.35; then unit.bounce *= Math.pow(0.6, dt * 60). Only apply the nudge if blockedHull is false at the new spot.
+   - Position nudge only: no velocity spike and no vertical component.
+   - Record unit.contactT = 0.3 (counts down by dt).
+3. Replace steer's tangent fallback. In steer(), delete the block after `if (e.x = b.x, e.y = b.y, y > .004 && x < y * .45) {` (the `vx *= .25` plus left/right `d >= f ? o : u` pick) and call resolveContact instead. Also in steer(): if (e.contactT ?? 0) > 0, use weave a = 0.
+4. Re-target cadence. In flankPoint() callers (stageApproach), cache the goal on the unit:
+   - recompute only when unit.goalT <= 0, with goalT = 0.25 + ((bSide hash phase) * 0.05) - 0.025, i.e. 0.25 s ± 0.025 s per unit; or recompute early when the player has moved more than 1.0 m since the last pick
+   - keep the cached goal even if blocked() flips meanwhile
+   - do not change the lunge vector (lx/ly) logic or shamblerWalk
+5. New stuck rule. Replace the `.012` per-tick test in loosen():
+   - Keep a 0.5 s window per unit (store x,y and a timer; when the timer reaches 0.5 s, measure the net distance from the stored point, then reset).
+   - Stuck = the unit wants to move (the existing `r`/wants argument is true) AND net < 0.08 m over the window.
+   - On stuck:
+     - 1st time: flip unit.bSide and set unit.bounce = 0.05.
+     - 2nd time within 2 s: set `unit.route = this.routeOpen(unit.x, unit.y, player.x, player.y)` (if non-null and length > 1, set routeI = 0; the existing walkRoute branch follows it). Clear the route after 1.5 s or when within reach. Use a separate field if `route` is used by patrols: add `unit.esc` + `escT` and follow it with walkRoute logic, leaving patrol `route` untouched.
+     - 3rd time: the existing nearestOpen teleport, ONLY if the unit is more than 6 m from the player; otherwise reset the counter.
+   - Reset the counter after 2 s without a stuck.
+6. Gentler separation, single NPC push system. In separate():
+   - body/body cap `.07` → `1.2 * dt`
+   - foe cap `Math.min(.01, u * .35)` → `Math.min(0.6 * dt, u * .35)`
+   - skip pairs where BOTH are NPCs (separateNpcs owns NPC/NPC)
+   - when a push is blocked by blockedHull, apply only its component tangent to the contact normal instead of cancelling it
+   In separateNpcs(), cap the push `Math.min(.22, ...)` at 0.9 * dt. separate() needs a dt argument; pass the frame dt at the existing `this.separate()` call.
+7. NPC A*. In routeOpen():
+   - cap `v++ < 240` → `v++ < 800`
+   - replace the per-loop `g.sort(...)` with a small binary min-heap keyed on f = g + manhattan
+   - add diagonal moves (cost 1.414) only when both orthogonal neighbours are open (no corner cutting)
+   - output format unchanged
+   In the NPC stall handler that drops the target at `stall >= .7`: re-plan once (call aimNpc again with the same gx/gy) before dropping; drop on the second stall.
+8. 3D smoothing (poseMobs and poseNpcs only). Keep per-entry rx, rz, ryaw:
+   - rx += (x - rx) * (1 - Math.exp(-dt * 18)), same for rz; snap if the distance is > 2 m (teleport, zone change)
+   - yaw is lerped the same way along the shortest angle
+   - set root.position/rotation from the smoothed values
+   - poseNpcs takes dt: pass the frame dt from frame() instead of the hard-coded `.016`
+9. Walk/idle buffer. In poseMobs replace `Math.hypot(a.x - e.lx, a.y - e.ly) > .012` with a smoothed speed: spd = lerp(spd, moved/dt, 1 - exp(-dt*10)). Walk when spd > 0.25 m/s, idle when spd < 0.12 m/s, otherwise keep the current state; hold any walk/idle choice at least 0.2 s. Only call playState when the state actually changes (attack/hit/death behaviour unchanged).
+10. NPC facing + walk. In poseNpcs:
+    - rotation.y = smoothed uE(npc.facing) (same helper as poseMobs)
+    - use the same smoothed-speed buffer as step 9: playState(`walk`) when walking, `idle` otherwise
+    - skip if npc.pose is set (posed NPCs stay idle)
+11. Build once, check the console, publish.
+12. TEST (live, 3D view on):
+    - Wild zone: lure 3+ monsters to chase you around a tree, a rock cluster and a wall corner.
+    - Dungeon: the same around a pillar, a barrel and an L-shaped wall corner.
+    - Martsirt: watch NPCs walk for 60 s.
+    - Expect: no visible wiggle, no hop, units slide around obstacles, NPCs face where they walk and play walk.
+    - Log once per second `[p1] stuck>1s: <count>` (units whose 0.5 s window failed twice in a row), only when count > 0. Leave it in. Report any unit still stuck > 1 s with zone and obstacle.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

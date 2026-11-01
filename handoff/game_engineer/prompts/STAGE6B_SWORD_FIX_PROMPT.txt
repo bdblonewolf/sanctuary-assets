@@ -1,0 +1,21 @@
+STAGE 6B: HERO SWORD FIX (GRIP, SHEATH, EXTRA SWORD)
+
+RULES (strict)
+- Change only the 3D hero sword attach code (loadHero, sockets, sheath/draw swap). No game logic, balance, save, controls, 2D or animation map changes.
+- If a step fails twice, stop and report. No retry loops. Build once at the end, check the console, publish.
+
+CAUSE
+- weapon_sword.glb has a root node "sword" with translation (-0.08,1.22,0.25) and a rotation (the hand's rest pose). Adding gltf.scene to HandSocket applies that pose a second time, and its blade points the wrong way, so the grip is wrong.
+- HIP_SHEATH_POS x=-0.18 is the hero's RIGHT side. In this rig Hips +X is the hero's left and the hero faces +Z. That puts a sword floating on his right.
+- knight_anim.glb already has a scabbard: mesh "Mannequin:Object001ccc_11 - Default_0", skinned to Hips on the left hip. Keep it. The sword goes into it.
+- Note: the published bundle (routes-Cc6gVP-T.js) still has TC.heroModelUrl plated_knight_rigged.glb and TC.heroSwordUrl /assets3d/kaykit/sword_1handed.gltf. Make sure neither of these is loaded or attached to the new hero.
+
+STEP 1 - Sword URL. TC.heroWeaponUrl = https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/models/weapon_sword_v2.glb (root node is identity and the mesh is in RightHand bone space). HandSocket stays at position 0,0,0, rotation 0,0,0, scale 1.
+STEP 2 - Remove the extra sword. Delete any other sword: the old heroSwordUrl kaykit sword, any sword from plated_knight_rigged.glb or the fallback model, and any sword added to the scene or heroRoot. Delete HIP_SHEATH_POS/HIP_SHEATH_ROT.
+STEP 3 - Exactly one sword. Load v2 once into this.heroSword. Move it only with socket.add(this.heroSword), then set its local transform. Do not use attach(). HandSocket: position 0,0,0, quaternion 0,0,0,1, scale 1.
+STEP 4 - Sheath transform. HipSheath = Object3D child of mixamorigHips at 0,0,0, no rotation. When sheathed, call HipSheath.add(sword) and set sword.position (0.1105, 0.0394, 0.4039) and sword.quaternion.set(-0.2023, 0.9157, -0.3282, 0.112), scale 1. These are meters in Hips local space. Hips has scale 1 in this file, so do not rescale them (no x100 or x0.01). Result: the hilt sits at the scabbard mouth on the left hip, handle up and forward, blade hidden in the scabbard pointing down and back.
+STEP 5 - Swap timing. ss_sheath: move the sword to HipSheath at 67% of the clip (frame 20 of 30). ss_draw: move it to HandSocket at 42% of the clip (frame 5 of 12). Use the clip's own time (action.time / clip.duration) so it works at any timeScale.
+STEP 6 - Test in 3D. Town: one sword, hilt at the left hip scabbard, nothing on the right. Leave town: draw, and the grip is in the fist with the blade out past the thumb (pointing up in idle). Attacks swing the blade, not the handle. Sheath after 4s with no foes: the sword returns to the left hip. 2D view unchanged. Build, check console, publish.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

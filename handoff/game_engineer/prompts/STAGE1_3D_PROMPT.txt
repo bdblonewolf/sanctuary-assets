@@ -1,0 +1,58 @@
+SANCTUARY 3D — STAGE 1 of 5: one lit 3D dungeon room, hero walking, camera rotate/zoom.
+
+RULES FOR THIS RUN (budget is limited)
+- Do ONLY stage 1. Do not touch skills, items, auras, drops, quests, UI menus or balance.
+- Work in small steps. If a step fails twice, STOP and report. Do not retry in loops.
+- Keep the current 2D game fully working. Add the 3D view behind a toggle: Settings > "3D View (beta)", default OFF. Turning it off must give the exact current game.
+
+GOAL
+The target look is Diablo 2 remade in 3D: dark, gritty, torchlit stone. It is not cartoon.
+
+1. ENGINE
+- Add Three.js (npm "three"). Create a separate renderer module, e.g. src/render3d/.
+- Game logic, positions and combat stay where they are. The 3D view only READS the existing world state (hero position, facing, moving/idle) each frame.
+- Map 1 existing world unit to 1 3D unit on the ground plane (x, z).
+
+2. CAMERA
+- Isometric-style view: perspective camera, about 50° downward tilt, looking at the hero, smooth follow.
+- Two-finger twist (or Q/E on desktop) rotates 360° around the hero.
+- Pinch (or mouse wheel) zooms from far, a wide isometric view, to close, a near third-person feel. Clamp both ends.
+- Movement input must stay relative to the screen after rotating: tapping a spot still walks there. Raycast taps onto the ground plane.
+
+3. ONE TEST ROOM
+About 30x30 units, built from simple boxes and cylinders (no external models yet):
+- A cracked cobblestone floor (procedural canvas texture plus normal map, dark grey-brown).
+- Stone brick walls about 4 units tall.
+- Two pillars, a short stair up to a raised platform, and one sunken pit.
+- Two dark red banners on the walls.
+- All materials are MeshStandardMaterial, low roughness variation, desaturated colors.
+
+4. LIGHTING (the most important part)
+- Very low ambient light. Most of the room sits in near-black shadow.
+- One pale blue "moonlight shaft" (a spotlight from above on the room center) plus a faint visible cone (an additive transparent mesh).
+- Four warm orange wall torches, point lights with a slight flicker. Only the shaft light and at most 1 torch cast real-time shadows. The rest don't cast shadows.
+- Add light fog that fades distance to black.
+- Use ACES tone mapping and sRGB output.
+
+5. HERO PLACEHOLDER
+- A simple armored knight from primitives: body, helmet, sword and shield, grey steel metal material.
+- It faces the move direction and has a simple walk bob while moving.
+- It casts a shadow.
+
+6. PHONE PERFORMANCE
+- Cap pixel ratio at 1.5. Shadow map 1024. Merge static geometry.
+- Target 60 fps, minimum 30 fps on a mid-range Android.
+- Show a small fps counter only when the 3D toggle is on.
+
+DONE WHEN
+- The toggle switches between the old 2D view and the new 3D room.
+- The hero walks around the 3D room by tapping.
+- Rotate and zoom work by touch.
+- The room looks dark with pools of blue and orange light.
+- The 2D game is unchanged with the toggle off.
+
+When done, report:
+- the files changed
+- the fps you measured or estimated
+- anything you skipped and why
+Then stop.

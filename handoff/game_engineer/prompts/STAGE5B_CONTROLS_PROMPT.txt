@@ -1,0 +1,22 @@
+STAGE 5B: 3D USES THE EXACT MAIN-GAME CONTROLS
+
+RULES (strict)
+- Touch only the code listed below. No game logic, balance, save, tick() rule, or 2D drawing changes.
+- The only 3D-only behavior allowed: camera yaw (Q/E, two-finger rotate), zoom (wheel, pinch), and screen<->world conversion through the 3D camera.
+- If a step fails twice, stop and report. No retry loops. Build once at the end, check the console, publish.
+
+FACTS (current bundle)
+- frame() no longer returns early in 3D; tick() runs. Keep that.
+- onDown has a separate 3D branch (if this.view3d&&this.room) that uses room.pick plus its own 0.9-tile enemy check. It skips skipBubble, interact (NPC talk, loot pickup, props, exits), lf/onMapTap (map), the hero long-press potion (this.press/xo), and foeAt. onMove has a matching separate 3D branch.
+- 2D converts with So(this.cam(),x,y) (screen->world) and xo(this.cam(),x,y) (world->screen); foeAt, interact and the potion press use xo.
+- In tick(), keys/stick (l,u from KeyW/A/S/D, arrows, this.stickX/stickY) map to world with fixed iso math: n=e+t, r=t-e. In 3D this ignores the camera yaw (LT.yaw, nudgeYaw).
+- Leftovers: roomX, roomZ, roomVx, roomVz, roomSpeed, roomTarget fields and their resets in the 3D toggle.
+
+STEP 1 - One conversion pair. Add two engine methods: toWorld(sx,sy) returns this.view3d&&this.room ? this.room.pick(sx,sy,this.viewW,this.viewH) : So(this.cam(),sx,sy); toScreen(wx,wy) returns this.view3d&&this.room ? this.room.project(wx,wy,this.viewW,this.viewH) : xo(this.cam(),wx,wy). Add LT.project(x,y,w,h): Vector3(x,0,y).project(camera) -> {sx,sy} in CSS px. Replace the So/xo calls in onDown, onMove, foeAt, interact, skipBubble and the hero press check with toWorld/toScreen. Don't change any other math.
+STEP 2 - One input path. Delete the 3D branches in onDown and onMove except this part: when this.view3d&&this.room and this.pts.size>=2, call this.room.gesture(...) and return (rotate/pinch). Everything else falls through to the normal 2D path (lf/onMapTap, skipBubble, interact, press potion, foeAt, faceHero, pointerAttack, attackOnce, attackFocus, this.target, approachName). The two-finger castSkill line runs only when not in 3D.
+STEP 3 - Camera-relative keys/stick. In tick() at the iso mapping (n=e+t, r=t-e), only when this.view3d&&this.room: replace it with a world direction from the camera, so screen-up = away from the camera: fwd=(-sin(yaw),-cos(yaw)) on the ground in world x/y (match LT camera placement; check by pressing W: hero moves toward screen top), right = perpendicular; dir = e*right + (-t)*fwd, normalized. 2D keeps the old math.
+STEP 4 - Remove leftovers. Delete roomX/roomZ/roomVx/roomVz/roomSpeed/roomTarget fields and assignments. Make sure LT has no demo enemies, pickables or showcase room objects; actors only come from this.enemies, this.world.npcs, this.loot, this.projs, this.player.
+STEP 5 - Build, check the console, test in 3D: tap ground = move; tap/hold skeleton = attack (same as 2D); tap NPC = talk; tap loot = pick up; long-press hero = potion; stick and WASD follow the rotated camera; skill buttons work; Q/E, wheel, pinch, two-finger rotate work. Publish.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

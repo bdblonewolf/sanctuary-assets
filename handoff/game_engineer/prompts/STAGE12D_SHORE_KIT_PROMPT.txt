@@ -1,0 +1,86 @@
+STAGE 12D - Coast kit: 12I beaches and sea cliffs along outdoor shores
+
+Goal: On outdoor sea maps, lay the 12I border kit along the coast on a 6 m grid. Sand or shingle beaches go on walkable shore, and sea cliffs on solid headlands. Cliff runs follow the 12I chaining rules: every free end gets an endcap, every height change gets a step, and the toe never lands on walkable tiles. The 12C sand band and ground shelf stay underneath, so gaps between the 6 m pieces never show a square step. Existing shore rocks break up the leftover straight lines and cover free beach ends. Pieces are instanced, one InstancedMesh per GLB mesh, and fade with the 12C smooth fade. Requires 12C. 3D only.
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed.
+- Edit the source that builds into the current bundle (12C build: index-3lA_YOcV.js / routes-CEphLWvJ.js, or a later A3 build). Find code by the quoted anchors. Minified names below are from routes-CEphLWvJ.js; re-check them if a later build shifted them.
+- Walkability, collision, tiles and pathing are unchanged. Kit pieces are visuals only.
+- Do not change the 12C ground, the smooth fade, ring, islets, ocean or foam.
+- Kit URLs use ?v=12c. Load only the files the layout uses.
+
+FACTS
+- Kit files, PT + `models/outdoor/v5_maps/border/<file>?v=12c` (all 4 seasons, suffix `_v5_<season>.glb`, season = yE(id): summer, autumn, winter, dead):
+  - beach_{sand,shingle}_{straight6,outer,inner}
+  - seacliff_{straight6,straight6b,straight6c}_h{3,5,8}, seacliff_{outer,inner}_h{3,5,8}
+  - seacliff_endcap_{left,right}_h{3,5,8}_{a,b}
+  - seacliff_step_{h3h5,h5h3,h5h8,h8h5}
+- Each GLB has one node (no transform) with 2 primitives. GLTFLoader gives a Group with 2 Meshes: beach uses ms_beach_sand_<s> + ms_beach_snow_<s>, cliffs use ms_border_rock_<s> + ms_border_cover_<s>. Vertex colours are used.
+- Piece frame: path starts at the origin heading +X, land on the LEFT (-Z), sea on the RIGHT (+Z). One slot = 6 m.
+  - straight6/6b/6c, endcaps and steps end at (6, 0, 0).
+  - outer (convex land, R=6) ends at (6, 0, -6) heading -Z.
+  - inner (concave, R=6) ends at (6, 0, +6) heading +Z.
+- World placement for path start P heading d = (dx, dz): position (P.x, 0, P.z), rotation.y = atan2(-dz, dx). Sea side S = (-dz, dx), land side = (dz, -dx).
+- Beach: land edge on the path tucked to y=-0.4, berm about +0.04 at 0.2-0.6 m seaward, waterline about 2.8 m out, -0.8 at 3.8 m.
+- Cliff hN: lip on the path at y=N. Toe at y=-1.4, reaching 2.2 / 3.0 / 4.2 m seaward (h3 / h5 / h8). Back slope reaches y=0 at 2.7 / 3.7 / 5.2 m inland.
+- 12I rules: LEFT endcap closes the start of a cliff run, RIGHT closes the end. A step joins two slots of different height (h3h5, h5h3, h5h8, h8h5 only). Corners join straights of the same height.
+- Edge class YT (search `edge12b`). build(e, t, n): t = season, n = token. `i = VT(e.id, e.tiles, e.w, e.h)` is the sea flag, `a = BT(e.id, t)` is the 12C groundSet. After the token check: `this.uMap.value.set(e.w, e.h)`, then placeRing / placeIslands / placeDress / `i && this.placeOcean(e, h, f, u?.scene ?? null, d?.scene ?? null)` / placeStatue / `this.placeGround(e, t, a, s, !!r)` / `[12b]` log. wipe() resets fades, fadeMats, groundFor, coastS/coastTex/coastSpan and disposes madeInst/madeGeo/madeMat/madeTex.
+- placeOcean(e, t, n, r, i): land predicate `u(n, r)` (in-map: `e.tiles[r * a + n] !== IT`; off-map: `!t.has(GT(n + 0.5, r + 0.5, a, o))`). It ends with `r && this.placeShore(e, r, l, s, u, XT(e.id))`.
+- placeShore(e, t, n, r, i, a) puts shore rocks with `l(name, x, y, scale)` (clone + prep at y -0.4; l adds 0.5) in one loop over tiles -30 .. w+30 / h+30, in this order: coast rocks (`p > 0.78`, next to land), seastacks (`o.e`, `d >= 2 && d <= 5`), far-offshore stacks (skipped when `d < 6 || d > 30`).
+- spawn(geo, mat, list) takes items { x, z, ry, sx, sy, sz } at y=0 and adds the 12C fade twin (e12b-dress-fade).
+- Helpers: WT(x, y) = hash 0..1. GT(x, y, w, h) = off-map quadrant. KT / qT / JT find geometry by name / material by name / first material. Jw(url) loads a GLB. PT = asset base, LT = [E, N, W, S], IT = 4 (Water).
+- Tile helpers: IE(zone, x, y) = solid (off-map counts as solid), LE(zone, x, y) = walkable in-map (= !IE in-map).
+
+STEPS
+1. Layout function. Add `YT.layoutKit(e, q)` (e = zone, q = set of sea quadrants). In build, call it as `this.kitLay = i ? this.layoutKit(e, h) : null` right after the `let h = new Set(r ? LT.filter((e) => r.sea.includes(e)) : [])` declaration (h is the sea-quadrant set; f in build is the ocean normal, do not pass f). In YT.wipe set `this.kitLay = null`. Inside layoutKit, let `land(x, y)` be the same rule as placeOcean's u (off-map uses GT and q).
+   a. Macro cells: cx 0 .. floor(w/6)-1, cy 0 .. floor(h/6)-1, each covering tiles [6cx, 6cx+6) x [6cy, 6cy+6). A cell is land when 18 or more of its 36 tiles are land. Only use cells fully inside the map.
+   b. Edges: every shared side between a land cell and a water cell becomes one 6 m directed edge, with land on its left:
+      - land north / water south: heading +X, start (6cx, 6cy+6);
+      - land south / water north: heading -X, start (6cx+6, 6cy+6);
+      - land west / water east: heading -Z, start (6cx+6, 6cy+6);
+      - land east / water west: heading +Z, start (6cx+6, 6cy).
+   c. Chains: link an edge to the edge that starts at its end point only when exactly one does. Otherwise the chain breaks there. Walk open chains from their first edge and closed loops from any edge. The turn at a joint is S (same heading), L (next heading = land side of d) or R.
+   d. Edge type. Test tiles at P + (k+0.5)*d + (j+0.5)*S for columns k = 0..5 and rows j (j < 0 inland, j >= 0 seaward):
+      - CLIFF hN (try h8, then h5, then h3): every tile in rows -D..-1 is not walkable (!LE), with D = 6 / 4 / 3; every tile in rows 0..T-1 is not walkable, with T = 5 / 4 / 3; and at least 5 of the 6 tiles in row T-1 are water (land() false). This is the toe clearance.
+      - BEACH: for each column, count the land tiles in rows -3..2 (o = count - 3, the coast offset). Every column has o in [-1, 2]. At least 4 tiles of row -1 are walkable. At least 5 tiles of row 3 are water.
+      - else NONE.
+   e. Corners. Along each chain, at a joint with turn L or R between edges i and i+1: make a corner (outer for L, inner for R) when all of these hold:
+      - both edges have the same type (BEACH/BEACH, or CLIFF/CLIFF, using the lower h);
+      - neither edge is used yet;
+      - the joint before edge i is S or edge i-1 is NONE;
+      - for cliffs only, edge i-1 and edge i+2 are also CLIFF and joined by S.
+      The corner piece starts at edge i's start with edge i's heading and uses both edges.
+   f. Kinks. At every other L or R joint where both sides still have a piece, set the outgoing edge to NONE. If the outgoing edge is part of a corner, set the incoming edge to NONE instead.
+   g. Cliff runs. A run is a sequence of CLIFF slots joined by S joints or corners (a corner counts as 2 slots).
+      - Clamp heights so neighbours differ by at most one level (h3 < h5 < h8): pass forward, then backward, lowering the higher one. A corner takes the lower h of its two edges.
+      - A run shorter than 2 slots becomes NONE.
+      - Slot 0 becomes seacliff_endcap_left_h{h0}, the last slot seacliff_endcap_right_h{hLast}. Pick _a or _b with WT(cx, cy) < 0.5, using the slot's start cell.
+      - Any other straight slot whose height differs from the previous slot becomes seacliff_step_h{prev}h{this}. If that slot is a corner, put the step on the previous straight; if that is impossible, lower the corner to the previous height.
+      - The remaining straights use seacliff_straight6 / 6b / 6c, chosen by WT(cx+3, cy+7).
+   h. Beaches. beach_shingle_* in winter and dead, beach_sand_* otherwise: straight6, outer or inner.
+   i. Return the placements grouped by file name, items { x, z, ry, sx: 1, sy: 1, sz: 1 }. Also return:
+      - `cover`: a Set of tile keys y*w+x for rows -1..4 of every placed slot (corners: the whole 6x6 square on the sea side of the arc);
+      - `ends`: points P + 1.5*S at each free beach end (a beach slot with no beach slot after or before it in its chain) and at the midpoint of every NONE edge whose neighbours on both sides carry pieces.
+      Log once: `[12d] kit <id> beach=<n> cliff=<n> caps=<n> steps=<n> corners=<n>`.
+
+2. Shore rocks. Pass `this.kitLay?.cover` into placeShore as a 7th argument (the `r && this.placeShore(e, r, l, s, u, XT(e.id))` call at the end of placeOcean). Inside its tile loop, skip the coast-rock and seastack placements for tiles in cover. Leave the far-offshore stacks unchanged. After the loop, for each point in kitLay.ends, place one rock with `l(...)` at that point minus 0.5 (l adds 0.5): o.a, o.b or o.d by WT, scale 0.9 + WT * 0.4.
+
+3. Load and spawn. Add `async YT.placeKit(e, season, token)`, called in build right after `this.placeGround(e, t, a, s, !!r)` as `this.placeKit(e, t, n)`, without await. For every file in kitLay, load `Jw(PT + 'models/outdoor/v5_maps/border/' + file + '_v5_' + season + '.glb?v=12c')` with Promise.all. Then check `if (token !== this.token || this.current !== e) return;`. For each loaded scene, traverse its meshes (in order):
+   - geometry: `mesh.geometry.clone()`, pushed to madeGeo;
+   - material: one clone per material name, shared across files (Map in placeKit). Set onBeforeCompile = `(s) => this.hook(s, this.uClipDress, false)` and the key `e12b-dress`, and push it to madeMat;
+   - `this.spawn(geo, mat, items)`.
+   A failed file is skipped, with one `[12d] kit file failed <file>` warning.
+
+TEST (screenshots of each, phone-size window, 3D on)
+1. Blackwater (isle) at Brian's shore spot: sand beaches along the coast on top of the 12C sand band, rounded beach corners, no square step, and the hero walks onto the beach with no visible float.
+2. Ashen coast (coast): shingle beaches, and any cliff run has an endcap at both ends and a step at each height change. No cliff end shows a bare end wall, and no cliff toe sits on walkable ground.
+3. The isle and Mires map corners on sea sides: no kit piece on the map boundary, and the ring and ground still meet cleanly.
+4. Walk behind a cliff: it fades smoothly (12C fade) and comes back.
+5. A free beach end and a gap in the kit: a shore rock covers each one.
+6. Briarwood, Martsirt and one dungeon: unchanged apart from Briarwood's west coast pieces.
+7. Console: one `[12d] kit ...` line per sea zone and no new errors.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

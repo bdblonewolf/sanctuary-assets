@@ -1,0 +1,63 @@
+STAGE N1a - MARTSIRT NPC LOGIC (no new models; the knight fallback model stays)
+
+RULES
+New features are 3D only. Do not touch any 2D drawing code.
+If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+Be strict: change only what is listed.
+Scope is Martsirt only: every new branch is gated on this.world.martsirt (set at the end of Rc()). Other towns behave exactly as now.
+No new GLBs and no animation states (those come in N2). No refactors, no renames, no formatting passes.
+
+FACTS (the source names may differ from the bundle; find code by the string literals and method names below)
+- Rc(): the function holding "shrine_weeping_angel" and hc("town", "Martsirt", ...). Its props array (s) is passed to hc. It ends with l.martsirt = !0.
+- Units: Martsirt tile = metres + [81, 76], so 1 tile = 1 m. The sim runs in tiles. 3D NPCs stand at (x, 0, y).
+- gc().npcs holds Wolchen (smith), Ysara, Ilyra (herald), Quill (scribe) and Bram (quest). Mira, Orrin and Ness live only in kc() (taproom, built with wc(name, x, y, lines, roam)).
+- hc() turns every non-ash bonfire in a town into style "town". townPyre() returns the FIRST one in props.
+- The main fire's collision blob covers tiles x 92-99, y 72-79. dockBeside radii [1.85, 2.3, 2.75] land inside it.
+- Class methods (real names): lifeBeat, postFor, needPost, dockBeside, nearHeat, pyreTender, tickRumors, routeOpen, aimNpc, tickBram, wanderNpc, maybeBanter, storyBeat, bark, doorstep, poseNpcs, fillNpc, hour().
+- wanderNpc calls lifeBeat for each NPC. While e.hide > 0, lifeBeat returns early and wanderNpc counts hide down.
+- The banter picker is the function with "if (i - a < 9e4) return null". storyBeat calls it, barks la, then setTimeout barks lb after 2500 ms.
+- The 3D overlay (the function that "if (t.overlayOnly)" calls; vf in the current bundle) already draws NPC names and the e.chat bubble through _f() projection. It is 3D-only.
+
+STEPS
+1. Markers (Rc, before the hc call). Push these into s, in this order (tile coords; invisible, since 3D Martsirt draws only shrines from props):
+   bonfire {tag:'bonfire_main', x:95.99, y:75.48, ring:5, heat:6.5} FIRST; bonfire {tag:'campfire_gate', x:72.0, y:135.1, ring:2.2, heat:3.2};
+   fire seats: bench fire_s1 (96.0,70.5), log/seat fire_s2 (101.0,75.5), bench fire_s3 (99.5,79.0), log/seat fire_s4 (92.5,79.0), bench fire_s5 (91.0,75.5), log/seat fire_s6 (92.5,71.9);
+   log/seat camp_l1 (74.2,135.5), camp_l2 (69.8,135.5); bench kettle_bench (60.2,95.6); table forge_table (27.4,61.4); barrel forge_barrel (24.6,61.2); bench forge_bench (28.5,61.5);
+   bench stable_bale (126.5,118.6); bench ness_bench (50.6,130.6); chair orrin_chair (137.3,21.6);
+   building (no 'to') kettle {x:48.5,y:79.5,w:16,d:12}, forge {x:24.5,y:49.5,w:12,d:10}, ness_cottage {x:46.5,y:122,w:8,d:6} (shifted 3 east so its door is NOT the cottage exit), orrin_lodge {x:137.5,y:14.5,w:8,d:8}.
+   Then: dockBeside uses [ring, ring+0.5, ring+1] when the prop has ring; nearHeat uses r.heat when set; tickRumors uses (t.ring ? t.ring + 1.5 : 3.5); in martsirt, pyreTender skips role 'herald'.
+   Log once: "[n1] markers N, pyre at x,y".
+2. Records (Rc, after the gc() home loop). Copy Mira, Orrin and Ness from kc().npcs ({...n}). Homes: Mira (58.4,94.6), Orrin (136.5,21.0), Ness (49.4,129.6).
+   Add Ayla: wc('Ayla', 126.5, 117.5, AYLA, 3) then role 'stable'. Not a hireling, no quest. AYLA lines:
+   "Thou walkest loud. The horses heard thee first." | "I hunt mine own kin. The ones the dark hath taken. Ask no more today." | "The winged ones fly low before rain. Keep thy head down." | "Ilyra keepeth her word. Few here do. I watch the rest." | "This charm is all the Phimn left me. Touch it not." | "Straw and leather. Better company than most."
+   Add an es entry Ayla: [lines 1, 3, 5], and 3 talk entries to the Gn JSON (copy the shape of quill_t01/t03/t11 and their 'when'): ayla_t01 = line 2, ayla_t02 (night) = line 4, ayla_t03 (rain) = line 3.
+   Wolchen record: add display:'Wolcen'. Add npcName(n) = n.display ?? n.name. Use it for every shown name (talk/rumors/hearHelp headers, vf labels). Swap the word Wolchen to Wolcen inside shown text only (line/title/body strings); keep who/a/b/name/ids/keys as 'Wolchen'.
+   Per-NPC fields: spots (marker tags), visit (true/false), inside (hour windows + door point):
+   Ysara: fire_s1..s6, kettle_bench; visit. Mira: fire_s1..s6, kettle_bench; visit; inside 17-8 at (56.5,92.45).
+   Orrin: fire_s1..s6, kettle_bench, orrin_chair; visit; inside 18-23 at (56.5,92.45), 23-6 at (141.5,22.95).
+   Ness: fire_s1..s6, kettle_bench, ness_bench; visit; inside 18-22.5 at (56.5,92.45), 22.5-6 at (50.5,128.45).
+   Wolchen: forge_table, forge_barrel, forge_bench, fire_s1..s6 (fire picked 20%); visit; inside 21-6 at (30.5,60.45). Never the Kettle.
+   Ayla: stable_bale only; no visit; inside 22-6 at her home. Ilyra: no spots, no visit, never inside. Quill and Bram: unchanged.
+   Log once: "[n1] npcs N names...".
+3. Visits and inside windows (lifeBeat, martsirt only). At the very top: if hour() is in an inside window, walk to its door point (aimNpc), and on arrival (<0.6) set e.hide = Math.max(e.hide ?? 0, 5); while in the window keep e.hide >= 5 (never lower it; Ness can be 1e6). Outside the window the hide runs out, and doorstep() puts them back out.
+   Before the "e.gx != null" post block: if e.visit and hour() is 8-21, count e.visitT down by t (start at a name-hash stagger of 0-120 s). At 0: pick a random allowed spot tag, clear gx/gy/path, aimNpc to dockBeside(spot), and hold there 30-60 s (pose sit). Then visitT = 180-360 s and fall through to the normal postFor.
+   needPost: in martsirt, replace the 9.5 radius with "prop.tag is in e.spots, or within 3 of home". Log "[n1] visit NAME -> TAG" on each start.
+4. Routes (routeOpen, tickBram). If Stage P1 already put a heap in routeOpen, keep it and change only the defaults and caps. In routeOpen: replace every "?? 99" default cost with "?? 1e9" (paths over 98 steps fail now). Replace the per-loop g.sort with a small binary min-heap on f = g + manhattan. Expansion cap 240 -> 9000, path cap 80 -> 600.
+   tickBram: re-anchor the three legacy points: {26.2,11.2} -> {145.0,24.0} (block), {30.6,10.15} -> {139.5,22.6} (woodpile), {28,12.15} -> {142.4,22.4} (log). Log "[n1] route from->to len N ms M" for routes over 40 steps.
+5. Banter (martsirt only). maybeBanter: return at the top. storyBeat: no banter when hour() >= 21 or < 6. The picker gets two optional args (near = 12, gap = 9e4); martsirt passes near 8 and gap = this.banterGap, which is rerolled to 60000 + random * 30000 after each fire. Bark la only, with no lb setTimeout.
+   Log "[n1] banter ID A".
+6. 3D facing and barks. If poseNpcs already sets rotation.y (Stage P1), skip the facing part. poseNpcs: set root.rotation.y = <helper>(n.facing) for each NPC, using the same helper poseMobs uses (find "root.rotation.y = " plus ".facing)" in poseMobs; it is HE in the current bundle). Check that bark() text shows in 3D through vf (e.chat bubble). If it does not, draw e.chat in vf above the name with the same _f() projection.
+   Log "[n1] bark3d NAME" once per bark (throttled 1/s).
+7. Build once, run, check the console, publish.
+
+TEST (3D view on, Martsirt)
+- The console shows [n1] markers, [n1] npcs (9 names), then [n1] visit lines within 2-6 real minutes.
+- At the bonfire, no NPC stands inside the flames. Seats sit about 5 m out. A rumour line plays when 2+ are seated.
+- Ilyra stays at the south gate the whole time. Ayla stays in the stable yard. Wolcen goes only between the forge, the bench outside it and sometimes the fire.
+- An Orrin-to-Kettle route of 100+ tiles shows a [n1] route log with no freeze. Bram chops, hauls and plays at his lodge.
+- At 21:00 Wolcen goes into the forge. At 18:00 Orrin and Ness go to the Kettle door and vanish. After 23:00 they walk home.
+- Banter: one line at a time, 60-90 s apart, only within 8 m, none at night. The talk menu and labels say Wolcen.
+- NPCs turn to face where they walk, and bark bubbles show over their heads in 3D.
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.

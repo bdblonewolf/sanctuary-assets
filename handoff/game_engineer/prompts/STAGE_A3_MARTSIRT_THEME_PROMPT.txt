@@ -1,0 +1,72 @@
+STAGE A3 - Martsirt town theme (v5): one looping track replaces the stacked town layers in Martsirt
+
+Goal: In Martsirt (world id `town`), play the new 7:36 Martsirt theme as ONE looping AudioBufferSource on its own gain node into the music bus, and fade the old stacked town layers (guitar + delays, nylon, pad, woodwind, clockwork, hum) to 0 there. The file is decoded once and cached. Ogg plays first, with an m4a fallback. The theme fades in when you enter Martsirt and out when you leave. The theme also carries on in the Martsirt taproom and cottage. All other zones (Qadren, Highmarket, other interiors, wild, stone, dread) sound exactly as they do today. Works with or without A1.
+
+RULES
+- New features are 3D only. Do not touch any 2D drawing code.
+- Audio code is not drawing code. This stage edits only the audio class, its music manager, its level table and the one per-frame audio call site listed in STEP 3.
+- If a step fails twice, stop and report. No retry loops. Build once, check the console, publish.
+- Be strict: change only what is listed.
+- Edit the source that builds into the current bundle. Find code by the quoted anchors. Minified names below are from live routes-BESGfWrN.js; source names may differ, and A1 may have changed nearby lines. Anchor on the structure.
+- Keep a single AudioContext. Do not remove wireTown() or any of its layers: Qadren, Highmarket and the interiors still use them.
+- No other audio changes. Leave levels, the compressor, setFire, voices and the A1 code (if present) as they are.
+
+FACTS
+- Files (pushed, 200, CORS `access-control-allow-origin: *`):
+  - PT = `https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/`
+  - PT + `audio/town/martsirt_theme.ogg?v=a3`: Vorbis, 44.1 kHz stereo, 10,212,093 bytes, exactly 20126776 samples (456.389 s), -23 LUFS.
+  - PT + `audio/town/martsirt_theme.m4a?v=a3`: AAC 192k, 44.1 kHz stereo, 11,149,649 bytes, same level. It holds the loop with 4096 extra wrap samples at each end (the end of the loop before the start, the start of the loop after the end), so AAC priming and padding never land in the loop.
+- Loop rule, the same for both files: T = 20126776 / 44100; a = max(0, (buffer.duration - T) / 2); source.loopStart = a; source.loopEnd = a + T; start at offset a. For the ogg, a = 0. For the m4a, a lands inside the wrap region whether or not the browser trims priming (tested both ways: seam error equals the codec noise).
+- Loader: `async function ll(e, t)`, which does fetch(cl(t)) → arrayBuffer → `e.decodeAudioData(r.slice(0))` and returns null on any failure. `cl(e)` builds `/audio/${e}` under the site base path. The site serves its own /audio/ (e.g. `town/guitar.ogg`).
+- Ramp helper: `ul(node, target, now, secs)`.
+- Level table `var sl = {`, anchor `crossfade: 2, bonfireRadius: 5, fireFade: 2`, holds `townBus: .9, stoneBus: .74, dreadBus: .8` and `town: { guitar: 'town/guitar.ogg', ... }`.
+- Music manager `var dl = class`, anchor `delayWet = []` / `voices = new Map`:
+  - constructor(e, t, n, r, i) stores ctx, town, stone, dread, sfx.
+  - setZone(e, t): `let n = (e ? '1' : '0') + t; if (n === this.mixKey) return;` and then `ul(this.town, e && t === 'town' ? sl.townBus : 0, r, sl.crossfade)`. The same follows for stone and dread.
+- Audio class `hl`:
+  - field `mood = 'town'`, `setMood(e)`
+  - `pump(e)`: `this.manager?.ensure(), this.manager?.setZone(e, this.mood)`
+  - unlock(): `r` is the music bus (`r.connect(n)`, `r.gain.value = .82`, or .7 after A1). The dread bus `let u = t.createGain(); u.gain.value = 0, u.connect(r)` is passed as the 4th argument in `this.manager = new dl(t, i, a, u, o)`.
+- Per-frame call site in the game class: `n = this.world.id`, then `this.audio.setMood(r ? 'town' : i ? 'stone' : 'dread')`, then `this.audio.pump(t)`. Mood 'town' covers town, lut, market, cottage, taproom, inn, house and bastion. Martsirt is id `town` only.
+- Level: the old town bus output (all layers × townBus .9) measures -20.1 LUFS, the same near and far from the bonfire. The theme file is -23.0 LUFS, so themeBus = 1.4 (+2.9 dB) matches it. Both feed the same music bus and compressor, so the match holds with A1's .7 music bus too.
+
+STEPS
+1. Copy the files. Download PT + `audio/town/martsirt_theme.ogg` and PT + `audio/town/martsirt_theme.m4a` into the folder that serves /audio/ (next to `town/guitar.ogg`), as `town/martsirt_theme.ogg` and `town/martsirt_theme.m4a`. Check the byte sizes against FACTS. If the copy cannot be done, use the full PT URLs with `?v=a3` in STEP 5 and fetch them with the same fetch → arrayBuffer → decodeAudioData path as ll (CORS is open).
+2. Level table. Add `themeBus: 1.4`, `themeFade: 2`, `themeZones: ['town', 'cottage', 'taproom']`, `themeOgg: 'town/martsirt_theme.ogg'`, `themeM4a: 'town/martsirt_theme.m4a'`, `themeSamples: 20126776`, `themeRate: 44100` to `sl`.
+3. Place. In the audio class, add the field `place = ''`, `setPlace(e) { this.place = e }`, and change pump to `this.manager?.setZone(e, this.mood, this.place)`. At the per-frame call site, add `this.audio.setPlace(n)` right before `this.audio.setMood(...)`.
+4. Theme bus. In unlock(), next to the dread bus `u`, create `h = t.createGain()` with `h.gain.value = 0` and `h.connect(r)` (music bus). Pass it as a 6th argument: `new dl(t, i, a, u, o, h)`. In the manager constructor, store it as `this.theme`. Add the fields `themeBuf = null`, `themeLoad = null`, `themeSrc = null`, `themeWant = false`, `themeTimer = 0`.
+5. Load once. Add the manager method `loadTheme()`. If `this.themeLoad` is set, return it. Otherwise set `this.themeLoad` to a promise that:
+   - picks the order: if `new Audio().canPlayType('audio/ogg; codecs="vorbis"')` is non-empty, try `[themeOgg, themeM4a]`, else `[themeM4a, themeOgg]`.
+   - tries `ll(this.ctx, path)` on the first and, if that returns null, on the second.
+   - stores the result in `this.themeBuf` with its format, and returns it (null if both fail).
+   Decoding happens on the first entry to Martsirt only (not in ensure()), and the buffer is never decoded again.
+6. setZone. Change the signature to `setZone(e, t, p)`.
+   - Compute `m = e && t === 'town' && sl.themeZones.includes(p)`.
+   - Key: `(e ? '1' : '0') + t + (m ? 'M' : '')`.
+   - Town bus target: `e && t === 'town' && !m ? sl.townBus : 0`.
+   - Stone and dread lines stay unchanged.
+   - Then call `m ? this.themeOn() : this.themeOff()`.
+7. themeOn(). Set `this.themeWant = true` and clear `themeTimer`.
+   - If `this.themeSrc` exists, `ul(this.theme, sl.themeBus, now, sl.themeFade)` and return.
+   - Otherwise `this.loadTheme().then(b => ...)`. When `b` is set, `this.themeWant` is still true and `this.themeSrc` is still null:
+     - create one BufferSource with `buffer = b`, `loop = true`
+     - T = themeSamples / themeRate, a = max(0, (b.duration - T) / 2), `loopStart = a`, `loopEnd = a + T`
+     - connect it to `this.theme`
+     - set the theme gain to 0 at now (cancelScheduledValues + setValueAtTime), `start(now, a)`, then `ul(this.theme, sl.themeBus, now, sl.themeFade)`
+     - store it in `this.themeSrc`
+     - log once per start: `[a3] theme fmt=<ogg|m4a> dur=<b.duration.toFixed(3)> loop=<a.toFixed(4)>..<(a+T).toFixed(4)> rate=<ctx.sampleRate>`
+   - If both formats failed, log `[a3] theme decode failed` once and do nothing else (Martsirt stays without the theme; no retries).
+8. themeOff(). Set `this.themeWant = false`, then `ul(this.theme, 0, now, sl.themeFade)`. If `themeSrc` exists, set `themeTimer = setTimeout(..., (sl.themeFade + 0.5) * 1000)`, which stops and disconnects the source and sets `themeSrc = null`. themeOn() clears this timer, so a quick return keeps the same source playing. A return after the stop starts a new source from the cached buffer at offset a. There is no self-crossfade and no second source at any time.
+9. Build once, check the console, publish.
+
+TEST (live, 3D view on)
+- Enter Martsirt. You hear the theme only, with no guitar/nylon/pad/woodwind/clockwork/hum under it, at about the same loudness as the old town music. One `[a3] theme fmt=...` line appears. Bonfire proximity does not change the theme.
+- Loop seam: if feasible, stay in Martsirt for 7:40 after the `[a3]` line and listen across the 7:36 point. No click, gap or level jump.
+- Leave to Briarwood. The theme fades out in about 2 s, and Briarwood music is as before. Return: the theme fades back in with no `[a3] theme decode` delay (cached) and no stacked layers. Leave and come back within 2 s: no restart, no double playback.
+- Enter the Martsirt taproom and cottage: the theme keeps playing (no restart). Enter Qadren or Highmarket: the old town layers play exactly as before.
+- iOS Safari (iPhone, if available): enter Martsirt and confirm the theme plays and the `[a3]` fmt (expect m4a on older iOS). If no device is available, write "iOS not tested".
+- Mute/unmute in Martsirt still works.
+- Console clean (only the `[a3]` lines, plus `[a1]` if A1 is in).
+
+REPORT
+One line per step: STEP n - done / failed (reason). Then console errors (if any) and files changed.
