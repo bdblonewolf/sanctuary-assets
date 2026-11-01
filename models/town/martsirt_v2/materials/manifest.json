@@ -358,27 +358,63 @@
    }
   }
  },
- "repo_note": "paths are repo-relative; load via uT(path,bust)",
+ "repo_note": "paths are repo-relative (models/town/martsirt_v2/...); load via uT(path,bust)",
  "v2_local_materials": {
-  "note": "Martsirt v2: window glow cards (win_glow_* nodes) use LOCAL untextured materials, not library textures. emissiveFactor = #ffb060 (linear [1.0,0.434,0.117]), no KHR extensions; multiply by material extras.emissiveStrength at load (same convention as m_window_candlelit / m_peat_embers). Single-sided, dark base colour so the card reads as a dark pane when emissive is off.",
+  "note": "Martsirt v2/v2.1: emissive cards and fire meshes use LOCAL untextured materials, not library textures. emissiveFactor <= 1.0, no KHR extensions; multiply by material extras.emissiveStrength at load (same convention as m_window_candlelit / m_peat_embers). v2.1 night pass: the engine night ambient is a fixed low blue-grey, so these strengths are set to carry the town at night. Single-sided, dark base colour so a card reads as a dark pane when emissive is off.",
   "m_window_glow": {
-   "emissiveStrength": 4.0,
+   "emissiveStrength": 5.0,
    "use": "bright lit windows"
   },
   "m_window_glow_dim": {
-   "emissiveStrength": 2.2,
+   "emissiveStrength": 3.2,
    "use": "dim / back rooms / upper floors"
   },
   "m_window_glow_faint": {
-   "emissiveStrength": 0.9,
-   "use": "mill, stable - a single faint candle"
+   "emissiveStrength": 2.2,
+   "use": "mill, stable - a single candle"
   },
   "m_window_glow_faint_glass": {
-   "emissiveStrength": 0.9,
+   "emissiveStrength": 2.4,
    "alphaMode": "BLEND",
    "alpha": 0.55,
    "use": "chapel chancel lancets"
   },
-  "flicker": "node extras.flicker true on a win_glow_* card or fx_glow_window_* empty = runtime should modulate intensity (candle/hearth flicker)"
+  "flicker": "node extras.flicker true on a win_glow_* card or fx_glow_window_* empty = runtime should modulate intensity (candle/hearth flicker)",
+  "m_door_glow": {
+   "emissiveStrength": 5.0,
+   "emissiveFactor": [
+    1.0,
+    0.6,
+    0.28
+   ],
+   "use": "win_glow_door_main card just inside the inn and forge front doors (hidden by the closed door leaf, fills the opening when it swings open)"
+  },
+  "m_torch_flame": {
+   "emissiveStrength": 7.0,
+   "emissiveFactor": [
+    1.0,
+    0.38,
+    0.08
+   ],
+   "use": "wall torch flame blades (torch_flame_* under torch_wall_*), flicker"
+  },
+  "m_fire_flame": {
+   "emissiveStrength": "7.0 bonfire / 6.0 campfire",
+   "emissiveFactor": [
+    1.0,
+    0.42,
+    0.1
+   ],
+   "use": "bonfire and campfire flame blades, flicker"
+  },
+  "m_fire_embers": {
+   "emissiveStrength": 4.0,
+   "emissiveFactor": [
+    1.0,
+    0.22,
+    0.04
+   ],
+   "use": "ember bed of the bonfire and campfire"
+  }
  }
 }
