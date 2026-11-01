@@ -934,5 +934,895 @@
   "sky": "glb_v5/sky_dome_v5_*.glb, sky_cloud_layers_v5.glb, fog_valley_banks_v5.glb, fx_*_v5.glb unchanged",
   "shore_foam": "glb_v5_maps/shore_foam_strips_v5.glb",
   "shore_rocks": "glb_v5_maps/shore_rock_kit_v5.glb"
+ },
+ "rect": {
+  "note": "Map-hugging near rings. Inner lip (y=0) = rounded rectangle offset 1.5 m outside the map edge, corner radius 2.5 m (map corner stays >= 1.09 m inside the lip); terrain = the radius-class ring radially re-mapped (first third compressed so slopes rise right off the border); outer edge r=288 circle meets glb_v5_maps mid/far quads as before. Node names, show/hide rule, materials, tree LOD and fade conventions identical to backdrop_near_c<R>. Use INSTEAD of maps[m].near (same mid/far/fog). apron_Q runs from 3 m inside the map edge to 1 m past the lip at y=-0.1 (land quadrants only). Sea maps also carry near_sea_Q (sea-slope segments) + water_Q.",
+  "lip_offset_m": 1.5,
+  "corner_radius_m": 2.5,
+  "maps": {
+   "wild": {
+    "group": "wild",
+    "size_m": [
+     72,
+     56
+    ],
+    "lip_half_extents_m": [
+     37.5,
+     29.5
+    ],
+    "source_radius_class": 52,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_wild_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_wild_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_wild_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_wild_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_sea_W",
+     "near_land_S",
+     "apron_S",
+     "water_W"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [
+     "mid_W",
+     "far_W"
+    ],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [
+     "fog_W"
+    ],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_wild_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_wild_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_wild_winter_instances.json"
+    }
+   },
+   "briarE": {
+    "group": "briarE",
+    "size_m": [
+     52,
+     40
+    ],
+    "lip_half_extents_m": [
+     27.5,
+     21.5
+    ],
+    "source_radius_class": 42,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_briarE_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_briarE_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_briarE_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_briarE_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_briarE_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_briarE_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_briarE_winter_instances.json"
+    }
+   },
+   "duneW": {
+    "group": "duneW",
+    "size_m": [
+     28,
+     16
+    ],
+    "lip_half_extents_m": [
+     15.5,
+     9.5
+    ],
+    "source_radius_class": 23,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_duneW_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_duneW_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_duneW_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_duneW_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_duneW_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_duneW_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_duneW_winter_instances.json"
+    }
+   },
+   "desert": {
+    "group": "desert",
+    "size_m": [
+     36,
+     30
+    ],
+    "lip_half_extents_m": [
+     19.5,
+     16.5
+    ],
+    "source_radius_class": 30,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_desert_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_desert_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_desert_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_desert_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_desert_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_desert_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_desert_winter_instances.json"
+    }
+   },
+   "isle": {
+    "group": "isle",
+    "size_m": [
+     96,
+     80
+    ],
+    "lip_half_extents_m": [
+     49.5,
+     41.5
+    ],
+    "source_radius_class": 52,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_isle_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_isle_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_isle_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_isle_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_sea_E",
+     "near_sea_N",
+     "near_sea_W",
+     "near_sea_S",
+     "water_E",
+     "water_N",
+     "water_W",
+     "water_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [
+     "mid_E",
+     "far_E",
+     "mid_N",
+     "far_N",
+     "mid_W",
+     "far_W",
+     "mid_S",
+     "far_S"
+    ],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [
+     "fog_E",
+     "fog_N",
+     "fog_W",
+     "fog_S"
+    ],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_isle_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_isle_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_isle_winter_instances.json"
+    },
+    "note": "islands map (12E): all four quadrants are sea; ring gives sea-slope edges only (ALLSEA: no full-height corner headlands, no trees). Pair it with islands_v2 (headlands 30-80 m long / 15-40 m tall and islets 8-60 m off the coast, plus the outer skerries and water).",
+    "islands_v2": {
+     "summer": "glb_v5_maps/backdrop_islands_isle_v2_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_islands_isle_v2_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_islands_isle_v2_winter.glb",
+     "dead": "glb_v5_maps/backdrop_islands_isle_v2_dead.glb"
+    }
+   },
+   "waste": {
+    "group": "waste",
+    "size_m": [
+     50,
+     42
+    ],
+    "lip_half_extents_m": [
+     26.5,
+     22.5
+    ],
+    "source_radius_class": 42,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_waste_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_waste_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_waste_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_waste_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_waste_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_waste_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_waste_winter_instances.json"
+    }
+   },
+   "coast": {
+    "group": "coast",
+    "size_m": [
+     42,
+     56
+    ],
+    "lip_half_extents_m": [
+     22.5,
+     29.5
+    ],
+    "source_radius_class": 42,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_coast_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_coast_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_coast_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_coast_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_sea_E",
+     "near_land_N",
+     "apron_N",
+     "near_sea_W",
+     "near_sea_S",
+     "water_E",
+     "water_W",
+     "water_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [
+     "mid_E",
+     "far_E",
+     "mid_W",
+     "far_W",
+     "mid_S",
+     "far_S"
+    ],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [
+     "fog_E",
+     "fog_W",
+     "fog_S"
+    ],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_coast_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_coast_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_coast_winter_instances.json"
+    }
+   },
+   "bluffs": {
+    "group": "bluffs",
+    "size_m": [
+     52,
+     44
+    ],
+    "lip_half_extents_m": [
+     27.5,
+     23.5
+    ],
+    "source_radius_class": 42,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_bluffs_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_bluffs_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_bluffs_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_bluffs_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_bluffs_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_bluffs_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_bluffs_winter_instances.json"
+    }
+   },
+   "mires": {
+    "group": "mires",
+    "size_m": [
+     40,
+     34
+    ],
+    "lip_half_extents_m": [
+     21.5,
+     18.5
+    ],
+    "source_radius_class": 30,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_mires_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_mires_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_mires_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_mires_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_sea_E",
+     "near_sea_N",
+     "near_sea_W",
+     "near_sea_S",
+     "water_E",
+     "water_N",
+     "water_W",
+     "water_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [
+     "mid_E",
+     "far_E",
+     "mid_N",
+     "far_N",
+     "mid_W",
+     "far_W",
+     "mid_S",
+     "far_S"
+    ],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [
+     "fog_E",
+     "fog_N",
+     "fog_W",
+     "fog_S"
+    ],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_mires_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_mires_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_mires_winter_instances.json"
+    },
+    "note": "islands map (12E): all four quadrants are sea; ring gives sea-slope edges only (ALLSEA: no full-height corner headlands, no trees). Pair it with islands_v2 (headlands 30-80 m long / 15-40 m tall and islets 8-60 m off the coast, plus the outer skerries and water).",
+    "islands_v2": {
+     "summer": "glb_v5_maps/backdrop_islands_mires_v2_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_islands_mires_v2_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_islands_mires_v2_winter.glb",
+     "dead": "glb_v5_maps/backdrop_islands_mires_v2_dead.glb"
+    }
+   },
+   "ridge": {
+    "group": "ridge",
+    "size_m": [
+     44,
+     46
+    ],
+    "lip_half_extents_m": [
+     23.5,
+     24.5
+    ],
+    "source_radius_class": 42,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_ridge_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_ridge_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_ridge_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_ridge_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_ridge_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_ridge_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_ridge_winter_instances.json"
+    }
+   },
+   "ascent": {
+    "group": "ascent",
+    "size_m": [
+     32,
+     30
+    ],
+    "lip_half_extents_m": [
+     17.5,
+     16.5
+    ],
+    "source_radius_class": 30,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_ascent_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_ascent_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_ascent_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_ascent_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_ascent_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_ascent_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_ascent_winter_instances.json"
+    }
+   },
+   "iron": {
+    "group": "iron",
+    "size_m": [
+     38,
+     24
+    ],
+    "lip_half_extents_m": [
+     20.5,
+     13.5
+    ],
+    "source_radius_class": 30,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_iron_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_iron_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_iron_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_iron_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_iron_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_iron_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_iron_winter_instances.json"
+    }
+   },
+   "flotsam": {
+    "group": "flotsam",
+    "size_m": [
+     36,
+     28
+    ],
+    "lip_half_extents_m": [
+     19.5,
+     15.5
+    ],
+    "source_radius_class": 30,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_flotsam_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_flotsam_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_flotsam_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_flotsam_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_sea_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S",
+     "water_N"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [
+     "mid_N",
+     "far_N"
+    ],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [
+     "fog_N"
+    ],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_flotsam_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_flotsam_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_flotsam_winter_instances.json"
+    }
+   },
+   "weald": {
+    "group": "weald",
+    "size_m": [
+     44,
+     40
+    ],
+    "lip_half_extents_m": [
+     23.5,
+     21.5
+    ],
+    "source_radius_class": 36,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_weald_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_weald_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_weald_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_weald_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_weald_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_weald_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_weald_winter_instances.json"
+    }
+   },
+   "tollarch": {
+    "group": "s22x18",
+    "size_m": [
+     22,
+     18
+    ],
+    "lip_half_extents_m": [
+     12.5,
+     10.5
+    ],
+    "source_radius_class": 23,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_s22x18_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_s22x18_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_s22x18_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_s22x18_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_s22x18_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_s22x18_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_s22x18_winter_instances.json"
+    }
+   },
+   "spireroots": {
+    "group": "s22x18",
+    "size_m": [
+     22,
+     18
+    ],
+    "lip_half_extents_m": [
+     12.5,
+     10.5
+    ],
+    "source_radius_class": 23,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_s22x18_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_s22x18_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_s22x18_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_s22x18_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_s22x18_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_s22x18_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_s22x18_winter_instances.json"
+    }
+   },
+   "ashcamps": {
+    "group": "s22x18",
+    "size_m": [
+     22,
+     18
+    ],
+    "lip_half_extents_m": [
+     12.5,
+     10.5
+    ],
+    "source_radius_class": 23,
+    "near": {
+     "summer": "glb_v5_maps/rect/backdrop_near_rect_s22x18_summer.glb",
+     "autumn": "glb_v5_maps/rect/backdrop_near_rect_s22x18_autumn.glb",
+     "winter": "glb_v5_maps/rect/backdrop_near_rect_s22x18_winter.glb",
+     "dead": "glb_v5_maps/rect/backdrop_near_rect_s22x18_dead.glb"
+    },
+    "near_show_nodes": [
+     "near_land_E",
+     "apron_E",
+     "near_land_N",
+     "apron_N",
+     "near_land_W",
+     "apron_W",
+     "near_land_S",
+     "apron_S"
+    ],
+    "mid": {
+     "summer": "glb_v5_maps/backdrop_mid_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_mid_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_mid_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_mid_quads_dead.glb"
+    },
+    "far": {
+     "summer": "glb_v5_maps/backdrop_far_quads_summer.glb",
+     "autumn": "glb_v5_maps/backdrop_far_quads_autumn.glb",
+     "winter": "glb_v5_maps/backdrop_far_quads_winter.glb",
+     "dead": "glb_v5_maps/backdrop_far_quads_dead.glb"
+    },
+    "hide_mid_far_nodes": [],
+    "fog": "glb_v5_maps/fog_valley_banks_v5_quads.glb",
+    "hide_fog_nodes": [],
+    "tree_instances": {
+     "summer": "glb_v5_maps/rect/trees_near_rect_s22x18_summer_instances.json",
+     "autumn": "glb_v5_maps/rect/trees_near_rect_s22x18_autumn_instances.json",
+     "winter": "glb_v5_maps/rect/trees_near_rect_s22x18_winter_instances.json"
+    }
+   }
+  }
+ },
+ "border_kit": {
+  "manifest": "glb_v5_maps/border/border_kit_v5.json",
+  "note": "12E border/coast kit: border_{peak,shelf,dune}_{a,b,c} unit pieces (1 m footprint), seacliff_{straight6,straight6b,outer,inner}_h{3,5,8}, beach_{sand,shingle}_{straight6,outer,inner}; per season"
  }
 }
