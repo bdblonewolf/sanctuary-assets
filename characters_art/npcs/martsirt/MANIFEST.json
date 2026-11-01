@@ -1,0 +1,353 @@
+{
+ "format": "glTF 2.0 binary, KHR_mesh_quantization + EXT_texture_webp, Y-up, feet at y=0, facing +Z, metres",
+ "skeleton": "mixamorig (single armature / single skin per GLB)",
+ "npcs": {
+  "wolcen": {
+   "glb": "glb/wolcen.glb",
+   "bytes": 1386464,
+   "MB": 1.386,
+   "height_m": 1.98,
+   "tris_total": 24147,
+   "tris_visible_default": 21469,
+   "textures": {
+    "basecolor": "1024 webp",
+    "normal": "1024 webp",
+    "orm": "1024 webp"
+   },
+   "materials": [
+    "wolcen_mat",
+    "wolcen_mat_cards"
+   ],
+   "body_regions": [
+    "wolcen_body_head",
+    "wolcen_body_torso",
+    "wolcen_body_arms",
+    "wolcen_body_hands",
+    "wolcen_body_legs",
+    "wolcen_body_feet"
+   ],
+   "slots": {
+    "torso": "wolcen_outfit_torso",
+    "legs": "wolcen_outfit_legs",
+    "feet": "wolcen_outfit_feet",
+    "hands": "wolcen_outfit_hands"
+   },
+   "slot_hides": {
+    "wolcen_outfit_feet": [
+     "wolcen_body_feet"
+    ],
+    "wolcen_outfit_hands": [],
+    "wolcen_outfit_legs": [
+     "wolcen_body_legs"
+    ],
+    "wolcen_outfit_torso": [
+     "wolcen_body_torso"
+    ]
+   },
+   "default_hidden_regions": [
+    "wolcen_body_feet",
+    "wolcen_body_legs",
+    "wolcen_body_torso"
+   ],
+   "hair": "wolcen_hair",
+   "props": {
+    "wolcen_prop_hammer": {
+     "bone": "mixamorig:RightHand",
+     "mesh_child": "wolcen_prop_hammer_mesh",
+     "visible_in": [
+      "work_hammer"
+     ]
+    },
+    "wolcen_prop_tongs": {
+     "bone": "mixamorig:LeftHand",
+     "mesh_child": "wolcen_prop_tongs_mesh",
+     "visible_in": [
+      "work_hammer"
+     ]
+    }
+   },
+   "keepsake": {
+    "node": "wolcen_keepsake",
+    "bone": "mixamorig:Hips",
+    "always_visible": true
+   },
+   "clips": [
+    "idle",
+    "walk",
+    "talk",
+    "sit",
+    "sit_talk",
+    "work_hammer",
+    "sleep"
+   ],
+   "profession_clip": "work_hammer",
+   "meshes": [
+    {
+     "node": "wolcen_body_head",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 3128
+    },
+    {
+     "node": "wolcen_body_torso",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 1280
+    },
+    {
+     "node": "wolcen_body_arms",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 1156
+    },
+    {
+     "node": "wolcen_body_hands",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 1444
+    },
+    {
+     "node": "wolcen_body_legs",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 794
+    },
+    {
+     "node": "wolcen_body_feet",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 376
+    },
+    {
+     "node": "wolcen_outfit_torso",
+     "type": "outfit",
+     "skinned": true,
+     "tris": 5344
+    },
+    {
+     "node": "wolcen_outfit_legs",
+     "type": "outfit",
+     "skinned": true,
+     "tris": 1997
+    },
+    {
+     "node": "wolcen_outfit_feet",
+     "type": "outfit",
+     "skinned": true,
+     "tris": 3784
+    },
+    {
+     "node": "wolcen_outfit_hands",
+     "type": "outfit",
+     "skinned": true,
+     "tris": 1808
+    },
+    {
+     "node": "wolcen_hair",
+     "type": "hair",
+     "skinned": true,
+     "tris": 2732
+    },
+    {
+     "node": "wolcen_keepsake",
+     "type": "keepsake",
+     "skinned": false,
+     "parent_bone": "mixamorig:Hips",
+     "tris": 76
+    },
+    {
+     "node": "wolcen_prop_hammer",
+     "type": "prop",
+     "skinned": false,
+     "parent_bone": "mixamorig:RightHand",
+     "tris": 76,
+     "mesh_child": "wolcen_prop_hammer_mesh"
+    },
+    {
+     "node": "wolcen_prop_tongs",
+     "type": "prop",
+     "skinned": false,
+     "parent_bone": "mixamorig:LeftHand",
+     "tris": 152,
+     "mesh_child": "wolcen_prop_tongs_mesh"
+    }
+   ],
+   "previews": {
+    "front": "previews/wolcen_front.png",
+    "q": "previews/wolcen_q.png",
+    "side": "previews/wolcen_side.png",
+    "back": "previews/wolcen_back.png",
+    "face": "previews/wolcen_face.png",
+    "bare_front": "previews/wolcen_bare_front.png",
+    "clips": "previews/wolcen_clips.jpg"
+   }
+  },
+  "quill": {
+   "glb": "glb/quill.glb",
+   "bytes": 1243460,
+   "MB": 1.243,
+   "height_m": 1.76,
+   "tris_total": 22948,
+   "tris_visible_default": 19948,
+   "textures": {
+    "basecolor": "1024 webp",
+    "normal": "1024 webp",
+    "orm": "1024 webp"
+   },
+   "materials": [
+    "quill_mat",
+    "quill_mat_cards"
+   ],
+   "body_regions": [
+    "quill_body_head",
+    "quill_body_torso",
+    "quill_body_arms",
+    "quill_body_hands",
+    "quill_body_legs",
+    "quill_body_feet"
+   ],
+   "slots": {
+    "torso": "quill_outfit_torso",
+    "legs": "quill_outfit_legs",
+    "feet": "quill_outfit_feet",
+    "hands": "quill_outfit_hands"
+   },
+   "slot_hides": {
+    "quill_outfit_feet": [
+     "quill_body_feet"
+    ],
+    "quill_outfit_hands": [],
+    "quill_outfit_legs": [
+     "quill_body_legs"
+    ],
+    "quill_outfit_torso": [
+     "quill_body_torso",
+     "quill_body_arms"
+    ]
+   },
+   "default_hidden_regions": [
+    "quill_body_arms",
+    "quill_body_feet",
+    "quill_body_legs",
+    "quill_body_torso"
+   ],
+   "hair": "quill_hair",
+   "props": {
+    "quill_prop_quill": {
+     "bone": "mixamorig:RightHand",
+     "mesh_child": "quill_prop_quill_mesh",
+     "visible_in": [
+      "work_write"
+     ]
+    }
+   },
+   "keepsake": {
+    "node": "quill_keepsake",
+    "bone": "mixamorig:RightHandRing1",
+    "always_visible": true
+   },
+   "clips": [
+    "idle",
+    "walk",
+    "talk",
+    "sit",
+    "sit_talk",
+    "work_write",
+    "sleep"
+   ],
+   "profession_clip": "work_write",
+   "meshes": [
+    {
+     "node": "quill_body_head",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 3011
+    },
+    {
+     "node": "quill_body_torso",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 1309
+    },
+    {
+     "node": "quill_body_arms",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 497
+    },
+    {
+     "node": "quill_body_hands",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 1417
+    },
+    {
+     "node": "quill_body_legs",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 778
+    },
+    {
+     "node": "quill_body_feet",
+     "type": "body_region",
+     "skinned": true,
+     "tris": 368
+    },
+    {
+     "node": "quill_outfit_torso",
+     "type": "outfit",
+     "skinned": true,
+     "tris": 8230
+    },
+    {
+     "node": "quill_outfit_legs",
+     "type": "outfit",
+     "skinned": true,
+     "tris": 1499
+    },
+    {
+     "node": "quill_outfit_feet",
+     "type": "outfit",
+     "skinned": true,
+     "tris": 3095
+    },
+    {
+     "node": "quill_outfit_hands",
+     "type": "outfit",
+     "skinned": true,
+     "tris": 432
+    },
+    {
+     "node": "quill_hair",
+     "type": "hair",
+     "skinned": true,
+     "tris": 2156
+    },
+    {
+     "node": "quill_keepsake",
+     "type": "keepsake",
+     "skinned": false,
+     "parent_bone": "mixamorig:RightHandRing1",
+     "tris": 108
+    },
+    {
+     "node": "quill_prop_quill",
+     "type": "prop",
+     "skinned": false,
+     "parent_bone": "mixamorig:RightHand",
+     "tris": 48,
+     "mesh_child": "quill_prop_quill_mesh"
+    }
+   ],
+   "previews": {
+    "front": "previews/quill_front.png",
+    "q": "previews/quill_q.png",
+    "side": "previews/quill_side.png",
+    "back": "previews/quill_back.png",
+    "face": "previews/quill_face.png",
+    "bare_front": "previews/quill_bare_front.png",
+    "clips": "previews/quill_clips.jpg"
+   }
+  }
+ }
+}

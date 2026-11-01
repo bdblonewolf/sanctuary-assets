@@ -1,0 +1,80 @@
+{
+ "npc_f_leather_white_belt": {
+  "node": "npc_f_leather_white_belt",
+  "file": "npc_f_leather_white_belt_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 229,
+  "mask_regions": {
+   "RightUpLeg": 86,
+   "LeftUpLeg": 89,
+   "Hips": 54
+  }
+ },
+ "npc_f_leather_white_boots": {
+  "node": "npc_f_leather_white_boots",
+  "file": "npc_f_leather_white_boots_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 2990,
+  "mask_regions": {
+   "RightUpLeg": 119,
+   "RightLeg": 294,
+   "RightFoot": 215,
+   "RightToeBase": 867,
+   "LeftUpLeg": 119,
+   "LeftLeg": 295,
+   "LeftFoot": 216,
+   "LeftToeBase": 865
+  }
+ },
+ "npc_f_leather_white_chest": {
+  "node": "npc_f_leather_white_chest",
+  "file": "npc_f_leather_white_chest_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 759,
+  "mask_regions": {
+   "Spine2": 513,
+   "RightArm": 15,
+   "Spine1": 219,
+   "LeftArm": 12
+  }
+ },
+ "npc_f_leather_white_loincloth": {
+  "node": "npc_f_leather_white_loincloth",
+  "file": "npc_f_leather_white_loincloth_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 65,
+  "mask_regions": {
+   "RightUpLeg": 30,
+   "LeftUpLeg": 28,
+   "Hips": 7
+  }
+ },
+ "npc_f_leather_white_pauldron": {
+  "node": "npc_f_leather_white_pauldron",
+  "file": "npc_f_leather_white_pauldron_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 159,
+  "mask_regions": {
+   "LeftArm": 138,
+   "Spine2": 21
+  }
+ },
+ "npc_f_leather_white_vambrace_L": {
+  "node": "npc_f_leather_white_vambrace_L",
+  "file": "npc_f_leather_white_vambrace_L_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 129,
+  "mask_regions": {
+   "LeftForeArm": 129
+  }
+ },
+ "npc_f_leather_white_vambrace_R": {
+  "node": "npc_f_leather_white_vambrace_R",
+  "file": "npc_f_leather_white_vambrace_R_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 129,
+  "mask_regions": {
+   "RightForeArm": 129
+  }
+ }
+}

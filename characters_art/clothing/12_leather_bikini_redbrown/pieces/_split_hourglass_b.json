@@ -1,0 +1,80 @@
+{
+ "npc_f_leather_redbrown_belt": {
+  "node": "npc_f_leather_redbrown_belt",
+  "file": "npc_f_leather_redbrown_belt_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 229,
+  "mask_regions": {
+   "RightUpLeg": 86,
+   "LeftUpLeg": 89,
+   "Hips": 54
+  }
+ },
+ "npc_f_leather_redbrown_boots": {
+  "node": "npc_f_leather_redbrown_boots",
+  "file": "npc_f_leather_redbrown_boots_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 2990,
+  "mask_regions": {
+   "RightUpLeg": 119,
+   "RightLeg": 294,
+   "RightFoot": 215,
+   "RightToeBase": 867,
+   "LeftUpLeg": 119,
+   "LeftLeg": 295,
+   "LeftFoot": 216,
+   "LeftToeBase": 865
+  }
+ },
+ "npc_f_leather_redbrown_chest": {
+  "node": "npc_f_leather_redbrown_chest",
+  "file": "npc_f_leather_redbrown_chest_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 759,
+  "mask_regions": {
+   "Spine2": 513,
+   "RightArm": 15,
+   "Spine1": 219,
+   "LeftArm": 12
+  }
+ },
+ "npc_f_leather_redbrown_loincloth": {
+  "node": "npc_f_leather_redbrown_loincloth",
+  "file": "npc_f_leather_redbrown_loincloth_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 99,
+  "mask_regions": {
+   "RightUpLeg": 47,
+   "LeftUpLeg": 45,
+   "Hips": 7
+  }
+ },
+ "npc_f_leather_redbrown_pauldron": {
+  "node": "npc_f_leather_redbrown_pauldron",
+  "file": "npc_f_leather_redbrown_pauldron_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 134,
+  "mask_regions": {
+   "LeftArm": 117,
+   "Spine2": 17
+  }
+ },
+ "npc_f_leather_redbrown_vambrace_L": {
+  "node": "npc_f_leather_redbrown_vambrace_L",
+  "file": "npc_f_leather_redbrown_vambrace_L_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 129,
+  "mask_regions": {
+   "LeftForeArm": 129
+  }
+ },
+ "npc_f_leather_redbrown_vambrace_R": {
+  "node": "npc_f_leather_redbrown_vambrace_R",
+  "file": "npc_f_leather_redbrown_vambrace_R_hourglass_b.glb",
+  "body": "hourglass_b",
+  "mask_vertex_count": 129,
+  "mask_regions": {
+   "RightForeArm": 129
+  }
+ }
+}

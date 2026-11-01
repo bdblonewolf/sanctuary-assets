@@ -1,0 +1,592 @@
+{
+ "version": 1,
+ "units": "meters",
+ "forward": "+Z",
+ "skeleton": "mixamorig 52-bone",
+ "body_files": {
+  "hourglass_a": "bodies_fit/female_medium_hourglass_a.glb",
+  "hourglass_b": "bodies_fit/female_medium_hourglass_b.glb",
+  "ayla_phimn_body": "bodies_fit/ayla_phimn_body.glb"
+ },
+ "notes": "Each piece is an independent skinned GLB (armature + one mesh node). Equip = load piece and bind to NPC skeleton; body_mask vertices (indices into that body mesh) may be hidden while worn and unhidden on removal. Bodies are bare bases with linen briefs for decency.",
+ "races": {
+  "phimn": {
+   "code_as": "human",
+   "skin": "grey-blue",
+   "height_m": 1.42,
+   "body": "ayla_phimn_body"
+  }
+ },
+ "pieces": [
+  {
+   "id": "npc_f_leather_white_belt",
+   "outfit": "11_leather_bikini_white",
+   "slot": "legs",
+   "node": "npc_f_leather_white_belt",
+   "fits": {
+    "hourglass_a": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_belt_hourglass_a.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_belt_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 249
+    },
+    "hourglass_b": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_belt_hourglass_b.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_belt_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 225
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_white_boots",
+   "outfit": "11_leather_bikini_white",
+   "slot": "feet",
+   "node": "npc_f_leather_white_boots",
+   "fits": {
+    "hourglass_a": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_boots_hourglass_a.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_boots_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "LeftFoot",
+      "LeftLeg",
+      "LeftToeBase",
+      "LeftUpLeg",
+      "RightFoot",
+      "RightLeg",
+      "RightToeBase",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 3025
+    },
+    "hourglass_b": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_boots_hourglass_b.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_boots_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "LeftFoot",
+      "LeftLeg",
+      "LeftToeBase",
+      "LeftUpLeg",
+      "RightFoot",
+      "RightLeg",
+      "RightToeBase",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 2988
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_white_chest",
+   "outfit": "11_leather_bikini_white",
+   "slot": "chest",
+   "node": "npc_f_leather_white_chest",
+   "fits": {
+    "hourglass_a": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_chest_hourglass_a.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_chest_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "LeftArm",
+      "RightArm",
+      "Spine1",
+      "Spine2"
+     ],
+     "mask_vertex_count": 769
+    },
+    "hourglass_b": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_chest_hourglass_b.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_chest_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "LeftArm",
+      "RightArm",
+      "Spine1",
+      "Spine2"
+     ],
+     "mask_vertex_count": 769
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_white_loincloth",
+   "outfit": "11_leather_bikini_white",
+   "slot": "legs",
+   "node": "npc_f_leather_white_loincloth",
+   "fits": {
+    "hourglass_a": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_loincloth_hourglass_a.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_loincloth_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 69
+    },
+    "hourglass_b": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_loincloth_hourglass_b.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_loincloth_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 55
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_white_pauldron",
+   "outfit": "11_leather_bikini_white",
+   "slot": "arms",
+   "node": "npc_f_leather_white_pauldron",
+   "fits": {
+    "hourglass_a": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_pauldron_hourglass_a.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_pauldron_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "LeftArm",
+      "Spine2"
+     ],
+     "mask_vertex_count": 159
+    },
+    "hourglass_b": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_pauldron_hourglass_b.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_pauldron_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "LeftArm",
+      "Spine2"
+     ],
+     "mask_vertex_count": 159
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_white_vambrace_L",
+   "outfit": "11_leather_bikini_white",
+   "slot": "arms",
+   "node": "npc_f_leather_white_vambrace_L",
+   "fits": {
+    "hourglass_a": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_vambrace_L_hourglass_a.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_vambrace_L_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "LeftForeArm"
+     ],
+     "mask_vertex_count": 129
+    },
+    "hourglass_b": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_vambrace_L_hourglass_b.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_vambrace_L_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "LeftForeArm"
+     ],
+     "mask_vertex_count": 129
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_white_vambrace_R",
+   "outfit": "11_leather_bikini_white",
+   "slot": "arms",
+   "node": "npc_f_leather_white_vambrace_R",
+   "fits": {
+    "hourglass_a": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_vambrace_R_hourglass_a.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_vambrace_R_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "RightForeArm"
+     ],
+     "mask_vertex_count": 129
+    },
+    "hourglass_b": {
+     "file": "11_leather_bikini_white/pieces/npc_f_leather_white_vambrace_R_hourglass_b.glb",
+     "body_mask_file": "11_leather_bikini_white/pieces/npc_f_leather_white_vambrace_R_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "RightForeArm"
+     ],
+     "mask_vertex_count": 129
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_redbrown_belt",
+   "outfit": "12_leather_bikini_redbrown",
+   "slot": "legs",
+   "node": "npc_f_leather_redbrown_belt",
+   "fits": {
+    "hourglass_a": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_belt_hourglass_a.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_belt_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 309
+    },
+    "hourglass_b": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_belt_hourglass_b.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_belt_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 285
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_redbrown_boots",
+   "outfit": "12_leather_bikini_redbrown",
+   "slot": "feet",
+   "node": "npc_f_leather_redbrown_boots",
+   "fits": {
+    "hourglass_a": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_boots_hourglass_a.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_boots_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "LeftFoot",
+      "LeftLeg",
+      "LeftToeBase",
+      "LeftUpLeg",
+      "RightFoot",
+      "RightLeg",
+      "RightToeBase",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 3025
+    },
+    "hourglass_b": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_boots_hourglass_b.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_boots_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "LeftFoot",
+      "LeftLeg",
+      "LeftToeBase",
+      "LeftUpLeg",
+      "RightFoot",
+      "RightLeg",
+      "RightToeBase",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 2988
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_redbrown_chest",
+   "outfit": "12_leather_bikini_redbrown",
+   "slot": "chest",
+   "node": "npc_f_leather_redbrown_chest",
+   "fits": {
+    "hourglass_a": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_chest_hourglass_a.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_chest_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "LeftArm",
+      "RightArm",
+      "Spine1",
+      "Spine2"
+     ],
+     "mask_vertex_count": 769
+    },
+    "hourglass_b": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_chest_hourglass_b.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_chest_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "LeftArm",
+      "RightArm",
+      "Spine1",
+      "Spine2"
+     ],
+     "mask_vertex_count": 769
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_redbrown_loincloth",
+   "outfit": "12_leather_bikini_redbrown",
+   "slot": "legs",
+   "node": "npc_f_leather_redbrown_loincloth",
+   "fits": {
+    "hourglass_a": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_loincloth_hourglass_a.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_loincloth_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 115
+    },
+    "hourglass_b": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_loincloth_hourglass_b.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_loincloth_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 99
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_redbrown_pauldron",
+   "outfit": "12_leather_bikini_redbrown",
+   "slot": "arms",
+   "node": "npc_f_leather_redbrown_pauldron",
+   "fits": {
+    "hourglass_a": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_pauldron_hourglass_a.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_pauldron_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "LeftArm",
+      "Spine2"
+     ],
+     "mask_vertex_count": 134
+    },
+    "hourglass_b": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_pauldron_hourglass_b.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_pauldron_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "LeftArm",
+      "Spine2"
+     ],
+     "mask_vertex_count": 134
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_redbrown_vambrace_L",
+   "outfit": "12_leather_bikini_redbrown",
+   "slot": "arms",
+   "node": "npc_f_leather_redbrown_vambrace_L",
+   "fits": {
+    "hourglass_a": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_vambrace_L_hourglass_a.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_vambrace_L_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "LeftForeArm"
+     ],
+     "mask_vertex_count": 129
+    },
+    "hourglass_b": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_vambrace_L_hourglass_b.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_vambrace_L_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "LeftForeArm"
+     ],
+     "mask_vertex_count": 129
+    }
+   }
+  },
+  {
+   "id": "npc_f_leather_redbrown_vambrace_R",
+   "outfit": "12_leather_bikini_redbrown",
+   "slot": "arms",
+   "node": "npc_f_leather_redbrown_vambrace_R",
+   "fits": {
+    "hourglass_a": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_vambrace_R_hourglass_a.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_vambrace_R_hourglass_a.mask.json",
+     "body_mask_regions": [
+      "RightForeArm"
+     ],
+     "mask_vertex_count": 129
+    },
+    "hourglass_b": {
+     "file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_vambrace_R_hourglass_b.glb",
+     "body_mask_file": "12_leather_bikini_redbrown/pieces/npc_f_leather_redbrown_vambrace_R_hourglass_b.mask.json",
+     "body_mask_regions": [
+      "RightForeArm"
+     ],
+     "mask_vertex_count": 129
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_belt",
+   "outfit": "ayla_phimn",
+   "slot": "legs",
+   "node": "npc_f_ayla_belt",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_belt_ayla_phimn_body.glb",
+     "body_mask_file": "ayla_phimn/pieces/npc_f_ayla_belt_ayla_phimn_body.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 99
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_boots",
+   "outfit": "ayla_phimn",
+   "slot": "feet",
+   "node": "npc_f_ayla_boots",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_boots_ayla_phimn_body.glb",
+     "body_mask_file": "ayla_phimn/pieces/npc_f_ayla_boots_ayla_phimn_body.mask.json",
+     "body_mask_regions": [
+      "LeftFoot",
+      "LeftLeg",
+      "LeftToeBase",
+      "RightFoot",
+      "RightLeg",
+      "RightToeBase"
+     ],
+     "mask_vertex_count": 2680
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_charm_crystal",
+   "outfit": "ayla_phimn",
+   "slot": "neck",
+   "node": "npc_f_ayla_charm_crystal",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_charm_crystal_ayla_phimn_body.glb",
+     "body_mask_file": "ayla_phimn/pieces/npc_f_ayla_charm_crystal_ayla_phimn_body.mask.json",
+     "body_mask_regions": [
+      "Spine"
+     ],
+     "mask_vertex_count": 3
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_charm_silver",
+   "outfit": "ayla_phimn",
+   "slot": "neck",
+   "node": "npc_f_ayla_charm_silver",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_charm_silver_ayla_phimn_body.glb",
+     "body_mask_file": "ayla_phimn/pieces/npc_f_ayla_charm_silver_ayla_phimn_body.mask.json",
+     "body_mask_regions": [
+      "Spine"
+     ],
+     "mask_vertex_count": 10
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_halter_strings",
+   "outfit": "ayla_phimn",
+   "slot": "chest",
+   "node": "npc_f_ayla_halter_strings",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_halter_strings_ayla_phimn_body.glb",
+     "body_mask_file": "ayla_phimn/pieces/npc_f_ayla_halter_strings_ayla_phimn_body.mask.json",
+     "body_mask_regions": [
+      "Neck",
+      "Spine",
+      "Spine1",
+      "Spine2"
+     ],
+     "mask_vertex_count": 46
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_halter_top",
+   "outfit": "ayla_phimn",
+   "slot": "chest",
+   "node": "npc_f_ayla_halter_top",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_halter_top_ayla_phimn_body.glb",
+     "body_mask_file": "ayla_phimn/pieces/npc_f_ayla_halter_top_ayla_phimn_body.mask.json",
+     "body_mask_regions": [
+      "LeftArm",
+      "RightArm",
+      "Spine1",
+      "Spine2"
+     ],
+     "mask_vertex_count": 381
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_loincloth",
+   "outfit": "ayla_phimn",
+   "slot": "legs",
+   "node": "npc_f_ayla_loincloth",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_loincloth_ayla_phimn_body.glb",
+     "body_mask_file": "ayla_phimn/pieces/npc_f_ayla_loincloth_ayla_phimn_body.mask.json",
+     "body_mask_regions": [
+      "Hips",
+      "LeftUpLeg",
+      "RightUpLeg"
+     ],
+     "mask_vertex_count": 22
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_vambrace_L",
+   "outfit": "ayla_phimn",
+   "slot": "arms",
+   "node": "npc_f_ayla_vambrace_L",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_vambrace_L_ayla_phimn_body.glb",
+     "body_mask_file": "ayla_phimn/pieces/npc_f_ayla_vambrace_L_ayla_phimn_body.mask.json",
+     "body_mask_regions": [
+      "LeftForeArm"
+     ],
+     "mask_vertex_count": 129
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_vambrace_R",
+   "outfit": "ayla_phimn",
+   "slot": "arms",
+   "node": "npc_f_ayla_vambrace_R",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_vambrace_R_ayla_phimn_body.glb",
+     "body_mask_file": "ayla_phimn/pieces/npc_f_ayla_vambrace_R_ayla_phimn_body.mask.json",
+     "body_mask_regions": [
+      "RightForeArm"
+     ],
+     "mask_vertex_count": 129
+    }
+   }
+  },
+  {
+   "id": "npc_f_ayla_hair",
+   "outfit": "ayla_phimn",
+   "slot": "head/hair",
+   "node": "npc_f_ayla_hair",
+   "fits": {
+    "ayla_phimn_body": {
+     "file": "ayla_phimn/pieces/npc_f_ayla_hair.glb",
+     "body_mask_file": null,
+     "body_mask_regions": [],
+     "mask_vertex_count": 0
+    }
+   },
+   "notes": "Alpha-card hair (HASHED blend), Head/Neck/Spine2 weighted; no body mask needed."
+  }
+ ]
+}

@@ -1,0 +1,96 @@
+{
+ "npc_f_ayla_belt": {
+  "node": "npc_f_ayla_belt",
+  "file": "npc_f_ayla_belt_ayla_phimn_body.glb",
+  "body": "ayla_phimn_body",
+  "mask_vertex_count": 32,
+  "mask_regions": {
+   "RightUpLeg": 7,
+   "Hips": 17,
+   "LeftUpLeg": 8
+  }
+ },
+ "npc_f_ayla_boots": {
+  "node": "npc_f_ayla_boots",
+  "file": "npc_f_ayla_boots_ayla_phimn_body.glb",
+  "body": "ayla_phimn_body",
+  "mask_vertex_count": 2680,
+  "mask_regions": {
+   "RightLeg": 224,
+   "RightFoot": 215,
+   "RightToeBase": 901,
+   "LeftLeg": 225,
+   "LeftFoot": 216,
+   "LeftToeBase": 899
+  }
+ },
+ "npc_f_ayla_charm_crystal": {
+  "node": "npc_f_ayla_charm_crystal",
+  "file": "npc_f_ayla_charm_crystal_ayla_phimn_body.glb",
+  "body": "ayla_phimn_body",
+  "mask_vertex_count": 3,
+  "mask_regions": {
+   "Spine": 3
+  }
+ },
+ "npc_f_ayla_charm_silver": {
+  "node": "npc_f_ayla_charm_silver",
+  "file": "npc_f_ayla_charm_silver_ayla_phimn_body.glb",
+  "body": "ayla_phimn_body",
+  "mask_vertex_count": 10,
+  "mask_regions": {
+   "Spine": 10
+  }
+ },
+ "npc_f_ayla_halter_strings": {
+  "node": "npc_f_ayla_halter_strings",
+  "file": "npc_f_ayla_halter_strings_ayla_phimn_body.glb",
+  "body": "ayla_phimn_body",
+  "mask_vertex_count": 48,
+  "mask_regions": {
+   "Neck": 8,
+   "Spine2": 30,
+   "Spine1": 8,
+   "Spine": 2
+  }
+ },
+ "npc_f_ayla_halter_top": {
+  "node": "npc_f_ayla_halter_top",
+  "file": "npc_f_ayla_halter_top_ayla_phimn_body.glb",
+  "body": "ayla_phimn_body",
+  "mask_vertex_count": 352,
+  "mask_regions": {
+   "Spine1": 141,
+   "Spine2": 211
+  }
+ },
+ "npc_f_ayla_loincloth": {
+  "node": "npc_f_ayla_loincloth",
+  "file": "npc_f_ayla_loincloth_ayla_phimn_body.glb",
+  "body": "ayla_phimn_body",
+  "mask_vertex_count": 10,
+  "mask_regions": {
+   "RightUpLeg": 2,
+   "Hips": 6,
+   "LeftUpLeg": 2
+  }
+ },
+ "npc_f_ayla_vambrace_L": {
+  "node": "npc_f_ayla_vambrace_L",
+  "file": "npc_f_ayla_vambrace_L_ayla_phimn_body.glb",
+  "body": "ayla_phimn_body",
+  "mask_vertex_count": 129,
+  "mask_regions": {
+   "LeftForeArm": 129
+  }
+ },
+ "npc_f_ayla_vambrace_R": {
+  "node": "npc_f_ayla_vambrace_R",
+  "file": "npc_f_ayla_vambrace_R_ayla_phimn_body.glb",
+  "body": "ayla_phimn_body",
+  "mask_vertex_count": 129,
+  "mask_regions": {
+   "RightForeArm": 129
+  }
+ }
+}

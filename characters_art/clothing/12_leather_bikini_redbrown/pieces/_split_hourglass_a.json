@@ -1,0 +1,80 @@
+{
+ "npc_f_leather_redbrown_belt": {
+  "node": "npc_f_leather_redbrown_belt",
+  "file": "npc_f_leather_redbrown_belt_hourglass_a.glb",
+  "body": "hourglass_a",
+  "mask_vertex_count": 245,
+  "mask_regions": {
+   "RightUpLeg": 71,
+   "LeftUpLeg": 73,
+   "Hips": 101
+  }
+ },
+ "npc_f_leather_redbrown_boots": {
+  "node": "npc_f_leather_redbrown_boots",
+  "file": "npc_f_leather_redbrown_boots_hourglass_a.glb",
+  "body": "hourglass_a",
+  "mask_vertex_count": 3025,
+  "mask_regions": {
+   "RightUpLeg": 136,
+   "RightLeg": 294,
+   "RightFoot": 215,
+   "RightToeBase": 867,
+   "LeftUpLeg": 136,
+   "LeftLeg": 295,
+   "LeftFoot": 216,
+   "LeftToeBase": 866
+  }
+ },
+ "npc_f_leather_redbrown_chest": {
+  "node": "npc_f_leather_redbrown_chest",
+  "file": "npc_f_leather_redbrown_chest_hourglass_a.glb",
+  "body": "hourglass_a",
+  "mask_vertex_count": 759,
+  "mask_regions": {
+   "Spine2": 513,
+   "RightArm": 15,
+   "Spine1": 219,
+   "LeftArm": 12
+  }
+ },
+ "npc_f_leather_redbrown_loincloth": {
+  "node": "npc_f_leather_redbrown_loincloth",
+  "file": "npc_f_leather_redbrown_loincloth_hourglass_a.glb",
+  "body": "hourglass_a",
+  "mask_vertex_count": 115,
+  "mask_regions": {
+   "RightUpLeg": 52,
+   "LeftUpLeg": 51,
+   "Hips": 12
+  }
+ },
+ "npc_f_leather_redbrown_pauldron": {
+  "node": "npc_f_leather_redbrown_pauldron",
+  "file": "npc_f_leather_redbrown_pauldron_hourglass_a.glb",
+  "body": "hourglass_a",
+  "mask_vertex_count": 134,
+  "mask_regions": {
+   "LeftArm": 117,
+   "Spine2": 17
+  }
+ },
+ "npc_f_leather_redbrown_vambrace_L": {
+  "node": "npc_f_leather_redbrown_vambrace_L",
+  "file": "npc_f_leather_redbrown_vambrace_L_hourglass_a.glb",
+  "body": "hourglass_a",
+  "mask_vertex_count": 129,
+  "mask_regions": {
+   "LeftForeArm": 129
+  }
+ },
+ "npc_f_leather_redbrown_vambrace_R": {
+  "node": "npc_f_leather_redbrown_vambrace_R",
+  "file": "npc_f_leather_redbrown_vambrace_R_hourglass_a.glb",
+  "body": "hourglass_a",
+  "mask_vertex_count": 129,
+  "mask_regions": {
+   "RightForeArm": 129
+  }
+ }
+}
