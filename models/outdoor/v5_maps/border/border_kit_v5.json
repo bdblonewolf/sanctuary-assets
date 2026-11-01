@@ -1,0 +1,1482 @@
+{
+ "stage": "12I",
+ "generator": "src_v5_maps/build_border_kit.py (Blender 4.2)",
+ "axes": "glTF Y-up, metres. Map ground y=0, sea surface y=-0.4 (SEA_Y).",
+ "border_pieces": {
+  "pattern": "border/border_{peak,shelf,dune}_{a,b,c}_v5_{season}.glb",
+  "footprint": "normalised: max(X extent, Z extent) = 1.0 m, centred on origin; base y=0 with a 3 cm skirt below",
+  "scale": "uniform scale in the engine (x8..x40 typical); rotate freely about Y",
+  "variants": {
+   "peak_a": "single summit",
+   "peak_b": "twin-summit ridge (long axis X)",
+   "peak_c": "broad jagged crag",
+   "shelf_a": "one-step ledge",
+   "shelf_b": "two-tier ledge",
+   "shelf_c": "low slab (long axis X)",
+   "dune_a": "barchan crescent (horns +X, downwind)",
+   "dune_b": "long transverse ridge (crest along Z, steep lee face +X)",
+   "dune_c": "rippled dome"
+  },
+  "materials": "rock texture on steep faces + seasonal cover (grass/snow/dead ground) on flats; dunes: beach sand (+ snow in winter). Base colour = texture x COLOR_0.",
+  "notes_12I": "12I: no flat tops / straight skylines on mounds: shelves get a crowned, tilted multi-summit craggy top (were flat mesas) and are no longer clipped open at the grid edge (shelf_a/c had an open side 'cave'); gullies can no longer cut holes; dune_b crest is sinuous with uneven height. Peaks re-gridded (52x52) and shelves (84x84 over a wider area) -> all border pieces <=4.5k tris (were up to 6.46k). Footprint normalisation (above-ground X/Z extent = 1.0 m) unchanged. dune_a/c byte-identical."
+ },
+ "coast_pieces": {
+  "path": "every coast piece starts at the origin heading +X; land on the LEFT (glTF -Z), sea on the RIGHT (glTF +Z) - same as shore_foam_strips_v2",
+  "chaining": {
+   "straight6 / straight6b": "ends at (6,0,0), heading +X",
+   "outer (convex land corner, left turn, R=6)": "ends at (6,0,-6), heading -Z (rotate the next piece +90 deg about Y)",
+   "inner (concave land corner, right turn, R=6)": "ends at (6,0,+6), heading +Z (rotate the next piece -90 deg about Y)",
+   "straight6c": "ends at (6,0,0), heading +X (third back-massing variant; interchangeable with straight6/6b of the same height)",
+   "seacliff_endcap_right_h{3,5,8}_{a,b}": "RIGHT endcap closes the END of a run: place it exactly where the next piece would go (at the run's end point, same heading). Joint section at its origin = straight6 h end section (0.0 mm). The cap occupies one 6 m slot; its spire tip tapers to the ground at (6,0,0). Nothing chains after it.",
+   "seacliff_endcap_left_h{3,5,8}_{a,b}": "LEFT endcap closes the START of a run: place it one slot before the first piece, i.e. its (6,0,0) end lands on the run's start point, same heading (tip at its origin). Joint section at (6,0,0) = straight6 h start section (0.0 mm). Nothing chains before it.",
+   "seacliff_step_h3h5 / h5h3 / h5h8 / h8h5": "height step: start section = straight6 h{from} section, end section = straight6 h{to} section (both 0.0 mm). Ends at (6,0,0) heading +X; drop it in a straight slot between two runs of different height. For h3<->h8 chain two steps (h8h5 + h5h3 or h3h5 + h5h8).",
+   "rule_12I": "no cliff run should ever end on a bare end wall: every free end gets an endcap of the matching height (left at the run start, right at the run end); every height change gets a step piece. Endcaps/steps only connect to straight sections of the same height at the joint (corners share the same end section, so they can also be joined directly to outer/inner)."
+  },
+  "seams": "all pieces of one family/height share an identical end cross-section (checked: 0 mm mismatch); surface noise fades to zero over the last 0.9 m 12I: endcap joint sections and both step ends verified identical to the straight6 end sections (0.0 mm) in all 4 seasons.",
+  "seacliff": "seacliff_{straight6,straight6b,outer,inner}_h{3,5,8}: lip (top edge) on the path line at y=h; sheer face down to a foot at y=-1.4, 1.4 m seaward; 1.2 m top then back slope reaching y=0 at 1.2+0.5h m inland. Ends are capped (hidden when chained; closes the end at height changes/free ends). straight6b = alternate face noise to break repetition. 12H: sea face battered ~70-73 deg; foot at y=-1.4 now 2.2/3.0/4.2 m seaward of the path at h3/h5/h8 (ends).",
+  "beach": "beach_{sand,shingle}_{straight6,outer,inner}: land edge on the path (tucked 0.4 m inland below ground), shelving to y=-0.8 at 4 m seaward; waterline ~2.8 m out; shingle has a storm berm ~1.2 m out. Winter: snow above the high-water line.",
+  "endcaps": "12I: seacliff_endcap_{left,right}_h{3,5,8}_{a,b} x 4 seasons. 6 m long (u=3 texture continuity). From the joint the cliff rises into a jagged, faceted rock spire/shoulder (~1.4-1.6x h for h3, ~1.45x h8; set back 1-2 m behind the lip, broad land flank) and then tapers in a three-sided pyramid down to the ground on the land side and under the sea on the sea side; tip column <=0.12 m above y=0. a/b = different spire position, size, secondary horn and noise seeds. Half talus fan only on the joint side. Snow/grass by slope (winter snow on ledges).",
+  "steps": "12I: seacliff_step_h3h5/h5h3/h5h8/h8h5 x 4 seasons. 6 m; section morphs smoothly between the two heights (rows of the lower profile duplicated to match the taller profile, so the low end has a few zero-length edges by design - validator INFO only), jagged shoulder spire on the high side, talus fan of each height at its own end."
+ },
+ "pieces": {
+  "beach_sand_inner": {
+   "width_m": 4.4,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land edge on the path (tucked 0.4 m inland below y=0), sea on the right (glTF +Z); shelving to y=-0.8 at 4 m; waterline ~2.8 m",
+   "end_xz": [
+    6,
+    6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/beach_sand_inner_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/beach_sand_inner_v5_dead.glb",
+    "summer": "glb_v5_maps/border/beach_sand_inner_v5_summer.glb",
+    "winter": "glb_v5_maps/border/beach_sand_inner_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 239020,
+    "dead": 239016,
+    "summer": 239020,
+    "winter": 355740
+   },
+   "tris": {
+    "autumn": 846,
+    "dead": 846,
+    "summer": 846,
+    "winter": 846
+   }
+  },
+  "beach_sand_outer": {
+   "width_m": 4.4,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land edge on the path (tucked 0.4 m inland below y=0), sea on the right (glTF +Z); shelving to y=-0.8 at 4 m; waterline ~2.8 m",
+   "end_xz": [
+    6,
+    -6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/beach_sand_outer_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/beach_sand_outer_v5_dead.glb",
+    "summer": "glb_v5_maps/border/beach_sand_outer_v5_summer.glb",
+    "winter": "glb_v5_maps/border/beach_sand_outer_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 238988,
+    "dead": 238984,
+    "summer": 238988,
+    "winter": 355716
+   },
+   "tris": {
+    "autumn": 846,
+    "dead": 846,
+    "summer": 846,
+    "winter": 846
+   }
+  },
+  "beach_sand_straight6": {
+   "width_m": 4.4,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land edge on the path (tucked 0.4 m inland below y=0), sea on the right (glTF +Z); shelving to y=-0.8 at 4 m; waterline ~2.8 m",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/beach_sand_straight6_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/beach_sand_straight6_v5_dead.glb",
+    "summer": "glb_v5_maps/border/beach_sand_straight6_v5_summer.glb",
+    "winter": "glb_v5_maps/border/beach_sand_straight6_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 229672,
+    "dead": 229668,
+    "summer": 229672,
+    "winter": 345504
+   },
+   "tris": {
+    "autumn": 540,
+    "dead": 540,
+    "summer": 540,
+    "winter": 540
+   }
+  },
+  "beach_shingle_inner": {
+   "width_m": 4.4,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land edge on the path (tucked 0.4 m inland below y=0), sea on the right (glTF +Z); shelving to y=-0.8 at 4 m; waterline ~2.8 m",
+   "end_xz": [
+    6,
+    6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/beach_shingle_inner_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/beach_shingle_inner_v5_dead.glb",
+    "summer": "glb_v5_maps/border/beach_shingle_inner_v5_summer.glb",
+    "winter": "glb_v5_maps/border/beach_shingle_inner_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 196448,
+    "dead": 196444,
+    "summer": 196448,
+    "winter": 313320
+   },
+   "tris": {
+    "autumn": 940,
+    "dead": 940,
+    "summer": 940,
+    "winter": 940
+   }
+  },
+  "beach_shingle_outer": {
+   "width_m": 4.4,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land edge on the path (tucked 0.4 m inland below y=0), sea on the right (glTF +Z); shelving to y=-0.8 at 4 m; waterline ~2.8 m",
+   "end_xz": [
+    6,
+    -6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/beach_shingle_outer_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/beach_shingle_outer_v5_dead.glb",
+    "summer": "glb_v5_maps/border/beach_shingle_outer_v5_summer.glb",
+    "winter": "glb_v5_maps/border/beach_shingle_outer_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 196416,
+    "dead": 196412,
+    "summer": 196416,
+    "winter": 313288
+   },
+   "tris": {
+    "autumn": 940,
+    "dead": 940,
+    "summer": 940,
+    "winter": 940
+   }
+  },
+  "beach_shingle_straight6": {
+   "width_m": 4.4,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land edge on the path (tucked 0.4 m inland below y=0), sea on the right (glTF +Z); shelving to y=-0.8 at 4 m; waterline ~2.8 m",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/beach_shingle_straight6_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/beach_shingle_straight6_v5_dead.glb",
+    "summer": "glb_v5_maps/border/beach_shingle_straight6_v5_summer.glb",
+    "winter": "glb_v5_maps/border/beach_shingle_straight6_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 186152,
+    "dead": 186148,
+    "summer": 186152,
+    "winter": 302080
+   },
+   "tris": {
+    "autumn": 600,
+    "dead": 600,
+    "summer": 600,
+    "winter": 600
+   }
+  },
+  "border_dune_a": {
+   "footprint_m": 1.0,
+   "height_m": 0.23,
+   "pivot": "footprint centre, base y=0",
+   "scale_hint": "uniform x8..x40",
+   "files": {
+    "autumn": "glb_v5_maps/border/border_dune_a_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/border_dune_a_v5_dead.glb",
+    "summer": "glb_v5_maps/border/border_dune_a_v5_summer.glb",
+    "winter": "glb_v5_maps/border/border_dune_a_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 328304,
+    "dead": 328300,
+    "summer": 328304,
+    "winter": 468304
+   },
+   "tris": {
+    "autumn": 3914,
+    "dead": 3914,
+    "summer": 3914,
+    "winter": 3914
+   }
+  },
+  "border_dune_b": {
+   "footprint_m": 1.0,
+   "height_m": 0.197,
+   "pivot": "footprint centre, base y=0",
+   "scale_hint": "uniform x8..x40",
+   "files": {
+    "autumn": "glb_v5_maps/border/border_dune_b_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/border_dune_b_v5_dead.glb",
+    "summer": "glb_v5_maps/border/border_dune_b_v5_summer.glb",
+    "winter": "glb_v5_maps/border/border_dune_b_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 276372,
+    "dead": 276368,
+    "summer": 276372,
+    "winter": 407160
+   },
+   "tris": {
+    "autumn": 2138,
+    "dead": 2138,
+    "summer": 2138,
+    "winter": 2138
+   }
+  },
+  "border_dune_c": {
+   "footprint_m": 1.0,
+   "height_m": 0.303,
+   "pivot": "footprint centre, base y=0",
+   "scale_hint": "uniform x8..x40",
+   "files": {
+    "autumn": "glb_v5_maps/border/border_dune_c_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/border_dune_c_v5_dead.glb",
+    "summer": "glb_v5_maps/border/border_dune_c_v5_summer.glb",
+    "winter": "glb_v5_maps/border/border_dune_c_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 343568,
+    "dead": 343564,
+    "summer": 343568,
+    "winter": 484612
+   },
+   "tris": {
+    "autumn": 4478,
+    "dead": 4478,
+    "summer": 4478,
+    "winter": 4478
+   }
+  },
+  "border_peak_a": {
+   "footprint_m": 1.0,
+   "height_m": 0.858,
+   "pivot": "footprint centre, base y=0",
+   "scale_hint": "uniform x8..x40",
+   "files": {
+    "autumn": "glb_v5_maps/border/border_peak_a_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/border_peak_a_v5_dead.glb",
+    "summer": "glb_v5_maps/border/border_peak_a_v5_summer.glb",
+    "winter": "glb_v5_maps/border/border_peak_a_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 432816,
+    "dead": 397640,
+    "summer": 397336,
+    "winter": 390256
+   },
+   "tris": {
+    "summer": 3452,
+    "autumn": 3452,
+    "winter": 3452,
+    "dead": 3452
+   }
+  },
+  "border_peak_b": {
+   "footprint_m": 1.0,
+   "height_m": 0.475,
+   "pivot": "footprint centre, base y=0",
+   "scale_hint": "uniform x8..x40",
+   "files": {
+    "autumn": "glb_v5_maps/border/border_peak_b_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/border_peak_b_v5_dead.glb",
+    "summer": "glb_v5_maps/border/border_peak_b_v5_summer.glb",
+    "winter": "glb_v5_maps/border/border_peak_b_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 469488,
+    "dead": 432728,
+    "summer": 434008,
+    "winter": 438176
+   },
+   "tris": {
+    "summer": 4340,
+    "autumn": 4340,
+    "winter": 4340,
+    "dead": 4340
+   }
+  },
+  "border_peak_c": {
+   "footprint_m": 1.0,
+   "height_m": 0.49,
+   "pivot": "footprint centre, base y=0",
+   "scale_hint": "uniform x8..x40",
+   "files": {
+    "autumn": "glb_v5_maps/border/border_peak_c_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/border_peak_c_v5_dead.glb",
+    "summer": "glb_v5_maps/border/border_peak_c_v5_summer.glb",
+    "winter": "glb_v5_maps/border/border_peak_c_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 444776,
+    "dead": 409952,
+    "summer": 409296,
+    "winter": 434180
+   },
+   "tris": {
+    "summer": 3908,
+    "autumn": 3908,
+    "winter": 3908,
+    "dead": 3908
+   }
+  },
+  "border_shelf_a": {
+   "footprint_m": 1.0,
+   "height_m": 0.39,
+   "pivot": "footprint centre, base y=0",
+   "scale_hint": "uniform x8..x40",
+   "files": {
+    "autumn": "glb_v5_maps/border/border_shelf_a_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/border_shelf_a_v5_dead.glb",
+    "summer": "glb_v5_maps/border/border_shelf_a_v5_summer.glb",
+    "winter": "glb_v5_maps/border/border_shelf_a_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 461188,
+    "dead": 426668,
+    "summer": 425708,
+    "winter": 406452
+   },
+   "tris": {
+    "summer": 3892,
+    "autumn": 3892,
+    "winter": 3892,
+    "dead": 3892
+   }
+  },
+  "border_shelf_b": {
+   "footprint_m": 1.0,
+   "height_m": 0.669,
+   "pivot": "footprint centre, base y=0",
+   "scale_hint": "uniform x8..x40",
+   "files": {
+    "autumn": "glb_v5_maps/border/border_shelf_b_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/border_shelf_b_v5_dead.glb",
+    "summer": "glb_v5_maps/border/border_shelf_b_v5_summer.glb",
+    "winter": "glb_v5_maps/border/border_shelf_b_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 446660,
+    "dead": 411636,
+    "summer": 411180,
+    "winter": 399464
+   },
+   "tris": {
+    "summer": 3706,
+    "autumn": 3706,
+    "winter": 3706,
+    "dead": 3706
+   }
+  },
+  "border_shelf_c": {
+   "footprint_m": 1.0,
+   "height_m": 0.209,
+   "pivot": "footprint centre, base y=0",
+   "scale_hint": "uniform x8..x40",
+   "files": {
+    "autumn": "glb_v5_maps/border/border_shelf_c_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/border_shelf_c_v5_dead.glb",
+    "summer": "glb_v5_maps/border/border_shelf_c_v5_summer.glb",
+    "winter": "glb_v5_maps/border/border_shelf_c_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 460464,
+    "dead": 426212,
+    "summer": 424984,
+    "winter": 407896
+   },
+   "tris": {
+    "summer": 3874,
+    "autumn": 3874,
+    "winter": 3874,
+    "dead": 3874
+   }
+  },
+  "seacliff_inner_h3": {
+   "height_m": 3,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_inner_h3_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_inner_h3_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_inner_h3_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_inner_h3_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 432768,
+    "dead": 404956,
+    "summer": 397288,
+    "winter": 372544
+   },
+   "tris": {
+    "autumn": 3278,
+    "dead": 3278,
+    "summer": 3278,
+    "winter": 3278
+   },
+   "max_y_m": 3.44,
+   "max_inland_m": 4.8,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 2.26,
+   "sea_face": "12H battered sea face: ~73 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_inner_h5": {
+   "height_m": 5,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_inner_h5_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_inner_h5_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_inner_h5_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_inner_h5_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 447896,
+    "dead": 419600,
+    "summer": 412416,
+    "winter": 387720
+   },
+   "tris": {
+    "autumn": 3768,
+    "dead": 3768,
+    "summer": 3768,
+    "winter": 3768
+   },
+   "max_y_m": 5.81,
+   "max_inland_m": 7.53,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 3.14,
+   "sea_face": "12H battered sea face: ~71 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_inner_h8": {
+   "height_m": 8,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_inner_h8_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_inner_h8_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_inner_h8_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_inner_h8_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 466296,
+    "dead": 436768,
+    "summer": 430816,
+    "winter": 406172
+   },
+   "tris": {
+    "autumn": 4356,
+    "dead": 4356,
+    "summer": 4356,
+    "winter": 4356
+   },
+   "max_y_m": 9.13,
+   "max_inland_m": 11.19,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 4.43,
+   "sea_face": "12H battered sea face: ~70 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_outer_h3": {
+   "height_m": 3,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    -6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_outer_h3_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_outer_h3_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_outer_h3_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_outer_h3_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 433148,
+    "dead": 402652,
+    "summer": 397668,
+    "winter": 374112
+   },
+   "tris": {
+    "autumn": 3278,
+    "dead": 3278,
+    "summer": 3278,
+    "winter": 3278
+   },
+   "max_y_m": 3.45,
+   "max_inland_m": 4.85,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 2.26,
+   "sea_face": "12H battered sea face: ~73 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_outer_h5": {
+   "height_m": 5,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    -6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_outer_h5_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_outer_h5_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_outer_h5_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_outer_h5_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 446120,
+    "dead": 415628,
+    "summer": 410640,
+    "winter": 391232
+   },
+   "tris": {
+    "autumn": 3768,
+    "dead": 3768,
+    "summer": 3768,
+    "winter": 3768
+   },
+   "max_y_m": 5.73,
+   "max_inland_m": 5.55,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 3.14,
+   "sea_face": "12H battered sea face: ~71 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_outer_h8": {
+   "height_m": 8,
+   "length_m": 9.425,
+   "corner_radius_m": 6.0,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    -6
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_outer_h8_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_outer_h8_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_outer_h8_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_outer_h8_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 464332,
+    "dead": 433828,
+    "summer": 428852,
+    "winter": 411856
+   },
+   "tris": {
+    "autumn": 4356,
+    "dead": 4356,
+    "summer": 4356,
+    "winter": 4356
+   },
+   "max_y_m": 9.21,
+   "max_inland_m": 6.35,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 4.43,
+   "sea_face": "12H battered sea face: ~70 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_straight6_h3": {
+   "height_m": 3,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_straight6_h3_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_straight6_h3_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_straight6_h3_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_straight6_h3_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 397824,
+    "dead": 367116,
+    "summer": 362344,
+    "winter": 341696
+   },
+   "tris": {
+    "autumn": 2224,
+    "dead": 2224,
+    "summer": 2224,
+    "winter": 2224
+   },
+   "max_y_m": 3.39,
+   "max_inland_m": 4.82,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 2.26,
+   "sea_face": "12H battered sea face: ~73 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_straight6_h5": {
+   "height_m": 5,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_straight6_h5_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_straight6_h5_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_straight6_h5_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_straight6_h5_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 408548,
+    "dead": 377572,
+    "summer": 373068,
+    "winter": 352192
+   },
+   "tris": {
+    "autumn": 2544,
+    "dead": 2544,
+    "summer": 2544,
+    "winter": 2544
+   },
+   "max_y_m": 5.76,
+   "max_inland_m": 6.91,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 3.14,
+   "sea_face": "12H battered sea face: ~71 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_straight6_h8": {
+   "height_m": 8,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_straight6_h8_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_straight6_h8_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_straight6_h8_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_straight6_h8_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 421676,
+    "dead": 389424,
+    "summer": 386196,
+    "winter": 365900
+   },
+   "tris": {
+    "autumn": 2928,
+    "dead": 2928,
+    "summer": 2928,
+    "winter": 2928
+   },
+   "max_y_m": 9.02,
+   "max_inland_m": 10.01,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 4.43,
+   "sea_face": "12H battered sea face: ~70 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_straight6b_h3": {
+   "height_m": 3,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_straight6b_h3_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_straight6b_h3_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_straight6b_h3_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_straight6b_h3_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 397868,
+    "dead": 365884,
+    "summer": 362388,
+    "winter": 341036
+   },
+   "tris": {
+    "autumn": 2224,
+    "dead": 2224,
+    "summer": 2224,
+    "winter": 2224
+   },
+   "max_y_m": 3.42,
+   "max_inland_m": 4.65,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 2.35,
+   "sea_face": "12H battered sea face: ~73 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_straight6b_h5": {
+   "height_m": 5,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_straight6b_h5_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_straight6b_h5_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_straight6b_h5_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_straight6b_h5_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 408772,
+    "dead": 377796,
+    "summer": 373292,
+    "winter": 352904
+   },
+   "tris": {
+    "autumn": 2544,
+    "dead": 2544,
+    "summer": 2544,
+    "winter": 2544
+   },
+   "max_y_m": 5.71,
+   "max_inland_m": 7.11,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 3.04,
+   "sea_face": "12H battered sea face: ~71 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_straight6b_h8": {
+   "height_m": 8,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_straight6b_h8_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_straight6b_h8_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_straight6b_h8_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_straight6b_h8_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 421244,
+    "dead": 389604,
+    "summer": 385764,
+    "winter": 365552
+   },
+   "tris": {
+    "autumn": 2928,
+    "dead": 2928,
+    "summer": 2928,
+    "winter": 2928
+   },
+   "max_y_m": 9.02,
+   "max_inland_m": 10.38,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 4.61,
+   "sea_face": "12H battered sea face: ~70 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_straight6c_h3": {
+   "height_m": 3,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "summer": "glb_v5_maps/border/seacliff_straight6c_h3_v5_summer.glb",
+    "autumn": "glb_v5_maps/border/seacliff_straight6c_h3_v5_autumn.glb",
+    "winter": "glb_v5_maps/border/seacliff_straight6c_h3_v5_winter.glb",
+    "dead": "glb_v5_maps/border/seacliff_straight6c_h3_v5_dead.glb"
+   },
+   "bytes": {
+    "summer": 362656,
+    "autumn": 398136,
+    "winter": 342052,
+    "dead": 368088
+   },
+   "tris": {
+    "summer": 2224,
+    "autumn": 2224,
+    "winter": 2224,
+    "dead": 2224
+   },
+   "max_y_m": 3.39,
+   "max_inland_m": 4.8,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 2.33,
+   "sea_face": "12H battered sea face: ~73 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_straight6c_h5": {
+   "height_m": 5,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "summer": "glb_v5_maps/border/seacliff_straight6c_h5_v5_summer.glb",
+    "autumn": "glb_v5_maps/border/seacliff_straight6c_h5_v5_autumn.glb",
+    "winter": "glb_v5_maps/border/seacliff_straight6c_h5_v5_winter.glb",
+    "dead": "glb_v5_maps/border/seacliff_straight6c_h5_v5_dead.glb"
+   },
+   "bytes": {
+    "summer": 373204,
+    "autumn": 408684,
+    "winter": 353824,
+    "dead": 377092
+   },
+   "tris": {
+    "summer": 2544,
+    "autumn": 2544,
+    "winter": 2544,
+    "dead": 2544
+   },
+   "max_y_m": 5.7,
+   "max_inland_m": 7.2,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 3.09,
+   "sea_face": "12H battered sea face: ~71 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_straight6c_h8": {
+   "height_m": 8,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X, land on the left (glTF -Z), sea on the right (glTF +Z); y=0 map ground; sea y=-0.4; lip on the path line; ends capped",
+   "end_xz": [
+    6,
+    0
+   ],
+   "files": {
+    "summer": "glb_v5_maps/border/seacliff_straight6c_h8_v5_summer.glb",
+    "autumn": "glb_v5_maps/border/seacliff_straight6c_h8_v5_autumn.glb",
+    "winter": "glb_v5_maps/border/seacliff_straight6c_h8_v5_winter.glb",
+    "dead": "glb_v5_maps/border/seacliff_straight6c_h8_v5_dead.glb"
+   },
+   "bytes": {
+    "summer": 386116,
+    "autumn": 421596,
+    "winter": 366036,
+    "dead": 389340
+   },
+   "tris": {
+    "summer": 2928,
+    "autumn": 2928,
+    "winter": 2928,
+    "dead": 2928
+   },
+   "max_y_m": 9.02,
+   "max_inland_m": 10.02,
+   "back": "12G weathered mountain massing: rounded shoulders, scree/talus aprons, talus fan in the col at each joint (first/last 2.4 m), ends keep the shared end section exactly",
+   "max_seaward_m": 4.21,
+   "sea_face": "12H battered sea face: ~70 deg from horizontal (waterline->lip), varies ~\u00b14 deg along the face; wave-cut notch at the waterline, flared toe at y=-1.4"
+  },
+  "seacliff_endcap_left_h3_a": {
+   "height_m": 3,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "left",
+   "joint_section": "straight6 h3 end section",
+   "convention": "left cap: spire tip at the origin, joint at (6,0) (snap so (6,0) sits on the START of a run, same heading); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 5.24,
+   "max_inland_m": 5.81,
+   "max_seaward_m": 2.49,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_left_h3_a_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_left_h3_a_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_left_h3_a_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_left_h3_a_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 394576,
+    "dead": 360420,
+    "summer": 359096,
+    "winter": 342800
+   },
+   "tris": {
+    "autumn": 2104,
+    "dead": 2104,
+    "summer": 2104,
+    "winter": 2104
+   }
+  },
+  "seacliff_endcap_left_h3_b": {
+   "height_m": 3,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "left",
+   "joint_section": "straight6 h3 end section",
+   "convention": "left cap: spire tip at the origin, joint at (6,0) (snap so (6,0) sits on the START of a run, same heading); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 4.78,
+   "max_inland_m": 5.73,
+   "max_seaward_m": 2.19,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_left_h3_b_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_left_h3_b_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_left_h3_b_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_left_h3_b_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 396496,
+    "dead": 360420,
+    "summer": 361016,
+    "winter": 340188
+   },
+   "tris": {
+    "autumn": 2104,
+    "dead": 2104,
+    "summer": 2104,
+    "winter": 2104
+   }
+  },
+  "seacliff_endcap_left_h5_a": {
+   "height_m": 5,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "left",
+   "joint_section": "straight6 h5 end section",
+   "convention": "left cap: spire tip at the origin, joint at (6,0) (snap so (6,0) sits on the START of a run, same heading); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 7.9,
+   "max_inland_m": 8.97,
+   "max_seaward_m": 3.15,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_left_h5_a_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_left_h5_a_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_left_h5_a_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_left_h5_a_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 402908,
+    "dead": 369584,
+    "summer": 367428,
+    "winter": 355972
+   },
+   "tris": {
+    "autumn": 2424,
+    "dead": 2424,
+    "summer": 2424,
+    "winter": 2424
+   }
+  },
+  "seacliff_endcap_left_h5_b": {
+   "height_m": 5,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "left",
+   "joint_section": "straight6 h5 end section",
+   "convention": "left cap: spire tip at the origin, joint at (6,0) (snap so (6,0) sits on the START of a run, same heading); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 7.59,
+   "max_inland_m": 7.69,
+   "max_seaward_m": 3.06,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_left_h5_b_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_left_h5_b_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_left_h5_b_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_left_h5_b_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 403192,
+    "dead": 368548,
+    "summer": 367712,
+    "winter": 354848
+   },
+   "tris": {
+    "autumn": 2424,
+    "dead": 2424,
+    "summer": 2424,
+    "winter": 2424
+   }
+  },
+  "seacliff_endcap_left_h8_a": {
+   "height_m": 8,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "left",
+   "joint_section": "straight6 h8 end section",
+   "convention": "left cap: spire tip at the origin, joint at (6,0) (snap so (6,0) sits on the START of a run, same heading); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 11.61,
+   "max_inland_m": 12.17,
+   "max_seaward_m": 4.56,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_left_h8_a_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_left_h8_a_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_left_h8_a_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_left_h8_a_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 414036,
+    "dead": 379236,
+    "summer": 378556,
+    "winter": 367408
+   },
+   "tris": {
+    "autumn": 2808,
+    "dead": 2808,
+    "summer": 2808,
+    "winter": 2808
+   }
+  },
+  "seacliff_endcap_left_h8_b": {
+   "height_m": 8,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "left",
+   "joint_section": "straight6 h8 end section",
+   "convention": "left cap: spire tip at the origin, joint at (6,0) (snap so (6,0) sits on the START of a run, same heading); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 11.14,
+   "max_inland_m": 11.16,
+   "max_seaward_m": 4.21,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_left_h8_b_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_left_h8_b_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_left_h8_b_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_left_h8_b_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 415644,
+    "dead": 381176,
+    "summer": 380164,
+    "winter": 369196
+   },
+   "tris": {
+    "autumn": 2808,
+    "dead": 2808,
+    "summer": 2808,
+    "winter": 2808
+   }
+  },
+  "seacliff_endcap_right_h3_a": {
+   "height_m": 3,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "right",
+   "joint_section": "straight6 h3 end section",
+   "convention": "right cap: joint at the origin (snap to the END of a run, same heading), rock spire tapering to ground at (6,0); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 5.36,
+   "max_inland_m": 5.78,
+   "max_seaward_m": 2.47,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_right_h3_a_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_right_h3_a_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_right_h3_a_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_right_h3_a_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 394544,
+    "dead": 361180,
+    "summer": 359064,
+    "winter": 343296
+   },
+   "tris": {
+    "autumn": 2104,
+    "dead": 2104,
+    "summer": 2104,
+    "winter": 2104
+   }
+  },
+  "seacliff_endcap_right_h3_b": {
+   "height_m": 3,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "right",
+   "joint_section": "straight6 h3 end section",
+   "convention": "right cap: joint at the origin (snap to the END of a run, same heading), rock spire tapering to ground at (6,0); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 4.83,
+   "max_inland_m": 5.8,
+   "max_seaward_m": 2.31,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_right_h3_b_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_right_h3_b_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_right_h3_b_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_right_h3_b_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 395468,
+    "dead": 360944,
+    "summer": 359988,
+    "winter": 341712
+   },
+   "tris": {
+    "autumn": 2104,
+    "dead": 2104,
+    "summer": 2104,
+    "winter": 2104
+   }
+  },
+  "seacliff_endcap_right_h5_a": {
+   "height_m": 5,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "right",
+   "joint_section": "straight6 h5 end section",
+   "convention": "right cap: joint at the origin (snap to the END of a run, same heading), rock spire tapering to ground at (6,0); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 8.04,
+   "max_inland_m": 8.31,
+   "max_seaward_m": 3.26,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_right_h5_a_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_right_h5_a_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_right_h5_a_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_right_h5_a_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 403972,
+    "dead": 368932,
+    "summer": 368492,
+    "winter": 357188
+   },
+   "tris": {
+    "autumn": 2424,
+    "dead": 2424,
+    "summer": 2424,
+    "winter": 2424
+   }
+  },
+  "seacliff_endcap_right_h5_b": {
+   "height_m": 5,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "right",
+   "joint_section": "straight6 h5 end section",
+   "convention": "right cap: joint at the origin (snap to the END of a run, same heading), rock spire tapering to ground at (6,0); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 7.87,
+   "max_inland_m": 8.62,
+   "max_seaward_m": 3.01,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_right_h5_b_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_right_h5_b_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_right_h5_b_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_right_h5_b_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 403048,
+    "dead": 369112,
+    "summer": 367568,
+    "winter": 355100
+   },
+   "tris": {
+    "autumn": 2424,
+    "dead": 2424,
+    "summer": 2424,
+    "winter": 2424
+   }
+  },
+  "seacliff_endcap_right_h8_a": {
+   "height_m": 8,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "right",
+   "joint_section": "straight6 h8 end section",
+   "convention": "right cap: joint at the origin (snap to the END of a run, same heading), rock spire tapering to ground at (6,0); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 11.86,
+   "max_inland_m": 12.23,
+   "max_seaward_m": 4.29,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_right_h8_a_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_right_h8_a_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_right_h8_a_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_right_h8_a_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 414524,
+    "dead": 380364,
+    "summer": 379044,
+    "winter": 367640
+   },
+   "tris": {
+    "autumn": 2808,
+    "dead": 2808,
+    "summer": 2808,
+    "winter": 2808
+   }
+  },
+  "seacliff_endcap_right_h8_b": {
+   "height_m": 8,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "cap_side": "right",
+   "joint_section": "straight6 h8 end section",
+   "convention": "right cap: joint at the origin (snap to the END of a run, same heading), rock spire tapering to ground at (6,0); land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 11.26,
+   "max_inland_m": 12.3,
+   "max_seaward_m": 4.43,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_endcap_right_h8_b_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_endcap_right_h8_b_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_endcap_right_h8_b_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_endcap_right_h8_b_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 417208,
+    "dead": 380144,
+    "summer": 381728,
+    "winter": 368648
+   },
+   "tris": {
+    "autumn": 2808,
+    "dead": 2808,
+    "summer": 2808,
+    "winter": 2808
+   }
+  },
+  "seacliff_step_h3h5": {
+   "height_m": 5,
+   "height_from_m": 3,
+   "height_to_m": 5,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X; start section = straight6 h3 end section, end section = straight6 h5 end section; land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 5.87,
+   "max_inland_m": 6.27,
+   "max_seaward_m": 3.05,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_step_h3h5_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_step_h3h5_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_step_h3h5_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_step_h3h5_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 410408,
+    "dead": 377804,
+    "summer": 374928,
+    "winter": 357400
+   },
+   "tris": {
+    "autumn": 2544,
+    "dead": 2544,
+    "summer": 2544,
+    "winter": 2544
+   }
+  },
+  "seacliff_step_h5h3": {
+   "height_m": 5,
+   "height_from_m": 5,
+   "height_to_m": 3,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X; start section = straight6 h5 end section, end section = straight6 h3 end section; land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 6.05,
+   "max_inland_m": 6.19,
+   "max_seaward_m": 3.01,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_step_h5h3_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_step_h5h3_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_step_h5h3_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_step_h5h3_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 410276,
+    "dead": 375600,
+    "summer": 374796,
+    "winter": 356736
+   },
+   "tris": {
+    "autumn": 2544,
+    "dead": 2544,
+    "summer": 2544,
+    "winter": 2544
+   }
+  },
+  "seacliff_step_h5h8": {
+   "height_m": 8,
+   "height_from_m": 5,
+   "height_to_m": 8,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X; start section = straight6 h5 end section, end section = straight6 h8 end section; land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 10.03,
+   "max_inland_m": 8.86,
+   "max_seaward_m": 4.23,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_step_h5h8_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_step_h5h8_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_step_h5h8_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_step_h5h8_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 422264,
+    "dead": 388116,
+    "summer": 386784,
+    "winter": 373128
+   },
+   "tris": {
+    "autumn": 2928,
+    "dead": 2928,
+    "summer": 2928,
+    "winter": 2928
+   }
+  },
+  "seacliff_step_h8h5": {
+   "height_m": 8,
+   "height_from_m": 8,
+   "height_to_m": 5,
+   "length_m": 6.0,
+   "corner_radius_m": null,
+   "convention": "path from origin heading +X; start section = straight6 h8 end section, end section = straight6 h5 end section; land glTF -Z, sea +Z",
+   "end_xz": [
+    6,
+    0
+   ],
+   "max_y_m": 9.57,
+   "max_inland_m": 9.29,
+   "max_seaward_m": 4.38,
+   "files": {
+    "autumn": "glb_v5_maps/border/seacliff_step_h8h5_v5_autumn.glb",
+    "dead": "glb_v5_maps/border/seacliff_step_h8h5_v5_dead.glb",
+    "summer": "glb_v5_maps/border/seacliff_step_h8h5_v5_summer.glb",
+    "winter": "glb_v5_maps/border/seacliff_step_h8h5_v5_winter.glb"
+   },
+   "bytes": {
+    "autumn": 422656,
+    "dead": 388244,
+    "summer": 387176,
+    "winter": 372688
+   },
+   "tris": {
+    "autumn": 2928,
+    "dead": 2928,
+    "summer": 2928,
+    "winter": 2928
+   }
+  }
+ },
+ "notes_12F": {
+  "date": "2026-11-01",
+  "what": "seacliff land-side back rebuilt as mountain massing: stepped jagged skyline rising to ~1.2-1.35h, rock ribs and gullies, strata ledges (cover/snow on ledges per season), inland spurs mid-piece; border_peak/shelf get radial gullies, spurs and strata terraces",
+  "unchanged": "sea face, lip and plateau rows (o<=0.8 m) vertex-identical to 12E; path, length, end_xz, corner radius, heading, node names; end sections identical across straight6/6b/6c/outer/inner of a height (0.0 mm); peaks/shelves still normalised to 1.0 m",
+  "footprint_change": "ground contact at piece ends unchanged (1.2+0.5h inland); mid-piece the back spurs reach further inland (max inland: h3 ~5.0 m, h5 ~7.3 m, h8 ~10.3 m on straights/inner; outer corners capped so they never cross the R=6 turn centre)",
+  "anti_repetition": "use straight6, straight6b and straight6c in rotation on long runs",
+  "backup": "/workspace/v5work/backup_preborderback/"
+ },
+ "notes_12G": {
+  "date": "2026-11-01",
+  "what": "seacliff land-side backs re-shaped as weathered massing: rounded eroded shoulder (~45 deg flank, concave toe), no quantised steps or flat-topped spurs, multi-lobe inland spurs with long ramps, gullies of varying width (1.8-3.2 m wavelength, not locked to the 6 m piece), scree/talus aprons fading into the ground, a half talus fan at each piece end so joints read as broad cols with scree instead of V-notches; skyline still ridged-noise jagged but lower (max ~1.13-1.15h). border_peak/shelf: strata terraces removed, rounded shoulders, uneven tops and aprons. Winter/other cover now follows slope (per-face normal + noise) instead of capping ledges.",
+  "unchanged": "sea face, lip and plateau rows (o<=0.8 m) vertex-identical; end sections identical across straight6/6b/6c/outer/inner per height (0.0 mm); path, end_xz, headings, node names; peaks/shelves normalised to 1.0 m; islands, dunes, beaches untouched",
+  "footprint": "max inland reach: h3 ~4.9 m, h5 ~7.5 m, h8 ~11.2 m (inner corner; straights <=10.4 m). Talus fans add ~0.36h beyond the 12E ground line within 2.4 m of each end; outer-corner end fans run straight along the end tangent (bbox x down to -2.1 m at h8).",
+  "tris": "straights 2224-2928, corners 3278-4356 (all <4.5k)",
+  "backup": "/workspace/v5work/backup_pre12G/"
+ },
+ "notes_12H": {
+  "date": "2026-11-01",
+  "what": "seacliff sea face pitched (battered) instead of near-vertical: target 73/71/70 deg at h3/h5/h8 waterline->lip, pitch varies along the face (buttresses steeper/gentler, zero variation at the lip and piece ends), slight convex shoulder under the lip, wave-cut notch ~0.2 m deep at y~0.2, flared foot down to y=-1.4. Existing face rock detail (ridged flutes, bands, joints) and texture kept. Same row count -> tris unchanged.",
+  "toe": "foot (y=-1.4) moved seaward from 1.40 m to: end section h3 2.19 m (+0.79), h5 3.01 m (+1.61), h8 4.21 m (+2.81); mid-piece max h3 2.35 m (+0.95), h5 3.14 m (+1.74), h8 4.61 m (+3.21)",
+  "unchanged": "lip row on the path line and the plateau top; 12G land-side massing, talus fans, end caps topology; end sections identical across straight6/6b/6c/outer/inner per height (0.0 mm, new shared profile); path, end_xz, headings, node names; border_peak/shelf/dune, beaches, islands untouched (peak/shelf flanks were already sloped, <=3% of area steeper than 85 deg)",
+  "backup": "/workspace/v5work/backup_pre12H/"
+ },
+ "notes_12I": {
+  "date": "2026-11-01",
+  "what": "Peaked ends: the flat end walls of cliff runs are closed by endcap pieces with natural 3D rock spires that taper into ground and sea; height changes use step pieces with a shoulder spire; flat tops/edges removed from border mounds (shelves, dune_b).",
+  "new_files": "64 = 48 endcaps (left/right x h3/h5/h8 x a/b x 4 seasons) + 16 steps (4 x 4 seasons)",
+  "unchanged": "all 12H seacliff straight/corner pieces and beaches are byte-identical to 12H (sea face pitch, 12G lumps, node names, headings, end sections). border_dune_a/c unchanged.",
+  "flat_faces": "largest coplanar patch (3 deg tolerance, above ground): border peaks/shelves <=0.008 m2 (<=0.4% of area, unit footprint), dunes <=0.009 m2 (<=1.5%); cliff land side <=2.1 m2 only in the 0.9 m joint blend zone (must stay the canonical shared section). The only large planar faces left are the joint end curtains (x=0 / x=6 planes) of straights, corners, steps and the joint side of endcaps - always hidden by the neighbour when chained. Endcap tip ends have no end wall (tip column <=0.12 m high).",
+  "budget": "endcaps 2104/2424/2808 tris (h3/h5/h8), steps 2544 (h3<->h5) / 2928 (h5<->h8); border pieces 2138-4478; max file 485 KB",
+  "preview": "v5_maps/border_coast_preview_v5.png"
+ }
+}

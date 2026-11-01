@@ -1,0 +1,372 @@
+{
+ "version": "v5_ground",
+ "generated": "2026-11-01",
+ "units": "metres",
+ "license": "CC0 (Poly Haven sources, regraded)",
+ "texture_size": 1024,
+ "channel_packing": {
+  "albedo": "sRGB JPG",
+  "normal": "OpenGL (+Y) tangent-space JPG, linear",
+  "orm": "linear JPG: R=ambient occlusion, G=roughness, B=metallic(0) -> glTF occlusionTexture + metallicRoughnessTexture"
+ },
+ "uv_rule": "uv = worldXZ / tiling_m (sample GLBs already do this: 4 m plane, UV 0..4/tiling_m)",
+ "materials": [
+  {
+   "name": "ground_sand_desert",
+   "metallic": 0.0,
+   "roughness_factor": 1.0,
+   "sources": [
+    "sandy_gravel_02",
+    "aerial_beach_01"
+   ],
+   "note": "8 m tile: sandy_gravel_02 grain (2.5 m scan stretched) + aerial_beach_01 wind ripples (scaled down from 30 m). Act II Qadren / The Sands.",
+   "files": {
+    "albedo": "sand_desert/t_ground_sand_desert_albedo.jpg",
+    "normal": "sand_desert/t_ground_sand_desert_normal.jpg",
+    "orm": "sand_desert/t_ground_sand_desert_orm.jpg"
+   },
+   "mean_albedo_srgb": [
+    131,
+    111,
+    87
+   ],
+   "roughness_range": [
+    0.88,
+    0.98
+   ],
+   "sample_glb": "../samples/ground_sample_sand_desert_v5.glb",
+   "sample_bytes": 992076,
+   "gltf": {
+    "metallicFactor": 0.0,
+    "roughnessFactor": 1.0,
+    "normalScale": 1.0,
+    "occlusionStrength": 1.0
+   },
+   "suggested_tiling_m": 8.0
+  },
+  {
+   "name": "ground_sand_coast",
+   "metallic": 0.0,
+   "roughness_factor": 1.0,
+   "sources": [
+    "coast_sand_01"
+   ],
+   "note": "Coast / Ashen Coast. Darker damp grey-brown; 15 m scan shown at 6 m.",
+   "files": {
+    "albedo": "sand_coast/t_ground_sand_coast_albedo.jpg",
+    "normal": "sand_coast/t_ground_sand_coast_normal.jpg",
+    "orm": "sand_coast/t_ground_sand_coast_orm.jpg"
+   },
+   "mean_albedo_srgb": [
+    103,
+    97,
+    85
+   ],
+   "roughness_range": [
+    0.82,
+    0.96
+   ],
+   "sample_glb": "../samples/ground_sample_sand_coast_v5.glb",
+   "sample_bytes": 1087180,
+   "gltf": {
+    "metallicFactor": 0.0,
+    "roughnessFactor": 1.0,
+    "normalScale": 1.0,
+    "occlusionStrength": 1.0
+   },
+   "suggested_tiling_m": 6.0
+  },
+  {
+   "name": "ground_dirt_mud",
+   "metallic": 0.0,
+   "roughness_factor": 1.0,
+   "sources": [
+    "brown_mud_02"
+   ],
+   "note": "Mud/dirt with footprints; lower roughness in wet hollows (from scan). De-tiled with a height-blended offset copy.",
+   "files": {
+    "albedo": "dirt_mud/t_ground_dirt_mud_albedo.jpg",
+    "normal": "dirt_mud/t_ground_dirt_mud_normal.jpg",
+    "orm": "dirt_mud/t_ground_dirt_mud_orm.jpg"
+   },
+   "mean_albedo_srgb": [
+    68,
+    56,
+    45
+   ],
+   "roughness_range": [
+    0.71,
+    0.95
+   ],
+   "sample_glb": "../samples/ground_sample_dirt_mud_v5.glb",
+   "sample_bytes": 1279344,
+   "gltf": {
+    "metallicFactor": 0.0,
+    "roughnessFactor": 1.0,
+    "normalScale": 1.0,
+    "occlusionStrength": 1.0
+   },
+   "suggested_tiling_m": 2.5
+  },
+  {
+   "name": "ground_grass_dark",
+   "metallic": 0.0,
+   "roughness_factor": 1.0,
+   "sources": [
+    "sparse_grass",
+    "withered_grass",
+    "brown_mud_02"
+   ],
+   "note": "Dark muted olive turf with straw-dead patches and bare mud spots (Diablo-like, not lawn). Add per-vertex macro tint in engine to hide 3 m repeats.",
+   "files": {
+    "albedo": "grass_dark/t_ground_grass_dark_albedo.jpg",
+    "normal": "grass_dark/t_ground_grass_dark_normal.jpg",
+    "orm": "grass_dark/t_ground_grass_dark_orm.jpg"
+   },
+   "mean_albedo_srgb": [
+    61,
+    60,
+    41
+   ],
+   "roughness_range": [
+    0.87,
+    0.98
+   ],
+   "sample_glb": "../samples/ground_sample_grass_dark_v5.glb",
+   "sample_bytes": 1303548,
+   "gltf": {
+    "metallicFactor": 0.0,
+    "roughnessFactor": 1.0,
+    "normalScale": 1.0,
+    "occlusionStrength": 1.0
+   },
+   "suggested_tiling_m": 3.0
+  },
+  {
+   "name": "ground_grass_dead",
+   "metallic": 0.0,
+   "roughness_factor": 1.0,
+   "sources": [
+    "withered_grass"
+   ],
+   "note": "Withered straw-grey grass for blighted fields / wasteland edges.",
+   "files": {
+    "albedo": "grass_dead/t_ground_grass_dead_albedo.jpg",
+    "normal": "grass_dead/t_ground_grass_dead_normal.jpg",
+    "orm": "grass_dead/t_ground_grass_dead_orm.jpg"
+   },
+   "mean_albedo_srgb": [
+    95,
+    84,
+    67
+   ],
+   "roughness_range": [
+    0.89,
+    0.99
+   ],
+   "sample_glb": "../samples/ground_sample_grass_dead_v5.glb",
+   "sample_bytes": 1364400,
+   "gltf": {
+    "metallicFactor": 0.0,
+    "roughnessFactor": 1.0,
+    "normalScale": 1.0,
+    "occlusionStrength": 1.0
+   },
+   "suggested_tiling_m": 3.0
+  },
+  {
+   "name": "ground_ash",
+   "metallic": 0.0,
+   "roughness_factor": 1.0,
+   "sources": [
+    "burned_ground_01"
+   ],
+   "note": "Burned ground with ash and charred debris (Cinder Barrens / Ash-Camp). No emissive; add embers as FX.",
+   "files": {
+    "albedo": "ash/t_ground_ash_albedo.jpg",
+    "normal": "ash/t_ground_ash_normal.jpg",
+    "orm": "ash/t_ground_ash_orm.jpg"
+   },
+   "mean_albedo_srgb": [
+    51,
+    48,
+    45
+   ],
+   "roughness_range": [
+    0.87,
+    0.98
+   ],
+   "sample_glb": "../samples/ground_sample_ash_v5.glb",
+   "sample_bytes": 1128812,
+   "gltf": {
+    "metallicFactor": 0.0,
+    "roughnessFactor": 1.0,
+    "normalScale": 1.0,
+    "occlusionStrength": 1.0
+   },
+   "suggested_tiling_m": 2.0
+  },
+  {
+   "name": "ground_road",
+   "metallic": 0.0,
+   "roughness_factor": 1.0,
+   "sources": [
+    "dry_mud_field_001",
+    "cobblestone_floor_001",
+    "withered_grass"
+   ],
+   "note": "Directional: map U across the road (1 tile = 4 m road width), V along it. Ruts at U=0.28/0.72, dead-grass crown at U=0.5 and verge at U=0/1, broken cobble/flagstone remnants. Also tiles in U, so it can be used as an area material.",
+   "files": {
+    "albedo": "road/t_ground_road_albedo.jpg",
+    "normal": "road/t_ground_road_normal.jpg",
+    "orm": "road/t_ground_road_orm.jpg"
+   },
+   "mean_albedo_srgb": [
+    83,
+    76,
+    64
+   ],
+   "roughness_range": [
+    0.78,
+    0.97
+   ],
+   "sample_glb": "../samples/ground_sample_road_v5.glb",
+   "sample_bytes": 1155196,
+   "gltf": {
+    "metallicFactor": 0.0,
+    "roughnessFactor": 1.0,
+    "normalScale": 1.0,
+    "occlusionStrength": 1.0
+   },
+   "suggested_tiling_m": 4.0
+  }
+ ],
+ "blend_masks": "see ../GROUND_BLEND_NOTE.md",
+ "updated": "2026-11-01 (plant fix pass)",
+ "plants": {
+  "material_name": "mat_plant_atlas_v5",
+  "alpha": "MASK 0.5, doubleSided",
+  "shared_atlas": {
+   "layout": "src/atlas_layout.json",
+   "files": {
+    "plant_atlas_v5_color.jpg": {
+     "path": "../plants/textures/plant_atlas_v5_color.jpg",
+     "bytes": 276766
+    },
+    "plant_atlas_v5_alpha.png": {
+     "path": "../plants/textures/plant_atlas_v5_alpha.png",
+     "bytes": 132800
+    },
+    "plant_atlas_v5_rgba.png": {
+     "path": "../plants/textures/plant_atlas_v5_rgba.png",
+     "bytes": 1745136
+    }
+   },
+   "size": 1024,
+   "note": "Embedded per-GLB textures are 1024 palette PNGs with the same layout, so swap the material maps at load to share one texture (see plants/README.md)."
+  },
+  "glbs": [
+   {
+    "file": "../plants/plant_palm_date_a_v5.glb",
+    "bytes": 244704,
+    "tris": 926,
+    "height_m": 9.75,
+    "embedded_png_bytes": 174263,
+    "cells": [
+     "frond_dead",
+     "frond_green",
+     "palm_bark",
+     "palm_fibre"
+    ]
+   },
+   {
+    "file": "../plants/plant_palm_date_b_v5.glb",
+    "bytes": 243468,
+    "tris": 902,
+    "height_m": 8.53,
+    "embedded_png_bytes": 174263,
+    "cells": [
+     "frond_dead",
+     "frond_green",
+     "palm_bark",
+     "palm_fibre"
+    ]
+   },
+   {
+    "file": "../plants/plant_palm_date_c_v5.glb",
+    "bytes": 242236,
+    "tris": 878,
+    "height_m": 7.04,
+    "embedded_png_bytes": 174263,
+    "cells": [
+     "frond_dead",
+     "frond_green",
+     "palm_bark",
+     "palm_fibre"
+    ]
+   },
+   {
+    "file": "../plants/plant_cactus_column_a_v5.glb",
+    "bytes": 197184,
+    "tris": 800,
+    "height_m": 3.18,
+    "embedded_png_bytes": 64982,
+    "cells": [
+     "cactus_skin"
+    ]
+   },
+   {
+    "file": "../plants/plant_cactus_cluster_b_v5.glb",
+    "bytes": 207552,
+    "tris": 864,
+    "height_m": 2.64,
+    "embedded_png_bytes": 64982,
+    "cells": [
+     "cactus_skin"
+    ]
+   },
+   {
+    "file": "../plants/plant_agave_a_v5.glb",
+    "bytes": 244160,
+    "tris": 593,
+    "height_m": 3.4,
+    "embedded_png_bytes": 197920,
+    "cells": [
+     "agave_dry",
+     "agave_leaf",
+     "deadwood_bark"
+    ]
+   },
+   {
+    "file": "../plants/plant_scrub_bush_a_v5.glb",
+    "bytes": 178540,
+    "tris": 116,
+    "height_m": 1.05,
+    "embedded_png_bytes": 162609,
+    "cells": [
+     "deadwood_bark",
+     "scrub_dense",
+     "scrub_sparse"
+    ]
+   }
+  ]
+ },
+ "trees": {
+  "glbs": [
+   {
+    "file": "../trees/tree_dead_a_v5.glb",
+    "bytes": 219676,
+    "tris": 984
+   },
+   {
+    "file": "../trees/tree_dead_b_v5.glb",
+    "bytes": 219676,
+    "tris": 984
+   }
+  ],
+  "texture": {
+   "path": "../trees/t_deadwood_v5.jpg",
+   "bytes": 57849
+  }
+ }
+}
