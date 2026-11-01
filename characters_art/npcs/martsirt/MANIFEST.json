@@ -4,15 +4,15 @@
  "npcs": {
   "wolcen": {
    "glb": "glb/wolcen.glb",
-   "bytes": 1386464,
-   "MB": 1.386,
+   "bytes": 2881816,
+   "MB": 2.882,
    "height_m": 1.98,
-   "tris_total": 24147,
-   "tris_visible_default": 21469,
+   "tris_total": 24914,
+   "tris_visible_default": 22323,
    "textures": {
-    "basecolor": "1024 webp",
-    "normal": "1024 webp",
-    "orm": "1024 webp"
+    "basecolor": "2048 webp",
+    "normal": "2048 webp",
+    "orm": "2048 webp"
    },
    "materials": [
     "wolcen_mat",
@@ -86,67 +86,67 @@
      "node": "wolcen_body_head",
      "type": "body_region",
      "skinned": true,
-     "tris": 3128
+     "tris": 3201
     },
     {
      "node": "wolcen_body_torso",
      "type": "body_region",
      "skinned": true,
-     "tris": 1280
+     "tris": 1193
     },
     {
      "node": "wolcen_body_arms",
      "type": "body_region",
      "skinned": true,
-     "tris": 1156
+     "tris": 900
     },
     {
      "node": "wolcen_body_hands",
      "type": "body_region",
      "skinned": true,
-     "tris": 1444
+     "tris": 1446
     },
     {
      "node": "wolcen_body_legs",
      "type": "body_region",
      "skinned": true,
-     "tris": 794
+     "tris": 798
     },
     {
      "node": "wolcen_body_feet",
      "type": "body_region",
      "skinned": true,
-     "tris": 376
+     "tris": 372
     },
     {
      "node": "wolcen_outfit_torso",
      "type": "outfit",
      "skinned": true,
-     "tris": 5344
+     "tris": 7230
     },
     {
      "node": "wolcen_outfit_legs",
      "type": "outfit",
      "skinned": true,
-     "tris": 1997
+     "tris": 1449
     },
     {
      "node": "wolcen_outfit_feet",
      "type": "outfit",
      "skinned": true,
-     "tris": 3784
+     "tris": 2979
     },
     {
      "node": "wolcen_outfit_hands",
      "type": "outfit",
      "skinned": true,
-     "tris": 1808
+     "tris": 1064
     },
     {
      "node": "wolcen_hair",
      "type": "hair",
      "skinned": true,
-     "tris": 2732
+     "tris": 3978
     },
     {
      "node": "wolcen_keepsake",
@@ -184,15 +184,15 @@
   },
   "quill": {
    "glb": "glb/quill.glb",
-   "bytes": 1243460,
-   "MB": 1.243,
+   "bytes": 2714828,
+   "MB": 2.715,
    "height_m": 1.76,
-   "tris_total": 22948,
-   "tris_visible_default": 19948,
+   "tris_total": 23680,
+   "tris_visible_default": 20681,
    "textures": {
-    "basecolor": "1024 webp",
-    "normal": "1024 webp",
-    "orm": "1024 webp"
+    "basecolor": "2048 webp",
+    "normal": "2048 webp",
+    "orm": "2048 webp"
    },
    "materials": [
     "quill_mat",
@@ -261,55 +261,55 @@
      "node": "quill_body_head",
      "type": "body_region",
      "skinned": true,
-     "tris": 3011
+     "tris": 2970
     },
     {
      "node": "quill_body_torso",
      "type": "body_region",
      "skinned": true,
-     "tris": 1309
+     "tris": 1350
     },
     {
      "node": "quill_body_arms",
      "type": "body_region",
      "skinned": true,
-     "tris": 497
+     "tris": 459
     },
     {
      "node": "quill_body_hands",
      "type": "body_region",
      "skinned": true,
-     "tris": 1417
+     "tris": 1459
     },
     {
      "node": "quill_body_legs",
      "type": "body_region",
      "skinned": true,
-     "tris": 778
+     "tris": 776
     },
     {
      "node": "quill_body_feet",
      "type": "body_region",
      "skinned": true,
-     "tris": 368
+     "tris": 366
     },
     {
      "node": "quill_outfit_torso",
      "type": "outfit",
      "skinned": true,
-     "tris": 8230
+     "tris": 9312
     },
     {
      "node": "quill_outfit_legs",
      "type": "outfit",
      "skinned": true,
-     "tris": 1499
+     "tris": 1100
     },
     {
      "node": "quill_outfit_feet",
      "type": "outfit",
      "skinned": true,
-     "tris": 3095
+     "tris": 2140
     },
     {
      "node": "quill_outfit_hands",
@@ -321,7 +321,7 @@
      "node": "quill_hair",
      "type": "hair",
      "skinned": true,
-     "tris": 2156
+     "tris": 3160
     },
     {
      "node": "quill_keepsake",
