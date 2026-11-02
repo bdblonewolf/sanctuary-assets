@@ -76,6 +76,70 @@
     ],
     "lych": [
       "The lych rest, where the dead are set down before the gate. Lay them here, and say the name aloud."
+    ],
+    "pew": [
+      "Father Noll's flock sat here. They stand yet in the parish, white and still.",
+      "Worn smooth by knees. Sit, if thou canst bear the quiet of it."
+    ],
+    "glass": [
+      "The one painted window left whole. The light through it falleth in colours no fire maketh.",
+      "Lead and coloured glass. The parish raised it before it called for Zhera's line."
+    ],
+    "candelabra": [
+      "Tall iron and old tallow. Someone still lighteth these, and none will say who.",
+      "The flames lean toward the altar, though no draught moveth here."
+    ],
+    "carpet": [
+      "A runner of old red cloth, worn to the weave where the flock walked to the altar.",
+      "Salt is ground into it. Zhera's fire leaveth salt, not ash."
+    ],
+    "effigy": [
+      "A stone effigy, hands clasped. The face is rubbed away by kisses or by grief.",
+      "Someone hath left salt at its feet, as they leave it at the statue."
+    ],
+    "pulpit": [
+      "Father Noll preached from here that the light would scorch the possessed. It took the flawed with them.",
+      "The book lieth open. The page is scorched at the edge and nowhere else."
+    ],
+    "rubble": [
+      "The roof came down here. Cold light falleth through the hole.",
+      "Fallen beams and slate. Mind thy feet."
+    ],
+    "crypt_hatch": [
+      "A stone hatch, chained and locked. Burnt hair and old incense. It was under the chapel first.",
+      "If the stone under the chapel warmeth, that is no hearth. Leave it."
+    ],
+    "church_sidedoor": [
+      "The side door is barred from within. It stays so."
+    ],
+    "church_tower": [
+      "The tower stair is fallen in past the first turn."
+    ],
+    "inn_bar": [
+      "The Salted Kettle's bar. Mira keepeth it, and the taproom keepeth its own weather.",
+      "Rings of old ale on dark wood. Lean on it; everyone doth."
+    ],
+    "inn_hearth": [
+      "A good fire, fed well. The one warm place in Martsirt that asketh nothing of thee.",
+      "The chimney draweth clean. Mira will have it no other way."
+    ],
+    "inn_keg": [
+      "Ale from the cask. It tasteth faintly of the sea, as all things here do."
+    ],
+    "inn_table": [
+      "Scarred tables, knife marks and dice burns. The talk is low and the cups are full."
+    ],
+    "inn_lantern": [
+      "Iron and horn lanterns, smoke-black. They swing a little when the door goeth."
+    ],
+    "inn_cellar": [
+      "The cellar hatch. Mira keepeth the key and goeth down alone."
+    ],
+    "inn_stairs": [
+      "The rooms above are let. Not tonight."
+    ],
+    "inn_backdoor": [
+      "The yard door, barred for the night."
     ]
   },
   "spots": [

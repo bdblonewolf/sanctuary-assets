@@ -1,0 +1,351 @@
+{
+ "id": "inn",
+ "world": "taproom",
+ "name": "The Salted Kettle",
+ "coords": "town tiles (same frame as placements.json + origin 81,76). Interior local = town - offset.",
+ "offset": [
+  47,
+  78
+ ],
+ "size": [
+  19,
+  16
+ ],
+ "pieces": [
+  {
+   "glb": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared.glb",
+   "pos": [
+    -24.5,
+    0,
+    9.5
+   ],
+   "rotY": 0.1047,
+   "note": "same piece and transform as placements.json, so windows, doors, hearth and footprint match the street view"
+  }
+ ],
+ "hide": {
+  "prefix": [
+   "roof",
+   "gable",
+   "chimney",
+   "up_",
+   "upper_window",
+   "win_glow_up",
+   "floor_upper",
+   "props_upper",
+   "yard_props",
+   "ground_",
+   "sign_",
+   "shutter",
+   "sway_",
+   "gutter",
+   "col_",
+   "nav_",
+   "npc_spot_",
+   "fx_"
+  ],
+  "minYAbove": 2.6
+ },
+ "cutaway": {
+  "side": "south",
+  "fadeOpacity": 0.25,
+  "note": "walls between camera and room fade; their windows stay in place"
+ },
+ "walk": {
+  "rect_local": [
+   -7.1,
+   7.1,
+   -5.35,
+   5.35
+  ],
+  "centre": [
+   56.5,
+   85.5
+  ],
+  "rotY": 0.1047,
+  "note": "ground-floor inner wall faces of the inn shell; tiles outside are solid"
+ },
+ "spawn": [
+  55.99,
+  90.18
+ ],
+ "exits": [
+  {
+   "x": 56.09,
+   "y": 91.12,
+   "to": "town",
+   "sx": 56.53,
+   "sy": 95.35,
+   "label": "Out to the square"
+  }
+ ],
+ "locked": [
+  {
+   "x": 60.89,
+   "y": 79.46,
+   "lore": "inn_backdoor"
+  },
+  {
+   "x": 62.12,
+   "y": 89.23,
+   "lore": "inn_cellar"
+  },
+  {
+   "x": 63.09,
+   "y": 87.02,
+   "lore": "inn_stairs"
+  }
+ ],
+ "props": [
+  {
+   "glb": "characters_art/props/wine_barrel_01_sanctuary.glb",
+   "x": 61.5,
+   "y": 84.6,
+   "rotY": 0.4,
+   "kind": "barrel",
+   "lore": "inn_keg"
+  },
+  {
+   "glb": "models/town/martsirt_v2_2/props/prop_barrel_group.glb",
+   "x": 63.1,
+   "y": 89.9,
+   "rotY": 1.67,
+   "kind": "barrel",
+   "lore": "inn_keg",
+   "note": "beside col_barrels"
+  },
+  {
+   "glb": "models/town/martsirt_v2_2/props/prop_crate_stack.glb",
+   "x": 50.4,
+   "y": 90.4,
+   "rotY": 0.1,
+   "kind": "crate"
+  },
+  {
+   "glb": "models/env_extra/props_gothic_v1/props/wall_sconce_v1.glb",
+   "x": 52.96,
+   "y": 80.49,
+   "rotY": 0.1047,
+   "kind": "sconce"
+  },
+  {
+   "glb": "models/env_extra/props_gothic_v1/props/wall_sconce_v1.glb",
+   "x": 58.43,
+   "y": 79.92,
+   "rotY": 0.1047,
+   "kind": "sconce"
+  },
+  {
+   "bundle": "/assets3d/polyhaven/lantern_chandelier_01/lantern_chandelier_01_1k.gltf",
+   "x": 55.9,
+   "y": 86.6,
+   "hangTop": 3.4,
+   "fitHeight": 0.9,
+   "kind": "chandelier",
+   "lore": "inn_lantern"
+  },
+  {
+   "code": "candle",
+   "x": 52.26,
+   "y": 89.16,
+   "h": 0.8
+  },
+  {
+   "code": "candle",
+   "x": 55.22,
+   "y": 88.65,
+   "h": 0.8
+  },
+  {
+   "code": "candle",
+   "x": 51.69,
+   "y": 85.7,
+   "h": 0.8
+  },
+  {
+   "code": "candle",
+   "x": 55.07,
+   "y": 85.25,
+   "h": 0.8
+  },
+  {
+   "code": "candle",
+   "x": 57.67,
+   "y": 89.0,
+   "h": 0.8
+  }
+ ],
+ "seats": [
+  {
+   "kind": "stool",
+   "x": 59.15,
+   "y": 84.6,
+   "fx": 60.2,
+   "fy": 84.6,
+   "tag": "bar",
+   "code": "stool",
+   "top": 0.5
+  },
+  {
+   "kind": "stool",
+   "x": 59.15,
+   "y": 85.7,
+   "fx": 60.2,
+   "fy": 85.7,
+   "tag": "bar",
+   "code": "stool",
+   "top": 0.5
+  },
+  {
+   "kind": "stool",
+   "x": 59.15,
+   "y": 86.8,
+   "fx": 60.2,
+   "fy": 86.8,
+   "tag": "bar",
+   "code": "stool",
+   "top": 0.5
+  },
+  {
+   "kind": "stool",
+   "x": 59.15,
+   "y": 87.9,
+   "fx": 60.2,
+   "fy": 87.9,
+   "tag": "bar",
+   "code": "stool",
+   "top": 0.5
+  },
+  {
+   "kind": "stool",
+   "x": 51.0,
+   "y": 83.0,
+   "fx": 49.8,
+   "fy": 84.1,
+   "tag": "hearth",
+   "code": "stool",
+   "top": 0.5
+  },
+  {
+   "kind": "stool",
+   "x": 51.0,
+   "y": 83.95,
+   "fx": 49.8,
+   "fy": 84.1,
+   "tag": "hearth",
+   "code": "stool",
+   "top": 0.5
+  }
+ ],
+ "lights": [
+  {
+   "x": 49.82,
+   "y": 84.09,
+   "h": 0.6,
+   "color": "0xff7a2e",
+   "intensity": 2.2,
+   "radius": 7,
+   "flicker": 0.35,
+   "note": "fx_fire_hearth_W"
+  },
+  {
+   "x": 63.28,
+   "y": 86.9,
+   "h": 0.4,
+   "color": "0xff8a3c",
+   "intensity": 1.1,
+   "radius": 4,
+   "flicker": 0.3,
+   "note": "fx_fire_kitchen"
+  },
+  {
+   "x": 55.04,
+   "y": 86.96,
+   "h": 2.65,
+   "color": "0xffa957",
+   "intensity": 1.0,
+   "radius": 6,
+   "flicker": 0.1,
+   "note": "lantern"
+  },
+  {
+   "x": 55.9,
+   "y": 86.6,
+   "h": 2.6,
+   "color": "0xffa957",
+   "intensity": 0.9,
+   "radius": 7,
+   "flicker": 0.08,
+   "note": "chandelier"
+  },
+  {
+   "x": 52.96,
+   "y": 80.75,
+   "h": 1.95,
+   "color": "0xffa957",
+   "intensity": 0.5,
+   "radius": 3.5,
+   "flicker": 0.15
+  },
+  {
+   "x": 58.43,
+   "y": 80.2,
+   "h": 1.95,
+   "color": "0xffa957",
+   "intensity": 0.5,
+   "radius": 3.5,
+   "flicker": 0.15
+  }
+ ],
+ "ambient": {
+  "sky": "0x3a2a1c",
+  "ground": "0x140d08",
+  "intensity": 0.35
+ },
+ "npcSpots": {
+  "Mira": [
+   61.18,
+   86.01
+  ],
+  "cook": [
+   62.96,
+   87.64
+  ],
+  "bard": [
+   53.36,
+   82.41
+  ],
+  "patron_01": [
+   52.18,
+   88.37
+  ],
+  "patron_02": [
+   54.98,
+   84.45
+  ],
+  "patron_03": [
+   50.94,
+   84.27
+  ]
+ },
+ "lore": [
+  {
+   "x": 60.2,
+   "y": 86.3,
+   "r": 1.4,
+   "key": "inn_bar"
+  },
+  {
+   "x": 49.82,
+   "y": 84.09,
+   "r": 1.8,
+   "key": "inn_hearth"
+  },
+  {
+   "x": 55.2,
+   "y": 86.9,
+   "r": 3.5,
+   "key": "inn_table"
+  }
+ ]
+}
