@@ -1,0 +1,91 @@
+{
+ "patch": "N2 seats - APPEND these entries to placements.json 'placements' and bump counts total/built by 6 (165 -> 171). Not applied yet: placements.json is loaded live.",
+ "why": "Six NPC seat markers (kettle_bench, forge_bench, stable_bale, ness_bench, orrin_chair, camp_l1) stand on bare ground, so the N2A seat check makes NPCs stand there. Each entry puts a small seat mesh (top 0.42-0.46 m, under 4 m wide) on the marker.",
+ "coords": "pos = tile - origin (81,76); y up; rotY radians; unrotated seat faces +z (south).",
+ "append": [
+  {
+   "name": "seat_kettle_bench",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+   "pos": [
+    -20.8,
+    0.0,
+    19.6
+   ],
+   "rotY": 0.1047,
+   "status": "built",
+   "bytes": 7064,
+   "note": "kettle_bench: inn yard, faces south"
+  },
+  {
+   "name": "seat_forge_bench",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+   "pos": [
+    -52.5,
+    0.0,
+    -14.5
+   ],
+   "rotY": -0.1571,
+   "status": "built",
+   "bytes": 7064,
+   "note": "forge_bench: in front of the forge, faces south"
+  },
+  {
+   "name": "seat_stable_bale",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+   "pos": [
+    9.4,
+    0.0,
+    73.2
+   ],
+   "rotY": -1.4464,
+   "status": "built",
+   "bytes": 7064,
+   "note": "stable_bale: by the small gate fire, faces it"
+  },
+  {
+   "name": "seat_ness_bench",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+   "pos": [
+    -30.4,
+    0.0,
+    54.6
+   ],
+   "rotY": 1.5708,
+   "status": "built",
+   "bytes": 7064,
+   "note": "ness_bench: beside Ness cottage door, faces east"
+  },
+  {
+   "name": "seat_orrin_chair",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+   "pos": [
+    55.85,
+    0.0,
+    -54.4
+   ],
+   "rotY": -1.5708,
+   "status": "built",
+   "bytes": 7064,
+   "note": "orrin_chair: against the lodge west wall, faces west (box within 0.25 m of marker 137.3,21.6)"
+  },
+  {
+   "name": "seat_camp_l1",
+   "kind": "prop",
+   "piece": "models/town/martsirt_v2_2/props/prop_seat_log.glb",
+   "pos": [
+    -6.8,
+    0.0,
+    59.5
+   ],
+   "rotY": 1.3909,
+   "status": "built",
+   "bytes": 8280,
+   "note": "camp_l1: second log at the gate campfire, long axis tangent to the fire"
+  }
+ ]
+}

@@ -1,0 +1,167 @@
+{
+  "about": "Martsirt town lore lines for N3. lines: keyed by prop kind, prop tag or spot key; the game cycles through the variants. spots: tap points that are not props (tile coords, r = tap radius in m). Edit freely; no code change needed.",
+  "version": 1,
+  "seat": {
+    "ask": "Sit here? The stone receiveth all who are weary.",
+    "taken": "Another keepeth this seat. Wait thy turn.",
+    "sit": "You sit. Let the hour pass without thee.",
+    "yes": "Sit here",
+    "no": "Leave it"
+  },
+  "lines": {
+    "well": [
+      "Here the parish drew water before the fire. Draw, and give thanks; the deep remembereth who drank.",
+      "A stone mouth over the dark. Three pails at dawn: one for the living, one for the drowned, one for the Seraph.",
+      "The rope is new; the stone is not. What is lowered here cometh up colder than it went."
+    ],
+    "bench": [
+      "A seat of hewn stone, worn hollow by the waiting. Sit, and be counted among them that tarried.",
+      "Here the elders sat in judgment of small sins. The stone hath not forgotten the verdicts.",
+      "Cold stone, warm with the many. Rest thy feet; the road keepeth."
+    ],
+    "log": [
+      "A felled bough, laid down for the weary. The wood holdeth the warmth of all who rested.",
+      "Sit by the ember, pilgrim. The log asketh no name."
+    ],
+    "chair": [
+      "A joined chair, oak upon oak. Who sitteth here, let them hold their peace and hear.",
+      "The seat of one who keepeth watch. Sit not long, lest the watch fall to thee."
+    ],
+    "bonfire_main": [
+      "The common fire of Martsirt. Feed it, and it keepeth the night at the door.",
+      "Ash upon ash. Each night the parish casteth one name into the flame, that it be not forgotten.",
+      "Zhera's fire was white. This fire is red, and it is ours."
+    ],
+    "bonfire": [
+      "A traveller's fire. Warm thy hands, but turn thy back to it never.",
+      "Embers kept by the gate, lest the dark come in unannounced."
+    ],
+    "statue": [
+      "Father Noll, rendered in salt. He called the fire down upon the drowned, and the fire found him also.",
+      "Touch not the salt. It was a man, and he was weighed, and he was found to have small sins.",
+      "Ysara washeth his feet each new moon. The salt weareth not away; it only weepeth."
+    ],
+    "notice": [
+      "Notices of the parish, nailed in a row: tithes, a lost goat, the hour of the bell. Beneath, in a fainter hand: Pray for the salted.",
+      "The decrees of the watch. Read, and be warned; the gibbet heareth no appeal."
+    ],
+    "trough": [
+      "Water for the beasts of the field. Even the oxen are served before the proud.",
+      "A trough of black water. The horses drink, and look at thee as if thou wert late."
+    ],
+    "anvil": [
+      "Wolcen's anvil. Here iron is made to remember a shape. Strike true, for the metal heareth.",
+      "The face is scarred with ten thousand blows. Each was a prayer that something would hold."
+    ],
+    "shrine": [
+      "An angel weepeth in the niche, her hands upon her face. The angels are bound and may not intervene; this is the shape of that binding.",
+      "Lay no coin here. She cannot take it, and she cannot refuse it."
+    ],
+    "stall": [
+      "A chandler's stall. Tallow and wick, that the dark be held off one hour more.",
+      "Candles by the dozen, for the living and the salted alike. The price is the same."
+    ],
+    "chopblock": [
+      "A block for the axe, scored a thousand times. Mind thy hand; the block keepeth no account of whose it was."
+    ],
+    "gibbet": [
+      "The iron cage of the watch. Here the guilty hung until the crows had judged them.",
+      "The chain creaketh with no wind. Pass by, and say the short prayer."
+    ],
+    "font": [
+      "The font of St. Noll. The water was salt once. Now it is only cold."
+    ],
+    "altar": [
+      "Here the fire was asked for. Kneel if thou wilt; the altar hath heard worse prayers."
+    ],
+    "lych": [
+      "The lych rest, where the dead are set down before the gate. Lay them here, and say the name aloud."
+    ]
+  },
+  "spots": [
+    {
+      "key": "statue",
+      "x": 81.16,
+      "y": 79.0,
+      "r": 1.9
+    },
+    {
+      "key": "notice",
+      "x": 86.59,
+      "y": 75.71,
+      "r": 1.3
+    },
+    {
+      "key": "notice",
+      "x": 84.44,
+      "y": 19.24,
+      "r": 1.2
+    },
+    {
+      "key": "trough",
+      "x": 50.98,
+      "y": 95.13,
+      "r": 2.2
+    },
+    {
+      "key": "trough",
+      "x": 26.97,
+      "y": 57.59,
+      "r": 1.2
+    },
+    {
+      "key": "trough",
+      "x": 124.81,
+      "y": 121.07,
+      "r": 1.4
+    },
+    {
+      "key": "anvil",
+      "x": 27.64,
+      "y": 54.65,
+      "r": 1.0
+    },
+    {
+      "key": "shrine",
+      "x": 124.13,
+      "y": 48.05,
+      "r": 1.4
+    },
+    {
+      "key": "stall",
+      "x": 74.25,
+      "y": 64.31,
+      "r": 1.8
+    },
+    {
+      "key": "chopblock",
+      "x": 49.46,
+      "y": 77.79,
+      "r": 0.9
+    },
+    {
+      "key": "gibbet",
+      "x": 86.64,
+      "y": 17.68,
+      "r": 1.2
+    },
+    {
+      "key": "font",
+      "x": 116.37,
+      "y": 35.44,
+      "r": 1.0
+    },
+    {
+      "key": "altar",
+      "x": 132.07,
+      "y": 38.74,
+      "r": 1.4
+    },
+    {
+      "key": "lych",
+      "x": 121.13,
+      "y": 56.08,
+      "r": 1.2
+    }
+  ]
+}
