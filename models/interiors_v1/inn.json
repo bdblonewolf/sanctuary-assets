@@ -89,8 +89,8 @@
       "lore": "inn_backdoor"
     },
     {
-      "x": 62.12,
-      "y": 89.23,
+      "x": 62.22,
+      "y": 89.61,
       "lore": "inn_cellar"
     },
     {
@@ -167,8 +167,8 @@
     },
     {
       "code": "candle",
-      "x": 57.4,
-      "y": 87.57,
+      "x": 56.75,
+      "y": 87.75,
       "h": 0.8
     },
     {
@@ -323,8 +323,8 @@
       "note": "dim warm fill: table centre"
     },
     {
-      "x": 57.4,
-      "y": 87.57,
+      "x": 56.75,
+      "y": 87.75,
       "h": 1.6,
       "color": "0xffa04a",
       "intensity": 0.3,
@@ -572,8 +572,8 @@
     {
       "id": "cellar_trapdoor",
       "glb": "models/props_new/trapdoor_ashen_coast_closed.glb",
-      "x": 62.12,
-      "y": 89.23,
+      "x": 62.22,
+      "y": 89.61,
       "rotY": 0.1047,
       "kind": "prop",
       "note": "inn GLB has no hatch mesh; fills the locked cellar spot (lock unchanged). Ignored by current code; drawn by W1."
