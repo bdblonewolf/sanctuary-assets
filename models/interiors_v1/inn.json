@@ -155,12 +155,6 @@
     },
     {
       "code": "candle",
-      "x": 55.22,
-      "y": 88.65,
-      "h": 0.8
-    },
-    {
-      "code": "candle",
       "x": 51.69,
       "y": 85.7,
       "h": 0.8
@@ -298,12 +292,72 @@
       "intensity": 0.5,
       "radius": 3.5,
       "flicker": 0.15
+    },
+    {
+      "x": 52.26,
+      "y": 89.16,
+      "h": 1.6,
+      "color": "0xffa04a",
+      "intensity": 0.35,
+      "radius": 3.5,
+      "flicker": 0.15,
+      "note": "dim warm fill: table SW"
+    },
+    {
+      "x": 51.69,
+      "y": 85.7,
+      "h": 1.6,
+      "color": "0xffa04a",
+      "intensity": 0.35,
+      "radius": 3.5,
+      "flicker": 0.15,
+      "note": "dim warm fill: table W"
+    },
+    {
+      "x": 55.07,
+      "y": 85.25,
+      "h": 1.7,
+      "color": "0xff8a3c",
+      "intensity": 0.3,
+      "radius": 3.5,
+      "flicker": 0.12,
+      "note": "dim warm fill: table centre"
+    },
+    {
+      "x": 57.67,
+      "y": 89.0,
+      "h": 1.6,
+      "color": "0xffa04a",
+      "intensity": 0.3,
+      "radius": 3.0,
+      "flicker": 0.15,
+      "note": "dim warm fill: table by bar"
+    },
+    {
+      "x": 49.65,
+      "y": 81.59,
+      "h": 1.8,
+      "color": "0xff8a3c",
+      "intensity": 0.25,
+      "radius": 4.0,
+      "flicker": 0.18,
+      "note": "dim warm fill: dark corner NW"
+    },
+    {
+      "x": 50.89,
+      "y": 89.51,
+      "h": 1.2,
+      "color": "0xff8a3c",
+      "intensity": 0.25,
+      "radius": 3.5,
+      "flicker": 0.18,
+      "note": "dim warm fill: dark corner SW by crates"
     }
   ],
   "ambient": {
     "sky": "0x3a2a1c",
     "ground": "0x140d08",
-    "intensity": 0.35
+    "intensity": 0.42
   },
   "npcSpots": {
     "Mira": [
