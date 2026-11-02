@@ -1,0 +1,1164 @@
+{
+ "iron_chest_lite_closed": {
+  "bytes": 620896,
+  "tris": 2999,
+  "collider_tris": 12,
+  "nodes": [
+   "body",
+   "col_chest",
+   "lid",
+   "chest_root"
+  ],
+  "materials": [
+   "M_chest"
+  ],
+  "images": 3,
+  "size_m": [
+   1.1,
+   0.62,
+   0.72
+  ],
+  "min_y": -0.0,
+  "max_y": 0.62,
+  "path": "lite/iron_chest_lite_closed.glb",
+  "category": "lite",
+  "source": "/workspace/repos/sanctuary-assets/models/env_extra/interactables/chest.glb",
+  "source_tris": 24050,
+  "notes": "decimated (collapse) from 24050 tris; textures <= 1024px; nodes/extras kept"
+ },
+ "iron_chest_lite_opened": {
+  "bytes": 620932,
+  "tris": 2999,
+  "collider_tris": 12,
+  "nodes": [
+   "body",
+   "col_chest",
+   "lid",
+   "chest_root"
+  ],
+  "materials": [
+   "M_chest"
+  ],
+  "images": 3,
+  "size_m": [
+   1.1,
+   1.07,
+   1.03
+  ],
+  "min_y": -0.0,
+  "max_y": 1.07,
+  "path": "lite/iron_chest_lite_opened.glb",
+  "category": "lite",
+  "source": "/workspace/repos/sanctuary-assets/models/env_extra/interactables/chest.glb",
+  "source_tris": 24050,
+  "notes": "decimated (collapse) from 24050 tris; textures <= 1024px; nodes/extras kept"
+ },
+ "bookshelf_worn_lite": {
+  "bytes": 256876,
+  "tris": 2599,
+  "collider_tris": 0,
+  "nodes": [
+   "wooden_bookshelf_worn"
+  ],
+  "materials": [
+   "wooden_bookshelf_worn"
+  ],
+  "images": 3,
+  "size_m": [
+   1.37,
+   2.06,
+   0.58
+  ],
+  "min_y": -0.0,
+  "max_y": 2.06,
+  "path": "lite/bookshelf_worn_lite.glb",
+  "category": "lite",
+  "source": "/workspace/sanctuary/assets3d/overworld/polyhaven/wooden_bookshelf_worn.glb",
+  "source_tris": 10106,
+  "notes": "decimated (collapse) from 10106 tris; textures <= 512px; nodes/extras kept"
+ },
+ "shrine_basic_lite": {
+  "bytes": 1361396,
+  "tris": 4800,
+  "collider_tris": 24,
+  "nodes": [
+   "col_shrine_niche",
+   "col_shrine_plinth",
+   "fx_candle_00",
+   "fx_candle_01",
+   "fx_candle_02",
+   "fx_candle_03",
+   "fx_candle_04",
+   "fx_candle_05",
+   "fx_candle_06",
+   "fx_candle_07",
+   "fx_candle_08",
+   "fx_candle_09",
+   "fx_candle_10",
+   "fx_candle_11",
+   "fx_candle_12",
+   "fx_candle_13",
+   "fx_candle_14",
+   "fx_candle_15",
+   "fx_candle_16",
+   "fx_shrine_glow",
+   "interact",
+   "shrine_body",
+   "shrine_basic_root"
+  ],
+  "materials": [
+   "M_shrine_basic",
+   "M_shrine_basic_statue"
+  ],
+  "images": 6,
+  "size_m": [
+   1.84,
+   2.56,
+   1.5
+  ],
+  "min_y": -0.01,
+  "max_y": 2.55,
+  "path": "lite/shrine_basic_lite.glb",
+  "category": "lite",
+  "source": "/workspace/repos/sanctuary-assets/models/shrines/shrine_basic.glb",
+  "source_tris": 41070,
+  "notes": "decimated (collapse) from 41070 tris; textures <= 1024px; nodes/extras kept"
+ },
+ "shrine_weeping_angel_lite": {
+  "bytes": 1359024,
+  "tris": 4800,
+  "collider_tris": 24,
+  "nodes": [
+   "col_shrine_niche",
+   "col_shrine_plinth",
+   "fx_basin_shimmer",
+   "fx_candle_00",
+   "fx_candle_01",
+   "fx_candle_02",
+   "fx_candle_03",
+   "fx_candle_04",
+   "fx_heal_motes",
+   "fx_tear_drip",
+   "interact",
+   "shrine_body",
+   "water_basin",
+   "shrine_weeping_angel_root"
+  ],
+  "materials": [
+   "M_shrine_weeping_angel",
+   "M_shrine_weeping_angel_statue",
+   "M_water"
+  ],
+  "images": 6,
+  "size_m": [
+   1.83,
+   3.23,
+   1.47
+  ],
+  "min_y": -0.67,
+  "max_y": 2.56,
+  "path": "lite/shrine_weeping_angel_lite.glb",
+  "category": "lite",
+  "source": "/workspace/repos/sanctuary-assets/models/shrines/shrine_weeping_angel.glb",
+  "source_tris": 39570,
+  "notes": "decimated (collapse) from 39570 tris; textures <= 1024px; nodes/extras kept"
+ },
+ "pier_lite": {
+  "bytes": 890352,
+  "tris": 8998,
+  "collider_tris": 0,
+  "nodes": [
+   "modular_wooden_pier_poles",
+   "modular_wooden_pier_planks",
+   "modular_wooden_pier_section_01",
+   "modular_wooden_pier_section_02",
+   "modular_wooden_pier_section_03",
+   "modular_wooden_pier_section_05",
+   "modular_wooden_pier_section_04"
+  ],
+  "materials": [
+   "modular_wooden_pier_poles",
+   "modular_wooden_pier_planks",
+   "modular_wooden_pier_poles.001"
+  ],
+  "images": 6,
+  "size_m": [
+   3.1,
+   7.51,
+   19.03
+  ],
+  "min_y": -0.99,
+  "max_y": 6.52,
+  "path": "lite/pier_lite.glb",
+  "category": "lite",
+  "source": "/workspace/sanctuary/assets3d/overworld/polyhaven/modular_wooden_pier.glb",
+  "source_tris": 84780,
+  "notes": "decimated (collapse) from 84780 tris; textures <= 512px; nodes/extras kept"
+ },
+ "map_board_known_roads": {
+  "bytes": 493088,
+  "tris": 266,
+  "collider_tris": 12,
+  "nodes": [
+   "board",
+   "col_map_board",
+   "interact",
+   "map_slot",
+   "map_board_known_roads"
+  ],
+  "materials": [
+   "m_wood_dark",
+   "m_stone_mossy",
+   "m_wood_planks",
+   "m_wood_weathered",
+   "m_iron",
+   "m_map_slot"
+  ],
+  "images": 11,
+  "size_m": [
+   2.12,
+   2.29,
+   0.77
+  ],
+  "min_y": 0.0,
+  "max_y": 2.29,
+  "path": "map_board_known_roads.glb",
+  "notes": "Standing map board \"The known roads\". Front faces +Z. map_slot = separate quad (1.5 x 1.0 m) with own material m_map_slot; swap its texture in code.",
+  "category": "interactable",
+  "interactable": "map"
+ },
+ "rowboat_ferry": {
+  "bytes": 294740,
+  "tris": 1400,
+  "collider_tris": 12,
+  "nodes": [
+   "col_boat",
+   "hull",
+   "oar_L",
+   "oar_R",
+   "player_board",
+   "seat_passenger",
+   "seat_rower",
+   "waterline",
+   "rowboat_ferry"
+  ],
+  "materials": [
+   "m_hull_tarred",
+   "m_wood_planks",
+   "m_wood_dark",
+   "m_iron",
+   "m_rope"
+  ],
+  "images": 7,
+  "size_m": [
+   5.31,
+   0.84,
+   4.42
+  ],
+  "min_y": 0.0,
+  "max_y": 0.84,
+  "path": "rowboat_ferry.glb",
+  "notes": "Holt's ferry rowboat, 4.1 m, clinker hull from the longship hull generator (props_gothic_v1). Bow faces -Z. Base (keel) at y=0; node waterline = y 0.2. Oars oar_L/oar_R pivot at oarlocks.",
+  "category": "vehicle",
+  "interactable": "ferry"
+ },
+ "well_stone": {
+  "bytes": 780888,
+  "tris": 1783,
+  "collider_tris": 24,
+  "nodes": [
+   "bucket",
+   "col_well",
+   "col_well_posts",
+   "interact",
+   "well",
+   "well_stone"
+  ],
+  "materials": [
+   "wooden_bucket_01",
+   "m_rope",
+   "m_stone_mossy",
+   "m_stone_soot",
+   "m_void",
+   "m_well_water",
+   "m_wood_dark",
+   "m_wood_weathered",
+   "m_iron"
+  ],
+  "images": 14,
+  "size_m": [
+   2.06,
+   3.84,
+   1.81
+  ],
+  "min_y": -1.2,
+  "max_y": 2.64,
+  "path": "well_stone.glb",
+  "notes": "Town stone well. Rubble-stone ring (no flat faces), plank roof, winch; bucket node pivot at rope top.",
+  "category": "interactable",
+  "interactable": "well"
+ },
+ "well_stone_heal": {
+  "bytes": 815144,
+  "tris": 1827,
+  "collider_tris": 24,
+  "nodes": [
+   "bucket",
+   "col_well",
+   "col_well_posts",
+   "fx_heal_glow",
+   "interact",
+   "well",
+   "well_stone_heal"
+  ],
+  "materials": [
+   "wooden_bucket_01",
+   "m_rope",
+   "m_stone_mossy",
+   "m_stone_soot",
+   "m_void",
+   "m_heal_water",
+   "m_heal_runes",
+   "m_wood_dark",
+   "m_wood_weathered",
+   "m_iron"
+  ],
+  "images": 15,
+  "size_m": [
+   2.06,
+   3.84,
+   1.81
+  ],
+  "min_y": -1.2,
+  "max_y": 2.64,
+  "path": "well_stone_heal.glb",
+  "notes": "Healing well: glowing water disc + rune band (emissive <= 1.0), fx_heal_glow node. Rubble-stone ring (no flat faces), plank roof, winch; bucket node pivot at rope top.",
+  "category": "interactable",
+  "interactable": "well_heal"
+ },
+ "trapdoor_ashen_coast_closed": {
+  "bytes": 383960,
+  "tris": 910,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_trapdoor",
+   "hinge",
+   "lid",
+   "nav_down",
+   "surround",
+   "trapdoor_ashen_coast_closed"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_iron",
+   "m_stone_rubble_soot",
+   "m_wood_dark",
+   "m_void"
+  ],
+  "images": 8,
+  "size_m": [
+   1.8,
+   1.68,
+   1.54
+  ],
+  "min_y": -1.58,
+  "max_y": 0.1,
+  "path": "trapdoor_ashen_coast_closed.glb",
+  "notes": "Ashen Coast trapdoor, derived from the inn cellar hatch (1.2 x 1.0 m, soot rubble stone). Place origin at inn node cellar_hatch. Shaft/ladder extend 1.55 m below y=0.",
+  "category": "interactable",
+  "interactable": "trapdoor"
+ },
+ "trapdoor_ashen_coast_opened": {
+  "bytes": 384012,
+  "tris": 910,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_trapdoor_lid",
+   "hinge",
+   "lid",
+   "nav_down",
+   "surround",
+   "trapdoor_ashen_coast_opened"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_iron",
+   "m_stone_rubble_soot",
+   "m_wood_dark",
+   "m_void"
+  ],
+  "images": 8,
+  "size_m": [
+   1.8,
+   2.49,
+   1.62
+  ],
+  "min_y": -1.58,
+  "max_y": 0.91,
+  "path": "trapdoor_ashen_coast_opened.glb",
+  "notes": "Ashen Coast trapdoor, derived from the inn cellar hatch (1.2 x 1.0 m, soot rubble stone). Place origin at inn node cellar_hatch. Shaft/ladder extend 1.55 m below y=0.",
+  "category": "interactable",
+  "interactable": "trapdoor"
+ },
+ "cart_intact": {
+  "bytes": 324944,
+  "tris": 1348,
+  "collider_tris": 24,
+  "nodes": [
+   "axle",
+   "cart_body",
+   "col_cart",
+   "col_click",
+   "hitch",
+   "wheel_L",
+   "wheel_R",
+   "cart_intact"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark",
+   "m_wood_weathered",
+   "m_iron"
+  ],
+  "images": 8,
+  "size_m": [
+   1.64,
+   1.1,
+   3.93
+  ],
+  "min_y": -0.01,
+  "max_y": 1.09,
+  "path": "cart_intact.glb",
+  "notes": "Two-wheel hand/ox cart, bed 2.0 x 1.2 m, shafts forward (-Z... see README). Intact: wheels as nodes. Broken: +X wheel off and flat, body rolled onto that side, shaft snapped, sacks/grain/boards spilled. Footprint matches town prop_cart_broken.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "cart_broken": {
+  "bytes": 591012,
+  "tris": 1690,
+  "collider_tris": 24,
+  "nodes": [
+   "axle",
+   "cart_body",
+   "col_cart",
+   "col_click",
+   "hitch",
+   "spill",
+   "wheel_L",
+   "wheel_R",
+   "cart_broken"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark",
+   "m_wood_weathered",
+   "m_sack",
+   "m_grain",
+   "m_iron"
+  ],
+  "images": 12,
+  "size_m": [
+   3.15,
+   1.19,
+   4.6
+  ],
+  "min_y": -0.03,
+  "max_y": 1.16,
+  "path": "cart_broken.glb",
+  "notes": "Two-wheel hand/ox cart, bed 2.0 x 1.2 m, shafts forward (-Z... see README). Intact: wheels as nodes. Broken: +X wheel off and flat, body rolled onto that side, shaft snapped, sacks/grain/boards spilled. Footprint matches town prop_cart_broken.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "wardrobe": {
+  "bytes": 207168,
+  "tris": 536,
+  "collider_tris": 12,
+  "nodes": [
+   "col_wardrobe",
+   "door_L",
+   "door_R",
+   "interact",
+   "wardrobe_body",
+   "wardrobe"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark",
+   "m_iron",
+   "m_void"
+  ],
+  "images": 6,
+  "size_m": [
+   1.36,
+   2.11,
+   0.71
+  ],
+  "min_y": -0.01,
+  "max_y": 2.09,
+  "path": "wardrobe.glb",
+  "notes": "Oak wardrobe 1.26 x 2.07 x 0.71 m for the inn north hall (player room). Front +Z, back flat to wall. door_L/door_R hinge nodes.",
+  "category": "furniture",
+  "interactable": "wardrobe"
+ },
+ "nightstand": {
+  "bytes": 373320,
+  "tris": 376,
+  "collider_tris": 12,
+  "nodes": [
+   "col_nightstand",
+   "drawer",
+   "fx_candle",
+   "nightstand_body",
+   "nightstand"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark",
+   "m_iron",
+   "m_wax",
+   "cut_flame",
+   "m_book_red"
+  ],
+  "images": 11,
+  "size_m": [
+   0.54,
+   0.86,
+   0.46
+  ],
+  "min_y": 0.0,
+  "max_y": 0.86,
+  "path": "nightstand.glb",
+  "notes": "Bedside table 0.54 x 0.6 x 0.46 m with drawer node and a lit candle (fx_candle).",
+  "category": "furniture"
+ },
+ "desk": {
+  "bytes": 545860,
+  "tris": 492,
+  "collider_tris": 12,
+  "nodes": [
+   "col_desk",
+   "desk_body",
+   "fx_candle",
+   "interact",
+   "desk"
+  ],
+  "materials": [
+   "wooden_table_02",
+   "m_wood_dark",
+   "m_wood_planks",
+   "m_iron",
+   "m_paper",
+   "m_inkglass",
+   "m_quill",
+   "m_book",
+   "m_wax",
+   "cut_flame"
+  ],
+  "images": 15,
+  "size_m": [
+   1.29,
+   1.06,
+   0.71
+  ],
+  "min_y": -0.0,
+  "max_y": 1.06,
+  "path": "desk.glb",
+  "notes": "Writing desk derived from Poly Haven wooden_table_02 (CC0) scaled to 1.3 x 0.7 x 0.76 m, plus drawer, papers, ink, book and candle.",
+  "category": "furniture"
+ },
+ "rug": {
+  "bytes": 250256,
+  "tris": 768,
+  "collider_tris": 12,
+  "nodes": [
+   "col_rug",
+   "rug.001",
+   "rug"
+  ],
+  "materials": [
+   "m_rug"
+  ],
+  "images": 2,
+  "size_m": [
+   2.4,
+   0.04,
+   1.6
+  ],
+  "min_y": 0.0,
+  "max_y": 0.04,
+  "path": "rug.glb",
+  "notes": "Worn oxblood carpet 2.4 x 1.6 m (fits the 5.3 m deep north hall in front of the bed). Texture from Poly Haven dirty_carpet fibres + painted medallion.",
+  "category": "furniture"
+ },
+ "urn_a_intact": {
+  "bytes": 186012,
+  "tris": 440,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_urn",
+   "mesh",
+   "urn_a_intact"
+  ],
+  "materials": [
+   "m_urn_clay_a",
+   "m_void",
+   "m_rope"
+  ],
+  "images": 3,
+  "size_m": [
+   0.45,
+   0.72,
+   0.45
+  ],
+  "min_y": 0.0,
+  "max_y": 0.72,
+  "path": "breakables/urn_a_intact.glb",
+  "notes": "Clay urn variant A (h 0.72 m), breakable. Broken: lower third stays, shards + ash spill. Method derived from props_gothic_v1 burial_urn.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "urn_b_intact": {
+  "bytes": 185216,
+  "tris": 408,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_urn",
+   "mesh",
+   "urn_b_intact"
+  ],
+  "materials": [
+   "m_urn_clay_b",
+   "m_void",
+   "m_rope"
+  ],
+  "images": 3,
+  "size_m": [
+   0.59,
+   0.5,
+   0.59
+  ],
+  "min_y": 0.0,
+  "max_y": 0.5,
+  "path": "breakables/urn_b_intact.glb",
+  "notes": "Clay urn variant B (h 0.50 m), breakable. Broken: lower third stays, shards + ash spill. Method derived from props_gothic_v1 burial_urn.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "urn_c_intact": {
+  "bytes": 124144,
+  "tris": 512,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_urn",
+   "mesh",
+   "urn_c_intact"
+  ],
+  "materials": [
+   "m_urn_clay_c",
+   "m_void"
+  ],
+  "images": 2,
+  "size_m": [
+   0.51,
+   1.1,
+   0.39
+  ],
+  "min_y": 0.0,
+  "max_y": 1.1,
+  "path": "breakables/urn_c_intact.glb",
+  "notes": "Clay urn variant C (h 1.10 m), breakable. Broken: lower third stays, shards + ash spill. Method derived from props_gothic_v1 burial_urn.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "urn_a_broken": {
+  "bytes": 213372,
+  "tris": 400,
+  "collider_tris": 12,
+  "nodes": [
+   "col_click",
+   "mesh",
+   "urn_a_broken"
+  ],
+  "materials": [
+   "m_urn_clay_a",
+   "m_ash"
+  ],
+  "images": 4,
+  "size_m": [
+   1.12,
+   0.36,
+   1.1
+  ],
+  "min_y": -0.04,
+  "max_y": 0.32,
+  "path": "breakables/urn_a_broken.glb",
+  "notes": "Clay urn variant A (h 0.72 m), breakable. Broken: lower third stays, shards + ash spill. Method derived from props_gothic_v1 burial_urn.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "urn_b_broken": {
+  "bytes": 213360,
+  "tris": 400,
+  "collider_tris": 12,
+  "nodes": [
+   "col_click",
+   "mesh",
+   "urn_b_broken"
+  ],
+  "materials": [
+   "m_urn_clay_b",
+   "m_ash"
+  ],
+  "images": 4,
+  "size_m": [
+   1.45,
+   0.26,
+   1.49
+  ],
+  "min_y": -0.03,
+  "max_y": 0.22,
+  "path": "breakables/urn_b_broken.glb",
+  "notes": "Clay urn variant B (h 0.50 m), breakable. Broken: lower third stays, shards + ash spill. Method derived from props_gothic_v1 burial_urn.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "urn_c_broken": {
+  "bytes": 214880,
+  "tris": 426,
+  "collider_tris": 12,
+  "nodes": [
+   "col_click",
+   "mesh",
+   "urn_c_broken"
+  ],
+  "materials": [
+   "m_urn_clay_c",
+   "m_ash"
+  ],
+  "images": 4,
+  "size_m": [
+   1.03,
+   0.5,
+   0.83
+  ],
+  "min_y": -0.03,
+  "max_y": 0.48,
+  "path": "breakables/urn_c_broken.glb",
+  "notes": "Clay urn variant C (h 1.10 m), breakable. Broken: lower third stays, shards + ash spill. Method derived from props_gothic_v1 burial_urn.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "weapon_rack_intact": {
+  "bytes": 507036,
+  "tris": 2155,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_rack",
+   "loot_hatchet",
+   "loot_shield",
+   "loot_spear",
+   "loot_sword",
+   "rack",
+   "weapon_rack_intact"
+  ],
+  "materials": [
+   "w_wood.001",
+   "w_leather.001",
+   "w_dark.001",
+   "M_kite_shield_sanctuary",
+   "w_wood",
+   "w_leather",
+   "w_dark",
+   "w_dleather",
+   "sword_mat",
+   "m_rack_wood"
+  ],
+  "images": 18,
+  "size_m": [
+   1.64,
+   2.37,
+   1.04
+  ],
+  "min_y": -0.01,
+  "max_y": 2.36,
+  "path": "breakables/weapon_rack_intact.glb",
+  "notes": "Breakable weapon rack. Reuses (decimated copies) weapon_mourning_spear, weapon_briar_hatchet, swordsman sword and kite_shield_sanctuary as loot_* nodes. Broken: trestles snapped, weapons on the floor. Derived from props_gothic_v1 weapon_rack_wreck.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "weapon_rack_broken": {
+  "bytes": 510652,
+  "tris": 2213,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_rack",
+   "loot_hatchet",
+   "loot_shield",
+   "loot_spear",
+   "loot_sword",
+   "rack",
+   "weapon_rack_broken"
+  ],
+  "materials": [
+   "w_wood.001",
+   "w_leather.001",
+   "w_dark.001",
+   "M_kite_shield_sanctuary",
+   "w_wood",
+   "w_leather",
+   "w_dark",
+   "w_dleather",
+   "sword_mat",
+   "m_rack_wood"
+  ],
+  "images": 18,
+  "size_m": [
+   2.63,
+   0.88,
+   3.19
+  ],
+  "min_y": -0.03,
+  "max_y": 0.85,
+  "path": "breakables/weapon_rack_broken.glb",
+  "notes": "Breakable weapon rack. Reuses (decimated copies) weapon_mourning_spear, weapon_briar_hatchet, swordsman sword and kite_shield_sanctuary as loot_* nodes. Broken: trestles snapped, weapons on the floor. Derived from props_gothic_v1 weapon_rack_wreck.",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "barrel_intact": {
+  "bytes": 197012,
+  "tris": 700,
+  "collider_tris": 24,
+  "nodes": [
+   "col_barrel",
+   "col_click",
+   "mesh",
+   "barrel_intact"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark",
+   "m_iron"
+  ],
+  "images": 6,
+  "size_m": [
+   0.63,
+   0.84,
+   0.63
+  ],
+  "min_y": 0.0,
+  "max_y": 0.84,
+  "path": "breakables/barrel_intact.glb",
+  "notes": "Breakable barrel. Broken: split staves/planks, spills and debris; base at y=0. Replaces: modular_dungeon_kit BarrelClosed_01/02/03 + BarrelBroken_01/02; characters_art/props/wine_barrel_01_sanctuary.glb (single barrel use)",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "barrel_group_intact": {
+  "bytes": 249664,
+  "tris": 2100,
+  "collider_tris": 24,
+  "nodes": [
+   "col_barrel_group",
+   "col_click",
+   "mesh",
+   "barrel_group_intact"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark",
+   "m_iron"
+  ],
+  "images": 6,
+  "size_m": [
+   1.23,
+   0.84,
+   1.42
+  ],
+  "min_y": 0.0,
+  "max_y": 0.84,
+  "path": "breakables/barrel_group_intact.glb",
+  "notes": "Breakable barrel group. Broken: split staves/planks, spills and debris; base at y=0. Replaces: models/town/martsirt_v2_2/props/prop_barrel_group.glb (placements: market_barrels, inn_barrels)",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "crate_intact": {
+  "bytes": 147408,
+  "tris": 384,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_crate",
+   "mesh",
+   "crate_intact"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark"
+  ],
+  "images": 4,
+  "size_m": [
+   0.75,
+   0.7,
+   0.75
+  ],
+  "min_y": 0.0,
+  "max_y": 0.7,
+  "path": "breakables/crate_intact.glb",
+  "notes": "Breakable crate. Broken: split staves/planks, spills and debris; base at y=0. Replaces: single \"crate\" stand-ins (audit: crates drawn as kit Barrel) ",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "crate_stack_intact": {
+  "bytes": 201312,
+  "tris": 1152,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_crate_stack",
+   "mesh",
+   "crate_stack_intact"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark"
+  ],
+  "images": 4,
+  "size_m": [
+   1.57,
+   1.3,
+   0.87
+  ],
+  "min_y": 0.0,
+  "max_y": 1.3,
+  "path": "breakables/crate_stack_intact.glb",
+  "notes": "Breakable crate stack. Broken: split staves/planks, spills and debris; base at y=0. Replaces: models/town/martsirt_v2_2/props/prop_crate_stack.glb (placements: forge_crates; inn.json crate)",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "sack_intact": {
+  "bytes": 150956,
+  "tris": 164,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_sack",
+   "mesh",
+   "sack_intact"
+  ],
+  "materials": [
+   "m_sack",
+   "m_rope"
+  ],
+  "images": 2,
+  "size_m": [
+   0.5,
+   0.63,
+   0.38
+  ],
+  "min_y": 0.0,
+  "max_y": 0.63,
+  "path": "breakables/sack_intact.glb",
+  "notes": "Breakable sack. Broken: split staves/planks, spills and debris; base at y=0. Replaces: single sack (new; audit lists sack_pile as crate stand-in)",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "sack_pile_intact": {
+  "bytes": 177212,
+  "tris": 820,
+  "collider_tris": 24,
+  "nodes": [
+   "col_click",
+   "col_sack_pile",
+   "mesh",
+   "sack_pile_intact"
+  ],
+  "materials": [
+   "m_sack",
+   "m_rope"
+  ],
+  "images": 2,
+  "size_m": [
+   1.14,
+   0.91,
+   1.23
+  ],
+  "min_y": 0.0,
+  "max_y": 0.91,
+  "path": "breakables/sack_pile_intact.glb",
+  "notes": "Breakable sack pile. Broken: split staves/planks, spills and debris; base at y=0. Replaces: models/env_extra/props_gothic_v1/loot/sack_pile_closed/opened.glb (as breakable)",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "barrel_broken": {
+  "bytes": 199196,
+  "tris": 728,
+  "collider_tris": 12,
+  "nodes": [
+   "col_click",
+   "mesh",
+   "barrel_broken"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_void",
+   "m_iron",
+   "m_wood_dark",
+   "m_spill_wet"
+  ],
+  "images": 6,
+  "size_m": [
+   1.79,
+   0.37,
+   1.71
+  ],
+  "min_y": -0.07,
+  "max_y": 0.3,
+  "path": "breakables/barrel_broken.glb",
+  "notes": "Breakable barrel. Broken: split staves/planks, spills and debris; base at y=0. Replaces: modular_dungeon_kit BarrelClosed_01/02/03 + BarrelBroken_01/02; characters_art/props/wine_barrel_01_sanctuary.glb (single barrel use)",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "barrel_group_broken": {
+  "bytes": 255600,
+  "tris": 2184,
+  "collider_tris": 12,
+  "nodes": [
+   "col_click",
+   "mesh",
+   "barrel_group_broken"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_void",
+   "m_iron",
+   "m_wood_dark",
+   "m_spill_wet"
+  ],
+  "images": 6,
+  "size_m": [
+   2.32,
+   0.37,
+   2.31
+  ],
+  "min_y": -0.07,
+  "max_y": 0.3,
+  "path": "breakables/barrel_group_broken.glb",
+  "notes": "Breakable barrel group. Broken: split staves/planks, spills and debris; base at y=0. Replaces: models/town/martsirt_v2_2/props/prop_barrel_group.glb (placements: market_barrels, inn_barrels)",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "crate_broken": {
+  "bytes": 278364,
+  "tris": 322,
+  "collider_tris": 12,
+  "nodes": [
+   "col_click",
+   "mesh",
+   "crate_broken"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark",
+   "m_straw"
+  ],
+  "images": 6,
+  "size_m": [
+   2.03,
+   0.37,
+   1.62
+  ],
+  "min_y": -0.03,
+  "max_y": 0.33,
+  "path": "breakables/crate_broken.glb",
+  "notes": "Breakable crate. Broken: split staves/planks, spills and debris; base at y=0. Replaces: single \"crate\" stand-ins (audit: crates drawn as kit Barrel) ",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "crate_stack_broken": {
+  "bytes": 324528,
+  "tris": 1028,
+  "collider_tris": 12,
+  "nodes": [
+   "col_click",
+   "mesh",
+   "crate_stack_broken"
+  ],
+  "materials": [
+   "m_wood_planks",
+   "m_wood_dark",
+   "m_straw"
+  ],
+  "images": 6,
+  "size_m": [
+   3.0,
+   0.64,
+   2.18
+  ],
+  "min_y": -0.04,
+  "max_y": 0.6,
+  "path": "breakables/crate_stack_broken.glb",
+  "notes": "Breakable crate stack. Broken: split staves/planks, spills and debris; base at y=0. Replaces: models/town/martsirt_v2_2/props/prop_crate_stack.glb (placements: forge_crates; inn.json crate)",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "sack_broken": {
+  "bytes": 254336,
+  "tris": 172,
+  "collider_tris": 12,
+  "nodes": [
+   "col_click",
+   "mesh",
+   "sack_broken"
+  ],
+  "materials": [
+   "m_sack",
+   "m_void",
+   "m_grain"
+  ],
+  "images": 4,
+  "size_m": [
+   0.93,
+   0.17,
+   0.98
+  ],
+  "min_y": 0.0,
+  "max_y": 0.17,
+  "path": "breakables/sack_broken.glb",
+  "notes": "Breakable sack. Broken: split staves/planks, spills and debris; base at y=0. Replaces: single sack (new; audit lists sack_pile as crate stand-in)",
+  "category": "breakable",
+  "interactable": "breakable"
+ },
+ "sack_pile_broken": {
+  "bytes": 270480,
+  "tris": 688,
+  "collider_tris": 12,
+  "nodes": [
+   "col_click",
+   "mesh",
+   "sack_pile_broken"
+  ],
+  "materials": [
+   "m_sack",
+   "m_void",
+   "m_grain"
+  ],
+  "images": 4,
+  "size_m": [
+   2.03,
+   0.17,
+   1.62
+  ],
+  "min_y": 0.0,
+  "max_y": 0.17,
+  "path": "breakables/sack_pile_broken.glb",
+  "notes": "Breakable sack pile. Broken: split staves/planks, spills and debris; base at y=0. Replaces: models/env_extra/props_gothic_v1/loot/sack_pile_closed/opened.glb (as breakable)",
+  "category": "breakable",
+  "interactable": "breakable"
+ }
+}
