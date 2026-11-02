@@ -131,3 +131,16 @@ Notes:
 | Path | Category | MB | Description |
 |---|---|---|---|
 | `characters_art/statues/statue_angel_hero_bust.glb` | Statues | 3.60 | Hero angel statue bust v2 on grave plinth, 2.29 m (MakeHuman + Poly Haven textures, CC0) |
+
+## Props: Lootable corpses (6)
+
+Static and unrigged, each with a normal and a looted variant, assembled from existing bodies and props. See `characters_art/props/corpses/README.md`.
+
+| Path | Category | MB | Description |
+|---|---|---|---|
+| `characters_art/props/corpses/glb/fallen_adventurer.glb` | Props | 0.64 | Fallen adventurer lying on the ground with a sword and a sack, 2,580 tris |
+| `characters_art/props/corpses/glb/fallen_adventurer_looted.glb` | Props | 0.72 | Fallen adventurer, looted (sword gone, opened sack), 2,479 tris |
+| `characters_art/props/corpses/glb/gibbet_corpse.glb` | Props | 0.86 | Corpse in a gibbet cage with a coin purse, 2,968 tris |
+| `characters_art/props/corpses/glb/gibbet_corpse_looted.glb` | Props | 0.72 | Gibbet corpse, looted (purse removed), 2,878 tris |
+| `characters_art/props/corpses/glb/chained_prisoner.glb` | Props | 0.82 | Prisoner chained to a low stone wall with a bundle, 2,904 tris |
+| `characters_art/props/corpses/glb/chained_prisoner_looted.glb` | Props | 0.93 | Chained prisoner, looted (opened bundle), 2,993 tris |

@@ -86,3 +86,9 @@ characters_art/props/sekhmet_sanctuary.glb
 characters_art/props/sekhmet_sanctuary_statue.glb
 characters_art/props/wine_barrel_01_sanctuary.glb
 characters_art/statues/statue_angel_hero_bust.glb
+characters_art/props/corpses/glb/fallen_adventurer.glb
+characters_art/props/corpses/glb/fallen_adventurer_looted.glb
+characters_art/props/corpses/glb/gibbet_corpse.glb
+characters_art/props/corpses/glb/gibbet_corpse_looted.glb
+characters_art/props/corpses/glb/chained_prisoner.glb
+characters_art/props/corpses/glb/chained_prisoner_looted.glb
