@@ -1,117 +1,117 @@
 {
- "version": 1,
- "kinds": {
-  "skeleton": {
-   "url": "characters_art/monsters/bone_archer/bone_archer.glb",
-   "height": 1.84,
-   "yaw": 0,
-   "clips": {
-    "idle": "idle",
-    "walk": "walk",
-    "run": "walk",
-    "attack": "attack1",
-    "hit": "hit",
-    "death": "death"
-   },
-   "attackSpeed": 1.0
-  },
-  "zombie": {
-   "url": "characters_art/monsters/rag_zombie/rag_zombie.glb",
-   "height": 1.78,
-   "yaw": 0,
-   "clips": {
-    "idle": "idle",
-    "walk": "walk",
-    "run": "walk",
-    "attack": "attack",
-    "hit": "hit",
-    "death": "death"
-   },
-   "attackSpeed": 1.0
-  },
-  "corpse": {
-   "url": "characters_art/monsters/grave_old_man/grave_old_man.glb",
-   "height": 1.78,
-   "yaw": 0,
-   "clips": {
-    "idle": "idle",
-    "walk": "walk",
-    "run": "walk",
-    "attack": "attack",
-    "hit": "hit",
-    "death": "death"
-   },
-   "attackSpeed": 1.0
-  },
-  "imp": {
-   "url": "characters_art/monsters/red_demon_spawnling/red_demon_spawnling_anim.glb",
-   "height": 1.45,
-   "yaw": 0,
-   "clips": {
-    "idle": "idle",
-    "walk": "run",
-    "run": "run",
-    "attack": "attack",
-    "hit": "hit",
-    "death": "death"
-   },
-   "attackSpeed": 1.0
-  },
-  "raver": {
-   "url": "characters_art/monsters/red_demon_spawnling/red_demon_spawnling_anim.glb",
-   "height": 1.9,
-   "yaw": 0,
-   "clips": {
-    "idle": "idle",
-    "walk": "run",
-    "run": "run",
-    "attack": "attack",
-    "hit": "hit",
-    "death": "death"
-   },
-   "attackSpeed": 1.0
-  },
-  "brute": {
-   "url": "characters_art/monsters/corrupted_phimn/corrupted_phimn_feral_lod15k.glb",
-   "height": 2.2,
-   "yaw": 0,
-   "clips": {
-    "idle": "idle",
-    "walk": "run",
-    "run": "run",
-    "attack": "attack_claw",
-    "hit": "hit",
-    "death": "death"
-   },
-   "attackSpeed": 1.0
-  },
-  "bear": {
-   "url": "characters_art/monsters/corrupted_phimn/corrupted_phimn_feral_lod15k.glb",
-   "height": 1.5,
-   "yaw": 0,
-   "clips": {
-    "idle": "idle",
-    "walk": "run",
-    "run": "run",
-    "attack": "attack_claw",
-    "hit": "hit",
-    "death": "death"
-   },
-   "attackSpeed": 1.0
-  },
-  "melakir": {
-   "url": "characters_art/monsters/corrupted_phimn/corrupted_phimn_feral_lod15k.glb",
-   "height": 1.8,
-   "yaw": 0,
-   "clips": {
-    "idle": "idle",
-    "walk": "run",
-    "run": "run",
-    "attack": "attack_claw",
-    "hit": "hit",
-    "death": "death"
-   },
-   "attackSpeed": 1.0
+  "version": 1,
+  "kinds": {
+    "skeleton": {
+      "url": "characters_art/monsters/bone_archer/bone_archer.glb",
+      "height": 1.84,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "walk",
+        "attack": "attack1",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0
+    },
+    "zombie": {
+      "url": "characters_art/monsters/rag_zombie/rag_zombie.glb",
+      "height": 1.78,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "walk",
+        "attack": "attack",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0
+    },
+    "corpse": {
+      "url": "characters_art/monsters/grave_old_man/grave_old_man.glb",
+      "height": 1.78,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "walk",
+        "attack": "attack",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0
+    },
+    "imp": {
+      "url": "characters_art/monsters/red_demon_spawnling/red_demon_spawnling_anim.glb",
+      "height": 1.45,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "run",
+        "run": "run",
+        "attack": "attack",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0
+    },
+    "raver": {
+      "url": "characters_art/monsters/red_demon_spawnling/red_demon_spawnling_anim.glb",
+      "height": 1.9,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "run",
+        "run": "run",
+        "attack": "attack",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0
+    },
+    "brute": {
+      "url": "characters_art/monsters/corrupted_phimn/corrupted_phimn_feral_lod15k.glb",
+      "height": 2.2,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "run",
+        "run": "run",
+        "attack": "attack_claw",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0
+    },
+    "bear": {
+      "url": "characters_art/monsters/corrupted_phimn/corrupted_phimn_feral_lod15k.glb",
+      "height": 3.0,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "run",
+        "run": "run",
+        "attack": "attack_claw",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0
+    },
+    "melakir": {
+      "url": "characters_art/monsters/corrupted_phimn/corrupted_phimn_feral_lod15k.glb",
+      "height": 1.8,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "run",
+        "run": "run",
+        "attack": "attack_claw",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0
+    }
   }
- }
 }
