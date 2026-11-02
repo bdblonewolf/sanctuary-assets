@@ -378,6 +378,46 @@
       "intensity": 1.1,
       "radius": 6,
       "flicker": 0.3
+    },
+    {
+      "x": 117.5,
+      "y": 35.41,
+      "h": 2.0,
+      "color": "0xff8a3c",
+      "intensity": 0.3,
+      "radius": 3.2,
+      "flicker": 0.15,
+      "note": "wall_dim_N_a"
+    },
+    {
+      "x": 121.0,
+      "y": 35.63,
+      "h": 2.0,
+      "color": "0xffa04a",
+      "intensity": 0.25,
+      "radius": 3,
+      "flicker": 0.12,
+      "note": "wall_dim_N_b"
+    },
+    {
+      "x": 118.0,
+      "y": 40.26,
+      "h": 2.0,
+      "color": "0xffa04a",
+      "intensity": 0.3,
+      "radius": 3.5,
+      "flicker": 0.18,
+      "note": "wall_dim_S_a"
+    },
+    {
+      "x": 123.5,
+      "y": 40.65,
+      "h": 2.0,
+      "color": "0xff8a3c",
+      "intensity": 0.35,
+      "radius": 3.2,
+      "flicker": 0.15,
+      "note": "wall_dim_S_b"
     }
   ],
   "ambient": {
