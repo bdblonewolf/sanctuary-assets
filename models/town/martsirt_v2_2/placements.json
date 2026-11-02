@@ -3008,6 +3008,20 @@
       "status": "built",
       "bytes": 8280,
       "note": "camp_l1: second log at the gate campfire, long axis tangent to the fire"
+    },
+    {
+      "name": "creek_water_col",
+      "kind": "dressing",
+      "piece": "models/town/martsirt_v2_2/dressing/creek_water_col.glb",
+      "pos": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotY": 0.0,
+      "status": "built",
+      "bytes": 11052,
+      "note": "C2: invisible col_ blocks, one 0.9 m box per creek water tile (world.water bitset), gap at creek_footbridge tiles. Keeps the river blocked under C1 oval colliders."
     }
   ]
 }
