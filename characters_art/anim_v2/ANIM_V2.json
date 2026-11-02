@@ -1,0 +1,1715 @@
+{
+ "version": "anim_v2",
+ "date": "2026-11-01",
+ "format": "glTF 2.0 binary, armature (skin, no meshes) + animations, 30 fps LINEAR, Y-up, metres, facing +Z, feet at y=0. Node names identical to the target body (mixamorig:*; three.js strips the colon on both sides so tracks bind by name).",
+ "load": "const g=await new GLTFLoader().loadAsync(clipsUrl); const mixer=new THREE.AnimationMixer(bodyScene); mixer.clipAction(THREE.AnimationClip.findByName(g.animations,\"walk\")).play();  // no retarget, no hip-height hack",
+ "npc_aliases": {
+  "wolcen": "clips_male_brute_heavy.glb (same skeleton as wolcen.glb)",
+  "quill": "clips_male_skinny.glb (same skeleton as quill.glb)"
+ },
+ "seat_height_m": 0.45,
+ "sit_convention": "sit/sit_talk/sleep/sit_down end/stand_up start: object root at the bench seat point (front-centre of seat, at floor level), facing away from the backrest. sit_down starts standing stand_offset_m in front of the root (+Z); stand_up ends there. After stand_up, move root forward by stand_offset_m (in facing direction) before switching to idle.",
+ "sleep_note": "The source \"sleep\" clip is a seated doze (same hip height as sit), not lying down. Transitions are sit_to_sleep / sleep_to_sit (seated). There is no lying-down pose in the source data.",
+ "bodies": {
+  "female_curvy": {
+   "file": "clips_female_curvy.glb",
+   "bytes": 1139192,
+   "body_glb": "characters_art/bodies/female_curvy.glb",
+   "source_clips": "quill",
+   "height_m": 1.68,
+   "hip_height_m": 0.925,
+   "leg_length_m": 0.885,
+   "walk_natural_speed_mps": 1.509,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.299,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.344,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.299,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.31,
+      0.9
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.445
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.445
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.33,
+      0.5
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.445
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "female_medium": {
+   "file": "clips_female_medium.glb",
+   "bytes": 1138432,
+   "body_glb": "characters_art/bodies/female_medium.glb",
+   "source_clips": "quill",
+   "height_m": 1.65,
+   "hip_height_m": 0.905,
+   "leg_length_m": 0.868,
+   "walk_natural_speed_mps": 1.46,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.257,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.329,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.257,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.27,
+      0.71
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.445
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.33,
+      0.37
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "female_medium_hourglass_a": {
+   "file": "clips_female_medium_hourglass_a.glb",
+   "bytes": 1138392,
+   "body_glb": "characters_art/bodies/female_medium_hourglass_a.glb",
+   "source_clips": "quill",
+   "height_m": 1.65,
+   "hip_height_m": 0.905,
+   "leg_length_m": 0.868,
+   "walk_natural_speed_mps": 1.46,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.257,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.328,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.257,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.28,
+      0.75
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.33,
+      0.39
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "female_medium_hourglass_b": {
+   "file": "clips_female_medium_hourglass_b.glb",
+   "bytes": 1138456,
+   "body_glb": "characters_art/bodies/female_medium_hourglass_b.glb",
+   "source_clips": "quill",
+   "height_m": 1.65,
+   "hip_height_m": 0.905,
+   "leg_length_m": 0.868,
+   "walk_natural_speed_mps": 1.46,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.257,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.328,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.257,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.28,
+      0.75
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.33,
+      0.39
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "female_skinny": {
+   "file": "clips_female_skinny.glb",
+   "bytes": 1136692,
+   "body_glb": "characters_art/bodies/female_skinny.glb",
+   "source_clips": "quill",
+   "height_m": 1.6,
+   "hip_height_m": 0.866,
+   "leg_length_m": 0.827,
+   "walk_natural_speed_mps": 1.4,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.206,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.319,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.206,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.29,
+      0.48
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.02,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.444
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.445
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.444
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.31,
+      0.45
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.444
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "female_thick": {
+   "file": "clips_female_thick.glb",
+   "bytes": 1140100,
+   "body_glb": "characters_art/bodies/female_thick.glb",
+   "source_clips": "quill",
+   "height_m": 1.73,
+   "hip_height_m": 0.959,
+   "leg_length_m": 0.915,
+   "walk_natural_speed_mps": 1.567,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.35,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.38,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.35,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.54,
+      0.35
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.444
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.444
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.444
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.55,
+      0.82
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": 0.444
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "female_tiny": {
+   "file": "clips_female_tiny.glb",
+   "bytes": 1132512,
+   "body_glb": "characters_art/bodies/female_tiny.glb",
+   "source_clips": "quill",
+   "height_m": 1.47,
+   "hip_height_m": 0.758,
+   "leg_length_m": 0.732,
+   "walk_natural_speed_mps": 1.191,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.025,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.225,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.025,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.28,
+      0.33
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.02,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.28,
+      0.33
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "male_brute_heavy": {
+   "file": "clips_male_brute_heavy.glb",
+   "bytes": 1149360,
+   "body_glb": "characters_art/bodies/male_brute_heavy.glb",
+   "source_clips": "wolcen",
+   "height_m": 1.98,
+   "hip_height_m": 1.159,
+   "leg_length_m": 1.11,
+   "walk_natural_speed_mps": 1.96,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.688,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.49,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.688,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.63,
+      0.94
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.439
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.44
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.439
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.53,
+      0.76
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.439
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "male_brute_muscular": {
+   "file": "clips_male_brute_muscular.glb",
+   "bytes": 1149324,
+   "body_glb": "characters_art/bodies/male_brute_muscular.glb",
+   "source_clips": "wolcen",
+   "height_m": 1.98,
+   "hip_height_m": 1.159,
+   "leg_length_m": 1.11,
+   "walk_natural_speed_mps": 1.96,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.688,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.492,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.02,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.688,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.67,
+      0.83
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.441
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.441
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.441
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.53,
+      0.78
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.441
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "male_regular": {
+   "file": "clips_male_regular.glb",
+   "bytes": 1142632,
+   "body_glb": "characters_art/bodies/male_regular.glb",
+   "source_clips": "wolcen",
+   "height_m": 1.78,
+   "hip_height_m": 1.015,
+   "leg_length_m": 0.971,
+   "walk_natural_speed_mps": 1.67,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.438,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.403,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.438,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.54,
+      0.69
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.23,
+      -0.2
+     ],
+     "seat_underside_y": 0.438
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.22,
+      -0.2
+     ],
+     "seat_underside_y": 0.438
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.23,
+      -0.21
+     ],
+     "seat_underside_y": 0.438
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.58,
+      0.96
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.21,
+      0.08
+     ],
+     "seat_underside_y": 0.438
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.21,
+      0.09
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.21,
+      -0.21
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.21,
+      -0.21
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "male_skinny": {
+   "file": "clips_male_skinny.glb",
+   "bytes": 1141832,
+   "body_glb": "characters_art/bodies/male_skinny.glb",
+   "source_clips": "quill",
+   "height_m": 1.75,
+   "hip_height_m": 0.987,
+   "leg_length_m": 0.949,
+   "walk_natural_speed_mps": 1.631,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.405,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.387,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.405,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.5,
+      0.81
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.44
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.441
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.44
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.6,
+      0.93
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      -0.0
+     ],
+     "seat_underside_y": 0.44
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "male_vshape": {
+   "file": "clips_male_vshape.glb",
+   "bytes": 1145156,
+   "body_glb": "characters_art/bodies/male_vshape.glb",
+   "source_clips": "wolcen",
+   "height_m": 1.85,
+   "hip_height_m": 1.065,
+   "leg_length_m": 1.026,
+   "walk_natural_speed_mps": 1.779,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.532,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.433,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.532,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.5,
+      0.7
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.16,
+      -0.13
+     ],
+     "seat_underside_y": 0.438
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.14,
+      -0.13
+     ],
+     "seat_underside_y": 0.438
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.16,
+      -0.13
+     ],
+     "seat_underside_y": 0.438
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.6,
+      0.88
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.13,
+      0.11
+     ],
+     "seat_underside_y": 0.438
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.13,
+      0.11
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.13,
+      -0.13
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.13,
+      -0.13
+     ],
+     "seat_underside_y": null
+    }
+   }
+  },
+  "ayla_phimn": {
+   "file": "clips_ayla_phimn.glb",
+   "bytes": 1134192,
+   "body_glb": "characters_art/npcs/ayla_phimn/ayla_phimn_body.glb",
+   "source_clips": "quill",
+   "height_m": 1.42,
+   "hip_height_m": 0.783,
+   "leg_length_m": 0.75,
+   "walk_natural_speed_mps": 1.267,
+   "walk_natural_cycle_s": 1.033,
+   "walk_speed_mps": 1.2,
+   "walk_cycle_s": 1.091,
+   "seat_height_m": 0.45,
+   "stand_offset_m": 0.288,
+   "clips": {
+    "idle": {
+     "duration_s": 5.967,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "walk": {
+     "duration_s": 1.091,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.27,
+      0.68
+     ],
+     "seat_underside_y": null
+    },
+    "talk": {
+     "duration_s": 10.067,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.01,
+      0.01
+     ],
+     "seat_underside_y": null
+    },
+    "sit": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sit_talk": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "sleep": {
+     "duration_s": 5.0,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "walk_natural": {
+     "duration_s": 1.033,
+     "loop": true,
+     "foot_contact_cm": [
+      -0.28,
+      0.27
+     ],
+     "seat_underside_y": null
+    },
+    "sit_down": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": 0.446
+    },
+    "stand_up": {
+     "duration_s": 1.1,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sit_to_sleep": {
+     "duration_s": 1.4,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    },
+    "sleep_to_sit": {
+     "duration_s": 1.0,
+     "loop": false,
+     "foot_contact_cm": [
+      -0.0,
+      0.0
+     ],
+     "seat_underside_y": null
+    }
+   }
+  }
+ },
+ "hero": {
+  "file": "hero_extra.glb",
+  "bytes": 349484,
+  "skeleton": "models/knight_anim_v10b.glb (27 bones)",
+  "clips": {
+   "axe_draw__up": 1.667,
+   "axe_sheath__up": 1.633,
+   "bow_draw__up": 1.0,
+   "bow_equip__up": 0.9,
+   "bow_sheath__up": 1.1,
+   "gs_draw__up": 0.467,
+   "ss_draw__up": 0.5,
+   "ss_sheath__up": 1.267,
+   "gs_sheath": 0.467,
+   "gs_sheath__up": 0.467,
+   "gs_walk": 1.1,
+   "sit_down": 1.0,
+   "sit": 5.0,
+   "stand_up": 1.1,
+   "sit_talk": 5.0
+  },
+  "stand_offset_m": 0.373,
+  "seat_height_m": 0.45,
+  "notes": {
+   "__up": "upper-body only: Hips, UpLeg, Leg, Foot, ToeBase, Toe_End tracks removed (Hips rotation AND translation removed); play layered over the locomotion clip.",
+   "gs_sheath": "gs_draw reversed in time (closer than adapting axe_sheath).",
+   "gs_walk": "legs/hips/spine from ss_walk, shoulders/arms/hands from gs_idle (two-hand hold). Natural speed = ss_walk (1.29 m/s).",
+   "sit set": "Wolcen sit/sit_talk retargeted to the knight with seat 0.45 m (thigh/armour underside from mesh), feet IK to floor; sit_down/stand_up from town_idle."
+  },
+  "validation": {
+   "gs_walk": {
+    "dur": 1.1,
+    "foot_contact_cm": [
+     -3.7,
+     -0.09
+    ],
+    "seat_underside_y_end": 0.709
+   },
+   "sit_down": {
+    "dur": 1.0,
+    "foot_contact_cm": [
+     0.0,
+     1.26
+    ],
+    "seat_underside_y_end": 0.441
+   },
+   "sit": {
+    "dur": 5.0,
+    "foot_contact_cm": [
+     -0.0,
+     0.0
+    ],
+    "seat_underside_y_end": 0.441
+   },
+   "stand_up": {
+    "dur": 1.1,
+    "foot_contact_cm": [
+     0.0,
+     1.25
+    ],
+    "seat_underside_y_end": 0.766
+   },
+   "sit_talk": {
+    "dur": 5.0,
+    "foot_contact_cm": [
+     -0.0,
+     0.0
+    ],
+    "seat_underside_y_end": 0.442
+   }
+  }
+ },
+ "verification": {
+  "clips_ayla_phimn.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1134192
+  },
+  "clips_female_curvy.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1139192
+  },
+  "clips_female_medium.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1138432
+  },
+  "clips_female_medium_hourglass_a.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1138392
+  },
+  "clips_female_medium_hourglass_b.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1138456
+  },
+  "clips_female_skinny.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1136692
+  },
+  "clips_female_thick.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1140100
+  },
+  "clips_female_tiny.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1132512
+  },
+  "clips_male_brute_heavy.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1149360
+  },
+  "clips_male_brute_muscular.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1149324
+  },
+  "clips_male_regular.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1142632
+  },
+  "clips_male_skinny.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1141832
+  },
+  "clips_male_vshape.glb": {
+   "meshes": 0,
+   "animations": 11,
+   "tracks_target_names": 52,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 1145156
+  },
+  "hero_extra.glb": {
+   "meshes": 0,
+   "animations": 15,
+   "tracks_target_names": 27,
+   "missing_in_body": [],
+   "rest_trs_maxdiff": 0.0,
+   "bytes": 349484
+  }
+ },
+ "previews": [
+  "previews/ayla_sit_down_sit_stand_up.png",
+  "previews/hero_gs_walk_gs_sheath_ss_draw_up.png",
+  "previews/hero_sit_down_sit_stand_up.png",
+  "previews/male_regular_walk.png"
+ ]
+}
