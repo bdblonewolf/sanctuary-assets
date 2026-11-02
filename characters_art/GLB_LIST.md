@@ -2,7 +2,7 @@
 
 Characters, monsters, NPCs, clothing, props and statues for *Sanctuary*, made by Brian's Grok Bot art bots (character/monster art, NPC builder, and art/props bots) and committed Nov 1, 2026.
 All files are glTF 2.0 binary (GLB), 1 unit = 1 m. Characters use the Mixamo `mixamorig` 52-bone skeleton.
-Total: 88 GLBs, 138.4 MB. Plain path list: `glb_paths.txt`.
+Total: 89 GLBs, 142.4 MB. Plain path list: `glb_paths.txt`.
 
 Notes:
 - Martsirt NPCs (Wolcen, Quill) are **first passes**; a quality pass is under way, so expect updated files.
@@ -50,7 +50,7 @@ Notes:
 | `characters_art/npcs/martsirt/quill.glb` | NPCs | 1.24 | Martsirt NPC Quill the scribe, 7 clips (FIRST PASS, quality pass under way) |
 | `characters_art/npcs/martsirt/wolcen.glb` | NPCs | 2.67 | Martsirt NPC Wolcen the smith, 7 clips (FIRST PASS, quality pass under way) |
 
-## Monsters (14)
+## Monsters (15)
 
 | Path | Category | MB | Description |
 |---|---|---|---|
@@ -61,9 +61,10 @@ Notes:
 | `characters_art/monsters/bone_swordsman/bone_swordsman.glb` | Monsters | 1.17 | Bone Swordsman skeleton (starter batch 1), 6 clips, CC-BY-4.0 base (danielmclogan), credit |
 | `characters_art/monsters/corrupted_phimn/corrupted_phimn_caster.glb` | Monsters | 3.97 | Corrupted Phimn Form A, winged hovering caster, element-tintable, 6 clips |
 | `characters_art/monsters/corrupted_phimn/corrupted_phimn_feral.glb` | Monsters | 3.68 | Corrupted Phimn Form B, crouched feral, element-tintable, 7 clips |
-| `characters_art/monsters/crawler/crawler.glb` | Monsters | 3.70 | Mummified Crawler husk (art bot, Oct 31) |
+| `characters_art/monsters/crawler/crawler.glb` | Monsters | 4.18 | Mummified Crawler husk, Nov 2 rebuild, unrigged neutral all-fours, 18k tris (art bot) |
 | `characters_art/monsters/grave_old_man/grave_old_man.glb` | Monsters | 1.33 | Grave Old Man v2 zombie (starter batch 1), 5 clips, CC0 base |
 | `characters_art/monsters/grave_risen/grave_risen.glb` | Monsters | 2.35 | Grave Risen zombie (art bot, Nov 1 build) |
+| `characters_art/monsters/grove_mauler_bear/grove_mauler_bear.glb` | Monsters | 3.47 | Grove Mauler battle-worn grizzly, unrigged neutral all-fours for a custom quadruped rig, 24k tris, 1.5 m tall, 2.4 m long, faces +Z (art bot, Nov 2) |
 | `characters_art/monsters/rag_zombie/rag_zombie.glb` | Monsters | 2.62 | Rag Zombie v2 (starter batch 1), 5 clips, CC0 base |
 | `characters_art/monsters/red_demon_spawnling/red_demon_spawnling.glb` | Monsters | 4.02 | Fallen Spawnling, small red lesser demon with blade (art bot, Nov 1) |
 | `characters_art/monsters/shambler/shambler.glb` | Monsters | 2.44 | Shambler zombie in ragged peasant clothes (art bot, Nov 1) |

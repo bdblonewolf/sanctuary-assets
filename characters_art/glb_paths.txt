@@ -54,6 +54,7 @@ characters_art/monsters/corrupted_phimn/corrupted_phimn_feral.glb
 characters_art/monsters/crawler/crawler.glb
 characters_art/monsters/grave_old_man/grave_old_man.glb
 characters_art/monsters/grave_risen/grave_risen.glb
+characters_art/monsters/grove_mauler_bear/grove_mauler_bear.glb
 characters_art/monsters/rag_zombie/rag_zombie.glb
 characters_art/monsters/red_demon_spawnling/red_demon_spawnling.glb
 characters_art/monsters/shambler/shambler.glb
@@ -72,6 +73,12 @@ characters_art/npcs/ayla_phimn/pieces/npc_f_ayla_vambrace_L_ayla_phimn_body.glb
 characters_art/npcs/ayla_phimn/pieces/npc_f_ayla_vambrace_R_ayla_phimn_body.glb
 characters_art/npcs/martsirt/quill.glb
 characters_art/npcs/martsirt/wolcen.glb
+characters_art/props/corpses/glb/chained_prisoner.glb
+characters_art/props/corpses/glb/chained_prisoner_looted.glb
+characters_art/props/corpses/glb/fallen_adventurer.glb
+characters_art/props/corpses/glb/fallen_adventurer_looted.glb
+characters_art/props/corpses/glb/gibbet_corpse.glb
+characters_art/props/corpses/glb/gibbet_corpse_looted.glb
 characters_art/props/false_door_sanctuary.glb
 characters_art/props/gothic_statue_sanctuary.glb
 characters_art/props/kite_shield_sanctuary.glb
@@ -86,9 +93,3 @@ characters_art/props/sekhmet_sanctuary.glb
 characters_art/props/sekhmet_sanctuary_statue.glb
 characters_art/props/wine_barrel_01_sanctuary.glb
 characters_art/statues/statue_angel_hero_bust.glb
-characters_art/props/corpses/glb/fallen_adventurer.glb
-characters_art/props/corpses/glb/fallen_adventurer_looted.glb
-characters_art/props/corpses/glb/gibbet_corpse.glb
-characters_art/props/corpses/glb/gibbet_corpse_looted.glb
-characters_art/props/corpses/glb/chained_prisoner.glb
-characters_art/props/corpses/glb/chained_prisoner_looted.glb
