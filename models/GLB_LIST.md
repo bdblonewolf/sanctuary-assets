@@ -1,6 +1,6 @@
 # GLB list (models/)
 
-All GLB files under models/ in this repo, 564 total (includes models/env_extra/, added Nov 1, 2026; see ASSET_MAP.md at the repo root for what is live). Raw base: https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/
+All GLB files under models/ in this repo, 641 total (includes models/env_extra/, models/outdoor/trees_gothic_v6/ and the models/ENV_ADDED.md files, added Nov 1, 2026; see ASSET_MAP.md at the repo root for what is live). Raw base: https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/
 
 - models/armored_guard_knight.glb
 - models/brazier.glb
@@ -128,6 +128,36 @@ All GLB files under models/ in this repo, 564 total (includes models/env_extra/,
 - models/knight_anim.glb
 - models/knight_anim_v10b.glb
 - models/modular_dungeon_kit.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_crooked_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_crooked_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_crooked_winter.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_tall_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_tall_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_tall_winter.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_twisted_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_twisted_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_twisted_winter.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_weeping_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_weeping_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_weeping_winter.glb
+- models/outdoor/trees_gothic_v6/tree_v6_oak_healthy_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_oak_healthy_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_oak_healthy_winter.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_healthy_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_healthy_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_healthy_winter.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_broken_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_broken_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_broken_winter.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_droop_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_droop_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_droop_winter.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_lean_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_lean_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_lean_winter.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_straight_autumn.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_straight_summer.glb
+- models/outdoor/trees_gothic_v6/tree_v6_pine_mangy_straight_winter.glb
 - models/outdoor/v3trees/tree_oak_gnarled_autumn.glb
 - models/outdoor/v3trees/tree_oak_gnarled_b_lush.glb
 - models/outdoor/v3trees/tree_oak_gnarled_bare.glb
@@ -168,6 +198,10 @@ All GLB files under models/ in this repo, 564 total (includes models/env_extra/,
 - models/outdoor/v5/trees/tree_conifer_c_v5.glb
 - models/outdoor/v5/trees/tree_decid_a_v5.glb
 - models/outdoor/v5/trees/tree_decid_b_v5.glb
+- models/outdoor/v5_maps/backdrop_far_quads_autumn.glb
+- models/outdoor/v5_maps/backdrop_far_quads_dead.glb
+- models/outdoor/v5_maps/backdrop_far_quads_summer.glb
+- models/outdoor/v5_maps/backdrop_far_quads_winter.glb
 - models/outdoor/v5_maps/backdrop_islands_isle_autumn.glb
 - models/outdoor/v5_maps/backdrop_islands_isle_dead.glb
 - models/outdoor/v5_maps/backdrop_islands_isle_summer.glb
@@ -184,6 +218,10 @@ All GLB files under models/ in this repo, 564 total (includes models/env_extra/,
 - models/outdoor/v5_maps/backdrop_islands_mires_v2_summer.glb
 - models/outdoor/v5_maps/backdrop_islands_mires_v2_winter.glb
 - models/outdoor/v5_maps/backdrop_islands_mires_winter.glb
+- models/outdoor/v5_maps/backdrop_mid_quads_autumn.glb
+- models/outdoor/v5_maps/backdrop_mid_quads_dead.glb
+- models/outdoor/v5_maps/backdrop_mid_quads_summer.glb
+- models/outdoor/v5_maps/backdrop_mid_quads_winter.glb
 - models/outdoor/v5_maps/backdrop_near_c23_autumn.glb
 - models/outdoor/v5_maps/backdrop_near_c23_dead.glb
 - models/outdoor/v5_maps/backdrop_near_c23_summer.glb
@@ -228,6 +266,42 @@ All GLB files under models/ in this repo, 564 total (includes models/env_extra/,
 - models/outdoor/v5_maps/border/beach_shingle_straight6_v5_dead.glb
 - models/outdoor/v5_maps/border/beach_shingle_straight6_v5_summer.glb
 - models/outdoor/v5_maps/border/beach_shingle_straight6_v5_winter.glb
+- models/outdoor/v5_maps/border/border_dune_a_v5_autumn.glb
+- models/outdoor/v5_maps/border/border_dune_a_v5_dead.glb
+- models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb
+- models/outdoor/v5_maps/border/border_dune_a_v5_winter.glb
+- models/outdoor/v5_maps/border/border_dune_b_v5_autumn.glb
+- models/outdoor/v5_maps/border/border_dune_b_v5_dead.glb
+- models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb
+- models/outdoor/v5_maps/border/border_dune_b_v5_winter.glb
+- models/outdoor/v5_maps/border/border_dune_c_v5_autumn.glb
+- models/outdoor/v5_maps/border/border_dune_c_v5_dead.glb
+- models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb
+- models/outdoor/v5_maps/border/border_dune_c_v5_winter.glb
+- models/outdoor/v5_maps/border/border_peak_a_v5_autumn.glb
+- models/outdoor/v5_maps/border/border_peak_a_v5_dead.glb
+- models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb
+- models/outdoor/v5_maps/border/border_peak_a_v5_winter.glb
+- models/outdoor/v5_maps/border/border_peak_b_v5_autumn.glb
+- models/outdoor/v5_maps/border/border_peak_b_v5_dead.glb
+- models/outdoor/v5_maps/border/border_peak_b_v5_summer.glb
+- models/outdoor/v5_maps/border/border_peak_b_v5_winter.glb
+- models/outdoor/v5_maps/border/border_peak_c_v5_autumn.glb
+- models/outdoor/v5_maps/border/border_peak_c_v5_dead.glb
+- models/outdoor/v5_maps/border/border_peak_c_v5_summer.glb
+- models/outdoor/v5_maps/border/border_peak_c_v5_winter.glb
+- models/outdoor/v5_maps/border/border_shelf_a_v5_autumn.glb
+- models/outdoor/v5_maps/border/border_shelf_a_v5_dead.glb
+- models/outdoor/v5_maps/border/border_shelf_a_v5_summer.glb
+- models/outdoor/v5_maps/border/border_shelf_a_v5_winter.glb
+- models/outdoor/v5_maps/border/border_shelf_b_v5_autumn.glb
+- models/outdoor/v5_maps/border/border_shelf_b_v5_dead.glb
+- models/outdoor/v5_maps/border/border_shelf_b_v5_summer.glb
+- models/outdoor/v5_maps/border/border_shelf_b_v5_winter.glb
+- models/outdoor/v5_maps/border/border_shelf_c_v5_autumn.glb
+- models/outdoor/v5_maps/border/border_shelf_c_v5_dead.glb
+- models/outdoor/v5_maps/border/border_shelf_c_v5_summer.glb
+- models/outdoor/v5_maps/border/border_shelf_c_v5_winter.glb
 - models/outdoor/v5_maps/border/seacliff_endcap_left_h3_a_v5_autumn.glb
 - models/outdoor/v5_maps/border/seacliff_endcap_left_h3_a_v5_dead.glb
 - models/outdoor/v5_maps/border/seacliff_endcap_left_h3_a_v5_summer.glb
@@ -352,6 +426,7 @@ All GLB files under models/ in this repo, 564 total (includes models/env_extra/,
 - models/outdoor/v5_maps/border/seacliff_straight6c_h8_v5_dead.glb
 - models/outdoor/v5_maps/border/seacliff_straight6c_h8_v5_summer.glb
 - models/outdoor/v5_maps/border/seacliff_straight6c_h8_v5_winter.glb
+- models/outdoor/v5_maps/fog_valley_banks_v5_quads.glb
 - models/outdoor/v5_maps/rect/backdrop_near_rect_ascent_autumn.glb
 - models/outdoor/v5_maps/rect/backdrop_near_rect_ascent_dead.glb
 - models/outdoor/v5_maps/rect/backdrop_near_rect_ascent_summer.glb
@@ -412,7 +487,9 @@ All GLB files under models/ in this repo, 564 total (includes models/env_extra/,
 - models/outdoor/v5_maps/rect/backdrop_near_rect_wild_dead.glb
 - models/outdoor/v5_maps/rect/backdrop_near_rect_wild_summer.glb
 - models/outdoor/v5_maps/rect/backdrop_near_rect_wild_winter.glb
+- models/outdoor/v5_maps/shore_foam_strips_v2.glb
 - models/outdoor/v5_maps/shore_foam_strips_v5.glb
+- models/outdoor/v5_maps/shore_rock_kit_v2.glb
 - models/outdoor/v5_maps/shore_rock_kit_v5.glb
 - models/outdoor/v5_maps/statues/statue_angel_hero_bust.glb
 - models/plated_knight.glb

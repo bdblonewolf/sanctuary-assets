@@ -14,7 +14,7 @@ Updated: Nov 1, 2026.
 > 5. `models/town/martsirt/` and `models/town/martsirt_v2/` are OLD. Use `models/town/martsirt_v2_2/`.
 > 6. Dungeon pieces the live game uses (`modular_dungeon_kit.glb`, `dungeon/wall*.gltf.glb`, ...) load from `/assets3d/` inside Grok Build's own project, not from this repo.
 > 7. Bone names in the files are `mixamorig:Hips` etc. three.js GLTFLoader strips the colon, so at runtime they are `mixamorigHips`.
-> 8. File lists: `models/GLB_LIST.md` (all GLBs under models/), `characters_art/GLB_LIST.md`, `wip_models/WIP_LIST.md`, `art_2d/ART_LIST.md`, `audio/AUDIO_PATHS.md`.
+> 8. File lists: `models/GLB_LIST.md` (all GLBs under models/; `models/ENV_ADDED.md` = Nov 1 env additions), `characters_art/GLB_LIST.md`, `wip_models/WIP_LIST.md`, `art_2d/ART_LIST.md`, `audio/AUDIO_PATHS.md`.
 
 Status key: **LIVE** = the live game loads it now. **READY** = finished, game-ready, not used live yet. **OLD** = superseded, do not use. **WIP** = unfinished. **2D** = images only.
 
@@ -38,9 +38,9 @@ Status key: **LIVE** = the live game loads it now. **READY** = finished, game-re
 
 ### Outdoor - LIVE
 - `models/outdoor/v5/` : mountain backdrop rings (backdrop_mountain_ring_v5_<summer|autumn|winter|dead>_<near|mid|far>), sky domes (day, dusk, overcast, dead), sky_cloud_layers_v5, fog_valley_banks_v5, fx_crow_flock_v5, fx_godrays_v5, `manifest_v5.json`. Subfolders `trees/` (tree_conifer_a_v5, tree_conifer_b_v5, tree_conifer_c_v5, tree_decid_a_v5, tree_decid_b_v5 + instance JSONs), `plants/` (plant_agave_a_v5, plant_cactus_cluster_b_v5, plant_cactus_column_a_v5, plant_palm_date_a_v5, plant_palm_date_b_v5, plant_palm_date_c_v5, plant_scrub_bush_a_v5, tree_dead_a_v5, tree_dead_b_v5), `ocean/` (ocean_normal_v1.jpg).
-- `models/outdoor/v5_maps/` : per-map backdrops (backdrop_near_c23/c30/c36/c42/c52_<season>, backdrop_islands_isle/mires(_v2)_<season>), shore_rock_kit_v5, shore_foam_strips_v5, tree instance JSONs, `maps_backdrop_v5.json`, README.md. Subfolders `border/` (148: beach_sand/shingle, seacliff_* pieces, border_kit), `rect/` (60: backdrop_near_rect_*), `statues/` (statue_angel_hero_bust).
+- `models/outdoor/v5_maps/` : per-map backdrops (backdrop_near_c23/c30/c36/c42/c52_<season>, backdrop_islands_isle/mires(_v2)_<season>), shore_rock_kit_v5, shore_foam_strips_v5, tree instance JSONs, `maps_backdrop_v5.json`, README.md. Subfolders `border/` (148 live: beach_sand/shingle, seacliff_* pieces, border_kit; +36 READY border_{peak,shelf,dune} mounds, see below), `rect/` (60: backdrop_near_rect_*), `statues/` (statue_angel_hero_bust).
 - `models/outdoor/v5_ground/` : ground PBR textures in `materials/<ash|dirt_mud|grass_dark|grass_dead|road|sand_coast|sand_desert>/` + `ground_manifest.json`, GROUND_BLEND_NOTE.md.
-- `models/outdoor/v3trees/` : tree_oak_gnarled_autumn, tree_oak_gnarled_b_lush, tree_oak_gnarled_bare, tree_oak_gnarled_lush, tree_pine_dark, tree_pine_dark_snow.
+- `models/outdoor/v3trees/` : tree_oak_gnarled_autumn, tree_oak_gnarled_b_lush, tree_oak_gnarled_bare, tree_oak_gnarled_lush, tree_pine_dark, tree_pine_dark_snow. (Gothic v6 replacements are READY: `models/outdoor/trees_gothic_v6/`, below.)
 
 ### Town (Martsirt) - LIVE: `models/town/martsirt_v2_2/`
 - `props/` : prop_barrel_group, prop_bonfire_main, prop_campfire, prop_crate_stack, prop_fence_wattle_2m, prop_market_stall_c
@@ -49,6 +49,70 @@ Status key: **LIVE** = the live game loads it now. **READY** = finished, game-re
 - `placements.json` (where everything goes), `martsirt_world.json`, `materials/` (manifest.json, tex_1k, tex_2k).
 - `models/town/ground_v1/` : town ground textures + splat/AO maps (not in the verified live list).
 - **OLD, do not use:** `models/town/martsirt/`, `models/town/martsirt_v2/`.
+
+### Outdoor trees gothic v6 - READY (Brian approved Nov 1, 2026; not live yet): `models/outdoor/trees_gothic_v6/`
+Close-range gothic forest trees that replace the in-map v5 trees (`tree_conifer_a/b/c_v5`, `tree_decid_a/b_v5`; Stage 12F put v3 oaks/pines in for those). Far rings untouched. 10 archetypes x 3 seasons (`tree_v6_<archetype>_<summer|autumn|winter>.glb`): pine_mangy_straight, pine_mangy_lean, pine_mangy_droop, pine_mangy_broken, pine_healthy, decid_gothic_twisted, decid_gothic_weeping, decid_gothic_tall, decid_gothic_crooked, oak_healthy (healthy share 28%).
+- Node layout (same as v3): scene root `sway_<stem>` with children `<stem>_LOD0/1/2`; show one LOD child (suggested bands 0 / 35 / 80 m, cull ~160 m).
+- **Sway moved:** `TEXCOORD_1.x` = sway weight (0 root .. 1 tip), `TEXCOORD_1.y` = branch phase. `COLOR_0` = AO/tint multiply (v3 kept sway in `COLOR_0.R`). No tangents stored.
+- One material `mat_trees_gothic_v6_atlas` (MASK 0.5, double-sided), 1024 atlas embedded in every file; share one texture at runtime. Loose copies in `textures/` (`trees_v6_atlas_rgba.png`, `trees_v6_atlas_normal.jpg`, `trees_v6_atlas_layout.json`).
+- v5 -> v6 swap (pick per instance by a stable (x,z) hash): `conifer_a_v5` -> pine_mangy_straight 45%, pine_healthy 40%, pine_mangy_broken 15%; `conifer_b_v5` -> pine_mangy_lean 55%, pine_mangy_broken 20%, pine_healthy 25%; `conifer_c_v5` -> pine_mangy_droop 75%, pine_healthy 25%; `decid_a_v5` -> decid_gothic_twisted 40%, decid_gothic_crooked 30%, oak_healthy 30%; `decid_b_v5` -> decid_gothic_weeping 40%, decid_gothic_tall 35%, oak_healthy 25%. Scale `s = clamp(sy / height_m, 0.7, 1.35)`, uniform; ignore v5 sx/sz and r,g,b.
+- Also `trees_gothic_v6.json` (manifest: tris, heights, mix weights, swap rules, atlas), `README.txt`, `previews/clearing_scenic.png`.
+| File | Size | Tris LOD0 / LOD1 / LOD2 | Height m |
+|---|---|---|---|
+| `tree_v6_decid_gothic_crooked_autumn.glb` | 0.74 MB | 3,636 / 1,218 / 332 | 7.44 |
+| `tree_v6_decid_gothic_crooked_summer.glb` | 0.75 MB | 3,672 / 1,218 / 332 | 7.44 |
+| `tree_v6_decid_gothic_crooked_winter.glb` | 0.73 MB | 3,528 / 1,208 / 332 | 6.37 |
+| `tree_v6_decid_gothic_tall_autumn.glb` | 0.76 MB | 3,594 / 1,202 / 366 | 14.73 |
+| `tree_v6_decid_gothic_tall_summer.glb` | 0.76 MB | 3,678 / 1,202 / 366 | 14.73 |
+| `tree_v6_decid_gothic_tall_winter.glb` | 0.73 MB | 3,246 / 1,166 / 366 | 14.73 |
+| `tree_v6_decid_gothic_twisted_autumn.glb` | 0.76 MB | 3,642 / 1,158 / 332 | 10.15 |
+| `tree_v6_decid_gothic_twisted_summer.glb` | 0.77 MB | 3,746 / 1,158 / 332 | 10.15 |
+| `tree_v6_decid_gothic_twisted_winter.glb` | 0.72 MB | 3,242 / 1,140 / 332 | 9.78 |
+| `tree_v6_decid_gothic_weeping_autumn.glb` | 0.78 MB | 3,964 / 1,276 / 334 | 8.26 |
+| `tree_v6_decid_gothic_weeping_summer.glb` | 0.79 MB | 4,044 / 1,276 / 334 | 8.26 |
+| `tree_v6_decid_gothic_weeping_winter.glb` | 0.76 MB | 3,748 / 1,260 / 334 | 7.87 |
+| `tree_v6_oak_healthy_autumn.glb` | 0.95 MB | 5,484 / 1,672 / 462 | 9.43 |
+| `tree_v6_oak_healthy_summer.glb` | 0.98 MB | 5,784 / 1,672 / 462 | 10.69 |
+| `tree_v6_oak_healthy_winter.glb` | 0.85 MB | 4,276 / 1,622 / 462 | 9.43 |
+| `tree_v6_pine_healthy_autumn.glb` | 1.08 MB | 5,940 / 2,410 / 622 | 14.29 |
+| `tree_v6_pine_healthy_summer.glb` | 1.08 MB | 5,940 / 2,410 / 622 | 14.29 |
+| `tree_v6_pine_healthy_winter.glb` | 1.08 MB | 5,940 / 2,410 / 622 | 14.29 |
+| `tree_v6_pine_mangy_broken_autumn.glb` | 0.64 MB | 2,284 / 900 / 252 | 12.0 |
+| `tree_v6_pine_mangy_broken_summer.glb` | 0.64 MB | 2,284 / 900 / 252 | 12.0 |
+| `tree_v6_pine_mangy_broken_winter.glb` | 0.64 MB | 2,284 / 900 / 252 | 12.0 |
+| `tree_v6_pine_mangy_droop_autumn.glb` | 0.79 MB | 3,642 / 1,420 / 458 | 10.73 |
+| `tree_v6_pine_mangy_droop_summer.glb` | 0.79 MB | 3,642 / 1,420 / 458 | 10.73 |
+| `tree_v6_pine_mangy_droop_winter.glb` | 0.79 MB | 3,642 / 1,420 / 458 | 10.73 |
+| `tree_v6_pine_mangy_lean_autumn.glb` | 0.67 MB | 2,590 / 1,032 / 246 | 11.17 |
+| `tree_v6_pine_mangy_lean_summer.glb` | 0.67 MB | 2,590 / 1,032 / 246 | 11.17 |
+| `tree_v6_pine_mangy_lean_winter.glb` | 0.67 MB | 2,590 / 1,032 / 246 | 11.17 |
+| `tree_v6_pine_mangy_straight_autumn.glb` | 0.76 MB | 3,324 / 1,332 / 374 | 13.1 |
+| `tree_v6_pine_mangy_straight_summer.glb` | 0.76 MB | 3,324 / 1,332 / 374 | 13.1 |
+| `tree_v6_pine_mangy_straight_winter.glb` | 0.76 MB | 3,324 / 1,332 / 374 | 13.1 |
+
+### Outdoor v5_maps additions - READY (added Nov 1, 2026; not live yet)
+Files that were missing from `models/outdoor/v5_maps/`; nothing live was overwritten. Details: `models/ENV_ADDED.md`.
+**`models/outdoor/v5_maps/border/`** - 36 standalone backdrop mound pieces `border_{peak,shelf,dune}_{a,b,c}_v5_<autumn|dead|summer|winter>.glb` (latest rev 12I). 1.0 m footprint, base at y=0, 3 cm skirt; scale uniformly x8 to x40, rotate freely about Y. Each 4.5k tris or fewer. Described under `border_pieces` in the live `border_kit_v5.json`.
+| Piece | What | Size (4 seasons) |
+|---|---|---|
+| `border_peak_a_v5_*` | single summit | 0.37-0.41 MB |
+| `border_peak_b_v5_*` | twin-summit ridge | 0.41-0.45 MB |
+| `border_peak_c_v5_*` | broad jagged crag | 0.39-0.42 MB |
+| `border_shelf_a_v5_*` | one-step ledge | 0.39-0.44 MB |
+| `border_shelf_b_v5_*` | two-tier ledge | 0.38-0.43 MB |
+| `border_shelf_c_v5_*` | low slab | 0.39-0.44 MB |
+| `border_dune_a_v5_*` | barchan crescent | 0.31-0.45 MB |
+| `border_dune_b_v5_*` | long transverse ridge | 0.26-0.39 MB |
+| `border_dune_c_v5_*` | rippled dome | 0.33-0.46 MB |
+
+**`models/outdoor/v5_maps/`** - 11 root files
+| File | Size | What |
+|---|---|---|
+| `backdrop_far_quads_<season>.glb` (autumn, dead, summer, winter) | 2.69-3.62 MB | far backdrop ring split into quadrant nodes `far_{Q}` |
+| `backdrop_mid_quads_<season>.glb` (autumn, dead, summer, winter) | 2.48-3.67 MB | mid backdrop ring split into quadrant nodes `mid_{Q}` + `trees_mid_{Q}` |
+| `fog_valley_banks_v5_quads.glb` | 1.01 MB | valley fog banks split into `fog_{E,N,W,S}` (sea quadrants can drop their fog) |
+| `shore_rock_kit_v2.glb` | 0.95 MB | Stage 12E shore rock stacks (hide a cliff height change); companion to live `shore_rock_kit_v5`, not a replacement |
+| `shore_foam_strips_v2.glb` | 0.38 MB | Stage 12E foam strips v2; companion to live `shore_foam_strips_v5` |
 
 ### Env extra - READY (not used live yet): `models/env_extra/`
 All plain GLB, textures embedded (no external files), no extensions, 1 u = 1 m, +Y up. Each file was load-checked. Tris = visible (colliders `col_*` excluded; hide `col_*` at load). Height = bounding box height in m. Full notes: `models/env_extra/README.md` and each folder's README.
