@@ -149,36 +149,45 @@
     },
     {
       "code": "candle",
-      "x": 52.26,
-      "y": 89.16,
+      "x": 53.25,
+      "y": 88.2,
       "h": 0.8
     },
     {
       "code": "candle",
-      "x": 51.69,
-      "y": 85.7,
+      "x": 52.78,
+      "y": 85.19,
       "h": 0.8
     },
     {
       "code": "candle",
-      "x": 55.07,
-      "y": 85.25,
+      "x": 56.56,
+      "y": 84.32,
       "h": 0.8
     },
     {
       "code": "candle",
-      "x": 57.67,
-      "y": 89.0,
+      "x": 57.4,
+      "y": 87.57,
       "h": 0.8
+    },
+    {
+      "glb": "models/env_extra/props_gothic_v1/props/lectern_book_v1.glb",
+      "x": 53.5,
+      "y": 90.15,
+      "rotY": 2.57,
+      "kind": "lectern",
+      "lore": "hound",
+      "note": "3D stand-in for the original 2D taproom folio 'Cellar Hound' (is[] id hound, 2D local 6.2,9.4 = SW of the door, by the SW table); kept west of the 1.5 m door lane, reading side faces the room"
     }
   ],
   "seats": [
     {
       "kind": "stool",
       "x": 59.15,
-      "y": 84.6,
+      "y": 84.0,
       "fx": 60.2,
-      "fy": 84.6,
+      "fy": 84.0,
       "tag": "bar",
       "code": "stool",
       "top": 0.5
@@ -186,9 +195,9 @@
     {
       "kind": "stool",
       "x": 59.15,
-      "y": 85.7,
+      "y": 85.45,
       "fx": 60.2,
-      "fy": 85.7,
+      "fy": 85.45,
       "tag": "bar",
       "code": "stool",
       "top": 0.5
@@ -196,19 +205,9 @@
     {
       "kind": "stool",
       "x": 59.15,
-      "y": 86.8,
+      "y": 86.9,
       "fx": 60.2,
-      "fy": 86.8,
-      "tag": "bar",
-      "code": "stool",
-      "top": 0.5
-    },
-    {
-      "kind": "stool",
-      "x": 59.15,
-      "y": 87.9,
-      "fx": 60.2,
-      "fy": 87.9,
+      "fy": 86.9,
       "tag": "bar",
       "code": "stool",
       "top": 0.5
@@ -294,8 +293,8 @@
       "flicker": 0.15
     },
     {
-      "x": 52.26,
-      "y": 89.16,
+      "x": 53.25,
+      "y": 88.2,
       "h": 1.6,
       "color": "0xffa04a",
       "intensity": 0.35,
@@ -304,8 +303,8 @@
       "note": "dim warm fill: table SW"
     },
     {
-      "x": 51.69,
-      "y": 85.7,
+      "x": 52.78,
+      "y": 85.19,
       "h": 1.6,
       "color": "0xffa04a",
       "intensity": 0.35,
@@ -314,8 +313,8 @@
       "note": "dim warm fill: table W"
     },
     {
-      "x": 55.07,
-      "y": 85.25,
+      "x": 56.56,
+      "y": 84.32,
       "h": 1.7,
       "color": "0xff8a3c",
       "intensity": 0.3,
@@ -324,8 +323,8 @@
       "note": "dim warm fill: table centre"
     },
     {
-      "x": 57.67,
-      "y": 89.0,
+      "x": 57.4,
+      "y": 87.57,
       "h": 1.6,
       "color": "0xffa04a",
       "intensity": 0.3,
@@ -373,12 +372,12 @@
       82.41
     ],
     "patron_01": [
-      52.18,
-      88.37
+      53.17,
+      87.41
     ],
     "patron_02": [
-      54.98,
-      84.45
+      56.47,
+      83.52
     ],
     "patron_03": [
       50.94,
