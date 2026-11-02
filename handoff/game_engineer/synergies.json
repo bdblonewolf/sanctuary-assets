@@ -1,0 +1,7118 @@
+{
+ "version": 1,
+ "status": "DRAFT - not pushed. Engine reads this table; tooltips are generated from it.",
+ "curve": {
+  "ramp45": "v(r) = cap * (1 - exp(-3*(r/45)^1.6)) / (1 - exp(-3)); r = source rite rank (1..45). Gentle early, steep mid-game (r10-30), flattens at 45."
+ },
+ "rules": [
+  "Synergies add on top of base rite numbers and never replace them.",
+  "Damage-type synergies (dmgPct, extraHitFromHit, dotFromHit) on one rite total no more than +100% at rank 45 unless the text says so.",
+  "Bosses: effects marked (bosses: half) use half value; status durations on bosses are halved.",
+  "Use proposedCap when present, otherwise cap."
+ ],
+ "tooltipFormat": "{targetName}: {text} (+{v}{unit}); v = valuePerRank at the current source rank, 1 decimal.",
+ "synergies": [
+  {
+   "id": "guided_stone",
+   "source": "fireball",
+   "sourceName": "Fireball",
+   "sourceType": "rite",
+   "target": "meteor",
+   "targetName": "Meteor Shower",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% landing radius on the homing stone",
+   "legacyPerPoint": 1.0,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the homing stone bursts into a Fireball that flies on down your facing"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "burst",
+     "text": "the homing stone bursts into a Fireball that flies on down your facing"
+    }
+   ],
+   "text": "one stone per cast homes onto the largest pack",
+   "tooltip": "{targetName}: one stone per cast homes onto the largest pack (+{v}% landing radius on the homing stone)",
+   "flag": null
+  },
+  {
+   "id": "ember_jumps",
+   "source": "fireball",
+   "sourceName": "Fireball",
+   "sourceType": "rite",
+   "target": "spark",
+   "targetName": "Volt",
+   "kind": "DOT",
+   "stat": "dotFromHit",
+   "unit": "% of the jump's damage per second as a 1s burn",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": "ignite",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the final leap detonates as a 1.5m fireball blast"
+    }
+   ],
+   "condition": [
+    "burning",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "burst",
+     "text": "the final leap detonates as a 1.5m fireball blast"
+    }
+   ],
+   "text": "every Volt jump leaves an ember burning on the foe it struck",
+   "tooltip": "{targetName}: every Volt jump leaves an ember burning on the foe it struck (+{v}% of the jump's damage per second as a 1s burn)",
+   "flag": null
+  },
+  {
+   "id": "cinder_thorns",
+   "source": "fireball",
+   "sourceName": "Fireball",
+   "sourceType": "rite",
+   "target": "thorncoat",
+   "targetName": "Thorn Coat",
+   "kind": "DOT",
+   "stat": "dotFromHit",
+   "unit": "% of reflected damage per second as burning",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "ignite",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "when the coat expires it bursts into a 3m ring of fire for 50% of everything it reflected"
+    }
+   ],
+   "condition": [
+    "burning",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "burst",
+     "text": "when the coat expires it bursts into a 3m ring of fire for 50% of everything it reflected"
+    }
+   ],
+   "text": "Thorn Coat reflects as fire and sets attackers alight",
+   "tooltip": "{targetName}: Thorn Coat reflects as fire and sets attackers alight (+{v}% of reflected damage per second as burning)",
+   "flag": null
+  },
+  {
+   "id": "skyfire",
+   "source": "meteor",
+   "sourceName": "Meteor Shower",
+   "sourceType": "rite",
+   "target": "inferno",
+   "targetName": "Inferno",
+   "kind": "HIT",
+   "stat": "extraHitFromHit",
+   "unit": "% of cone damage on impact",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": "burning_ground",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the meteor leaves a molten crater that burns the ground for 2s"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "the meteor leaves a molten crater that burns the ground for 2s"
+    }
+   ],
+   "text": "every third Inferno drops a small meteor at the tip of the cone",
+   "tooltip": "{targetName}: every third Inferno drops a small meteor at the tip of the cone (+{v}% of cone damage on impact)",
+   "flag": null
+  },
+  {
+   "id": "firestorm",
+   "source": "meteor",
+   "sourceName": "Meteor Shower",
+   "sourceType": "rite",
+   "target": "stormcall",
+   "targetName": "Storm Call",
+   "kind": "DOT",
+   "stat": "dotFromHit",
+   "unit": "% of bolt damage per second as burning",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "ignite",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a foe struck by 2 bolts at once erupts in a 1.5m blast"
+    }
+   ],
+   "condition": [
+    "burning",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "burst",
+     "text": "a foe struck by 2 bolts at once erupts in a 1.5m blast"
+    }
+   ],
+   "text": "Storm Call bolts strike as fire and lightning and set foes alight",
+   "tooltip": "{targetName}: Storm Call bolts strike as fire and lightning and set foes alight (+{v}% of bolt damage per second as burning)",
+   "flag": null
+  },
+  {
+   "id": "skyfire_charge",
+   "source": "meteor",
+   "sourceName": "Meteor Shower",
+   "sourceType": "rite",
+   "target": "thunderkiln",
+   "targetName": "Thunderkiln Trap",
+   "kind": "HIT",
+   "stat": "extraHitFromHit",
+   "unit": "% kiln damage after a Meteor lands within 4m of the kiln",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a Meteor that strikes the kiln itself refills 1 shot (once per kiln)"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "a Meteor that strikes the kiln itself refills 1 shot (once per kiln)"
+    }
+   ],
+   "text": "a Meteor stone landing beside a kiln supercharges its next 3 bolts",
+   "tooltip": "{targetName}: a Meteor stone landing beside a kiln supercharges its next 3 bolts (+{v}% kiln damage after a Meteor lands within 4m of the kiln)",
+   "flag": null
+  },
+  {
+   "id": "flame_wake",
+   "source": "inferno",
+   "sourceName": "Inferno",
+   "sourceType": "rite",
+   "target": "fireball",
+   "targetName": "Fireball",
+   "kind": "KEEP",
+   "stat": "dotFromHit",
+   "unit": "% of hit per second on the flame line",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "burning_ground",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "on impact Fireball blows a 2.5m cone of Inferno flame out behind the target"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "castRite",
+     "text": "on impact Fireball blows a 2.5m cone of Inferno flame out behind the target"
+    }
+   ],
+   "text": "Fireball leaves a 1s line of flame along its flight path",
+   "tooltip": "{targetName}: Fireball leaves a 1s line of flame along its flight path (+{v}% of hit per second on the flame line)",
+   "flag": null
+  },
+  {
+   "id": "bellows",
+   "source": "inferno",
+   "sourceName": "Inferno",
+   "sourceType": "rite",
+   "target": "cinder",
+   "targetName": "Cinder Bed",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% bed radius gained per second it lives",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the fanned bed flares, and foes entering it panic and turn back once"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "the fanned bed flares, and foes entering it panic and turn back once"
+    }
+   ],
+   "text": "an Inferno blown across a Cinder Bed fans it, and the bed spreads",
+   "tooltip": "{targetName}: an Inferno blown across a Cinder Bed fans it, and the bed spreads (+{v}% bed radius gained per second it lives)",
+   "flag": null
+  },
+  {
+   "id": "heat_sink",
+   "source": "inferno",
+   "sourceName": "Inferno",
+   "sourceType": "rite",
+   "target": "elemconsume",
+   "targetName": "Elemental Consume",
+   "kind": "COST",
+   "stat": "cost.manaRefundPerTarget",
+   "unit": "mana refunded per burning foe in the pulse",
+   "legacyPerPoint": 0.06,
+   "cap": 2.5,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.02,
+    "5": 0.22,
+    "10": 0.62,
+    "15": 1.06,
+    "20": 1.47,
+    "25": 1.82,
+    "30": 2.08,
+    "35": 2.28,
+    "40": 2.41,
+    "45": 2.5
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the pulse extinguishes your own burns and grants +30% fire resistance for 2s"
+    }
+   ],
+   "condition": [
+    "burning",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "the pulse extinguishes your own burns and grants +30% fire resistance for 2s"
+    }
+   ],
+   "text": "Elemental Consume draws heat out of burning foes as mana",
+   "tooltip": "{targetName}: Elemental Consume draws heat out of burning foes as mana (+{v}mana refunded per burning foe in the pulse)",
+   "flag": null
+  },
+  {
+   "id": "ember_tail",
+   "source": "cinder",
+   "sourceName": "Cinder Bed",
+   "sourceType": "rite",
+   "target": "fireball",
+   "targetName": "Fireball",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% explosion radius per bed crossed",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the soaked-up bed moves to the impact point"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "the soaked-up bed moves to the impact point"
+    }
+   ],
+   "text": "a Fireball flying over a Cinder Bed soaks up its fire",
+   "tooltip": "{targetName}: a Fireball flying over a Cinder Bed soaks up its fire (+{v}% explosion radius per bed crossed)",
+   "flag": null
+  },
+  {
+   "id": "kindling",
+   "source": "cinder",
+   "sourceName": "Cinder Bed",
+   "sourceType": "rite",
+   "target": "meteor",
+   "targetName": "Meteor Shower",
+   "kind": "KEEP",
+   "stat": "procChance",
+   "unit": "% chance per stone to scatter 3 embers",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "stones landing on a bed reset its duration"
+    }
+   ],
+   "condition": [
+    "burning",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "stones landing on a bed reset its duration"
+    }
+   ],
+   "text": "stones that land on a Cinder Bed throw burning debris",
+   "tooltip": "{targetName}: stones that land on a Cinder Bed throw burning debris (+{v}% chance per stone to scatter 3 embers)",
+   "flag": null
+  },
+  {
+   "id": "fuel_reserve",
+   "source": "cinder",
+   "sourceName": "Cinder Bed",
+   "sourceType": "rite",
+   "target": "elemconsume",
+   "targetName": "Elemental Consume",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% pulse radius per active bed",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a pulse cast inside a bed makes you immune to slows for 2s"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a pulse cast inside a bed makes you immune to slows for 2s"
+    }
+   ],
+   "text": "each Cinder Bed you have active widens the pulse",
+   "tooltip": "{targetName}: each Cinder Bed you have active widens the pulse (+{v}% pulse radius per active bed)",
+   "flag": null
+  },
+  {
+   "id": "cold_snap",
+   "source": "nova",
+   "sourceName": "Frost Nova",
+   "sourceType": "rite",
+   "target": "spark",
+   "targetName": "Volt",
+   "kind": "DEBUFF",
+   "stat": "armourShred",
+   "unit": "% armour lost by jump targets",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the last leap releases a 1m mini Frost Nova"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "burst",
+     "text": "the last leap releases a 1m mini Frost Nova"
+    }
+   ],
+   "text": "Volt jumps leave frost sparks that make their targets brittle",
+   "tooltip": "{targetName}: Volt jumps leave frost sparks that make their targets brittle (+{v}% armour lost by jump targets)",
+   "flag": null
+  },
+  {
+   "id": "frost_shield",
+   "source": "nova",
+   "sourceName": "Frost Nova",
+   "sourceType": "rite",
+   "target": "blindrush",
+   "targetName": "Blind Shield Rush",
+   "kind": "DEBUFF",
+   "stat": "damageReduction",
+   "unit": "% damage taken from foes you rushed through (3s)",
+   "legacyPerPoint": -0.6,
+   "cap": -25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": -0.18,
+    "5": -2.25,
+    "10": -6.23,
+    "15": -10.63,
+    "20": -14.72,
+    "25": -18.16,
+    "30": -20.83,
+    "35": -22.77,
+    "40": -24.12,
+    "45": -25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the rush ends in a ring of frost"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "burst",
+     "text": "the rush ends in a ring of frost"
+    }
+   ],
+   "text": "rushing through foes coats your shield in frost",
+   "tooltip": "{targetName}: rushing through foes coats your shield in frost (+{v}% damage taken from foes you rushed through (3s))",
+   "flag": null
+  },
+  {
+   "id": "cold_dread",
+   "source": "nova",
+   "sourceName": "Frost Nova",
+   "sourceType": "rite",
+   "target": "dread",
+   "targetName": "Dread",
+   "kind": "DEBUFF",
+   "stat": "debuffDamageTaken",
+   "unit": "% more cold damage taken by feared foes",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "feared foes that are chilled skip their next attack"
+    }
+   ],
+   "condition": [
+    "fear"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "applyStatus",
+     "text": "feared foes that are chilled skip their next attack"
+    }
+   ],
+   "text": "frightened foes are more vulnerable to cold",
+   "tooltip": "{targetName}: frightened foes are more vulnerable to cold (+{v}% more cold damage taken by feared foes)",
+   "flag": null
+  },
+  {
+   "id": "ice_pillar",
+   "source": "glacier",
+   "sourceName": "Glacier",
+   "sourceType": "rite",
+   "target": "nova",
+   "targetName": "Frost Nova",
+   "kind": "HEAL",
+   "stat": "shapeOrSize",
+   "unit": "% pillar life",
+   "legacyPerPoint": 2.0,
+   "cap": 60.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.43,
+    "5": 5.39,
+    "10": 14.96,
+    "15": 25.5,
+    "20": 35.32,
+    "25": 43.57,
+    "30": 49.98,
+    "35": 54.66,
+    "40": 57.88,
+    "45": 60.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "hitting the pillar with Glacier shatters it into 6 outward shards (shards cannot freeze)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "applyStatus",
+     "text": "hitting the pillar with Glacier shatters it into 6 outward shards (shards cannot freeze)"
+    }
+   ],
+   "text": "Frost Nova raises a 2s ice pillar at your feet that blocks projectiles",
+   "tooltip": "{targetName}: Frost Nova raises a 2s ice pillar at your feet that blocks projectiles (+{v}% pillar life)",
+   "flag": null
+  },
+  {
+   "id": "superconductor",
+   "source": "glacier",
+   "sourceName": "Glacier",
+   "sourceType": "rite",
+   "target": "spark",
+   "targetName": "Volt",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% jump range between chilled foes",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "Volt gains +1 jump when it starts on a frozen foe (cap +2 per cast)"
+    }
+   ],
+   "condition": [
+    "chill"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "Volt gains +1 jump when it starts on a frozen foe (cap +2 per cast)"
+    }
+   ],
+   "text": "Volt jumps between chilled foes lose no damage",
+   "tooltip": "{targetName}: Volt jumps between chilled foes lose no damage (+{v}% jump range between chilled foes)",
+   "flag": null
+  },
+  {
+   "id": "glacial_roar",
+   "source": "glacier",
+   "sourceName": "Glacier",
+   "sourceType": "rite",
+   "target": "warcry",
+   "targetName": "War Cry",
+   "kind": "SLOW",
+   "stat": "slowPct",
+   "unit": "% chill strength from the shout (bosses: half)",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "chill,freeze",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "the shout freezes foes that were already chilled for 0.8s (boss rules apply)"
+    }
+   ],
+   "condition": [
+    "bossHalf"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "applyStatus",
+     "text": "the shout freezes foes that were already chilled for 0.8s (boss rules apply)"
+    }
+   ],
+   "text": "War Cry's slow becomes a deep chill",
+   "tooltip": "{targetName}: War Cry's slow becomes a deep chill (+{v}% chill strength from the shout (bosses: half))",
+   "flag": null
+  },
+  {
+   "id": "rime_ring",
+   "source": "hoarfrost",
+   "sourceName": "Hoarfrost",
+   "sourceType": "rite",
+   "target": "nova",
+   "targetName": "Frost Nova",
+   "kind": "KEEP",
+   "stat": "slowPct",
+   "unit": "% slow in the rime ring (bosses: half)",
+   "legacyPerPoint": 1.0,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "chill",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "foes caught by both the nova and a Hoarfrost patch freeze for 0.6s (once per 4s per foe"
+    }
+   ],
+   "condition": [
+    "bossHalf"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "foes caught by both the nova and a Hoarfrost patch freeze for 0.6s (once per 4s per foe"
+    }
+   ],
+   "text": "Frost Nova leaves a 2s rime ring on the ground at its edge",
+   "tooltip": "{targetName}: Frost Nova leaves a 2s rime ring on the ground at its edge (+{v}% slow in the rime ring (bosses: half))",
+   "flag": null
+  },
+  {
+   "id": "brittle_spear",
+   "source": "hoarfrost",
+   "sourceName": "Hoarfrost",
+   "sourceType": "rite",
+   "target": "glacier",
+   "targetName": "Glacier",
+   "kind": "HIT",
+   "stat": "debuffDamageTaken",
+   "unit": "% extra damage from your next fire or lightning hit (Brittle, 3s)",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a Glacier passing through a Hoarfrost patch splits into 2 spears (+1 projectile)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "a Glacier passing through a Hoarfrost patch splits into 2 spears (+1 projectile)"
+    }
+   ],
+   "text": "Glacier hits make foes Brittle",
+   "tooltip": "{targetName}: Glacier hits make foes Brittle (+{v}% extra damage from your next fire or lightning hit (Brittle, 3s))",
+   "flag": null
+  },
+  {
+   "id": "ward_freezer",
+   "source": "hoarfrost",
+   "sourceName": "Hoarfrost",
+   "sourceType": "rite",
+   "target": "frostward",
+   "targetName": "Frost Ward",
+   "kind": "DUR",
+   "stat": "durationPct",
+   "unit": "% ward duration",
+   "legacyPerPoint": 1.5,
+   "cap": 45.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.32,
+    "5": 4.04,
+    "10": 11.22,
+    "15": 19.13,
+    "20": 26.49,
+    "25": 32.68,
+    "30": 37.49,
+    "35": 40.99,
+    "40": 43.41,
+    "45": 45.0
+   },
+   "element": "freeze",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "an attacker struck by the ward 5 times freezes for 1s (once per 6s"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "an attacker struck by the ward 5 times freezes for 1s (once per 6s"
+    }
+   ],
+   "text": "the ward holds longer and keeps count of hits from each attacker",
+   "tooltip": "{targetName}: the ward holds longer and keeps count of hits from each attacker (+{v}% ward duration)",
+   "flag": null
+  },
+  {
+   "id": "volt_lightning_rod",
+   "source": "spark",
+   "sourceName": "Volt",
+   "sourceType": "rite",
+   "target": "stormcall",
+   "targetName": "Storm Call",
+   "kind": "OTHER",
+   "stat": "dmgPct",
+   "unit": "% shock potency on foes Volt struck",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": "shock +proj",
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "Storm Call gains +1 bolt when 3 or more foes are Volt-struck"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "Storm Call gains +1 bolt when 3 or more foes are Volt-struck"
+    }
+   ],
+   "text": "Storm Call bolts seek out foes Volt struck in the last 2s",
+   "tooltip": "{targetName}: Storm Call bolts seek out foes Volt struck in the last 2s (+{v}% shock potency on foes Volt struck)",
+   "flag": null
+  },
+  {
+   "id": "whip_tip_jump",
+   "source": "spark",
+   "sourceName": "Volt",
+   "sourceType": "rite",
+   "target": "arcwhip",
+   "targetName": "Arc Whip",
+   "kind": "BOLT",
+   "stat": "extraHitFromHit",
+   "unit": "% of whip damage on the jump",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the jump can leap once more (it cannot re-arc)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "the jump can leap once more (it cannot re-arc)"
+    }
+   ],
+   "text": "the tip of the lash fires a Volt jump from the farthest foe it hit",
+   "tooltip": "{targetName}: the tip of the lash fires a Volt jump from the farthest foe it hit (+{v}% of whip damage on the jump)",
+   "flag": null
+  },
+  {
+   "id": "capacitor",
+   "source": "spark",
+   "sourceName": "Volt",
+   "sourceType": "rite",
+   "target": "elemconsume",
+   "targetName": "Elemental Consume",
+   "kind": "COST",
+   "stat": "cost.costPctPerCharge",
+   "unit": "% Elemental Consume mana cost per stored charge (COST, synCost)",
+   "legacyPerPoint": -0.6,
+   "cap": -25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": -0.18,
+    "5": -2.25,
+    "10": -6.23,
+    "15": -10.63,
+    "20": -14.72,
+    "25": -18.16,
+    "30": -20.83,
+    "35": -22.77,
+    "40": -24.12,
+    "45": -25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a pulse that spends 5 charges also restores 5% mana"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a pulse that spends 5 charges also restores 5% mana"
+    }
+   ],
+   "text": "each lightning rite you cast stores a charge, and the pulse spends them",
+   "tooltip": "{targetName}: each lightning rite you cast stores a charge, and the pulse spends them (+{v}% Elemental Consume mana cost per stored charge (COST, synCost))",
+   "flag": null
+  },
+  {
+   "id": "ionized_flame",
+   "source": "stormcall",
+   "sourceName": "Storm Call",
+   "sourceType": "rite",
+   "target": "inferno",
+   "targetName": "Inferno",
+   "kind": "DEBUFF",
+   "stat": "debuffDamageTaken",
+   "unit": "% more Storm Call damage taken by ionized foes",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the cone throws one crackling bolt at the farthest foe"
+    }
+   ],
+   "condition": [
+    "ionized"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "the cone throws one crackling bolt at the farthest foe"
+    }
+   ],
+   "text": "foes the cone hits are ionized",
+   "tooltip": "{targetName}: foes the cone hits are ionized (+{v}% more Storm Call damage taken by ionized foes)",
+   "flag": null
+  },
+  {
+   "id": "charged_frost",
+   "source": "stormcall",
+   "sourceName": "Storm Call",
+   "sourceType": "rite",
+   "target": "hoarfrost",
+   "targetName": "Hoarfrost",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% shock chance per second on the patch",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "shock",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "Storm Call bolts hitting a foe on Hoarfrost arc to every foe on the patch (arcs cannot shock or re-arc"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "Storm Call bolts hitting a foe on Hoarfrost arc to every foe on the patch (arcs cannot shock or re-arc"
+    }
+   ],
+   "text": "the patch conducts electricity",
+   "tooltip": "{targetName}: the patch conducts electricity (+{v}% shock chance per second on the patch)",
+   "flag": null
+  },
+  {
+   "id": "static_lash",
+   "source": "stormcall",
+   "sourceName": "Storm Call",
+   "sourceType": "rite",
+   "target": "arcwhip",
+   "targetName": "Arc Whip",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% chance to gain double static",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": "shock",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the called bolts shock (they cannot call more bolts)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "the called bolts shock (they cannot call more bolts)"
+    }
+   ],
+   "text": "each lash builds static (max 5), and full static makes the next lash call down a bolt on each foe hit",
+   "tooltip": "{targetName}: each lash builds static (max 5), and full static makes the next lash call down a bolt on each foe hit (+{v}% chance to gain double static)",
+   "flag": null
+  },
+  {
+   "id": "plasma_bed",
+   "source": "arcwhip",
+   "sourceName": "Arc Whip",
+   "sourceType": "rite",
+   "target": "cinder",
+   "targetName": "Cinder Bed",
+   "kind": "SPEED",
+   "stat": "speedPct",
+   "unit": "% faster bed ticks for 3s",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a superheated bed crackles, striking one foe on it with a small bolt each second"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "a superheated bed crackles, striking one foe on it with a small bolt each second"
+    }
+   ],
+   "text": "whipping across a Cinder Bed superheats it",
+   "tooltip": "{targetName}: whipping across a Cinder Bed superheats it (+{v}% faster bed ticks for 3s)",
+   "flag": null
+  },
+  {
+   "id": "ice_conductor",
+   "source": "arcwhip",
+   "sourceName": "Arc Whip",
+   "sourceType": "rite",
+   "target": "glacier",
+   "targetName": "Glacier",
+   "kind": "BOLT",
+   "stat": "extraHitFromHit",
+   "unit": "% of the spear's damage to foes crossing the tether",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the tether lingers for 1s after impact"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "the tether lingers for 1s after impact"
+    }
+   ],
+   "text": "the ice spear trails a lightning tether back to you",
+   "tooltip": "{targetName}: the ice spear trails a lightning tether back to you (+{v}% of the spear's damage to foes crossing the tether)",
+   "flag": null
+  },
+  {
+   "id": "drifting_patch",
+   "source": "arcwhip",
+   "sourceName": "Arc Whip",
+   "sourceType": "rite",
+   "target": "hoarfrost",
+   "targetName": "Hoarfrost",
+   "kind": "AREA",
+   "stat": "shapeOrSize",
+   "unit": "m per second of patch drift toward the nearest foe",
+   "legacyPerPoint": 0.04,
+   "cap": 2.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.18,
+    "10": 0.5,
+    "15": 0.85,
+    "20": 1.18,
+    "25": 1.45,
+    "30": 1.67,
+    "35": 1.82,
+    "40": 1.93,
+    "45": 2.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "whipping a patch splits it in two"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "whipping a patch splits it in two"
+    }
+   ],
+   "text": "the patch creeps toward foes",
+   "tooltip": "{targetName}: the patch creeps toward foes (+{v}m per second of patch drift toward the nearest foe)",
+   "flag": null
+  },
+  {
+   "id": "radiant_mend",
+   "source": "holy",
+   "sourceName": "Holy Bolt",
+   "sourceType": "rite",
+   "target": "regrowth",
+   "targetName": "Regrowth",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% of overheal converted to a holy shield",
+   "legacyPerPoint": 1.0,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "casting Regrowth blinds foes within 3m for 1s (they miss 50%)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "casting Regrowth blinds foes within 3m for 1s (they miss 50%)"
+    }
+   ],
+   "text": "overhealing from Regrowth becomes a holy shield",
+   "tooltip": "{targetName}: overhealing from Regrowth becomes a holy shield (+{v}% of overheal converted to a holy shield)",
+   "flag": null
+  },
+  {
+   "id": "scarab_purge",
+   "source": "holy",
+   "sourceName": "Holy Bolt",
+   "sourceType": "rite",
+   "target": "locust",
+   "targetName": "Locust Cloud",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% chance per second to strip one buff or shield",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "foes inside the cloud cannot regenerate"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "foes inside the cloud cannot regenerate"
+    }
+   ],
+   "text": "golden scarabs in the cloud strip buffs and shields from foes",
+   "tooltip": "{targetName}: golden scarabs in the cloud strip buffs and shields from foes (+{v}% chance per second to strip one buff or shield)",
+   "flag": null
+  },
+  {
+   "id": "constellation",
+   "source": "holy",
+   "sourceName": "Holy Bolt",
+   "sourceType": "rite",
+   "target": "starlash",
+   "targetName": "Star Lash",
+   "kind": "DOT",
+   "stat": "dotFromHit",
+   "unit": "% of lash damage per second to every linked foe",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "a completed 5-star constellation collapses into a 3m holy nova"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "burst",
+     "text": "a completed 5-star constellation collapses into a 3m holy nova"
+    }
+   ],
+   "text": "each needle sets a star on a foe, and 3 starred foes link into a constellation",
+   "tooltip": "{targetName}: each needle sets a star on a foe, and 3 starred foes link into a constellation (+{v}% of lash damage per second to every linked foe)",
+   "flag": null
+  },
+  {
+   "id": "sanctified_path",
+   "source": "consecrate",
+   "sourceName": "Consecrate",
+   "sourceType": "rite",
+   "target": "holy",
+   "targetName": "Holy Bolt",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% max life healed per second standing in the strip",
+   "legacyPerPoint": 0.05,
+   "cap": 2.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.11,
+    "10": 0.3,
+    "15": 0.51,
+    "20": 0.71,
+    "25": 0.87,
+    "30": 1.0,
+    "35": 1.09,
+    "40": 1.16,
+    "45": 1.2
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a bolt that hits a foe standing in Consecrate splits in two (+1 projectile)"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "a bolt that hits a foe standing in Consecrate splits in two (+1 projectile)"
+    }
+   ],
+   "text": "Holy Bolt leaves a 1s strip of holy ground along its path that heals you",
+   "tooltip": "{targetName}: Holy Bolt leaves a 1s strip of holy ground along its path that heals you (+{v}% max life healed per second standing in the strip)",
+   "flag": "2% max life per second is above potion pace mid-game. Proposed 1.2%.",
+   "proposedCap": 1.2
+  },
+  {
+   "id": "hallowed_slam",
+   "source": "consecrate",
+   "sourceName": "Consecrate",
+   "sourceType": "rite",
+   "target": "smite",
+   "targetName": "Smite",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% radius of the mini ground",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": "crit",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "foes caught in a mini ground are Judged, and your next Smite on them always crits"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "foes caught in a mini ground are Judged, and your next Smite on them always crits"
+    }
+   ],
+   "text": "a Smite on consecrated ground leaves a mini Consecrate (1m, 2s)",
+   "tooltip": "{targetName}: a Smite on consecrated ground leaves a mini Consecrate (1m, 2s) (+{v}% radius of the mini ground)",
+   "flag": null
+  },
+  {
+   "id": "anathema",
+   "source": "consecrate",
+   "sourceName": "Consecrate",
+   "sourceType": "rite",
+   "target": "hex",
+   "targetName": "Hex",
+   "kind": "DEBUFF",
+   "stat": "resistShred",
+   "unit": "% resistance lost by allies within 2m of the hexed foe",
+   "legacyPerPoint": 0.5,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "the hex spreads to 1 nearby foe if the hexed foe is standing on Consecrate"
+    }
+   ],
+   "condition": [
+    "hexed",
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "other",
+     "text": "the hex spreads to 1 nearby foe if the hexed foe is standing on Consecrate"
+    }
+   ],
+   "text": "the hexed foe cannot be healed or shielded, and its nearby allies lose resistance",
+   "tooltip": "{targetName}: the hexed foe cannot be healed or shielded, and its nearby allies lose resistance (+{v}% resistance lost by allies within 2m of the hexed foe)",
+   "flag": null
+  },
+  {
+   "id": "judgment_bolt",
+   "source": "smite",
+   "sourceName": "Smite",
+   "sourceType": "rite",
+   "target": "holy",
+   "targetName": "Holy Bolt",
+   "kind": "BOLT",
+   "stat": "extraHitFromHit",
+   "unit": "% of the bolt's damage added to your next melee hit on the marked foe",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "marked foes that die release a 2m holy burst"
+    }
+   ],
+   "condition": [
+    "marked"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "burst",
+     "text": "marked foes that die release a 2m holy burst"
+    }
+   ],
+   "text": "Holy Bolt marks the foe it hits for judgment",
+   "tooltip": "{targetName}: Holy Bolt marks the foe it hits for judgment (+{v}% of the bolt's damage added to your next melee hit on the marked foe)",
+   "flag": null
+  },
+  {
+   "id": "faith_charges",
+   "source": "smite",
+   "sourceName": "Smite",
+   "sourceType": "rite",
+   "target": "bulwark",
+   "targetName": "Bulwark",
+   "kind": "DMG",
+   "stat": "dmgPct",
+   "unit": "% more next melee damage per holy charge",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "with 5 charges, the brace ends in a hammer slam that heals you 3% max life"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "with 5 charges, the brace ends in a hammer slam that heals you 3% max life"
+    }
+   ],
+   "text": "each blow the brace blocks stores a holy charge (max 5)",
+   "tooltip": "{targetName}: each blow the brace blocks stores a holy charge (max 5) (+{v}% more next melee damage per holy charge)",
+   "flag": "Per-charge multiplier; total limited to +100% by the per-rite damage budget."
+  },
+  {
+   "id": "close_quarters",
+   "source": "smite",
+   "sourceName": "Smite",
+   "sourceType": "rite",
+   "target": "starlash",
+   "targetName": "Star Lash",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% more life returned within 2m",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "point-blank needles silence casters for 1s"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "point-blank needles silence casters for 1s"
+    }
+   ],
+   "text": "needles fired at close range drink deeper",
+   "tooltip": "{targetName}: needles fired at close range drink deeper (+{v}% more life returned within 2m)",
+   "flag": null
+  },
+  {
+   "id": "vein_pulse",
+   "source": "bloodsoaked",
+   "sourceName": "Blood Soaked",
+   "sourceType": "rite",
+   "target": "mercy",
+   "targetName": "Mercy",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% pulse radius per bleeding foe nearby",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a Mercy cast while you are above 90% life costs mana instead of life"
+    }
+   ],
+   "condition": [
+    "bleed",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a Mercy cast while you are above 90% life costs mana instead of life"
+    }
+   ],
+   "text": "the pulse reaches further toward foes that are bleeding",
+   "tooltip": "{targetName}: the pulse reaches further toward foes that are bleeding (+{v}% pulse radius per bleeding foe nearby)",
+   "flag": null
+  },
+  {
+   "id": "red_marrow",
+   "source": "bloodsoaked",
+   "sourceName": "Blood Soaked",
+   "sourceType": "rite",
+   "target": "bonespear",
+   "targetName": "Bone Spear",
+   "kind": "COST",
+   "stat": "cost.manaToLife",
+   "unit": "% of the mana cost paid in life instead",
+   "legacyPerPoint": 1.0,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": "bleed",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "spears paid for in life leave a 2s blood trail that makes foes standing in it bleed"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "spears paid for in life leave a 2s blood trail that makes foes standing in it bleed"
+    }
+   ],
+   "text": "Bone Spear can be paid for partly in life",
+   "tooltip": "{targetName}: Bone Spear can be paid for partly in life (+{v}% of the mana cost paid in life instead)",
+   "flag": null
+  },
+  {
+   "id": "blood_bond",
+   "source": "bloodsoaked",
+   "sourceName": "Blood Soaked",
+   "sourceType": "rite",
+   "target": "summon",
+   "targetName": "Raise Bone",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% of your drain shared with your skeletons",
+   "legacyPerPoint": 0.4,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "you can pay 10% life instead of mana to re-raise a fallen skeleton instantly"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "you can pay 10% life instead of mana to re-raise a fallen skeleton instantly"
+    }
+   ],
+   "text": "your skeletons share in your Blood Soaked lifesteal",
+   "tooltip": "{targetName}: your skeletons share in your Blood Soaked lifesteal (+{v}% of your drain shared with your skeletons)",
+   "flag": null
+  },
+  {
+   "id": "pained_refund",
+   "source": "mercy",
+   "sourceName": "Mercy",
+   "sourceType": "rite",
+   "target": "crimson",
+   "targetName": "Crimson Lance",
+   "kind": "COST",
+   "stat": "cost.lifeRefundPerTarget",
+   "unit": "% life cost refunded per pained foe pierced",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a lance through 3 or more Pained foes leaves a blood pool that heals you 1% per second"
+    }
+   ],
+   "condition": [
+    "pained",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "extend",
+     "text": "a lance through 3 or more Pained foes leaves a blood pool that heals you 1% per second"
+    }
+   ],
+   "text": "foes Mercy hit in the last 3s are Pained, and piercing them refunds the lance's cost (overall cost cuts capped at 50%)",
+   "tooltip": "{targetName}: foes Mercy hit in the last 3s are Pained, and piercing them refunds the lance's cost (overall cost cuts capped at 50%) (+{v}% life cost refunded per pained foe pierced)",
+   "flag": null
+  },
+  {
+   "id": "blood_offering",
+   "source": "mercy",
+   "sourceName": "Mercy",
+   "sourceType": "rite",
+   "target": "summon",
+   "targetName": "Raise Bone",
+   "kind": "COST",
+   "stat": "cost.manaToLife",
+   "unit": "% of the mana cost paid in life",
+   "legacyPerPoint": 1.0,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "skeletons raised with life become blood skeletons whose hits heal you for 0.5% of the damage"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "skeletons raised with life become blood skeletons whose hits heal you for 0.5% of the damage"
+    }
+   ],
+   "text": "Raise Bone can be paid for in life",
+   "tooltip": "{targetName}: Raise Bone can be paid for in life (+{v}% of the mana cost paid in life)",
+   "flag": null
+  },
+  {
+   "id": "merciful_hearth",
+   "source": "mercy",
+   "sourceName": "Mercy",
+   "sourceType": "rite",
+   "target": "hearthward",
+   "targetName": "Hearthward Aura",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% max life per second extra regen for members below half life",
+   "legacyPerPoint": 0.03,
+   "cap": 0.6,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.0,
+    "5": 0.05,
+    "10": 0.15,
+    "15": 0.26,
+    "20": 0.35,
+    "25": 0.44,
+    "30": 0.5,
+    "35": 0.55,
+    "40": 0.58,
+    "45": 0.6
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "healing from Mercy on a member inside the ring also heals every other member for 15% of it (once per cast)"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "healing from Mercy on a member inside the ring also heals every other member for 15% of it (once per cast)"
+    }
+   ],
+   "text": "Mercy's blood-warmth lingers inside the Hearthward ring",
+   "tooltip": "{targetName}: Mercy's blood-warmth lingers inside the Hearthward ring (+{v}% max life per second extra regen for members below half life)",
+   "flag": null
+  },
+  {
+   "id": "blood_debt",
+   "source": "crimson",
+   "sourceName": "Crimson Lance",
+   "sourceType": "rite",
+   "target": "bloodsoaked",
+   "targetName": "Blood Soaked",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% more drain",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "Blood Soaked hits on a foe that a Crimson Lance pierced refund the lance's life cost"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "Blood Soaked hits on a foe that a Crimson Lance pierced refund the lance's life cost"
+    }
+   ],
+   "text": "life you spent on Crimson Lance in the last 5s strengthens the drain of your next Blood Soaked",
+   "tooltip": "{targetName}: life you spent on Crimson Lance in the last 5s strengthens the drain of your next Blood Soaked (+{v}% more drain)",
+   "flag": null
+  },
+  {
+   "id": "exsanguinate",
+   "source": "crimson",
+   "sourceName": "Crimson Lance",
+   "sourceType": "rite",
+   "target": "execute",
+   "targetName": "Execute",
+   "kind": "HIT",
+   "stat": "dotFromHit",
+   "unit": "% of the blow as Hemorrhage over 3s",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": "bleed",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "Execute kills spray blood that heals you for 3% max life"
+    }
+   ],
+   "condition": [
+    "below50"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "Execute kills spray blood that heals you for 3% max life"
+    }
+   ],
+   "text": "Execute on a foe below 50% life opens a Hemorrhage",
+   "tooltip": "{targetName}: Execute on a foe below 50% life opens a Hemorrhage (+{v}% of the blow as Hemorrhage over 3s)",
+   "flag": null
+  },
+  {
+   "id": "blood_shards",
+   "source": "crimson",
+   "sourceName": "Crimson Lance",
+   "sourceType": "rite",
+   "target": "fanbone",
+   "targetName": "Bone Fan",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% max life drunk per shard hit on a bleeding foe",
+   "legacyPerPoint": 0.05,
+   "cap": 2.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.09,
+    "10": 0.25,
+    "15": 0.43,
+    "20": 0.59,
+    "25": 0.73,
+    "30": 0.83,
+    "35": 0.91,
+    "40": 0.96,
+    "45": 1.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 5,
+     "text": "a Bone Fan cast at full life fires +1 shard"
+    }
+   ],
+   "condition": [
+    "bleed",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 5,
+     "action": "other",
+     "text": "a Bone Fan cast at full life fires +1 shard"
+    }
+   ],
+   "text": "shards passing through bleeding foes drink their blood",
+   "tooltip": "{targetName}: shards passing through bleeding foes drink their blood (+{v}% max life drunk per shard hit on a bleeding foe)",
+   "flag": "Bone Fan throws many shards; 2% per shard can refill life in one cast. Proposed 1%, max 6% per cast.",
+   "proposedCap": 1
+  },
+  {
+   "id": "spear_seeds",
+   "source": "bonespear",
+   "sourceName": "Bone Spear",
+   "sourceType": "rite",
+   "target": "graveburst",
+   "targetName": "Grave Burst",
+   "kind": "HIT",
+   "stat": "dmgPct",
+   "unit": "% bonus burst per seed",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "each detonated seed flings 2 shards at nearby foes (shards cannot seed)"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "burst",
+     "text": "each detonated seed flings 2 shards at nearby foes (shards cannot seed)"
+    }
+   ],
+   "text": "foes pierced by Bone Spear in the last 3s carry bone seeds, and Grave Burst detonates them",
+   "tooltip": "{targetName}: foes pierced by Bone Spear in the last 3s carry bone seeds, and Grave Burst detonates them (+{v}% bonus burst per seed)",
+   "flag": null
+  },
+  {
+   "id": "impale",
+   "source": "bonespear",
+   "sourceName": "Bone Spear",
+   "sourceType": "rite",
+   "target": "telekinesis",
+   "targetName": "Telekinesis",
+   "kind": "DUR",
+   "stat": "status.root",
+   "unit": "s impale root (bosses: half)",
+   "legacyPerPoint": 0.02,
+   "cap": 1.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.09,
+    "10": 0.25,
+    "15": 0.43,
+    "20": 0.59,
+    "25": 0.73,
+    "30": 0.83,
+    "35": 0.91,
+    "40": 0.96,
+    "45": 1.0
+   },
+   "element": "root",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a foe shoved into another foe pins them together, and both take the shove damage"
+    }
+   ],
+   "condition": [
+    "bossHalf"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a foe shoved into another foe pins them together, and both take the shove damage"
+    }
+   ],
+   "text": "foes shoved into a wall or another foe are impaled on bone",
+   "tooltip": "{targetName}: foes shoved into a wall or another foe are impaled on bone (+{v}s impale root (bosses: half))",
+   "flag": null
+  },
+  {
+   "id": "calcify",
+   "source": "bonespear",
+   "sourceName": "Bone Spear",
+   "sourceType": "rite",
+   "target": "fanbone",
+   "targetName": "Bone Fan",
+   "kind": "DEBUFF",
+   "stat": "armourShred",
+   "unit": "% armour shred for each shard after the first on one foe",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "slow",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a foe hit by all 5 shards is ossified, slowed 40% for 2s"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a foe hit by all 5 shards is ossified, slowed 40% for 2s"
+    }
+   ],
+   "text": "shards that strike the same foe calcify it",
+   "tooltip": "{targetName}: shards that strike the same foe calcify it (+{v}% armour shred for each shard after the first on one foe)",
+   "flag": null
+  },
+  {
+   "id": "reforged_lance",
+   "source": "summon",
+   "sourceName": "Raise Bone",
+   "sourceType": "rite",
+   "target": "bonespear",
+   "targetName": "Bone Spear",
+   "kind": "AREA",
+   "stat": "shapeOrSize",
+   "unit": "% spear width after reforging",
+   "legacyPerPoint": 1.5,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the spear carries the skeleton along to the far end of its line"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "the spear carries the skeleton along to the far end of its line"
+    }
+   ],
+   "text": "a Bone Spear fired through one of your skeletons is reforged around it, and the skeleton heals 10%",
+   "tooltip": "{targetName}: a Bone Spear fired through one of your skeletons is reforged around it, and the skeleton heals 10% (+{v}% spear width after reforging)",
+   "flag": null
+  },
+  {
+   "id": "corpse_fuse",
+   "source": "summon",
+   "sourceName": "Raise Bone",
+   "sourceType": "rite",
+   "target": "graveburst",
+   "targetName": "Grave Burst",
+   "kind": "HEAL",
+   "stat": "extraHitFromHit",
+   "unit": "% of the skeleton's life added as burst damage",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.11,
+    "5": 1.35,
+    "10": 3.74,
+    "15": 6.38,
+    "20": 8.83,
+    "25": 10.89,
+    "30": 12.5,
+    "35": 13.66,
+    "40": 14.47,
+    "45": 15.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the exploded skeleton re-forms instantly (once per 12s)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "burst",
+     "text": "the exploded skeleton re-forms instantly (once per 12s)"
+    }
+   ],
+   "text": "Grave Burst can be cast on one of your skeletons, which detonates and re-forms after 3s",
+   "tooltip": "{targetName}: Grave Burst can be cast on one of your skeletons, which detonates and re-forms after 3s (+{v}% of the skeleton's life added as burst damage)",
+   "flag": "Scales with minion life, not rite rank; 40% of skeleton life on every burst exceeds the +100% guide at r45. Proposed 15%.",
+   "proposedCap": 15
+  },
+  {
+   "id": "grave_curse",
+   "source": "summon",
+   "sourceName": "Raise Bone",
+   "sourceType": "rite",
+   "target": "hex",
+   "targetName": "Hex",
+   "kind": "KEEP",
+   "stat": "durationAddSec",
+   "unit": "s risen-skeleton lifetime (base 2s)",
+   "legacyPerPoint": 0.1,
+   "cap": 6.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.04,
+    "5": 0.54,
+    "10": 1.5,
+    "15": 2.55,
+    "20": 3.53,
+    "25": 4.36,
+    "30": 5.0,
+    "35": 5.47,
+    "40": 5.79,
+    "45": 6.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "risen skeletons cast a weak Hex (40% slow) on their first target"
+    }
+   ],
+   "condition": [
+    "hexed"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "risen skeletons cast a weak Hex (40% slow) on their first target"
+    }
+   ],
+   "text": "a foe that dies while hexed rises as a temporary skeleton that fights for you",
+   "tooltip": "{targetName}: a foe that dies while hexed rises as a temporary skeleton that fights for you (+{v}s risen-skeleton lifetime (base 2s))",
+   "flag": null
+  },
+  {
+   "id": "splinter_drain",
+   "source": "graveburst",
+   "sourceName": "Grave Burst",
+   "sourceType": "rite",
+   "target": "bloodsoaked",
+   "targetName": "Blood Soaked",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% more drain per splinter",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "Grave Burst rips the splinters out, and each one bursts for a small blast"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "burst",
+     "text": "Grave Burst rips the splinters out, and each one bursts for a small blast"
+    }
+   ],
+   "text": "each cut lodges a bone splinter in the foe (max 5)",
+   "tooltip": "{targetName}: each cut lodges a bone splinter in the foe (max 5) (+{v}% more drain per splinter)",
+   "flag": null
+  },
+  {
+   "id": "ossified_pulse",
+   "source": "graveburst",
+   "sourceName": "Grave Burst",
+   "sourceType": "rite",
+   "target": "mercy",
+   "targetName": "Mercy",
+   "kind": "SLOW",
+   "stat": "slowPct",
+   "unit": "% slow on bleeding foes (bosses: half)",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": "slow",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "calcified foes killed by Mercy shatter in a bone burst for 40% (cannot chain)"
+    }
+   ],
+   "condition": [
+    "bleed",
+    "bossHalf"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "burst",
+     "text": "calcified foes killed by Mercy shatter in a bone burst for 40% (cannot chain)"
+    }
+   ],
+   "text": "the pulse calcifies foes that are bleeding",
+   "tooltip": "{targetName}: the pulse calcifies foes that are bleeding (+{v}% slow on bleeding foes (bosses: half))",
+   "flag": null
+  },
+  {
+   "id": "marrow_lance",
+   "source": "graveburst",
+   "sourceName": "Grave Burst",
+   "sourceType": "rite",
+   "target": "crimson",
+   "targetName": "Crimson Lance",
+   "kind": "COST",
+   "stat": "cost.lifeRefundPerKill",
+   "unit": "% of the life cost refunded per spiked kill",
+   "legacyPerPoint": 1.5,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 5,
+     "text": "the lance pierces +1 foe"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 5,
+     "action": "other",
+     "text": "the lance pierces +1 foe"
+    }
+   ],
+   "text": "each foe the lance pierces gets a marrow spike",
+   "tooltip": "{targetName}: each foe the lance pierces gets a marrow spike (+{v}% of the life cost refunded per spiked kill)",
+   "flag": null
+  },
+  {
+   "id": "bramble_run",
+   "source": "thorncoat",
+   "sourceName": "Thorn Coat",
+   "sourceType": "rite",
+   "target": "wolfhowl",
+   "targetName": "Wolf Howl",
+   "kind": "OTHER",
+   "stat": "dmgPct",
+   "unit": "% of your thorn value per foe you run through",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "poison",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "foes you run past are poisoned for 3s"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "foes you run past are poisoned for 3s"
+    }
+   ],
+   "text": "while howling, running through foes scratches them with thorns",
+   "tooltip": "{targetName}: while howling, running through foes scratches them with thorns (+{v}% of your thorn value per foe you run through)",
+   "flag": null
+  },
+  {
+   "id": "bark_skin",
+   "source": "thorncoat",
+   "sourceName": "Thorn Coat",
+   "sourceType": "rite",
+   "target": "regrowth",
+   "targetName": "Regrowth",
+   "kind": "DEBUFF",
+   "stat": "debuffDamageTaken",
+   "unit": "% damage taken for 3s after a heal",
+   "legacyPerPoint": -0.6,
+   "cap": -25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": -0.18,
+    "5": -2.25,
+    "10": -6.23,
+    "15": -10.63,
+    "20": -14.72,
+    "25": -18.16,
+    "30": -20.83,
+    "35": -22.77,
+    "40": -24.12,
+    "45": -25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the bark reflects the first melee hit you take in full"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "the bark reflects the first melee hit you take in full"
+    }
+   ],
+   "text": "heals leave a layer of bark on your skin",
+   "tooltip": "{targetName}: heals leave a layer of bark on your skin (+{v}% damage taken for 3s after a heal)",
+   "flag": null
+  },
+  {
+   "id": "nettle_swarm",
+   "source": "thorncoat",
+   "sourceName": "Thorn Coat",
+   "sourceType": "rite",
+   "target": "locust",
+   "targetName": "Locust Cloud",
+   "kind": "DOT",
+   "stat": "extraHitFromHit",
+   "unit": "% of bite damage per second per nettle stack",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "poison",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "foes with 10 stacks are blinded for 2s"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "other",
+     "text": "foes with 10 stacks are blinded for 2s"
+    }
+   ],
+   "text": "bites stack nettle poison",
+   "tooltip": "{targetName}: bites stack nettle poison (+{v}% of bite damage per second per nettle stack)",
+   "flag": null
+  },
+  {
+   "id": "seed_fall",
+   "source": "briar",
+   "sourceName": "Briar Snare",
+   "sourceType": "rite",
+   "target": "meteor",
+   "targetName": "Meteor Shower",
+   "kind": "SLOW",
+   "stat": "slowPct",
+   "unit": "% thicket slow (bosses: half)",
+   "legacyPerPoint": 1.0,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "slow",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the next stone shatters the thickets into a spray of thorn shrapnel"
+    }
+   ],
+   "condition": [
+    "bossHalf"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "the next stone shatters the thickets into a spray of thorn shrapnel"
+    }
+   ],
+   "text": "stones land as seed pods that sprout 1s thorn thickets",
+   "tooltip": "{targetName}: stones land as seed pods that sprout 1s thorn thickets (+{v}% thicket slow (bosses: half))",
+   "flag": null
+  },
+  {
+   "id": "thornhammer",
+   "source": "briar",
+   "sourceName": "Briar Snare",
+   "sourceType": "rite",
+   "target": "smite",
+   "targetName": "Smite",
+   "kind": "HIT",
+   "stat": "extraHitFromHit",
+   "unit": "% of the Smite hit per proc (max 5 procs in 4s)",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "root",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "when the foe dies the thorns burst and root nearby foes for 0.5s"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "applyStatus",
+     "text": "when the foe dies the thorns burst and root nearby foes for 0.5s"
+    }
+   ],
+   "text": "Smite drives thorns into the foe, and your later hits on it make the thorns bite",
+   "tooltip": "{targetName}: Smite drives thorns into the foe, and your later hits on it make the thorns bite (+{v}% of the Smite hit per proc (max 5 procs in 4s))",
+   "flag": null
+  },
+  {
+   "id": "rooted_rot",
+   "source": "briar",
+   "sourceName": "Briar Snare",
+   "sourceType": "rite",
+   "target": "blightcask",
+   "targetName": "Blight Cask",
+   "kind": "DUR",
+   "stat": "dotFromHit",
+   "unit": "% poison damage per second while the foe is rooted",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a rooted foe that dies to poison sprouts a briar that roots one neighbour for 0.5s (once per 4s)"
+    }
+   ],
+   "condition": [
+    "root",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "applyStatus",
+     "text": "a rooted foe that dies to poison sprouts a briar that roots one neighbour for 0.5s (once per 4s)"
+    }
+   ],
+   "text": "poison from the cask ticks harder on foes held by roots",
+   "tooltip": "{targetName}: poison from the cask ticks harder on foes held by roots (+{v}% poison damage per second while the foe is rooted)",
+   "flag": null
+  },
+  {
+   "id": "wildfire_trail",
+   "source": "wolfhowl",
+   "sourceName": "Wolf Howl",
+   "sourceType": "rite",
+   "target": "inferno",
+   "targetName": "Inferno",
+   "kind": "DUR",
+   "stat": "durationPct",
+   "unit": "% trailing cone duration",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": "burning_ground",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the trail leaves a 2s strip of wildfire behind you"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "the trail leaves a 2s strip of wildfire behind you"
+    }
+   ],
+   "text": "an Inferno cast while howling trails after you like a flamethrower for 1s",
+   "tooltip": "{targetName}: an Inferno cast while howling trails after you like a flamethrower for 1s (+{v}% trailing cone duration)",
+   "flag": null
+  },
+  {
+   "id": "ripening_roots",
+   "source": "wolfhowl",
+   "sourceName": "Wolf Howl",
+   "sourceType": "rite",
+   "target": "briar",
+   "targetName": "Briar Snare",
+   "kind": "DEBUFF",
+   "stat": "debuffDamageTaken",
+   "unit": "% more melee damage taken per second rooted",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "roots break only after taking 3 hits instead of timing out (bosses: normal duration)"
+    }
+   ],
+   "condition": [
+    "root",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "roots break only after taking 3 hits instead of timing out (bosses: normal duration)"
+    }
+   ],
+   "text": "the longer a foe stays rooted, the harder your melee hits it",
+   "tooltip": "{targetName}: the longer a foe stays rooted, the harder your melee hits it (+{v}% more melee damage taken per second rooted)",
+   "flag": null
+  },
+  {
+   "id": "pack_bond",
+   "source": "wolfhowl",
+   "sourceName": "Wolf Howl",
+   "sourceType": "rite",
+   "target": "undertow",
+   "targetName": "Undertow Aura",
+   "kind": "DMG",
+   "stat": "dmgPct",
+   "unit": "% wolf damage against Drowned foes",
+   "legacyPerPoint": 1.0,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a wolf that would die in the aura is instead set to 1 life and leaves 1s later (once per wolf)"
+    }
+   ],
+   "condition": [
+    "drowned"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a wolf that would die in the aura is instead set to 1 life and leaves 1s later (once per wolf)"
+    }
+   ],
+   "text": "howling wolves tear at what the tide drags in",
+   "tooltip": "{targetName}: howling wolves tear at what the tide drags in (+{v}% wolf damage against Drowned foes)",
+   "flag": null
+  },
+  {
+   "id": "feeding_roots",
+   "source": "regrowth",
+   "sourceName": "Regrowth",
+   "sourceType": "rite",
+   "target": "briar",
+   "targetName": "Briar Snare",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% max life healed per rooted foe per second",
+   "legacyPerPoint": 0.1,
+   "cap": 4.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.13,
+    "10": 0.37,
+    "15": 0.64,
+    "20": 0.88,
+    "25": 1.09,
+    "30": 1.25,
+    "35": 1.37,
+    "40": 1.45,
+    "45": 1.5
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "roots flower when they expire, leaving a 2s healing bloom that heals 2% max life per second"
+    }
+   ],
+   "condition": [
+    "root",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "roots flower when they expire, leaving a 2s healing bloom that heals 2% max life per second"
+    }
+   ],
+   "text": "rooted foes feed their life back to you through the roots",
+   "tooltip": "{targetName}: rooted foes feed their life back to you through the roots (+{v}% max life healed per rooted foe per second)",
+   "flag": "4% max life per rooted foe per second is ~40%/s in a pack. Proposed 1.5%, counting at most 5 foes.",
+   "proposedCap": 1.5
+  },
+  {
+   "id": "second_wind",
+   "source": "regrowth",
+   "sourceName": "Regrowth",
+   "sourceType": "rite",
+   "target": "wolfhowl",
+   "targetName": "Wolf Howl",
+   "kind": "DUR",
+   "stat": "durationPct",
+   "unit": "% howl duration",
+   "legacyPerPoint": 1.5,
+   "cap": 45.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.32,
+    "5": 4.04,
+    "10": 11.22,
+    "15": 19.13,
+    "20": 26.49,
+    "25": 32.68,
+    "30": 37.49,
+    "35": 40.99,
+    "40": 43.41,
+    "45": 45.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "if you fall below 30% life while howling, Regrowth casts itself for free (once per 30s)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "if you fall below 30% life while howling, Regrowth casts itself for free (once per 30s)"
+    }
+   ],
+   "text": "casting Wolf Howl also cleanses one slow or chill from you",
+   "tooltip": "{targetName}: casting Wolf Howl also cleanses one slow or chill from you (+{v}% howl duration)",
+   "flag": null
+  },
+  {
+   "id": "sap_edge",
+   "source": "regrowth",
+   "sourceName": "Regrowth",
+   "sourceType": "rite",
+   "target": "cleave",
+   "targetName": "Wide Cut",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% max life per second per Sap stack",
+   "legacyPerPoint": 0.04,
+   "cap": 1.5,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.07,
+    "10": 0.2,
+    "15": 0.34,
+    "20": 0.47,
+    "25": 0.58,
+    "30": 0.67,
+    "35": 0.73,
+    "40": 0.77,
+    "45": 0.8
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the second cut lashes out vines that pull 1% max life from each foe hit"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "extend",
+     "text": "the second cut lashes out vines that pull 1% max life from each foe hit"
+    }
+   ],
+   "text": "each foe hit gives you a Sap stack (max 10, 3s) that heals you",
+   "tooltip": "{targetName}: each foe hit gives you a Sap stack (max 10, 3s) that heals you (+{v}% max life per second per Sap stack)",
+   "flag": "1.5%/s per stack x stacks out-heals all damage late. Proposed 0.8%, max 5 stacks.",
+   "proposedCap": 0.8
+  },
+  {
+   "id": "plague_altar",
+   "source": "locust",
+   "sourceName": "Locust Cloud",
+   "sourceType": "rite",
+   "target": "consecrate",
+   "targetName": "Consecrate",
+   "kind": "HIT",
+   "stat": "extraHitFromHit",
+   "unit": "% of ground damage per locust bite",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "when the ground ends, the swarm migrates onto the nearest foe as a 2s mini Locust Cloud"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "when the ground ends, the swarm migrates onto the nearest foe as a 2s mini Locust Cloud"
+    }
+   ],
+   "text": "the ground spawns a locust every second that bites a foe standing on it",
+   "tooltip": "{targetName}: the ground spawns a locust every second that bites a foe standing on it (+{v}% of ground damage per locust bite)",
+   "flag": null
+  },
+  {
+   "id": "infested_roots",
+   "source": "locust",
+   "sourceName": "Locust Cloud",
+   "sourceType": "rite",
+   "target": "briar",
+   "targetName": "Briar Snare",
+   "kind": "DOT",
+   "stat": "dotFromHit",
+   "unit": "% of snare damage per second as poison",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "poison",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a rooted foe that dies bursts and roots one neighbour (no further spread)"
+    }
+   ],
+   "condition": [
+    "root",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "applyStatus",
+     "text": "a rooted foe that dies bursts and roots one neighbour (no further spread)"
+    }
+   ],
+   "text": "the roots hatch larvae that poison rooted foes",
+   "tooltip": "{targetName}: the roots hatch larvae that poison rooted foes (+{v}% of snare damage per second as poison)",
+   "flag": null
+  },
+  {
+   "id": "swarm_screen",
+   "source": "locust",
+   "sourceName": "Locust Cloud",
+   "sourceType": "rite",
+   "target": "wolfhowl",
+   "targetName": "Wolf Howl",
+   "kind": "BOLT",
+   "stat": "intercept",
+   "unit": "% of incoming projectiles intercepted",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "the howl sends the swarm onto the nearest elite for 3s"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "other",
+     "text": "the howl sends the swarm onto the nearest elite for 3s"
+    }
+   ],
+   "text": "a buzzing swarm follows you while you howl and catches projectiles",
+   "tooltip": "{targetName}: a buzzing swarm follows you while you howl and catches projectiles (+{v}% of incoming projectiles intercepted)",
+   "flag": null
+  },
+  {
+   "id": "follow_through",
+   "source": "cleave",
+   "sourceName": "Wide Cut",
+   "sourceType": "rite",
+   "target": "execute",
+   "targetName": "Execute",
+   "kind": "HIT",
+   "stat": "extraHitFromHit",
+   "unit": "% of the blow dealt to one adjacent foe",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "Execute kills trigger a Wide Cut that costs nothing (once per 3s"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "Execute kills trigger a Wide Cut that costs nothing (once per 3s"
+    }
+   ],
+   "text": "if Wide Cut hit the foe in the last 1.5s, Execute follows through into an adjacent foe",
+   "tooltip": "{targetName}: if Wide Cut hit the foe in the last 1.5s, Execute follows through into an adjacent foe (+{v}% of the blow dealt to one adjacent foe)",
+   "flag": null
+  },
+  {
+   "id": "double_tear",
+   "source": "cleave",
+   "sourceName": "Wide Cut",
+   "sourceType": "rite",
+   "target": "rupture",
+   "targetName": "Rupture",
+   "kind": "HIT",
+   "stat": "extraHitFromHit",
+   "unit": "% of the hit nicked into up to 2 adjacent foes",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "Rupture becomes a two-hit combo when used right after Wide Cut"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "Rupture becomes a two-hit combo when used right after Wide Cut"
+    }
+   ],
+   "text": "the Rupture cut nicks up to 2 adjacent foes",
+   "tooltip": "{targetName}: the Rupture cut nicks up to 2 adjacent foes (+{v}% of the hit nicked into up to 2 adjacent foes)",
+   "flag": null
+  },
+  {
+   "id": "point_blank_draw",
+   "source": "cleave",
+   "sourceName": "Wide Cut",
+   "sourceType": "rite",
+   "target": "aimed",
+   "targetName": "Aimed Shot",
+   "kind": "DUR",
+   "stat": "durationPct",
+   "unit": "% cast time within 1s of a Wide Cut",
+   "legacyPerPoint": -0.6,
+   "cap": -25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": -0.18,
+    "5": -2.25,
+    "10": -6.23,
+    "15": -10.63,
+    "20": -14.72,
+    "25": -18.16,
+    "30": -20.83,
+    "35": -22.77,
+    "40": -24.12,
+    "45": -25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "point-blank shots also land the cut's 40% second cut"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "extend",
+     "text": "point-blank shots also land the cut's 40% second cut"
+    }
+   ],
+   "text": "an Aimed Shot fired right after a cut skips most of the draw",
+   "tooltip": "{targetName}: an Aimed Shot fired right after a cut skips most of the draw (+{v}% cast time within 1s of a Wide Cut)",
+   "flag": null
+  },
+  {
+   "id": "whirling_drain",
+   "source": "bladedance",
+   "sourceName": "Blade Dance",
+   "sourceType": "rite",
+   "target": "bloodsoaked",
+   "targetName": "Blood Soaked",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% of the cut dealt to each foe in the spin radius",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "drained life beyond your maximum becomes a 3s blade barrier"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "drained life beyond your maximum becomes a 3s blade barrier"
+    }
+   ],
+   "text": "a Blood Soaked cast within 1s of a spin cuts every foe in the spin radius",
+   "tooltip": "{targetName}: a Blood Soaked cast within 1s of a spin cuts every foe in the spin radius (+{v}% of the cut dealt to each foe in the spin radius)",
+   "flag": null
+  },
+  {
+   "id": "red_cyclone",
+   "source": "bladedance",
+   "sourceName": "Blade Dance",
+   "sourceType": "rite",
+   "target": "mercy",
+   "targetName": "Mercy",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% chance for a second wave (it cannot repeat itself)",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "the waves leave a 1s blood slick that makes foes stumble on their next step"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "other",
+     "text": "the waves leave a 1s blood slick that makes foes stumble on their next step"
+    }
+   ],
+   "text": "the pulse spins outward and can roll out a second wave",
+   "tooltip": "{targetName}: the pulse spins outward and can roll out a second wave (+{v}% chance for a second wave (it cannot repeat itself))",
+   "flag": null
+  },
+  {
+   "id": "lacerations",
+   "source": "bladedance",
+   "sourceName": "Blade Dance",
+   "sourceType": "rite",
+   "target": "rupture",
+   "targetName": "Rupture",
+   "kind": "DOT",
+   "stat": "dotFromHit",
+   "unit": "% deeper bleed per laceration consumed",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": "wound",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "consuming 5 lacerations at once inflicts Open Wounds"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "consuming 5 lacerations at once inflicts Open Wounds"
+    }
+   ],
+   "text": "each foe Blade Dance hit in the last 3s carries a laceration that Rupture consumes",
+   "tooltip": "{targetName}: each foe Blade Dance hit in the last 3s carries a laceration that Rupture consumes (+{v}% deeper bleed per laceration consumed)",
+   "flag": null
+  },
+  {
+   "id": "reaping_spin",
+   "source": "execute",
+   "sourceName": "Execute",
+   "sourceType": "rite",
+   "target": "bladedance",
+   "targetName": "Blade Dance",
+   "kind": "HEAL",
+   "stat": "dmgPct",
+   "unit": "% spin damage against foes below 50% life",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "each kill during the spin adds one more revolution (max +2)"
+    }
+   ],
+   "condition": [
+    "below50"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "each kill during the spin adds one more revolution (max +2)"
+    }
+   ],
+   "text": "the spin ends with a reaping arc aimed at wounded foes",
+   "tooltip": "{targetName}: the spin ends with a reaping arc aimed at wounded foes (+{v}% spin damage against foes below 50% life)",
+   "flag": null
+  },
+  {
+   "id": "deep_tear",
+   "source": "execute",
+   "sourceName": "Execute",
+   "sourceType": "rite",
+   "target": "rupture",
+   "targetName": "Rupture",
+   "kind": "HEAL",
+   "stat": "speedPct",
+   "unit": "% faster second bleed per 10% life missing",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": "bleed",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a foe that the bleed drops below 15% life is executed outright (non-boss)"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "a foe that the bleed drops below 15% life is executed outright (non-boss)"
+    }
+   ],
+   "text": "Rupture's second bleed ticks faster the more wounded the foe is",
+   "tooltip": "{targetName}: Rupture's second bleed ticks faster the more wounded the foe is (+{v}% faster second bleed per 10% life missing)",
+   "flag": null
+  },
+  {
+   "id": "killshot",
+   "source": "execute",
+   "sourceName": "Execute",
+   "sourceType": "rite",
+   "target": "aimed",
+   "targetName": "Aimed Shot",
+   "kind": "CRIT",
+   "stat": "critChance",
+   "unit": "% crit chance against foes below 50% life",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": "crit +proj",
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "a killing Aimed Shot refunds its cost, and your next one within 2s pierces +1"
+    }
+   ],
+   "condition": [
+    "below50"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "other",
+     "text": "a killing Aimed Shot refunds its cost, and your next one within 2s pierces +1"
+    }
+   ],
+   "text": "Aimed Shot is deadlier against wounded foes",
+   "tooltip": "{targetName}: Aimed Shot is deadlier against wounded foes (+{v}% crit chance against foes below 50% life)",
+   "flag": null
+  },
+  {
+   "id": "torn_vessel",
+   "source": "rupture",
+   "sourceName": "Rupture",
+   "sourceType": "rite",
+   "target": "crimson",
+   "targetName": "Crimson Lance",
+   "kind": "HEAL",
+   "stat": "dmgPct",
+   "unit": "% of the foe's missing life as bonus damage (bosses: one third)",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.09,
+    "5": 1.08,
+    "10": 2.99,
+    "15": 5.1,
+    "20": 7.06,
+    "25": 8.71,
+    "30": 10.0,
+    "35": 10.93,
+    "40": 11.58,
+    "45": 12.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the lance leaves a blood trail behind it that restores 2% life when you walk through it"
+    }
+   ],
+   "condition": [
+    "bossThird"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "the lance leaves a blood trail behind it that restores 2% life when you walk through it"
+    }
+   ],
+   "text": "Crimson Lance hits on foes that Rupture cut in the last 3s tear them open",
+   "tooltip": "{targetName}: Crimson Lance hits on foes that Rupture cut in the last 3s tear them open (+{v}% of the foe's missing life as bonus damage (bosses: one third))",
+   "flag": "% of missing life scales with monster HP (2309 at lv45), not with the rite; 30% one-shots elites. Proposed 12% and never more than 3x the hit.",
+   "proposedCap": 12
+  },
+  {
+   "id": "barbed_head",
+   "source": "rupture",
+   "sourceName": "Rupture",
+   "sourceType": "rite",
+   "target": "javelin",
+   "targetName": "Javelin",
+   "kind": "BOLT",
+   "stat": "extraHitFromHit",
+   "unit": "% of Javelin damage when ripped out",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 5,
+     "text": "Javelin pierces +1 foe"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 5,
+     "action": "castRite",
+     "text": "Javelin pierces +1 foe"
+    }
+   ],
+   "text": "barbed heads stay lodged until your next melee hit rips them out",
+   "tooltip": "{targetName}: barbed heads stay lodged until your next melee hit rips them out (+{v}% of Javelin damage when ripped out)",
+   "flag": null
+  },
+  {
+   "id": "artery_shot",
+   "source": "rupture",
+   "sourceName": "Rupture",
+   "sourceType": "rite",
+   "target": "aimed",
+   "targetName": "Aimed Shot",
+   "kind": "DEBUFF",
+   "stat": "heal",
+   "unit": "% less healing on the foe",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "an Aimed Shot on a foe cut by Rupture makes its next attack miss"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "an Aimed Shot on a foe cut by Rupture makes its next attack miss"
+    }
+   ],
+   "text": "Aimed Shot nicks an artery, cutting the foe's healing",
+   "tooltip": "{targetName}: Aimed Shot nicks an artery, cutting the foe's healing (+{v}% less healing on the foe)",
+   "flag": null
+  },
+  {
+   "id": "momentum_brace",
+   "source": "blindrush",
+   "sourceName": "Blind Shield Rush",
+   "sourceType": "rite",
+   "target": "bulwark",
+   "targetName": "Bulwark",
+   "kind": "DUR",
+   "stat": "durationPct",
+   "unit": "% brace duration when cast right after a dash",
+   "legacyPerPoint": 2.0,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": "stun",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the first blow the brace blocks staggers the attacker for 0.5s (bosses only flinch)"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "the first blow the brace blocks staggers the attacker for 0.5s (bosses only flinch)"
+    }
+   ],
+   "text": "Bulwark cast within 1s of a rush or dash lasts longer",
+   "tooltip": "{targetName}: Bulwark cast within 1s of a rush or dash lasts longer (+{v}% brace duration when cast right after a dash)",
+   "flag": null
+  },
+  {
+   "id": "battering_shout",
+   "source": "blindrush",
+   "sourceName": "Blind Shield Rush",
+   "sourceType": "rite",
+   "target": "warcry",
+   "targetName": "War Cry",
+   "kind": "AREA",
+   "stat": "displace",
+   "unit": "m outward push",
+   "legacyPerPoint": 0.03,
+   "cap": 1.5,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.13,
+    "10": 0.37,
+    "15": 0.64,
+    "20": 0.88,
+    "25": 1.09,
+    "30": 1.25,
+    "35": 1.37,
+    "40": 1.45,
+    "45": 1.5
+   },
+   "element": "knockback,stun",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "foes pushed into walls are dazed for 1s (bosses only flinch)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "foes pushed into walls are dazed for 1s (bosses only flinch)"
+    }
+   ],
+   "text": "the shout physically shoves foes outward",
+   "tooltip": "{targetName}: the shout physically shoves foes outward (+{v}m outward push)",
+   "flag": null
+  },
+  {
+   "id": "shield_scatter",
+   "source": "blindrush",
+   "sourceName": "Blind Shield Rush",
+   "sourceType": "rite",
+   "target": "fanbone",
+   "targetName": "Bone Fan",
+   "kind": "AREA",
+   "stat": "shapeOrSize",
+   "unit": "% wider fan arc",
+   "legacyPerPoint": 1.2,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": "wound",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "shards that hit stumbling foes inflict Open Wounds"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "shards that hit stumbling foes inflict Open Wounds"
+    }
+   ],
+   "text": "a Bone Fan cast within 1s of a rush fires from where the rush ended, in a wider arc",
+   "tooltip": "{targetName}: a Bone Fan cast within 1s of a rush fires from where the rush ended, in a wider arc (+{v}% wider fan arc)",
+   "flag": null
+  },
+  {
+   "id": "shield_sweep",
+   "source": "bulwark",
+   "sourceName": "Bulwark",
+   "sourceType": "rite",
+   "target": "cleave",
+   "targetName": "Wide Cut",
+   "kind": "DEF",
+   "stat": "damageReduction",
+   "unit": "% frontal damage blocked for 1s after each cut",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "blocked hits charge the next cut with an extra second cut"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "extend",
+     "text": "blocked hits charge the next cut with an extra second cut"
+    }
+   ],
+   "text": "while Bulwark holds, each cut sweeps your shield across the front",
+   "tooltip": "{targetName}: while Bulwark holds, each cut sweeps your shield across the front (+{v}% frontal damage blocked for 1s after each cut)",
+   "flag": null
+  },
+  {
+   "id": "glacial_bastion",
+   "source": "bulwark",
+   "sourceName": "Bulwark",
+   "sourceType": "rite",
+   "target": "frostward",
+   "targetName": "Frost Ward",
+   "kind": "DEF",
+   "stat": "extraHitFromHit",
+   "unit": "% of blocked damage stored as cold",
+   "legacyPerPoint": 0.5,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": "freeze",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the release freezes attackers that hit you 5 or more times (boss rules apply)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "applyStatus",
+     "text": "the release freezes attackers that hit you 5 or more times (boss rules apply)"
+    }
+   ],
+   "text": "with Bulwark up, the ward stores blocked damage and releases it as a cold nova when it ends",
+   "tooltip": "{targetName}: with Bulwark up, the ward stores blocked damage and releases it as a cold nova when it ends (+{v}% of blocked damage stored as cold)",
+   "flag": null
+  },
+  {
+   "id": "spear_wall",
+   "source": "bulwark",
+   "sourceName": "Bulwark",
+   "sourceType": "rite",
+   "target": "javelin",
+   "targetName": "Javelin",
+   "kind": "DUR",
+   "stat": "durationPct",
+   "unit": "% spear-wall duration",
+   "legacyPerPoint": 2.0,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": "wound",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "foes running into the wall are impaled and suffer Open Wounds"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "foes running into the wall are impaled and suffer Open Wounds"
+    }
+   ],
+   "text": "javelins thrown while braced stick in the ground as a 2s wall that blocks one attack each",
+   "tooltip": "{targetName}: javelins thrown while braced stick in the ground as a 2s wall that blocks one attack each (+{v}% spear-wall duration)",
+   "flag": null
+  },
+  {
+   "id": "shout_brace",
+   "source": "warcry",
+   "sourceName": "War Cry",
+   "sourceType": "rite",
+   "target": "bulwark",
+   "targetName": "Bulwark",
+   "kind": "DUR",
+   "stat": "status.root",
+   "unit": "s root on foes within 3m when Bulwark is cast (DUR, root)",
+   "legacyPerPoint": 0.03,
+   "cap": 1.5,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.13,
+    "10": 0.37,
+    "15": 0.64,
+    "20": 0.88,
+    "25": 1.09,
+    "30": 1.25,
+    "35": 1.37,
+    "40": 1.45,
+    "45": 1.5
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "each taunted foe adds 2% damage reduction to the brace (max 5)"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "each taunted foe adds 2% damage reduction to the brace (max 5)"
+    }
+   ],
+   "text": "casting Bulwark also shouts and taunts foes within 3m",
+   "tooltip": "{targetName}: casting Bulwark also shouts and taunts foes within 3m (+{v}s root on foes within 3m when Bulwark is cast (DUR, root))",
+   "flag": null
+  },
+  {
+   "id": "frost_bellow",
+   "source": "warcry",
+   "sourceName": "War Cry",
+   "sourceType": "rite",
+   "target": "frostward",
+   "targetName": "Frost Ward",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% ward radius",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "ward-chilled attackers have their attack cancelled (once per 4s)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "ward-chilled attackers have their attack cancelled (once per 4s)"
+    }
+   ],
+   "text": "the ward roars outward and reaches further",
+   "tooltip": "{targetName}: the ward roars outward and reaches further (+{v}% ward radius)",
+   "flag": null
+  },
+  {
+   "id": "roaring_peal",
+   "source": "warcry",
+   "sourceName": "War Cry",
+   "sourceType": "rite",
+   "target": "knell",
+   "targetName": "Knell Aura",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% chance a War Cry hit adds 2 Peals instead of 1",
+   "legacyPerPoint": 2.0,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a War Cry that hits 3+ foes tolls the Ninth Peal at once"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a War Cry that hits 3+ foes tolls the Ninth Peal at once"
+    }
+   ],
+   "text": "War Cry rings the bell harder",
+   "tooltip": "{targetName}: War Cry rings the bell harder (+{v}% chance a War Cry hit adds 2 Peals instead of 1)",
+   "flag": null
+  },
+  {
+   "id": "cold_light",
+   "source": "frostward",
+   "sourceName": "Frost Ward",
+   "sourceType": "rite",
+   "target": "holy",
+   "targetName": "Holy Bolt",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% more life returned from chilled foes",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a bolt that kills a chilled foe adds 1s to Frost Ward"
+    }
+   ],
+   "condition": [
+    "chill"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "a bolt that kills a chilled foe adds 1s to Frost Ward"
+    }
+   ],
+   "text": "Holy Bolt returns more life from chilled foes",
+   "tooltip": "{targetName}: Holy Bolt returns more life from chilled foes (+{v}% more life returned from chilled foes)",
+   "flag": null
+  },
+  {
+   "id": "ice_ram",
+   "source": "frostward",
+   "sourceName": "Frost Ward",
+   "sourceType": "rite",
+   "target": "blindrush",
+   "targetName": "Blind Shield Rush",
+   "kind": "SLOW",
+   "stat": "slowPct",
+   "unit": "% attack speed lost by foes in the lane",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the rush ends by raising an ice wall that blocks projectiles for 2s"
+    }
+   ],
+   "condition": [
+    "frozen"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "the rush ends by raising an ice wall that blocks projectiles for 2s"
+    }
+   ],
+   "text": "the rush leaves a frozen lane behind you where foes slip and fumble",
+   "tooltip": "{targetName}: the rush leaves a frozen lane behind you where foes slip and fumble (+{v}% attack speed lost by foes in the lane)",
+   "flag": null
+  },
+  {
+   "id": "warded_rime",
+   "source": "frostward",
+   "sourceName": "Frost Ward",
+   "sourceType": "rite",
+   "target": "rimecaltrop",
+   "targetName": "Rime Caltrop",
+   "kind": "DEF",
+   "stat": "damageReduction",
+   "unit": "% damage reduction while standing within 3m of a Rime Caltrop",
+   "legacyPerPoint": 0.6,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "while Frost Ward is up, a caltrop that runs out of shots fires 1 last shard (once per caltrop)"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "while Frost Ward is up, a caltrop that runs out of shots fires 1 last shard (once per caltrop)"
+    }
+   ],
+   "text": "standing near your own caltrop thickens the ward's frost",
+   "tooltip": "{targetName}: standing near your own caltrop thickens the ward's frost (+{v}% damage reduction while standing within 3m of a Rime Caltrop)",
+   "flag": null
+  },
+  {
+   "id": "gravity_hex",
+   "source": "telekinesis",
+   "sourceName": "Telekinesis",
+   "sourceType": "rite",
+   "target": "hex",
+   "targetName": "Hex",
+   "kind": "KEEP",
+   "stat": "displace",
+   "unit": "% pull strength",
+   "legacyPerPoint": 2.0,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": "pull",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a hexed foe that dies collapses into a 3m gravity well that pulls foes in for 2s"
+    }
+   ],
+   "condition": [
+    "hexed"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a hexed foe that dies collapses into a 3m gravity well that pulls foes in for 2s"
+    }
+   ],
+   "text": "the hexed foe drags nearby foes toward itself",
+   "tooltip": "{targetName}: the hexed foe drags nearby foes toward itself (+{v}% pull strength)",
+   "flag": null
+  },
+  {
+   "id": "crushing_knot",
+   "source": "telekinesis",
+   "sourceName": "Telekinesis",
+   "sourceType": "rite",
+   "target": "snare",
+   "targetName": "Mind Snare",
+   "kind": "DOT",
+   "stat": "dotFromHit",
+   "unit": "% of knot damage per second pinned",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the knot implodes when it expires, dealing 40% of its damage"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "the knot implodes when it expires, dealing 40% of its damage"
+    }
+   ],
+   "text": "pinned foes are slowly crushed, and the crush stacks each second they stay pinned",
+   "tooltip": "{targetName}: pinned foes are slowly crushed, and the crush stacks each second they stay pinned (+{v}% of knot damage per second pinned)",
+   "flag": null
+  },
+  {
+   "id": "tripwire_pull",
+   "source": "telekinesis",
+   "sourceName": "Telekinesis",
+   "sourceType": "rite",
+   "target": "ironjaw",
+   "targetName": "Ironjaw Trap",
+   "kind": "AREA",
+   "stat": "displace",
+   "unit": "% of a bolt's knockback reversed into a pull toward the trap",
+   "legacyPerPoint": 1.5,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": "knockback",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a foe pulled onto the trap's plate is pinned 0.4s (root cap 15%"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "a foe pulled onto the trap's plate is pinned 0.4s (root cap 15%"
+    }
+   ],
+   "text": "Ironjaw bolts drag foes toward the trap instead of pushing them away",
+   "tooltip": "{targetName}: Ironjaw bolts drag foes toward the trap instead of pushing them away (+{v}% of a bolt's knockback reversed into a pull toward the trap)",
+   "flag": null
+  },
+  {
+   "id": "hex_swap",
+   "source": "hex",
+   "sourceName": "Hex",
+   "sourceType": "rite",
+   "target": "blinkstep",
+   "targetName": "Blink Step",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% blink range when targeting a hexed foe",
+   "legacyPerPoint": 2.0,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the swapped foe is confused for 1s and attacks its allies (non-boss)"
+    }
+   ],
+   "condition": [
+    "hexed"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "the swapped foe is confused for 1s and attacks its allies (non-boss)"
+    }
+   ],
+   "text": "blinking onto a hexed foe swaps your places",
+   "tooltip": "{targetName}: blinking onto a hexed foe swaps your places (+{v}% blink range when targeting a hexed foe)",
+   "flag": null
+  },
+  {
+   "id": "curse_mirror",
+   "source": "hex",
+   "sourceName": "Hex",
+   "sourceType": "rite",
+   "target": "veil",
+   "targetName": "Veil",
+   "kind": "DEBUFF",
+   "stat": "debuffWeaken",
+   "unit": "% weaken on attackers that miss you",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "weaken",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "an attacker who misses 3 times is Hexed"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "an attacker who misses 3 times is Hexed"
+    }
+   ],
+   "text": "blows that miss you while veiled curse the attacker",
+   "tooltip": "{targetName}: blows that miss you while veiled curse the attacker (+{v}% weaken on attackers that miss you)",
+   "flag": null
+  },
+  {
+   "id": "creeping_doom",
+   "source": "hex",
+   "sourceName": "Hex",
+   "sourceType": "rite",
+   "target": "dread",
+   "targetName": "Dread",
+   "kind": "DEBUFF",
+   "stat": "debuffDamageTaken",
+   "unit": "% damage taken per second feared",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": "fear",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "a non-elite foe feared for 4s or more breaks and flees for good"
+    }
+   ],
+   "condition": [
+    "fear",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "applyStatus",
+     "text": "a non-elite foe feared for 4s or more breaks and flees for good"
+    }
+   ],
+   "text": "fear eats at foes, and they take more damage the longer it lasts",
+   "tooltip": "{targetName}: fear eats at foes, and they take more damage the longer it lasts (+{v}% damage taken per second feared)",
+   "flag": null
+  },
+  {
+   "id": "frozen_thought",
+   "source": "snare",
+   "sourceName": "Mind Snare",
+   "sourceType": "rite",
+   "target": "hoarfrost",
+   "targetName": "Hoarfrost",
+   "kind": "SLOW",
+   "stat": "slowPct",
+   "unit": "% cast and attack speed lost while in both",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "foes in both forget their target for 1s"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "foes in both forget their target for 1s"
+    }
+   ],
+   "text": "foes standing in both Mind Snare and Hoarfrost think and move sluggishly",
+   "tooltip": "{targetName}: foes standing in both Mind Snare and Hoarfrost think and move sluggishly (+{v}% cast and attack speed lost while in both)",
+   "flag": null
+  },
+  {
+   "id": "mind_break",
+   "source": "snare",
+   "sourceName": "Mind Snare",
+   "sourceType": "rite",
+   "target": "smite",
+   "targetName": "Smite",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% chance to fear a pinned foe for 2s (non-elite) (CHANCE, fear)",
+   "legacyPerPoint": 0.6,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "feared foes explode when fear ends: 1.5m splash for 30% of the Smite hit"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "feared foes explode when fear ends: 1.5m splash for 30% of the Smite hit"
+    }
+   ],
+   "text": "smiting a pinned foe can break its will, so it fights for you",
+   "tooltip": "{targetName}: smiting a pinned foe can break its will, so it fights for you (+{v}% chance to fear a pinned foe for 2s (non-elite) (CHANCE, fear))",
+   "flag": null
+  },
+  {
+   "id": "dread_knot",
+   "source": "snare",
+   "sourceName": "Mind Snare",
+   "sourceType": "rite",
+   "target": "dread",
+   "targetName": "Dread",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% Dread radius near a knot",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "feared foes flee into the nearest knot instead of away from you"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "feared foes flee into the nearest knot instead of away from you"
+    }
+   ],
+   "text": "Dread cast inside a Mind Snare doubles the knot's duration",
+   "tooltip": "{targetName}: Dread cast inside a Mind Snare doubles the knot's duration (+{v}% Dread radius near a knot)",
+   "flag": null
+  },
+  {
+   "id": "folded_ice",
+   "source": "blinkstep",
+   "sourceName": "Blink Step",
+   "sourceType": "rite",
+   "target": "glacier",
+   "targetName": "Glacier",
+   "kind": "SPEED",
+   "stat": "speedPct",
+   "unit": "% Glacier flight speed",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "arriving at the spear releases a frost ring"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "arriving at the spear releases a frost ring"
+    }
+   ],
+   "text": "a Blink Step cast while Glacier is in flight swaps you with the spear",
+   "tooltip": "{targetName}: a Blink Step cast while Glacier is in flight swaps you with the spear (+{v}% Glacier flight speed)",
+   "flag": null
+  },
+  {
+   "id": "anchor_knot",
+   "source": "blinkstep",
+   "sourceName": "Blink Step",
+   "sourceType": "rite",
+   "target": "snare",
+   "targetName": "Mind Snare",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% blink range toward a knot",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "blinking into a knot re-pins every foe in it"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "blinking into a knot re-pins every foe in it"
+    }
+   ],
+   "text": "Blink Step can target any Mind Snare knot, even past walls",
+   "tooltip": "{targetName}: Blink Step can target any Mind Snare knot, even past walls (+{v}% blink range toward a knot)",
+   "flag": null
+  },
+  {
+   "id": "phase_veil",
+   "source": "blinkstep",
+   "sourceName": "Blink Step",
+   "sourceType": "rite",
+   "target": "veil",
+   "targetName": "Veil",
+   "kind": "DUR",
+   "stat": "durationAddSec",
+   "unit": "s Veil added per blink",
+   "legacyPerPoint": 0.03,
+   "cap": 1.5,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.13,
+    "10": 0.37,
+    "15": 0.64,
+    "20": 0.88,
+    "25": 1.09,
+    "30": 1.25,
+    "35": 1.37,
+    "40": 1.45,
+    "45": 1.5
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "blinking out of melee gives a 2s shield that absorbs the next hit (max 10% Max Life)"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "blinking out of melee gives a 2s shield that absorbs the next hit (max 10% Max Life)"
+    }
+   ],
+   "text": "each blink extends Veil",
+   "tooltip": "{targetName}: each blink extends Veil (+{v}s Veil added per blink)",
+   "flag": null
+  },
+  {
+   "id": "phantom_nova",
+   "source": "veil",
+   "sourceName": "Veil",
+   "sourceType": "rite",
+   "target": "nova",
+   "targetName": "Frost Nova",
+   "kind": "DUR",
+   "stat": "status.root",
+   "unit": "s root on foes within 2m of where Frost Nova was cast (DUR, root)",
+   "legacyPerPoint": 0.03,
+   "cap": 1.5,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.13,
+    "10": 0.37,
+    "15": 0.64,
+    "20": 0.88,
+    "25": 1.09,
+    "30": 1.25,
+    "35": 1.37,
+    "40": 1.45,
+    "45": 1.5
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "1s later a second Frost Nova pulses at that spot for 40% power (cannot echo)"
+    }
+   ],
+   "condition": [
+    "frozen",
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "burst",
+     "text": "1s later a second Frost Nova pulses at that spot for 40% power (cannot echo)"
+    }
+   ],
+   "text": "casting Frost Nova leaves a frozen afterimage of you that taunts foes",
+   "tooltip": "{targetName}: casting Frost Nova leaves a frozen afterimage of you that taunts foes (+{v}s root on foes within 2m of where Frost Nova was cast (DUR, root))",
+   "flag": null
+  },
+  {
+   "id": "ghost_hands",
+   "source": "veil",
+   "sourceName": "Veil",
+   "sourceType": "rite",
+   "target": "telekinesis",
+   "targetName": "Telekinesis",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% miss chance for shoved foes (3s)",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "pull",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "Telekinesis also yanks one ranged foe toward you"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "Telekinesis also yanks one ranged foe toward you"
+    }
+   ],
+   "text": "shoved foes are disoriented and miss attacks",
+   "tooltip": "{targetName}: shoved foes are disoriented and miss attacks (+{v}% miss chance for shoved foes (3s))",
+   "flag": null
+  },
+  {
+   "id": "luring_knot",
+   "source": "veil",
+   "sourceName": "Veil",
+   "sourceType": "rite",
+   "target": "snare",
+   "targetName": "Mind Snare",
+   "kind": "SPEED",
+   "stat": "speedPct",
+   "unit": "% of foe speed drawn toward the knot",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "pull",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "casting Mind Snare grants you Veil for 1s"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "casting Mind Snare grants you Veil for 1s"
+    }
+   ],
+   "text": "the knot is invisible and lures foes within 3m toward it",
+   "tooltip": "{targetName}: the knot is invisible and lures foes within 3m toward it (+{v}% of foe speed drawn toward the knot)",
+   "flag": null
+  },
+  {
+   "id": "panic_shove",
+   "source": "dread",
+   "sourceName": "Dread",
+   "sourceType": "rite",
+   "target": "telekinesis",
+   "targetName": "Telekinesis",
+   "kind": "DUR",
+   "stat": "status.fear",
+   "unit": "s of terrified flight",
+   "legacyPerPoint": 0.03,
+   "cap": 1.5,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.13,
+    "10": 0.37,
+    "15": 0.64,
+    "20": 0.88,
+    "25": 1.09,
+    "30": 1.25,
+    "35": 1.37,
+    "40": 1.45,
+    "45": 1.5
+   },
+   "element": "fear",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "terrified foes knock down any foe they run into"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "terrified foes knock down any foe they run into"
+    }
+   ],
+   "text": "shoved foes are terrified and flee",
+   "tooltip": "{targetName}: shoved foes are terrified and flee (+{v}s of terrified flight)",
+   "flag": null
+  },
+  {
+   "id": "nightmare_step",
+   "source": "dread",
+   "sourceName": "Dread",
+   "sourceType": "rite",
+   "target": "blinkstep",
+   "targetName": "Blink Step",
+   "kind": "DEBUFF",
+   "stat": "damageReduction",
+   "unit": "% less damage dealt by foes at your arrival point",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "weaken",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "your departure point leaves a 2s shadow that keeps unsettling foes"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "your departure point leaves a 2s shadow that keeps unsettling foes"
+    }
+   ],
+   "text": "arriving beside foes fills them with dread",
+   "tooltip": "{targetName}: arriving beside foes fills them with dread (+{v}% less damage dealt by foes at your arrival point)",
+   "flag": null
+  },
+  {
+   "id": "haunting_veil",
+   "source": "dread",
+   "sourceName": "Dread",
+   "sourceType": "rite",
+   "target": "veil",
+   "targetName": "Veil",
+   "kind": "DUR",
+   "stat": "durationPct",
+   "unit": "% Veil duration per feared foe nearby",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": "fear",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "Veil ends with a scream that fears nearby foes for 2s"
+    }
+   ],
+   "condition": [
+    "fear",
+    "fear",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "applyStatus",
+     "text": "Veil ends with a scream that fears nearby foes for 2s"
+    }
+   ],
+   "text": "the veil lasts longer while foes around you are afraid",
+   "tooltip": "{targetName}: the veil lasts longer while foes around you are afraid (+{v}% Veil duration per feared foe nearby)",
+   "flag": null
+  },
+  {
+   "id": "triad_core",
+   "source": "elemconsume",
+   "sourceName": "Elemental Consume",
+   "sourceType": "rite",
+   "target": "fireball",
+   "targetName": "Fireball",
+   "kind": "SLOW",
+   "stat": "slowPct",
+   "unit": "% chill on impact",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "chill +proj",
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the impact also arcs a lightning jump (it cannot shock)"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "the impact also arcs a lightning jump (it cannot shock)"
+    }
+   ],
+   "text": "a Fireball cast within 3s of a pulse carries the triad and chills on impact",
+   "tooltip": "{targetName}: a Fireball cast within 3s of a pulse carries the triad and chills on impact (+{v}% chill on impact)",
+   "flag": null
+  },
+  {
+   "id": "elemental_rotation",
+   "source": "elemconsume",
+   "sourceName": "Elemental Consume",
+   "sourceType": "rite",
+   "target": "stormcall",
+   "targetName": "Storm Call",
+   "kind": "DEBUFF",
+   "stat": "resistShred",
+   "unit": "% shred of the struck element's resistance",
+   "legacyPerPoint": 0.5,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a foe hit by all three within 3s is Overloaded: your next hit on it deals +25%"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a foe hit by all three within 3s is Overloaded: your next hit on it deals +25%"
+    }
+   ],
+   "text": "bolts cycle fire, then cold, then lightning",
+   "tooltip": "{targetName}: bolts cycle fire, then cold, then lightning (+{v}% shred of the struck element's resistance)",
+   "flag": null
+  },
+  {
+   "id": "prism_lash",
+   "source": "elemconsume",
+   "sourceName": "Elemental Consume",
+   "sourceType": "rite",
+   "target": "arcwhip",
+   "targetName": "Arc Whip",
+   "kind": "DEBUFF",
+   "stat": "resistShred",
+   "unit": "% penetration of your best element",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "the lash strikes as all three elements at once and uses the target's lowest resistance"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "other",
+     "text": "the lash strikes as all three elements at once and uses the target's lowest resistance"
+    }
+   ],
+   "text": "the lash takes the element of your highest-ranked elemental rite",
+   "tooltip": "{targetName}: the lash takes the element of your highest-ranked elemental rite (+{v}% penetration of your best element)",
+   "flag": null
+  },
+  {
+   "id": "bone_quiver",
+   "source": "fanbone",
+   "sourceName": "Bone Fan",
+   "sourceType": "rite",
+   "target": "summon",
+   "targetName": "Raise Bone",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% chance for a skeleton to pick up a stray shard",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "skeletons throw a 3-shard mini fan (these shards cannot be picked up)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "skeletons throw a 3-shard mini fan (these shards cannot be picked up)"
+    }
+   ],
+   "text": "your skeletons pick up stray Bone Fan shards and throw them back",
+   "tooltip": "{targetName}: your skeletons pick up stray Bone Fan shards and throw them back (+{v}% chance for a skeleton to pick up a stray shard)",
+   "flag": null
+  },
+  {
+   "id": "shrapnel_ring",
+   "source": "fanbone",
+   "sourceName": "Bone Fan",
+   "sourceType": "rite",
+   "target": "graveburst",
+   "targetName": "Grave Burst",
+   "kind": "HIT",
+   "stat": "extraHitFromHit",
+   "unit": "% of the burst dealt by the outer ring",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the outer ring fires inward again 0.5s later"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "extend",
+     "text": "the outer ring fires inward again 0.5s later"
+    }
+   ],
+   "text": "Grave Burst adds a second, outer ring of shrapnel",
+   "tooltip": "{targetName}: Grave Burst adds a second, outer ring of shrapnel (+{v}% of the burst dealt by the outer ring)",
+   "flag": null
+  },
+  {
+   "id": "rattling_shout",
+   "source": "fanbone",
+   "sourceName": "Bone Fan",
+   "sourceType": "rite",
+   "target": "warcry",
+   "targetName": "War Cry",
+   "kind": "COST",
+   "stat": "cost.manaRefundPerTarget",
+   "unit": "mana per bone fragment",
+   "legacyPerPoint": 0.04,
+   "cap": 1.5,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.01,
+    "5": 0.13,
+    "10": 0.37,
+    "15": 0.64,
+    "20": 0.88,
+    "25": 1.09,
+    "30": 1.25,
+    "35": 1.37,
+    "40": 1.45,
+    "45": 1.5
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "shouting again flings the fragments at the nearest foe"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "extend",
+     "text": "shouting again flings the fragments at the nearest foe"
+    }
+   ],
+   "text": "foes the shout hits drop bone fragments you can walk over for mana",
+   "tooltip": "{targetName}: foes the shout hits drop bone fragments you can walk over for mana (+{v}mana per bone fragment)",
+   "flag": null
+  },
+  {
+   "id": "thrown_cut",
+   "source": "javelin",
+   "sourceName": "Javelin",
+   "sourceType": "rite",
+   "target": "cleave",
+   "targetName": "Wide Cut",
+   "kind": "BOLT",
+   "stat": "extraHitFromHit",
+   "unit": "% of Javelin damage hurled through",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the second cut becomes a spinning spear throw (+1 projectile)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "extend",
+     "text": "the second cut becomes a spinning spear throw (+1 projectile)"
+    }
+   ],
+   "text": "cutting a foe with a javelin in it hurls the javelin on through the cut",
+   "tooltip": "{targetName}: cutting a foe with a javelin in it hurls the javelin on through the cut (+{v}% of Javelin damage hurled through)",
+   "flag": null
+  },
+  {
+   "id": "spear_spin",
+   "source": "javelin",
+   "sourceName": "Javelin",
+   "sourceType": "rite",
+   "target": "bladedance",
+   "targetName": "Blade Dance",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% spin reach",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "the spin flings javelins out in 4 directions (counts as the +1 projectile"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "applyStatus",
+     "text": "the spin flings javelins out in 4 directions (counts as the +1 projectile"
+    }
+   ],
+   "text": "you spin with a spear, reaching further",
+   "tooltip": "{targetName}: you spin with a spear, reaching further (+{v}% spin reach)",
+   "flag": null
+  },
+  {
+   "id": "pinning_blow",
+   "source": "javelin",
+   "sourceName": "Javelin",
+   "sourceType": "rite",
+   "target": "execute",
+   "targetName": "Execute",
+   "kind": "HEAL",
+   "stat": "shapeOrSize",
+   "unit": "% higher Execute life threshold on javelin-struck foes",
+   "legacyPerPoint": 0.6,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "Execute nails the corpse down as a 3s spike obstacle"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "other",
+     "text": "Execute nails the corpse down as a 3s spike obstacle"
+    }
+   ],
+   "text": "a lodged javelin makes the foe count as more wounded for Execute",
+   "tooltip": "{targetName}: a lodged javelin makes the foe count as more wounded for Execute (+{v}% higher Execute life threshold on javelin-struck foes)",
+   "flag": null
+  },
+  {
+   "id": "falling_stars",
+   "source": "starlash",
+   "sourceName": "Star Lash",
+   "sourceType": "rite",
+   "target": "consecrate",
+   "targetName": "Consecrate",
+   "kind": "BOLT",
+   "stat": "extraHitFromHit",
+   "unit": "% of ground damage per star",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": "stun",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a star that hits a foe at the centre stuns it for 0.5s (bosses only flinch)"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "a star that hits a foe at the centre stuns it for 0.5s (bosses only flinch)"
+    }
+   ],
+   "text": "every second a star falls on a random foe standing on the ground",
+   "tooltip": "{targetName}: every second a star falls on a random foe standing on the ground (+{v}% of ground damage per star)",
+   "flag": null
+  },
+  {
+   "id": "needle_coat",
+   "source": "starlash",
+   "sourceName": "Star Lash",
+   "sourceType": "rite",
+   "target": "thorncoat",
+   "targetName": "Thorn Coat",
+   "kind": "AREA",
+   "stat": "areaPct",
+   "unit": "% of normal thorns reflected at range",
+   "legacyPerPoint": 1.5,
+   "cap": 50.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.36,
+    "5": 4.49,
+    "10": 12.47,
+    "15": 21.25,
+    "20": 29.44,
+    "25": 36.31,
+    "30": 41.65,
+    "35": 45.55,
+    "40": 48.23,
+    "45": 50.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "each reflected needle heals you for 1% max life"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "each reflected needle heals you for 1% max life"
+    }
+   ],
+   "text": "thorns fly back as holy needles, so ranged attackers are hit too",
+   "tooltip": "{targetName}: thorns fly back as holy needles, so ranged attackers are hit too (+{v}% of normal thorns reflected at range)",
+   "flag": null
+  },
+  {
+   "id": "fireflies",
+   "source": "starlash",
+   "sourceName": "Star Lash",
+   "sourceType": "rite",
+   "target": "locust",
+   "targetName": "Locust Cloud",
+   "kind": "CRIT",
+   "stat": "critChance",
+   "unit": "% crit chance from your hits against lit foes",
+   "legacyPerPoint": 0.8,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": "crit",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "a lit foe that dies releases a firefly that seeks a new foe (cannot release again)"
+    }
+   ],
+   "condition": [
+    "lit"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "extend",
+     "text": "a lit foe that dies releases a firefly that seeks a new foe (cannot release again)"
+    }
+   ],
+   "text": "the swarm turns into fireflies that light up the foes they bite",
+   "tooltip": "{targetName}: the swarm turns into fireflies that light up the foes they bite (+{v}% crit chance from your hits against lit foes)",
+   "flag": null
+  },
+  {
+   "id": "arrow_harvest",
+   "source": "aimed",
+   "sourceName": "Aimed Shot",
+   "sourceType": "rite",
+   "target": "bladedance",
+   "targetName": "Blade Dance",
+   "kind": "BOLT",
+   "stat": "dmgPct",
+   "unit": "% more spin damage per lodged arrow",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the spin rips the arrows out, refunding 1 mana each"
+    }
+   ],
+   "condition": [
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "the spin rips the arrows out, refunding 1 mana each"
+    }
+   ],
+   "text": "arrows from Aimed Shot stay lodged in foes for 3s",
+   "tooltip": "{targetName}: arrows from Aimed Shot stay lodged in foes for 3s (+{v}% more spin damage per lodged arrow)",
+   "flag": null
+  },
+  {
+   "id": "twin_shot",
+   "source": "aimed",
+   "sourceName": "Aimed Shot",
+   "sourceType": "rite",
+   "target": "javelin",
+   "targetName": "Javelin",
+   "kind": "SPEED",
+   "stat": "speedPct",
+   "unit": "% Javelin projectile speed",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a javelin that follows an arrow ignores 30% armour"
+    }
+   ],
+   "condition": [
+    "withinRange"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "castRite",
+     "text": "a javelin that follows an arrow ignores 30% armour"
+    }
+   ],
+   "text": "a Javelin thrown within 1s of an Aimed Shot follows the arrow's path",
+   "tooltip": "{targetName}: a Javelin thrown within 1s of an Aimed Shot follows the arrow's path (+{v}% Javelin projectile speed)",
+   "flag": null
+  },
+  {
+   "id": "called_shot",
+   "source": "aimed",
+   "sourceName": "Aimed Shot",
+   "sourceType": "rite",
+   "target": "truesight",
+   "targetName": "Truesight Aura",
+   "kind": "CRIT",
+   "stat": "critChance",
+   "unit": "% crit chance on Aimed Shot against foes inside Truesight (crit cap 70%)",
+   "legacyPerPoint": 0.8,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": "expose",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a full-draw Aimed Shot on a read foe marks it Exposed: +10% damage taken from you for 3s (once per 6s)"
+    }
+   ],
+   "condition": [
+    "inTruesight"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "a full-draw Aimed Shot on a read foe marks it Exposed: +10% damage taken from you for 3s (once per 6s)"
+    }
+   ],
+   "text": "foes read by the aura are easier to line up for a full-draw shot",
+   "tooltip": "{targetName}: foes read by the aura are easier to line up for a full-draw shot (+{v}% crit chance on Aimed Shot against foes inside Truesight (crit cap 70%))",
+   "flag": null
+  },
+  {
+   "id": "cracked_seal",
+   "source": "ironjaw",
+   "sourceName": "Ironjaw Trap",
+   "sourceType": "rite",
+   "target": "blightcask",
+   "targetName": "Blight Cask",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% chance a cask needle staggers its target 0.3s (stun cap 12%; bosses flinch 0.01s)",
+   "legacyPerPoint": 1.0,
+   "cap": 12.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.09,
+    "5": 1.08,
+    "10": 2.99,
+    "15": 5.1,
+    "20": 7.06,
+    "25": 8.71,
+    "30": 10.0,
+    "35": 10.93,
+    "40": 11.58,
+    "45": 12.0
+   },
+   "element": "stagger",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a staggered foe takes one extra poison stack (max stacks still apply)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "a staggered foe takes one extra poison stack (max stacks still apply)"
+    }
+   ],
+   "text": "Ironjaw springs crack the cask wider so its needles hit with weight",
+   "tooltip": "{targetName}: Ironjaw springs crack the cask wider so its needles hit with weight (+{v}% chance a cask needle staggers its target 0.3s (stun cap 12%; bosses flinch 0.01s))",
+   "flag": null
+  },
+  {
+   "id": "brittle_impact",
+   "source": "ironjaw",
+   "sourceName": "Ironjaw Trap",
+   "sourceType": "rite",
+   "target": "rimecaltrop",
+   "targetName": "Rime Caltrop",
+   "kind": "BOLT",
+   "stat": "slowPct",
+   "unit": "% bolt damage against chilled foes",
+   "legacyPerPoint": 1.2,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a bolt that knocks a frozen foe shatters the ice for 25% of the bolt as cold damage (once per freeze)"
+    }
+   ],
+   "condition": [
+    "chill"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "applyStatus",
+     "text": "a bolt that knocks a frozen foe shatters the ice for 25% of the bolt as cold damage (once per freeze)"
+    }
+   ],
+   "text": "Ironjaw bolts hit harder on foes the caltrop has chilled",
+   "tooltip": "{targetName}: Ironjaw bolts hit harder on foes the caltrop has chilled (+{v}% bolt damage against chilled foes)",
+   "flag": null
+  },
+  {
+   "id": "springboard",
+   "source": "ironjaw",
+   "sourceName": "Ironjaw Trap",
+   "sourceType": "rite",
+   "target": "blindrush",
+   "targetName": "Blind Shield Rush",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% Blind Shield Rush distance when it starts on your trap",
+   "legacyPerPoint": 2.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the trap you launch from fires one free bolt at the first foe you hit (once per trap)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "the trap you launch from fires one free bolt at the first foe you hit (once per trap)"
+    }
+   ],
+   "text": "rushing off an Ironjaw plate launches you farther",
+   "tooltip": "{targetName}: rushing off an Ironjaw plate launches you farther (+{v}% Blind Shield Rush distance when it starts on your trap)",
+   "flag": null
+  },
+  {
+   "id": "numbing_venom",
+   "source": "blightcask",
+   "sourceName": "Blight Cask",
+   "sourceType": "rite",
+   "target": "rimecaltrop",
+   "targetName": "Rime Caltrop",
+   "kind": "SLOW",
+   "stat": "slowPct",
+   "unit": "% chill strength on poisoned foes (bosses: half)",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a poisoned foe frozen by a caltrop takes its remaining poison at once (once per freeze"
+    }
+   ],
+   "condition": [
+    "poison",
+    "bossHalf"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "applyStatus",
+     "text": "a poisoned foe frozen by a caltrop takes its remaining poison at once (once per freeze"
+    }
+   ],
+   "text": "poison numbs the limbs so the caltrop chill bites deeper",
+   "tooltip": "{targetName}: poison numbs the limbs so the caltrop chill bites deeper (+{v}% chill strength on poisoned foes (bosses: half))",
+   "flag": null
+  },
+  {
+   "id": "volatile_fumes",
+   "source": "blightcask",
+   "sourceName": "Blight Cask",
+   "sourceType": "rite",
+   "target": "thunderkiln",
+   "targetName": "Thunderkiln Trap",
+   "kind": "DOT",
+   "stat": "extraHitFromHit",
+   "unit": "% Fuse burst damage on poisoned foes",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a Fuse burst on a poisoned foe leaves a 1.5m burning-poison puddle for 2s (once per 4s)"
+    }
+   ],
+   "condition": [
+    "poison"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "burst",
+     "text": "a Fuse burst on a poisoned foe leaves a 1.5m burning-poison puddle for 2s (once per 4s)"
+    }
+   ],
+   "text": "the kiln's Fuse ignites lingering cask fumes",
+   "tooltip": "{targetName}: the kiln's Fuse ignites lingering cask fumes (+{v}% Fuse burst damage on poisoned foes)",
+   "flag": null
+  },
+  {
+   "id": "toxic_embers",
+   "source": "blightcask",
+   "sourceName": "Blight Cask",
+   "sourceType": "rite",
+   "target": "cinder",
+   "targetName": "Cinder Bed",
+   "kind": "DOT",
+   "stat": "dotFromHit",
+   "unit": "% Cinder Bed burn on poisoned foes",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": "weaken",
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "a foe standing in Cinder Bed with 3+ poison stacks is weakened: \u221215% damage for 2s (once per 5s)"
+    }
+   ],
+   "condition": [
+    "poison"
+   ],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "other",
+     "text": "a foe standing in Cinder Bed with 3+ poison stacks is weakened: \u221215% damage for 2s (once per 5s)"
+    }
+   ],
+   "text": "Cinder Bed smoke carries the cask's venom",
+   "tooltip": "{targetName}: Cinder Bed smoke carries the cask's venom (+{v}% Cinder Bed burn on poisoned foes)",
+   "flag": null
+  },
+  {
+   "id": "thermal_shock",
+   "source": "rimecaltrop",
+   "sourceName": "Rime Caltrop",
+   "sourceType": "rite",
+   "target": "thunderkiln",
+   "targetName": "Thunderkiln Trap",
+   "kind": "BOLT",
+   "stat": "slowPct",
+   "unit": "% kiln fire-bolt damage on chilled foes",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a chilled foe hit by both kiln elements loses its chill and takes a 20% thermal burst (once per 3s)"
+    }
+   ],
+   "condition": [
+    "chill"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "burst",
+     "text": "a chilled foe hit by both kiln elements loses its chill and takes a 20% thermal burst (once per 3s)"
+    }
+   ],
+   "text": "hot bolts crack chilled flesh",
+   "tooltip": "{targetName}: hot bolts crack chilled flesh (+{v}% kiln fire-bolt damage on chilled foes)",
+   "flag": null
+  },
+  {
+   "id": "frost_hearth",
+   "source": "rimecaltrop",
+   "sourceName": "Rime Caltrop",
+   "sourceType": "rite",
+   "target": "hearthward",
+   "targetName": "Hearthward Aura",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% max life barrier for members when an enemy freezes inside the ring",
+   "legacyPerPoint": 1.0,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "frozen foes inside the ring deal \u221220% damage for 2s after they thaw (once per freeze)"
+    }
+   ],
+   "condition": [
+    "inRing"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "applyStatus",
+     "text": "frozen foes inside the ring deal \u221220% damage for 2s after they thaw (once per freeze)"
+    }
+   ],
+   "text": "every freeze near the hearth gives the circle a frost barrier",
+   "tooltip": "{targetName}: every freeze near the hearth gives the circle a frost barrier (+{v}% max life barrier for members when an enemy freezes inside the ring)",
+   "flag": null
+  },
+  {
+   "id": "caltrop_wake",
+   "source": "rimecaltrop",
+   "sourceName": "Rime Caltrop",
+   "sourceType": "rite",
+   "target": "blinkstep",
+   "targetName": "Blink Step",
+   "kind": "SLOW",
+   "stat": "slowPct",
+   "unit": "% chill on foes near your Blink Step departure point",
+   "legacyPerPoint": 1.0,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "the dropped caltrop fires 2 shards before it melts (once per blink"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "the dropped caltrop fires 2 shards before it melts (once per blink"
+    }
+   ],
+   "text": "blinking away drops a spent caltrop that chills foes who follow",
+   "tooltip": "{targetName}: blinking away drops a spent caltrop that chills foes who follow (+{v}% chill on foes near your Blink Step departure point)",
+   "flag": null
+  },
+  {
+   "id": "kiln_warmth",
+   "source": "thunderkiln",
+   "sourceName": "Thunderkiln Trap",
+   "sourceType": "rite",
+   "target": "hearthward",
+   "targetName": "Hearthward Aura",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% max life per second regen for members within 3m of a kiln",
+   "legacyPerPoint": 0.02,
+   "cap": 0.5,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.0,
+    "5": 0.04,
+    "10": 0.12,
+    "15": 0.21,
+    "20": 0.29,
+    "25": 0.36,
+    "30": 0.42,
+    "35": 0.46,
+    "40": 0.48,
+    "45": 0.5
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "an active kiln inside the ring also grants +5% armour to members"
+    }
+   ],
+   "condition": [
+    "withinRange",
+    "perCount"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "an active kiln inside the ring also grants +5% armour to members"
+    }
+   ],
+   "text": "the kiln's heat warms the hearth ring",
+   "tooltip": "{targetName}: the kiln's heat warms the hearth ring (+{v}% max life per second regen for members within 3m of a kiln)",
+   "flag": null
+  },
+  {
+   "id": "steady_peal",
+   "source": "thunderkiln",
+   "sourceName": "Thunderkiln Trap",
+   "sourceType": "rite",
+   "target": "knell",
+   "targetName": "Knell Aura",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% chance a kiln bolt adds 1 Peal",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a Ninth Peal while a kiln is armed resets that kiln's shot timer (once per 3s)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "a Ninth Peal while a kiln is armed resets that kiln's shot timer (once per 3s)"
+    }
+   ],
+   "text": "the kiln's even rhythm keeps the count",
+   "tooltip": "{targetName}: the kiln's even rhythm keeps the count (+{v}% chance a kiln bolt adds 1 Peal)",
+   "flag": null
+  },
+  {
+   "id": "storm_constellation",
+   "source": "thunderkiln",
+   "sourceName": "Thunderkiln Trap",
+   "sourceType": "rite",
+   "target": "starlash",
+   "targetName": "Star Lash",
+   "kind": "CHANCE",
+   "stat": "procChance",
+   "unit": "% shock chance on Star Lash hits near a kiln",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 20,
+     "text": "a shocked foe hit by Star Lash makes the kiln fire one bonus lightning bolt (once per kiln)"
+    }
+   ],
+   "condition": [],
+   "bpAction": [
+    {
+     "rank": 20,
+     "action": "castRite",
+     "text": "a shocked foe hit by Star Lash makes the kiln fire one bonus lightning bolt (once per kiln)"
+    }
+   ],
+   "text": "Star Lash draws lightning from a nearby kiln",
+   "tooltip": "{targetName}: Star Lash draws lightning from a nearby kiln (+{v}% shock chance on Star Lash hits near a kiln)",
+   "flag": null
+  },
+  {
+   "id": "tempered_peal",
+   "source": "hearthward",
+   "sourceName": "Hearthward Aura",
+   "sourceType": "rite",
+   "target": "knell",
+   "targetName": "Knell Aura",
+   "kind": "DEF",
+   "stat": "damageReduction",
+   "unit": "% damage reduction for 2s after a Ninth Peal",
+   "legacyPerPoint": 0.6,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a Ninth Peal while Hearthward is active heals members 1% max life (once per 2s)"
+    }
+   ],
+   "condition": [
+    "afterPeal"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a Ninth Peal while Hearthward is active heals members 1% max life (once per 2s)"
+    }
+   ],
+   "text": "each toll tempers the members who rang it",
+   "tooltip": "{targetName}: each toll tempers the members who rang it (+{v}% damage reduction for 2s after a Ninth Peal)",
+   "flag": null
+  },
+  {
+   "id": "steady_breath",
+   "source": "hearthward",
+   "sourceName": "Hearthward Aura",
+   "sourceType": "rite",
+   "target": "truesight",
+   "targetName": "Truesight Aura",
+   "kind": "HEAL",
+   "stat": "attackRating",
+   "unit": "% attack rating for members at full life",
+   "legacyPerPoint": 1.0,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "members at full life cannot be blinded while inside both rings"
+    }
+   ],
+   "condition": [
+    "fullLife"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "members at full life cannot be blinded while inside both rings"
+    }
+   ],
+   "text": "calm, healed hands aim truer",
+   "tooltip": "{targetName}: calm, healed hands aim truer (+{v}% attack rating for members at full life)",
+   "flag": null
+  },
+  {
+   "id": "hearth_bloom",
+   "source": "hearthward",
+   "sourceName": "Hearthward Aura",
+   "sourceType": "rite",
+   "target": "regrowth",
+   "targetName": "Regrowth",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% Regrowth healing on members inside the ring",
+   "legacyPerPoint": 1.2,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "Regrowth cast inside the ring also heals every member at 50% value (once per cast)"
+    }
+   ],
+   "condition": [
+    "inRing"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "Regrowth cast inside the ring also heals every member at 50% value (once per cast)"
+    }
+   ],
+   "text": "the hearth makes Regrowth bloom for the whole circle",
+   "tooltip": "{targetName}: the hearth makes Regrowth bloom for the whole circle (+{v}% Regrowth healing on members inside the ring)",
+   "flag": null
+  },
+  {
+   "id": "peal_focus",
+   "source": "knell",
+   "sourceName": "Knell Aura",
+   "sourceType": "rite",
+   "target": "truesight",
+   "targetName": "Truesight Aura",
+   "kind": "CRIT",
+   "stat": "critChance",
+   "unit": "% crit chance for 2s after a Ninth Peal (crit cap 70%)",
+   "legacyPerPoint": 0.6,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a crit inside that window adds 1 Peal (once per 2s)"
+    }
+   ],
+   "condition": [
+    "afterPeal"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "a crit inside that window adds 1 Peal (once per 2s)"
+    }
+   ],
+   "text": "on the toll every opening shows",
+   "tooltip": "{targetName}: on the toll every opening shows (+{v}% crit chance for 2s after a Ninth Peal (crit cap 70%))",
+   "flag": null
+  },
+  {
+   "id": "tide_fury",
+   "source": "knell",
+   "sourceName": "Knell Aura",
+   "sourceType": "rite",
+   "target": "undertow",
+   "targetName": "Undertow Aura",
+   "kind": "DMG",
+   "stat": "dmgPct",
+   "unit": "% minion damage against Drowned foes",
+   "legacyPerPoint": 1.0,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a minion kill on a Drowned foe counts as 2 drowned names"
+    }
+   ],
+   "condition": [
+    "drowned"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a minion kill on a Drowned foe counts as 2 drowned names"
+    }
+   ],
+   "text": "servants strike in time with the bell at what the tide holds",
+   "tooltip": "{targetName}: servants strike in time with the bell at what the tide holds (+{v}% minion damage against Drowned foes)",
+   "flag": null
+  },
+  {
+   "id": "spite_peal",
+   "source": "knell",
+   "sourceName": "Knell Aura",
+   "sourceType": "rite",
+   "target": "thorncoat",
+   "targetName": "Thorn Coat",
+   "kind": "OTHER",
+   "stat": "dmgPct",
+   "unit": "% Thorn Coat reflect for 2s after a Ninth Peal",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "each reflected hit adds 1 Peal (max once per foe per 1s)"
+    }
+   ],
+   "condition": [
+    "afterPeal"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "each reflected hit adds 1 Peal (max once per foe per 1s)"
+    }
+   ],
+   "text": "the toll hardens the thorns",
+   "tooltip": "{targetName}: the toll hardens the thorns (+{v}% Thorn Coat reflect for 2s after a Ninth Peal)",
+   "flag": null
+  },
+  {
+   "id": "watchful_tide",
+   "source": "truesight",
+   "sourceName": "Truesight Aura",
+   "sourceType": "rite",
+   "target": "undertow",
+   "targetName": "Undertow Aura",
+   "kind": "DEF",
+   "stat": "dodge",
+   "unit": "% dodge for members against Drowned foes",
+   "legacyPerPoint": 0.6,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "Drowned foes have \u221210% Attack Rating against members"
+    }
+   ],
+   "condition": [
+    "drowned"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "extend",
+     "text": "Drowned foes have \u221210% Attack Rating against members"
+    }
+   ],
+   "text": "reading the foe warns the whole circle",
+   "tooltip": "{targetName}: reading the foe warns the whole circle (+{v}% dodge for members against Drowned foes)",
+   "flag": null
+  },
+  {
+   "id": "plate_reading",
+   "source": "truesight",
+   "sourceName": "Truesight Aura",
+   "sourceType": "rite",
+   "target": "ironjaw",
+   "targetName": "Ironjaw Trap",
+   "kind": "DEBUFF",
+   "stat": "armourShred",
+   "unit": "% armour ignored by Ironjaw bolts on read foes",
+   "legacyPerPoint": 1.0,
+   "cap": 25.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.18,
+    "5": 2.25,
+    "10": 6.23,
+    "15": 10.63,
+    "20": 14.72,
+    "25": 18.16,
+    "30": 20.83,
+    "35": 22.77,
+    "40": 24.12,
+    "45": 25.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "a read foe pinned by Ironjaw has \u221215% dodge for 3s"
+    }
+   ],
+   "condition": [
+    "read"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "applyStatus",
+     "text": "a read foe pinned by Ironjaw has \u221215% dodge for 3s"
+    }
+   ],
+   "text": "Ironjaw bolts strike the weak joints Truesight reveals",
+   "tooltip": "{targetName}: Ironjaw bolts strike the weak joints Truesight reveals (+{v}% armour ignored by Ironjaw bolts on read foes)",
+   "flag": null
+  },
+  {
+   "id": "marrow_sight",
+   "source": "truesight",
+   "sourceName": "Truesight Aura",
+   "sourceType": "rite",
+   "target": "bonespear",
+   "targetName": "Bone Spear",
+   "kind": "CRIT",
+   "stat": "critChance",
+   "unit": "% Bone Spear crit chance on read foes (crit cap 70%)",
+   "legacyPerPoint": 0.6,
+   "cap": 20.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.14,
+    "5": 1.8,
+    "10": 4.99,
+    "15": 8.5,
+    "20": 11.77,
+    "25": 14.52,
+    "30": 16.66,
+    "35": 18.22,
+    "40": 19.29,
+    "45": 20.0
+   },
+   "element": null,
+   "projBreakpoint": true,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a Bone Spear crit on a read foe pierces 1 extra foe (once per cast"
+    }
+   ],
+   "condition": [
+    "read"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "castRite",
+     "text": "a Bone Spear crit on a read foe pierces 1 extra foe (once per cast"
+    }
+   ],
+   "text": "spears thrown at read foes find the gaps",
+   "tooltip": "{targetName}: spears thrown at read foes find the gaps (+{v}% Bone Spear crit chance on read foes (crit cap 70%))",
+   "flag": null
+  },
+  {
+   "id": "tide_trigger",
+   "source": "undertow",
+   "sourceName": "Undertow Aura",
+   "sourceType": "rite",
+   "target": "ironjaw",
+   "targetName": "Ironjaw Trap",
+   "kind": "SPEED",
+   "stat": "speedPct",
+   "unit": "% faster arming for Ironjaw traps thrown inside Undertow",
+   "legacyPerPoint": 1.0,
+   "cap": 40.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.28,
+    "5": 3.59,
+    "10": 9.97,
+    "15": 17.0,
+    "20": 23.55,
+    "25": 29.05,
+    "30": 33.32,
+    "35": 36.44,
+    "40": 38.59,
+    "45": 40.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "Undertow pulls foes toward your nearest armed Ironjaw instead of you"
+    }
+   ],
+   "condition": [
+    "inUndertow"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "Undertow pulls foes toward your nearest armed Ironjaw instead of you"
+    }
+   ],
+   "text": "the tide drags prey to the spring",
+   "tooltip": "{targetName}: the tide drags prey to the spring (+{v}% faster arming for Ironjaw traps thrown inside Undertow)",
+   "flag": null
+  },
+  {
+   "id": "plague_tide",
+   "source": "undertow",
+   "sourceName": "Undertow Aura",
+   "sourceType": "rite",
+   "target": "blightcask",
+   "targetName": "Blight Cask",
+   "kind": "DUR",
+   "stat": "durationPct",
+   "unit": "% poison duration from casks on Drowned foes",
+   "legacyPerPoint": 0.8,
+   "cap": 30.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.21,
+    "5": 2.69,
+    "10": 7.48,
+    "15": 12.75,
+    "20": 17.66,
+    "25": 21.79,
+    "30": 24.99,
+    "35": 27.33,
+    "40": 28.94,
+    "45": 30.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 15,
+     "text": "minion hits on a poisoned foe add 1 poison stack (max once per minion per 2s"
+    }
+   ],
+   "condition": [
+    "drowned"
+   ],
+   "bpAction": [
+    {
+     "rank": 15,
+     "action": "other",
+     "text": "minion hits on a poisoned foe add 1 poison stack (max once per minion per 2s"
+    }
+   ],
+   "text": "the cask's venom rides the undertow",
+   "tooltip": "{targetName}: the cask's venom rides the undertow (+{v}% poison duration from casks on Drowned foes)",
+   "flag": null
+  },
+  {
+   "id": "sanctified_tide",
+   "source": "undertow",
+   "sourceName": "Undertow Aura",
+   "sourceType": "rite",
+   "target": "consecrate",
+   "targetName": "Consecrate",
+   "kind": "HEAL",
+   "stat": "heal",
+   "unit": "% Consecrate healing on members inside Undertow",
+   "legacyPerPoint": 1.0,
+   "cap": 35.0,
+   "curve": "ramp45",
+   "valuePerRank": {
+    "1": 0.25,
+    "5": 3.14,
+    "10": 8.73,
+    "15": 14.88,
+    "20": 20.61,
+    "25": 25.42,
+    "30": 29.16,
+    "35": 31.88,
+    "40": 33.76,
+    "45": 35.0
+   },
+   "element": null,
+   "projBreakpoint": false,
+   "breakpoints": [
+    {
+     "rank": 10,
+     "text": "a foe dying on Consecrate inside Undertow counts as 2 drowned names"
+    }
+   ],
+   "condition": [
+    "drowned",
+    "inUndertow"
+   ],
+   "bpAction": [
+    {
+     "rank": 10,
+     "action": "other",
+     "text": "a foe dying on Consecrate inside Undertow counts as 2 drowned names"
+    }
+   ],
+   "text": "hallowed ground over drowned names",
+   "tooltip": "{targetName}: hallowed ground over drowned names (+{v}% Consecrate healing on members inside Undertow)",
+   "flag": null
+  }
+ ]
+}
