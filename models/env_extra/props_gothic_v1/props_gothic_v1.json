@@ -1,0 +1,1842 @@
+{
+ "meta": {
+  "pack": "props_gothic_v1",
+  "project": "Sanctuary (three.js ARPG)",
+  "units": "1 unit = 1 m",
+  "up": "+Y",
+  "forward": "+Z = front / bow",
+  "origin": "base of prop (boats: waterline; wall props: floor at wall face)",
+  "format": "plain GLB, no extensions, no lights/cameras, emissive<=1.0",
+  "colliders": "nodes named col_* are boxes (mesh) with extras {collider:true}; hide them at load and use for physics. col_click (loot only) is the pick volume.",
+  "previews": [
+   "previews/boats_preview_v2.png",
+   "previews/gothic_props_preview_v2.png",
+   "previews/loot_preview_v2.png"
+  ],
+  "previews_v1": [
+   "previews/boats_preview.png",
+   "previews/gothic_props_preview.png",
+   "previews/loot_preview.png"
+  ],
+  "revision": "v1 fix pass 2026-11-01 (see README Changelog)",
+  "texture_credits": [
+   {
+    "asset": "weathered_planks",
+    "name": "Weathered Planks",
+    "authors": "Dario Barresi, Dimitrios Savva",
+    "url": "https://polyhaven.com/a/weathered_planks",
+    "license": "CC0"
+   },
+   {
+    "asset": "rough_wood",
+    "name": "Rough Wood",
+    "authors": "Rob Tuytel",
+    "url": "https://polyhaven.com/a/rough_wood",
+    "license": "CC0"
+   },
+   {
+    "asset": "moss_wood",
+    "name": "Moss Wood",
+    "authors": "Rob Tuytel",
+    "url": "https://polyhaven.com/a/moss_wood",
+    "license": "CC0"
+   },
+   {
+    "asset": "dark_wooden_planks",
+    "name": "Dark Wooden Planks",
+    "authors": "Amal Kumar",
+    "url": "https://polyhaven.com/a/dark_wooden_planks",
+    "license": "CC0"
+   },
+   {
+    "asset": "weathered_peeling_timber",
+    "name": "Weathered Peeling Timber",
+    "authors": "Dimitrios Savva",
+    "url": "https://polyhaven.com/a/weathered_peeling_timber",
+    "license": "CC0"
+   },
+   {
+    "asset": "worn_rock_natural_01",
+    "name": "Worn Rock Natural 01",
+    "authors": "Rob Tuytel, Dimitrios Savva",
+    "url": "https://polyhaven.com/a/worn_rock_natural_01",
+    "license": "CC0"
+   },
+   {
+    "asset": "rock_pitted_mossy",
+    "name": "Rock Pitted Mossy",
+    "authors": "Dimitrios Savva, Rico Cilliers",
+    "url": "https://polyhaven.com/a/rock_pitted_mossy",
+    "license": "CC0"
+   },
+   {
+    "asset": "castle_wall_slates",
+    "name": "Castle Wall Slates",
+    "authors": "Rob Tuytel",
+    "url": "https://polyhaven.com/a/castle_wall_slates",
+    "license": "CC0"
+   },
+   {
+    "asset": "rock_face",
+    "name": "Rock Face",
+    "authors": "Greg Zaal, Dario Barresi",
+    "url": "https://polyhaven.com/a/rock_face",
+    "license": "CC0"
+   },
+   {
+    "asset": "dark_rock",
+    "name": "Dark Rock",
+    "authors": "Amal Kumar",
+    "url": "https://polyhaven.com/a/dark_rock",
+    "license": "CC0"
+   },
+   {
+    "asset": "rust_coarse_01",
+    "name": "Rust Coarse 01",
+    "authors": "Dimitrios Savva, Rico Cilliers",
+    "url": "https://polyhaven.com/a/rust_coarse_01",
+    "license": "CC0"
+   },
+   {
+    "asset": "metal_plate",
+    "name": "Metal Plate",
+    "authors": "Rob Tuytel",
+    "url": "https://polyhaven.com/a/metal_plate",
+    "license": "CC0"
+   },
+   {
+    "asset": "hessian_230",
+    "name": "Hessian 230",
+    "authors": "colormass, Rico Cilliers",
+    "url": "https://polyhaven.com/a/hessian_230",
+    "license": "CC0"
+   },
+   {
+    "asset": "rough_linen",
+    "name": "Rough Linen",
+    "authors": "colormass, Rico Cilliers",
+    "url": "https://polyhaven.com/a/rough_linen",
+    "license": "CC0"
+   },
+   {
+    "asset": "velour_velvet",
+    "name": "Velour Velvet",
+    "authors": "colormass, Rico Cilliers",
+    "url": "https://polyhaven.com/a/velour_velvet",
+    "license": "CC0"
+   },
+   {
+    "asset": "brown_leather",
+    "name": "Brown Leather",
+    "authors": "Rob Tuytel",
+    "url": "https://polyhaven.com/a/brown_leather",
+    "license": "CC0"
+   },
+   {
+    "asset": "grey_plaster",
+    "name": "Grey Plaster",
+    "authors": "Rob Tuytel",
+    "url": "https://polyhaven.com/a/grey_plaster",
+    "license": "CC0"
+   },
+   {
+    "asset": "cliff_side",
+    "name": "Cliff Side",
+    "authors": "James Ray Cock, Jenelle van Heerden, Dario Barresi",
+    "url": "https://polyhaven.com/a/cliff_side",
+    "license": "CC0"
+   },
+   {
+    "asset": "lichen_rock",
+    "name": "Lichen Rock",
+    "authors": "Rico Cilliers",
+    "url": "https://polyhaven.com/a/lichen_rock",
+    "license": "CC0"
+   }
+  ]
+ },
+ "props": {
+  "boat_longship_ride_v1": {
+   "path": "boats/boat_longship_ride_v1.glb",
+   "bytes": 2160628,
+   "tris": 14672,
+   "collider_tris": 36,
+   "size_m_xyz": [
+    9.79,
+    9.84,
+    15.72
+   ],
+   "min_y": -1.33,
+   "max_y": 8.51,
+   "category": "boat",
+   "nodes": [
+    "col_deck_walk",
+    "col_hull",
+    "col_mast",
+    "hull",
+    "npc_seat_1",
+    "npc_seat_2",
+    "npc_seat_3",
+    "npc_seat_4",
+    "npc_seat_5",
+    "npc_seat_6",
+    "oar_L_1",
+    "oar_L_2",
+    "oar_L_3",
+    "oar_L_4",
+    "oar_L_5",
+    "oar_L_6",
+    "oars_L",
+    "oar_R_1",
+    "oar_R_2",
+    "oar_R_3",
+    "oar_R_4",
+    "oar_R_5",
+    "oar_R_6",
+    "oars_R",
+    "player_board",
+    "player_stand",
+    "sail_cloth",
+    "yard",
+    "sail",
+    "boat_longship_ride_v1"
+   ],
+   "colliders": [
+    "col_deck_walk",
+    "col_hull",
+    "col_mast"
+   ],
+   "materials": [
+    "m_hull_tarred",
+    "m_wood_planks",
+    "m_wood_dark",
+    "m_iron",
+    "m_bone",
+    "m_rope",
+    "m_shield_soot",
+    "m_shield_ochre",
+    "m_shield_oxblood",
+    "ds_sail_striped"
+   ],
+   "placement_notes": "Rideable longship. Bow faces +Z, port/left = +X. Origin = waterline at hull centre; hull draft ~0.6 m below y=0. Deck y=0.15. Animate sail (pivot yard centre), oars_L/oars_R children oar_* (pivot at oar port)."
+  },
+  "boat_wreck_cave_v1": {
+   "path": "boats/boat_wreck_cave_v1.glb",
+   "bytes": 2093912,
+   "tris": 11595,
+   "collider_tris": 48,
+   "size_m_xyz": [
+    8.06,
+    8.7,
+    10.87
+   ],
+   "min_y": -4.2,
+   "max_y": 4.5,
+   "category": "boat",
+   "nodes": [
+    "barnacles_weed",
+    "col_hull_bow",
+    "col_hull_mid",
+    "col_mast_stump",
+    "col_stern_mound",
+    "silt_mound",
+    "wreck_hull",
+    "boat_wreck_cave_v1"
+   ],
+   "colliders": [
+    "col_hull_bow",
+    "col_hull_mid",
+    "col_mast_stump",
+    "col_stern_mound"
+   ],
+   "materials": [
+    "m_barnacle",
+    "ds_weed",
+    "m_silt",
+    "m_wood_rot",
+    "m_hull_weathered",
+    "m_wood_dark_wet",
+    "cut_sail_torn",
+    "m_rope_rot"
+   ],
+   "placement_notes": "Static set piece. Origin = waterline; parts below y=0 are underwater/buried. Place in shallows or on shore at a cave mouth, bow (+Z) pointing out of the cave."
+  },
+  "church_pew_v1": {
+   "path": "props/church_pew_v1.glb",
+   "bytes": 80224,
+   "tris": 296,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    2.47,
+    1.22,
+    0.8
+   ],
+   "min_y": 0.0,
+   "max_y": 1.22,
+   "category": "church",
+   "nodes": [
+    "col_pew",
+    "pew",
+    "church_pew_v1"
+   ],
+   "colliders": [
+    "col_pew"
+   ],
+   "materials": [
+    "m_wood_dark"
+   ],
+   "placement_notes": "Seat height 0.46 m; faces +Z (sitters look toward +Z). Rows ~1.0 m apart."
+  },
+  "altar_cloth_v1": {
+   "path": "props/altar_cloth_v1.glb",
+   "bytes": 459344,
+   "tris": 1526,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    2.24,
+    1.7,
+    1.13
+   ],
+   "min_y": 0.0,
+   "max_y": 1.7,
+   "category": "church",
+   "nodes": [
+    "altar",
+    "col_altar",
+    "altar_cloth_v1"
+   ],
+   "colliders": [
+    "col_altar"
+   ],
+   "materials": [
+    "m_stone_carved",
+    "ds_altar_linen",
+    "ds_altar_runner",
+    "m_iron",
+    "m_wax",
+    "cut_flame",
+    "m_bone",
+    "m_socket",
+    "m_teeth"
+   ],
+   "placement_notes": "Front faces +Z. Two lit candles (emissive flame cards); add a small warm point light in-engine if desired."
+  },
+  "lectern_book_v1": {
+   "path": "props/lectern_book_v1.glb",
+   "bytes": 377152,
+   "tris": 488,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    0.71,
+    1.41,
+    0.64
+   ],
+   "min_y": -0.04,
+   "max_y": 1.37,
+   "category": "church",
+   "nodes": [
+    "col_lectern",
+    "lectern",
+    "lectern_book_v1"
+   ],
+   "colliders": [
+    "col_lectern"
+   ],
+   "materials": [
+    "m_wood_dark",
+    "m_book_leather",
+    "m_book_pages",
+    "m_pageedge",
+    "m_wax",
+    "cut_flame",
+    "m_iron"
+   ],
+   "placement_notes": "Desk slopes down toward +Z; the reader stands on the +Z side. Small lit reading candle."
+  },
+  "candelabra_tall_v1": {
+   "path": "props/candelabra_tall_v1.glb",
+   "bytes": 198412,
+   "tris": 1520,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    0.7,
+    2.16,
+    0.7
+   ],
+   "min_y": -0.02,
+   "max_y": 2.14,
+   "category": "church",
+   "nodes": [
+    "candelabra",
+    "col_candelabra",
+    "candelabra_tall_v1"
+   ],
+   "colliders": [
+    "col_candelabra"
+   ],
+   "materials": [
+    "m_iron",
+    "m_wax",
+    "cut_flame"
+   ],
+   "placement_notes": "2.05 m tall, 5 lit candles (emissive flame cards). Pair with a warm point light ~1.9 m up."
+  },
+  "wall_sconce_v1": {
+   "path": "props/wall_sconce_v1.glb",
+   "bytes": 147500,
+   "tris": 342,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    0.2,
+    0.56,
+    0.41
+   ],
+   "min_y": 1.52,
+   "max_y": 2.08,
+   "category": "church",
+   "nodes": [
+    "col_sconce",
+    "sconce",
+    "wall_sconce_v1"
+   ],
+   "colliders": [
+    "col_sconce"
+   ],
+   "materials": [
+    "m_iron",
+    "m_wax",
+    "cut_flame"
+   ],
+   "placement_notes": "Wall prop: origin = floor at wall face; back sits on local Z=0 plane, faces +Z (out of wall). Candle flame ~1.95 m above origin."
+  },
+  "gargoyle_perched_v1": {
+   "path": "props/gargoyle_perched_v1.glb",
+   "bytes": 333996,
+   "tris": 1290,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    1.41,
+    2.38,
+    0.93
+   ],
+   "min_y": 0.0,
+   "max_y": 2.38,
+   "category": "decoration",
+   "nodes": [
+    "col_gargoyle",
+    "gargoyle_pedestal",
+    "gargoyle_perched_v1"
+   ],
+   "colliders": [
+    "col_gargoyle"
+   ],
+   "materials": [
+    "m_stone_block",
+    "m_gargoyle_stone"
+   ],
+   "placement_notes": "Crouched gargoyle on 1.1 m pedestal, faces +Z, wings half-spread. 2.4 m tall."
+  },
+  "wall_niche_saint_v1": {
+   "path": "props/wall_niche_saint_v1.glb",
+   "bytes": 493172,
+   "tris": 2966,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    1.46,
+    2.7,
+    0.82
+   ],
+   "min_y": 0.0,
+   "max_y": 2.7,
+   "category": "decoration",
+   "nodes": [
+    "col_niche",
+    "niche",
+    "wall_niche_saint_v1"
+   ],
+   "colliders": [
+    "col_niche"
+   ],
+   "materials": [
+    "m_stone_block",
+    "m_stone_carved",
+    "m_saint_stone",
+    "ds_saint_hood",
+    "m_halo_bronze",
+    "m_wax",
+    "cut_flame"
+   ],
+   "placement_notes": "Wall prop: origin = floor at wall face; back sits on local Z=0 plane, faces +Z (out of wall). Block 1.4 x 2.7 m, 0.55 m deep; flush against or inset into a wall. Votive candles lit."
+  },
+  "grave_celtic_cross_v1": {
+   "path": "props/grave_celtic_cross_v1.glb",
+   "bytes": 288464,
+   "tris": 844,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.44,
+    2.11,
+    2.33
+   ],
+   "min_y": -0.17,
+   "max_y": 1.94,
+   "category": "graveyard",
+   "nodes": [
+    "col_cross",
+    "col_mound",
+    "cross",
+    "mound",
+    "grave_celtic_cross_v1"
+   ],
+   "colliders": [
+    "col_cross",
+    "col_mound"
+   ],
+   "materials": [
+    "m_stone_mossy",
+    "m_grave_soil"
+   ],
+   "placement_notes": "Celtic ring cross on plinth with a sunken soil mound in front (+Z side). Mound is organic (no flat faces)."
+  },
+  "tombstone_gothic_v1": {
+   "path": "props/tombstone_gothic_v1.glb",
+   "bytes": 540264,
+   "tris": 786,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    0.74,
+    1.38,
+    0.55
+   ],
+   "min_y": -0.24,
+   "max_y": 1.14,
+   "category": "graveyard",
+   "nodes": [
+    "col_tomb",
+    "rb0",
+    "rb1",
+    "rb2",
+    "rb3",
+    "stone",
+    "tombstone_gothic_v1"
+   ],
+   "colliders": [
+    "col_tomb"
+   ],
+   "materials": [
+    "m_rock",
+    "m_stone_mossy",
+    "m_tomb_stone",
+    "m_bone",
+    "m_socket",
+    "m_teeth"
+   ],
+   "placement_notes": "Leaning pointed-arch headstone with skull and crossbones relief; ~0.2 m sunk below origin. Face toward +Z."
+  },
+  "urn_plinth_v1": {
+   "path": "props/urn_plinth_v1.glb",
+   "bytes": 140960,
+   "tris": 768,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    0.64,
+    1.83,
+    0.62
+   ],
+   "min_y": -0.0,
+   "max_y": 1.83,
+   "category": "decoration",
+   "nodes": [
+    "col_urn",
+    "urn_plinth",
+    "urn_plinth_v1"
+   ],
+   "colliders": [
+    "col_urn"
+   ],
+   "materials": [
+    "m_stone_carved"
+   ],
+   "placement_notes": "Funerary urn on gothic-panelled plinth, 1.83 m. Symmetric; any facing."
+  },
+  "iron_fence_gothic_v1": {
+   "path": "props/iron_fence_gothic_v1.glb",
+   "bytes": 264332,
+   "tris": 1112,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    2.0,
+    1.82,
+    0.32
+   ],
+   "min_y": 0.0,
+   "max_y": 1.82,
+   "category": "decoration",
+   "nodes": [
+    "col_fence",
+    "fence",
+    "iron_fence_gothic_v1"
+   ],
+   "colliders": [
+    "col_fence"
+   ],
+   "materials": [
+    "m_stone_block",
+    "m_iron"
+   ],
+   "placement_notes": "Tiling segment 2.0 m along X (snap ends at x=+-1.0). Pairs with iron_gate_gothic_v1 (same height & curb)."
+  },
+  "iron_gate_gothic_v1": {
+   "path": "props/iron_gate_gothic_v1.glb",
+   "bytes": 456984,
+   "tris": 2084,
+   "collider_tris": 36,
+   "size_m_xyz": [
+    3.32,
+    2.98,
+    0.62
+   ],
+   "min_y": 0.0,
+   "max_y": 2.98,
+   "category": "decoration",
+   "nodes": [
+    "col_gate_closed",
+    "col_pier_L",
+    "col_pier_R",
+    "gate_leaf_L",
+    "gate_leaf_R",
+    "piers",
+    "iron_gate_gothic_v1"
+   ],
+   "colliders": [
+    "col_gate_closed",
+    "col_pier_L",
+    "col_pier_R"
+   ],
+   "materials": [
+    "m_iron",
+    "m_socket",
+    "m_stone_block",
+    "m_stone_carved"
+   ],
+   "placement_notes": "2.2 m opening between stone piers (overall 3.2 m). Leaves gate_leaf_L/R pivot at their hinge; col_gate_closed should be disabled when opened."
+  },
+  "tapestry_heraldic_v1": {
+   "path": "props/tapestry_heraldic_v1.glb",
+   "bytes": 180868,
+   "tris": 404,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    1.67,
+    2.79,
+    0.12
+   ],
+   "min_y": 0.25,
+   "max_y": 3.04,
+   "category": "decoration",
+   "nodes": [
+    "col_tapestry",
+    "tapestry",
+    "tapestry_heraldic_v1"
+   ],
+   "colliders": [
+    "col_tapestry"
+   ],
+   "materials": [
+    "m_iron",
+    "ds_tapestry"
+   ],
+   "placement_notes": "Wall prop: origin = floor at wall face; back sits on local Z=0 plane, faces +Z (out of wall). Rod at 3.0 m, cloth hangs to ~0.5 m. Double-sided material."
+  },
+  "anvil_stump_v1": {
+   "path": "props/anvil_stump_v1.glb",
+   "bytes": 211392,
+   "tris": 516,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    0.95,
+    1.01,
+    0.94
+   ],
+   "min_y": -0.05,
+   "max_y": 0.96,
+   "category": "smithy",
+   "nodes": [
+    "anvil_stump",
+    "col_anvil",
+    "anvil_stump_v1"
+   ],
+   "colliders": [
+    "col_anvil"
+   ],
+   "materials": [
+    "m_wood_rough",
+    "m_anvil_iron"
+   ],
+   "placement_notes": "Anvil (horn toward +X) on a rooted stump with hammer and tongs. Work height 0.96 m."
+  },
+  "cauldron_tripod_v1": {
+   "path": "props/cauldron_tripod_v1.glb",
+   "bytes": 329444,
+   "tris": 1438,
+   "collider_tris": 48,
+   "size_m_xyz": [
+    1.37,
+    1.81,
+    1.37
+   ],
+   "min_y": -0.08,
+   "max_y": 1.73,
+   "category": "smithy",
+   "nodes": [
+    "cauldron",
+    "col_cauldron",
+    "col_leg0",
+    "col_leg1",
+    "col_leg2",
+    "cauldron_tripod_v1"
+   ],
+   "colliders": [
+    "col_cauldron",
+    "col_leg0",
+    "col_leg1",
+    "col_leg2"
+   ],
+   "materials": [
+    "m_iron",
+    "m_cauldron_brew",
+    "m_rock",
+    "m_charred",
+    "m_ash"
+   ],
+   "placement_notes": "Cauldron on chain under an iron tripod over a cold stone fire ring. Add a fire VFX / point light if lit."
+  },
+  "hanging_sign_v1": {
+   "path": "props/hanging_sign_v1.glb",
+   "bytes": 169752,
+   "tris": 652,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    0.14,
+    0.83,
+    0.96
+   ],
+   "min_y": 1.96,
+   "max_y": 2.79,
+   "category": "tavern",
+   "nodes": [
+    "bracket",
+    "col_sign",
+    "sign_board",
+    "hanging_sign_v1"
+   ],
+   "colliders": [
+    "col_sign"
+   ],
+   "materials": [
+    "m_iron",
+    "m_sign_wood"
+   ],
+   "placement_notes": "Wall prop: origin = floor at wall face; back sits on local Z=0 plane, faces +Z (out of wall). Bracket at 2.7 m, board bottom ~1.95 m. Node sign_board pivots at bracket for wind swing. Tavern tankard emblem."
+  },
+  "chains_shackles_v1": {
+   "path": "props/chains_shackles_v1.glb",
+   "bytes": 161848,
+   "tris": 2440,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    1.15,
+    1.36,
+    0.24
+   ],
+   "min_y": 0.81,
+   "max_y": 2.17,
+   "category": "dungeon",
+   "nodes": [
+    "chains",
+    "col_chains",
+    "chains_shackles_v1"
+   ],
+   "colliders": [
+    "col_chains"
+   ],
+   "materials": [
+    "m_iron"
+   ],
+   "placement_notes": "Wall prop: origin = floor at wall face; back sits on local Z=0 plane, faces +Z (out of wall). Two wall eye-plates at 2.1 m with hanging chains, manacles and a swag chain with collar."
+  },
+  "gibbet_cage_v1": {
+   "path": "props/gibbet_cage_v1.glb",
+   "bytes": 467408,
+   "tris": 2362,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.97,
+    3.68,
+    0.67
+   ],
+   "min_y": -0.08,
+   "max_y": 3.6,
+   "category": "dungeon",
+   "nodes": [
+    "cage",
+    "col_cage",
+    "col_post",
+    "gallows",
+    "gibbet_cage_v1"
+   ],
+   "colliders": [
+    "col_cage",
+    "col_post"
+   ],
+   "materials": [
+    "m_iron",
+    "m_bone",
+    "m_socket",
+    "m_teeth",
+    "m_gallows_wood",
+    "m_rock"
+   ],
+   "placement_notes": "Gallows post with hanging body-shaped gibbet cage and remains. Node cage pivots at the chain end for sway. Footprint ~1.7 x 0.6 m."
+  },
+  "sarcophagus_carved_v1": {
+   "path": "props/sarcophagus_carved_v1.glb",
+   "bytes": 373432,
+   "tris": 3020,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    2.42,
+    1.27,
+    1.12
+   ],
+   "min_y": -0.0,
+   "max_y": 1.27,
+   "category": "dungeon",
+   "nodes": [
+    "col_sarcophagus",
+    "sarcophagus",
+    "sarcophagus_carved_v1"
+   ],
+   "colliders": [
+    "col_sarcophagus"
+   ],
+   "materials": [
+    "m_stone_block",
+    "m_stone_carved"
+   ],
+   "placement_notes": "Long axis X (head at -X). Carved effigy on lid, blind gothic arcades. Not lootable (see loot/ for small cracked one)."
+  },
+  "iron_maiden_v1": {
+   "path": "props/iron_maiden_v1.glb",
+   "bytes": 391996,
+   "tris": 1944,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    1.14,
+    2.09,
+    1.06
+   ],
+   "min_y": -0.01,
+   "max_y": 2.08,
+   "category": "dungeon",
+   "nodes": [
+    "col_maiden",
+    "door",
+    "maiden_body",
+    "iron_maiden_v1"
+   ],
+   "colliders": [
+    "col_maiden"
+   ],
+   "materials": [
+    "ds_maiden_iron",
+    "m_maiden_face",
+    "m_socket",
+    "m_maiden_spike",
+    "m_maiden_steel",
+    "m_wood_dark"
+   ],
+   "placement_notes": "Iron maiden (rusted iron, worn steel bands/rims, sorrowful relief face on door), exported with door node open ~115 deg (set door rotation 0 to close). Faces +Z."
+  },
+  "cobweb_cards_v1": {
+   "path": "props/cobweb_cards_v1.glb",
+   "bytes": 18124,
+   "tris": 6,
+   "collider_tris": 12,
+   "size_m_xyz": [
+    3.9,
+    2.0,
+    0.9
+   ],
+   "min_y": 0.0,
+   "max_y": 2.0,
+   "category": "dungeon",
+   "nodes": [
+    "col_none",
+    "web_corner",
+    "web_hang",
+    "web_low",
+    "cobweb_cards_v1"
+   ],
+   "colliders": [
+    "col_none"
+   ],
+   "materials": [
+    "cut_cobweb"
+   ],
+   "placement_notes": "Three alpha-cutout web cards as separate nodes (web_corner, web_hang, web_low), each with its own origin at its attach point; detach and place individually. Non-blocking."
+  },
+  "bone_pile_closed": {
+   "path": "loot/bone_pile_closed.glb",
+   "bytes": 266828,
+   "tris": 1360,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.23,
+    0.47,
+    0.98
+   ],
+   "min_y": -0.04,
+   "max_y": 0.43,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_pile",
+    "mesh",
+    "bone_pile_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_pile"
+   ],
+   "materials": [
+    "m_soil",
+    "m_bone_old",
+    "m_void"
+   ],
+   "placement_notes": "Heap of old bones with two skulls on a dirt mound. Opened: bones kicked flat and scattered, skull rolled off.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "catacombs",
+    "cave",
+    "torture_chamber"
+   ],
+   "loot_pair": {
+    "closed": "loot/bone_pile_closed.glb",
+    "opened": "loot/bone_pile_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "bone_pile_opened": {
+   "path": "loot/bone_pile_opened.glb",
+   "bytes": 265552,
+   "tris": 1360,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.55,
+    0.24,
+    1.23
+   ],
+   "min_y": -0.06,
+   "max_y": 0.18,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_pile",
+    "mesh",
+    "bone_pile_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_pile"
+   ],
+   "materials": [
+    "m_soil",
+    "m_bone_old",
+    "m_void"
+   ],
+   "placement_notes": "Heap of old bones with two skulls on a dirt mound. Opened: bones kicked flat and scattered, skull rolled off.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "catacombs",
+    "cave",
+    "torture_chamber"
+   ],
+   "loot_pair": {
+    "closed": "loot/bone_pile_closed.glb",
+    "opened": "loot/bone_pile_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "skull_heap_closed": {
+   "path": "loot/skull_heap_closed.glb",
+   "bytes": 286212,
+   "tris": 1732,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    0.89,
+    0.61,
+    0.86
+   ],
+   "min_y": -0.02,
+   "max_y": 0.59,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_heap",
+    "mesh",
+    "skull_heap_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_heap"
+   ],
+   "materials": [
+    "m_soil",
+    "m_bone_old",
+    "m_void"
+   ],
+   "placement_notes": "Stacked pyramid of seven skulls on a plinth of bones. Opened: heap knocked over, skulls tumbled across the floor.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "catacombs",
+    "ossuary"
+   ],
+   "loot_pair": {
+    "closed": "loot/skull_heap_closed.glb",
+    "opened": "loot/skull_heap_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "skull_heap_opened": {
+   "path": "loot/skull_heap_opened.glb",
+   "bytes": 286020,
+   "tris": 1732,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.48,
+    0.29,
+    1.13
+   ],
+   "min_y": -0.08,
+   "max_y": 0.22,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_heap",
+    "mesh",
+    "skull_heap_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_heap"
+   ],
+   "materials": [
+    "m_soil",
+    "m_bone_old",
+    "m_void"
+   ],
+   "placement_notes": "Stacked pyramid of seven skulls on a plinth of bones. Opened: heap knocked over, skulls tumbled across the floor.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "catacombs",
+    "ossuary"
+   ],
+   "loot_pair": {
+    "closed": "loot/skull_heap_closed.glb",
+    "opened": "loot/skull_heap_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "burial_urn_closed": {
+   "path": "loot/burial_urn_closed.glb",
+   "bytes": 272816,
+   "tris": 742,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    0.55,
+    0.87,
+    0.55
+   ],
+   "min_y": 0.0,
+   "max_y": 0.87,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_urn",
+    "mesh",
+    "burial_urn_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_urn"
+   ],
+   "materials": [
+    "m_urn_clay",
+    "m_rope",
+    "m_void"
+   ],
+   "placement_notes": "Clay burial urn with lid and rope band. Opened: urn smashed - jagged lower half, shards, lid on its side, spilled ash and a finger bone.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "catacombs",
+    "tomb",
+    "desert_tomb"
+   ],
+   "loot_pair": {
+    "closed": "loot/burial_urn_closed.glb",
+    "opened": "loot/burial_urn_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "burial_urn_opened": {
+   "path": "loot/burial_urn_opened.glb",
+   "bytes": 372512,
+   "tris": 826,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.33,
+    0.39,
+    1.38
+   ],
+   "min_y": -0.06,
+   "max_y": 0.33,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_urn",
+    "mesh",
+    "burial_urn_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_urn"
+   ],
+   "materials": [
+    "m_urn_clay",
+    "m_ash",
+    "m_bone_old",
+    "m_rope"
+   ],
+   "placement_notes": "Clay burial urn with lid and rope band. Opened: urn smashed - jagged lower half, shards, lid on its side, spilled ash and a finger bone.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "catacombs",
+    "tomb",
+    "desert_tomb"
+   ],
+   "loot_pair": {
+    "closed": "loot/burial_urn_closed.glb",
+    "opened": "loot/burial_urn_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "sarcophagus_small_closed": {
+   "path": "loot/sarcophagus_small_closed.glb",
+   "bytes": 129872,
+   "tris": 324,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.4,
+    0.67,
+    0.72
+   ],
+   "min_y": 0.0,
+   "max_y": 0.67,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_sarc",
+    "mesh",
+    "sarcophagus_small_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_sarc"
+   ],
+   "materials": [
+    "m_sarc_stone",
+    "m_void"
+   ],
+   "placement_notes": "Small cracked stone sarcophagus (1.3 m, child/reliquary size) with crossed lid. Opened: lid broken in two and shoved off, dusty interior with bones visible.",
+   "interactable": "loot_low",
+   "environments": [
+    "crypt",
+    "catacombs",
+    "tomb",
+    "cathedral_undercroft"
+   ],
+   "loot_pair": {
+    "closed": "loot/sarcophagus_small_closed.glb",
+    "opened": "loot/sarcophagus_small_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "sarcophagus_small_opened": {
+   "path": "loot/sarcophagus_small_opened.glb",
+   "bytes": 366148,
+   "tris": 1276,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.4,
+    0.65,
+    2.12
+   ],
+   "min_y": -0.03,
+   "max_y": 0.62,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_sarc",
+    "mesh",
+    "sarcophagus_small_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_sarc"
+   ],
+   "materials": [
+    "m_sarc_stone",
+    "m_void",
+    "m_dust",
+    "m_bone_old"
+   ],
+   "placement_notes": "Small cracked stone sarcophagus (1.3 m, child/reliquary size) with crossed lid. Opened: lid broken in two and shoved off, dusty interior with bones visible.",
+   "interactable": "loot_low",
+   "environments": [
+    "crypt",
+    "catacombs",
+    "tomb",
+    "cathedral_undercroft"
+   ],
+   "loot_pair": {
+    "closed": "loot/sarcophagus_small_closed.glb",
+    "opened": "loot/sarcophagus_small_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "sack_pile_closed": {
+   "path": "loot/sack_pile_closed.glb",
+   "bytes": 163204,
+   "tris": 500,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.12,
+    0.6,
+    1.25
+   ],
+   "min_y": 0.03,
+   "max_y": 0.63,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_sacks",
+    "mesh",
+    "sack_pile_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_sacks"
+   ],
+   "materials": [
+    "m_sack_rot"
+   ],
+   "placement_notes": "Pile of rotting hessian sacks. Opened: sacks slit and slumped flat, grain/rot spilled across the floor.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "cellar",
+    "storeroom",
+    "camp",
+    "sewer"
+   ],
+   "loot_pair": {
+    "closed": "loot/sack_pile_closed.glb",
+    "opened": "loot/sack_pile_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "sack_pile_opened": {
+   "path": "loot/sack_pile_opened.glb",
+   "bytes": 281552,
+   "tris": 1024,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.69,
+    0.14,
+    1.52
+   ],
+   "min_y": -0.01,
+   "max_y": 0.13,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_sacks",
+    "mesh",
+    "sack_pile_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_sacks"
+   ],
+   "materials": [
+    "m_sack_rot",
+    "m_void",
+    "m_grain_rot",
+    "m_rope"
+   ],
+   "placement_notes": "Pile of rotting hessian sacks. Opened: sacks slit and slumped flat, grain/rot spilled across the floor.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "cellar",
+    "storeroom",
+    "camp",
+    "sewer"
+   ],
+   "loot_pair": {
+    "closed": "loot/sack_pile_closed.glb",
+    "opened": "loot/sack_pile_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "remains_heap_closed": {
+   "path": "loot/remains_heap_closed.glb",
+   "bytes": 383724,
+   "tris": 1100,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    2.15,
+    0.31,
+    0.99
+   ],
+   "min_y": -0.02,
+   "max_y": 0.28,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_remains",
+    "mesh",
+    "remains_heap_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_remains"
+   ],
+   "materials": [
+    "m_soil",
+    "ds_shroud",
+    "m_bone_old",
+    "m_void"
+   ],
+   "placement_notes": "Shrouded corpse lying on a dirt bed, skull and bony hand poking from a rotten shroud. Opened: shroud dragged aside, ribcage/skeleton exposed and picked over.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "battlefield",
+    "torture_chamber",
+    "cave"
+   ],
+   "loot_pair": {
+    "closed": "loot/remains_heap_closed.glb",
+    "opened": "loot/remains_heap_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "remains_heap_opened": {
+   "path": "loot/remains_heap_opened.glb",
+   "bytes": 399744,
+   "tris": 1232,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    2.06,
+    0.23,
+    1.56
+   ],
+   "min_y": -0.02,
+   "max_y": 0.2,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_remains",
+    "mesh",
+    "remains_heap_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_remains"
+   ],
+   "materials": [
+    "m_soil",
+    "ds_shroud",
+    "m_bone_old",
+    "m_void"
+   ],
+   "placement_notes": "Shrouded corpse lying on a dirt bed, skull and bony hand poking from a rotten shroud. Opened: shroud dragged aside, ribcage/skeleton exposed and picked over.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "battlefield",
+    "torture_chamber",
+    "cave"
+   ],
+   "loot_pair": {
+    "closed": "loot/remains_heap_closed.glb",
+    "opened": "loot/remains_heap_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "rubble_cache_closed": {
+   "path": "loot/rubble_cache_closed.glb",
+   "bytes": 374460,
+   "tris": 1156,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.58,
+    0.73,
+    1.24
+   ],
+   "min_y": -0.08,
+   "max_y": 0.65,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_rubble",
+    "mesh",
+    "rubble_cache_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_rubble"
+   ],
+   "materials": [
+    "m_grit",
+    "m_rubble",
+    "m_beam",
+    "m_iron_rust"
+   ],
+   "placement_notes": "Collapsed rubble with a broken beam burying a cache. Opened: rubble dug aside, smashed strongbox lid open, empty.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "mine",
+    "cave",
+    "ruins"
+   ],
+   "loot_pair": {
+    "closed": "loot/rubble_cache_closed.glb",
+    "opened": "loot/rubble_cache_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "rubble_cache_opened": {
+   "path": "loot/rubble_cache_opened.glb",
+   "bytes": 401940,
+   "tris": 1912,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    2.44,
+    0.64,
+    1.47
+   ],
+   "min_y": -0.05,
+   "max_y": 0.58,
+   "category": "loot_dungeon",
+   "nodes": [
+    "col_click",
+    "col_rubble",
+    "mesh",
+    "rubble_cache_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_rubble"
+   ],
+   "materials": [
+    "m_grit",
+    "m_rubble",
+    "m_beam",
+    "m_pit",
+    "m_iron_rust",
+    "m_void"
+   ],
+   "placement_notes": "Collapsed rubble with a broken beam burying a cache. Opened: rubble dug aside, smashed strongbox lid open, empty.",
+   "interactable": "loot_low",
+   "environments": [
+    "dungeon",
+    "crypt",
+    "mine",
+    "cave",
+    "ruins"
+   ],
+   "loot_pair": {
+    "closed": "loot/rubble_cache_closed.glb",
+    "opened": "loot/rubble_cache_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "rock_pile_closed": {
+   "path": "loot/rock_pile_closed.glb",
+   "bytes": 341192,
+   "tris": 720,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.2,
+    0.83,
+    1.17
+   ],
+   "min_y": -0.16,
+   "max_y": 0.66,
+   "category": "loot_outdoor",
+   "nodes": [
+    "col_click",
+    "col_rocks",
+    "mesh",
+    "rock_pile_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_rocks"
+   ],
+   "materials": [
+    "m_lichen_rock",
+    "m_rock_loot"
+   ],
+   "placement_notes": "Cairn-like heap of loose rocks. Opened: rocks rolled aside, shallow dug hollow revealed.",
+   "interactable": "loot_low",
+   "environments": [
+    "wilderness",
+    "forest",
+    "highlands",
+    "riverbank",
+    "cave_entrance",
+    "graveyard"
+   ],
+   "loot_pair": {
+    "closed": "loot/rock_pile_closed.glb",
+    "opened": "loot/rock_pile_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "rock_pile_opened": {
+   "path": "loot/rock_pile_opened.glb",
+   "bytes": 351984,
+   "tris": 1060,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    2.0,
+    0.47,
+    1.96
+   ],
+   "min_y": -0.14,
+   "max_y": 0.33,
+   "category": "loot_outdoor",
+   "nodes": [
+    "col_click",
+    "col_rocks",
+    "mesh",
+    "rock_pile_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_rocks"
+   ],
+   "materials": [
+    "m_dug_soil",
+    "m_void",
+    "m_lichen_rock",
+    "m_rock_loot"
+   ],
+   "placement_notes": "Cairn-like heap of loose rocks. Opened: rocks rolled aside, shallow dug hollow revealed.",
+   "interactable": "loot_low",
+   "environments": [
+    "wilderness",
+    "forest",
+    "highlands",
+    "riverbank",
+    "cave_entrance",
+    "graveyard"
+   ],
+   "loot_pair": {
+    "closed": "loot/rock_pile_closed.glb",
+    "opened": "loot/rock_pile_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "hollow_log_closed": {
+   "path": "loot/hollow_log_closed.glb",
+   "bytes": 233620,
+   "tris": 508,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    2.27,
+    0.62,
+    0.9
+   ],
+   "min_y": -0.04,
+   "max_y": 0.58,
+   "category": "loot_outdoor",
+   "nodes": [
+    "col_click",
+    "col_log",
+    "mesh",
+    "hollow_log_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_log"
+   ],
+   "materials": [
+    "m_log_bark",
+    "m_log_inner",
+    "m_moss",
+    "m_moss_rock",
+    "m_void"
+   ],
+   "placement_notes": "Fallen hollow dead log, end plugged with a mossy stone. Opened: plug rolled away and the top split off, rotten hollow exposed.",
+   "interactable": "loot_low",
+   "environments": [
+    "forest",
+    "swamp",
+    "wilderness",
+    "riverbank"
+   ],
+   "loot_pair": {
+    "closed": "loot/hollow_log_closed.glb",
+    "opened": "loot/hollow_log_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "hollow_log_opened": {
+   "path": "loot/hollow_log_opened.glb",
+   "bytes": 257240,
+   "tris": 1098,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    2.74,
+    0.61,
+    1.96
+   ],
+   "min_y": -0.04,
+   "max_y": 0.57,
+   "category": "loot_outdoor",
+   "nodes": [
+    "col_click",
+    "col_log",
+    "mesh",
+    "hollow_log_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_log"
+   ],
+   "materials": [
+    "m_log_bark",
+    "m_log_inner",
+    "m_rot",
+    "m_moss",
+    "m_moss_rock"
+   ],
+   "placement_notes": "Fallen hollow dead log, end plugged with a mossy stone. Opened: plug rolled away and the top split off, rotten hollow exposed.",
+   "interactable": "loot_low",
+   "environments": [
+    "forest",
+    "swamp",
+    "wilderness",
+    "riverbank"
+   ],
+   "loot_pair": {
+    "closed": "loot/hollow_log_closed.glb",
+    "opened": "loot/hollow_log_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "rotten_stump_closed": {
+   "path": "loot/rotten_stump_closed.glb",
+   "bytes": 245960,
+   "tris": 840,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.62,
+    0.79,
+    1.68
+   ],
+   "min_y": -0.09,
+   "max_y": 0.7,
+   "category": "loot_outdoor",
+   "nodes": [
+    "col_click",
+    "col_stump",
+    "mesh",
+    "rotten_stump_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_stump"
+   ],
+   "materials": [
+    "m_log_bark",
+    "m_log_inner",
+    "m_fungus",
+    "m_moss_dark"
+   ],
+   "placement_notes": "Rotten hollow tree stump with roots and fungus, top sealed by a rotten crust. Opened: one side burst open and the crust broken, rotten hollow exposed.",
+   "interactable": "loot_low",
+   "environments": [
+    "forest",
+    "swamp",
+    "graveyard",
+    "wilderness"
+   ],
+   "loot_pair": {
+    "closed": "loot/rotten_stump_closed.glb",
+    "opened": "loot/rotten_stump_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "rotten_stump_opened": {
+   "path": "loot/rotten_stump_opened.glb",
+   "bytes": 357068,
+   "tris": 916,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.73,
+    1.03,
+    2.25
+   ],
+   "min_y": -0.34,
+   "max_y": 0.69,
+   "category": "loot_outdoor",
+   "nodes": [
+    "col_click",
+    "col_stump",
+    "mesh",
+    "rotten_stump_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_stump"
+   ],
+   "materials": [
+    "m_log_bark",
+    "m_log_inner",
+    "m_fungus",
+    "m_rot",
+    "m_moss"
+   ],
+   "placement_notes": "Rotten hollow tree stump with roots and fungus, top sealed by a rotten crust. Opened: one side burst open and the crust broken, rotten hollow exposed.",
+   "interactable": "loot_low",
+   "environments": [
+    "forest",
+    "swamp",
+    "graveyard",
+    "wilderness"
+   ],
+   "loot_pair": {
+    "closed": "loot/rotten_stump_closed.glb",
+    "opened": "loot/rotten_stump_opened.glb"
+   },
+   "loot_state": "opened"
+  },
+  "weapon_rack_wreck_closed": {
+   "path": "loot/weapon_rack_wreck_closed.glb",
+   "bytes": 265464,
+   "tris": 320,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    1.83,
+    1.77,
+    1.99
+   ],
+   "min_y": -0.01,
+   "max_y": 1.76,
+   "category": "loot_outdoor",
+   "nodes": [
+    "col_click",
+    "col_rack",
+    "mesh",
+    "weapon_rack_wreck_closed"
+   ],
+   "colliders": [
+    "col_click",
+    "col_rack"
+   ],
+   "materials": [
+    "m_rack_wood",
+    "m_iron_worn",
+    "m_grip"
+   ],
+   "placement_notes": "Wrecked weapon rack: right trestle snapped, top beam slumped to the ground, still holding a rusted notched sword, a leaning spear and an axe. Opened: rack collapsed flat and scattered, weapons taken - only a snapped spear shaft and a broken blade tip left.",
+   "interactable": "loot_low",
+   "environments": [
+    "battlefield",
+    "barracks",
+    "camp",
+    "ruins",
+    "wilderness"
+   ],
+   "loot_pair": {
+    "closed": "loot/weapon_rack_wreck_closed.glb",
+    "opened": "loot/weapon_rack_wreck_opened.glb"
+   },
+   "loot_state": "closed"
+  },
+  "weapon_rack_wreck_opened": {
+   "path": "loot/weapon_rack_wreck_opened.glb",
+   "bytes": 175064,
+   "tris": 218,
+   "collider_tris": 24,
+   "size_m_xyz": [
+    2.3,
+    0.11,
+    2.35
+   ],
+   "min_y": -0.01,
+   "max_y": 0.1,
+   "category": "loot_outdoor",
+   "nodes": [
+    "col_click",
+    "col_rack",
+    "mesh",
+    "weapon_rack_wreck_opened"
+   ],
+   "colliders": [
+    "col_click",
+    "col_rack"
+   ],
+   "materials": [
+    "m_rack_wood",
+    "m_iron_worn"
+   ],
+   "placement_notes": "Wrecked weapon rack: right trestle snapped, top beam slumped to the ground, still holding a rusted notched sword, a leaning spear and an axe. Opened: rack collapsed flat and scattered, weapons taken - only a snapped spear shaft and a broken blade tip left.",
+   "interactable": "loot_low",
+   "environments": [
+    "battlefield",
+    "barracks",
+    "camp",
+    "ruins",
+    "wilderness"
+   ],
+   "loot_pair": {
+    "closed": "loot/weapon_rack_wreck_closed.glb",
+    "opened": "loot/weapon_rack_wreck_opened.glb"
+   },
+   "loot_state": "opened"
+  }
+ }
+}

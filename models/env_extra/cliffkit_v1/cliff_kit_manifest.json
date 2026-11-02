@@ -1,0 +1,131 @@
+{
+ "version": 1,
+ "grid_m": 2,
+ "tier_height_m": 4,
+ "frame": "glTF +Y up. Rim at Y=0, edge runs along +X from x=0, void on -Z(glTF) side = +Y(Blender); plateau on +Z(glTF). Rotate in 90 deg steps; tiers stack at Y=-4,-8,-12...",
+ "slots": {
+  "ms_cliff_ground": "ground",
+  "ms_cliff_rock": "rock",
+  "ms_cliff_bark": "bark"
+ },
+ "seasons": {
+  "summer": {
+   "ground": "m_out_grass_summer",
+   "rock": "m_out_rock_cliff",
+   "bark": "m_out_bark"
+  },
+  "autumn": {
+   "ground": "m_out_grass_autumn",
+   "rock": "m_out_rock_cliff",
+   "bark": "m_out_bark"
+  },
+  "winter": {
+   "ground": "m_out_snow",
+   "rock": "m_out_rock_frost",
+   "bark": "m_out_bark"
+  },
+  "dead": {
+   "ground": "m_out_ground_dead",
+   "rock": "m_out_rock_dead",
+   "bark": "m_out_bark_dead"
+  }
+ },
+ "embedded_season": "summer (dead_stump_blighted_dead / rock_spire_bare_16m_dead embed dead)",
+ "vertexColors": "COLOR_0 multiplies base colour: tier depth-to-black fade (t0 1.0->0.72, upper 0.72->0.46, mid 0.46->0.22, deep 0.22->0.05) + lighter rim on edge pieces. sway_* COLOR_0.R = wind weight.",
+ "pieces": {
+  "cliff_edge_straight_4m": {
+   "footprint": "4x4"
+  },
+  "cliff_edge_straight_8m": {
+   "footprint": "8x4"
+  },
+  "cliff_edge_corner_outer": {
+   "footprint": "4x4"
+  },
+  "cliff_edge_corner_inner": {
+   "footprint": "6x6"
+  },
+  "cliff_edge_overhang_4m": {
+   "footprint": "4x4"
+  },
+  "cliff_edge_broken_lip_4m": {
+   "footprint": "4x4"
+  },
+  "cliff_edge_waterfall_notch_8m": {
+   "footprint": "8x4"
+  },
+  "cliff_wall_4m_upper": {
+   "footprint": "4x4"
+  },
+  "cliff_wall_8m_upper": {
+   "footprint": "8x4"
+  },
+  "cliff_wall_corner_outer_upper": {
+   "footprint": "4x4"
+  },
+  "cliff_wall_corner_inner_upper": {
+   "footprint": "6x6"
+  },
+  "cliff_wall_notch_8m_upper": {
+   "footprint": "8x4"
+  },
+  "cliff_wall_4m_mid": {
+   "footprint": "4x4"
+  },
+  "cliff_wall_8m_mid": {
+   "footprint": "8x4"
+  },
+  "cliff_wall_corner_outer_mid": {
+   "footprint": "4x4"
+  },
+  "cliff_wall_corner_inner_mid": {
+   "footprint": "6x6"
+  },
+  "cliff_wall_notch_8m_mid": {
+   "footprint": "8x4"
+  },
+  "cliff_wall_4m_deep": {
+   "footprint": "4x4"
+  },
+  "cliff_wall_8m_deep": {
+   "footprint": "8x4"
+  },
+  "cliff_wall_corner_outer_deep": {
+   "footprint": "4x4"
+  },
+  "cliff_wall_corner_inner_deep": {
+   "footprint": "6x6"
+  },
+  "cliff_wall_notch_8m_deep": {
+   "footprint": "8x4"
+  },
+  "cliff_wall_4m_ledge_roots": {
+   "footprint": "4x4"
+  },
+  "dress_cliff_rope_remnant": {
+   "footprint": "prop"
+  },
+  "fx_waterfall_notch_ribbon_16m": {
+   "footprint": "prop"
+  },
+  "sway_dead_grass_patch_2m": {
+   "footprint": "prop"
+  },
+  "dead_stump_blighted": {
+   "footprint": "prop"
+  },
+  "rock_spire_bare_16m": {
+   "footprint": "prop"
+  }
+ },
+ "stacking": [
+  "cliff_edge_* (rim, z 0..-4)",
+  "cliff_wall_*_upper (z -4..-8)",
+  "cliff_wall_*_mid (-8..-12, repeat as needed)",
+  "cliff_wall_*_deep (last tier, fades to black into fx void fog)"
+ ],
+ "fx": {
+  "fx_waterfall_origin": "empty on cliff_edge_waterfall_notch_8m lip; attach fx_waterfall_notch_ribbon_16m + mist emitter",
+  "fx_waterfall_notch_ribbon_16m": "alpha-blend, scroll UV.y, COLOR_0.a fades with depth"
+ }
+}

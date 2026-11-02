@@ -1,0 +1,44 @@
+{
+  "version": 4,
+  "units": "metres, seconds; positions come from the named fx_* empties in each GLB (glTF Y-up)",
+  "textures": {
+    "heal_motes": {"file": "heal_motes_8x8.png", "grid": [8, 8], "frames": 64, "fps": 24, "size_px": 1024, "blending": "additive", "premultiplied": false}
+  },
+  "shrine_basic": {
+    "fx_candle_*": {
+      "type": "flame_sprite", "count_per_marker": 1, "size": [0.035, 0.06], "color": "#ffb060", "intensity": 1.0,
+      "flicker_hz": [6, 11], "flicker_amount": 0.25,
+      "point_light": {"every_nth_marker": 4, "color": "#ff9a4a", "intensity": 0.6, "distance": 2.5, "decay": 2, "castShadow": false}
+    },
+    "fx_shrine_glow": {
+      "type": "activation_burst", "trigger": "on_use",
+      "sprite": "heal_motes", "tint": "#ffd59a",
+      "burst": 40, "lifetime": [0.8, 1.4], "radius": 0.35, "velocity_up": [0.4, 0.9], "size": [0.08, 0.18],
+      "point_light": {"color": "#ffc070", "intensity": [0, 2.5, 0], "duration": 1.2, "distance": 4}
+    }
+  },
+  "shrine_weeping_angel": {
+    "fx_heal_motes": {
+      "type": "ambient_particles", "sprite": "heal_motes", "tint": "#cfe4ff",
+      "rate_idle": 6, "rate_on_use": 120, "on_use_duration": 1.6,
+      "lifetime": [2.0, 3.5], "spawn_shape": "sphere", "spawn_radius": 0.55,
+      "velocity": {"up": [0.05, 0.18], "swirl_rad_s": 0.6}, "size": [0.04, 0.11], "opacity": [0.0, 0.7, 0.0],
+      "point_light": {"color": "#a9c8ff", "intensity_idle": 0.35, "intensity_on_use": [0.35, 3.0, 0.35], "distance": 3.5, "decay": 2}
+    },
+    "fx_tear_drip": {
+      "type": "drip", "interval_s": [1.8, 3.2], "drop_size": 0.012, "gravity": -9.8, "fall_to_y": 0.30,
+      "color": "#9fb8d6", "opacity": 0.8, "splash_sprite": "heal_motes", "splash_tint": "#dfeeff", "splash_size": 0.05
+    },
+    "fx_basin_shimmer": {
+      "type": "surface_shimmer", "target_node": "water_basin", "radius": 0.105,
+      "uv_scroll": [0.02, 0.013], "fresnel_tint": "#b8d4ff", "emissive_pulse": {"min": 0.0, "max": 0.15, "period_s": 4.0},
+      "ripple_on_drip": true, "sprite": "heal_motes", "rate_idle": 2, "size": [0.03, 0.06], "tint": "#e6f0ff"
+    },
+    "on_use": {
+      "cures": ["poison", "freeze", "chill", "burn", "bleed", "curse", "slow"],
+      "buff": {"id": "angel_regen", "hp_regen_pct_max_per_s": 1.0, "duration_s": 30},
+      "player_vfx": "pale-blue spiral of heal_motes rising from the feet (rate 80/s for 1.2 s, tint #cfe4ff) + brief silver rim light on the player",
+      "cooldown": "single use per map (shrine goes dormant: idle motes off, shimmer max 0.03)"
+    }
+  }
+}
