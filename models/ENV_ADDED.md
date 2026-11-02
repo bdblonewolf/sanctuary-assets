@@ -91,4 +91,4 @@ Note: the live `models/outdoor/v5_maps/README.md` was not edited. It stops befor
 - `buildings/` (17 GLBs): an older working copy of the Martsirt buildings. Newer versions are live in `models/town/martsirt_v2_2/buildings/`, byte-identical to the artist's v2.2. This includes the original `bld_forge_wolchen.glb`, which `forge/v2` superseded.
 - `props/` (13 GLBs): the v1 Martsirt props. Newer versions are live in `models/town/martsirt*/props/`. `prop_fence_rail_2m.glb` is in no repo version and is not referenced by any Martsirt placement, so it was left out.
 - `batch1_interactables/` v1 `chest.glb` and `door.glb`: the v2 versions are live in `models/env_extra/interactables/`. The `shrine.glb` iterations v1, v2 and v3 were also skipped: v4 is live (`models/shrines/`).
-- `props_gothic_v1`, `hellgates`, `kit`, cliff kits: already live under `models/env_extra/` and `models/town/martsirt_v2_2/kit/`.
+- `props_gothic_v1`, `hellgates` and `kit` are byte-identical to the live copies listed above. Per the engineer, the cliff kits (`models/env_extra/cliffkit_v1`, `cliffkit_v2`) are live too and were not touched.
