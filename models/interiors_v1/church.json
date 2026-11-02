@@ -503,5 +503,17 @@
       "r": 1.0,
       "key": "carpet"
     }
+  ],
+  "clickables": [
+    {
+      "kind": "folio",
+      "style": "salt",
+      "x": 129.6,
+      "y": 36.9,
+      "rotY": -1.64,
+      "folio": "salt",
+      "lore": "Salt Garden",
+      "note": "hidden 2D folio Salt Garden, moved to chancel lectern (Brian 2026-11-02); drawn by W1 n.clickables"
+    }
   ]
 }
