@@ -21,3 +21,8 @@
 
 ## Item models and icons (models/items/, icons/)
 - items_*.glb, items_icons.png/json, ITEM_MAP.json: original procedural work built in Blender 4.2 by bdblonewolf (no third-party meshes or textures). Diablo II item art was used only as silhouette inspiration; no Blizzard images are included.
+
+## Monsters (characters_art/monsters/, loaded via monsters_3d.json)
+- **bone_archer**, **bone_swordsman**, **bone_axeman** (characters_art/monsters/bone_*/): This work is based on "Skeleton animated" (https://sketchfab.com/3d-models/skeleton-animated-9210377c7a514cf6b48a31b9d3991ff3) by danielmclogan (https://sketchfab.com/danielmclogan) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/). Changes: re-textured, accessories added, retargeted to Mixamo animations.
+- rag_zombie, grave_old_man: MakeHuman / MPFB2 base (CC0 1.0), Poly Haven textures (CC0 1.0), procedural detail; Mixamo animations.
+- red_demon_spawnling_anim.glb, corrupted_phimn_feral_lod15k.glb: project-made models; Mixamo animations (Sword and Shield Pack on the spawnling).
