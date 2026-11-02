@@ -1,3 +1,17 @@
 {
-  "_doc": "Expanded-minimap painted images, one per world id. img = path under the sanctuary-assets repo root (null = none yet, draw as today). Bounds are in GAME space = 2D tile coords = 3D scene coords (1 tile = 1 m; x east, 2D y == 3D z, +z south; north up). The image's left/right/top/bottom edges = minX/maxX/minZ/maxZ. Town (Martsirt 3D) grid is 162x154: scene = placements.json pos + origin [81,76]. Example entry: \"town\": {\"img\": \"art_2d/maps/area_minimap_town.jpg\", \"minX\": 0, \"maxX\": 162, \"minZ\": 0, \"maxZ\": 154}."
+  "_doc": "Expanded-minimap painted images, one per world id. img = path under the sanctuary-assets repo root (null = none yet, draw as today). Bounds are in GAME space = 2D tile coords = 3D scene coords (1 tile = 1 m; x east, 2D y == 3D z, +z south; north up). The image's left/right/top/bottom edges = minX/maxX/minZ/maxZ. Town (Martsirt 3D) grid is 162x154: scene = placements.json pos + origin [81,76]. Example entry: \"town\": {\"img\": \"art_2d/maps/area_minimap_town.jpg\", \"minX\": 0, \"maxX\": 162, \"minZ\": 0, \"maxZ\": 154}.",
+  "town": {
+    "img": "art_2d/maps/minimap_expanded_martsirt_v3.jpg",
+    "minX": 0,
+    "maxX": 162,
+    "minZ": 0,
+    "maxZ": 154
+  },
+  "wild": {
+    "img": "art_2d/maps/area_minimap_briarwood.jpg",
+    "minX": 0,
+    "maxX": 72,
+    "minZ": 0,
+    "maxZ": 56
+  }
 }
