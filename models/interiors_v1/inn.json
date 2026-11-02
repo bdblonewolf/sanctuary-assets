@@ -403,5 +403,180 @@
       "r": 3.5,
       "key": "inn_table"
     }
+  ],
+  "upper": {
+    "note": "W2: upper floor (player room = north hall). Ignored by current code; read by STAGE_W2.",
+    "height": 3.5,
+    "unhide_prefix": [
+      "floor_upper",
+      "props_upper",
+      "up_",
+      "upper_window",
+      "win_glow_up"
+    ],
+    "walk": {
+      "rect_local": [
+        -7.1,
+        7.1,
+        -6.1,
+        -1.3
+      ],
+      "centre": [
+        56.5,
+        85.5
+      ],
+      "rotY": 0.1047,
+      "note": "north hall incl. stair-top landing at local (6.4,-3.44); south rooms stay closed"
+    },
+    "colliders_prefix": [
+      "col_floor_upper",
+      "col_part_corridor",
+      "col_part_room_",
+      "col_part_stairwell"
+    ],
+    "stairs": {
+      "bottom": [
+        63.1,
+        87.02
+      ],
+      "top": [
+        62.5,
+        81.41
+      ],
+      "r": 0.9,
+      "lore": "inn_stairs",
+      "glb_nodes": [
+        "nav_stairs_bottom",
+        "nav_stairs_top",
+        "col_stairs_ramp"
+      ]
+    },
+    "props": [
+      {
+        "id": "room_bed",
+        "x": 52.56,
+        "y": 80.53,
+        "h": 3.5,
+        "rotY": 0.1047,
+        "kind": "bed",
+        "local": [
+          -3.4,
+          -5.35
+        ],
+        "code": "bed",
+        "size": [
+          2.0,
+          0.95
+        ],
+        "note": "no standalone bed GLB in repo; code-built frame+mattress like codeStool, or swap to a GLB later"
+      },
+      {
+        "id": "room_nightstand",
+        "glb": "models/props_new/nightstand.glb",
+        "x": 53.92,
+        "y": 79.64,
+        "h": 3.5,
+        "rotY": 0.1047,
+        "kind": "prop",
+        "local": [
+          -1.95,
+          -6.1
+        ]
+      },
+      {
+        "id": "room_desk",
+        "glb": "models/props_new/desk.glb",
+        "x": 49.91,
+        "y": 80.16,
+        "h": 3.5,
+        "rotY": 0.1047,
+        "kind": "prop",
+        "local": [
+          -6.0,
+          -6.0
+        ],
+        "collider": [
+          1.29,
+          0.71
+        ]
+      },
+      {
+        "id": "room_wardrobe",
+        "glb": "models/props_new/wardrobe.glb",
+        "x": 57.46,
+        "y": 79.32,
+        "h": 3.5,
+        "rotY": 0.1047,
+        "kind": "prop",
+        "local": [
+          1.6,
+          -6.05
+        ],
+        "collider": [
+          1.36,
+          0.71
+        ]
+      },
+      {
+        "id": "room_rug",
+        "glb": "models/props_new/rug.glb",
+        "x": 52.76,
+        "y": 82.47,
+        "h": 3.5,
+        "rotY": 0.1047,
+        "kind": "prop",
+        "local": [
+          -3.4,
+          -3.4
+        ]
+      },
+      {
+        "id": "room_stash",
+        "glb": "models/props_new/lite/iron_chest_lite_closed.glb",
+        "x": 49.44,
+        "y": 82.92,
+        "h": 3.5,
+        "rotY": 1.6755,
+        "kind": "chest",
+        "local": [
+          -6.75,
+          -3.3
+        ],
+        "style": "stash",
+        "collider": [
+          1.1,
+          0.72
+        ]
+      },
+      {
+        "id": "room_chart",
+        "glb": "models/props_new/map_board_known_roads.glb",
+        "x": 59.45,
+        "y": 79.16,
+        "h": 3.5,
+        "rotY": 0.1047,
+        "kind": "mark",
+        "local": [
+          3.6,
+          -6.0
+        ],
+        "style": "chart",
+        "collider": [
+          2.12,
+          0.77
+        ]
+      }
+    ]
+  },
+  "decor_extra": [
+    {
+      "id": "cellar_trapdoor",
+      "glb": "models/props_new/trapdoor_ashen_coast_closed.glb",
+      "x": 62.12,
+      "y": 89.23,
+      "rotY": 0.1047,
+      "kind": "prop",
+      "note": "inn GLB has no hatch mesh; fills the locked cellar spot (lock unchanged). Ignored by current code; drawn by W1."
+    }
   ]
 }
