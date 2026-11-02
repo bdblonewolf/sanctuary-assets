@@ -89,8 +89,8 @@
       "lore": "inn_backdoor"
     },
     {
-      "x": 62.22,
-      "y": 89.61,
+      "x": 62.4,
+      "y": 81.9,
       "lore": "inn_cellar"
     },
     {
@@ -572,8 +572,8 @@
     {
       "id": "cellar_trapdoor",
       "glb": "models/props_new/trapdoor_ashen_coast_closed.glb",
-      "x": 62.22,
-      "y": 89.61,
+      "x": 62.4,
+      "y": 81.9,
       "rotY": 0.1047,
       "kind": "prop",
       "note": "inn GLB has no hatch mesh; fills the locked cellar spot (lock unchanged). Ignored by current code; drawn by W1."
