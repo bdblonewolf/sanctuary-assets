@@ -1,0 +1,1071 @@
+{
+ "name": "trees_gothic_v6",
+ "version": 6,
+ "generated": "2026-11-01 15:45 EST",
+ "units": "1 unit = 1 m, glTF Y-up, base at y=0 (root flare dips to ~-0.15 m so it sinks into terrain)",
+ "purpose": "Close-range in-map forest trees replacing glb_v5 tree_conifer_a/b/c_v5 + tree_decid_a/b_v5. Far rings untouched.",
+ "node_layout": {
+  "scene_root": "sway_<file-stem>",
+  "children": [
+   "<stem>_LOD0",
+   "<stem>_LOD1",
+   "<stem>_LOD2"
+  ],
+  "note": "same pattern as v3: show exactly one LOD child; sway the parent or in the vertex shader"
+ },
+ "lod_bands_m_suggested": [
+  0,
+  35,
+  80,
+  "cull/far-ring ~160"
+ ],
+ "budgets": {
+  "LOD0_target": 5900,
+  "LOD1_frac": 0.42,
+  "LOD2_frac": 0.12,
+  "max_bytes": 4000000
+ },
+ "material": {
+  "name": "mat_trees_gothic_v6_atlas",
+  "alphaMode": "MASK",
+  "alphaCutoff": 0.5,
+  "doubleSided": true,
+  "roughness": 0.92,
+  "normalScale": 0.8,
+  "baseColor": "textures/trees_v6_atlas_rgba.png (embedded in each GLB as well)",
+  "normal": "textures/trees_v6_atlas_normal.jpg",
+  "note": "One shared material/atlas for all 30 files; dedupe by texture name in engine to load it once."
+ },
+ "vertex_attributes": {
+  "COLOR_0": "float VEC3 AO/tint multiply (linear) - multiply into base colour",
+  "TEXCOORD_0": "atlas UV (glTF top-left origin)",
+  "TEXCOORD_1": "x = sway weight 0 at root .. 1 at tips, y = per-branch phase 0..1   (NOTE: v3 kept sway in COLOR_0.R; v6 moved it to UV1)"
+ },
+ "atlas": {
+  "size": 1024,
+  "grid": "4x4 cells of 256 px",
+  "layout": {
+   "size": [
+    1024,
+    1024
+   ],
+   "cell_px": 256,
+   "bark_pad_px": 4,
+   "cells": {
+    "bark_pine": {
+     "px": [
+      0,
+      0,
+      256,
+      256
+     ],
+     "uv": [
+      0.0,
+      0.0,
+      0.25,
+      0.25
+     ]
+    },
+    "bark_gothic": {
+     "px": [
+      256,
+      0,
+      256,
+      256
+     ],
+     "uv": [
+      0.25,
+      0.0,
+      0.5,
+      0.25
+     ]
+    },
+    "bark_dead": {
+     "px": [
+      512,
+      0,
+      256,
+      256
+     ],
+     "uv": [
+      0.5,
+      0.0,
+      0.75,
+      0.25
+     ]
+    },
+    "twig_dead": {
+     "px": [
+      768,
+      0,
+      256,
+      256
+     ],
+     "uv": [
+      0.75,
+      0.0,
+      1.0,
+      0.25
+     ]
+    },
+    "needle_mangy_s": {
+     "px": [
+      0,
+      256,
+      256,
+      256
+     ],
+     "uv": [
+      0.0,
+      0.25,
+      0.25,
+      0.5
+     ]
+    },
+    "needle_mangy_w": {
+     "px": [
+      256,
+      256,
+      256,
+      256
+     ],
+     "uv": [
+      0.25,
+      0.25,
+      0.5,
+      0.5
+     ]
+    },
+    "needle_full_s": {
+     "px": [
+      512,
+      256,
+      256,
+      256
+     ],
+     "uv": [
+      0.5,
+      0.25,
+      0.75,
+      0.5
+     ]
+    },
+    "needle_full_w": {
+     "px": [
+      768,
+      256,
+      256,
+      256
+     ],
+     "uv": [
+      0.75,
+      0.25,
+      1.0,
+      0.5
+     ]
+    },
+    "leaf_goth_s": {
+     "px": [
+      0,
+      512,
+      256,
+      256
+     ],
+     "uv": [
+      0.0,
+      0.5,
+      0.25,
+      0.75
+     ]
+    },
+    "leaf_goth_a": {
+     "px": [
+      256,
+      512,
+      256,
+      256
+     ],
+     "uv": [
+      0.25,
+      0.5,
+      0.5,
+      0.75
+     ]
+    },
+    "leaf_full_s": {
+     "px": [
+      512,
+      512,
+      256,
+      256
+     ],
+     "uv": [
+      0.5,
+      0.5,
+      0.75,
+      0.75
+     ]
+    },
+    "leaf_full_a": {
+     "px": [
+      768,
+      512,
+      256,
+      256
+     ],
+     "uv": [
+      0.75,
+      0.5,
+      1.0,
+      0.75
+     ]
+    },
+    "weep_s": {
+     "px": [
+      0,
+      768,
+      256,
+      256
+     ],
+     "uv": [
+      0.0,
+      0.75,
+      0.25,
+      1.0
+     ]
+    },
+    "weep_a": {
+     "px": [
+      256,
+      768,
+      256,
+      256
+     ],
+     "uv": [
+      0.25,
+      0.75,
+      0.5,
+      1.0
+     ]
+    },
+    "weep_w": {
+     "px": [
+      512,
+      768,
+      256,
+      256
+     ],
+     "uv": [
+      0.5,
+      0.75,
+      0.75,
+      1.0
+     ]
+    },
+    "moss": {
+     "px": [
+      768,
+      768,
+      256,
+      256
+     ],
+     "uv": [
+      0.75,
+      0.75,
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "uv_origin": "glTF top-left",
+   "bark_sources": {
+    "bark_pine": "Poly Haven pine_bark (CC0)",
+    "bark_gothic": "Poly Haven island_tree_02 branches bark texture (CC0), darkened/desaturated",
+    "bark_dead": "Poly Haven bark_willow_02 (CC0), desaturated"
+   },
+   "foliage": "procedurally painted (src_trees_v6/atlas.py), binary-ish alpha for MASK cutoff 0.5, colour bled into transparent texels"
+  }
+ },
+ "season_cells": {
+  "summer": "needle_*_s / leaf_*_s / weep_s",
+  "autumn": "needle_*_s tinted dirty orange (mangy only) / leaf_*_a muted orange-brown, ~14% leaf cards dropped / weep_a",
+  "winter": "needle_*_w (snow-dusted) / deciduous: leaves removed, inner cards become bare twig_dead cards / weep_w bare strands; moss greyed"
+ },
+ "mix": {
+  "weights": {
+   "pine_mangy_straight": 0.12,
+   "pine_mangy_lean": 0.1,
+   "pine_mangy_droop": 0.1,
+   "pine_mangy_broken": 0.06,
+   "decid_gothic_twisted": 0.1,
+   "decid_gothic_weeping": 0.07,
+   "decid_gothic_tall": 0.09,
+   "decid_gothic_crooked": 0.08,
+   "pine_healthy": 0.15,
+   "oak_healthy": 0.13
+  },
+  "healthy_share": 0.28,
+  "rule": "pick archetype per instance with a stable hash of (x,z) weighted by mix weight within the v5 family mapping below"
+ },
+ "v5_to_v6_swap": {
+  "instance_files": [
+   "glb_v5/trees_v5_summer_near_instances.json",
+   "glb_v5/trees_v5_autumn_near_instances.json",
+   "(and _mid_ files if those also use near archetypes)"
+  ],
+  "v5_fields": "arch,lod,x,y,z,rotY,sx,sy,sz,leanX,leanZ,r,g,b ; v5 archetypes are UNIT height (sy = metres tall, sx=sz = crown width)",
+  "v6_compose": "M = T(x,y,z) * Rz(leanZ) * Rx(leanX) * Ry(rotY) * S(s,s,s) with s = clamp(sy / height_m(v6 file), 0.7, 1.35). Do NOT use sx/sz (v6 meshes carry real crown width). Keep leanX/leanZ (v6 lean archetypes already lean, so halve v5 lean for *_lean/*_droop).",
+  "tint": "ignore v5 instance r,g,b (they were tuned for the v5 unit blobs, x AOK 1.35); optional per-instance brightness jitter 0.9..1.1",
+  "season": "summer instances -> *_summer.glb, autumn -> *_autumn.glb; winter maps -> *_winter.glb",
+  "map": {
+   "conifer_a": {
+    "pine_mangy_straight": 0.45,
+    "pine_healthy": 0.4,
+    "pine_mangy_broken": 0.15
+   },
+   "conifer_b": {
+    "pine_mangy_lean": 0.55,
+    "pine_mangy_broken": 0.2,
+    "pine_healthy": 0.25
+   },
+   "conifer_c": {
+    "pine_mangy_droop": 0.75,
+    "pine_healthy": 0.25
+   },
+   "decid_a": {
+    "decid_gothic_twisted": 0.4,
+    "decid_gothic_crooked": 0.3,
+    "oak_healthy": 0.3
+   },
+   "decid_b": {
+    "decid_gothic_weeping": 0.4,
+    "decid_gothic_tall": 0.35,
+    "oak_healthy": 0.25
+   }
+  }
+ },
+ "sources": {
+  "geometry": "All 10 trees are procedural (src_trees_v6/treegen.py + archetypes.py, seeds in build.py). No third-party meshes used: the CC0 raw tree models in sanctuary_art/props/trees/raw were not decimated in (UV layout incompatible with the shared atlas; would blow the tri budget).",
+  "foliage": "Needle, leaf, weeping-strand, moss and dead-twig cards painted procedurally in src_trees_v6/atlas.py (original, no licence).",
+  "bark": {
+   "bark_pine": "Poly Haven \"pine_bark\" - CC0",
+   "bark_gothic": "Poly Haven \"island_tree_02\" branches bark texture (from sanctuary_art/props/trees/raw/island_tree_02, copied read-only) - CC0",
+   "bark_dead": "Poly Haven \"bark_willow_02\" - CC0"
+  },
+  "per_tree": {
+   "pine_*": "bark_pine (+bark_dead on dead/snag limbs)",
+   "decid_gothic_*": "bark_gothic (+bark_dead on dead tips)",
+   "oak_healthy": "bark_gothic",
+   "pine_healthy": "bark_pine"
+  },
+  "licence": "CC0 1.0 (Poly Haven) - no attribution required; credited anyway. raw/SOURCES.md not modified."
+ },
+ "previews": [
+  "clearing_arpg.png",
+  "clearing_scenic.png",
+  "hero_summer_deciduous.png",
+  "hero_summer_pines.png",
+  "lineup_summer_arpg.png",
+  "season_autumn.png",
+  "season_strip.png",
+  "season_summer.png",
+  "season_winter.png"
+ ],
+ "files": [
+  {
+   "file": "tree_v6_pine_mangy_straight_summer.glb",
+   "archetype": "pine_mangy_straight",
+   "label": "mangy pine (straight)",
+   "family": "pine",
+   "healthy": false,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 3324,
+    "LOD1": 1332,
+    "LOD2": 374
+   },
+   "bytes": 798548,
+   "height_m": 13.1,
+   "crown_radius_m": 2.84,
+   "mix_weight": 0.12,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_straight_autumn.glb",
+   "archetype": "pine_mangy_straight",
+   "label": "mangy pine (straight)",
+   "family": "pine",
+   "healthy": false,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 3324,
+    "LOD1": 1332,
+    "LOD2": 374
+   },
+   "bytes": 798548,
+   "height_m": 13.1,
+   "crown_radius_m": 2.84,
+   "mix_weight": 0.12,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_straight_winter.glb",
+   "archetype": "pine_mangy_straight",
+   "label": "mangy pine (straight)",
+   "family": "pine",
+   "healthy": false,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 3324,
+    "LOD1": 1332,
+    "LOD2": 374
+   },
+   "bytes": 798548,
+   "height_m": 13.1,
+   "crown_radius_m": 2.84,
+   "mix_weight": 0.12,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_lean_summer.glb",
+   "archetype": "pine_mangy_lean",
+   "label": "mangy pine (leaning)",
+   "family": "pine",
+   "healthy": false,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 2590,
+    "LOD1": 1032,
+    "LOD2": 246
+   },
+   "bytes": 707152,
+   "height_m": 11.17,
+   "crown_radius_m": 3.12,
+   "mix_weight": 0.1,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_lean_autumn.glb",
+   "archetype": "pine_mangy_lean",
+   "label": "mangy pine (leaning)",
+   "family": "pine",
+   "healthy": false,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 2590,
+    "LOD1": 1032,
+    "LOD2": 246
+   },
+   "bytes": 707152,
+   "height_m": 11.17,
+   "crown_radius_m": 3.12,
+   "mix_weight": 0.1,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_lean_winter.glb",
+   "archetype": "pine_mangy_lean",
+   "label": "mangy pine (leaning)",
+   "family": "pine",
+   "healthy": false,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 2590,
+    "LOD1": 1032,
+    "LOD2": 246
+   },
+   "bytes": 707152,
+   "height_m": 11.17,
+   "crown_radius_m": 3.12,
+   "mix_weight": 0.1,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_droop_summer.glb",
+   "archetype": "pine_mangy_droop",
+   "label": "drooping hemlock",
+   "family": "pine",
+   "healthy": false,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 3642,
+    "LOD1": 1420,
+    "LOD2": 458
+   },
+   "bytes": 831784,
+   "height_m": 10.73,
+   "crown_radius_m": 2.66,
+   "mix_weight": 0.1,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_droop_autumn.glb",
+   "archetype": "pine_mangy_droop",
+   "label": "drooping hemlock",
+   "family": "pine",
+   "healthy": false,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 3642,
+    "LOD1": 1420,
+    "LOD2": 458
+   },
+   "bytes": 831784,
+   "height_m": 10.73,
+   "crown_radius_m": 2.66,
+   "mix_weight": 0.1,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_droop_winter.glb",
+   "archetype": "pine_mangy_droop",
+   "label": "drooping hemlock",
+   "family": "pine",
+   "healthy": false,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 3642,
+    "LOD1": 1420,
+    "LOD2": 458
+   },
+   "bytes": 831784,
+   "height_m": 10.73,
+   "crown_radius_m": 2.66,
+   "mix_weight": 0.1,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_broken_summer.glb",
+   "archetype": "pine_mangy_broken",
+   "label": "broken-top mangy pine",
+   "family": "pine",
+   "healthy": false,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 2284,
+    "LOD1": 900,
+    "LOD2": 252
+   },
+   "bytes": 674672,
+   "height_m": 12.0,
+   "crown_radius_m": 2.52,
+   "mix_weight": 0.06,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_broken_autumn.glb",
+   "archetype": "pine_mangy_broken",
+   "label": "broken-top mangy pine",
+   "family": "pine",
+   "healthy": false,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 2284,
+    "LOD1": 900,
+    "LOD2": 252
+   },
+   "bytes": 674672,
+   "height_m": 12.0,
+   "crown_radius_m": 2.52,
+   "mix_weight": 0.06,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_mangy_broken_winter.glb",
+   "archetype": "pine_mangy_broken",
+   "label": "broken-top mangy pine",
+   "family": "pine",
+   "healthy": false,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 2284,
+    "LOD1": 900,
+    "LOD2": 252
+   },
+   "bytes": 674672,
+   "height_m": 12.0,
+   "crown_radius_m": 2.52,
+   "mix_weight": 0.06,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_twisted_summer.glb",
+   "archetype": "decid_gothic_twisted",
+   "label": "gothic twisted",
+   "family": "decid",
+   "healthy": false,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 3746,
+    "LOD1": 1158,
+    "LOD2": 332
+   },
+   "bytes": 804000,
+   "height_m": 10.15,
+   "crown_radius_m": 4.74,
+   "mix_weight": 0.1,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_twisted_autumn.glb",
+   "archetype": "decid_gothic_twisted",
+   "label": "gothic twisted",
+   "family": "decid",
+   "healthy": false,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 3642,
+    "LOD1": 1158,
+    "LOD2": 332
+   },
+   "bytes": 795264,
+   "height_m": 10.15,
+   "crown_radius_m": 4.72,
+   "mix_weight": 0.1,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_twisted_winter.glb",
+   "archetype": "decid_gothic_twisted",
+   "label": "gothic twisted",
+   "family": "decid",
+   "healthy": false,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 3242,
+    "LOD1": 1140,
+    "LOD2": 332
+   },
+   "bytes": 759684,
+   "height_m": 9.78,
+   "crown_radius_m": 4.49,
+   "mix_weight": 0.1,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_weeping_summer.glb",
+   "archetype": "decid_gothic_weeping",
+   "label": "gothic weeping",
+   "family": "decid",
+   "healthy": false,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 4044,
+    "LOD1": 1276,
+    "LOD2": 334
+   },
+   "bytes": 826836,
+   "height_m": 8.26,
+   "crown_radius_m": 4.21,
+   "mix_weight": 0.07,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_weeping_autumn.glb",
+   "archetype": "decid_gothic_weeping",
+   "label": "gothic weeping",
+   "family": "decid",
+   "healthy": false,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 3964,
+    "LOD1": 1276,
+    "LOD2": 334
+   },
+   "bytes": 820116,
+   "height_m": 8.26,
+   "crown_radius_m": 4.18,
+   "mix_weight": 0.07,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_weeping_winter.glb",
+   "archetype": "decid_gothic_weeping",
+   "label": "gothic weeping",
+   "family": "decid",
+   "healthy": false,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 3748,
+    "LOD1": 1260,
+    "LOD2": 334
+   },
+   "bytes": 800216,
+   "height_m": 7.87,
+   "crown_radius_m": 3.98,
+   "mix_weight": 0.07,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_tall_summer.glb",
+   "archetype": "decid_gothic_tall",
+   "label": "gothic tall",
+   "family": "decid",
+   "healthy": false,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 3678,
+    "LOD1": 1202,
+    "LOD2": 366
+   },
+   "bytes": 801596,
+   "height_m": 14.73,
+   "crown_radius_m": 4.79,
+   "mix_weight": 0.09,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_tall_autumn.glb",
+   "archetype": "decid_gothic_tall",
+   "label": "gothic tall",
+   "family": "decid",
+   "healthy": false,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 3594,
+    "LOD1": 1202,
+    "LOD2": 366
+   },
+   "bytes": 794540,
+   "height_m": 14.73,
+   "crown_radius_m": 4.78,
+   "mix_weight": 0.09,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_tall_winter.glb",
+   "archetype": "decid_gothic_tall",
+   "label": "gothic tall",
+   "family": "decid",
+   "healthy": false,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 3246,
+    "LOD1": 1166,
+    "LOD2": 366
+   },
+   "bytes": 761348,
+   "height_m": 14.73,
+   "crown_radius_m": 4.44,
+   "mix_weight": 0.09,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_crooked_summer.glb",
+   "archetype": "decid_gothic_crooked",
+   "label": "gothic crooked",
+   "family": "decid",
+   "healthy": false,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 3672,
+    "LOD1": 1218,
+    "LOD2": 332
+   },
+   "bytes": 781916,
+   "height_m": 7.44,
+   "crown_radius_m": 5.31,
+   "mix_weight": 0.08,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_crooked_autumn.glb",
+   "archetype": "decid_gothic_crooked",
+   "label": "gothic crooked",
+   "family": "decid",
+   "healthy": false,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 3636,
+    "LOD1": 1218,
+    "LOD2": 332
+   },
+   "bytes": 778892,
+   "height_m": 7.44,
+   "crown_radius_m": 5.31,
+   "mix_weight": 0.08,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_decid_gothic_crooked_winter.glb",
+   "archetype": "decid_gothic_crooked",
+   "label": "gothic crooked",
+   "family": "decid",
+   "healthy": false,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 3528,
+    "LOD1": 1208,
+    "LOD2": 332
+   },
+   "bytes": 768720,
+   "height_m": 6.37,
+   "crown_radius_m": 5.28,
+   "mix_weight": 0.08,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_healthy_summer.glb",
+   "archetype": "pine_healthy",
+   "label": "healthy pine",
+   "family": "pine",
+   "healthy": true,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 5940,
+    "LOD1": 2410,
+    "LOD2": 622
+   },
+   "bytes": 1133276,
+   "height_m": 14.29,
+   "crown_radius_m": 3.59,
+   "mix_weight": 0.15,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_healthy_autumn.glb",
+   "archetype": "pine_healthy",
+   "label": "healthy pine",
+   "family": "pine",
+   "healthy": true,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 5940,
+    "LOD1": 2410,
+    "LOD2": 622
+   },
+   "bytes": 1133276,
+   "height_m": 14.29,
+   "crown_radius_m": 3.59,
+   "mix_weight": 0.15,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_pine_healthy_winter.glb",
+   "archetype": "pine_healthy",
+   "label": "healthy pine",
+   "family": "pine",
+   "healthy": true,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 5940,
+    "LOD1": 2410,
+    "LOD2": 622
+   },
+   "bytes": 1133276,
+   "height_m": 14.29,
+   "crown_radius_m": 3.59,
+   "mix_weight": 0.15,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_oak_healthy_summer.glb",
+   "archetype": "oak_healthy",
+   "label": "healthy oak",
+   "family": "decid",
+   "healthy": true,
+   "season": "summer",
+   "lod_tris": {
+    "LOD0": 5784,
+    "LOD1": 1672,
+    "LOD2": 462
+   },
+   "bytes": 1022464,
+   "height_m": 10.69,
+   "crown_radius_m": 5.9,
+   "mix_weight": 0.13,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_oak_healthy_autumn.glb",
+   "archetype": "oak_healthy",
+   "label": "healthy oak",
+   "family": "decid",
+   "healthy": true,
+   "season": "autumn",
+   "lod_tris": {
+    "LOD0": 5484,
+    "LOD1": 1672,
+    "LOD2": 462
+   },
+   "bytes": 997260,
+   "height_m": 9.43,
+   "crown_radius_m": 5.9,
+   "mix_weight": 0.13,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  },
+  {
+   "file": "tree_v6_oak_healthy_winter.glb",
+   "archetype": "oak_healthy",
+   "label": "healthy oak",
+   "family": "decid",
+   "healthy": true,
+   "season": "winter",
+   "lod_tris": {
+    "LOD0": 4276,
+    "LOD1": 1622,
+    "LOD2": 462
+   },
+   "bytes": 890284,
+   "height_m": 9.43,
+   "crown_radius_m": 5.85,
+   "mix_weight": 0.13,
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 3
+   },
+   "source": "procedural (src_trees_v6) + atlas; see sources"
+  }
+ ],
+ "status": {
+  "approved_by_brian": "2026-11-01 15:47 EST",
+  "sent_to_engineer": false,
+  "note": "Hold: Brian will tell the engineer himself"
+ }
+}
