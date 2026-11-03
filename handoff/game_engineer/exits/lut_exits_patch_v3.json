@@ -2,7 +2,7 @@
  "patch_id": "exits_v3_lut",
  "target_world": "lut",
  "name": "Qadren",
- "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x + exits_final) on the generated lut world, after the scene is built and before it is cached. Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final. Idempotent (world.exitsPatch marker).",
+ "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x, exits_final, points_move) on the generated lut world, after the scene is built and before it is cached. Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final, then points_move (final mirrored frame). Idempotent (world.exitsPatch marker).",
  "schema": "live generated world object (sc(zone) in the routes bundle): w,h, tiles[] (row-major, i=y*w+x, enum Grass0 Grass2 1 Dirt2 Sand3 Sand2 4 Stone5 Road6 Plaza7 Water8 Bridge9 Plank10 Wall11 Cave12 Rug13 Blood14), solid[] (0/1), exits[{x,y,to,sx,sy}], props[{kind,x,y,style?,w?,...}]. tiles_set/solid_set rows = [x,y,old,new]: apply only if the current value == old (else warn and skip).",
  "match_rule": "exits by \"to\"",
  "exits_set": [

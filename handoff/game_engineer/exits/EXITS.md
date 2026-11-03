@@ -6,6 +6,56 @@ Every outdoor zone exit was reviewed. Five zones get a real move (Martsirt, coas
 arrival point (sx/sy) changed. The rest stay where they are, for the reasons below. **Nothing here is applied:** the live world
 JSONs, placements, colliders, asset_version, ASSET_MAP and GLB_LIST are untouched. Every file is new. The v1 files from 8b3c52f are kept as they are.
 
+## exits_v3.1: recursive mirror + blocked spawns/nests moved (engineer feedback on eba3362)
+
+> Brian: "Mirror always mirror new layouts its fine"
+
+Same filenames. Nothing live is touched.
+
+**`apply_exits_patch.js`**
+- `mirror_x` now recurses through every world field, not just the top-level points:
+  - every `{x,y}` anywhere (spawns, nests, critters, lights, npcs, props, spawn, and nested `route` / `path` / `waypoints` / `patrol` / `points`): x → w − x; also `homeX`, `gx`, `tx`, `x0`, `x1`;
+  - `[x,y]` pairs and lists of pairs under `route`, `path`, `waypoints`, `patrol`, `points`, `pos`, `at`, `home`, `target`, `goal`: x → w − x;
+  - shared objects are flipped once;
+  - tile/solid rows are reversed; exits flip `x` only (`sx`/`sy` come from `exits_final`).
+- Facing is flipped:
+  - critters use `facing` as the angle of `(cos f, sin f)` in tile x/y, so the mirror is `facing → π − f`, normalised to [0, 2π); `heading` is treated the same;
+  - `vx → −vx`;
+  - `rotY → −rotY` (three.js yaw: tile x maps to X and tile y to Z);
+  - `face-e ↔ face-w`.
+- New `points_move` op. It runs last, in the final mirrored frame. Each row is `{list, kind?, route_i?, old, new, why}` and matches within 0.05. A row with no match warns and is skipped. A patrol spawn and its `route[0]` move together.
+- **Backward-compatible:**
+  - all v1/v2 `*_exits_patch.json` give byte-identical output with the old and new applier (coast, mires, sink, wild, briarE, lut, desert; checked on the full world dump);
+  - `test_apply.js` passes (ALL OK);
+  - the Martsirt patch is applied by hand and does not use this file.
+
+**Blocked points moved** (`points_move`, final frame). All of these predate v3: they are blocked on the live world too.
+
+| zone | point | live (unmirrored) old | v3 old (mirrored) | → new | why |
+|---|---|---|---|---|---|
+| duneW | spawn imp | (25.54, 10.56) | (2.46, 10.56) | (5.5, 10.5) | solid stone; road tile next to cover, 3.0 tiles |
+| duneW | spawn imp | (3.94, 4.08) | (24.06, 4.08) | (19.5, 5.5) | solid stone; off road, 4.8 tiles |
+| duneW | nest | (25.34, 13.48) | (2.66, 13.48) | (8.5, 12.5) | open but **unreachable** pocket (extra); sand next to cover, 5.9 tiles |
+| desert | spawn ghost | (9.84, 4.11) | (26.16, 4.11) | (27.5, 3.5) | solid stone; off road, 1.5 tiles |
+| desert | nest | (31.65, 22.83) | (4.35, 22.83) | (5.5, 21.5) | solid stone; off road next to cover, 1.8 tiles |
+| desert | nest | (9.77, 26.06) | (26.23, 26.06) | (25.5, 25.5) | solid stone; off road next to cover, 0.9 tiles |
+| wild | bear patrol route[3] | (50.4, 48.4) | same (wild is not mirrored) | (51.5, 48.5) | solid (extra); both legs walkable |
+| wild | snake patrol route[2] | (46.2, 24.2) | same | (46.5, 23.5) | solid (extra); both legs walkable |
+| wild | nest | (64.89, 2.61) | same | (64.5, 3.5) | solid (extra); next to cover |
+
+New spots are tile centres reachable from the player spawn, at least 4 tiles from exits/arrivals and 2 from other spawns/nests where possible. Nests prefer off-road spots next to cover. briarE and lut were already clean.
+
+The desert "Dune patrol" (the brute) route is now mirrored: (12.2,20.2) (20.4,21.4) (18.6,8.4) (9.4,8.2) → (23.8,20.2) (15.6,21.4) (17.4,8.4) (26.6,8.2).
+
+**`test_v3.js`**: `node test_v3.js [world dump]`. It defaults to `tools/world_rich.json`, the full dump from `tools/dump_rich.mjs`. Added checks:
+- every nested point (spawns, route points, nests, critters, lights, npcs) is mirrored against v2, and facing is π − f;
+- a synthetic world covering `route`/`path` `[x,y]`/`waypoints`/shared refs/`patrol.points`/npc `pos`/`home`/`target`/`rotY`/`facing`;
+- every spawn, nest, route point and critter in wild/briarE/duneW/desert/lut is on an open tile reachable from the player spawn;
+- every patrol leg is walkable (sampled every 0.25 tiles);
+- every `points_move` row matched, and no nest sits on the road.
+
+**Regenerate:** `tools/build_v3.py`, then `tools/add_moves_v3.py` (which uses `pick_moves_v3.py`).
+
 ## exits_v3 fix: briarE is WEST of wild, no chart override (engineer feedback on 5e55a62)
 
 **What was wrong in v2.** v2 moved wild's briarE exit to wild's W edge but left briarE untouched. Its return exit was still on briarE's

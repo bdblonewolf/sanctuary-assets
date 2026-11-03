@@ -1,17 +1,20 @@
-// exits_v3 checks: apply v2/v3 patches to the live generated worlds (world_full.json), verify the mirror, edges,
-// arrivals and idempotency, and simulate the in-game chart (port of Od/wd/Td/Ed from the routes bundle) with NO override.
+// exits_v3 checks: apply v2/v3 patches to the live generated worlds (world_rich.json), verify the mirror (tiles, props and every
+// nested point: spawns, patrol routes, nests, critters + facing, lights, npcs), that every spawn/nest/route point/critter is on an
+// open tile reachable from the player spawn, patrol legs, points_move, edges, arrivals and idempotency, and simulate the in-game chart (port of Od/wd/Td/Ed from the routes bundle) with NO override.
 const fs = require('fs'), path = require('path');
 const D = __dirname, P = f => fs.existsSync(path.join(D, 'out_v3', f)) ? path.join(D, 'out_v3', f) : fs.existsSync(path.join(D, 'out', f)) ? path.join(D, 'out', f) : path.join(D, f);
 const { applyExitsPatch } = require(fs.existsSync(path.join(D, 'out/apply_exits_patch.js')) ? path.join(D, 'out/apply_exits_patch.js') : path.join(D, 'apply_exits_patch.js'));
-const WF = process.argv[2] || path.join(D, 'world_full.json');
+// world dump: argv[2], else world_rich.json (full generated worlds incl. spawns/nests/critters/routes, from dump_rich.mjs), else world_full.json
+const WF = process.argv[2] || [path.join(D, 'world_rich.json'), path.join(D, 'tools', 'world_rich.json'), path.join(D, 'world_full.json')].find(f => fs.existsSync(f));
 const W0 = JSON.parse(fs.readFileSync(WF)).worlds;
 const clone = o => JSON.parse(JSON.stringify(o));
 const V2 = ['coast', 'wild', 'desert', 'mires', 'briarE', 'lut', 'sink'];
 const V3 = ['wild', 'briarE', 'duneW', 'desert', 'lut'];
-function build(set) {
+const warns = []; { const cw = console.warn; console.warn = (...a) => { warns.push(a.join(' ')); }; }
+function build(set, opt = {}) {
   const W = clone(W0);
   for (const z of V2) if (set !== 'live') applyExitsPatch(W[z], JSON.parse(fs.readFileSync(P(`${z}_exits_patch.json`))));
-  if (set === 'v3') for (const z of V3) { const w = clone(W0[z]), p = JSON.parse(fs.readFileSync(P(`${z}_exits_patch_v3.json`))); applyExitsPatch(w, p); applyExitsPatch(w, p); W[z] = w; }
+  if (set === 'v3') for (const z of V3) { const w = clone(W0[z]), p = JSON.parse(fs.readFileSync(P(`${z}_exits_patch_v3.json`))); if (opt.noMoves) delete p.points_move; applyExitsPatch(w, p); applyExitsPatch(w, p); W[z] = w; }
   return W;
 }
 // ---- chart sim (same rules as the bundle: nearest edge of the forward exit; fallback to opposite of the return exit)
@@ -75,5 +78,52 @@ for (const s of ['live', 'v2', 'v3']) {
   console.log(`chart[${s}] relative to wild:`, west.map(rel).join(' '), '| links:', log.filter(l => west.includes(l.from) && west.includes(l.to)).map(l => `${l.from}-${l.dir}->${l.to}${l.consistent ? '' : '(return ' + l.back + ' MISMATCH)'}${l.bumped ? '(BUMPED)' : ''}`).join(' '));
   if (s === 'v3' && log.some(l => west.includes(l.to) && (!l.consistent || l.bumped))) bad('v3 chart');
 }
+
+// ---- nested mirror: every point inside spawns / routes / nests / critters / lights / npcs (v3 without points_move vs v2)
+const HAS_RICH = ['briarE', 'duneW', 'desert'].some(z => Array.isArray(W0[z].spawns));
+const W3n = build('v3', { noMoves: true });
+const TAU = Math.PI * 2, angEq = (a, b) => Math.abs(Math.atan2(Math.sin(a - b), Math.cos(a - b))) < 1e-3;
+if (!HAS_RICH) console.log('(world dump has no spawns/nests/critters: nested-point and placement checks skipped; pass world_rich.json)');
+for (const z of HAS_RICH ? ['briarE', 'duneW', 'desert'] : []) {
+  const a = W2[z], b = W3n[z], w = a.w; let n = 0, rp = 0, fc = 0;
+  const same = (p, q, what) => { n++; if (Math.abs(q.x - (w - p.x)) > 1e-3 || Math.abs(q.y - p.y) > 1e-9) bad(`${z} ${what} not mirrored (${p.x},${p.y}) -> (${q.x},${q.y})`); };
+  for (const k of ['spawns', 'nests', 'critters', 'lights', 'npcs']) (a[k] || []).forEach((p, i) => {
+    const q = b[k][i]; same(p, q, `${k}[${i}]`);
+    if (typeof p.facing === 'number') { fc++; if (!angEq(q.facing, Math.PI - p.facing) || Math.abs(Math.cos(q.facing) + Math.cos(p.facing)) > 1e-3 || Math.abs(Math.sin(q.facing) - Math.sin(p.facing)) > 1e-3) bad(`${z} ${k}[${i}] facing ${p.facing} -> ${q.facing}`); }
+    if (typeof p.vx === 'number' && q.vx !== -p.vx && !(p.vx === 0 && q.vx === 0)) bad(`${z} ${k}[${i}] vx`);
+    (p.route || []).forEach((r, j) => { rp++; same(r, q.route[j], `${k}[${i}].route[${j}]`); });
+  });
+  console.log(`${z}: nested mirror ok for ${n} points (${rp} route points, ${fc} facings flipped PI - a)`);
+}
+// synthetic: the shapes the engineer listed (route/path/waypoints/patrol/points, {x,y} and [x,y], nested, shared refs)
+{ const { mirrorX } = require(fs.existsSync(path.join(D, 'out/apply_exits_patch.js')) ? path.join(D, 'out/apply_exits_patch.js') : path.join(D, 'apply_exits_patch.js'));
+  const sh = { x: 3, y: 1 }, sw = { w: 10, h: 2, tiles: Array(20).fill(0).map((_, i) => i), solid: Array(20).fill(0), exits: [{ x: 9.4, y: 1, to: 'q', sx: 5, sy: 5 }],
+    spawns: [{ x: 2, y: 1, kind: 'snake', route: [{ x: 2, y: 1 }, { x: 4, y: 1 }], path: [[1, 1], [2, 0.5]], facing: 0, rotY: 0.5 }],
+    nests: [{ x: 1, y: 1, waypoints: [sh, sh], patrol: { points: [[7, 1]] } }], npcs: [{ x: 5, y: 1, homeX: 6, homeY: 1, pos: [8, 1], meta: { target: { x: 9, y: 0 } } }],
+    lights: [{ x: 1, y: 1, r: 3 }], spawn: { x: 0.5, y: 1 } };
+  mirrorX(sw, { expect_w: 10, expect_h: 2 });
+  const S = sw.spawns[0], exp = [[S.x, 8], [S.route[0].x, 8], [S.route[1].x, 6], [S.path[0][0], 9], [S.path[1][0], 8], [sw.nests[0].x, 9], [sh.x, 7],
+    [sw.nests[0].patrol.points[0][0], 3], [sw.npcs[0].x, 5], [sw.npcs[0].homeX, 4], [sw.npcs[0].pos[0], 2], [sw.npcs[0].meta.target.x, 1], [sw.lights[0].x, 9],
+    [sw.spawn.x, 9.5], [sw.exits[0].x, 0.6], [sw.exits[0].sx, 5], [sw.tiles[0], 9], [sw.lights[0].r, 3], [S.rotY, -0.5]];
+  const badS = exp.filter(([g, e]) => Math.abs(g - e) > 1e-9);
+  if (!angEq(S.facing, Math.PI)) badS.push(['facing', S.facing]);
+  console.log(`synthetic nested mirror (route, path [x,y], waypoints, shared ref, patrol.points, npc pos/home/target, lights, rotY, facing): ${badS.length ? 'FAIL ' + JSON.stringify(badS) : 'ok'}`);
+  if (badS.length) bad('synthetic mirror'); }
+// ---- placement: every spawn, nest, route point and critter on an open tile reachable from the player spawn; patrol legs walkable
+for (const z of HAS_RICH ? ['wild', 'briarE', 'duneW', 'desert', 'lut'] : []) {
+  const w = W3[z], R = reach(w, w.spawn.x, w.spawn.y), cell = p => Math.floor(p.y) * w.w + Math.floor(p.x); let n = 0, legs = 0; const fails = [];
+  const chk = (p, what) => { n++; const i = cell(p); if (w.solid[i] || !R[i]) fails.push(`${what} (${p.x},${p.y}) ${w.solid[i] ? 'solid' : 'unreachable'}`); };
+  (w.spawns || []).forEach((s, i) => { chk(s, `spawns[${i}] ${s.kind}`); const r = s.route || [];
+    r.forEach((p, j) => { chk(p, `spawns[${i}].route[${j}]`); const q = r[(j + 1) % r.length]; if (r.length < 2) return; legs++;
+      const L = Math.hypot(q.x - p.x, q.y - p.y); for (let t = 0; t <= L; t += 0.25) { const x = p.x + (q.x - p.x) * t / L, y = p.y + (q.y - p.y) * t / L; if (w.solid[Math.floor(y) * w.w + Math.floor(x)]) { fails.push(`spawns[${i}] patrol leg ${j}->${(j + 1) % r.length} crosses a solid tile at (${x.toFixed(1)},${y.toFixed(1)})`); break; } } }); });
+  (w.nests || []).forEach((p, i) => chk(p, `nests[${i}]`)); (w.critters || []).forEach((p, i) => chk(p, `critters[${i}] ${p.kind}`));
+  fails.forEach(f => bad(`${z} ${f}`)); console.log(`${z}: ${n} spawn/nest/route/critter points on open reachable tiles, ${legs} patrol legs walkable: ${fails.length ? 'FAIL' : 'ok'}`);
+}
+// points_move rows all matched, and nests were not dropped on the road
+{ const nm = warns.filter(x => /no point/.test(x)); if (nm.length) bad('points_move unmatched: ' + nm.join('; '));
+  for (const z of ['wild', 'duneW', 'desert']) { const p = JSON.parse(fs.readFileSync(P(`${z}_exits_patch_v3.json`)));
+    for (const m of p.points_move || []) { const t = W3[z].tiles[Math.floor(m.new.y) * W3[z].w + Math.floor(m.new.x)];
+      console.log(`${z} points_move ${m.list}${m.kind ? ' ' + m.kind : ''} (${m.old.x},${m.old.y}) -> (${m.new.x},${m.new.y}) tile ${t}`);
+      if (m.list === 'nests' && t === 6) bad(`${z} nest moved onto the road`); } } }
 console.log(ok ? 'ALL OK' : 'FAILURES');
 process.exitCode = ok ? 0 : 1;

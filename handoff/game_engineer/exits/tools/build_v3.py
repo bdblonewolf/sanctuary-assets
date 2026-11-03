@@ -40,10 +40,10 @@ for z in ['briarE', 'duneW', 'desert', 'wild', 'lut']:
     base = v2(z) or dict(patch_id=None, target_world=z, name=W[z]['name'], schema=v2('briarE')['schema'], tiles_set=[], solid_set=[], props_move=[], props_add=[], exits_set=[])
     p = copy.deepcopy(base)
     p['patch_id'] = 'exits_v3_' + z; p['replaces'] = base['patch_id'] or 'none (no v2 patch for this zone)'
-    p['apply'] = ('applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x + exits_final) on the generated %s world, after the scene is built and before it is cached. '
-                  'Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final. Idempotent (world.exitsPatch marker).' % z)
+    p['apply'] = ('applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x, exits_final, points_move) on the generated %s world, after the scene is built and before it is cached. '
+                  'Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final, then points_move (final mirrored frame). Idempotent (world.exitsPatch marker).' % z)
     if z in MIR:
-        p['mirror_x'] = dict(expect_w=W[z]['w'], expect_h=W[z]['h'], rule='x -> w - x for every point (props, npcs, spawn, lights, nests, exits ...); tile rows reversed; face-e <-> face-w; rotY -> -rotY')
+        p['mirror_x'] = dict(expect_w=W[z]['w'], expect_h=W[z]['h'], rule='tile rows reversed; recursive: every {x,y} anywhere in the world (props, npcs, critters, spawn, spawns, nests, lights, and nested route/path/waypoints/patrol/points) x -> w - x (homeX, gx, tx too), vx -> -vx, facing/heading -> PI - a, rotY -> -rotY, face-e <-> face-w; [x,y] pairs in route/path/waypoints/patrol/points/pos/at/home/target/goal x -> w - x; exits x only')
         if z == 'briarE':  # v2 exits_set for briarE only changed the wild arrival, now carried by exits_final
             p['exits_set'] = []
     p['exits_final'] = FINAL[z]

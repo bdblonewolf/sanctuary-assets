@@ -2,7 +2,7 @@
  "patch_id": "exits_v3_wild",
  "target_world": "wild",
  "name": "Briarwood",
- "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x + exits_final) on the generated wild world, after the scene is built and before it is cached. Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final. Idempotent (world.exitsPatch marker).",
+ "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x, exits_final, points_move) on the generated wild world, after the scene is built and before it is cached. Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final, then points_move (final mirrored frame). Idempotent (world.exitsPatch marker).",
  "schema": "live generated world object (sc(zone) in the routes bundle): w,h, tiles[] (row-major, i=y*w+x, enum Grass0 Grass2 1 Dirt2 Sand3 Sand2 4 Stone5 Road6 Plaza7 Water8 Bridge9 Plank10 Wall11 Cave12 Rug13 Blood14), solid[] (0/1), exits[{x,y,to,sx,sy}], props[{kind,x,y,style?,w?,...}]. tiles_set/solid_set rows = [x,y,old,new]: apply only if the current value == old (else warn and skip).",
  "match_rule": "exits by \"to\"; props by {kind,x,y[,style]} with |dx|,|dy|<0.01; tiles/solid by [x,y] with old-value check",
  "exits_set": [
@@ -1907,5 +1907,45 @@
   "exits": {
    "briarE": "W"
   }
- }
+ },
+ "points_move": [
+  {
+   "list": "nests",
+   "old": {
+    "x": 64.8872,
+    "y": 2.6093
+   },
+   "new": {
+    "x": 64.5,
+    "y": 3.5
+   },
+   "why": "nest was on a SOLID tile 0 (predates v3; also blocked on the live world); nearest open tile reachable from the player spawn, off the road, 1.0 tiles away, tile 0, next to cover"
+  },
+  {
+   "list": "spawns",
+   "route_i": 3,
+   "old": {
+    "x": 50.4,
+    "y": 48.4
+   },
+   "new": {
+    "x": 51.5,
+    "y": 48.5
+   },
+   "why": "bear patrol route point 3 was on a SOLID tile 0 (predates v3; also blocked on the live world); nearest open tile reachable from the player spawn with walkable legs to its neighbours, 1.1 tiles away"
+  },
+  {
+   "list": "spawns",
+   "route_i": 2,
+   "old": {
+    "x": 46.2,
+    "y": 24.2
+   },
+   "new": {
+    "x": 46.5,
+    "y": 23.5
+   },
+   "why": "snake patrol route point 2 was on a SOLID tile 0 (predates v3; also blocked on the live world); nearest open tile reachable from the player spawn with walkable legs to its neighbours, 0.8 tiles away"
+  }
+ ]
 }
