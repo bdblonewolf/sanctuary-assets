@@ -41,3 +41,23 @@ There is no howl clip. The source pack doesn't include one, and the rig has no j
   - New realistic corrupted texturing, procedurally baked.
   - Units flattened to metres.
 - `preview_wolf.png` shows the 3/4 view of each coat plus keyframes from walk, attack, attack2 and death.
+
+
+## Master vs mobile copy (2026-11-03)
+Each GLB at its usual path is now the **mobile copy**, with the same filename, clip names and frame counts at 30 fps. Use it in the live and mobile game.
+The **master** is the uncompressed full-rate original, now kept in `masters/` with the same name. Keep it for an HTML or PC build, and for re-authoring.
+
+| file (mobile) | master | MB | keyframes | max joint drift (mm) |
+|---|---|---|---|---|
+| `wolf_white.glb` | `masters/wolf_white.glb` | 3.07 → 2.87 | 11,093 → 6,521 | 1.53 |
+| `wolf_grey.glb` | `masters/wolf_grey.glb` | 2.98 → 2.78 | 11,093 → 6,521 | 1.53 |
+| `wolf_black.glb` | `masters/wolf_black.glb` | 2.91 → 2.71 | 11,093 → 6,521 | 1.53 |
+
+Pipeline (`/workspace/sanctuary_art/tools/mobile_compress.sh`):
+1. resample at tolerance 1e-4
+2. prune, keeping all nodes and skins
+3. dedup
+4. drop scale tracks that never change
+5. drop translation tracks, except on mixamorig:Hips, the root bones, animated pieces and the empties (mouth, javelin)
+
+**No meshopt or Draco** is used, so the loader needs no decoder. The release and impact frames listed above are unchanged: they were checked frame by frame against the master.

@@ -28,3 +28,21 @@ The file now has 9 clips at 30 fps: death_old 70, hit 22, attack 46, run 22, idl
 - An empty node named `mouth` sits under mixamorig:Head. Attach the spew particle emitter there during the spew frames.
 - Sounds: start demon_death_spew_01..03.ogg (thuds at 1.133/1.143/1.030 s) at about frame 36-34=2 for death and 38-34=4 for death2. That is the impact frame minus round(thud×30).
 - Previews (Cycles): previews_v2/death_side.png, death2_side.png, death_end_top.png
+
+
+## Master vs mobile copy (2026-11-03)
+Each GLB at its usual path is now the **mobile copy**, with the same filename, clip names and frame counts at 30 fps. Use it in the live and mobile game.
+The **master** is the uncompressed full-rate original, now kept in `masters/` with the same name. Keep it for an HTML or PC build, and for re-authoring.
+
+| file (mobile) | master | MB | keyframes | max joint drift (mm) |
+|---|---|---|---|---|
+| `red_demon_spawnling_anim_v2.glb` | `masters/red_demon_spawnling_anim_v2.glb` | 5.29 → 4.30 | 71,448 → 12,989 | 0.43 |
+
+Pipeline (`/workspace/sanctuary_art/tools/mobile_compress.sh`):
+1. resample at tolerance 1e-4
+2. prune, keeping all nodes and skins
+3. dedup
+4. drop scale tracks that never change
+5. drop translation tracks, except on mixamorig:Hips, the root bones, animated pieces and the empties (mouth, javelin)
+
+**No meshopt or Draco** is used, so the loader needs no decoder. The release and impact frames listed above are unchanged: they were checked frame by frame against the master.

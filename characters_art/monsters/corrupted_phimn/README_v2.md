@@ -16,3 +16,21 @@ Source / licence
 - This is derived from the monster's **own live `attack_claw`** clip: source frames 0–15, then an X-mirrored copy of 7–15 (the left-hand swipe), then 7–15 again, then 16–end.
   These are joined with 3-frame crossfades, with a Spine2 twist and hip-lunge layer added by script. No outside animation was used, so this is original project work.
 - Searched first: there is no unarmed claw-flurry clip in the Mixamo library on the box, and the Quaternius CC0 monster packs use different rigs.
+
+
+## Master vs mobile copy (2026-11-03)
+Each GLB at its usual path is now the **mobile copy**, with the same filename, clip names and frame counts at 30 fps. Use it in the live and mobile game.
+The **master** is the uncompressed full-rate original, now kept in `masters/` with the same name. Keep it for an HTML or PC build, and for re-authoring.
+
+| file (mobile) | master | MB | keyframes | max joint drift (mm) |
+|---|---|---|---|---|
+| `corrupted_phimn_feral_lod15k_v2.glb` | `masters/corrupted_phimn_feral_lod15k_v2.glb` | 1.89 → 1.59 | 12,232 → 4,821 | 0.62 |
+
+Pipeline (`/workspace/sanctuary_art/tools/mobile_compress.sh`):
+1. resample at tolerance 1e-4
+2. prune, keeping all nodes and skins
+3. dedup
+4. drop scale tracks that never change
+5. drop translation tracks, except on mixamorig:Hips, the root bones, animated pieces and the empties (mouth, javelin)
+
+**No meshopt or Draco** is used, so the loader needs no decoder. The release and impact frames listed above are unchanged: they were checked frame by frame against the master.

@@ -26,3 +26,21 @@
 - No suitable free crawl animation was found:
   - KayKit "Crawling" is a humanoid on a different rig and posture.
   - Quaternius' CC0 monster and animal packs have no crawler.
+
+
+## Master vs mobile copy (2026-11-03)
+Each GLB at its usual path is now the **mobile copy**, with the same filename, clip names and frame counts at 30 fps. Use it in the live and mobile game.
+The **master** is the uncompressed full-rate original, now kept in `masters/` with the same name. Keep it for an HTML or PC build, and for re-authoring.
+
+| file (mobile) | master | MB | keyframes | max joint drift (mm) |
+|---|---|---|---|---|
+| `crawler_anim.glb` | `masters/crawler_anim.glb` | 4.80 → 4.53 | 22,125 → 5,256 | 0.64 |
+
+Pipeline (`/workspace/sanctuary_art/tools/mobile_compress.sh`):
+1. resample at tolerance 1e-4
+2. prune, keeping all nodes and skins
+3. dedup
+4. drop scale tracks that never change
+5. drop translation tracks, except on mixamorig:Hips, the root bones, animated pieces and the empties (mouth, javelin)
+
+**No meshopt or Draco** is used, so the loader needs no decoder. The release and impact frames listed above are unchanged: they were checked frame by frame against the master.

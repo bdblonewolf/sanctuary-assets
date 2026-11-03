@@ -25,3 +25,22 @@ The only change is a new `death`. The old death rolled the bear onto its back wi
 
 Previews (Cycles): previews_v2/death_v2_side.png (f0-72), previews_v2/death_v2_topdown_game.png (58° elevation, 13 m), previews_v2/death_old_eevee.png (the old death, for comparison).
 Built with tools_v2/bear_anim_v2.py (rigwork bear_anim.py plus clip_death_sprawl). Original work.
+
+
+## Master vs mobile copy (2026-11-03)
+Each GLB at its usual path is now the **mobile copy**, with the same filename, clip names and frame counts at 30 fps. Use it in the live and mobile game.
+The **master** is the uncompressed full-rate original, now kept in `masters/` with the same name. Keep it for an HTML or PC build, and for re-authoring.
+
+| file (mobile) | master | MB | keyframes | max joint drift (mm) |
+|---|---|---|---|---|
+| `grove_mauler_bear_anim.glb` | `masters/grove_mauler_bear_anim.glb` | 4.04 → 3.67 | 29,145 → 5,997 | 1.78 |
+| `grove_mauler_bear_anim_v2.glb` | `masters/grove_mauler_bear_anim_v2.glb` | 4.14 → 3.70 | 35,496 → 7,084 | 1.78 |
+
+Pipeline (`/workspace/sanctuary_art/tools/mobile_compress.sh`):
+1. resample at tolerance 1e-4
+2. prune, keeping all nodes and skins
+3. dedup
+4. drop scale tracks that never change
+5. drop translation tracks, except on mixamorig:Hips, the root bones, animated pieces and the empties (mouth, javelin)
+
+**No meshopt or Draco** is used, so the loader needs no decoder. The release and impact frames listed above are unchanged: they were checked frame by frame against the master.

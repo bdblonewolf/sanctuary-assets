@@ -26,3 +26,21 @@ Clips (30 fps): idle, walk, attack, hit, spit (release f21), **death_old** (the 
 - Sounds: put a knee thud at the knee frame and the body thud at the impact frame (start the sound at the impact frame minus round(thud_s×30)).
 - Previews (Cycles): previews_v2/death_side.png, death2_side.png
 - Script: humanoid_v2/r_zombie_death.py, run through addclip.py.
+
+
+## Master vs mobile copy (2026-11-03)
+Each GLB at its usual path is now the **mobile copy**, with the same filename, clip names and frame counts at 30 fps. Use it in the live and mobile game.
+The **master** is the uncompressed full-rate original, now kept in `masters/` with the same name. Keep it for an HTML or PC build, and for re-authoring.
+
+| file (mobile) | master | MB | keyframes | max joint drift (mm) |
+|---|---|---|---|---|
+| `rag_zombie_v2.glb` | `masters/rag_zombie_v2.glb` | 3.70 → 2.65 | 89,100 → 17,514 | 0.69 |
+
+Pipeline (`/workspace/sanctuary_art/tools/mobile_compress.sh`):
+1. resample at tolerance 1e-4
+2. prune, keeping all nodes and skins
+3. dedup
+4. drop scale tracks that never change
+5. drop translation tracks, except on mixamorig:Hips, the root bones, animated pieces and the empties (mouth, javelin)
+
+**No meshopt or Draco** is used, so the loader needs no decoder. The release and impact frames listed above are unchanged: they were checked frame by frame against the master.

@@ -35,3 +35,21 @@ Source / licence
   (free for games; raw files not redistributed).
 - death_crumble, death_crumble2, death_crumble3: procedural and keyframed by script. No free bone-crumble or collapse clip was
   found in Mixamo, Quaternius or KayKit. It is original work, free to use in this project.
+
+
+## Master vs mobile copy (2026-11-03)
+Each GLB at its usual path is now the **mobile copy**, with the same filename, clip names and frame counts at 30 fps. Use it in the live and mobile game.
+The **master** is the uncompressed full-rate original, now kept in `masters/` with the same name. Keep it for an HTML or PC build, and for re-authoring.
+
+| file (mobile) | master | MB | keyframes | max joint drift (mm) |
+|---|---|---|---|---|
+| `bone_axeman_v2.glb` | `masters/bone_axeman_v2.glb` | 2.86 → 1.17 | 125,775 → 14,807 | 2.09 |
+
+Pipeline (`/workspace/sanctuary_art/tools/mobile_compress.sh`):
+1. resample at tolerance 1e-4
+2. prune, keeping all nodes and skins
+3. dedup
+4. drop scale tracks that never change
+5. drop translation tracks, except on mixamorig:Hips, the root bones, animated pieces and the empties (mouth, javelin)
+
+**No meshopt or Draco** is used, so the loader needs no decoder. The release and impact frames listed above are unchanged: they were checked frame by frame against the master.
