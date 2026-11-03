@@ -54,9 +54,11 @@ characters_art/monsters/corrupted_phimn/corrupted_phimn_feral.glb
 characters_art/monsters/crawler/crawler.glb
 characters_art/monsters/grave_old_man/grave_old_man.glb
 characters_art/monsters/grave_risen/grave_risen.glb
+characters_art/monsters/grave_risen/grave_risen_v2.glb
 characters_art/monsters/grove_mauler_bear/grove_mauler_bear.glb
 characters_art/monsters/rag_zombie/rag_zombie.glb
 characters_art/monsters/red_demon_spawnling/red_demon_spawnling.glb
+characters_art/monsters/red_demon_spawnling/red_demon_spawnling_v2.glb
 characters_art/monsters/shambler/shambler.glb
 characters_art/monsters/swordsman/swordsman.glb
 characters_art/npcs/ayla_phimn/ayla_phimn_body.glb

@@ -64,9 +64,11 @@ Notes:
 | `characters_art/monsters/crawler/crawler.glb` | Monsters | 4.18 | Mummified Crawler husk, Nov 2 rebuild, unrigged neutral all-fours, 18k tris (art bot) |
 | `characters_art/monsters/grave_old_man/grave_old_man.glb` | Monsters | 1.33 | Grave Old Man v2 zombie (starter batch 1), 5 clips, CC0 base |
 | `characters_art/monsters/grave_risen/grave_risen.glb` | Monsters | 2.35 | Grave Risen zombie (art bot, Nov 1 build) |
+| `characters_art/monsters/grave_risen/grave_risen_v2.glb` | Monsters | 1.30 | Grave Risen v2 mesh upgrade, 20,349 tris, mobile copy (master in masters/), same rig as v1 |
 | `characters_art/monsters/grove_mauler_bear/grove_mauler_bear.glb` | Monsters | 3.47 | Grove Mauler battle-worn grizzly, unrigged neutral all-fours for a custom quadruped rig, 24k tris, 1.5 m tall, 2.4 m long, faces +Z (art bot, Nov 2) |
 | `characters_art/monsters/rag_zombie/rag_zombie.glb` | Monsters | 2.62 | Rag Zombie v2 (starter batch 1), 5 clips, CC0 base |
 | `characters_art/monsters/red_demon_spawnling/red_demon_spawnling.glb` | Monsters | 4.02 | Fallen Spawnling, small red lesser demon with blade (art bot, Nov 1) |
+| `characters_art/monsters/red_demon_spawnling/red_demon_spawnling_v2.glb` | Monsters | 1.67 | Fallen Spawnling v2 mesh upgrade, 21,905 tris, mobile copy (master in masters/), same rig as v1 |
 | `characters_art/monsters/shambler/shambler.glb` | Monsters | 2.44 | Shambler zombie in ragged peasant clothes (art bot, Nov 1) |
 | `characters_art/monsters/swordsman/swordsman.glb` | Monsters | 0.91 | Swordsman skeleton monster (art bot, Nov 1) |
 
