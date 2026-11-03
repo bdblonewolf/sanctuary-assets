@@ -1,0 +1,8 @@
+{"clips":{
+"idle":["Sword and Shield Pack/sword and shield idle.fbx","inplace"],
+"walk":["Sword and Shield Pack/sword and shield walk.fbx","inplace"],
+"run":["Sword and Shield Pack/sword and shield run.fbx","inplace"],
+"attack1":["Sword and Shield Pack/sword and shield slash.fbx","inplace"],
+"attack2":["Sword and Shield Pack/sword and shield slash (3).fbx","inplace"],
+"hit":["Sword and Shield Pack/sword and shield impact.fbx","inplace"],
+"death":["Sword and Shield Pack/sword and shield death.fbx","root"]}}

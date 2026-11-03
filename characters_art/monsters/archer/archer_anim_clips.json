@@ -1,0 +1,75 @@
+[
+ {
+  "name": "idle",
+  "sources": [
+   "Pro Longbow Pack/standing idle 01.fbx"
+  ],
+  "frames": 154,
+  "duration_s": 5.1,
+  "mode": "inplace",
+  "src_travel_m": 0.0
+ },
+ {
+  "name": "walk",
+  "sources": [
+   "Pro Longbow Pack/standing walk forward.fbx"
+  ],
+  "frames": 37,
+  "duration_s": 1.2,
+  "mode": "inplace",
+  "src_travel_m": 1.342
+ },
+ {
+  "name": "run",
+  "sources": [
+   "Pro Longbow Pack/standing run forward.fbx"
+  ],
+  "frames": 27,
+  "duration_s": 0.867,
+  "mode": "inplace",
+  "src_travel_m": 3.044
+ },
+ {
+  "name": "attack1",
+  "sources": [
+   "Pro Longbow Pack/standing draw arrow.fbx",
+   "Pro Longbow Pack/standing aim recoil.fbx"
+  ],
+  "frames": 49,
+  "duration_s": 1.6,
+  "mode": "inplace",
+  "src_travel_m": 0.065
+ },
+ {
+  "name": "attack2",
+  "sources": [
+   "Pro Longbow Pack/standing draw arrow.fbx",
+   "Pro Longbow Pack/standing aim overdraw.fbx",
+   "Pro Longbow Pack/standing aim recoil.fbx"
+  ],
+  "frames": 82,
+  "duration_s": 2.7,
+  "mode": "inplace",
+  "src_travel_m": 0.072
+ },
+ {
+  "name": "hit",
+  "sources": [
+   "Pro Longbow Pack/standing react small from front.fbx"
+  ],
+  "frames": 39,
+  "duration_s": 1.267,
+  "mode": "inplace",
+  "src_travel_m": 0.0
+ },
+ {
+  "name": "death",
+  "sources": [
+   "Pro Longbow Pack/standing death backward 01.fbx"
+  ],
+  "frames": 93,
+  "duration_s": 3.067,
+  "mode": "root",
+  "src_travel_m": 1.092
+ }
+]

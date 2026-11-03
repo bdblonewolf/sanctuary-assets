@@ -1,0 +1,8 @@
+{"clips":{
+"idle":["Pro Melee Axe Pack/standing idle.fbx","inplace"],
+"walk":["Pro Melee Axe Pack/standing walk forward.fbx","inplace"],
+"run":["Pro Melee Axe Pack/standing run forward.fbx","inplace"],
+"attack1":["Pro Melee Axe Pack/standing melee attack horizontal.fbx","inplace"],
+"attack2":["Pro Melee Axe Pack/standing melee attack downward.fbx","inplace"],
+"hit":["Pro Melee Axe Pack/standing react large gut.fbx","inplace"],
+"death":["singles/Dying.fbx","root"]}}

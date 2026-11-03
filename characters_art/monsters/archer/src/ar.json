@@ -1,0 +1,50 @@
+{
+ "clips": {
+  "idle": [
+   "Pro Longbow Pack/standing idle 01.fbx",
+   "inplace"
+  ],
+  "walk": [
+   "Pro Longbow Pack/standing walk forward.fbx",
+   "inplace"
+  ],
+  "run": [
+   "Pro Longbow Pack/standing run forward.fbx",
+   "inplace"
+  ],
+  "attack1": [
+   [
+    "Pro Longbow Pack/standing draw arrow.fbx",
+    "inplace"
+   ],
+   [
+    "Pro Longbow Pack/standing aim recoil.fbx",
+    "inplace"
+   ]
+  ],
+  "attack2": [
+   [
+    "Pro Longbow Pack/standing draw arrow.fbx",
+    "inplace"
+   ],
+   [
+    "Pro Longbow Pack/standing aim overdraw.fbx",
+    "inplace",
+    0,
+    36
+   ],
+   [
+    "Pro Longbow Pack/standing aim recoil.fbx",
+    "inplace"
+   ]
+  ],
+  "hit": [
+   "Pro Longbow Pack/standing react small from front.fbx",
+   "inplace"
+  ],
+  "death": [
+   "Pro Longbow Pack/standing death backward 01.fbx",
+   "root"
+  ]
+ }
+}

@@ -1,0 +1,72 @@
+[
+ {
+  "name": "idle",
+  "sources": [
+   "Sword and Shield Pack/sword and shield idle.fbx"
+  ],
+  "frames": 109,
+  "duration_s": 3.6,
+  "mode": "inplace",
+  "src_travel_m": 0.007
+ },
+ {
+  "name": "walk",
+  "sources": [
+   "Sword and Shield Pack/sword and shield walk.fbx"
+  ],
+  "frames": 34,
+  "duration_s": 1.1,
+  "mode": "inplace",
+  "src_travel_m": 1.597
+ },
+ {
+  "name": "run",
+  "sources": [
+   "Sword and Shield Pack/sword and shield run.fbx"
+  ],
+  "frames": 22,
+  "duration_s": 0.7,
+  "mode": "inplace",
+  "src_travel_m": 2.806
+ },
+ {
+  "name": "attack1",
+  "sources": [
+   "Sword and Shield Pack/sword and shield slash.fbx"
+  ],
+  "frames": 46,
+  "duration_s": 1.5,
+  "mode": "inplace",
+  "src_travel_m": 0.0
+ },
+ {
+  "name": "attack2",
+  "sources": [
+   "Sword and Shield Pack/sword and shield slash (3).fbx"
+  ],
+  "frames": 48,
+  "duration_s": 1.567,
+  "mode": "inplace",
+  "src_travel_m": 0.007
+ },
+ {
+  "name": "hit",
+  "sources": [
+   "Sword and Shield Pack/sword and shield impact.fbx"
+  ],
+  "frames": 22,
+  "duration_s": 0.7,
+  "mode": "inplace",
+  "src_travel_m": 0.002
+ },
+ {
+  "name": "death",
+  "sources": [
+   "Sword and Shield Pack/sword and shield death.fbx"
+  ],
+  "frames": 70,
+  "duration_s": 2.3,
+  "mode": "root",
+  "src_travel_m": 1.223
+ }
+]
