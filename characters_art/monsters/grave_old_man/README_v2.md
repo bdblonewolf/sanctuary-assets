@@ -17,3 +17,12 @@ Mouth / VFX
 
 Source / licence
 - Hand-keyed by script; no free spit/vomit clip was found in Mixamo, Quaternius UAL1/UAL2 or KayKit. It is original work, free to use in this project.
+
+## Update 2026-11-03: slow deaths
+Clips (30 fps): idle, walk, attack, hit, spit (release f21), **death_old** (the previous 133-frame "Dying" clip, kept), plus these two new deaths:
+- **death** (82 f, 2.70 s): stagger then collapse. Lurching sway f0-30, drops to the knees at about f30, pitches forward. **Body impact f54**, then it lies still to f81. Base: Mixamo Pro Magic Pack "Standing React Death Forward", time-warped, plus a hand-keyed stagger sway (hips, Spine1, Head).
+- **death2** (81 f, 2.67 s): knees hit the ground about f29, kneeling sway f30-56, falls forward. **Body impact f61** (chest f60). Base: Mixamo Pro Longbow Pack "standing death forward 01", slowed, plus a hand-keyed sway.
+- Lowest vertex stays at or above z=0 the whole time, and ends at 0.
+- Sounds: put a knee thud at the knee frame and the body thud at the impact frame (start the sound at the impact frame minus round(thud_s×30)).
+- Previews (Cycles): previews_v2/death_side.png, death2_side.png
+- Script: humanoid_v2/r_zombie_death.py, run through addclip.py.
