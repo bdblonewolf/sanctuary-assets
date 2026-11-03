@@ -45,3 +45,26 @@ Archer hair vs body (new pokes beyond the tucked roots): walk 42–68, sit 204, 
 - The bodies in this folder are **unchanged** (52 mixamorig bones, metres, primitives skin/linen/eye, same vertex order). They are not decimated or compressed, so there is no `masters/` copy here.
 - The armored renders, the per-class sheets and `players_lineup_sheet.png` were regenerated with the mobile `pieces/` (shared WebP atlas). The bare renders are unchanged.
 - The optional skin-texture pass was skipped.
+
+## Locked faces and hair (Nov 3 2026)
+Faces and hair now follow Brian's locked look sheet (`starter_faces_2026-11-03`, Artspace.ai, owner's own images). Everything reuses existing meshes. The only new geometry is the necromancer's piercings.
+
+| File (mobile, in this folder) | Tris | MB | Source |
+|---|---|---|---|
+| `player_archer.glb` | 27 036 | 1.06 | Body and face **geometry unchanged** (already Ayla-based). The skin texture was recoloured from Ayla's slate blue to a pale cool tone. The red runes are kept and faint face markings were added. The grey eye texture is new. |
+| `player_archer_hair.glb` | 7 664 | 0.83 | Ayla hair (`npcs/ayla_phimn/pieces/npc_f_ayla_hair.glb`), refit and decimated, with long black waves (post-decimation curl) |
+| `player_elementalist.glb` | 27 036 | 0.97 | MPFB face blended 0.35 toward Ayla's face (softer features), with a fair skin texture and light blue-grey eyes |
+| `player_elementalist_hair.glb` | 7 654 | 0.83 | Ayla hair, refit, with long burgundy waves |
+| `player_necromancer.glb` | 27 036 | 0.96 | MPFB `male_skinny` faceshape at 1.0 (gaunt, hollow cheeks, deep-set eyes, up to 23 mm), with a very pale aged skin texture |
+| `player_necromancer_hair.glb` | 3 620 | 0.66 | Ayla hair, refit and slicked back, long straight white hair, cleared in front of the ears |
+| `player_necromancer_piercings.glb` | 440 | 0.04 | Procedural bronze gothic brow crosses (both brows) plus dangling earrings (stud, ring, bar, cross, spike). Rigid to `mixamorig:Head`. |
+| `player_warrior.glb` | 27 036 | 0.96 | MPFB `male_brute_muscular` faceshape at 0.5 (rugged jaw), with heavy stubble and the cheek scar painted into the skin texture, and brown eyes |
+| `player_warrior_hair.glb` | 5 714 | 0.68 | Ayla hair, cut to shoulder length, dark brown, loose curl |
+
+- **Vertex order is unchanged.** Every body keeps the same vertex count and order, indices, JOINTS/WEIGHTS and skin UVs, the 52 mixamorig joints with identical inverse bind matrices, and the primitive order skin/linen/eye. Only POSITION/NORMAL on the face moved. The eye `TEXCOORD_0` was rewritten for the new eye texture, with the same vertex count. The existing Damaged Black fits and `*.mask.json` files still apply.
+- Each hair and piercing GLB is a separately skinned mesh on its own copy of the same 52-bone rig, with no animations. Attach it the same way as an armour piece.
+- **Hide under a helm:** when the helm is equipped, hide the `player_<class>_hair` mesh node and `player_necromancer_piercings`.
+- **Warrior scar side:** the scar follows the reference image, so it is on the viewer's left, which is the character's **right** cheek. The written spec says "left cheek". Flipping it is a single parameter (`scar.side`) plus a rebuild.
+- **Mobile:** textures are ≤1024 WebP and the files went through `tools/mobile_compress.sh` without meshopt or Draco. There is no compression extension, only `EXT_texture_webp`. The uncompressed 2048 masters are in `masters/`.
+- **Clipping check** (idle, run, ss_attack_heavy, bow_draw, magic_cast, against the body and the Damaged Black plate/helm): hair inside the body is 0–1 verts in every pose (0 new versus rest); hair inside the plate is ≤1 vert; piercings inside the body or plate are 0. The head-versus-helm counts match the original bodies: necromancer 180 versus 231 before, the others within ±5. These are the helm's open face area, so there is no regression.
+- Renders: the per-view head close-ups are `renders/heads/player_<class>_head_{front,q34,side,back}.png`, the per-class reference comparisons are `renders/heads/heads_<class>.png`, and the combined sheet is `renders/heads/heads_sheet.png`. The bare renders, the per-class sheets and `players_lineup_sheet.png` were regenerated with the new heads and hair. The armoured views are unchanged because the helm covers the head.
