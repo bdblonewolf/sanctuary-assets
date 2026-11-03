@@ -1,0 +1,7433 @@
+{
+ "title": "Martsirt lite pass (exterior)",
+ "generated": "2026-11-03",
+ "repo_rule": "ADD-ONLY: every *_lite file is a new sibling; no live file, placements.json, martsirt_world.json, interiors, colliders, manifest.json, asset_version.txt, ASSET_MAP.md, GLB_LIST.md or code changed.",
+ "switch_over": "Engine maps live path -> lite path (files[].live -> files[].lite) for the Martsirt exterior only, and reads materials/manifest_lite.json + ground map. Interiors keep loading the live GLBs.",
+ "measurement": "tris/draws counted the way the engine renders the exterior: hidden names (col_/nav_/npc_spot_/fx_/ground_mud/ground_bay_mud/plaza/decals_square; shrine col_/fx_/interact; tree col_) excluded; draw call = one visible primitive; shadow draws use the engine castShadow rules (props none, life <1 m none, m_ground/m_wood_floor/m_fire_ and water/creek/bridge/river names none); totals multiply by instance counts.",
+ "totals": {
+  "town_core": {
+   "before_MB": 37.81,
+   "before_visible_tris": 539261,
+   "before_draw_calls": 1855,
+   "before_shadow_draw_calls": 1185,
+   "before_embedded_tex_MB": 0,
+   "after_MB": 16.87,
+   "after_visible_tris": 189227,
+   "after_draw_calls": 1322,
+   "after_shadow_draw_calls": 714,
+   "after_embedded_tex_MB": 0
+  },
+  "all": {
+   "before_MB": 62.65,
+   "before_visible_tris": 722142,
+   "before_draw_calls": 1953,
+   "before_shadow_draw_calls": 1215,
+   "before_embedded_tex_MB": 532.19,
+   "after_MB": 25.77,
+   "after_visible_tris": 244111,
+   "after_draw_calls": 1419,
+   "after_shadow_draw_calls": 743,
+   "after_embedded_tex_MB": 139.52
+  },
+  "life": {
+   "before_MB": 19.14,
+   "before_visible_tris": 156567,
+   "before_draw_calls": 16,
+   "before_shadow_draw_calls": 5,
+   "before_embedded_tex_MB": 397.34,
+   "after_MB": 4.6,
+   "after_visible_tris": 40368,
+   "after_draw_calls": 16,
+   "after_shadow_draw_calls": 5,
+   "after_embedded_tex_MB": 38.67
+  },
+  "gothic": {
+   "before_MB": 5.69,
+   "before_visible_tris": 26314,
+   "before_draw_calls": 82,
+   "before_shadow_draw_calls": 25,
+   "before_embedded_tex_MB": 134.85,
+   "after_MB": 4.3,
+   "after_visible_tris": 14516,
+   "after_draw_calls": 81,
+   "after_shadow_draw_calls": 24,
+   "after_embedded_tex_MB": 100.85
+  }
+ },
+ "target": {
+  "town_tris": "150-200k",
+  "town_core_after_visible_tris": 189227,
+  "met": true
+ },
+ "textures": {
+  "formula": "GPU estimate = w*h*4 bytes*4/3 (RGBA8 + mips), per unique image",
+  "materials_manifest": {
+   "live": "models/town/martsirt_v2_2/materials/manifest.json",
+   "lite": "models/town/martsirt_v2_2/materials/manifest_lite.json",
+   "note": "same schema; tex_1k entries point at *_512.jpg siblings. Engine: fetch manifest_lite.json instead of manifest.json for exteriors.",
+   "textures": 75,
+   "before_MB": 277.4,
+   "after_MB": 97.4,
+   "kept_1k": [
+    {
+     "file": "models/town/martsirt_v2_2/materials/tex_1k/m_stone_ashlar_limestone_bc.jpg",
+     "why": "church facade hero: chapel (7.5k tris) + tower (7.5k tris) facades, 2 m tiling; visible as the largest lit surface from the 50-degree camera. Normal map for it is 512."
+    }
+   ]
+  },
+  "ground": {
+   "map": {
+    "models/town/ground_v1/g_grass_bc.jpg": "models/town/ground_v1/g_grass_bc.jpg",
+    "models/town/ground_v1/g_grass_n.jpg": "models/town/ground_v1/g_grass_n_512.jpg",
+    "models/town/ground_v1/g_dirt_bc.jpg": "models/town/ground_v1/g_dirt_bc_512.jpg",
+    "models/town/ground_v1/g_dirt_n.jpg": "models/town/ground_v1/g_dirt_n_512.jpg",
+    "models/town/ground_v1/g_stone_bc.jpg": "models/town/ground_v1/g_stone_bc_512.jpg",
+    "models/town/ground_v1/g_stone_n.jpg": "models/town/ground_v1/g_stone_n_512.jpg",
+    "models/town/ground_v1/g_mud_bc.jpg": "models/town/ground_v1/g_mud_bc_512.jpg",
+    "models/town/ground_v1/g_mud_n.jpg": "models/town/ground_v1/g_mud_n_512.jpg",
+    "models/town/ground_v1/martsirt_splat.png": "models/town/ground_v1/martsirt_splat.png",
+    "models/town/ground_v1/martsirt_ao.png": "models/town/ground_v1/martsirt_ao.png"
+   },
+   "before_MB": 46.7,
+   "after_MB": 18.7,
+   "kept_1k": [
+    {
+     "file": "models/town/ground_v1/g_grass_bc.jpg",
+     "why": "main ground hero: covers most of the screen at all times"
+    }
+   ],
+   "note": "martsirt_splat.png / martsirt_ao.png are data maps, unchanged."
+  },
+  "embedded": {
+   "before_MB": 532.2,
+   "after_MB": 139.5,
+   "rules": "characters_art props + shrine 2048->512, tree atlas 1024->512, gothic props kept 512 except small props (<1.5 m: wall_sconce, tombstone, anvil, chains, lectern, hanging_sign) 512->256, tapestry 1024->512"
+  },
+  "total_before_MB": 856.3,
+  "total_after_MB": 255.6
+ },
+ "files": [
+  {
+   "id": "bld_inn_salted_kettle_shared",
+   "live": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 4142408,
+    "MB": 4.142,
+    "file_tris": 44694,
+    "visible_tris": 41890,
+    "draw_calls": 387,
+    "shadow_draw_calls": 338,
+    "mesh_nodes": 453,
+    "nodes": 667,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 41890,
+    "total_draw_calls": 387,
+    "total_shadow_draw_calls": 338
+   },
+   "after": {
+    "bytes": 1629272,
+    "MB": 1.629,
+    "file_tris": 18429,
+    "visible_tris": 15625,
+    "draw_calls": 168,
+    "shadow_draw_calls": 163,
+    "mesh_nodes": 285,
+    "nodes": 511,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 15625,
+    "total_draw_calls": 168,
+    "total_shadow_draw_calls": 163
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 221,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "chimney",
+    "chimney.001",
+    "chimney_E",
+    "chimney_W",
+    "col_bar_a",
+    "col_bar_b",
+    "col_barrels",
+    "col_bed",
+    "col_bed.001",
+    "col_bed.002",
+    "col_bed.003",
+    "col_bed.004",
+    "col_cellar_hatch",
+    "col_chimney",
+    "col_chimney.001",
+    "col_chopblock",
+    "col_corner",
+    "col_corner.001",
+    "col_corner.002",
+    "col_corner.003",
+    "col_crates",
+    "col_door",
+    "col_door.001",
+    "col_floor",
+    "col_floor.001",
+    "col_floor.002",
+    "col_floor.003",
+    "col_floor.004",
+    "col_floor.005",
+    "col_floor.006",
+    "col_floor.007",
+    "col_floor.008",
+    "col_floor.009",
+    "col_floor.010",
+    "col_floor.011",
+    "col_floor.012",
+    "col_floor.013",
+    "col_floor.014",
+    "col_floor.015",
+    "col_floor.016",
+    "col_floor.017",
+    "col_floor.018",
+    "col_floor.019",
+    "col_floor.020",
+    "col_floor.021",
+    "col_floor.022",
+    "col_floor.023",
+    "col_floor.024",
+    "col_floor.025",
+    "col_floor.026",
+    "col_floor.027",
+    "col_floor.028",
+    "col_floor.029",
+    "col_floor.030",
+    "col_floor.031",
+    "col_floor.032",
+    "col_floor.033",
+    "col_floor.034",
+    "col_floor.035",
+    "col_floor.036",
+    "col_floor.037",
+    "col_floor.038",
+    "col_floor.039",
+    "col_floor.040",
+    "col_floor.041",
+    "col_floor.042",
+    "col_floor.043",
+    "col_floor.044",
+    "col_floor.045",
+    "col_floor.046",
+    "col_floor.047",
+    "col_floor_upper",
+    "col_floor_upper_N",
+    "col_gutter",
+    "col_gutter.001",
+    "col_gutter.002",
+    "col_gutter.003",
+    "col_gutter.004",
+    "col_gutter.005",
+    "col_gutter.006",
+    "col_gutter.007",
+    "col_hearth_W",
+    "col_kegs_back",
+    "col_part_corridor",
+    "col_part_corridor.001",
+    "col_part_corridor.002",
+    "col_part_corridor.003",
+    "col_part_room_a",
+    "col_part_room_b",
+    "col_part_stairwell",
+    "col_post",
+    "col_post.001",
+    "col_post.002",
+    "col_rain_barrel",
+    "col_roof",
+    "col_stairs_ramp",
+    "col_table_0",
+    "col_table_2",
+    "col_table_3",
+    "col_table_4",
+    "col_trough",
+    "col_wall",
+    "col_wall.001",
+    "col_wall.002",
+    "col_wall.003",
+    "col_wall.004",
+    "col_wall.005",
+    "col_wall.006",
+    "col_wall.007",
+    "col_wall.008",
+    "col_wall.009",
+    "col_wall.010",
+    "col_wall.011",
+    "col_wall.012",
+    "col_wall.013",
+    "col_wall.014",
+    "col_wall.015",
+    "col_wall.016",
+    "col_wall.017",
+    "col_wall.018",
+    "col_wall.019",
+    "col_wall.020",
+    "col_wall.021",
+    "col_wall.022",
+    "col_wall.023",
+    "col_wall.024",
+    "col_wall.025",
+    "col_wall.026",
+    "col_wall.027",
+    "col_wall.028",
+    "col_wall.029",
+    "col_wall.030",
+    "col_wall.031",
+    "col_wall.032",
+    "col_wall.033",
+    "col_wall.034",
+    "col_wall.035",
+    "col_wall.036",
+    "col_wall.037",
+    "col_wall.038",
+    "col_wall.039",
+    "col_wall.040",
+    "col_wall.041",
+    "col_wall.042",
+    "col_wall.043",
+    "col_wall_L",
+    "col_wall_L.001",
+    "col_wall_L.002",
+    "col_wall_L.003",
+    "col_wall_L.004",
+    "col_wall_L.005",
+    "col_wall_L.006",
+    "col_wall_L.007",
+    "col_wall_L.008",
+    "col_wall_L.009",
+    "col_wall_R",
+    "col_wall_R.001",
+    "col_wall_R.002",
+    "col_wall_R.003",
+    "col_wall_R.004",
+    "col_wall_R.005",
+    "col_wall_R.006",
+    "col_wall_R.007",
+    "col_wall_R.008",
+    "col_wall_R.009",
+    "col_wall_low",
+    "col_wall_low.001",
+    "col_wall_low.002",
+    "col_wall_low.003",
+    "col_wall_low.004",
+    "col_wall_low.005",
+    "col_wall_low.006",
+    "col_wall_low.007",
+    "col_wall_top",
+    "col_wall_top.001",
+    "col_wall_top.002",
+    "col_wall_top.003",
+    "col_wall_top.004",
+    "col_wall_top.005",
+    "col_wall_top.006",
+    "col_wall_top.007",
+    "col_wall_top.008",
+    "col_wall_top.009",
+    "col_washline_a",
+    "col_washline_b",
+    "col_woodpile",
+    "fx_candle_lantern",
+    "fx_candle_upper_a",
+    "fx_candle_upper_b",
+    "fx_drip_gutter_00",
+    "fx_drip_gutter_002",
+    "fx_drip_gutter_004",
+    "fx_drip_gutter_006",
+    "fx_drip_gutter_008",
+    "fx_drip_gutter_010",
+    "fx_drip_gutter_012",
+    "fx_drip_gutter_014",
+    "fx_dust_motes_common",
+    "fx_embers_hearth_W",
+    "fx_fire_hearth_W",
+    "fx_fire_kitchen",
+    "fx_fire_torch_inn_door",
+    "fx_glow_door_main",
+    "fx_glow_window_E_2",
+    "fx_glow_window_N_-5",
+    "fx_glow_window_S_-5",
+    "fx_glow_window_S_5",
+    "fx_glow_window_S_e",
+    "fx_glow_window_S_w",
+    "fx_glow_window_W_-2",
+    "fx_glow_window_up_N_-1",
+    "fx_glow_window_up_S",
+    "fx_glow_window_up_S_3",
+    "fx_smoke_chimney_E_01",
+    "fx_smoke_chimney_E_02",
+    "fx_smoke_chimney_W_01",
+    "fx_smoke_chimney_W_02",
+    "fx_steam_cauldron",
+    "fx_steam_kettle",
+    "ground_mud",
+    "gutter",
+    "gutter.001",
+    "gutter.002",
+    "gutter.003",
+    "gutter.004",
+    "gutter.005",
+    "gutter.006",
+    "gutter.007",
+    "gutter.008",
+    "gutter.009",
+    "gutter.010",
+    "gutter.011",
+    "gutter.012",
+    "gutter.013",
+    "gutter.014",
+    "gutter.015",
+    "nav_cellar_down",
+    "nav_entry_inside",
+    "nav_entry_outside",
+    "nav_stairs_bottom",
+    "nav_stairs_top",
+    "nav_upper_corridor",
+    "npc_spot_bard",
+    "npc_spot_cook",
+    "npc_spot_door_loiterer",
+    "npc_spot_innkeeper",
+    "npc_spot_patron_01",
+    "npc_spot_patron_02",
+    "npc_spot_patron_03",
+    "npc_spot_sleeper",
+    "part_corridor",
+    "part_corridor_frame",
+    "part_room_a",
+    "part_room_a_frame",
+    "part_room_b",
+    "part_room_b_frame",
+    "shell_E_-2",
+    "shell_E_-4",
+    "shell_E_0",
+    "shell_E_2",
+    "shell_E_4",
+    "shell_N_-1",
+    "shell_N_-3",
+    "shell_N_-5",
+    "shell_N_-7",
+    "shell_N_1",
+    "shell_N_3",
+    "shell_N_5",
+    "shell_N_7",
+    "shell_S_-1",
+    "shell_S_-3",
+    "shell_S_-5",
+    "shell_S_-7",
+    "shell_S_1",
+    "shell_S_3",
+    "shell_S_5",
+    "shell_S_7",
+    "shell_W_-2",
+    "shell_W_-4",
+    "shell_W_0",
+    "shell_W_2",
+    "shell_W_4",
+    "shutter_L",
+    "shutter_L.001",
+    "shutter_L.002",
+    "shutter_L.003",
+    "shutter_L.004",
+    "shutter_L.005",
+    "shutter_L.006",
+    "shutter_L.007",
+    "shutter_L.008",
+    "shutter_L.009",
+    "shutter_L.010",
+    "shutter_L.011",
+    "shutter_L.012",
+    "shutter_L.013",
+    "shutter_L.014",
+    "shutter_L.015",
+    "shutter_L.016",
+    "shutter_L.017",
+    "shutter_L.018",
+    "shutter_R",
+    "shutter_R.001",
+    "shutter_R.002",
+    "shutter_R.003",
+    "shutter_R.004",
+    "shutter_R.005",
+    "shutter_R.006",
+    "shutter_R.007",
+    "shutter_R.008",
+    "shutter_R.009",
+    "shutter_R.010",
+    "shutter_R.011",
+    "shutter_R.012",
+    "shutter_R.013",
+    "shutter_R.014",
+    "shutter_R.015",
+    "shutter_R.016",
+    "shutter_R.017",
+    "shutter_R.018",
+    "sign_kettle",
+    "sign_kettle_iron",
+    "sign_kettle_pivot",
+    "sign_root",
+    "stairs",
+    "stairs_root",
+    "sway_door_hinge",
+    "sway_door_hinge.001",
+    "sway_kettle_iron",
+    "sway_lantern_common",
+    "sway_shutter_L",
+    "sway_shutter_L.001",
+    "sway_shutter_L.002",
+    "sway_shutter_L.003",
+    "sway_shutter_L.004",
+    "sway_shutter_L.005",
+    "sway_shutter_L.006",
+    "sway_shutter_L.007",
+    "sway_shutter_L.008",
+    "sway_shutter_L.009",
+    "sway_shutter_L.010",
+    "sway_shutter_L.011",
+    "sway_shutter_L.012",
+    "sway_shutter_L.013",
+    "sway_shutter_L.014",
+    "sway_shutter_L.015",
+    "sway_shutter_L.016",
+    "sway_shutter_L.017",
+    "sway_shutter_L.018",
+    "sway_shutter_R",
+    "sway_shutter_R.001",
+    "sway_shutter_R.002",
+    "sway_shutter_R.003",
+    "sway_shutter_R.004",
+    "sway_shutter_R.005",
+    "sway_shutter_R.006",
+    "sway_shutter_R.007",
+    "sway_shutter_R.008",
+    "sway_shutter_R.009",
+    "sway_shutter_R.010",
+    "sway_shutter_R.011",
+    "sway_shutter_R.012",
+    "sway_shutter_R.013",
+    "sway_shutter_R.014",
+    "sway_shutter_R.015",
+    "sway_shutter_R.016",
+    "sway_shutter_R.017",
+    "sway_shutter_R.018",
+    "torch_bracket_inn_door",
+    "torch_flame_inn_door",
+    "torch_haft_inn_door",
+    "torch_wall_inn_door",
+    "up_E_-1",
+    "up_E_-3",
+    "up_E_-5",
+    "up_E_1",
+    "up_E_3",
+    "up_E_5",
+    "up_N_-1",
+    "up_N_-3",
+    "up_N_-5",
+    "up_N_-7",
+    "up_N_1",
+    "up_N_3",
+    "up_N_5",
+    "up_N_7",
+    "up_S_-1",
+    "up_S_-3",
+    "up_S_-5",
+    "up_S_-7",
+    "up_S_1",
+    "up_S_3",
+    "up_S_5",
+    "up_S_7",
+    "up_W_-1",
+    "up_W_-3",
+    "up_W_-5",
+    "up_W_1",
+    "up_W_3",
+    "up_W_5",
+    "upper_window",
+    "upper_window.001",
+    "upper_window.002",
+    "upper_window.003",
+    "upper_window.004",
+    "upper_window.005",
+    "upper_window.006",
+    "upper_window.007",
+    "upper_window.008",
+    "upper_window.009",
+    "upper_window.010",
+    "win_glow_E_2",
+    "win_glow_N_-5",
+    "win_glow_S_-5",
+    "win_glow_S_-7",
+    "win_glow_S_3",
+    "win_glow_S_5",
+    "win_glow_W_-2",
+    "win_glow_door_main",
+    "win_glow_up_N_-1",
+    "win_glow_up_S_-5",
+    "win_glow_up_S_3"
+   ],
+   "root_nodes": [
+    "bld_inn_salted_kettle"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_forge_wolchen_v2_shared",
+   "live": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 3036056,
+    "MB": 3.036,
+    "file_tris": 38763,
+    "visible_tris": 36479,
+    "draw_calls": 165,
+    "shadow_draw_calls": 145,
+    "mesh_nodes": 211,
+    "nodes": 297,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 36479,
+    "total_draw_calls": 165,
+    "total_shadow_draw_calls": 145
+   },
+   "after": {
+    "bytes": 1241872,
+    "MB": 1.242,
+    "file_tris": 14090,
+    "visible_tris": 11806,
+    "draw_calls": 82,
+    "shadow_draw_calls": 78,
+    "mesh_nodes": 146,
+    "nodes": 232,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 11806,
+    "total_draw_calls": 82,
+    "total_shadow_draw_calls": 78
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 100,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "bellows",
+    "chimney",
+    "chimney.001",
+    "col_anvil",
+    "col_bay_barrels",
+    "col_bench_odder",
+    "col_bench_work",
+    "col_chimney",
+    "col_corner",
+    "col_corner.001",
+    "col_corner.002",
+    "col_corner.003",
+    "col_door",
+    "col_door.001",
+    "col_door.002",
+    "col_floor",
+    "col_floor.001",
+    "col_floor.002",
+    "col_floor.003",
+    "col_floor.004",
+    "col_floor.005",
+    "col_floor.006",
+    "col_floor.007",
+    "col_floor.008",
+    "col_floor.009",
+    "col_floor.010",
+    "col_floor.011",
+    "col_floor.012",
+    "col_floor.013",
+    "col_floor.014",
+    "col_floor.015",
+    "col_floor.016",
+    "col_floor.017",
+    "col_floor.018",
+    "col_floor.019",
+    "col_grindstone",
+    "col_gutter",
+    "col_gutter.001",
+    "col_gutter.002",
+    "col_gutter.003",
+    "col_hearth",
+    "col_post",
+    "col_post.001",
+    "col_post.002",
+    "col_post.003",
+    "col_post.004",
+    "col_roof",
+    "col_store_goods",
+    "col_trough",
+    "col_wall",
+    "col_wall.001",
+    "col_wall.002",
+    "col_wall.003",
+    "col_wall.004",
+    "col_wall.005",
+    "col_wall.006",
+    "col_wall.007",
+    "col_wall.008",
+    "col_wall.009",
+    "col_wall_L",
+    "col_wall_L.001",
+    "col_wall_L.002",
+    "col_wall_L.003",
+    "col_wall_L.004",
+    "col_wall_L.005",
+    "col_wall_L.006",
+    "col_wall_L.007",
+    "col_wall_R",
+    "col_wall_R.001",
+    "col_wall_R.002",
+    "col_wall_R.003",
+    "col_wall_R.004",
+    "col_wall_R.005",
+    "col_wall_R.006",
+    "col_wall_R.007",
+    "col_wall_low",
+    "col_wall_low.001",
+    "col_wall_low.002",
+    "col_wall_low.003",
+    "col_wall_top",
+    "col_wall_top.001",
+    "col_wall_top.002",
+    "col_wall_top.003",
+    "col_wall_top.004",
+    "col_wall_top.005",
+    "col_wall_top.006",
+    "col_wall_top.007",
+    "col_woodpile",
+    "fx_candle_01",
+    "fx_drip_gutter_01",
+    "fx_drip_gutter_01.001",
+    "fx_drip_gutter_01.002",
+    "fx_drip_gutter_01.003",
+    "fx_embers_forge",
+    "fx_fire_forge",
+    "fx_fire_torch_forge_door",
+    "fx_glow_door_main",
+    "fx_glow_window_N_-3",
+    "fx_glow_window_S",
+    "fx_glow_window_S_-5",
+    "fx_glow_window_W_3",
+    "fx_heat_forge",
+    "fx_smoke_chimney_01",
+    "fx_smoke_chimney_02",
+    "fx_smoke_hearth",
+    "fx_sparks_anvil",
+    "fx_steam_trough",
+    "ground_bay_mud",
+    "ground_mud",
+    "gutter",
+    "gutter.001",
+    "gutter.002",
+    "gutter.003",
+    "gutter.004",
+    "gutter.005",
+    "gutter.006",
+    "gutter.007",
+    "nav_entry_inside",
+    "nav_entry_outside",
+    "npc_spot_odder_empty",
+    "npc_spot_wolchen",
+    "shell_E_-1",
+    "shell_E_-3",
+    "shell_E_1",
+    "shell_E_3",
+    "shell_N_-1",
+    "shell_N_-3",
+    "shell_N_-5",
+    "shell_N_1",
+    "shell_S_-1",
+    "shell_S_-3",
+    "shell_S_-5",
+    "shell_S_1",
+    "shell_W_-1",
+    "shell_W_-3",
+    "shell_W_1",
+    "shell_W_3",
+    "shutter_L",
+    "shutter_L.001",
+    "shutter_L.002",
+    "shutter_L.003",
+    "shutter_R",
+    "shutter_R.001",
+    "shutter_R.002",
+    "shutter_R.003",
+    "sign_forge_anvil",
+    "sign_forge_anvil_pivot",
+    "sign_root",
+    "sway_door_hinge",
+    "sway_shutter_L",
+    "sway_shutter_L.001",
+    "sway_shutter_L.002",
+    "sway_shutter_L.003",
+    "sway_shutter_R",
+    "sway_shutter_R.001",
+    "sway_shutter_R.002",
+    "sway_shutter_R.003",
+    "torch_bracket_forge_door",
+    "torch_flame_forge_door",
+    "torch_haft_forge_door",
+    "torch_wall_forge_door",
+    "win_glow_N_-3",
+    "win_glow_S_-5",
+    "win_glow_S_1",
+    "win_glow_W_3",
+    "win_glow_door_main"
+   ],
+   "root_nodes": [
+    "bld_forge_wolchen"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_chapel_st_noll_shared",
+   "live": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 1916248,
+    "MB": 1.916,
+    "file_tris": 22389,
+    "visible_tris": 21573,
+    "draw_calls": 76,
+    "shadow_draw_calls": 75,
+    "mesh_nodes": 103,
+    "nodes": 153,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 21573,
+    "total_draw_calls": 76,
+    "total_shadow_draw_calls": 75
+   },
+   "after": {
+    "bytes": 1280808,
+    "MB": 1.281,
+    "file_tris": 13100,
+    "visible_tris": 12284,
+    "draw_calls": 46,
+    "shadow_draw_calls": 45,
+    "mesh_nodes": 81,
+    "nodes": 120,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 12284,
+    "total_draw_calls": 46,
+    "total_shadow_draw_calls": 45
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 66,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_altar",
+    "col_buttress_N",
+    "col_buttress_NE",
+    "col_buttress_NW",
+    "col_buttress_S",
+    "col_buttress_SE",
+    "col_buttress_SW",
+    "col_chancel_E",
+    "col_chancel_N",
+    "col_chancel_S",
+    "col_crypt_slab",
+    "col_door_main",
+    "col_effigy",
+    "col_floor_chancel",
+    "col_font",
+    "col_nave_E_a",
+    "col_nave_E_b",
+    "col_nave_E_top",
+    "col_nave_N_a",
+    "col_nave_N_arch",
+    "col_nave_N_b",
+    "col_nave_N_c",
+    "col_nave_N_top",
+    "col_nave_S_a",
+    "col_nave_S_b",
+    "col_nave_S_top",
+    "col_nave_W_a",
+    "col_nave_W_b",
+    "col_nave_W_top",
+    "col_pew",
+    "col_pew.001",
+    "col_pew.002",
+    "col_pew.003",
+    "col_pew.004",
+    "col_pew.005",
+    "col_pew.006",
+    "col_pew.007",
+    "col_pew.008",
+    "col_pew.009",
+    "col_pew.010",
+    "col_pulpit",
+    "col_roof_chancel",
+    "col_roof_nave",
+    "col_rubble",
+    "col_side_E",
+    "col_side_N",
+    "col_side_W",
+    "col_side_altar",
+    "door_chain",
+    "door_side",
+    "door_side.001",
+    "door_side_root",
+    "fx_candle_altar_a",
+    "fx_candle_altar_b",
+    "fx_candle_stand",
+    "fx_crypt_draught",
+    "fx_drip_roof_hole",
+    "fx_dust_motes_chancel",
+    "fx_dust_motes_nave",
+    "fx_fire_torch_chapel_door",
+    "fx_glow_window_chancel_S_a",
+    "fx_glow_window_chancel_S_b",
+    "fx_lightshaft_chancel_E",
+    "fx_lightshaft_chancel_S_a",
+    "fx_lightshaft_chancel_S_b",
+    "fx_lightshaft_nave_S_a",
+    "fx_lightshaft_nave_S_b",
+    "fx_lightshaft_nave_S_c",
+    "fx_lightshaft_roof_hole",
+    "fx_votive_side_chapel",
+    "glass_side",
+    "ground_mud",
+    "nav_altar",
+    "nav_crypt_down",
+    "nav_entry_inside",
+    "nav_entry_outside",
+    "nav_side_inside",
+    "nav_side_outside",
+    "nav_tower_arch",
+    "npc_spot_beggar_steps",
+    "npc_spot_mourner",
+    "npc_spot_priest_ghost",
+    "sway_door_main_L_hinge",
+    "sway_door_main_R_hinge",
+    "sway_door_side_hinge",
+    "torch_bracket_chapel_door",
+    "torch_flame_chapel_door",
+    "torch_haft_chapel_door",
+    "torch_wall_chapel_door",
+    "win_glow_chancel_S_a",
+    "win_glow_chancel_S_b"
+   ],
+   "root_nodes": [
+    "bld_chapel_st_noll"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_chapel_st_noll_tower_shared",
+   "live": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_tower_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_tower_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 1055680,
+    "MB": 1.056,
+    "file_tris": 12090,
+    "visible_tris": 11982,
+    "draw_calls": 19,
+    "shadow_draw_calls": 19,
+    "mesh_nodes": 21,
+    "nodes": 36,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 11982,
+    "total_draw_calls": 19,
+    "total_shadow_draw_calls": 19
+   },
+   "after": {
+    "bytes": 476248,
+    "MB": 0.476,
+    "file_tris": 4671,
+    "visible_tris": 4563,
+    "draw_calls": 10,
+    "shadow_draw_calls": 10,
+    "mesh_nodes": 19,
+    "nodes": 27,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 4563,
+    "total_draw_calls": 10,
+    "total_shadow_draw_calls": 10
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 16,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_tower_E_a",
+    "col_tower_E_b",
+    "col_tower_E_top",
+    "col_tower_N",
+    "col_tower_S",
+    "col_tower_W",
+    "col_tower_floor_1",
+    "col_tower_floor_2",
+    "col_tower_ladder",
+    "fx_bats_belfry",
+    "fx_dust_motes_tower",
+    "fx_wind_belfry",
+    "nav_tower_belfry",
+    "nav_tower_floor_1",
+    "nav_tower_inside",
+    "sway_bell"
+   ],
+   "root_nodes": [
+    "bld_chapel_st_noll_tower"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_graveyard_st_noll_shared",
+   "live": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 1563572,
+    "MB": 1.564,
+    "file_tris": 17836,
+    "visible_tris": 16514,
+    "draw_calls": 62,
+    "shadow_draw_calls": 59,
+    "mesh_nodes": 107,
+    "nodes": 161,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 16514,
+    "total_draw_calls": 62,
+    "total_shadow_draw_calls": 59
+   },
+   "after": {
+    "bytes": 842704,
+    "MB": 0.843,
+    "file_tris": 9032,
+    "visible_tris": 7710,
+    "draw_calls": 30,
+    "shadow_draw_calls": 28,
+    "mesh_nodes": 91,
+    "nodes": 130,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 7710,
+    "total_draw_calls": 30,
+    "total_shadow_draw_calls": 28
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 42,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_chest_tomb",
+    "col_crypt_slab_a",
+    "col_crypt_slab_b",
+    "col_dead_tree",
+    "col_gate_E",
+    "col_grave_mound",
+    "col_headstone_00",
+    "col_headstone_01",
+    "col_headstone_02",
+    "col_headstone_03",
+    "col_headstone_04",
+    "col_headstone_05",
+    "col_headstone_06",
+    "col_headstone_07",
+    "col_headstone_08",
+    "col_headstone_09",
+    "col_headstone_10",
+    "col_headstone_11",
+    "col_headstone_12",
+    "col_headstone_13",
+    "col_headstone_14",
+    "col_headstone_15",
+    "col_headstone_16",
+    "col_headstone_17",
+    "col_headstone_18",
+    "col_headstone_19",
+    "col_headstone_20",
+    "col_headstone_21",
+    "col_headstone_22",
+    "col_headstone_23",
+    "col_headstone_24",
+    "col_headstone_25",
+    "col_headstone_26",
+    "col_headstone_27",
+    "col_headstone_28",
+    "col_headstone_29",
+    "col_headstone_30",
+    "col_headstone_31",
+    "col_headstone_32",
+    "col_headstone_33",
+    "col_headstone_34",
+    "col_headstone_35",
+    "col_headstone_36",
+    "col_lych_coffin_rest",
+    "col_lych_post_-1_-1",
+    "col_lych_post_-1_1",
+    "col_lych_post_1_-1",
+    "col_lych_post_1_1",
+    "col_lych_roof",
+    "col_lych_wall_E",
+    "col_lych_wall_W",
+    "col_mortsafe_0",
+    "col_mortsafe_1",
+    "col_mortsafe_2",
+    "col_mortsafe_3",
+    "col_open_grave_rim_N",
+    "col_wall_E_a",
+    "col_wall_E_b",
+    "col_wall_E_c",
+    "col_wall_E_d",
+    "col_wall_E_e",
+    "col_wall_E_f",
+    "col_wall_N_a",
+    "col_wall_N_b",
+    "col_wall_S",
+    "col_wall_W",
+    "fx_crypt_draft",
+    "fx_dust_breach",
+    "fx_fog_00",
+    "fx_fog_01",
+    "fx_fog_02",
+    "fx_fog_03",
+    "fx_fog_04",
+    "fx_fog_05",
+    "fx_fog_06",
+    "fx_fog_07",
+    "fx_fog_08",
+    "fx_fog_09",
+    "fx_fog_10",
+    "fx_fog_11",
+    "fx_fog_12",
+    "fx_fog_13",
+    "fx_fog_14",
+    "fx_fog_15",
+    "fx_fog_16",
+    "fx_fog_17",
+    "fx_fog_18",
+    "fx_fog_19",
+    "fx_fog_open_grave",
+    "fx_lantern_lychgate",
+    "fx_wisps_tomb",
+    "ground_mud",
+    "nav_breach_E",
+    "nav_lychgate_inside",
+    "nav_lychgate_outside",
+    "nav_open_grave",
+    "npc_spot_gravedigger",
+    "npc_spot_lych_bench",
+    "npc_spot_mourner"
+   ],
+   "root_nodes": [
+    "bld_graveyard_st_noll"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_herbs_ysara_shared",
+   "live": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 3354996,
+    "MB": 3.355,
+    "file_tris": 44710,
+    "visible_tris": 44318,
+    "draw_calls": 88,
+    "shadow_draw_calls": 83,
+    "mesh_nodes": 67,
+    "nodes": 101,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 44318,
+    "total_draw_calls": 88,
+    "total_shadow_draw_calls": 83
+   },
+   "after": {
+    "bytes": 896584,
+    "MB": 0.897,
+    "file_tris": 8926,
+    "visible_tris": 8534,
+    "draw_calls": 62,
+    "shadow_draw_calls": 57,
+    "mesh_nodes": 58,
+    "nodes": 91,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 8534,
+    "total_draw_calls": 62,
+    "total_shadow_draw_calls": 57
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 77,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_bed_-4_-5",
+    "col_bed_6_-1",
+    "col_bed_6_2",
+    "col_bench_out",
+    "col_butt",
+    "col_cauldron",
+    "col_chest",
+    "col_cot",
+    "col_door",
+    "col_floor",
+    "col_rack_2",
+    "col_rack_4",
+    "col_roof",
+    "col_screen",
+    "col_shelves",
+    "col_stool",
+    "col_table",
+    "col_wall_E",
+    "col_wall_N",
+    "col_wall_S_a",
+    "col_wall_S_b",
+    "col_wall_S_lintel",
+    "col_wall_W",
+    "col_wood",
+    "door_main_leaf",
+    "fx_candle_table",
+    "fx_fire_hearth",
+    "fx_glow_window_S_w",
+    "fx_glow_window_S_w001",
+    "fx_glow_window_W_w002",
+    "fx_smoke_louvre",
+    "fx_steam_cauldron",
+    "fx_steam_window_S",
+    "ground_mud",
+    "interact_cauldron",
+    "interact_shelves",
+    "interact_sign",
+    "nav_entry_inside",
+    "nav_entry_outside",
+    "npc_spot_patient_cot",
+    "npc_spot_ysara",
+    "npc_spot_ysara_table",
+    "shutter_L",
+    "shutter_L.001",
+    "shutter_L.002",
+    "shutter_L.003",
+    "shutter_R",
+    "shutter_R.001",
+    "shutter_R.002",
+    "shutter_R.003",
+    "sign_mortar_pestle",
+    "sign_root",
+    "sway_door_main_leaf_hinge",
+    "sway_shutter_L",
+    "sway_shutter_L.001",
+    "sway_shutter_L.002",
+    "sway_shutter_L.003",
+    "sway_shutter_R",
+    "sway_shutter_R.001",
+    "sway_shutter_R.002",
+    "sway_shutter_R.003",
+    "win_glow_S_w",
+    "win_glow_S_w001",
+    "win_glow_W_w002"
+   ],
+   "root_nodes": [
+    "bld_herbs_ysara"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_scriptorium_quill_shared",
+   "live": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 3547016,
+    "MB": 3.547,
+    "file_tris": 40065,
+    "visible_tris": 39677,
+    "draw_calls": 82,
+    "shadow_draw_calls": 78,
+    "mesh_nodes": 72,
+    "nodes": 106,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 39677,
+    "total_draw_calls": 82,
+    "total_shadow_draw_calls": 78
+   },
+   "after": {
+    "bytes": 1137852,
+    "MB": 1.138,
+    "file_tris": 11646,
+    "visible_tris": 11258,
+    "draw_calls": 60,
+    "shadow_draw_calls": 56,
+    "mesh_nodes": 63,
+    "nodes": 96,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 11258,
+    "total_draw_calls": 60,
+    "total_shadow_draw_calls": 56
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 74,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "chimney",
+    "col_bed",
+    "col_bench",
+    "col_chest",
+    "col_chimney",
+    "col_cubbies",
+    "col_desk",
+    "col_door",
+    "col_floor",
+    "col_floor_upper",
+    "col_roof",
+    "col_shelves_W",
+    "col_turret",
+    "col_turret_cone",
+    "col_upper_E_a",
+    "col_upper_E_b",
+    "col_upper_N",
+    "col_upper_S",
+    "col_upper_W",
+    "col_wall_E_a",
+    "col_wall_E_b",
+    "col_wall_N",
+    "col_wall_S_a",
+    "col_wall_S_b",
+    "col_wall_S_lintel",
+    "col_wall_W",
+    "door_main_leaf",
+    "fx_candle_0",
+    "fx_candle_1",
+    "fx_candle_2",
+    "fx_candle_3",
+    "fx_candle_4",
+    "fx_candle_up_0",
+    "fx_candle_up_1",
+    "fx_glow_window_N_w003",
+    "fx_glow_window_S_w",
+    "fx_glow_window_S_w001",
+    "fx_glow_window_W_w002",
+    "ground_mud",
+    "interact_bed",
+    "interact_desk",
+    "interact_note",
+    "nav_door",
+    "nav_stair_bottom",
+    "nav_stair_top",
+    "shutter_L",
+    "shutter_L.001",
+    "shutter_L.002",
+    "shutter_L.003",
+    "shutter_R",
+    "shutter_R.001",
+    "shutter_R.002",
+    "shutter_R.003",
+    "sway_door_main_leaf_hinge",
+    "sway_shutter_L",
+    "sway_shutter_L.001",
+    "sway_shutter_L.002",
+    "sway_shutter_L.003",
+    "sway_shutter_R",
+    "sway_shutter_R.001",
+    "sway_shutter_R.002",
+    "sway_shutter_R.003",
+    "turret_stair",
+    "win_glow_N_w003",
+    "win_glow_W_w002"
+   ],
+   "root_nodes": [
+    "bld_scriptorium_quill"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_gatehouse_south_shared",
+   "live": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 3319744,
+    "MB": 3.32,
+    "file_tris": 37232,
+    "visible_tris": 36760,
+    "draw_calls": 63,
+    "shadow_draw_calls": 56,
+    "mesh_nodes": 62,
+    "nodes": 86,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 36760,
+    "total_draw_calls": 63,
+    "total_shadow_draw_calls": 56
+   },
+   "after": {
+    "bytes": 1373728,
+    "MB": 1.374,
+    "file_tris": 14189,
+    "visible_tris": 13717,
+    "draw_calls": 39,
+    "shadow_draw_calls": 32,
+    "mesh_nodes": 54,
+    "nodes": 74,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 13717,
+    "total_draw_calls": 39,
+    "total_shadow_draw_calls": 32
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 51,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_barrels",
+    "col_brazier",
+    "col_flank_E",
+    "col_flank_W_a",
+    "col_flank_W_b",
+    "col_floor_guard_N",
+    "col_floor_guard_S",
+    "col_merlons_E",
+    "col_merlons_N",
+    "col_merlons_S",
+    "col_merlons_W",
+    "col_portcullis",
+    "col_porter_bench",
+    "col_rack",
+    "col_roof_deck",
+    "col_table",
+    "col_turret_E",
+    "col_turret_N",
+    "col_turret_S",
+    "col_wall_E",
+    "col_wall_N_E",
+    "col_wall_N_W",
+    "col_wall_N_top",
+    "col_wall_S_E",
+    "col_wall_S_W",
+    "col_wall_S_top",
+    "col_wall_W",
+    "col_windlass",
+    "fx_brazier",
+    "fx_fire_brazier_0",
+    "fx_fire_torch_gate_E",
+    "fx_fire_torch_gate_W",
+    "fx_lantern",
+    "ground_mud",
+    "interact_murder_hole",
+    "interact_windlass",
+    "nav_guard_door",
+    "nav_passage_N",
+    "nav_passage_S",
+    "nav_roof_deck",
+    "nav_turret_ground",
+    "nav_walk_E",
+    "nav_walk_W",
+    "portcullis_guides",
+    "sway_door_turret_leaf_hinge",
+    "torch_bracket_gate_E",
+    "torch_bracket_gate_W",
+    "torch_flame_gate_E",
+    "torch_flame_gate_W",
+    "torch_haft_gate_E",
+    "torch_haft_gate_W",
+    "torch_wall_gate_E",
+    "torch_wall_gate_W",
+    "turret_stair"
+   ],
+   "root_nodes": [
+    "bld_gatehouse_south"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "seg_curtain_wall_4m_shared",
+   "live": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_curtain_wall_4m_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_curtain_wall_4m_shared_lite.glb",
+   "kind": "wall",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 123808,
+    "MB": 0.124,
+    "file_tris": 1324,
+    "visible_tris": 1288,
+    "draw_calls": 8,
+    "shadow_draw_calls": 7,
+    "mesh_nodes": 8,
+    "nodes": 10,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 2,
+    "total_visible_tris": 2576,
+    "total_draw_calls": 16,
+    "total_shadow_draw_calls": 14
+   },
+   "after": {
+    "bytes": 59116,
+    "MB": 0.059,
+    "file_tris": 615,
+    "visible_tris": 579,
+    "draw_calls": 5,
+    "shadow_draw_calls": 4,
+    "mesh_nodes": 8,
+    "nodes": 10,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 2,
+    "total_visible_tris": 1158,
+    "total_draw_calls": 10,
+    "total_shadow_draw_calls": 8
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 6,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_cw_core",
+    "col_cw_kerb",
+    "col_cw_parapet",
+    "nav_walk"
+   ],
+   "root_nodes": [
+    "seg_curtain_wall_4m"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_mill_shared",
+   "live": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 2834236,
+    "MB": 2.834,
+    "file_tris": 33587,
+    "visible_tris": 33255,
+    "draw_calls": 62,
+    "shadow_draw_calls": 55,
+    "mesh_nodes": 58,
+    "nodes": 88,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 33255,
+    "total_draw_calls": 62,
+    "total_shadow_draw_calls": 55
+   },
+   "after": {
+    "bytes": 899940,
+    "MB": 0.9,
+    "file_tris": 9068,
+    "visible_tris": 8736,
+    "draw_calls": 43,
+    "shadow_draw_calls": 36,
+    "mesh_nodes": 48,
+    "nodes": 76,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 8736,
+    "total_draw_calls": 43,
+    "total_shadow_draw_calls": 36
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 57,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_barrel",
+    "col_door",
+    "col_floor",
+    "col_flume",
+    "col_gear",
+    "col_heap",
+    "col_hurst",
+    "col_loft",
+    "col_roof_W",
+    "col_sacks",
+    "col_wall_E_0",
+    "col_wall_N_0",
+    "col_wall_N_1",
+    "col_wall_N_2",
+    "col_wall_S_0",
+    "col_wall_S_1",
+    "col_wall_S_2",
+    "col_wall_W_0",
+    "col_wheel",
+    "door_main_leaf",
+    "fx_birds_roof",
+    "fx_drip_flume",
+    "fx_drip_wheel_0",
+    "fx_drip_wheel_1",
+    "fx_drip_wheel_2",
+    "fx_drip_wheel_3",
+    "fx_dust_roof_hole",
+    "fx_glow_window_S_w",
+    "ground_mud",
+    "interact_heap",
+    "interact_millstones",
+    "interact_sign",
+    "nav_back_door",
+    "nav_entry_inside",
+    "nav_entry_outside",
+    "shutter_L",
+    "shutter_L.001",
+    "shutter_L.002",
+    "shutter_R",
+    "shutter_R.001",
+    "shutter_R.002",
+    "sign_bracket",
+    "sign_mill",
+    "sway_door_main_leaf_hinge",
+    "sway_shutter_L",
+    "sway_shutter_L.001",
+    "sway_shutter_L.002",
+    "sway_shutter_R",
+    "sway_shutter_R.001",
+    "sway_shutter_R.002",
+    "sway_sign_mill",
+    "sway_waterwheel",
+    "waterwheel",
+    "win_glow_S_w"
+   ],
+   "root_nodes": [
+    "bld_mill"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_cottage_ness_shared",
+   "live": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 2270768,
+    "MB": 2.271,
+    "file_tris": 25994,
+    "visible_tris": 25718,
+    "draw_calls": 59,
+    "shadow_draw_calls": 55,
+    "mesh_nodes": 54,
+    "nodes": 78,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 25718,
+    "total_draw_calls": 59,
+    "total_shadow_draw_calls": 55
+   },
+   "after": {
+    "bytes": 761516,
+    "MB": 0.762,
+    "file_tris": 8230,
+    "visible_tris": 7954,
+    "draw_calls": 40,
+    "shadow_draw_calls": 37,
+    "mesh_nodes": 47,
+    "nodes": 71,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 7954,
+    "total_draw_calls": 40,
+    "total_shadow_draw_calls": 37
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 51,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "chimney",
+    "col_bed",
+    "col_boat",
+    "col_chest",
+    "col_chimney",
+    "col_floor",
+    "col_hearth",
+    "col_net_0",
+    "col_net_1",
+    "col_peat",
+    "col_roof",
+    "col_table",
+    "col_wall_E_0",
+    "col_wall_N_0",
+    "col_wall_S_0",
+    "col_wall_S_1",
+    "col_wall_S_2",
+    "col_wall_W_0",
+    "door_main_leaf",
+    "fx_fire_peat",
+    "fx_glow_window_S_w",
+    "fx_light_hearth",
+    "fx_smoke_peat",
+    "ground_mud",
+    "interact_chest",
+    "interact_sign",
+    "nav_entry_inside",
+    "nav_entry_outside",
+    "npc_spot_ness_hearth",
+    "npc_spot_ness_nets",
+    "shutter_L",
+    "shutter_L.001",
+    "shutter_R",
+    "shutter_R.001",
+    "sign_bracket",
+    "sign_oar",
+    "sway_door_main_leaf_hinge",
+    "sway_net_0",
+    "sway_net_1",
+    "sway_shutter_L",
+    "sway_shutter_L.001",
+    "sway_shutter_R",
+    "sway_shutter_R.001",
+    "sway_sign_oar",
+    "win_glow_S_w"
+   ],
+   "root_nodes": [
+    "bld_cottage_ness"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_lodge_orrin_shared",
+   "live": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 1228604,
+    "MB": 1.229,
+    "file_tris": 13195,
+    "visible_tris": 12923,
+    "draw_calls": 57,
+    "shadow_draw_calls": 55,
+    "mesh_nodes": 52,
+    "nodes": 80,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 12923,
+    "total_draw_calls": 57,
+    "total_shadow_draw_calls": 55
+   },
+   "after": {
+    "bytes": 489208,
+    "MB": 0.489,
+    "file_tris": 5190,
+    "visible_tris": 4918,
+    "draw_calls": 47,
+    "shadow_draw_calls": 45,
+    "mesh_nodes": 47,
+    "nodes": 75,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 4918,
+    "total_draw_calls": 47,
+    "total_shadow_draw_calls": 45
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 57,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "chimney",
+    "col_bench",
+    "col_chimney",
+    "col_col_wall_E_0",
+    "col_col_wall_N_0",
+    "col_col_wall_S_0",
+    "col_col_wall_S_1",
+    "col_col_wall_S_2",
+    "col_col_wall_W_0",
+    "col_cot",
+    "col_floor",
+    "col_hearth",
+    "col_roof",
+    "col_steps",
+    "col_table",
+    "door_main_leaf",
+    "fx_fire_hearth",
+    "fx_glow_window_E_w002",
+    "fx_glow_window_S_w",
+    "fx_smoke_chimney",
+    "ground_mud",
+    "interact_bell_rope",
+    "interact_sign",
+    "nav_entry_inside",
+    "nav_entry_outside",
+    "npc_spot_orrin_bench",
+    "npc_spot_orrin_door",
+    "shutter_L",
+    "shutter_L.001",
+    "shutter_L.002",
+    "shutter_L.003",
+    "shutter_R",
+    "shutter_R.001",
+    "shutter_R.002",
+    "shutter_R.003",
+    "sign_bell",
+    "sign_bracket",
+    "sway_door_main_leaf_hinge",
+    "sway_shutter_L",
+    "sway_shutter_L.001",
+    "sway_shutter_L.002",
+    "sway_shutter_L.003",
+    "sway_shutter_R",
+    "sway_shutter_R.001",
+    "sway_shutter_R.002",
+    "sway_shutter_R.003",
+    "sway_sign_bell",
+    "win_glow_E_w002",
+    "win_glow_S_w"
+   ],
+   "root_nodes": [
+    "bld_lodge_orrin"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_stable_shared",
+   "live": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 2380856,
+    "MB": 2.381,
+    "file_tris": 32593,
+    "visible_tris": 32169,
+    "draw_calls": 81,
+    "shadow_draw_calls": 78,
+    "mesh_nodes": 76,
+    "nodes": 117,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 32169,
+    "total_draw_calls": 81,
+    "total_shadow_draw_calls": 78
+   },
+   "after": {
+    "bytes": 1225352,
+    "MB": 1.225,
+    "file_tris": 13035,
+    "visible_tris": 12611,
+    "draw_calls": 62,
+    "shadow_draw_calls": 59,
+    "mesh_nodes": 70,
+    "nodes": 107,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 12611,
+    "total_draw_calls": 62,
+    "total_shadow_draw_calls": 59
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 75,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_coach",
+    "col_dung",
+    "col_fence",
+    "col_fence.001",
+    "col_fence.002",
+    "col_fence.003",
+    "col_floor",
+    "col_loft",
+    "col_mangers",
+    "col_mounting_block",
+    "col_roof",
+    "col_stall_0",
+    "col_stall_1",
+    "col_stall_3",
+    "col_stall_4",
+    "col_trough",
+    "col_wall_E_0",
+    "col_wall_E_1",
+    "col_wall_E_2",
+    "col_wall_N_0",
+    "col_wall_S_0",
+    "col_wall_S_1",
+    "col_wall_S_2",
+    "col_wall_S_3",
+    "col_wall_S_4",
+    "col_wall_S_5",
+    "col_wall_S_6",
+    "col_wall_W_0",
+    "door_side",
+    "door_side_leaf",
+    "fx_drip_pump",
+    "fx_flies_dung",
+    "fx_glow_window_N_w001",
+    "ground_mud",
+    "interact_sign",
+    "interact_trough",
+    "nav_entry_inside",
+    "nav_entry_outside",
+    "nav_yard_gate",
+    "npc_spot_horse_0",
+    "npc_spot_horse_1",
+    "npc_spot_ostler",
+    "npc_spot_stable_hand",
+    "shutter_L",
+    "shutter_L.001",
+    "shutter_R",
+    "shutter_R.001",
+    "sign_bracket",
+    "sign_horseshoe",
+    "sway_door_cart_E_hinge",
+    "sway_door_cart_W_hinge",
+    "sway_door_side_leaf_hinge",
+    "sway_door_split_0_low_hinge",
+    "sway_door_split_0_up_hinge",
+    "sway_door_split_1_low_hinge",
+    "sway_door_split_1_up_hinge",
+    "sway_hay_hook",
+    "sway_shutter_L",
+    "sway_shutter_L.001",
+    "sway_shutter_R",
+    "sway_shutter_R.001",
+    "sway_sign_horseshoe",
+    "win_glow_N_w001",
+    "yard_gate"
+   ],
+   "root_nodes": [
+    "bld_stable"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_watchhouse_gibbet_shared",
+   "live": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 1329636,
+    "MB": 1.33,
+    "file_tris": 14730,
+    "visible_tris": 14422,
+    "draw_calls": 49,
+    "shadow_draw_calls": 44,
+    "mesh_nodes": 51,
+    "nodes": 71,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 14422,
+    "total_draw_calls": 49,
+    "total_shadow_draw_calls": 44
+   },
+   "after": {
+    "bytes": 788276,
+    "MB": 0.788,
+    "file_tris": 8244,
+    "visible_tris": 7936,
+    "draw_calls": 35,
+    "shadow_draw_calls": 30,
+    "mesh_nodes": 46,
+    "nodes": 65,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 7936,
+    "total_draw_calls": 35,
+    "total_shadow_draw_calls": 30
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 50,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_brazier_door",
+    "col_chest",
+    "col_cot",
+    "col_floor",
+    "col_gibbet_cage",
+    "col_gibbet_post",
+    "col_palisade",
+    "col_palisade.001",
+    "col_palisade.002",
+    "col_palisade.003",
+    "col_rack",
+    "col_roof_floor",
+    "col_table",
+    "col_upper",
+    "col_wall_E_0",
+    "col_wall_N_0",
+    "col_wall_S_0",
+    "col_wall_S_1",
+    "col_wall_S_2",
+    "col_wall_W_0",
+    "col_watch_roof",
+    "door_main_leaf",
+    "fx_creak_gibbet",
+    "fx_crows_gibbet",
+    "fx_fire_brazier_0",
+    "fx_fire_brazier_1",
+    "fx_light_brazier_0",
+    "fx_light_brazier_1",
+    "gibbet_frame",
+    "ground_mud",
+    "interact_gibbet",
+    "interact_notice",
+    "nav_entry_inside",
+    "nav_entry_outside",
+    "nav_ladder_bottom",
+    "nav_ladder_top",
+    "npc_spot_watch_door",
+    "npc_spot_watch_platform",
+    "sway_door_main_leaf_hinge",
+    "sway_gibbet_cage"
+   ],
+   "root_nodes": [
+    "bld_watchhouse_gibbet"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "bld_square_shared",
+   "live": "models/town/martsirt_v2_2/buildings/square/bld_square_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "kind": "building",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 3653424,
+    "MB": 3.653,
+    "file_tris": 43666,
+    "visible_tris": 26392,
+    "draw_calls": 24,
+    "shadow_draw_calls": 24,
+    "mesh_nodes": 16,
+    "nodes": 33,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 26392,
+    "total_draw_calls": 24,
+    "total_shadow_draw_calls": 24
+   },
+   "after": {
+    "bytes": 2395604,
+    "MB": 2.396,
+    "file_tris": 26297,
+    "visible_tris": 9023,
+    "draw_calls": 23,
+    "shadow_draw_calls": 23,
+    "mesh_nodes": 16,
+    "nodes": 33,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 9023,
+    "total_draw_calls": 23,
+    "total_shadow_draw_calls": 23
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 42,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_bench_0",
+    "col_bench_1",
+    "col_notice",
+    "col_plaza",
+    "col_statue",
+    "col_well",
+    "decals_square",
+    "fx_candles_statue",
+    "fx_drip_bucket",
+    "fx_salt_glint",
+    "interact_notice_board",
+    "interact_statue",
+    "interact_well",
+    "nav_road_E",
+    "nav_road_N",
+    "nav_road_S",
+    "nav_road_W",
+    "nav_square_centre",
+    "npc_spot_bench",
+    "npc_spot_crier",
+    "npc_spot_pilgrim",
+    "npc_spot_well",
+    "plaza",
+    "sway_well_bucket"
+   ],
+   "root_nodes": [
+    "bld_square"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "prop_fence_wattle_2m",
+   "live": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+   "lite": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
+   "kind": "prop",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 17636,
+    "MB": 0.018,
+    "file_tris": 182,
+    "visible_tris": 170,
+    "draw_calls": 2,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 26,
+    "total_visible_tris": 4420,
+    "total_draw_calls": 52,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 10552,
+    "MB": 0.011,
+    "file_tris": 98,
+    "visible_tris": 86,
+    "draw_calls": 2,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 26,
+    "total_visible_tris": 2236,
+    "total_draw_calls": 52,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.025,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 2,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_fence"
+   ],
+   "root_nodes": [
+    "prop_fence_wattle_2m"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "prop_market_stall_c",
+   "live": "models/town/martsirt_v2_2/props/prop_market_stall_c.glb",
+   "lite": "models/town/martsirt_v2_2/props/prop_market_stall_c_lite.glb",
+   "kind": "prop",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 161656,
+    "MB": 0.162,
+    "file_tris": 1831,
+    "visible_tris": 1819,
+    "draw_calls": 6,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 4,
+    "nodes": 7,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 1819,
+    "total_draw_calls": 6,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 47160,
+    "MB": 0.047,
+    "file_tris": 431,
+    "visible_tris": 419,
+    "draw_calls": 6,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 4,
+    "nodes": 7,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 419,
+    "total_draw_calls": 6,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.025,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 8,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_stall.002",
+    "fx_candle_stall",
+    "npc_spot_chandler"
+   ],
+   "root_nodes": [
+    "prop_market_stall_c"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "prop_barrel_group",
+   "live": "models/town/martsirt_v2_2/props/prop_barrel_group.glb",
+   "lite": "models/town/martsirt_v2_2/props/prop_barrel_group_lite.glb",
+   "kind": "prop",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 164932,
+    "MB": 0.165,
+    "file_tris": 2016,
+    "visible_tris": 2004,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 5,
+    "total_visible_tris": 10020,
+    "total_draw_calls": 15,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 68320,
+    "MB": 0.068,
+    "file_tris": 760,
+    "visible_tris": 748,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 5,
+    "total_visible_tris": 3740,
+    "total_draw_calls": 15,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.025,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 3,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "barrels",
+    "col_barrels",
+    "prop_barrel_group"
+   ],
+   "root_nodes": [
+    "prop_barrel_group"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "prop_bonfire_main",
+   "live": "models/town/martsirt_v2_2/props/prop_bonfire_main.glb",
+   "lite": "models/town/martsirt_v2_2/props/prop_bonfire_main_lite.glb",
+   "kind": "prop",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 178812,
+    "MB": 0.179,
+    "file_tris": 2034,
+    "visible_tris": 1554,
+    "draw_calls": 7,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 23,
+    "nodes": 31,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 1554,
+    "total_draw_calls": 7,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 136360,
+    "MB": 0.136,
+    "file_tris": 1763,
+    "visible_tris": 1283,
+    "draw_calls": 7,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 23,
+    "nodes": 31,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 1283,
+    "total_draw_calls": 7,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.025,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 7,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_fire",
+    "col_seat_0",
+    "col_seat_0_p0",
+    "col_seat_0_p1",
+    "col_seat_0_p2",
+    "col_seat_0_p3",
+    "col_seat_1",
+    "col_seat_1_p0",
+    "col_seat_1_p1",
+    "col_seat_1_p2",
+    "col_seat_1_p3",
+    "col_seat_2",
+    "col_seat_2_p0",
+    "col_seat_2_p1",
+    "col_seat_2_p2",
+    "col_seat_2_p3",
+    "col_seat_3",
+    "col_seat_4",
+    "col_seat_5",
+    "fx_embers",
+    "fx_fire_bonfire_main",
+    "fx_smoke_bonfire",
+    "fx_sparks_bonfire"
+   ],
+   "root_nodes": [
+    "prop_bonfire_main"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "prop_campfire",
+   "live": "models/town/martsirt_v2_2/props/prop_campfire.glb",
+   "lite": "models/town/martsirt_v2_2/props/prop_campfire_lite.glb",
+   "kind": "prop",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 79532,
+    "MB": 0.08,
+    "file_tris": 842,
+    "visible_tris": 670,
+    "draw_calls": 6,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 11,
+    "nodes": 16,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 2,
+    "total_visible_tris": 1340,
+    "total_draw_calls": 12,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 59204,
+    "MB": 0.059,
+    "file_tris": 668,
+    "visible_tris": 496,
+    "draw_calls": 6,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 11,
+    "nodes": 16,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 2,
+    "total_visible_tris": 992,
+    "total_draw_calls": 12,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.025,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 6,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_fire",
+    "col_seat_0",
+    "col_seat_0_p0",
+    "col_seat_0_p1",
+    "col_seat_0_p2",
+    "col_seat_0_p3",
+    "fx_embers_campfire",
+    "fx_fire_campfire",
+    "fx_smoke_campfire"
+   ],
+   "root_nodes": [
+    "prop_campfire"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "prop_crate_stack",
+   "live": "models/town/martsirt_v2_2/props/prop_crate_stack.glb",
+   "lite": "models/town/martsirt_v2_2/props/prop_crate_stack_lite.glb",
+   "kind": "prop",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 29308,
+    "MB": 0.029,
+    "file_tris": 304,
+    "visible_tris": 292,
+    "draw_calls": 2,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 4,
+    "total_visible_tris": 1168,
+    "total_draw_calls": 8,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 10612,
+    "MB": 0.011,
+    "file_tris": 106,
+    "visible_tris": 94,
+    "draw_calls": 2,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 4,
+    "total_visible_tris": 376,
+    "total_draw_calls": 8,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.025,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 2,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_crates",
+    "crates",
+    "prop_crate_stack"
+   ],
+   "root_nodes": [
+    "prop_crate_stack"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "seg_palisade_4m_shared",
+   "live": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+   "lite": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
+   "kind": "prop",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 75220,
+    "MB": 0.075,
+    "file_tris": 874,
+    "visible_tris": 862,
+    "draw_calls": 4,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 111,
+    "total_visible_tris": 95682,
+    "total_draw_calls": 444,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 24532,
+    "MB": 0.025,
+    "file_tris": 231,
+    "visible_tris": 219,
+    "draw_calls": 4,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 111,
+    "total_visible_tris": 24309,
+    "total_draw_calls": 444,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.1,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 4,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_palisade"
+   ],
+   "root_nodes": [
+    "seg_palisade_4m"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "dress_trees",
+   "live": "models/town/martsirt_v2_2/dressing/dress_trees.glb",
+   "lite": "models/town/martsirt_v2_2/dressing/dress_trees_lite.glb",
+   "kind": "dressing",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 778956,
+    "MB": 0.779,
+    "file_tris": 15894,
+    "visible_tris": 15690,
+    "draw_calls": 2,
+    "shadow_draw_calls": 2,
+    "mesh_nodes": 19,
+    "nodes": 20,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 15690,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 2
+   },
+   "after": {
+    "bytes": 516368,
+    "MB": 0.516,
+    "file_tris": 9346,
+    "visible_tris": 9142,
+    "draw_calls": 2,
+    "shadow_draw_calls": 2,
+    "mesh_nodes": 19,
+    "nodes": 20,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 9142,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 2
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 2,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_tree_00",
+    "col_tree_01",
+    "col_tree_02",
+    "col_tree_03",
+    "col_tree_04",
+    "col_tree_05",
+    "col_tree_06",
+    "col_tree_07",
+    "col_tree_08",
+    "col_tree_09",
+    "col_tree_10",
+    "col_tree_11",
+    "col_tree_12",
+    "col_tree_13",
+    "col_tree_14",
+    "col_tree_15",
+    "col_tree_16",
+    "trees_bark"
+   ],
+   "root_nodes": [
+    "dress_trees"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "dress_rocks",
+   "live": "models/town/martsirt_v2_2/dressing/dress_rocks.glb",
+   "lite": "models/town/martsirt_v2_2/dressing/dress_rocks_lite.glb",
+   "kind": "dressing",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 128896,
+    "MB": 0.129,
+    "file_tris": 3420,
+    "visible_tris": 3360,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 6,
+    "nodes": 7,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 3360,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 76452,
+    "MB": 0.076,
+    "file_tris": 1786,
+    "visible_tris": 1726,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 6,
+    "nodes": 7,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 1726,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 1,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_rock_00",
+    "col_rock_01",
+    "col_rock_02",
+    "col_rock_03",
+    "col_rock_04"
+   ],
+   "root_nodes": [
+    "dress_rocks"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "dress_fences",
+   "live": "models/town/martsirt_v2_2/dressing/dress_fences.glb",
+   "lite": "models/town/martsirt_v2_2/dressing/dress_fences_lite.glb",
+   "kind": "dressing",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 130888,
+    "MB": 0.131,
+    "file_tris": 2676,
+    "visible_tris": 2148,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 45,
+    "nodes": 46,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 2148,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 126600,
+    "MB": 0.127,
+    "file_tris": 2442,
+    "visible_tris": 1914,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 45,
+    "nodes": 46,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 1914,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 1,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_fence_00",
+    "col_fence_01",
+    "col_fence_02",
+    "col_fence_03",
+    "col_fence_04",
+    "col_fence_05",
+    "col_fence_06",
+    "col_fence_07",
+    "col_fence_08",
+    "col_fence_09",
+    "col_fence_10",
+    "col_fence_11",
+    "col_fence_12",
+    "col_fence_13",
+    "col_fence_14",
+    "col_fence_15",
+    "col_fence_16",
+    "col_fence_17",
+    "col_fence_18",
+    "col_fence_19",
+    "col_fence_20",
+    "col_fence_21",
+    "col_fence_22",
+    "col_fence_23",
+    "col_fence_24",
+    "col_fence_25",
+    "col_fence_26",
+    "col_fence_27",
+    "col_fence_28",
+    "col_fence_29",
+    "col_fence_30",
+    "col_fence_31",
+    "col_fence_32",
+    "col_fence_33",
+    "col_fence_34",
+    "col_fence_35",
+    "col_fence_36",
+    "col_fence_37",
+    "col_fence_38",
+    "col_fence_39",
+    "col_fence_40",
+    "col_fence_41",
+    "col_fence_42",
+    "col_fence_43"
+   ],
+   "root_nodes": [
+    "dress_fences"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "dress_graveyard",
+   "live": "models/town/martsirt_v2_2/dressing/dress_graveyard.glb",
+   "lite": "models/town/martsirt_v2_2/dressing/dress_graveyard_lite.glb",
+   "kind": "dressing",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 39184,
+    "MB": 0.039,
+    "file_tris": 460,
+    "visible_tris": 460,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 1,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 460,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 34080,
+    "MB": 0.034,
+    "file_tris": 385,
+    "visible_tris": 385,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 1,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 385,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 1,
+    "msgs": []
+   },
+   "preserved_node_names": [],
+   "root_nodes": [
+    "dress_graveyard"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "dress_clutter",
+   "live": "models/town/martsirt_v2_2/dressing/dress_clutter.glb",
+   "lite": "models/town/martsirt_v2_2/dressing/dress_clutter_lite.glb",
+   "kind": "dressing",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 34816,
+    "MB": 0.035,
+    "file_tris": 648,
+    "visible_tris": 648,
+    "draw_calls": 2,
+    "shadow_draw_calls": 2,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 648,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 2
+   },
+   "after": {
+    "bytes": 34708,
+    "MB": 0.035,
+    "file_tris": 648,
+    "visible_tris": 648,
+    "draw_calls": 2,
+    "shadow_draw_calls": 2,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 648,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 2
+   },
+   "build_options": {
+    "err": 0.03,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 2,
+    "msgs": []
+   },
+   "preserved_node_names": [],
+   "root_nodes": [
+    "dress_clutter"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "creek",
+   "live": "models/town/martsirt_v2_2/dressing/creek.glb",
+   "lite": "models/town/martsirt_v2_2/dressing/creek_lite.glb",
+   "kind": "dressing",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 211012,
+    "MB": 0.211,
+    "file_tris": 4068,
+    "visible_tris": 4068,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 4068,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 208212,
+    "MB": 0.208,
+    "file_tris": 4068,
+    "visible_tris": 4068,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 4068,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "simplify": false
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 3,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "creek",
+    "creek_banks",
+    "creek_reeds",
+    "water_creek"
+   ],
+   "root_nodes": [
+    "creek"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "prop_seat_stone_bench",
+   "live": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+   "lite": "models/town/martsirt_v2_2/props/prop_seat_stone_bench_lite.glb",
+   "kind": "prop",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 7064,
+    "MB": 0.007,
+    "file_tris": 48,
+    "visible_tris": 36,
+    "draw_calls": 2,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 5,
+    "total_visible_tris": 180,
+    "total_draw_calls": 10,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 4444,
+    "MB": 0.004,
+    "file_tris": 38,
+    "visible_tris": 26,
+    "draw_calls": 2,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 5,
+    "total_visible_tris": 130,
+    "total_draw_calls": 10,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.025,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 2,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_seat_bench"
+   ],
+   "root_nodes": [
+    "bench_stone_slab",
+    "bench_stone_legs",
+    "col_seat_bench"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "prop_seat_log",
+   "live": "models/town/martsirt_v2_2/props/prop_seat_log.glb",
+   "lite": "models/town/martsirt_v2_2/props/prop_seat_log_lite.glb",
+   "kind": "prop",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 8280,
+    "MB": 0.008,
+    "file_tris": 68,
+    "visible_tris": 56,
+    "draw_calls": 1,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 56,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 3520,
+    "MB": 0.004,
+    "file_tris": 38,
+    "visible_tris": 26,
+    "draw_calls": 1,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 26,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.025,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 1,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_seat_log"
+   ],
+   "root_nodes": [
+    "log_seat",
+    "col_seat_log"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "creek_water_col",
+   "live": "models/town/martsirt_v2_2/dressing/creek_water_col.glb",
+   "lite": "models/town/martsirt_v2_2/dressing/creek_water_col_lite.glb",
+   "kind": "dressing",
+   "group": "town_core",
+   "loaded_by": "placements.json (placeTown)",
+   "source_note": null,
+   "before": {
+    "bytes": 11052,
+    "MB": 0.011,
+    "file_tris": 1728,
+    "visible_tris": 0,
+    "draw_calls": 0,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 144,
+    "nodes": 145,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 0,
+    "total_draw_calls": 0,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 10804,
+    "MB": 0.011,
+    "file_tris": 1728,
+    "visible_tris": 0,
+    "draw_calls": 0,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 144,
+    "nodes": 145,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 0,
+    "total_draw_calls": 0,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "simplify": false
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_water_23_24",
+    "col_water_23_25",
+    "col_water_24_25",
+    "col_water_24_26",
+    "col_water_25_26",
+    "col_water_25_27",
+    "col_water_25_28",
+    "col_water_25_96",
+    "col_water_25_97",
+    "col_water_25_98",
+    "col_water_25_99",
+    "col_water_26_27",
+    "col_water_26_28",
+    "col_water_26_29",
+    "col_water_26_94",
+    "col_water_26_95",
+    "col_water_26_96",
+    "col_water_26_97",
+    "col_water_27_29",
+    "col_water_27_30",
+    "col_water_27_91",
+    "col_water_27_92",
+    "col_water_27_93",
+    "col_water_27_94",
+    "col_water_28_30",
+    "col_water_28_31",
+    "col_water_28_89",
+    "col_water_28_90",
+    "col_water_28_91",
+    "col_water_28_92",
+    "col_water_29_31",
+    "col_water_29_32",
+    "col_water_29_86",
+    "col_water_29_87",
+    "col_water_29_88",
+    "col_water_29_89",
+    "col_water_30_32",
+    "col_water_30_33",
+    "col_water_30_84",
+    "col_water_30_85",
+    "col_water_30_86",
+    "col_water_31_33",
+    "col_water_31_34",
+    "col_water_31_81",
+    "col_water_31_82",
+    "col_water_31_83",
+    "col_water_31_84",
+    "col_water_32_33",
+    "col_water_32_34",
+    "col_water_32_35",
+    "col_water_32_79",
+    "col_water_32_80",
+    "col_water_32_81",
+    "col_water_32_82",
+    "col_water_33_34",
+    "col_water_33_35",
+    "col_water_33_36",
+    "col_water_33_77",
+    "col_water_33_78",
+    "col_water_33_79",
+    "col_water_33_80",
+    "col_water_34_35",
+    "col_water_34_36",
+    "col_water_34_37",
+    "col_water_34_75",
+    "col_water_34_76",
+    "col_water_34_77",
+    "col_water_35_36",
+    "col_water_35_37",
+    "col_water_35_38",
+    "col_water_35_72",
+    "col_water_35_73",
+    "col_water_35_74",
+    "col_water_35_75",
+    "col_water_36_37",
+    "col_water_36_38",
+    "col_water_36_39",
+    "col_water_36_70",
+    "col_water_36_71",
+    "col_water_36_72",
+    "col_water_36_73",
+    "col_water_37_38",
+    "col_water_37_39",
+    "col_water_37_40",
+    "col_water_37_68",
+    "col_water_37_69",
+    "col_water_37_70",
+    "col_water_37_71",
+    "col_water_38_39",
+    "col_water_38_40",
+    "col_water_38_41",
+    "col_water_38_66",
+    "col_water_38_67",
+    "col_water_38_68",
+    "col_water_38_69",
+    "col_water_39_40",
+    "col_water_39_41",
+    "col_water_39_42",
+    "col_water_39_43",
+    "col_water_39_64",
+    "col_water_39_65",
+    "col_water_39_66",
+    "col_water_39_67",
+    "col_water_40_42",
+    "col_water_40_43",
+    "col_water_40_44",
+    "col_water_40_63",
+    "col_water_40_64",
+    "col_water_40_65",
+    "col_water_41_43",
+    "col_water_41_44",
+    "col_water_41_45",
+    "col_water_41_46",
+    "col_water_41_59",
+    "col_water_41_63",
+    "col_water_42_44",
+    "col_water_42_45",
+    "col_water_42_46",
+    "col_water_42_47",
+    "col_water_42_48",
+    "col_water_42_56",
+    "col_water_42_57",
+    "col_water_42_58",
+    "col_water_42_59",
+    "col_water_43_46",
+    "col_water_43_47",
+    "col_water_43_48",
+    "col_water_43_49",
+    "col_water_43_50",
+    "col_water_43_51",
+    "col_water_43_52",
+    "col_water_43_53",
+    "col_water_43_54",
+    "col_water_43_55",
+    "col_water_43_56",
+    "col_water_43_57",
+    "col_water_43_58",
+    "col_water_44_49",
+    "col_water_44_50",
+    "col_water_44_51",
+    "col_water_44_52",
+    "col_water_44_53",
+    "col_water_44_54",
+    "col_water_44_55",
+    "creek_water_col"
+   ],
+   "root_nodes": [
+    "creek_water_col"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "prop_cart_broken",
+   "live": "models/town/martsirt/props/prop_cart_broken.glb",
+   "lite": "models/town/martsirt/props/prop_cart_broken_lite.glb",
+   "kind": "life",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": null,
+   "before": {
+    "bytes": 193988,
+    "MB": 0.194,
+    "file_tris": 2091,
+    "visible_tris": 2079,
+    "draw_calls": 3,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 2079,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 49468,
+    "MB": 0.049,
+    "file_tris": 572,
+    "visible_tris": 560,
+    "draw_calls": 3,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 0,
+    "instances": 1,
+    "total_visible_tris": 560,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.025,
+    "perm": true
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 3,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_cart"
+   ],
+   "root_nodes": [
+    "prop_cart_broken"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "wine_barrel_01_sanctuary",
+   "live": "characters_art/props/wine_barrel_01_sanctuary.glb",
+   "lite": "characters_art/props/wine_barrel_01_sanctuary_lite.glb",
+   "kind": "life",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": "pinned commit 2c3e35bf of characters_art/props (dropAbs); lite written to characters_art/props on main",
+   "before": {
+    "bytes": 1652124,
+    "MB": 1.652,
+    "file_tris": 6544,
+    "visible_tris": 6500,
+    "draw_calls": 1,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 48,
+    "instances": 1,
+    "total_visible_tris": 6500,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 341644,
+    "MB": 0.342,
+    "file_tris": 1307,
+    "visible_tris": 1263,
+    "draw_calls": 1,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 4,
+    "instances": 1,
+    "total_visible_tris": 1263,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.03,
+    "ratio": 0.25,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_wine_barrel_01_sanctuary",
+    "wine_barrel_01_sanctuary"
+   ],
+   "root_nodes": [
+    "wine_barrel_01_sanctuary",
+    "col_wine_barrel_01_sanctuary"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "kylix_sanctuary",
+   "live": "characters_art/props/kylix_sanctuary.glb",
+   "lite": "characters_art/props/kylix_sanctuary_lite.glb",
+   "kind": "life",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": "pinned commit 2c3e35bf of characters_art/props (dropAbs); lite written to characters_art/props on main",
+   "before": {
+    "bytes": 518096,
+    "MB": 0.518,
+    "file_tris": 6044,
+    "visible_tris": 6000,
+    "draw_calls": 1,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 12,
+    "instances": 1,
+    "total_visible_tris": 6000,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 230180,
+    "MB": 0.23,
+    "file_tris": 1499,
+    "visible_tris": 1455,
+    "draw_calls": 1,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 4,
+    "instances": 1,
+    "total_visible_tris": 1455,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.03,
+    "ratio": 0.25,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_kylix_sanctuary"
+   ],
+   "root_nodes": [
+    "kylix_sanctuary",
+    "col_kylix_sanctuary"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "kite_shield_sanctuary",
+   "live": "characters_art/props/kite_shield_sanctuary.glb",
+   "lite": "characters_art/props/kite_shield_sanctuary_lite.glb",
+   "kind": "life",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": "pinned commit 2c3e35bf of characters_art/props (dropAbs); lite written to characters_art/props on main",
+   "before": {
+    "bytes": 2140452,
+    "MB": 2.14,
+    "file_tris": 9511,
+    "visible_tris": 9499,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 48,
+    "instances": 1,
+    "total_visible_tris": 9499,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 432596,
+    "MB": 0.433,
+    "file_tris": 2548,
+    "visible_tris": 2536,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 4,
+    "instances": 1,
+    "total_visible_tris": 2536,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.03,
+    "ratio": 0.25,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_kite_shield_sanctuary"
+   ],
+   "root_nodes": [
+    "kite_shield_sanctuary",
+    "col_kite_shield_sanctuary"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "gothic_statue_sanctuary",
+   "live": "characters_art/props/gothic_statue_sanctuary.glb",
+   "lite": "characters_art/props/gothic_statue_sanctuary_lite.glb",
+   "kind": "life",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": "pinned commit 2c3e35bf of characters_art/props (dropAbs); lite written to characters_art/props on main",
+   "before": {
+    "bytes": 3169608,
+    "MB": 3.17,
+    "file_tris": 27719,
+    "visible_tris": 27707,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 48,
+    "instances": 1,
+    "total_visible_tris": 27707,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 690436,
+    "MB": 0.69,
+    "file_tris": 6585,
+    "visible_tris": 6573,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 4,
+    "instances": 1,
+    "total_visible_tris": 6573,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.03,
+    "ratio": 0.25,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_gothic_statue_sanctuary"
+   ],
+   "root_nodes": [
+    "gothic_statue_sanctuary",
+    "col_gothic_statue_sanctuary"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "kneeling_winged_monster_sanctuary_statue",
+   "live": "characters_art/props/kneeling_winged_monster_sanctuary_statue.glb",
+   "lite": "characters_art/props/kneeling_winged_monster_sanctuary_statue_lite.glb",
+   "kind": "life",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": "pinned commit 2c3e35bf of characters_art/props (dropAbs); lite written to characters_art/props on main",
+   "before": {
+    "bytes": 2228832,
+    "MB": 2.229,
+    "file_tris": 24010,
+    "visible_tris": 23998,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 48,
+    "instances": 1,
+    "total_visible_tris": 23998,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 416744,
+    "MB": 0.417,
+    "file_tris": 6010,
+    "visible_tris": 5998,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 4,
+    "instances": 1,
+    "total_visible_tris": 5998,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.03,
+    "ratio": 0.25,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_kneeling_winged_monster_sanctuary"
+   ],
+   "root_nodes": [
+    "kneeling_winged_monster_sanctuary_statue",
+    "col_kneeling_winged_monster_sanctuary"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "mourner_statue",
+   "live": "characters_art/props/mourner_statue.glb",
+   "lite": "characters_art/props/mourner_statue_lite.glb",
+   "kind": "life",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": "pinned commit 2c3e35bf of characters_art/props (dropAbs); lite written to characters_art/props on main",
+   "before": {
+    "bytes": 2094224,
+    "MB": 2.094,
+    "file_tris": 22010,
+    "visible_tris": 21998,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 48,
+    "instances": 1,
+    "total_visible_tris": 21998,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 414912,
+    "MB": 0.415,
+    "file_tris": 5274,
+    "visible_tris": 5262,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 4,
+    "instances": 1,
+    "total_visible_tris": 5262,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.03,
+    "ratio": 0.25,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_mourner_statue"
+   ],
+   "root_nodes": [
+    "mourner_statue",
+    "col_mourner_statue"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "reliquary",
+   "live": "characters_art/props/reliquary.glb",
+   "lite": "characters_art/props/reliquary_lite.glb",
+   "kind": "life",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": "pinned commit 2c3e35bf of characters_art/props (dropAbs); lite written to characters_art/props on main",
+   "before": {
+    "bytes": 2423008,
+    "MB": 2.423,
+    "file_tris": 13992,
+    "visible_tris": 13980,
+    "draw_calls": 1,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 48,
+    "instances": 1,
+    "total_visible_tris": 13980,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 380108,
+    "MB": 0.38,
+    "file_tris": 3156,
+    "visible_tris": 3144,
+    "draw_calls": 1,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 2,
+    "embedded_texture_MB_gpu": 4,
+    "instances": 1,
+    "total_visible_tris": 3144,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.03,
+    "ratio": 0.25,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_reliquary"
+   ],
+   "root_nodes": [
+    "reliquary",
+    "col_reliquary"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "tree_v6_decid_gothic_twisted_summer",
+   "live": "models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_twisted_summer.glb",
+   "lite": "models/outdoor/trees_gothic_v6/tree_v6_decid_gothic_twisted_summer_lite.glb",
+   "kind": "tree",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": null,
+   "before": {
+    "bytes": 804000,
+    "MB": 0.804,
+    "file_tris": 5236,
+    "visible_tris": 5236,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 10.67,
+    "instances": 1,
+    "total_visible_tris": 5236,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 689172,
+    "MB": 0.689,
+    "file_tris": 5236,
+    "visible_tris": 5236,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 2.67,
+    "instances": 1,
+    "total_visible_tris": 5236,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.02,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/2/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "sway_tree_v6_decid_gothic_twisted_summer",
+    "tree_v6_decid_gothic_twisted_summer_LOD0"
+   ],
+   "root_nodes": [
+    "sway_tree_v6_decid_gothic_twisted_summer"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "church_pew_v1",
+   "live": "models/env_extra/props_gothic_v1/props/church_pew_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/church_pew_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 80224,
+    "MB": 0.08,
+    "file_tris": 308,
+    "visible_tris": 296,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 2.67,
+    "instances": 1,
+    "total_visible_tris": 296,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 79464,
+    "MB": 0.079,
+    "file_tris": 290,
+    "visible_tris": 278,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 2.67,
+    "instances": 1,
+    "total_visible_tris": 278,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_pew"
+   ],
+   "root_nodes": [
+    "church_pew_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "altar_cloth_v1",
+   "live": "models/env_extra/props_gothic_v1/props/altar_cloth_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/altar_cloth_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 459344,
+    "MB": 0.459,
+    "file_tris": 1538,
+    "visible_tris": 1526,
+    "draw_calls": 9,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 14.71,
+    "instances": 1,
+    "total_visible_tris": 1526,
+    "total_draw_calls": 9,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 427836,
+    "MB": 0.428,
+    "file_tris": 645,
+    "visible_tris": 633,
+    "draw_calls": 9,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 14.71,
+    "instances": 1,
+    "total_visible_tris": 633,
+    "total_draw_calls": 9,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 6,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/1/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/2/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/3/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/6/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_altar"
+   ],
+   "root_nodes": [
+    "altar_cloth_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "candelabra_tall_v1",
+   "live": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 198412,
+    "MB": 0.198,
+    "file_tris": 1532,
+    "visible_tris": 1520,
+    "draw_calls": 3,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 4.04,
+    "instances": 1,
+    "total_visible_tris": 1520,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 169520,
+    "MB": 0.17,
+    "file_tris": 736,
+    "visible_tris": 724,
+    "draw_calls": 3,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 4.04,
+    "instances": 1,
+    "total_visible_tris": 724,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_candelabra"
+   ],
+   "root_nodes": [
+    "candelabra_tall_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "wall_niche_saint_v1",
+   "live": "models/env_extra/props_gothic_v1/props/wall_niche_saint_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/wall_niche_saint_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 493172,
+    "MB": 0.493,
+    "file_tris": 2978,
+    "visible_tris": 2966,
+    "draw_calls": 7,
+    "shadow_draw_calls": 3,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 9.37,
+    "instances": 1,
+    "total_visible_tris": 2966,
+    "total_draw_calls": 7,
+    "total_shadow_draw_calls": 3
+   },
+   "after": {
+    "bytes": 437132,
+    "MB": 0.437,
+    "file_tris": 878,
+    "visible_tris": 866,
+    "draw_calls": 7,
+    "shadow_draw_calls": 3,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 9.37,
+    "instances": 1,
+    "total_visible_tris": 866,
+    "total_draw_calls": 7,
+    "total_shadow_draw_calls": 3
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 5,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/1/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/2/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/3/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/4/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_niche"
+   ],
+   "root_nodes": [
+    "wall_niche_saint_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "wall_sconce_v1",
+   "live": "models/env_extra/props_gothic_v1/props/wall_sconce_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/wall_sconce_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 147500,
+    "MB": 0.147,
+    "file_tris": 354,
+    "visible_tris": 342,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 4.04,
+    "instances": 2,
+    "total_visible_tris": 684,
+    "total_draw_calls": 6,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 46832,
+    "MB": 0.047,
+    "file_tris": 212,
+    "visible_tris": 200,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 1.04,
+    "instances": 2,
+    "total_visible_tris": 400,
+    "total_draw_calls": 6,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 256
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_sconce"
+   ],
+   "root_nodes": [
+    "wall_sconce_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "grave_celtic_cross_v1",
+   "live": "models/env_extra/props_gothic_v1/props/grave_celtic_cross_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/grave_celtic_cross_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 288464,
+    "MB": 0.288,
+    "file_tris": 868,
+    "visible_tris": 844,
+    "draw_calls": 2,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 4,
+    "nodes": 5,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 1,
+    "total_visible_tris": 844,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 282380,
+    "MB": 0.282,
+    "file_tris": 630,
+    "visible_tris": 606,
+    "draw_calls": 2,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 4,
+    "nodes": 5,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 1,
+    "total_visible_tris": 606,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/2/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/3/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_cross",
+    "col_mound"
+   ],
+   "root_nodes": [
+    "grave_celtic_cross_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "tombstone_gothic_v1",
+   "live": "models/env_extra/props_gothic_v1/props/tombstone_gothic_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/tombstone_gothic_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 540264,
+    "MB": 0.54,
+    "file_tris": 798,
+    "visible_tris": 786,
+    "draw_calls": 9,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 6,
+    "nodes": 7,
+    "embedded_texture_MB_gpu": 12,
+    "instances": 1,
+    "total_visible_tris": 786,
+    "total_draw_calls": 9,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 172008,
+    "MB": 0.172,
+    "file_tris": 476,
+    "visible_tris": 464,
+    "draw_calls": 8,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 5,
+    "nodes": 6,
+    "embedded_texture_MB_gpu": 3,
+    "instances": 1,
+    "total_visible_tris": 464,
+    "total_draw_calls": 8,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 256
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 7,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/2/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/3/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/3/primitives/1/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/3/primitives/2/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_tomb"
+   ],
+   "root_nodes": [
+    "tombstone_gothic_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "iron_fence_gothic_v1",
+   "live": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 264332,
+    "MB": 0.264,
+    "file_tris": 1124,
+    "visible_tris": 1112,
+    "draw_calls": 2,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 2,
+    "total_visible_tris": 2224,
+    "total_draw_calls": 4,
+    "total_shadow_draw_calls": 2
+   },
+   "after": {
+    "bytes": 253340,
+    "MB": 0.253,
+    "file_tris": 740,
+    "visible_tris": 728,
+    "draw_calls": 2,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 2,
+    "total_visible_tris": 1456,
+    "total_draw_calls": 4,
+    "total_shadow_draw_calls": 2
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/1/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_fence"
+   ],
+   "root_nodes": [
+    "iron_fence_gothic_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "iron_gate_gothic_v1",
+   "live": "models/env_extra/props_gothic_v1/props/iron_gate_gothic_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/iron_gate_gothic_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 456984,
+    "MB": 0.457,
+    "file_tris": 2120,
+    "visible_tris": 2084,
+    "draw_calls": 6,
+    "shadow_draw_calls": 4,
+    "mesh_nodes": 6,
+    "nodes": 7,
+    "embedded_texture_MB_gpu": 9.33,
+    "instances": 1,
+    "total_visible_tris": 2084,
+    "total_draw_calls": 6,
+    "total_shadow_draw_calls": 4
+   },
+   "after": {
+    "bytes": 435100,
+    "MB": 0.435,
+    "file_tris": 1444,
+    "visible_tris": 1408,
+    "draw_calls": 6,
+    "shadow_draw_calls": 4,
+    "mesh_nodes": 6,
+    "nodes": 7,
+    "embedded_texture_MB_gpu": 9.33,
+    "instances": 1,
+    "total_visible_tris": 1408,
+    "total_draw_calls": 6,
+    "total_shadow_draw_calls": 4
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 4,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/3/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/4/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/5/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/5/primitives/1/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_gate_closed",
+    "col_pier_L",
+    "col_pier_R"
+   ],
+   "root_nodes": [
+    "iron_gate_gothic_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "urn_plinth_v1",
+   "live": "models/env_extra/props_gothic_v1/props/urn_plinth_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/urn_plinth_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 140960,
+    "MB": 0.141,
+    "file_tris": 780,
+    "visible_tris": 768,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 2.67,
+    "instances": 1,
+    "total_visible_tris": 768,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 131568,
+    "MB": 0.132,
+    "file_tris": 502,
+    "visible_tris": 490,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 2.67,
+    "instances": 1,
+    "total_visible_tris": 490,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_urn"
+   ],
+   "root_nodes": [
+    "urn_plinth_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "sarcophagus_carved_v1",
+   "live": "models/env_extra/props_gothic_v1/props/sarcophagus_carved_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/sarcophagus_carved_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 373432,
+    "MB": 0.373,
+    "file_tris": 3032,
+    "visible_tris": 3020,
+    "draw_calls": 2,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 1,
+    "total_visible_tris": 3020,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 318588,
+    "MB": 0.319,
+    "file_tris": 1036,
+    "visible_tris": 1024,
+    "draw_calls": 2,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 1,
+    "total_visible_tris": 1024,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/1/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_sarcophagus"
+   ],
+   "root_nodes": [
+    "sarcophagus_carved_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "anvil_stump_v1",
+   "live": "models/env_extra/props_gothic_v1/props/anvil_stump_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/anvil_stump_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 211392,
+    "MB": 0.211,
+    "file_tris": 528,
+    "visible_tris": 516,
+    "draw_calls": 2,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 1,
+    "total_visible_tris": 516,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 80228,
+    "MB": 0.08,
+    "file_tris": 455,
+    "visible_tris": 443,
+    "draw_calls": 2,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 1.33,
+    "instances": 1,
+    "total_visible_tris": 443,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 256
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/1/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_anvil"
+   ],
+   "root_nodes": [
+    "anvil_stump_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "chains_shackles_v1",
+   "live": "models/env_extra/props_gothic_v1/props/chains_shackles_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/chains_shackles_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 161848,
+    "MB": 0.162,
+    "file_tris": 2452,
+    "visible_tris": 2440,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 2.67,
+    "instances": 1,
+    "total_visible_tris": 2440,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 75188,
+    "MB": 0.075,
+    "file_tris": 1106,
+    "visible_tris": 1094,
+    "draw_calls": 1,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 0.67,
+    "instances": 1,
+    "total_visible_tris": 1094,
+    "total_draw_calls": 1,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 256
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 1,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_chains"
+   ],
+   "root_nodes": [
+    "chains_shackles_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "cauldron_tripod_v1",
+   "live": "models/env_extra/props_gothic_v1/props/cauldron_tripod_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/cauldron_tripod_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 329444,
+    "MB": 0.329,
+    "file_tris": 1486,
+    "visible_tris": 1438,
+    "draw_calls": 5,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 5,
+    "nodes": 6,
+    "embedded_texture_MB_gpu": 8,
+    "instances": 1,
+    "total_visible_tris": 1438,
+    "total_draw_calls": 5,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 310904,
+    "MB": 0.311,
+    "file_tris": 1036,
+    "visible_tris": 988,
+    "draw_calls": 5,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 5,
+    "nodes": 6,
+    "embedded_texture_MB_gpu": 8,
+    "instances": 1,
+    "total_visible_tris": 988,
+    "total_draw_calls": 5,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 2,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/2/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/3/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_cauldron",
+    "col_leg0",
+    "col_leg1",
+    "col_leg2"
+   ],
+   "root_nodes": [
+    "cauldron_tripod_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "lectern_book_v1",
+   "live": "models/env_extra/props_gothic_v1/props/lectern_book_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/lectern_book_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 377152,
+    "MB": 0.377,
+    "file_tris": 500,
+    "visible_tris": 488,
+    "draw_calls": 7,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 10.71,
+    "instances": 1,
+    "total_visible_tris": 488,
+    "total_draw_calls": 7,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 111152,
+    "MB": 0.111,
+    "file_tris": 344,
+    "visible_tris": 332,
+    "draw_calls": 7,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 2.71,
+    "instances": 1,
+    "total_visible_tris": 332,
+    "total_draw_calls": 7,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 256
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/1/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/6/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_lectern"
+   ],
+   "root_nodes": [
+    "lectern_book_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "gargoyle_perched_v1",
+   "live": "models/env_extra/props_gothic_v1/props/gargoyle_perched_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/gargoyle_perched_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 333996,
+    "MB": 0.334,
+    "file_tris": 1302,
+    "visible_tris": 1290,
+    "draw_calls": 2,
+    "shadow_draw_calls": 2,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 1,
+    "total_visible_tris": 1290,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 2
+   },
+   "after": {
+    "bytes": 327940,
+    "MB": 0.328,
+    "file_tris": 1118,
+    "visible_tris": 1106,
+    "draw_calls": 2,
+    "shadow_draw_calls": 2,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 1,
+    "total_visible_tris": 1106,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 2
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/1/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_gargoyle"
+   ],
+   "root_nodes": [
+    "gargoyle_perched_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "hanging_sign_v1",
+   "live": "models/env_extra/props_gothic_v1/props/hanging_sign_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/hanging_sign_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 169752,
+    "MB": 0.17,
+    "file_tris": 664,
+    "visible_tris": 652,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 1,
+    "total_visible_tris": 652,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 63416,
+    "MB": 0.063,
+    "file_tris": 400,
+    "visible_tris": 388,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 3,
+    "nodes": 4,
+    "embedded_texture_MB_gpu": 1.33,
+    "instances": 1,
+    "total_visible_tris": 388,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 256
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 3,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/2/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/2/primitives/1/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_sign",
+    "sign_board"
+   ],
+   "root_nodes": [
+    "hanging_sign_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "tapestry_heraldic_v1",
+   "live": "models/env_extra/props_gothic_v1/props/tapestry_heraldic_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/tapestry_heraldic_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 180868,
+    "MB": 0.181,
+    "file_tris": 416,
+    "visible_tris": 404,
+    "draw_calls": 2,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 9.33,
+    "instances": 1,
+    "total_visible_tris": 404,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 1
+   },
+   "after": {
+    "bytes": 115456,
+    "MB": 0.115,
+    "file_tris": 112,
+    "visible_tris": 100,
+    "draw_calls": 2,
+    "shadow_draw_calls": 1,
+    "mesh_nodes": 2,
+    "nodes": 3,
+    "embedded_texture_MB_gpu": 5.33,
+    "instances": 1,
+    "total_visible_tris": 100,
+    "total_draw_calls": 2,
+    "total_shadow_draw_calls": 1
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 2,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/1/primitives/1/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_tapestry"
+   ],
+   "root_nodes": [
+    "tapestry_heraldic_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "gibbet_cage_v1",
+   "live": "models/env_extra/props_gothic_v1/props/gibbet_cage_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/gibbet_cage_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 467408,
+    "MB": 0.467,
+    "file_tris": 2386,
+    "visible_tris": 2362,
+    "draw_calls": 7,
+    "shadow_draw_calls": 3,
+    "mesh_nodes": 4,
+    "nodes": 5,
+    "embedded_texture_MB_gpu": 12,
+    "instances": 1,
+    "total_visible_tris": 2362,
+    "total_draw_calls": 7,
+    "total_shadow_draw_calls": 3
+   },
+   "after": {
+    "bytes": 442864,
+    "MB": 0.443,
+    "file_tris": 1734,
+    "visible_tris": 1710,
+    "draw_calls": 7,
+    "shadow_draw_calls": 3,
+    "mesh_nodes": 4,
+    "nodes": 5,
+    "embedded_texture_MB_gpu": 12,
+    "instances": 1,
+    "total_visible_tris": 1710,
+    "total_draw_calls": 7,
+    "total_shadow_draw_calls": 3
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 6,
+    "infos": 0,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/1/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/0/primitives/3/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/3/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/3/primitives/1/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_cage",
+    "col_post"
+   ],
+   "root_nodes": [
+    "gibbet_cage_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "cobweb_cards_v1",
+   "live": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1.glb",
+   "lite": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1_lite.glb",
+   "kind": "life",
+   "group": "gothic",
+   "loaded_by": "placeGothic",
+   "source_note": null,
+   "before": {
+    "bytes": 18124,
+    "MB": 0.018,
+    "file_tris": 18,
+    "visible_tris": 6,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 4,
+    "nodes": 5,
+    "embedded_texture_MB_gpu": 1.33,
+    "instances": 1,
+    "total_visible_tris": 6,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 20392,
+    "MB": 0.02,
+    "file_tris": 18,
+    "visible_tris": 6,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 4,
+    "nodes": 5,
+    "embedded_texture_MB_gpu": 1.33,
+    "instances": 1,
+    "total_visible_tris": 6,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.015,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "msgs": []
+   },
+   "preserved_node_names": [
+    "col_none"
+   ],
+   "root_nodes": [
+    "cobweb_cards_v1"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  },
+  {
+   "id": "shrine_weeping_angel",
+   "live": "models/shrines/shrine_weeping_angel.glb",
+   "lite": "models/shrines/shrine_weeping_angel_lite.glb",
+   "kind": "shrine",
+   "group": "life",
+   "loaded_by": "dressLife / placeWisk / shrines",
+   "source_note": null,
+   "before": {
+    "bytes": 3920292,
+    "MB": 3.92,
+    "file_tris": 39594,
+    "visible_tris": 39570,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 4,
+    "nodes": 14,
+    "embedded_texture_MB_gpu": 86.67,
+    "instances": 1,
+    "total_visible_tris": 39570,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "after": {
+    "bytes": 955232,
+    "MB": 0.955,
+    "file_tris": 8365,
+    "visible_tris": 8341,
+    "draw_calls": 3,
+    "shadow_draw_calls": 0,
+    "mesh_nodes": 4,
+    "nodes": 14,
+    "embedded_texture_MB_gpu": 8,
+    "instances": 1,
+    "total_visible_tris": 8341,
+    "total_draw_calls": 3,
+    "total_shadow_draw_calls": 0
+   },
+   "build_options": {
+    "err": 0.03,
+    "tex": 512
+   },
+   "validator": {
+    "errors": 0,
+    "warnings": 2,
+    "infos": 12,
+    "msgs": [
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/2/primitives/0/material",
+     "MESH_PRIMITIVE_GENERATED_TANGENT_SPACE /meshes/2/primitives/1/material"
+    ]
+   },
+   "preserved_node_names": [
+    "col_shrine_niche",
+    "col_shrine_plinth",
+    "fx_basin_shimmer",
+    "fx_candle_00",
+    "fx_candle_01",
+    "fx_candle_02",
+    "fx_candle_03",
+    "fx_candle_04",
+    "fx_heal_motes",
+    "fx_tear_drip",
+    "interact",
+    "water_basin"
+   ],
+   "root_nodes": [
+    "shrine_weeping_angel_root"
+   ],
+   "root_transforms_identical": true,
+   "collider_nodes_identical": true
+  }
+ ],
+ "castShadow_false_candidates": [
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "straw_yard_strands",
+   "material": "m_straw_strand",
+   "tris": 5083,
+   "height_m": 0.19,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "characters_art/props/kite_shield_sanctuary_lite.glb",
+   "node": "kite_shield_sanctuary",
+   "material": "M_kite_shield_sanctuary",
+   "tris": 2536,
+   "height_m": 1.39,
+   "why": "small prop under 1.6 m"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "notice_travel",
+   "material": "m_ink_tar",
+   "tris": 2300,
+   "height_m": 0.43,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/env_extra/props_gothic_v1/props/chains_shackles_v1_lite.glb",
+   "node": "chains",
+   "material": "m_iron",
+   "tris": 1094,
+   "height_m": 1.36,
+   "why": "small prop under 1.6 m"
+  },
+  {
+   "file": "models/env_extra/props_gothic_v1/props/gargoyle_perched_v1_lite.glb",
+   "node": "gargoyle_pedestal",
+   "material": "m_gargoyle_stone",
+   "tris": 1032,
+   "height_m": 1.29,
+   "why": "small prop under 1.6 m"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "door_note",
+   "material": "m_ink",
+   "tris": 960,
+   "height_m": 0.19,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "interior",
+   "material": "m_glass_stained",
+   "tris": 594,
+   "height_m": 2.19,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/env_extra/props_gothic_v1/props/gibbet_cage_v1_lite.glb",
+   "node": "cage",
+   "material": "m_bone",
+   "tris": 474,
+   "height_m": 1.23,
+   "why": "small prop under 1.6 m"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "props_inn",
+   "material": "m_glass_stained",
+   "tris": 380,
+   "height_m": 1.24,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "statue_plinth",
+   "material": "m_ink_tar",
+   "tris": 350,
+   "height_m": 0.16,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/env_extra/props_gothic_v1/props/wall_niche_saint_v1_lite.glb",
+   "node": "niche",
+   "material": "m_saint_stone",
+   "tris": 344,
+   "height_m": 1.21,
+   "why": "small prop under 1.6 m"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "hearth_coals",
+   "material": "m_coal_glow",
+   "tris": 244,
+   "height_m": 0.23,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/env_extra/props_gothic_v1/props/lectern_book_v1_lite.glb",
+   "node": "lectern",
+   "material": "m_wood_dark",
+   "tris": 236,
+   "height_m": 1.24,
+   "why": "small prop under 1.6 m"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "straw_yard_mound",
+   "material": "m_roof_thatch",
+   "tris": 208,
+   "height_m": 0.13,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "hearth_coals",
+   "material": "m_coal_glow",
+   "tris": 188,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "decals_inn",
+   "material": "m_decal_atlas",
+   "tris": 174,
+   "height_m": 6.35,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "guard_props",
+   "material": "m_coal_glow",
+   "tris": 170,
+   "height_m": 0.13,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "well",
+   "material": "m_stone_ashlar_limestone",
+   "tris": 161,
+   "height_m": 0.28,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "gibbet_frame",
+   "material": "m_stone_rubble_soot",
+   "tris": 147,
+   "height_m": 0.36,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "interior",
+   "material": "m_coal_glow",
+   "tris": 144,
+   "height_m": 0.16,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "straw_stalls_strands",
+   "material": "m_straw_strand",
+   "tris": 127,
+   "height_m": 0.22,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "decals_chapel",
+   "material": "m_decal_atlas",
+   "tris": 116,
+   "height_m": 7.54,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/env_extra/props_gothic_v1/props/tombstone_gothic_v1_lite.glb",
+   "node": "stone",
+   "material": "m_stone_mossy",
+   "tris": 104,
+   "height_m": 1.38,
+   "why": "small prop under 1.6 m"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "braziers",
+   "material": "m_brazier_coals",
+   "tris": 101,
+   "height_m": 5.91,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "sign_mill",
+   "material": "m_metal_wrought_rust",
+   "tris": 100,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared_lite.glb",
+   "node": "decals_graveyard",
+   "material": "m_decal_atlas",
+   "tris": 96,
+   "height_m": 0.98,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "well",
+   "material": "m_cloth_linen",
+   "tris": 96,
+   "height_m": 0.28,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "decals_forge",
+   "material": "m_decal_atlas",
+   "tris": 90,
+   "height_m": 8.65,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "hay_hook",
+   "material": "m_roof_thatch",
+   "tris": 75,
+   "height_m": 0.44,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/env_extra/props_gothic_v1/props/gargoyle_perched_v1_lite.glb",
+   "node": "gargoyle_pedestal",
+   "material": "m_stone_block",
+   "tris": 74,
+   "height_m": 1.12,
+   "why": "small prop under 1.6 m"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "furniture",
+   "material": "m_bone_old",
+   "tris": 68,
+   "height_m": 0.04,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "glass_side",
+   "material": "m_glass_stained",
+   "tris": 64,
+   "height_m": 2.33,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "decals_gate",
+   "material": "m_decal_atlas",
+   "tris": 62,
+   "height_m": 9.54,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "gutter.007",
+   "material": "m_wood_beam_soot",
+   "tris": 58,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "interior",
+   "material": "m_stone_rubble_soot",
+   "tris": 58,
+   "height_m": 0.17,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "well",
+   "material": "m_water_dark",
+   "tris": 58,
+   "height_m": 0.02,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "gutter.009",
+   "material": "m_wood_beam_soot",
+   "tris": 56,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "gutter.005",
+   "material": "m_wood_beam_soot",
+   "tris": 55,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "gutter.011",
+   "material": "m_wood_beam_soot",
+   "tris": 54,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "decals_herbs",
+   "material": "m_decal_atlas",
+   "tris": 54,
+   "height_m": 2.93,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "decals_mill",
+   "material": "m_decal_atlas",
+   "tris": 54,
+   "height_m": 3.45,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "decals_stable",
+   "material": "m_decal_atlas",
+   "tris": 54,
+   "height_m": 4.65,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "gutter.001",
+   "material": "m_wood_beam_soot",
+   "tris": 53,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "gutter.015",
+   "material": "m_wood_beam_soot",
+   "tris": 51,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "ground_clutter",
+   "material": "m_roof_thatch",
+   "tris": 49,
+   "height_m": 0.11,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "gutter.001",
+   "material": "m_wood_beam_soot",
+   "tris": 49,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "gutter.003",
+   "material": "m_wood_beam_soot",
+   "tris": 49,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "gutter.013",
+   "material": "m_wood_beam_soot",
+   "tris": 49,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared_lite.glb",
+   "node": "wall_N_b_stones",
+   "material": "m_stone_ashlar_limestone",
+   "tris": 49,
+   "height_m": 0.15,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "gutter.003",
+   "material": "m_wood_beam_soot",
+   "tris": 48,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "gutter.005",
+   "material": "m_wood_beam_soot",
+   "tris": 48,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "gutter.007",
+   "material": "m_wood_beam_soot",
+   "tris": 48,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "garden_beds",
+   "material": "m_metal_wrought_rust",
+   "tris": 44,
+   "height_m": 0.7,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "sign_horseshoe",
+   "material": "m_metal_wrought_rust",
+   "tris": 44,
+   "height_m": 0.51,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "ground_clutter",
+   "material": "m_roof_thatch",
+   "tris": 43,
+   "height_m": 0.11,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "garden_beds",
+   "material": "m_water_butt",
+   "tris": 40,
+   "height_m": 0.01,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "sign_oar",
+   "material": "m_metal_wrought_rust",
+   "tris": 40,
+   "height_m": 0.35,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "wall_N_stones",
+   "material": "m_stone_ashlar_limestone",
+   "tris": 40,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "offerings",
+   "material": "m_candle_wax",
+   "tris": 40,
+   "height_m": 0.12,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "yard_props",
+   "material": "m_glass_stained",
+   "tris": 38,
+   "height_m": 0.32,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "decals_orrin",
+   "material": "m_decal_atlas",
+   "tris": 38,
+   "height_m": 3.65,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "interior",
+   "material": "m_candle_flame",
+   "tris": 37,
+   "height_m": 2.83,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "gibbet_cage",
+   "material": "m_cloth_linen",
+   "tris": 37,
+   "height_m": 0.61,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "garden_beds",
+   "material": "m_brick_soot",
+   "tris": 36,
+   "height_m": 0.41,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "decals_quill",
+   "material": "m_decal_atlas",
+   "tris": 36,
+   "height_m": 6.08,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "decals_ness",
+   "material": "m_decal_atlas",
+   "tris": 36,
+   "height_m": 6.14,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "guard_props",
+   "material": "m_stone_rubble_soot",
+   "tris": 35,
+   "height_m": 0.33,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "sign_kettle_iron",
+   "material": "m_metal_wrought_rust",
+   "tris": 34,
+   "height_m": 0.35,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "bellows",
+   "material": "m_wall_plaster_soot",
+   "tris": 34,
+   "height_m": 0.25,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "sign_kettle",
+   "material": "m_metal_wrought_rust",
+   "tris": 32,
+   "height_m": 0.24,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "sign_forge_anvil",
+   "material": "m_metal_wrought_rust",
+   "tris": 32,
+   "height_m": 0.24,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "sign_mortar_pestle",
+   "material": "m_stone_ashlar_limestone",
+   "tris": 32,
+   "height_m": 0.61,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "net_0",
+   "material": "m_wood_planking_old",
+   "tris": 32,
+   "height_m": 0.08,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "net_1",
+   "material": "m_wood_planking_old",
+   "tris": 32,
+   "height_m": 0.08,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "notice_travel",
+   "material": "m_metal_wrought_rust",
+   "tris": 32,
+   "height_m": 0.51,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "door_chain",
+   "material": "m_stone_ashlar_limestone",
+   "tris": 30,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "props_upper",
+   "material": "m_cloth_linen",
+   "tris": 28,
+   "height_m": 0.32,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "altar",
+   "material": "m_glass_stained",
+   "tris": 28,
+   "height_m": 0.01,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "clutter",
+   "material": "m_wood_planking_old",
+   "tris": 27,
+   "height_m": 0.8,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "offerings",
+   "material": "m_cloth_linen",
+   "tris": 25,
+   "height_m": 0.04,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "torch_flame_inn_door",
+   "material": "m_torch_flame",
+   "tris": 24,
+   "height_m": 0.4,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "torch_flame_forge_door",
+   "material": "m_torch_flame",
+   "tris": 24,
+   "height_m": 0.4,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "torch_flame_chapel_door",
+   "material": "m_torch_flame",
+   "tris": 24,
+   "height_m": 0.4,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "torch_flame_gate_E",
+   "material": "m_torch_flame",
+   "tris": 24,
+   "height_m": 0.4,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "torch_flame_gate_W",
+   "material": "m_torch_flame",
+   "tris": 24,
+   "height_m": 0.4,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "decals_watch",
+   "material": "m_decal_atlas",
+   "tris": 24,
+   "height_m": 6.85,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.69,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.69,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_L.002",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.79,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_L.003",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.59,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_R.003",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_L.002",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.73,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_R.002",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.74,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_L.003",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.79,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_R.003",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.79,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.79,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.69,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.71,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_L.002",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.79,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.59,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "shutter_R",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.59,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.44,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.44,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.69,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_R",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.69,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_L.002",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.69,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_R.002",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.69,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_L.003",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_R.003",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.69,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.49,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "shutter_R",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.51,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.49,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.51,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "benches",
+   "material": "m_stone_ashlar_limestone",
+   "tris": 22,
+   "height_m": 0.13,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "well_bucket",
+   "material": "m_wood_planking_old",
+   "tris": 22,
+   "height_m": 0.3,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.018",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.018",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.015",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.015",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.014",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.014",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.016",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.016",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.010",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.010",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.009",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.009",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.008",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.008",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.011",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.011",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.012",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.012",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.013",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.013",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_L.017",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "shutter_R.017",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_tower_shared_lite.glb",
+   "node": "decals_tower",
+   "material": "m_decal_atlas",
+   "tris": 20,
+   "height_m": 15.8,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared_lite.glb",
+   "node": "lychgate_frame",
+   "material": "m_wood_planking_old",
+   "tris": 20,
+   "height_m": 0.07,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_R",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_L.002",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_R.002",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_L.003",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.45,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "shutter_R.003",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.48,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_R",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_L.002",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.55,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_R.002",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.55,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_L.003",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "shutter_R.003",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_R",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.61,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.54,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_L.002",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "shutter_R.002",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.61,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "sign_bracket",
+   "material": "m_wood_beam_soot",
+   "tris": 20,
+   "height_m": 0.47,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.45,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "shutter_R",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.45,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.35,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.35,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_R",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_L.002",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_R.002",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_L.003",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "shutter_R.003",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.52,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "shutter_L",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.38,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "shutter_R",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.4,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "shutter_L.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.38,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "shutter_R.001",
+   "material": "m_metal_wrought_rust",
+   "tris": 20,
+   "height_m": 0.4,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "embers",
+   "material": "m_peat_embers",
+   "tris": 18,
+   "height_m": 0.05,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "trough",
+   "material": "m_metal_wrought_rust",
+   "tris": 18,
+   "height_m": 0.77,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "torch_haft_inn_door",
+   "material": "m_wood_beam_soot",
+   "tris": 16,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "torch_haft_forge_door",
+   "material": "m_wood_beam_soot",
+   "tris": 16,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "torch_haft_chapel_door",
+   "material": "m_wood_beam_soot",
+   "tris": 16,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "torch_haft_gate_E",
+   "material": "m_wood_beam_soot",
+   "tris": 16,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "torch_haft_gate_W",
+   "material": "m_wood_beam_soot",
+   "tris": 16,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "sign_mill",
+   "material": "m_stone_ashlar_limestone",
+   "tris": 16,
+   "height_m": 0.35,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "sign_bell",
+   "material": "m_bell_bronze",
+   "tris": 15,
+   "height_m": 0.34,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "furniture",
+   "material": "m_metal_wrought_rust",
+   "tris": 15,
+   "height_m": 0.61,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "props_forge",
+   "material": "m_wall_daub_limewash",
+   "tris": 14,
+   "height_m": 0.14,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "interior",
+   "material": "m_ink",
+   "tris": 14,
+   "height_m": 0.06,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "turret_cone",
+   "material": "m_metal_wrought_rust",
+   "tris": 14,
+   "height_m": 0.76,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "sign_oar",
+   "material": "m_cloth_linen",
+   "tris": 14,
+   "height_m": 0.4,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "door_split_0_up",
+   "material": "m_metal_wrought_rust",
+   "tris": 14,
+   "height_m": 0.5,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "door_split_0_low",
+   "material": "m_metal_wrought_rust",
+   "tris": 14,
+   "height_m": 0.6,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "door_split_1_up",
+   "material": "m_metal_wrought_rust",
+   "tris": 14,
+   "height_m": 0.5,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "door_split_1_low",
+   "material": "m_metal_wrought_rust",
+   "tris": 14,
+   "height_m": 0.6,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "turret_stair",
+   "material": "m_wood_planking_old",
+   "tris": 13,
+   "height_m": 0.07,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "exterior_props",
+   "material": "m_cloth_linen",
+   "tris": 12,
+   "height_m": 0,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "benches",
+   "material": "m_wood_planking_old",
+   "tris": 12,
+   "height_m": 0,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "props_upper",
+   "material": "m_metal_wrought_rust",
+   "tris": 11,
+   "height_m": 0.05,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "interior",
+   "material": "m_brick_soot",
+   "tris": 11,
+   "height_m": 0.62,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "bell_rope",
+   "material": "m_metal_wrought_rust",
+   "tris": 11,
+   "height_m": 0.15,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "lantern",
+   "material": "m_metal_wrought_rust",
+   "tris": 10,
+   "height_m": 0.28,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "lantern",
+   "material": "m_glass_stained",
+   "tris": 10,
+   "height_m": 0.22,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "upper_window.001",
+   "material": "m_glass_stained",
+   "tris": 10,
+   "height_m": 0.95,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "upper_window.004",
+   "material": "m_glass_stained",
+   "tris": 10,
+   "height_m": 0.95,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "props_forge",
+   "material": "m_water_quench",
+   "tris": 10,
+   "height_m": 0.02,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "props_forge",
+   "material": "m_wall_plaster_soot",
+   "tris": 10,
+   "height_m": 0.55,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "sign_forge_anvil",
+   "material": "m_sign_anvil",
+   "tris": 10,
+   "height_m": 0.68,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "altar",
+   "material": "m_cloth_linen",
+   "tris": 10,
+   "height_m": 0.02,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "crypt_hatch",
+   "material": "m_stone_ashlar_limestone",
+   "tris": 10,
+   "height_m": 0.11,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared_lite.glb",
+   "node": "lychgate_lantern",
+   "material": "m_metal_wrought_rust",
+   "tris": 10,
+   "height_m": 0.28,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared_lite.glb",
+   "node": "open_grave",
+   "material": "m_cloth_linen",
+   "tris": 10,
+   "height_m": 0.02,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "door_note",
+   "material": "m_cloth_linen",
+   "tris": 10,
+   "height_m": 0.24,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "door_note",
+   "material": "m_metal_wrought_rust",
+   "tris": 10,
+   "height_m": 0.02,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "guard_props",
+   "material": "m_brick_soot",
+   "tris": 10,
+   "height_m": 0.12,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "clutter",
+   "material": "m_metal_wrought_rust",
+   "tris": 10,
+   "height_m": 0.04,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "bells",
+   "material": "m_wood_beam_soot",
+   "tris": 10,
+   "height_m": 0.12,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "hayloft_door",
+   "material": "m_wood_beam_soot",
+   "tris": 10,
+   "height_m": 0.11,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "trough",
+   "material": "m_water_dark",
+   "tris": 10,
+   "height_m": 0.02,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "plinth",
+   "material": "m_stone_ashlar_limestone",
+   "tris": 9,
+   "height_m": 0.13,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "well_bucket",
+   "material": "m_metal_wrought_rust",
+   "tris": 9,
+   "height_m": 0.03,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "sign_kettle",
+   "material": "m_sign_kettle",
+   "tris": 8,
+   "height_m": 0.69,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_E_2",
+   "material": "m_window_glow_dim",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_N_-5",
+   "material": "m_window_glow_dim",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_S_-5",
+   "material": "m_window_glow",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_S_-7",
+   "material": "m_window_glow",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_S_3",
+   "material": "m_window_glow",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_S_5",
+   "material": "m_window_glow",
+   "tris": 8,
+   "height_m": 1.12,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_up_N_-1",
+   "material": "m_window_glow_faint",
+   "tris": 8,
+   "height_m": 0.84,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_up_S_-5",
+   "material": "m_window_glow_dim",
+   "tris": 8,
+   "height_m": 0.84,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_up_S_3",
+   "material": "m_window_glow_dim",
+   "tris": 8,
+   "height_m": 0.84,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_W_-2",
+   "material": "m_window_glow",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "win_glow_N_-3",
+   "material": "m_window_glow_dim",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "win_glow_S_-5",
+   "material": "m_window_glow",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "win_glow_S_1",
+   "material": "m_window_glow",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "win_glow_W_3",
+   "material": "m_window_glow",
+   "tris": 8,
+   "height_m": 1.07,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "sign_mortar_pestle",
+   "material": "m_wood_planking_old",
+   "tris": 8,
+   "height_m": 0.05,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "win_glow_S_w",
+   "material": "m_window_glow",
+   "tris": 8,
+   "height_m": 0.75,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "sign_bracket",
+   "material": "m_metal_wrought_rust",
+   "tris": 8,
+   "height_m": 0.41,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "coach_broken",
+   "material": "m_cloth_linen",
+   "tris": 8,
+   "height_m": 0.35,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "pulley_beam",
+   "material": "m_metal_wrought_rust",
+   "tris": 8,
+   "height_m": 0.2,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "sign_horseshoe",
+   "material": "m_wood_planking_old",
+   "tris": 8,
+   "height_m": 0.59,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "furniture",
+   "material": "m_cloth_linen",
+   "tris": 8,
+   "height_m": 0.07,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
+   "node": "notice_travel",
+   "material": "m_paper_notice",
+   "tris": 8,
+   "height_m": 0.58,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "interior",
+   "material": "m_wall_daub_limewash",
+   "tris": 7,
+   "height_m": 0.21,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "sign_bell",
+   "material": "m_cloth_linen",
+   "tris": 6,
+   "height_m": 0.1,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
+   "node": "well",
+   "material": "m_metal_wrought_rust",
+   "tris": 6,
+   "height_m": 0.32,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "torch_bracket_inn_door",
+   "material": "m_metal_wrought_rust",
+   "tris": 4,
+   "height_m": 0.26,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "torch_bracket_forge_door",
+   "material": "m_metal_wrought_rust",
+   "tris": 4,
+   "height_m": 0.26,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "torch_bracket_chapel_door",
+   "material": "m_metal_wrought_rust",
+   "tris": 4,
+   "height_m": 0.26,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "porter_props",
+   "material": "m_wood_beam_soot",
+   "tris": 4,
+   "height_m": 0.42,
+   "why": "small (<0.8 m tall, <1 m wide)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "torch_bracket_gate_E",
+   "material": "m_metal_wrought_rust",
+   "tris": 4,
+   "height_m": 0.26,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "torch_bracket_gate_W",
+   "material": "m_metal_wrought_rust",
+   "tris": 4,
+   "height_m": 0.26,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "furniture",
+   "material": "m_metal_wrought_rust",
+   "tris": 4,
+   "height_m": 0.02,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "sign_bracket",
+   "material": "m_metal_wrought_rust",
+   "tris": 4,
+   "height_m": 0.04,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "sign_bell",
+   "material": "m_wood_planking_old",
+   "tris": 4,
+   "height_m": 0.18,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "sign_bracket",
+   "material": "m_metal_wrought_rust",
+   "tris": 4,
+   "height_m": 0.04,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "crypt_hatch",
+   "material": "m_metal_wrought_rust",
+   "tris": 3,
+   "height_m": 0,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
+   "node": "emblem_open_eye",
+   "material": "m_metal_wrought_rust",
+   "tris": 3,
+   "height_m": 0.12,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
+   "node": "win_glow_door_main",
+   "material": "m_door_glow",
+   "tris": 2,
+   "height_m": 2.19,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
+   "node": "win_glow_door_main",
+   "material": "m_door_glow",
+   "tris": 2,
+   "height_m": 2.19,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "win_glow_chancel_S_a",
+   "material": "m_window_glow_faint_glass",
+   "tris": 2,
+   "height_m": 3.3,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+   "node": "win_glow_chancel_S_b",
+   "material": "m_window_glow_faint_glass",
+   "tris": 2,
+   "height_m": 3.3,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared_lite.glb",
+   "node": "crypt_slab",
+   "material": "m_metal_wrought_rust",
+   "tris": 2,
+   "height_m": 0,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "win_glow_S_w001",
+   "material": "m_window_glow_dim",
+   "tris": 2,
+   "height_m": 0.62,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "win_glow_W_w002",
+   "material": "m_window_glow_dim",
+   "tris": 2,
+   "height_m": 0.74,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "win_glow_N_w003",
+   "material": "m_window_glow_dim",
+   "tris": 2,
+   "height_m": 0.71,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
+   "node": "win_glow_W_w002",
+   "material": "m_window_glow_dim",
+   "tris": 2,
+   "height_m": 0.66,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
+   "node": "win_glow_S_w",
+   "material": "m_window_glow_faint",
+   "tris": 2,
+   "height_m": 0.74,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "win_glow_S_w",
+   "material": "m_window_glow_dim",
+   "tris": 2,
+   "height_m": 0.53,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "win_glow_E_w002",
+   "material": "m_window_glow_dim",
+   "tris": 2,
+   "height_m": 0.62,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
+   "node": "win_glow_S_w",
+   "material": "m_window_glow_dim",
+   "tris": 2,
+   "height_m": 0.62,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "hay_hook",
+   "material": "m_metal_wrought_rust",
+   "tris": 2,
+   "height_m": 0.18,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
+   "node": "win_glow_N_w001",
+   "material": "m_window_glow_faint",
+   "tris": 2,
+   "height_m": 0.46,
+   "why": "emissive/decal/glass material"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
+   "node": "furniture",
+   "material": "m_metal_wrought_rust",
+   "tris": 1,
+   "height_m": 0.04,
+   "why": "flat (<0.35 m tall)"
+  },
+  {
+   "file": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
+   "node": "creel_rack",
+   "material": "m_fish_wet",
+   "tris": 1,
+   "height_m": 0.02,
+   "why": "flat (<0.35 m tall)"
+  }
+ ]
+}
