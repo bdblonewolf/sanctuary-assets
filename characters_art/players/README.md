@@ -68,3 +68,92 @@ Faces and hair now follow Brian's locked look sheet (`starter_faces_2026-11-03`,
 - **Mobile:** textures are ≤1024 WebP and the files went through `tools/mobile_compress.sh` without meshopt or Draco. There is no compression extension, only `EXT_texture_webp`. The uncompressed 2048 masters are in `masters/`.
 - **Clipping check** (idle, run, ss_attack_heavy, bow_draw, magic_cast, against the body and the Damaged Black plate/helm): hair inside the body is 0–1 verts in every pose (0 new versus rest); hair inside the plate is ≤1 vert; piercings inside the body or plate are 0. The head-versus-helm counts match the original bodies: necromancer 180 versus 231 before, the others within ±5. These are the helm's open face area, so there is no regression.
 - Renders: the per-view head close-ups are `renders/heads/player_<class>_head_{front,q34,side,back}.png`, the per-class reference comparisons are `renders/heads/heads_<class>.png`, and the combined sheet is `renders/heads/heads_sheet.png`. The bare renders, the per-class sheets and `players_lineup_sheet.png` were regenerated with the new heads and hair. The armoured views are unchanged because the helm covers the head.
+
+## Pass 2: refined faces and hair (Nov 3 2026)
+This pass responds to Brian's review: the top of the head looked the same on every class, the brows were identical, and the faces read as too similar. Each class now has its own crown volume, parting and hairline, its own brow, and a face morphed toward its reference photo.
+
+**Method.** Landmark-driven morph only; no photo-to-3D fitter was needed.
+- MediaPipe Face Mesh landmarks were measured on each reference crop and on orthographic front renders of the current head.
+- Everything is normalised by IPD (eye-centre distance), which is held fixed so the helm fit is unchanged.
+- An RBF displacement field (POSITION only) was solved and applied to the face vertices, then re-measured and iterated.
+- Face shape class follows Loomis/Reilly-style rules: L/W ≥ 1.45 is long; forehead and jaw both < 0.80 of cheek width is diamond; L/W < 1.25 is square (jaw/cheek > 0.86) or round; anything else is oval.
+- Thirds are hairline→brow, brow→nose base and nose base→chin, as fractions of face length.
+- Every value below is in IPD units unless it is a ratio.
+
+| metric | necromancer ref / v1 / **v2** (err) | archer ref / v1 / **v2** (err) | elementalist ref / v1 / **v2** (err) | warrior ref / v1 / **v2** (err) |
+|---|---|---|---|---|
+| shape | oval / long / **oval** | oval / oval / **oval** | oval / oval / **oval** | oval / oval / **oval** |
+| len_over_w | 1.366 / 1.507 / **1.363** (-0%) | 1.354 / 1.372 / **1.306** (-3%) | 1.320 / 1.360 / **1.284** (-3%) | 1.299 / 1.312 / **1.300** (+0%) |
+| jaw_over_cheek | 0.791 / 0.815 / **0.792** (+0%) | 0.777 / 0.783 / **0.786** (+1%) | 0.783 / 0.784 / **0.788** (+1%) | 0.844 / 0.812 / **0.840** (-0%) |
+| fore_over_cheek | 0.847 / 0.861 / **0.872** (+3%) | 0.888 / 0.881 / **0.909** (+2%) | 0.836 / 0.858 / **0.882** (+5%) | 0.806 / 0.855 / **0.846** (+5%) |
+| third_top | 0.221 / 0.297 / **0.227** (+3%) | 0.274 / 0.280 / **0.275** (+1%) | 0.255 / 0.268 / **0.247** (-3%) | 0.248 / 0.254 / **0.259** (+4%) |
+| third_mid | 0.407 / 0.362 / **0.410** (+1%) | 0.407 / 0.392 / **0.406** (-0%) | 0.405 / 0.401 / **0.414** (+2%) | 0.365 / 0.398 / **0.361** (-1%) |
+| third_low | 0.372 / 0.341 / **0.363** (-3%) | 0.319 / 0.328 / **0.319** (-0%) | 0.340 / 0.331 / **0.338** (-0%) | 0.387 / 0.348 / **0.380** (-2%) |
+| eye_w | 0.428 / 0.426 / **0.435** (+2%) | 0.431 / 0.458 / **0.455** (+5%) | 0.436 / 0.440 / **0.437** (+0%) | 0.432 / 0.446 / **0.445** (+3%) |
+| eye_gap | 0.501 / 0.564 / **0.542** (+8%) | 0.540 / 0.536 / **0.530** (-2%) | 0.519 / 0.539 / **0.520** (+0%) | 0.558 / 0.543 / **0.548** (-2%) |
+| eyew_over_gap | 0.856 / 0.755 / **0.803** (-6%) | 0.799 / 0.855 / **0.858** (+7%) | 0.840 / 0.815 / **0.841** (+0%) | 0.774 / 0.821 / **0.813** (+5%) |
+| brow_h | 0.318 / 0.372 / **0.338** (+7%) | 0.373 / 0.521 / **0.371** (-1%) | 0.366 / 0.508 / **0.387** (+6%) | 0.271 / 0.429 / **0.288** (+6%) |
+| nose_len | 0.823 / 0.867 / **0.850** (+3%) | 0.760 / 0.814 / **0.726** (-4%) | 0.719 / 0.806 / **0.752** (+5%) | 0.811 / 0.859 / **0.820** (+1%) |
+| nose_w | 0.631 / 0.644 / **0.610** (-3%) | 0.582 / 0.616 / **0.562** (-4%) | 0.567 / 0.617 / **0.562** (-1%) | 0.691 / 0.683 / **0.719** (+4%) |
+| mouth_w | 0.729 / 0.766 / **0.742** (+2%) | 0.688 / 0.768 / **0.680** (-1%) | 0.744 / 0.765 / **0.740** (-0%) | 0.901 / 0.805 / **0.890** (-1%) |
+| lip_up | 0.072 / 0.136 / **0.092** (+29%) | 0.111 / 0.121 / **0.085** (-23%) | 0.097 / 0.149 / **0.104** (+7%) | 0.102 / 0.120 / **0.098** (-3%) |
+| lip_lo | 0.146 / 0.180 / **0.161** (+11%) | 0.175 / 0.181 / **0.173** (-1%) | 0.171 / 0.202 / **0.170** (-0%) | 0.173 / 0.179 / **0.160** (-8%) |
+| lip_chin | 0.618 / 0.597 / **0.575** (-7%) | 0.401 / 0.505 / **0.370** (-8%) | 0.440 / 0.468 / **0.415** (-6%) | 0.624 / 0.537 / **0.631** (+1%) |
+| cheek_w | 2.118 / 2.279 / **2.160** (+2%) | 2.026 / 2.279 / **2.024** (-0%) | 2.047 / 2.242 / **2.066** (+1%) | 2.309 / 2.372 / **2.363** (+2%) |
+| jaw_w | 1.675 / 1.858 / **1.711** (+2%) | 1.574 / 1.785 / **1.591** (+1%) | 1.602 / 1.759 / **1.627** (+2%) | 1.949 / 1.927 / **1.985** (+2%) |
+
+- **Necromancer reference correction.** The earlier "L/W 1.750" target for the necromancer came from a hairline detector that ran up to the top of the photo through the white hair. With the hairline hand-placed at the real temple line (about 1.0 IPD, ~50 mm, above the eyes), the reference is **1.366, oval**. Pass 1 was 1.507 (long); pass 2 is 1.363. The 93 mm hairline in the old ref geometry was wrong for the same reason.
+- **Known remaining gaps.**
+  - Necromancer upper lip is still ~+29% thick (thin-lip target).
+  - Archer upper lip is −23%.
+  - Necromancer eye gap is +8%.
+  - Foreheads are +3–7% wide.
+  - The archer crown has one hair card standing up at the top right.
+  - The warrior fringe still reads slightly like bangs, and he looks younger than his reference.
+
+### Changes per class
+- **Necromancer.**
+  - Face: long hooked nose, hollow cheeks, thin lips, and length cut back from 1.51 to 1.36 L/W to match the corrected reference.
+  - Brows: thin, white/grey, arched with a furrow.
+  - Hair: slicked back from a low, slightly receding M-shaped temple line (new `th0` start angle), with crown volume.
+  - Piercings: the bronze brow crosses were re-placed from the reference (0.77 IPD off the midline, 0.40 IPD above the eye centre).
+- **Warrior.**
+  - Face: broad jaw (jaw/cheek 0.84), heavy low brow ridge, wide nose; stubble and scar kept.
+  - Brows: thick, dark, low and nearly flat.
+  - Hair: curly dark-brown hair to the shoulders, with a curled forelock fringe and crown volume.
+- **Elementalist.**
+  - Face: soft, rounder oval with fuller lips; nose shortened.
+  - Brows: auburn with a soft arch.
+  - Hair: side part with a higher crown.
+- **Archer.**
+  - Face: oval with high cheekbones; mouth and nose narrowed; lower face shortened (lip–chin was +26%, now −8%).
+  - Brows: dark and fairly straight.
+  - Hair: centre part with a layered crown lift.
+
+### Files and integrity
+| File (mobile) | Tris | MB |
+|---|---|---|
+| `player_archer.glb` | 27 036 | 1.06 |
+| `player_archer_hair.glb` | 7 586 | 0.82 |
+| `player_elementalist.glb` | 27 036 | 0.97 |
+| `player_elementalist_hair.glb` | 7 480 | 0.82 |
+| `player_necromancer.glb` | 27 036 | 0.96 |
+| `player_necromancer_hair.glb` | 3 620 | 0.66 |
+| `player_warrior.glb` | 27 036 | 0.97 |
+| `player_warrior_hair.glb` | 5 916 | 0.69 |
+| `player_necromancer_piercings.glb` | 440 | 0.04 |
+
+- **Bodies.** Vertex count and order, indices, JOINTS/WEIGHTS, UVs, the 52 mixamorig joints, the IBMs and the primitive order skin/linen/eye are all identical to pass 1. Only face POSITION/NORMAL moved: up to 13 mm on the archer, elementalist and warrior and 25 mm on the necromancer. The Damaged Black fits and masks still apply.
+- **Budgets.** Hair is within budget (male ≤ 6k, long female ≤ 8k) and piercings are ≤ 500. Textures are ≤ 1024 WebP. Files went through `mobile_compress.sh` without meshopt or Draco; the only extensions are `EXT_texture_webp` and `KHR_materials_specular`. Masters are in `masters/`.
+- **Clipping.** Poses checked: idle, run, ss_attack_heavy, bow_draw and magic_cast.
+  - Hair inside the body is ≤ 1 vert (0 new versus rest).
+  - Hair inside the plate is ≤ 1.
+  - Piercings inside the body or plate are 0.
+  - Head through the helm is 0.
+  - Head outside the helm is the helm's open face, same as at rest.
+- **Hide under a helm (unchanged):** hide the `player_<class>_hair` node, plus `player_necromancer_piercings`.
+- **Renders.**
+  - `renders/heads/heads_sheet.png`: reference, front, 3/4, side and back for each class.
+  - `renders/heads/heads_before_after.png`: reference, then pass 1 (a9a2e87) versus pass 2 in front, 3/4 and side.
+  - `renders/heads/heads_<class>.png` and `player_<class>_head_*.png`.
+  - The bare renders, per-class sheets and lineup were regenerated. The armoured views are unchanged.
