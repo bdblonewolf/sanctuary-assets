@@ -157,3 +157,55 @@ This pass responds to Brian's review: the top of the head looked the same on eve
   - `renders/heads/heads_before_after.png`: reference, then pass 1 (a9a2e87) versus pass 2 in front, 3/4 and side.
   - `renders/heads/heads_<class>.png` and `player_<class>_head_*.png`.
   - The bare renders, per-class sheets and lineup were regenerated. The armoured views are unchanged.
+
+## Pass 3: hairline/crown, skin projection, metric touch-ups (2026-11-03)
+
+### What changed
+- **Hairline and crown (no cap, no bangs).**
+  - The base hair strips now fade out at the root with an irregular, per-strand gradient, so there is no opaque cap edge at the forehead.
+  - Crown cards get feathered side edges and a randomised root fade. Thin wisp cards are 1.7× denser at the hairline.
+  - Flow cards leave the hairline going **up and back** first, then fall, and the inner layers lie flat at the root, so no card forms a horizontal fringe.
+  - Per class:
+    - **Necromancer:** slicked straight back, temples visible.
+    - **Elementalist:** side part, swept to the side, framing the face.
+    - **Warrior:** swept back and to the side with no fringe, and the front drop strips removed.
+    - **Archer:** centre part, stray top-right card removed, fuller layered crown.
+- **Skin.**
+  - Each ref's face colour is projected onto the face UVs (Brian's own Artspace refs), with a tangent-space normal map for wrinkles, the scar and the markings.
+  - Iris colour comes from the ref, with a catchlight. Lip colour, eye-socket depth and a sclera falloff toward the canthi were added.
+  - The necromancer stays very pale.
+  - The warrior's age/weathering was re-tuned, and the projection carries the ref's wrinkles and stubble.
+- **Geometry touch-ups** (face POSITION/NORMAL only, ≤ 3 mm on top of pass 2):
+  - Upper-lip height: archer +, elementalist +, warrior +, necromancer −.
+  - Forehead/temple width narrowed: elementalist −10 %, warrior −8 %, archer −5 %.
+
+### Integrity
+- **Bodies.** Same vertex count/order, indices, JOINTS/WEIGHTS, UVs, 52 joints, IBMs and skin/linen/eye primitive order as pass 1/2. The only addition is a normal texture on the skin material. Max face move from the base: archer 13 mm, elementalist 18 mm, warrior 13 mm, necromancer 25 mm.
+- **Hair tris** (all skinned to the 52-bone mixamorig rig):
+
+  | Class | Hair tris | Budget |
+  |---|---|---|
+  | warrior | 5 662 | ≤ 6k |
+  | necromancer | 5 768 | ≤ 6k |
+  | archer | 7 696 | ≤ 8k |
+  | elementalist | 7 660 | ≤ 8k |
+
+  Necromancer piercings are 440 tris.
+- **Mobile files.** Textures are ≤ 1024 WebP. Files went through `mobile_compress.sh` without meshopt or Draco; extensions are `EXT_texture_webp` and `KHR_materials_specular` only. Masters are in `masters/`.
+- **Clipping.** Poses checked: idle, run, ss_attack_heavy, bow_draw and magic_cast.
+  - Hair inside the body is ≤ 1 vert.
+  - Hair inside the plate is ≤ 1.
+  - Piercings inside the body or plate are 0.
+  - Head through the helm is 0.
+  - Head outside the helm is the helm's open face, the same as pass 2.
+
+### Renders
+- `renders/heads/heads_sheet.png`: ref, front, 3/4, side and back.
+- `renders/heads/heads_before_after.png`: pass 2 (b9b05b3) versus pass 3.
+- Per-class heads, bare renders, per-class sheets and the lineup were regenerated. Armoured views are unchanged.
+
+### Known gaps
+- Elementalist scalp streaks are too vivid red, and there is a slight edge at the temples in 3/4.
+- Archer hair is less wild/curly than the ref.
+- Warrior hair is shorter than the ref's collar-length curls. The projection leaves a greenish stubble tint and a faint jaw seam.
+- The landmark metrics (MediaPipe on renders) now respond more to the projected textures than to the small geometry moves, so see the report table before trusting single ±5 % numbers.
