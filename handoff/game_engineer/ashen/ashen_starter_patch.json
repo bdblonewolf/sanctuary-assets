@@ -1,0 +1,1685 @@
+{
+ "patch_id": "ashen_starter_v1",
+ "target_world": "coast",
+ "name": "Ashen Coast",
+ "apply": "Call applyAshenPatch(world, patch) on the coast world right after the 'coast' scene is built (carve + mirror + dress), before it is returned/cached. See apply_ashen_patch.js.",
+ "schema": "Every prop object uses the live world.props schema {kind,x,y,style?,w?,d?,rotY?,looted?,label?}; tiles = metres; x -> three.js x, y -> three.js z; rotY radians (added to world_props yaw). Collision uses the existing engine paths only: tile solid (world.solid) and softProp boxes (w/d on the prop, else $D[kind]).",
+ "requires": [
+  "handoff/game_engineer/ashen/world_props.ashen_additions.json merged at runtime into the loaded models/props_new/world_props.json table (add_kinds -> kinds; body_add_styles -> kinds.body.styles). Live file is not replaced.",
+  "models/ashen_v1/*.glb (8 new GLBs)"
+ ],
+ "match_rule": "match = {kind,x,y[,style]} against world.props, |dx|,|dy| < 0.01",
+ "moves": [
+  {
+   "match": {
+    "kind": "log",
+    "x": 13.2,
+    "y": 44.65
+   },
+   "to": {
+    "x": 10.6,
+    "y": 43.65,
+    "rotY": 0.12,
+    "style": "seat"
+   },
+   "reason": "ENTRANCE BLOCKER. hollow_log (2.27 x 0.9 m, rotY 0 = long axis E-W) lay across the 3-tile dirt path at (13.2,44.65); its softProp box [.65,.22] + hero radius .2 walls x 12.35-14.05 and, together with the bonfire box, left a 0.6 m gap on the intro walk line (x~12.45) 1.8 m north of spawn. Moved to the west side of the moved fire as a seat (style seat = askSeat, never breaks). New box x 9.95-11.25 / y 43.43-43.87, clear of the walk line by 1.0 m."
+  },
+  {
+   "match": {
+    "kind": "bonfire",
+    "x": 12.2,
+    "y": 45.2
+   },
+   "to": {
+    "x": 10.85,
+    "y": 44.95
+   },
+   "reason": "Bonfire sat ON the intro walk line (box 11.6-12.8 incl. hero radius vs path x 12.45). Moved 1.35 m west to the clearing edge so the camp frames the path instead of blocking it."
+  }
+ ],
+ "swapped": [
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 8.05,
+    "y": 26.4,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 8.19,
+    "y": 26.42,
+    "style": "m",
+    "rotY": 2.3
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.3; centre jittered inside the SAME solid tile (8,26) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 16.45,
+    "y": 27.549999999999997,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 16.58,
+    "y": 27.35,
+    "style": "l",
+    "rotY": 5.18
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (16,27) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 8.05,
+    "y": 29.65,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 8.13,
+    "y": 29.82,
+    "style": "l",
+    "rotY": 5.79
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (8,29) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 16.45,
+    "y": 30.799999999999997,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 16.51,
+    "y": 30.85,
+    "style": "s",
+    "rotY": 1.29
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (16,30) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 8.05,
+    "y": 32.9,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 8.2,
+    "y": 32.85,
+    "style": "s",
+    "rotY": 0.69
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (8,32) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 16.45,
+    "y": 34.05,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 16.65,
+    "y": 34.15,
+    "style": "l",
+    "rotY": 0.41
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (16,34) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 8.05,
+    "y": 36.15,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 8.22,
+    "y": 36.15,
+    "style": "m",
+    "rotY": 2.54
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.3; centre jittered inside the SAME solid tile (8,36) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 16.45,
+    "y": 37.3,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 16.64,
+    "y": 37.48,
+    "style": "l",
+    "rotY": 4.17
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (16,37) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 8.05,
+    "y": 39.4,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 8.25,
+    "y": 39.46,
+    "style": "l",
+    "rotY": 2.9
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (8,39) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 16.45,
+    "y": 40.55,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 16.69,
+    "y": 40.73,
+    "style": "s",
+    "rotY": 1.97
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (16,40) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 8.05,
+    "y": 42.65,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 8.21,
+    "y": 42.85,
+    "style": "s",
+    "rotY": 2.87
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (8,42) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 16.45,
+    "y": 43.8,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 16.49,
+    "y": 43.62,
+    "style": "l",
+    "rotY": 0.42
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (16,43) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 8.05,
+    "y": 45.9,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 8.17,
+    "y": 45.85,
+    "style": "m",
+    "rotY": 3.63
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.3; centre jittered inside the SAME solid tile (8,45) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 16.45,
+    "y": 47.05,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 16.43,
+    "y": 47.15,
+    "style": "s",
+    "rotY": 4.1
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (16,47) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 8.05,
+    "y": 49.15,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 8.19,
+    "y": 49.26,
+    "style": "l",
+    "rotY": 3.99
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (8,49) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 16.45,
+    "y": 50.3,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 16.48,
+    "y": 50.17,
+    "style": "s",
+    "rotY": 2.84
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (16,50) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 15.2,
+    "y": 51.2,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 15.43,
+    "y": 51.38,
+    "style": "l",
+    "rotY": 1.97
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (15,51) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 33.95,
+    "y": 85.6,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 33.76,
+    "y": 85.67,
+    "style": "m",
+    "rotY": 2.72
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.3; centre jittered inside the SAME solid tile (33,85) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 25.55,
+    "y": 84.45,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 25.36,
+    "y": 84.48,
+    "style": "l",
+    "rotY": 4.88
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (25,84) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 33.95,
+    "y": 82.35,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 33.82,
+    "y": 82.44,
+    "style": "l",
+    "rotY": 5.33
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (33,82) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 25.55,
+    "y": 81.2,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 25.52,
+    "y": 81.48,
+    "style": "s",
+    "rotY": 3.32
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (25,81) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 33.95,
+    "y": 79.1,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 33.83,
+    "y": 79.27,
+    "style": "s",
+    "rotY": 0.32
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (33,79) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 25.55,
+    "y": 77.95,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 25.44,
+    "y": 77.85,
+    "style": "l",
+    "rotY": 2.86
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (25,77) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 33.95,
+    "y": 75.85,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 33.73,
+    "y": 75.85,
+    "style": "m",
+    "rotY": 3.06
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.3; centre jittered inside the SAME solid tile (33,75) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 25.55,
+    "y": 74.7,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 25.37,
+    "y": 74.84,
+    "style": "l",
+    "rotY": 2.22
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (25,74) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 33.95,
+    "y": 72.6,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 33.82,
+    "y": 72.64,
+    "style": "l",
+    "rotY": 1.62
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (33,72) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 25.55,
+    "y": 71.45,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 25.56,
+    "y": 71.23,
+    "style": "s",
+    "rotY": 0.37
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (25,71) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 33.95,
+    "y": 69.35,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 33.93,
+    "y": 69.54,
+    "style": "s",
+    "rotY": 1.21
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.27; centre jittered inside the SAME solid tile (33,69) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 25.55,
+    "y": 68.2,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 25.31,
+    "y": 68.4,
+    "style": "l",
+    "rotY": 5.51
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (25,68) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 32.4,
+    "y": 60.6,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 32.53,
+    "y": 60.56,
+    "style": "l",
+    "rotY": 3.81
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (32,60) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 29.4,
+    "y": 59.8,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 29.62,
+    "y": 59.85,
+    "style": "l",
+    "rotY": 2.7
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (29,59) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 26.8,
+    "y": 60.8,
+    "style": "peak"
+   },
+   "with": {
+    "kind": "spire",
+    "x": 26.62,
+    "y": 60.59,
+    "style": "l",
+    "rotY": 3.98
+   },
+   "reason": "Old pillar: procedural flat-shaded 7-sided cone (placeDress mountain/peak) in a grid-perfect 3.25 m picket row. Replaced by cliffkit_v2 rock_spire_bare_16m_dead (textured, cliff kit v2) at scale 0.33; centre jittered inside the SAME solid tile (26,60) so the existing tile collider stays valid; random yaw + 3 sizes break the repetition."
+  },
+  {
+   "match": {
+    "kind": "body",
+    "x": 11.25,
+    "y": 46.7
+   },
+   "with": {
+    "kind": "body",
+    "style": "adventurer",
+    "rotY": -0.6
+   },
+   "reason": "Spawn corpse rendered as a 3.68 m gibbet cage on a post (world_props body.byWorld.coast = gibbet) 1.3 m from the waking hero, with no collision (walk-through post). Swapped to the lying fallen_adventurer_looted (0.6 m tall, flat) = \"the one who did not wake\". No collider needed (flat)."
+  },
+  {
+   "match": {
+    "kind": "rock",
+    "x": 11.15,
+    "y": 45.75,
+    "style": "bone"
+   },
+   "with": {
+    "kind": "bones",
+    "style": "skull",
+    "x": 9.45,
+    "y": 45.55,
+    "rotY": 0.8
+   },
+   "reason": "INVISIBLE: rock/bone renders as a 0.12 m grey cylinder (placeDress rock r=.32*w, no bone look). Swapped to skull_heap and moved off the corpse/fire overlap to the camp wall."
+  },
+  {
+   "match": {
+    "kind": "rock",
+    "x": 13.4,
+    "y": 46.25,
+    "style": "bone"
+   },
+   "with": {
+    "kind": "bones",
+    "style": "bone",
+    "x": 14.35,
+    "y": 45.9,
+    "rotY": 2.1
+   },
+   "reason": "INVISIBLE: rock/bone renders as a 0.10 m pebble. Swapped to bone_pile and moved 0.9 m east so it does not clip the spawn."
+  },
+  {
+   "match": {
+    "kind": "rock",
+    "x": 10.15,
+    "y": 28.2,
+    "style": "bone"
+   },
+   "with": {
+    "kind": "bones",
+    "style": "bone",
+    "rotY": 1.1
+   },
+   "reason": "INVISIBLE: rock/bone renders as a 0.20 m pebble. Swapped to bone_pile in place (off the dirt path)."
+  },
+  {
+   "match": {
+    "kind": "rock",
+    "x": 14.55,
+    "y": 36.4,
+    "style": "dune"
+   },
+   "with": {
+    "kind": "rubble",
+    "rotY": 0.7,
+    "w": 0.9,
+    "d": 0.9
+   },
+   "reason": "rock/dune rendered as a 0.24 m pebble (near invisible). Swapped to rock_pile (1.2 x 0.83 m) with a matching softProp box."
+  },
+  {
+   "match": {
+    "kind": "rock",
+    "x": 31.85,
+    "y": 83.8,
+    "style": "bone"
+   },
+   "with": {
+    "kind": "bones",
+    "style": "bone",
+    "rotY": 0.3
+   },
+   "reason": "INVISIBLE rock/bone (0.20 m pebble) -> bone_pile."
+  },
+  {
+   "match": {
+    "kind": "body",
+    "x": 17.4,
+    "y": 93.6
+   },
+   "with": {
+    "kind": "body",
+    "style": "adventurer",
+    "rotY": 4.9
+   },
+   "reason": "Clone-coast beach corpse rendered as a 3.68 m walk-through gibbet. Swapped to the lying fallen_adventurer (loot unchanged)."
+  },
+  {
+   "match": {
+    "kind": "body",
+    "x": 12.8,
+    "y": 100.6
+   },
+   "with": {
+    "kind": "body",
+    "style": "adventurer",
+    "rotY": 5.49
+   },
+   "reason": "Clone-coast beach corpse rendered as a 3.68 m walk-through gibbet. Swapped to the lying fallen_adventurer (loot unchanged)."
+  },
+  {
+   "match": {
+    "kind": "body",
+    "x": 9.399999999999999,
+    "y": 89.8
+   },
+   "with": {
+    "kind": "body",
+    "style": "adventurer",
+    "rotY": 1.41
+   },
+   "reason": "Clone-coast beach corpse rendered as a 3.68 m walk-through gibbet. Swapped to the lying fallen_adventurer (loot unchanged)."
+  }
+ ],
+ "fixes": [
+  {
+   "type": "world_props",
+   "target": "models/props_new/world_props.json",
+   "with": "handoff/game_engineer/ashen/world_props.ashen_additions.json",
+   "reason": "Adds body.styles.adventurer so a coast body can opt out of the byWorld coast=gibbet rule (yu() checks styles before byWorld); adds 10 decor kinds used by this patch. Existing kinds unchanged. Merge add_kinds into kinds and body_add_styles into kinds.body.styles after the live table loads; the live models/props_new/world_props.json is not replaced. Full merged copy for reference: handoff/game_engineer/ashen/world_props.ashen.json.",
+   "mode": "merge_at_runtime"
+  },
+  {
+   "type": "glb",
+   "new_files": [
+    "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+    "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+    "models/ashen_v1/gtree_weeping_winter_lod0.glb"
+   ],
+   "reason": "GLB-side invisibility/overdraw fix: trees_gothic_v6 GLBs carry LOD0+LOD1+LOD2 as sibling meshes; mountWorldProp clones the whole scene, so all 3 LODs would draw on top of each other (z-fight, 3x tris, LOD2 cards poke 3 m below ground). New copies keep LOD0 only. Sources untouched."
+  },
+  {
+   "type": "glb",
+   "new_files": [
+    "models/ashen_v1/shore_rock_a_boulder.glb",
+    "models/ashen_v1/shore_rock_b_slab.glb",
+    "models/ashen_v1/shore_rock_c_stack.glb",
+    "models/ashen_v1/shore_rock_d_cluster.glb",
+    "models/ashen_v1/shore_rock_e_seastack.glb"
+   ],
+   "reason": "shore_rock_kit_v2.glb is one 84 m strip of 8 rocks; world_props needs one model per file. Split + recentred copies (col_ nodes kept, hidden by dressPropClone)."
+  }
+ ],
+ "removed": [],
+ "adds": [
+  {
+   "id": "camp_rack",
+   "kind": "weapon_rack",
+   "x": 9.6,
+   "y": 47.55,
+   "rotY": 1.5708,
+   "w": 1.0,
+   "d": 1.6,
+   "reason": "Guard spot of the wrecked camp: rack against the west rock wall, faces the fire. Breakable (props_new). Collider w/d (rack rotated 90 deg)."
+  },
+  {
+   "id": "camp_sacks",
+   "kind": "sack",
+   "x": 9.5,
+   "y": 43.0,
+   "rotY": 0.4,
+   "w": 0.9,
+   "d": 0.9,
+   "reason": "Camp supplies stacked by the wall behind the seat log. Breakable."
+  },
+  {
+   "id": "camp_crate",
+   "kind": "crate",
+   "x": 14.4,
+   "y": 43.5,
+   "rotY": 0.3,
+   "w": 1.5,
+   "d": 0.85,
+   "reason": "Supply crate on the east rim of the clearing, against the rock wall. Breakable. The variant hash vu(14,43)=1 picks crate_stack (1.57 x 0.87 m), so the box is set explicitly instead of the $D single-crate box."
+  },
+  {
+   "id": "camp_urn1",
+   "kind": "urn",
+   "x": 14.45,
+   "y": 47.75,
+   "w": 0.45,
+   "d": 0.45,
+   "reason": "Burial urns of the dead camper by the east wall. Breakable."
+  },
+  {
+   "id": "camp_urn2",
+   "kind": "urn",
+   "x": 13.95,
+   "y": 48.3,
+   "rotY": 1.2,
+   "w": 0.45,
+   "d": 0.45,
+   "reason": "Second urn, offset so the pair reads as a natural group."
+  },
+  {
+   "id": "trench_bones",
+   "kind": "bones",
+   "x": 9.6,
+   "y": 24.95,
+   "style": "remains",
+   "rotY": 0.5,
+   "reason": "Warning at the turn into the starter trench: a remains heap under the new mouth torch (the north camp already has 4 gibbets, a 5th would repeat). Flat, no collider."
+  },
+  {
+   "id": "trench_corpse",
+   "kind": "body",
+   "x": 10.1,
+   "y": 36.9,
+   "style": "adventurer",
+   "rotY": 0.9,
+   "reason": "Fallen adventurer slumped at the path edge mid-trench (lootable once; same refill rules as other coast bodies). Flat, no collider."
+  },
+  {
+   "id": "trench_barrel",
+   "kind": "barrel",
+   "x": 14.45,
+   "y": 32.3,
+   "rotY": 0.2,
+   "reason": "Abandoned barrel against the east rock wall. Breakable; $D barrel box."
+  },
+  {
+   "id": "trench_crate",
+   "kind": "crate",
+   "x": 14.55,
+   "y": 31.35,
+   "rotY": 0.6,
+   "reason": "Crate beside the barrel (the cart load that never made it)."
+  },
+  {
+   "id": "trench_stump",
+   "kind": "stump",
+   "x": 14.5,
+   "y": 26.1,
+   "rotY": 1.9,
+   "w": 0.9,
+   "d": 0.9,
+   "reason": "Blighted stump at the trench mouth, east rim. Collider w/d .9."
+  },
+  {
+   "id": "crag1",
+   "kind": "crag",
+   "x": 15.55,
+   "y": 28.45,
+   "style": "c",
+   "rotY": 2.18,
+   "reason": "Border-kit mound (border_peak_c_v5_dead) dressing the bare solid tile (15,28) that only showed a repeated kit Rock_01 block. Sits on an existing solid tile, so no collider change."
+  },
+  {
+   "id": "crag2",
+   "kind": "crag",
+   "x": 15.6,
+   "y": 36.55,
+   "style": "a",
+   "rotY": 0.43,
+   "reason": "Border-kit mound (border_peak_a_v5_dead) dressing the bare solid tile (15,36) that only showed a repeated kit Rock_01 block. Sits on an existing solid tile, so no collider change."
+  },
+  {
+   "id": "crag3",
+   "kind": "crag",
+   "x": 15.5,
+   "y": 41.1,
+   "style": "c",
+   "rotY": 2.21,
+   "reason": "Border-kit mound (border_peak_c_v5_dead) dressing the bare solid tile (15,41) that only showed a repeated kit Rock_01 block. Sits on an existing solid tile, so no collider change."
+  },
+  {
+   "id": "crag4",
+   "kind": "crag",
+   "x": 15.55,
+   "y": 46.45,
+   "style": "a",
+   "rotY": 4.25,
+   "reason": "Border-kit mound (border_peak_a_v5_dead) dressing the bare solid tile (15,46) that only showed a repeated kit Rock_01 block. Sits on an existing solid tile, so no collider change."
+  },
+  {
+   "id": "crag5",
+   "kind": "crag",
+   "x": 8.45,
+   "y": 34.6,
+   "style": "a",
+   "rotY": 3.77,
+   "reason": "Border-kit mound (border_peak_a_v5_dead) dressing the bare solid tile (8,34) that only showed a repeated kit Rock_01 block. Sits on an existing solid tile, so no collider change."
+  },
+  {
+   "id": "crag6",
+   "kind": "crag",
+   "x": 8.4,
+   "y": 40.55,
+   "style": "c",
+   "rotY": 4.51,
+   "reason": "Border-kit mound (border_peak_c_v5_dead) dressing the bare solid tile (8,40) that only showed a repeated kit Rock_01 block. Sits on an existing solid tile, so no collider change."
+  },
+  {
+   "id": "crag7",
+   "kind": "crag",
+   "x": 8.5,
+   "y": 48.3,
+   "style": "a",
+   "rotY": 1.2,
+   "reason": "Border-kit mound (border_peak_a_v5_dead) dressing the bare solid tile (8,48) that only showed a repeated kit Rock_01 block. Sits on an existing solid tile, so no collider change."
+  },
+  {
+   "id": "crag8",
+   "kind": "crag",
+   "x": 8.7,
+   "y": 50.8,
+   "style": "c",
+   "rotY": 3.04,
+   "reason": "Border-kit mound (border_peak_c_v5_dead) dressing the bare solid tile (8,50) that only showed a repeated kit Rock_01 block. Sits on an existing solid tile, so no collider change."
+  },
+  {
+   "id": "crag9",
+   "kind": "crag",
+   "x": 15.7,
+   "y": 52.6,
+   "style": "a",
+   "rotY": 3.85,
+   "reason": "Border-kit mound (border_peak_a_v5_dead) dressing the bare solid tile (15,52) that only showed a repeated kit Rock_01 block. Sits on an existing solid tile, so no collider change."
+  },
+  {
+   "id": "grass1",
+   "kind": "grass",
+   "x": 9.75,
+   "y": 27.3,
+   "rotY": 3.47,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "grass2",
+   "kind": "grass",
+   "x": 14.35,
+   "y": 29.6,
+   "rotY": 1.0,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "grass3",
+   "kind": "grass",
+   "x": 9.8,
+   "y": 33.7,
+   "rotY": 4.47,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "grass4",
+   "kind": "grass",
+   "x": 14.3,
+   "y": 35.2,
+   "rotY": 5.29,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "grass5",
+   "kind": "grass",
+   "x": 9.7,
+   "y": 38.2,
+   "rotY": 2.47,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "grass6",
+   "kind": "grass",
+   "x": 14.45,
+   "y": 40.0,
+   "rotY": 1.22,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "grass7",
+   "kind": "grass",
+   "x": 10.0,
+   "y": 41.8,
+   "rotY": 4.79,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "grass8",
+   "kind": "grass",
+   "x": 9.9,
+   "y": 49.6,
+   "rotY": 3.92,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "grass9",
+   "kind": "grass",
+   "x": 14.2,
+   "y": 51.4,
+   "rotY": 2.62,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "grass10",
+   "kind": "grass",
+   "x": 14.5,
+   "y": 53.5,
+   "rotY": 1.0,
+   "reason": "Dead-grass ground dressing along the path edge (off-grid, alternating sides). No collider."
+  },
+  {
+   "id": "road_cart",
+   "kind": "cart",
+   "x": 25.0,
+   "y": 22.1,
+   "rotY": 1.5,
+   "w": 3.8,
+   "d": 1.5,
+   "reason": "Abandoned cart where the dirt road gives out at the shore. Long axis turned E-W; softProp box set to the rotated 3.93 x 1.64 m footprint."
+  },
+  {
+   "id": "cart_crates",
+   "kind": "crate",
+   "x": 27.55,
+   "y": 21.35,
+   "rotY": 0.5,
+   "reason": "Crate dropped off the cart tail. Breakable."
+  },
+  {
+   "id": "cart_barrel",
+   "kind": "barrel",
+   "x": 27.6,
+   "y": 22.75,
+   "rotY": 1.0,
+   "reason": "Barrel by the cart tail. Breakable."
+  },
+  {
+   "id": "cart_sack",
+   "kind": "sack",
+   "x": 22.75,
+   "y": 22.75,
+   "rotY": 2.0,
+   "w": 1.0,
+   "d": 1.0,
+   "reason": "Sack pile by the cart front (vu(22,22)=1 -> sack_pile 1.14 x 1.23). Breakable."
+  },
+  {
+   "id": "bridge_waymark",
+   "kind": "waymark",
+   "x": 22.6,
+   "y": 23.45,
+   "rotY": 3.14,
+   "w": 0.5,
+   "d": 0.5,
+   "reason": "Wayside celtic cross at the north landing of the Flotsam bridge: the flotsam arch at (20.6,28.2) has no model (renderer draws only a 0.55 m gem), so the exit reads as nothing. The wayside grave-cross marks it without touching bridge tiles/collision. Collider w/d .5 = the cross shaft."
+  },
+  {
+   "id": "mouth_torch",
+   "kind": "lamp",
+   "x": 10.4,
+   "y": 23.4,
+   "style": "flicker",
+   "phase": 0.6,
+   "reason": "One of only three torches: lights the trench mouth so the player sees the turn south. $D lamp box."
+  },
+  {
+   "id": "shore1",
+   "kind": "shore_rock",
+   "x": 9.2,
+   "y": 55.3,
+   "style": "a",
+   "rotY": 2.95,
+   "reason": "shore_rock_kit_v2 piece a_boulder in the water beside the causeway (water tiles are already solid; no collider change)."
+  },
+  {
+   "id": "shore2",
+   "kind": "shore_rock",
+   "x": 15.5,
+   "y": 56.9,
+   "style": "d",
+   "rotY": 4.38,
+   "reason": "shore_rock_kit_v2 piece d_cluster in the water beside the causeway (water tiles are already solid; no collider change)."
+  },
+  {
+   "id": "shore3",
+   "kind": "shore_rock",
+   "x": 8.7,
+   "y": 59.4,
+   "style": "c",
+   "rotY": 2.02,
+   "reason": "shore_rock_kit_v2 piece c_stack in the water beside the causeway (water tiles are already solid; no collider change)."
+  },
+  {
+   "id": "shore4",
+   "kind": "shore_rock",
+   "x": 15.6,
+   "y": 60.3,
+   "style": "b",
+   "rotY": 0.19,
+   "reason": "shore_rock_kit_v2 piece b_slab in the water beside the causeway (water tiles are already solid; no collider change)."
+  },
+  {
+   "id": "shore5",
+   "kind": "shore_rock",
+   "x": 6.4,
+   "y": 57.6,
+   "style": "e",
+   "rotY": 3.77,
+   "reason": "shore_rock_kit_v2 piece e_seastack in the water beside the causeway (water tiles are already solid; no collider change)."
+  },
+  {
+   "id": "band_skiff",
+   "kind": "skiff",
+   "x": 18.4,
+   "y": 61.6,
+   "rotY": 0.0,
+   "w": 1.8,
+   "d": 4.0,
+   "reason": "Rowboat (props_new rowboat_ferry) beached bow-first on the sand band, stern in the water. Decor kind (not boat) so it does not trigger the ferry/Holt dialogue. Collider w/d over the hull."
+  },
+  {
+   "id": "band_corpse",
+   "kind": "body",
+   "x": 16.4,
+   "y": 63.3,
+   "style": "adventurer",
+   "rotY": 2.4,
+   "reason": "The boatman, face-down beside his boat. Lootable once. Flat, no collider."
+  },
+  {
+   "id": "band_well",
+   "kind": "well",
+   "x": 23.7,
+   "y": 63.4,
+   "rotY": 0.3,
+   "reason": "Landmark: stone well at the crossroads of the sand band. $D well box .7 (well_stone 2.06 x 1.81)."
+  },
+  {
+   "id": "band_urn",
+   "kind": "urn",
+   "x": 22.45,
+   "y": 64.35,
+   "w": 0.45,
+   "d": 0.45,
+   "reason": "Urn left at the well. Breakable."
+  },
+  {
+   "id": "band_torch",
+   "kind": "lamp",
+   "x": 25.2,
+   "y": 62.75,
+   "style": "flicker",
+   "phase": 2.1,
+   "reason": "Torch at the well (2nd of 3)."
+  },
+  {
+   "id": "band_tree_w",
+   "kind": "gtree",
+   "x": 10.7,
+   "y": 66.7,
+   "style": "twisted",
+   "rotY": 0.9,
+   "w": 0.8,
+   "d": 0.8,
+   "reason": "v6 gothic tree (twisted, winter = bare) anchoring the west end of the sand band. Trunk collider w/d .8."
+  },
+  {
+   "id": "band_tree_e",
+   "kind": "gtree",
+   "x": 33.4,
+   "y": 62.8,
+   "style": "weeping",
+   "rotY": 4.0,
+   "w": 0.8,
+   "d": 0.8,
+   "reason": "v6 gothic tree (weeping, winter) at the east end of the band, frames the turn south into the mirrored corridor."
+  },
+  {
+   "id": "band_tree_c",
+   "kind": "gtree",
+   "x": 20.6,
+   "y": 66.85,
+   "style": "crooked",
+   "rotY": 2.2,
+   "w": 0.8,
+   "d": 0.8,
+   "reason": "v6 gothic tree (crooked, winter) on the band south rim."
+  },
+  {
+   "id": "band_stump",
+   "kind": "stump",
+   "x": 32.4,
+   "y": 66.45,
+   "rotY": 0.4,
+   "w": 0.9,
+   "d": 0.9,
+   "reason": "Blighted stump under the east tree."
+  },
+  {
+   "id": "band_bones",
+   "kind": "bones",
+   "x": 27.0,
+   "y": 64.9,
+   "style": "remains",
+   "rotY": 1.3,
+   "reason": "Remains heap on the open sand (flat, no collider)."
+  },
+  {
+   "id": "bandgrass1",
+   "kind": "grass",
+   "x": 13.6,
+   "y": 62.6,
+   "rotY": 4.03,
+   "reason": "Dead-grass dressing on the sand band edges."
+  },
+  {
+   "id": "bandgrass2",
+   "kind": "grass",
+   "x": 17.1,
+   "y": 66.4,
+   "rotY": 1.93,
+   "reason": "Dead-grass dressing on the sand band edges."
+  },
+  {
+   "id": "bandgrass3",
+   "kind": "grass",
+   "x": 26.0,
+   "y": 62.7,
+   "rotY": 5.92,
+   "reason": "Dead-grass dressing on the sand band edges."
+  },
+  {
+   "id": "bandgrass4",
+   "kind": "grass",
+   "x": 30.2,
+   "y": 66.2,
+   "rotY": 3.43,
+   "reason": "Dead-grass dressing on the sand band edges."
+  },
+  {
+   "id": "cover_11",
+   "kind": "rubble",
+   "x": 21.5,
+   "y": 16.5,
+   "rotY": 1.92,
+   "reason": "INVISIBLE WALL FIX: solid tile (21,16) whose only visual was a 0.35 m pebble (rock plain w=1.08), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_12",
+   "kind": "rubble",
+   "x": 23.5,
+   "y": 10.5,
+   "rotY": 2.76,
+   "reason": "INVISIBLE WALL FIX: solid tile (23,10) whose only visual was a 0.32 m pebble (rock plain w=1.01), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_13",
+   "kind": "rubble",
+   "x": 33.5,
+   "y": 3.5,
+   "rotY": 2.38,
+   "reason": "INVISIBLE WALL FIX: solid tile (33,3) whose only visual was a 0.24 m pebble (rock plain w=0.76), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_14",
+   "kind": "rubble",
+   "x": 13.5,
+   "y": 5.5,
+   "rotY": 4.0,
+   "reason": "INVISIBLE WALL FIX: solid tile (13,5) whose only visual was a 0.25 m pebble (rock plain w=0.77), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_16",
+   "kind": "rubble",
+   "x": 17.5,
+   "y": 10.5,
+   "rotY": 0.9,
+   "reason": "INVISIBLE WALL FIX: solid tile (17,10) whose only visual was a 0.34 m pebble (rock plain w=1.07), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_17",
+   "kind": "rubble",
+   "x": 27.5,
+   "y": 6.5,
+   "rotY": 5.15,
+   "reason": "INVISIBLE WALL FIX: solid tile (27,6) whose only visual was a 0.37 m pebble (rock plain w=1.14), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_91",
+   "kind": "rubble",
+   "x": 20.5,
+   "y": 95.5,
+   "rotY": 4.79,
+   "reason": "INVISIBLE WALL FIX: solid tile (20,95) whose only visual was a 0.35 m pebble (rock plain w=1.08), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_92",
+   "kind": "rubble",
+   "x": 18.5,
+   "y": 101.5,
+   "rotY": 1.49,
+   "reason": "INVISIBLE WALL FIX: solid tile (18,101) whose only visual was a 0.32 m pebble (rock plain w=1.01), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_93",
+   "kind": "rubble",
+   "x": 8.5,
+   "y": 108.5,
+   "rotY": 5.11,
+   "reason": "INVISIBLE WALL FIX: solid tile (8,108) whose only visual was a 0.24 m pebble (rock plain w=0.76), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_94",
+   "kind": "rubble",
+   "x": 28.5,
+   "y": 106.5,
+   "rotY": 0.54,
+   "reason": "INVISIBLE WALL FIX: solid tile (28,106) whose only visual was a 0.25 m pebble (rock plain w=0.77), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_96",
+   "kind": "rubble",
+   "x": 24.5,
+   "y": 101.5,
+   "rotY": 4.36,
+   "reason": "INVISIBLE WALL FIX: solid tile (24,101) whose only visual was a 0.34 m pebble (rock plain w=1.07), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_97",
+   "kind": "rubble",
+   "x": 14.5,
+   "y": 105.5,
+   "rotY": 2.15,
+   "reason": "INVISIBLE WALL FIX: solid tile (14,105) whose only visual was a 0.37 m pebble (rock plain w=1.14), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_165",
+   "kind": "rubble",
+   "x": 24.31,
+   "y": 2.69,
+   "rotY": 5.28,
+   "reason": "INVISIBLE WALL FIX: solid tile (24,2) whose only visual was a 0.37 m pebble (rock dune w=1.15), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_167",
+   "kind": "rubble",
+   "x": 36.54,
+   "y": 2.46,
+   "rotY": 1.73,
+   "reason": "INVISIBLE WALL FIX: solid tile (36,2) whose only visual was a 0.37 m pebble (rock dune w=1.15), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_175",
+   "kind": "rubble",
+   "x": 2.48,
+   "y": 103.52,
+   "rotY": 3.31,
+   "reason": "INVISIBLE WALL FIX: solid tile (2,103) whose only visual was a 0.37 m pebble (rock dune w=1.15), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_178",
+   "kind": "rubble",
+   "x": 14.56,
+   "y": 107.44,
+   "rotY": 3.73,
+   "reason": "INVISIBLE WALL FIX: solid tile (14,107) whose only visual was a 0.37 m pebble (rock dune w=1.15), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_179",
+   "kind": "rubble",
+   "x": 18.31,
+   "y": 107.69,
+   "rotY": 2.44,
+   "reason": "INVISIBLE WALL FIX: solid tile (18,107) whose only visual was a 0.37 m pebble (rock dune w=1.15), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_180",
+   "kind": "rubble",
+   "x": 30.35,
+   "y": 107.65,
+   "rotY": 0.88,
+   "reason": "INVISIBLE WALL FIX: solid tile (30,107) whose only visual was a 0.37 m pebble (rock dune w=1.15), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_181",
+   "kind": "rubble",
+   "x": 12.42,
+   "y": 108.58,
+   "rotY": 5.39,
+   "reason": "INVISIBLE WALL FIX: solid tile (12,108) whose only visual was a 0.37 m pebble (rock dune w=1.15), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_183",
+   "kind": "rubble",
+   "x": 14.39,
+   "y": 109.61,
+   "rotY": 3.17,
+   "reason": "INVISIBLE WALL FIX: solid tile (14,109) whose only visual was a 0.37 m pebble (rock dune w=1.15), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  },
+  {
+   "id": "cover_185",
+   "kind": "rubble",
+   "x": 30.62,
+   "y": 109.38,
+   "rotY": 2.38,
+   "reason": "INVISIBLE WALL FIX: solid tile (30,109) whose only visual was a 0.37 m pebble (rock dune w=1.15), so the player hit an invisible 1 m wall. rock_pile (1.2 m) now covers the tile; the pebble stays (keeps the tile out of the kit-rock pass), collider unchanged."
+  }
+ ],
+ "collider_adds": [
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "tree",
+    "x": 9.5,
+    "y": 30.6,
+    "style": "dead"
+   },
+   "set": {
+    "d": 0.58
+   },
+   "reason": "Dead tree (tree_dead v5, trunk + roots) on a non-solid tile: walk-through. Adding d makes softProp use the box w/2 x d/2 (0.72 x 0.58 m) around the trunk; w is unchanged so the render scale is unchanged."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "tree",
+    "x": 9.35,
+    "y": 39.4,
+    "style": "dead"
+   },
+   "set": {
+    "d": 0.46
+   },
+   "reason": "Dead tree (tree_dead v5, trunk + roots) on a non-solid tile: walk-through. Adding d makes softProp use the box w/2 x d/2 (0.58 x 0.46 m) around the trunk; w is unchanged so the render scale is unchanged."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "tree",
+    "x": 15.3,
+    "y": 42.2,
+    "style": "dead"
+   },
+   "set": {
+    "d": 0.67
+   },
+   "reason": "Dead tree (tree_dead v5, trunk + roots) on a non-solid tile: walk-through. Adding d makes softProp use the box w/2 x d/2 (0.84 x 0.67 m) around the trunk; w is unchanged so the render scale is unchanged."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "tree",
+    "x": 32.5,
+    "y": 81.4,
+    "style": "dead"
+   },
+   "set": {
+    "d": 0.58
+   },
+   "reason": "Walk-through dead tree (mirror of the trench trees). softProp trunk box."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "tree",
+    "x": 32.65,
+    "y": 72.6,
+    "style": "dead"
+   },
+   "set": {
+    "d": 0.46
+   },
+   "reason": "Walk-through dead tree (mirror of the trench trees). softProp trunk box."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "tree",
+    "x": 26.7,
+    "y": 69.8,
+    "style": "dead"
+   },
+   "set": {
+    "d": 0.67
+   },
+   "reason": "Walk-through dead tree (mirror of the trench trees). softProp trunk box."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "body",
+    "x": 17.4,
+    "y": 17.6
+   },
+   "set": {
+    "w": 0.6,
+    "d": 0.6
+   },
+   "reason": "Gibbet corpse (3.68 m post + cage) had no collision. softProp box .6 x .6 = the post; loot reach (.62-1.05) still works."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "body",
+    "x": 24.6,
+    "y": 18.4
+   },
+   "set": {
+    "w": 0.6,
+    "d": 0.6
+   },
+   "reason": "Gibbet corpse (3.68 m post + cage) had no collision. softProp box .6 x .6 = the post; loot reach (.62-1.05) still works."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "body",
+    "x": 29.2,
+    "y": 11.4
+   },
+   "set": {
+    "w": 0.6,
+    "d": 0.6
+   },
+   "reason": "Gibbet corpse (3.68 m post + cage) had no collision. softProp box .6 x .6 = the post; loot reach (.62-1.05) still works."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "body",
+    "x": 32.6,
+    "y": 22.2
+   },
+   "set": {
+    "w": 0.6,
+    "d": 0.6
+   },
+   "reason": "Gibbet corpse (3.68 m post + cage) had no collision. softProp box .6 x .6 = the post; loot reach (.62-1.05) still works."
+  },
+  {
+   "type": "prop_box",
+   "match": {
+    "kind": "body",
+    "x": 24.6,
+    "y": 94.4
+   },
+   "set": {
+    "w": 0.6,
+    "d": 0.6
+   },
+   "reason": "Gibbet corpse (3.68 m post + cage) had no collision. softProp box .6 x .6 = the post; loot reach (.62-1.05) still works."
+  },
+  {
+   "type": "prop_box",
+   "add_id": "camp_rack",
+   "w": 1.0,
+   "d": 1.6,
+   "reason": "collider for new weapon_rack (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "camp_sacks",
+   "w": 0.9,
+   "d": 0.9,
+   "reason": "collider for new sack (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "camp_crate",
+   "w": 1.5,
+   "d": 0.85,
+   "reason": "collider for new crate (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "camp_urn1",
+   "w": 0.45,
+   "d": 0.45,
+   "reason": "collider for new urn (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "camp_urn2",
+   "w": 0.45,
+   "d": 0.45,
+   "reason": "collider for new urn (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "trench_barrel",
+   "engine_default": "$D.barrel",
+   "reason": "engine default softProp box for barrel"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "trench_crate",
+   "engine_default": "$D.crate",
+   "reason": "engine default softProp box for crate"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "trench_stump",
+   "w": 0.9,
+   "d": 0.9,
+   "reason": "collider for new stump (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "road_cart",
+   "w": 3.8,
+   "d": 1.5,
+   "reason": "collider for new cart (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "cart_crates",
+   "engine_default": "$D.crate",
+   "reason": "engine default softProp box for crate"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "cart_barrel",
+   "engine_default": "$D.barrel",
+   "reason": "engine default softProp box for barrel"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "cart_sack",
+   "w": 1.0,
+   "d": 1.0,
+   "reason": "collider for new sack (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "bridge_waymark",
+   "w": 0.5,
+   "d": 0.5,
+   "reason": "collider for new waymark (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "mouth_torch",
+   "engine_default": "$D.lamp",
+   "reason": "engine default softProp box for lamp"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "band_skiff",
+   "w": 1.8,
+   "d": 4.0,
+   "reason": "collider for new skiff (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "band_well",
+   "engine_default": "$D.well",
+   "reason": "engine default softProp box for well"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "band_urn",
+   "w": 0.45,
+   "d": 0.45,
+   "reason": "collider for new urn (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "band_torch",
+   "engine_default": "$D.lamp",
+   "reason": "engine default softProp box for lamp"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "band_tree_w",
+   "w": 0.8,
+   "d": 0.8,
+   "reason": "collider for new gtree (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "band_tree_e",
+   "w": 0.8,
+   "d": 0.8,
+   "reason": "collider for new gtree (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "band_tree_c",
+   "w": 0.8,
+   "d": 0.8,
+   "reason": "collider for new gtree (in the add itself)"
+  },
+  {
+   "type": "prop_box",
+   "add_id": "band_stump",
+   "w": 0.9,
+   "d": 0.9,
+   "reason": "collider for new stump (in the add itself)"
+  }
+ ],
+ "lights_move": [
+  {
+   "match": {
+    "x": 12.2,
+    "y": 45.2
+   },
+   "to": {
+    "x": 10.85,
+    "y": 44.95
+   },
+   "reason": "light follows the moved bonfire"
+  }
+ ],
+ "lights_add": [
+  {
+   "x": 10.4,
+   "y": 23.4,
+   "r": 42,
+   "warm": true,
+   "reason": "light for mouth_torch"
+  },
+  {
+   "x": 25.2,
+   "y": 62.75,
+   "r": 42,
+   "warm": true,
+   "reason": "light for band_torch"
+  }
+ ]
+}

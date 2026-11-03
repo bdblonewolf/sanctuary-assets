@@ -1,0 +1,537 @@
+{
+  "version": 1,
+  "note": "2D prop kind -> 3D model table. Renderer draws the model at each existing 2D prop (x,y); click logic stays in interact(). 'looted' state = prop.looted (persisted by propKey). Model stays visible in every state. Paths are repo-root relative. scale 1 = model metres; yaw added to the 2D prop's rotY (radians). collider [w,d] metres, only for big pieces in maps that build 3D colliders. variants: pick by hash of floor(x),floor(y) like the kit barrels. Breakables: break on click or attack, swap to 'looted' model, roll existing small loot.",
+  "skip_worlds": [
+    "town"
+  ],
+  "kinds": {
+    "chest": {
+      "states": {
+        "base": "models/props_new/lite/iron_chest_lite_closed.glb",
+        "looted": "models/props_new/lite/iron_chest_lite_opened.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "collider": [
+        1.1,
+        0.72
+      ],
+      "styles": {
+        "stash": {
+          "states": {
+            "base": "models/props_new/lite/iron_chest_lite_closed.glb"
+          },
+          "note": "never looted; opens stash menu"
+        }
+      }
+    },
+    "body": {
+      "variants": [
+        {
+          "states": {
+            "base": "characters_art/props/corpses/glb/fallen_adventurer.glb",
+            "looted": "characters_art/props/corpses/glb/fallen_adventurer_looted.glb"
+          }
+        }
+      ],
+      "byWorld": {
+        "den": "prisoner",
+        "sewer": "prisoner",
+        "nave": "prisoner",
+        "coast": "gibbet",
+        "wild": "gibbet"
+      },
+      "named": {
+        "adventurer": {
+          "states": {
+            "base": "characters_art/props/corpses/glb/fallen_adventurer.glb",
+            "looted": "characters_art/props/corpses/glb/fallen_adventurer_looted.glb"
+          }
+        },
+        "prisoner": {
+          "states": {
+            "base": "characters_art/props/corpses/glb/chained_prisoner.glb",
+            "looted": "characters_art/props/corpses/glb/chained_prisoner_looted.glb"
+          },
+          "note": "has its own wall slab; face it away from open floor"
+        },
+        "gibbet": {
+          "states": {
+            "base": "characters_art/props/corpses/glb/gibbet_corpse.glb",
+            "looted": "characters_art/props/corpses/glb/gibbet_corpse_looted.glb"
+          },
+          "collider": [
+            1.2,
+            1.2
+          ],
+          "note": "3.68 m tall; outdoors only"
+        }
+      },
+      "scale": 1,
+      "yaw": 0,
+      "styles": {
+        "adventurer": {
+          "states": {
+            "base": "characters_art/props/corpses/glb/fallen_adventurer.glb",
+            "looted": "characters_art/props/corpses/glb/fallen_adventurer_looted.glb"
+          }
+        }
+      }
+    },
+    "tomb": {
+      "states": {
+        "base": "models/env_extra/props_gothic_v1/loot/sarcophagus_small_closed.glb",
+        "looted": "models/env_extra/props_gothic_v1/loot/sarcophagus_small_opened.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "collider": [
+        2.0,
+        1.0
+      ]
+    },
+    "log": {
+      "states": {
+        "base": "models/env_extra/props_gothic_v1/loot/hollow_log_closed.glb",
+        "looted": "models/env_extra/props_gothic_v1/loot/hollow_log_opened.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "styles": {
+        "seat": {
+          "states": {
+            "base": "models/env_extra/props_gothic_v1/loot/hollow_log_closed.glb"
+          },
+          "note": "seat log, never breaks"
+        }
+      }
+    },
+    "boat": {
+      "states": {
+        "base": "models/props_new/rowboat_ferry.glb"
+      },
+      "scale": 1,
+      "yaw": 3.1416,
+      "collider": [
+        1.6,
+        4.4
+      ],
+      "y": "waterline",
+      "note": "bow is -Z; waterline empty at y 0.2 sits on water level",
+      "styles": {
+        "hulk": {
+          "states": {
+            "base": "models/env_extra/props_gothic_v1/boats/boat_wreck_cave_v1.glb"
+          },
+          "yaw": 0
+        },
+        "ribs": {
+          "states": {
+            "base": "models/env_extra/props_gothic_v1/boats/boat_wreck_cave_v1.glb"
+          },
+          "yaw": 0
+        }
+      }
+    },
+    "stairs": {
+      "styles": {
+        "trap": {
+          "states": {
+            "base": "models/props_new/trapdoor_ashen_coast_closed.glb",
+            "open": "models/props_new/trapdoor_ashen_coast_opened.glb"
+          },
+          "stateFlag": "player.hatchOpen",
+          "yaw": 0
+        },
+        "hatch": {
+          "states": {
+            "base": "models/props_new/trapdoor_ashen_coast_closed.glb",
+            "open": "models/props_new/trapdoor_ashen_coast_opened.glb"
+          },
+          "stateFlag": "always_open"
+        }
+      },
+      "note": "plain stairs/ladder keep the current marker; only trap/hatch get a model"
+    },
+    "well": {
+      "states": {
+        "base": "models/props_new/well_stone.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "collider": [
+        2.06,
+        1.81
+      ],
+      "styles": {
+        "heal": {
+          "states": {
+            "base": "models/props_new/well_stone_heal.glb",
+            "looted": "models/props_new/well_stone.glb"
+          },
+          "note": "looted = dry well: hide fx_heal_glow (swap to plain well)"
+        }
+      }
+    },
+    "folio": {
+      "states": {
+        "base": "models/env_extra/props_gothic_v1/props/lectern_book_v1.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "note": "looted folios keep the lectern"
+    },
+    "mark": {
+      "styles": {
+        "chart": {
+          "states": {
+            "base": "models/props_new/map_board_known_roads.glb"
+          },
+          "collider": [
+            2.12,
+            0.77
+          ]
+        }
+      },
+      "note": "ambush marks stay invisible"
+    },
+    "bookshelf": {
+      "states": {
+        "base": "models/props_new/lite/bookshelf_worn_lite.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "collider": [
+        1.37,
+        0.58
+      ],
+      "note": "looted = same model"
+    },
+    "cart": {
+      "states": {
+        "base": "models/props_new/cart_intact.glb",
+        "looted": "models/props_new/cart_broken.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "collider": [
+        1.64,
+        3.93
+      ],
+      "note": "broken = decor only if a quest ever breaks it; carts are not breakable"
+    },
+    "barrel": {
+      "breakable": true,
+      "variants": [
+        {
+          "states": {
+            "base": "models/props_new/breakables/barrel_intact.glb",
+            "looted": "models/props_new/breakables/barrel_broken.glb"
+          }
+        },
+        {
+          "states": {
+            "base": "models/props_new/breakables/barrel_group_intact.glb",
+            "looted": "models/props_new/breakables/barrel_group_broken.glb"
+          },
+          "collider": [
+            1.4,
+            1.4
+          ]
+        }
+      ],
+      "styles": {
+        "fire": {
+          "breakable": true,
+          "states": {
+            "base": "models/props_new/breakables/barrel_intact.glb",
+            "looted": "models/props_new/breakables/barrel_broken.glb"
+          },
+          "tint": "#b8402a",
+          "note": "explosive barrel; keep existing blast logic"
+        },
+        "stash": {
+          "breakable": false,
+          "states": {
+            "base": "models/props_new/breakables/barrel_intact.glb"
+          }
+        },
+        "anvil": {
+          "breakable": false,
+          "states": {
+            "base": "models/props_new/breakables/barrel_intact.glb"
+          }
+        }
+      }
+    },
+    "crate": {
+      "breakable": true,
+      "variants": [
+        {
+          "states": {
+            "base": "models/props_new/breakables/crate_intact.glb",
+            "looted": "models/props_new/breakables/crate_broken.glb"
+          }
+        },
+        {
+          "states": {
+            "base": "models/props_new/breakables/crate_stack_intact.glb",
+            "looted": "models/props_new/breakables/crate_stack_broken.glb"
+          },
+          "collider": [
+            1.57,
+            0.87
+          ]
+        }
+      ]
+    },
+    "sack": {
+      "breakable": true,
+      "variants": [
+        {
+          "states": {
+            "base": "models/props_new/breakables/sack_intact.glb",
+            "looted": "models/props_new/breakables/sack_broken.glb"
+          }
+        },
+        {
+          "states": {
+            "base": "models/props_new/breakables/sack_pile_intact.glb",
+            "looted": "models/props_new/breakables/sack_pile_broken.glb"
+          }
+        }
+      ],
+      "note": "new kind; no 2D spots yet"
+    },
+    "urn": {
+      "breakable": true,
+      "variants": [
+        {
+          "states": {
+            "base": "models/props_new/breakables/urn_a_intact.glb",
+            "looted": "models/props_new/breakables/urn_a_broken.glb"
+          }
+        },
+        {
+          "states": {
+            "base": "models/props_new/breakables/urn_b_intact.glb",
+            "looted": "models/props_new/breakables/urn_b_broken.glb"
+          }
+        },
+        {
+          "states": {
+            "base": "models/props_new/breakables/urn_c_intact.glb",
+            "looted": "models/props_new/breakables/urn_c_broken.glb"
+          }
+        }
+      ],
+      "note": "new kind; no 2D spots yet"
+    },
+    "weapon_rack": {
+      "breakable": true,
+      "states": {
+        "base": "models/props_new/breakables/weapon_rack_intact.glb",
+        "looted": "models/props_new/breakables/weapon_rack_broken.glb"
+      },
+      "collider": [
+        1.64,
+        1.03
+      ],
+      "note": "new kind; loot_* nodes hidden when broken"
+    },
+    "bed": {
+      "code": "bed",
+      "size": [
+        2.0,
+        0.95
+      ],
+      "note": "no bed GLB; 2D beds stay as they are; inn upstairs bed is code-built (W2)"
+    },
+    "board": {
+      "states": {
+        "base": "models/props_new/map_board_known_roads.glb"
+      },
+      "note": "no notice-board GLB; map board is the stand-in (hide map_slot)",
+      "stand_in": true
+    },
+    "spire": {
+      "states": {
+        "base": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb"
+      },
+      "scale": 0.3,
+      "yaw": 0,
+      "styles": {
+        "s": {
+          "states": {
+            "base": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb"
+          },
+          "scale": 0.27
+        },
+        "m": {
+          "states": {
+            "base": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb"
+          },
+          "scale": 0.3
+        },
+        "l": {
+          "states": {
+            "base": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb"
+          },
+          "scale": 0.33
+        }
+      },
+      "note": "Ashen pillar replacement for the procedural mountain/peak cones. 16 m spire x0.30 = 2.2 x 2.0 m above-ground footprint, 4.9 m tall (cone was ~2.6 m wide, 4 m). Place on a solid tile; col_block_spire hidden. Decor only."
+    },
+    "crag": {
+      "states": {
+        "base": "models/outdoor/v5_maps/border/border_peak_c_v5_dead.glb"
+      },
+      "scale": 2.2,
+      "yaw": 0,
+      "styles": {
+        "a": {
+          "states": {
+            "base": "models/outdoor/v5_maps/border/border_peak_a_v5_dead.glb"
+          },
+          "scale": 2.0
+        },
+        "c": {
+          "states": {
+            "base": "models/outdoor/v5_maps/border/border_peak_c_v5_dead.glb"
+          },
+          "scale": 2.2
+        }
+      },
+      "note": "border kit mound; dress solid tiles only. Decor only."
+    },
+    "rubble": {
+      "states": {
+        "base": "models/env_extra/props_gothic_v1/loot/rock_pile_closed.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "note": "rock pile 1.2 x 0.83 m; covers solid tiles that only had a pebble. Decor only."
+    },
+    "bones": {
+      "states": {
+        "base": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "styles": {
+        "bone": {
+          "states": {
+            "base": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb"
+          }
+        },
+        "skull": {
+          "states": {
+            "base": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb"
+          }
+        },
+        "remains": {
+          "states": {
+            "base": "models/env_extra/props_gothic_v1/loot/remains_heap_closed.glb"
+          }
+        }
+      },
+      "note": "visible replacement for rock/bone pebbles. Decor only, walkable."
+    },
+    "gtree": {
+      "states": {
+        "base": "models/ashen_v1/gtree_twisted_winter_lod0.glb"
+      },
+      "scale": 0.5,
+      "yaw": 0,
+      "styles": {
+        "twisted": {
+          "states": {
+            "base": "models/ashen_v1/gtree_twisted_winter_lod0.glb"
+          }
+        },
+        "crooked": {
+          "states": {
+            "base": "models/ashen_v1/gtree_crooked_winter_lod0.glb"
+          }
+        },
+        "weeping": {
+          "states": {
+            "base": "models/ashen_v1/gtree_weeping_winter_lod0.glb"
+          }
+        }
+      },
+      "note": "trees_gothic_v6 winter (bare) LOD0-only copies; static (no sway wiring). ~4-5 m tall at 0.5."
+    },
+    "shore_rock": {
+      "states": {
+        "base": "models/ashen_v1/shore_rock_a_boulder.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "styles": {
+        "a": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_a_boulder.glb"
+          }
+        },
+        "b": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_b_slab.glb"
+          }
+        },
+        "c": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_c_stack.glb"
+          }
+        },
+        "d": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_d_cluster.glb"
+          }
+        },
+        "e": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_e_seastack.glb"
+          }
+        }
+      },
+      "note": "shore_rock_kit_v2 pieces split one-per-file; place in water/shore tiles."
+    },
+    "grass": {
+      "states": {
+        "base": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb"
+      },
+      "scale": 0.8,
+      "yaw": 0,
+      "note": "ground dressing, walkable."
+    },
+    "skiff": {
+      "states": {
+        "base": "models/props_new/rowboat_ferry.glb"
+      },
+      "scale": 1,
+      "yaw": 3.1416,
+      "collider": [
+        1.6,
+        4.4
+      ],
+      "note": "decor rowboat (kind boat would open ferry dialogue)."
+    },
+    "stump": {
+      "states": {
+        "base": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb"
+      },
+      "scale": 0.45,
+      "yaw": 0,
+      "note": "1.6 x 1.2 m at 0.45; col_block_stump hidden."
+    },
+    "waymark": {
+      "states": {
+        "base": "models/env_extra/props_gothic_v1/props/grave_celtic_cross_v1.glb"
+      },
+      "scale": 0.8,
+      "yaw": 0,
+      "note": "wayside grave cross used as an exit marker (no free-standing signpost exists; hanging_sign_v1 floats at y 1.96 with no post)."
+    }
+  }
+}

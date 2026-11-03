@@ -1,0 +1,191 @@
+{
+  "add_kinds": {
+    "spire": {
+      "states": {
+        "base": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb"
+      },
+      "scale": 0.3,
+      "yaw": 0,
+      "styles": {
+        "s": {
+          "states": {
+            "base": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb"
+          },
+          "scale": 0.27
+        },
+        "m": {
+          "states": {
+            "base": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb"
+          },
+          "scale": 0.3
+        },
+        "l": {
+          "states": {
+            "base": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb"
+          },
+          "scale": 0.33
+        }
+      },
+      "note": "Ashen pillar replacement for the procedural mountain/peak cones. 16 m spire x0.30 = 2.2 x 2.0 m above-ground footprint, 4.9 m tall (cone was ~2.6 m wide, 4 m). Place on a solid tile; col_block_spire hidden. Decor only."
+    },
+    "crag": {
+      "states": {
+        "base": "models/outdoor/v5_maps/border/border_peak_c_v5_dead.glb"
+      },
+      "scale": 2.2,
+      "yaw": 0,
+      "styles": {
+        "a": {
+          "states": {
+            "base": "models/outdoor/v5_maps/border/border_peak_a_v5_dead.glb"
+          },
+          "scale": 2.0
+        },
+        "c": {
+          "states": {
+            "base": "models/outdoor/v5_maps/border/border_peak_c_v5_dead.glb"
+          },
+          "scale": 2.2
+        }
+      },
+      "note": "border kit mound; dress solid tiles only. Decor only."
+    },
+    "rubble": {
+      "states": {
+        "base": "models/env_extra/props_gothic_v1/loot/rock_pile_closed.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "note": "rock pile 1.2 x 0.83 m; covers solid tiles that only had a pebble. Decor only."
+    },
+    "bones": {
+      "states": {
+        "base": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "styles": {
+        "bone": {
+          "states": {
+            "base": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb"
+          }
+        },
+        "skull": {
+          "states": {
+            "base": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb"
+          }
+        },
+        "remains": {
+          "states": {
+            "base": "models/env_extra/props_gothic_v1/loot/remains_heap_closed.glb"
+          }
+        }
+      },
+      "note": "visible replacement for rock/bone pebbles. Decor only, walkable."
+    },
+    "gtree": {
+      "states": {
+        "base": "models/ashen_v1/gtree_twisted_winter_lod0.glb"
+      },
+      "scale": 0.5,
+      "yaw": 0,
+      "styles": {
+        "twisted": {
+          "states": {
+            "base": "models/ashen_v1/gtree_twisted_winter_lod0.glb"
+          }
+        },
+        "crooked": {
+          "states": {
+            "base": "models/ashen_v1/gtree_crooked_winter_lod0.glb"
+          }
+        },
+        "weeping": {
+          "states": {
+            "base": "models/ashen_v1/gtree_weeping_winter_lod0.glb"
+          }
+        }
+      },
+      "note": "trees_gothic_v6 winter (bare) LOD0-only copies; static (no sway wiring). ~4-5 m tall at 0.5."
+    },
+    "shore_rock": {
+      "states": {
+        "base": "models/ashen_v1/shore_rock_a_boulder.glb"
+      },
+      "scale": 1,
+      "yaw": 0,
+      "styles": {
+        "a": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_a_boulder.glb"
+          }
+        },
+        "b": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_b_slab.glb"
+          }
+        },
+        "c": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_c_stack.glb"
+          }
+        },
+        "d": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_d_cluster.glb"
+          }
+        },
+        "e": {
+          "states": {
+            "base": "models/ashen_v1/shore_rock_e_seastack.glb"
+          }
+        }
+      },
+      "note": "shore_rock_kit_v2 pieces split one-per-file; place in water/shore tiles."
+    },
+    "grass": {
+      "states": {
+        "base": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb"
+      },
+      "scale": 0.8,
+      "yaw": 0,
+      "note": "ground dressing, walkable."
+    },
+    "skiff": {
+      "states": {
+        "base": "models/props_new/rowboat_ferry.glb"
+      },
+      "scale": 1,
+      "yaw": 3.1416,
+      "collider": [
+        1.6,
+        4.4
+      ],
+      "note": "decor rowboat (kind boat would open ferry dialogue)."
+    },
+    "stump": {
+      "states": {
+        "base": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb"
+      },
+      "scale": 0.45,
+      "yaw": 0,
+      "note": "1.6 x 1.2 m at 0.45; col_block_stump hidden."
+    },
+    "waymark": {
+      "states": {
+        "base": "models/env_extra/props_gothic_v1/props/grave_celtic_cross_v1.glb"
+      },
+      "scale": 0.8,
+      "yaw": 0,
+      "note": "wayside grave cross used as an exit marker (no free-standing signpost exists; hanging_sign_v1 floats at y 1.96 with no post)."
+    }
+  },
+  "body_add_styles": {
+    "adventurer": {
+      "states": {
+        "base": "characters_art/props/corpses/glb/fallen_adventurer.glb",
+        "looted": "characters_art/props/corpses/glb/fallen_adventurer_looted.glb"
+      }
+    }
+  }
+}
