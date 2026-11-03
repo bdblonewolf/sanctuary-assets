@@ -247,3 +247,19 @@ Player hurt/effort/death voices in audio/sfx/player/ are synthesized placeholder
 - `audio/sfx/weapon/swing_staff_02.ogg`
 - `audio/sfx/weapon/swing_staff_03.ogg`
 - `audio/sfx/weapon/swing_staff_04.ogg`
+
+## Death and gore SFX (synthesized, for Characters And Monster)
+
+Times are seconds from file start, for syncing animation frames.
+
+| Path | Key event |
+|---|---|
+| `audio/sfx/monster/skeleton_death_crumble_01.ogg` | ground impact 0.299, skull 0.360 |
+| `audio/sfx/monster/skeleton_death_crumble_02.ogg` | ground impact 0.351, skull 0.431 |
+| `audio/sfx/monster/skeleton_death_crumble_03.ogg` | ground impact 0.280, skull 0.359 |
+| `audio/sfx/monster/demon_death_spew_01.ogg` | spew ends 0.746, body thud 1.133 |
+| `audio/sfx/monster/demon_death_spew_02.ogg` | spew ends 0.720, body thud 1.143 |
+| `audio/sfx/monster/demon_death_spew_03.ogg` | spew ends 0.604, body thud 1.030 |
+| `audio/sfx/impact/limb_sever_01.ogg` | chop 0, limb lands 0.448 |
+| `audio/sfx/impact/limb_sever_02.ogg` | chop 0, limb lands 0.440 |
+| `audio/sfx/impact/limb_sever_03.ogg` | chop 0, limb lands 0.331 |
