@@ -1,0 +1,27 @@
+{
+ "crawl": {
+  "frames": 60,
+  "fps": 30,
+  "loop": true
+ },
+ "idle_half": {
+  "frames": 60,
+  "fps": 30,
+  "loop": true
+ },
+ "crawl_swipe": {
+  "frames": 41,
+  "fps": 30,
+  "loop": false
+ },
+ "hit_half": {
+  "frames": 21,
+  "fps": 30,
+  "loop": false
+ },
+ "death_half": {
+  "frames": 51,
+  "fps": 30,
+  "loop": false
+ }
+}

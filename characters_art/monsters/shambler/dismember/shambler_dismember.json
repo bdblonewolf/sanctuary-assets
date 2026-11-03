@@ -1,0 +1,181 @@
+{
+ "name": "shambler",
+ "source": "shambler.glb",
+ "parts": {
+  "shambler_head": {
+   "part": "head",
+   "follows_bone": "mixamorig:Neck",
+   "tris": 1620,
+   "materials": [
+    "shambler_mat"
+   ]
+  },
+  "shambler_arm_l": {
+   "part": "arm_l",
+   "follows_bone": "mixamorig:LeftArm",
+   "tris": 1178,
+   "materials": [
+    "shambler_mat"
+   ]
+  },
+  "shambler_arm_r": {
+   "part": "arm_r",
+   "follows_bone": "mixamorig:RightArm",
+   "tris": 1055,
+   "materials": [
+    "shambler_mat"
+   ]
+  },
+  "shambler_upper_torso": {
+   "part": "upper_torso",
+   "follows_bone": "mixamorig:Spine1",
+   "tris": 2046,
+   "materials": [
+    "shambler_mat"
+   ]
+  },
+  "shambler_lower_body": {
+   "part": "lower_body",
+   "follows_bone": "mixamorig:Hips",
+   "tris": 2140,
+   "materials": [
+    "shambler_mat"
+   ]
+  },
+  "shambler_leg_l": {
+   "part": "leg_l",
+   "follows_bone": "mixamorig:LeftUpLeg",
+   "tris": 1977,
+   "materials": [
+    "shambler_mat"
+   ]
+  },
+  "shambler_leg_r": {
+   "part": "leg_r",
+   "follows_bone": "mixamorig:RightUpLeg",
+   "tris": 1780,
+   "materials": [
+    "shambler_mat"
+   ]
+  }
+ },
+ "cuts": {
+  "head": {
+   "removed_part": "head",
+   "stump_cap": "shambler_cap_head",
+   "stump_bone": "mixamorig:Spine2",
+   "severed_cap": "shambler_sevcap_head",
+   "severed_bone": "mixamorig:Neck",
+   "center_bind_m": [
+    -0.0258,
+    1.5139,
+    -0.0825
+   ],
+   "radius_m": 0.075,
+   "stump_cap_tris": 351,
+   "severed_cap_tris": 319
+  },
+  "arm_l": {
+   "removed_part": "arm_l",
+   "stump_cap": "shambler_cap_arm_l",
+   "stump_bone": "mixamorig:LeftShoulder",
+   "severed_cap": "shambler_sevcap_arm_l",
+   "severed_bone": "mixamorig:LeftArm",
+   "center_bind_m": [
+    0.2478,
+    1.246,
+    -0.1466
+   ],
+   "radius_m": 0.08,
+   "stump_cap_tris": 316,
+   "severed_cap_tris": 313
+  },
+  "arm_r": {
+   "removed_part": "arm_r",
+   "stump_cap": "shambler_cap_arm_r",
+   "stump_bone": "mixamorig:RightShoulder",
+   "severed_cap": "shambler_sevcap_arm_r",
+   "severed_bone": "mixamorig:RightArm",
+   "center_bind_m": [
+    -0.2405,
+    1.2438,
+    -0.1278
+   ],
+   "radius_m": 0.08,
+   "stump_cap_tris": 322,
+   "severed_cap_tris": 319
+  },
+  "leg_l": {
+   "removed_part": "leg_l",
+   "stump_cap": "shambler_cap_leg_l",
+   "stump_bone": "mixamorig:Hips",
+   "severed_cap": "shambler_sevcap_leg_l",
+   "severed_bone": "mixamorig:LeftUpLeg",
+   "center_bind_m": [
+    0.1329,
+    0.713,
+    -0.1299
+   ],
+   "radius_m": 0.11,
+   "stump_cap_tris": 313,
+   "severed_cap_tris": 313
+  },
+  "leg_r": {
+   "removed_part": "leg_r",
+   "stump_cap": "shambler_cap_leg_r",
+   "stump_bone": "mixamorig:Hips",
+   "severed_cap": "shambler_sevcap_leg_r",
+   "severed_bone": "mixamorig:RightUpLeg",
+   "center_bind_m": [
+    -0.1368,
+    0.7099,
+    -0.0917
+   ],
+   "radius_m": 0.11,
+   "stump_cap_tris": 316,
+   "severed_cap_tris": 319
+  },
+  "waist": {
+   "removed_part": "lower_body (half body keeps upper)",
+   "stump_cap": "shambler_cap_waist",
+   "stump_bone": "mixamorig:Spine",
+   "severed_cap": "shambler_sevcap_waist",
+   "severed_bone": "mixamorig:Spine1",
+   "center_bind_m": [
+    0.0076,
+    1.1617,
+    -0.0602
+   ],
+   "radius_m": 0.17,
+   "stump_cap_tris": 462,
+   "severed_cap_tris": 462
+  }
+ },
+ "clips": [],
+ "severed_pieces": {
+  "shambler_sev_head": {
+   "follow_bone": "mixamorig:Neck",
+   "tris": 1939
+  },
+  "shambler_sev_arm_l": {
+   "follow_bone": "mixamorig:LeftArm",
+   "tris": 1491
+  },
+  "shambler_sev_arm_r": {
+   "follow_bone": "mixamorig:RightArm",
+   "tris": 1374
+  },
+  "shambler_sev_leg_l": {
+   "follow_bone": "mixamorig:LeftUpLeg",
+   "tris": 2290
+  },
+  "shambler_sev_leg_r": {
+   "follow_bone": "mixamorig:RightUpLeg",
+   "tris": 2099
+  },
+  "shambler_sev_legs": {
+   "follow_bone": "mixamorig:Hips",
+   "tris": 6359
+  }
+ }
+}
