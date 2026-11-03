@@ -1,0 +1,534 @@
+{
+ "version": 1,
+ "generated": "2026-11-03",
+ "keys": "zone id = world.id (area id from the live code: area-level map Il / name map / Iu list in routes-DYqsoIet.js). Anything not listed uses \"default\"; ids mapped to \"interior\" get no haze.",
+ "model": {
+  "type": "height_fog_overlay",
+  "depth_pass": false,
+  "formula": "h = pow(clamp((top - worldY)/(top - base), 0, 1), falloff_exp); d = 1 - exp(-viewDist / range_m); a = density * h * d * weatherMul; color = mix(color, fogColor, a)",
+  "range_m": 30.0,
+  "weatherMul": "1 + 1.5*clamp(game.fog,0,1)  (game.fog is the existing weather value; >0.16 = grim)",
+  "max_alpha": 0.35,
+  "applies_after": "existing scene distance fog (Fog 0x07080C 16-46) - unchanged",
+  "transition_s": 2.5,
+  "night_mul": 0.8,
+  "note": "density is the max blend at the ground at full distance; values are deliberately tiny to keep the darkness"
+ },
+ "default": {
+  "name": "default (unlisted outdoor area)",
+  "color": "#A3AEBC",
+  "density": 0.08,
+  "height": {
+   "base": 0.0,
+   "top": 1.6,
+   "falloff_exp": 1.6
+  },
+  "wisps": {
+   "enabled_on_high": false
+  }
+ },
+ "interior": {
+  "name": "interiors and caves",
+  "density": 0.0,
+  "wisps": {
+   "enabled_on_high": false
+  }
+ },
+ "zones": {
+  "town": {
+   "name": "Martsirt",
+   "color": "#A9B4C2",
+   "density": 0.025,
+   "height": {
+    "base": 0.0,
+    "top": 1.2,
+    "falloff_exp": 2.0
+   },
+   "wisps": {
+    "enabled_on_high": false
+   },
+   "note": "nearly none: readability of the square; cemetery sub-zone below adds the graveyard pocket",
+   "subzones": [
+    {
+     "id": "cemetery",
+     "name": "St. Noll graveyard",
+     "shape": "rect",
+     "center_xz": [
+      48.0,
+      -12.0
+     ],
+     "size_xz": [
+      24.0,
+      18.0
+     ],
+     "rotY": 0.1047,
+     "feather_m": 8.0,
+     "color": "#9FAABA",
+     "density": 0.2,
+     "height": {
+      "base": 0.0,
+      "top": 1.6,
+      "falloff_exp": 1.4
+     },
+     "wisps": {
+      "enabled_on_high": true,
+      "density": 0.16,
+      "count": 4,
+      "plane_size_m": 10,
+      "y_m": 0.3,
+      "drift_speed_mps": 0.25,
+      "drift_dir_deg": 20,
+      "uv_scale": 1.0,
+      "texture": "handoff/game_engineer/fog/wisp_512.png"
+     }
+    }
+   ]
+  },
+  "lut": {
+   "name": "Qadren",
+   "color": "#B9B6AE",
+   "density": 0.015,
+   "height": {
+    "base": 0.0,
+    "top": 0.8,
+    "falloff_exp": 2.0
+   },
+   "wisps": {
+    "enabled_on_high": false
+   },
+   "note": "desert town: dust-tinted, almost none"
+  },
+  "market": {
+   "name": "Highmarket",
+   "color": "#A6B0BC",
+   "density": 0.04,
+   "height": {
+    "base": 0.0,
+    "top": 1.2,
+    "falloff_exp": 2.0
+   },
+   "wisps": {
+    "enabled_on_high": false
+   }
+  },
+  "bastion": {
+   "name": "Bastion of Hope",
+   "color": "#A3AEBC",
+   "density": 0.045,
+   "height": {
+    "base": 0.0,
+    "top": 1.3,
+    "falloff_exp": 1.8
+   },
+   "wisps": {
+    "enabled_on_high": false
+   }
+  },
+  "wild": {
+   "name": "Briarwood",
+   "color": "#9EAABA",
+   "density": 0.1,
+   "height": {
+    "base": 0.0,
+    "top": 1.8,
+    "falloff_exp": 1.6
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.1,
+    "count": 6,
+    "plane_size_m": 14,
+    "y_m": 0.35,
+    "drift_speed_mps": 0.18,
+    "drift_dir_deg": 20,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   }
+  },
+  "briarE": {
+   "name": "Briarwood East",
+   "color": "#9AA6B6",
+   "density": 0.18,
+   "height": {
+    "base": 0.0,
+    "top": 2.2,
+    "falloff_exp": 1.4
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.15,
+    "count": 8,
+    "plane_size_m": 14,
+    "y_m": 0.35,
+    "drift_speed_mps": 0.15,
+    "drift_dir_deg": 20,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   },
+   "note": "thick tier: thorn/dead-tree fog (quest text)"
+  },
+  "weald": {
+   "name": "Obsidian Spires",
+   "color": "#9EA6B4",
+   "density": 0.08,
+   "height": {
+    "base": 0.0,
+    "top": 1.6,
+    "falloff_exp": 1.6
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.08,
+    "count": 6,
+    "plane_size_m": 14,
+    "y_m": 0.35,
+    "drift_speed_mps": 0.2,
+    "drift_dir_deg": 20,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   }
+  },
+  "coast": {
+   "name": "Ashen Coast",
+   "color": "#A2ACB6",
+   "density": 0.12,
+   "height": {
+    "base": 0.0,
+    "top": 2.0,
+    "falloff_exp": 1.5
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.12,
+    "count": 6,
+    "plane_size_m": 14,
+    "y_m": 0.35,
+    "drift_speed_mps": 0.45,
+    "drift_dir_deg": -70,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   },
+   "note": "sea fog off the water, grey with an ash cast"
+  },
+  "flotsam": {
+   "name": "Bleak Flotsam",
+   "color": "#A0AAB6",
+   "density": 0.12,
+   "height": {
+    "base": 0.0,
+    "top": 1.8,
+    "falloff_exp": 1.5
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.12,
+    "count": 6,
+    "plane_size_m": 14,
+    "y_m": 0.35,
+    "drift_speed_mps": 0.4,
+    "drift_dir_deg": -70,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   }
+  },
+  "isle": {
+   "name": "The Isle",
+   "color": "#A0ABB8",
+   "density": 0.1,
+   "height": {
+    "base": 0.0,
+    "top": 1.8,
+    "falloff_exp": 1.5
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.1,
+    "count": 6,
+    "plane_size_m": 14,
+    "y_m": 0.35,
+    "drift_speed_mps": 0.35,
+    "drift_dir_deg": 20,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   }
+  },
+  "bluffs": {
+   "name": "Mourning Bluffs",
+   "color": "#9DA8B6",
+   "density": 0.1,
+   "height": {
+    "base": 0.0,
+    "top": 1.8,
+    "falloff_exp": 1.6
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.09,
+    "count": 6,
+    "plane_size_m": 14,
+    "y_m": 0.35,
+    "drift_speed_mps": 0.3,
+    "drift_dir_deg": 20,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   }
+  },
+  "mires": {
+   "name": "Silt Mires",
+   "color": "#98A6AE",
+   "density": 0.22,
+   "height": {
+    "base": 0.0,
+    "top": 1.6,
+    "falloff_exp": 1.3
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.18,
+    "count": 10,
+    "plane_size_m": 12,
+    "y_m": 0.25,
+    "drift_speed_mps": 0.12,
+    "drift_dir_deg": 20,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   },
+   "note": "thickest tier: low, wet, slightly greener grey; keep top low so mobs stay readable"
+  },
+  "sink": {
+   "name": "The Putrid Sink",
+   "color": "#96A19E",
+   "density": 0.16,
+   "height": {
+    "base": 0.0,
+    "top": 1.2,
+    "falloff_exp": 1.3
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.12,
+    "count": 6,
+    "plane_size_m": 10,
+    "y_m": 0.2,
+    "drift_speed_mps": 0.08,
+    "drift_dir_deg": 20,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   },
+   "note": "cave-like area (engine SE set) but foul low vapour is wanted; very low top"
+  },
+  "duneW": {
+   "name": "The Narrow",
+   "color": "#B4B0A8",
+   "density": 0.035,
+   "height": {
+    "base": 0.0,
+    "top": 0.9,
+    "falloff_exp": 2.0
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.05,
+    "count": 4,
+    "plane_size_m": 16,
+    "y_m": 0.2,
+    "drift_speed_mps": 0.6,
+    "drift_dir_deg": 90,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   },
+   "note": "blown sand haze, warm grey"
+  },
+  "desert": {
+   "name": "The Sands",
+   "color": "#B8B3AA",
+   "density": 0.025,
+   "height": {
+    "base": 0.0,
+    "top": 0.8,
+    "falloff_exp": 2.0
+   },
+   "wisps": {
+    "enabled_on_high": false
+   },
+   "note": "heat/dust haze only"
+  },
+  "waste": {
+   "name": "Cinder Barrens",
+   "color": "#A49F9C",
+   "density": 0.06,
+   "height": {
+    "base": 0.0,
+    "top": 1.4,
+    "falloff_exp": 1.6
+   },
+   "wisps": {
+    "enabled_on_high": true,
+    "density": 0.06,
+    "count": 6,
+    "plane_size_m": 14,
+    "y_m": 0.35,
+    "drift_speed_mps": 0.3,
+    "drift_dir_deg": 20,
+    "uv_scale": 1.0,
+    "texture": "handoff/game_engineer/fog/wisp_512.png"
+   },
+   "note": "ash haze, faintly warm"
+  },
+  "ridge": {
+   "name": "Razor Ridge",
+   "color": "#A8B2C0",
+   "density": 0.05,
+   "height": {
+    "base": 0.0,
+    "top": 1.4,
+    "falloff_exp": 1.8
+   },
+   "wisps": {
+    "enabled_on_high": false
+   }
+  },
+  "ascent": {
+   "name": "Bitter Ascent",
+   "color": "#A8B2C0",
+   "density": 0.05,
+   "height": {
+    "base": 0.0,
+    "top": 1.4,
+    "falloff_exp": 1.8
+   },
+   "wisps": {
+    "enabled_on_high": false
+   }
+  },
+  "iron": {
+   "name": "Iron Bastion",
+   "color": "#A8B2C0",
+   "density": 0.05,
+   "height": {
+    "base": 0.0,
+    "top": 1.4,
+    "falloff_exp": 1.8
+   },
+   "wisps": {
+    "enabled_on_high": false
+   }
+  },
+  "cottage": {
+   "inherit": "interior"
+  },
+  "taproom": {
+   "inherit": "interior"
+  },
+  "inn": {
+   "inherit": "interior"
+  },
+  "house": {
+   "inherit": "interior"
+  },
+  "nave": {
+   "inherit": "interior"
+  },
+  "sewer": {
+   "inherit": "interior"
+  },
+  "church1": {
+   "inherit": "interior"
+  },
+  "church2": {
+   "inherit": "interior"
+  },
+  "castle1": {
+   "inherit": "interior"
+  },
+  "castle2": {
+   "inherit": "interior"
+  },
+  "castle3": {
+   "inherit": "interior"
+  },
+  "castle4": {
+   "inherit": "interior"
+  },
+  "vault": {
+   "inherit": "interior"
+  },
+  "den": {
+   "inherit": "interior"
+  },
+  "root": {
+   "inherit": "interior"
+  },
+  "crypts": {
+   "inherit": "interior"
+  },
+  "chasm": {
+   "inherit": "interior"
+  },
+  "hollow": {
+   "inherit": "interior"
+  },
+  "gaol": {
+   "inherit": "interior"
+  },
+  "hull": {
+   "inherit": "interior"
+  },
+  "undercroft": {
+   "inherit": "interior"
+  }
+ },
+ "tiers": {
+  "thickest": [
+   "mires",
+   "town.cemetery",
+   "briarE"
+  ],
+  "medium": [
+   "sink",
+   "coast",
+   "flotsam",
+   "wild",
+   "isle",
+   "bluffs"
+  ],
+  "light": [
+   "weald",
+   "waste",
+   "ridge",
+   "ascent",
+   "iron",
+   "bastion",
+   "market",
+   "duneW"
+  ],
+  "nearly_none": [
+   "town",
+   "lut",
+   "desert"
+  ],
+  "none": [
+   "cottage",
+   "taproom",
+   "inn",
+   "house",
+   "nave",
+   "sewer",
+   "church1",
+   "church2",
+   "castle1",
+   "castle2",
+   "castle3",
+   "castle4",
+   "vault",
+   "den",
+   "root",
+   "crypts",
+   "chasm",
+   "hollow",
+   "gaol",
+   "hull",
+   "undercroft"
+  ]
+ }
+}
