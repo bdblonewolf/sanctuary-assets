@@ -18,3 +18,13 @@ Source / licence
 - Claw swipe: Mixamo "Magic Spell Pack / Standing 2H Magic Attack 02" (frames 13–45).
 - Both are retargeted onto this rig by script (world-rotation retarget), with hand-keyed spine, head, arm and hip layers on top.
 - Mixamo animations are used under Adobe's Mixamo terms (free for use in games, royalty free; the raw files must not be redistributed on their own).
+
+## Update 2026-11-03: spew deaths (face-down)
+The file now has 9 clips at 30 fps: death_old 70, hit 22, attack 46, run 22, idle 109, leap_attack 43, attack2 43, death 52, death2 51.
+- **leap_attack**: impact f23. **attack2** is the same motion as leap_attack, added so the full set has an attack2 name.
+- **death** (52 f): spew f6-22, chest down f34, **face-down impact f36**, hold to f51. Base: Mixamo "two handed sword death (2)", time-warped, plus a hand-keyed spew layer (head and jaw thrust).
+- **death2** (51 f): spew f12-30, **face-down impact f38**. Base: Mixamo "standing death forward 01" plus the spew layer.
+- **death_old**: the previous death, kept for reference.
+- An empty node named `mouth` sits under mixamorig:Head. Attach the spew particle emitter there during the spew frames.
+- Sounds: start demon_death_spew_01..03.ogg (thuds at 1.133/1.143/1.030 s) at about frame 36-34=2 for death and 38-34=4 for death2. That is the impact frame minus round(thud×30).
+- Previews (Cycles): previews_v2/death_side.png, death2_side.png, death_end_top.png
