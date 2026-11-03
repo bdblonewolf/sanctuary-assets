@@ -11,7 +11,7 @@ idle 154, walk 37, attack1 31, attack2 22, hit 39, death 93, death_crumble / dea
 - Material `mon_rust_light` uses a 512 px texture (`tools_helm/helm_rust_light_c.jpg`, derived from the archer's own rust_c): **lighter**
   grey iron with orange rust patches, metallic 0.5, roughness 0.6. From the top-down camera it reads as a bright round disc with a spike dot, clearly
   separate from the ivory bones and the dark ground.
-- Total file tris: about 10.5k (body 6791, bow 1540, helm 1068, belt and bracers 892).
+- Total file tris: 10,383 (body 6791, bow 1540, helm 1068, belt and bracers 892, small props 92).
 
 ## skeleton_helm.glb (helm alone)
 - This is the same mesh and material, unskinned, stored in **bone_archer's `mixamorig:Head` joint-local space**. In three.js, `headBone.add(helm)` with an identity
