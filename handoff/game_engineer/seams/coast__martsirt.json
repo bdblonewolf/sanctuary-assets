@@ -1,0 +1,542 @@
+{
+ "id": "coast__town",
+ "zone_a": {
+  "id": "town",
+  "name": "Martsirt",
+  "size": [
+   162,
+   154
+  ],
+  "edge": "S",
+  "exit_tile": [
+   81,
+   152
+  ],
+  "arrive": [
+   20.2,
+   3.6
+  ],
+  "offset_along_edge_m": 81,
+  "edge_len_m": 162,
+  "proposed_offset_m": 105.3,
+  "proposal_note": "exit sits at the edge centre; PROPOSAL ONLY (needs a world-JSON change by the engineer, not done): move to the proposed offset and bend the road; the other side follows via the transform"
+ },
+ "zone_b": {
+  "id": "coast",
+  "name": "Ashen Coast",
+  "size": [
+   42,
+   112
+  ],
+  "edge": "N",
+  "exit_tile": [
+   20.2,
+   1.2
+  ],
+  "arrive": [
+   19.8,
+   31.6
+  ],
+  "offset_along_edge_m": 20.2,
+  "edge_len_m": 42,
+  "proposed_offset_m": 14.7,
+  "proposal_note": "exit sits at the edge centre; PROPOSAL ONLY (needs a world-JSON change by the engineer, not done): move to the proposed offset and bend the road; the other side follows via the transform"
+ },
+ "transform": {
+  "b_to_a": {
+   "rot_deg": 0,
+   "formula": "pA = exitA + R(rot)(pB - exitB)"
+  },
+  "a_to_b": {
+   "rot_deg": 0,
+   "formula": "pB = exitB + R(rot)(pA - exitA)"
+  },
+  "orientation_mismatch": false,
+  "note": "opposite edges, pure translation"
+ },
+ "pass_span": {
+  "a": [
+   75,
+   87
+  ],
+  "b": [
+   14.2,
+   26.2
+  ],
+  "corridor_open_m": 6.0,
+  "rule": "ring skips this span on both sides; road corridor stays open"
+ },
+ "terrain": {
+  "seam_height_a": 0.0,
+  "seam_height_b": 0.0,
+  "consistent": true
+ },
+ "copy_into_a": {
+  "count": 29,
+  "dropped": {
+   "would_clip_inside": 53,
+   "pass_piece": 1,
+   "on_pass_corridor": 7,
+   "too_close_to_dst_prop": 2
+  },
+  "items": [
+   {
+    "src": "kit",
+    "id": "pass12",
+    "style": "coast_land",
+    "x": 102.8,
+    "y": 159.0,
+    "rotY": -1.5708,
+    "scaleX": 1.0,
+    "src_xy": [
+     42.0,
+     8.2
+    ]
+   },
+   {
+    "src": "kit",
+    "id": "straight12_b",
+    "style": "sea",
+    "x": 60.8,
+    "y": 162.94,
+    "rotY": 1.5708,
+    "scaleX": 1.0115,
+    "src_xy": [
+     0.0,
+     12.14
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tomb",
+    "x": 91.2,
+    "y": 161.0,
+    "style": null,
+    "src_xy": [
+     30.4,
+     10.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tomb",
+    "x": 93.0,
+    "y": 162.0,
+    "style": null,
+    "src_xy": [
+     32.2,
+     11.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "body",
+    "x": 90.0,
+    "y": 162.2,
+    "style": null,
+    "src_xy": [
+     29.2,
+     11.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 84.3,
+    "y": 161.3,
+    "style": null,
+    "src_xy": [
+     23.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 74.3,
+    "y": 156.3,
+    "style": null,
+    "src_xy": [
+     13.5,
+     5.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 89.3,
+    "y": 167.3,
+    "style": null,
+    "src_xy": [
+     28.5,
+     16.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 88.3,
+    "y": 157.3,
+    "style": null,
+    "src_xy": [
+     27.5,
+     6.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 77.3,
+    "y": 161.3,
+    "style": null,
+    "src_xy": [
+     16.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 74.3,
+    "y": 158.3,
+    "style": null,
+    "src_xy": [
+     13.5,
+     7.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 93.3,
+    "y": 157.3,
+    "style": null,
+    "src_xy": [
+     32.5,
+     6.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 99.3,
+    "y": 158.3,
+    "style": null,
+    "src_xy": [
+     38.5,
+     7.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "arch",
+    "x": 101.2,
+    "y": 165.0,
+    "style": "road",
+    "src_xy": [
+     40.4,
+     14.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 101.0,
+    "y": 162.85,
+    "style": "dead",
+    "src_xy": [
+     40.2,
+     12.05
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 101.0,
+    "y": 167.15,
+    "style": "dead",
+    "src_xy": [
+     40.2,
+     16.35
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 98.8,
+    "y": 162.85,
+    "style": "dead",
+    "src_xy": [
+     38,
+     12.05
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 98.8,
+    "y": 167.15,
+    "style": "dead",
+    "src_xy": [
+     38,
+     16.35
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 96.6,
+    "y": 162.85,
+    "style": "dead",
+    "src_xy": [
+     35.8,
+     12.05
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 96.6,
+    "y": 167.15,
+    "style": "dead",
+    "src_xy": [
+     35.8,
+     16.35
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 73.37,
+    "y": 155.23,
+    "style": "dead",
+    "src_xy": [
+     12.57,
+     4.43
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 85.15,
+    "y": 155.45,
+    "style": "dead",
+    "src_xy": [
+     24.35,
+     4.65
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 89.4,
+    "y": 155.2,
+    "style": "dead",
+    "src_xy": [
+     28.6,
+     4.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 99.49,
+    "y": 160.11,
+    "style": "dead",
+    "src_xy": [
+     38.69,
+     9.31
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 59.21,
+    "y": 157.05,
+    "style": "bone",
+    "src_xy": [
+     -1.59,
+     6.25
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 59.45,
+    "y": 162.86,
+    "style": "bone",
+    "src_xy": [
+     -1.35,
+     12.06
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 84.3,
+    "y": 161.3,
+    "style": null,
+    "src_xy": [
+     23.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 74.3,
+    "y": 156.3,
+    "style": null,
+    "src_xy": [
+     13.5,
+     5.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 88.3,
+    "y": 157.3,
+    "style": null,
+    "src_xy": [
+     27.5,
+     6.5
+    ]
+   }
+  ]
+ },
+ "copy_into_b": {
+  "count": 9,
+  "dropped": {
+   "would_clip_inside": 12,
+   "pass_piece": 1,
+   "on_pass_corridor": 1,
+   "too_close_to_dst_prop": 2
+  },
+  "items": [
+   {
+    "src": "border_prop",
+    "id": "boulder",
+    "asset": "models/outdoor/v5_maps/border/border_shelf_b_v5_autumn.glb",
+    "x": -1.53,
+    "y": 3.7,
+    "rotY": 1.1647,
+    "scale": 1.668,
+    "collider": "box 0.7*scale",
+    "src_xy": [
+     59.27,
+     154.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_curtain_wall_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_curtain_wall_4m_shared.glb",
+    "x": 26.2,
+    "y": -4.8,
+    "rotY": 0.0,
+    "kind": "wall",
+    "src_xy": [
+     87.0,
+     146.0
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 41.6,
+    "y": -7.46,
+    "rotY": -2.8955,
+    "kind": "prop",
+    "src_xy": [
+     102.4,
+     143.34
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 37.81,
+    "y": -6.6,
+    "rotY": -2.9403,
+    "kind": "prop",
+    "src_xy": [
+     98.61,
+     144.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 33.99,
+    "y": -5.9,
+    "rotY": -2.9848,
+    "kind": "prop",
+    "src_xy": [
+     94.79,
+     144.9
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 10.27,
+    "y": -5.38,
+    "rotY": 3.029,
+    "kind": "prop",
+    "src_xy": [
+     71.07,
+     145.42
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 6.41,
+    "y": -5.9,
+    "rotY": 2.9848,
+    "kind": "prop",
+    "src_xy": [
+     67.21,
+     144.9
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 2.59,
+    "y": -6.6,
+    "rotY": 2.9403,
+    "kind": "prop",
+    "src_xy": [
+     63.39,
+     144.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": -1.2,
+    "y": -7.46,
+    "rotY": 2.8955,
+    "kind": "prop",
+    "src_xy": [
+     59.6,
+     143.34
+    ]
+   }
+  ]
+ },
+ "exits_offset": {
+  "a": false,
+  "b": false
+ },
+ "kind": "edge_seam"
+}

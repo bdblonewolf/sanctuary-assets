@@ -1,0 +1,2405 @@
+{
+ "version": "poi_slots_v1",
+ "status": "PLANNING ONLY - every slot HOLD for Brian",
+ "tags": {
+  "faction": 19,
+  "quest": 42,
+  "remnant": 6,
+  "explore-only": 17
+ },
+ "count": 84,
+ "slots": [
+  {
+   "id": "F01",
+   "name": "Fallen Parish home: St Noll undercroft + ruined chapel row",
+   "zone": "town",
+   "local_uv": [
+    0.74,
+    0.3
+   ],
+   "continent_m": [
+    2380.7,
+    1839.6
+   ],
+   "tag": "faction",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    60,
+    40
+   ],
+   "reuse": [
+    "martsirt_v2_2/chapel_st_noll/bld_chapel_st_noll_shared.glb",
+    "martsirt_v2_2/chapel_st_noll/bld_chapel_st_noll_tower_shared.glb",
+    "martsirt_v2_2/graveyard/bld_graveyard_st_noll_shared.glb",
+    "interior church1/church2",
+    "interior undercroft"
+   ],
+   "new_assets": [
+    "floorboard-hide trapdoor prop"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "F02",
+   "name": "Halvane's Inquisition: quarantine village + sealed ovens",
+   "zone": "n_quarantine",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    3391.7,
+    2901.1
+   ],
+   "tag": "faction",
+   "faction": "Halvane's Inquisition",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    160,
+    140
+   ],
+   "reuse": [
+    "martsirt_v2_2/cottage_ness/bld_cottage_ness_shared.glb",
+    "martsirt_v2_2/watchhouse_gibbet/bld_watchhouse_gibbet_shared.glb",
+    "martsirt_v2_2/gatehouse_south/seg_palisade_4m_shared.glb",
+    "martsirt_v2_2/v2/bld_forge_wolchen_v2_shared.glb",
+    "interior cottage"
+   ],
+   "new_assets": [
+    "sealed brick oven",
+    "chimney cap w/ iron grate",
+    "quarantine X-door decal"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "F03",
+   "name": "Open Eye knights: sealed iron citadel (outer wards only)",
+   "zone": "n_citadel",
+   "local_uv": [
+    0.55,
+    0.4
+   ],
+   "continent_m": [
+    3898.9,
+    2549.1
+   ],
+   "tag": "faction",
+   "faction": "Open Eye knights",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    260,
+    240
+   ],
+   "reuse": [
+    "martsirt_v2_2/gatehouse_south/seg_curtain_wall_4m_shared.glb",
+    "martsirt_v2_2/gatehouse_south/bld_gatehouse_south_shared.glb",
+    "border_kit/glb/bk_mountain_{season}.glb",
+    "interior castle1-4"
+   ],
+   "new_assets": [
+    "citadel keep impostor (unenterable)",
+    "drainage grate",
+    "bell-rope gap in wall"
+   ],
+   "note": "Ilyra stays OUTSIDE the walls; the keep is a sealed impostor, play is in the outer wards.",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "F04",
+   "name": "Toll families: toll houses on the gorge bridges",
+   "zone": "n_tollgorge",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    2687.5,
+    1900.5
+   ],
+   "tag": "faction",
+   "faction": "Toll families",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    200,
+    120
+   ],
+   "reuse": [
+    "martsirt_v2_2/gatehouse_south/bld_gatehouse_south_shared.glb",
+    "martsirt_v2_2/stable/bld_stable_shared.glb",
+    "martsirt_v2_2/gatehouse_south/seg_palisade_4m_shared.glb",
+    "interior undercroft"
+   ],
+   "new_assets": [
+    "rope/plank bridge 12 m + 24 m",
+    "toll-house booth"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "F05",
+   "name": "Hollow smugglers: ridge path + cove (Jas)",
+   "zone": "n_hollowridge",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    1706.5,
+    2463.6
+   ],
+   "tag": "faction",
+   "faction": "Hollow smugglers",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    180,
+    90
+   ],
+   "reuse": [
+    "martsirt_v2_2/props/prop_crate_stack.glb",
+    "martsirt_v2_2/props/prop_barrel_group.glb",
+    "border_kit/glb/bk_coast_land_{season}.glb",
+    "interior hull",
+    "interior den"
+   ],
+   "new_assets": [
+    "cut-page drop niche"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "F06",
+   "name": "Ash-camp of the Touched: ash pits + outer rings",
+   "zone": "n_ashcamp",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    907.9,
+    2134.7
+   ],
+   "tag": "faction",
+   "faction": "Ash-camp of the Touched",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    180,
+    160
+   ],
+   "reuse": [
+    "martsirt_v2_2/props/prop_bonfire_main.glb",
+    "martsirt_v2_2/props/prop_campfire.glb",
+    "martsirt_v2_2/gatehouse_south/seg_palisade_4m_shared.glb",
+    "models/outdoor/v5/plants/tree_dead_a_v5.glb"
+   ],
+   "new_assets": [
+    "ash-pit decal + ash mound"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "F07",
+   "name": "Survivors: sinkhole shrines + river stones",
+   "zone": "n_sinkholes",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    2238.7,
+    1333.6
+   ],
+   "tag": "faction",
+   "faction": "Survivors",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    220,
+    180
+   ],
+   "reuse": [
+    "martsirt_v2_2/shrines/shrine_weeping_angel.glb",
+    "martsirt_v2_2/dressing/creek.glb",
+    "martsirt_v2_2/dressing/dress_rocks.glb",
+    "martsirt_v2_2/dressing/dress_trees.glb"
+   ],
+   "new_assets": [
+    "sinkhole collapse mesh (reusable 3 sizes)"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "F08",
+   "name": "Quiet Choir: safe-cellar network under Martsirt",
+   "zone": "town",
+   "local_uv": [
+    0.42,
+    0.55
+   ],
+   "continent_m": [
+    2303.9,
+    1894.6
+   ],
+   "tag": "faction",
+   "faction": "Quiet Choir",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    0,
+    0
+   ],
+   "reuse": [
+    "interior choir",
+    "interior sewer",
+    "interior vault",
+    "martsirt_v2_2/dressing/dress_clutter.glb"
+   ],
+   "new_assets": [
+    "bricked-hearth wall piece",
+    "cellar hatch prop"
+   ],
+   "note": "Entrances: Salted Kettle cellar, mill cellar, 2 village cellars (see V01/V03); network is interiors only.",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "F09",
+   "name": "Ashen Covenant: burn-circles",
+   "zone": "n_burn",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    547.9,
+    1593.7
+   ],
+   "tag": "faction",
+   "faction": "Ashen Covenant",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    240,
+    200
+   ],
+   "reuse": [
+    "martsirt_v2_2/props/prop_bonfire_main.glb",
+    "martsirt_v2_2/dressing/dress_rocks.glb",
+    "border_kit/glb/bk_desert_{season}.glb",
+    "models/outdoor/v5/plants/tree_dead_a_v5.glb"
+   ],
+   "new_assets": [
+    "standing-stone ring (8 stones, instanced)",
+    "scorched ground decal"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "F10",
+   "name": "Tidebound: night coves, kelp floats, leeward cairns",
+   "zone": "n_tidecoves",
+   "local_uv": [
+    0.45,
+    0.55
+   ],
+   "continent_m": [
+    2104.5,
+    2284.4
+   ],
+   "tag": "faction",
+   "faction": "Tidebound",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    200,
+    160
+   ],
+   "reuse": [
+    "border_kit/glb/bk_sea_{season}.glb",
+    "border_kit/glb/bk_coast_land_{season}.glb",
+    "martsirt_v2_2/dressing/dress_rocks.glb",
+    "interior hull"
+   ],
+   "new_assets": [
+    "kelp float",
+    "cairn (instanced stones)",
+    "tidal-cave mouth piece"
+   ],
+   "note": "Tide-timed: coves open at night.",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ01_v1",
+   "name": "Parish wells - variation 1",
+   "zone": "town",
+   "local_uv": [
+    0.8,
+    0.62
+   ],
+   "continent_m": [
+    2395.1,
+    1910.0
+   ],
+   "tag": "quest",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": "SQ01",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ01_v2",
+   "name": "Parish wells - variation 2",
+   "zone": "coast",
+   "local_uv": [
+    0.5,
+    0.2
+   ],
+   "continent_m": [
+    2326.5,
+    2065.6
+   ],
+   "tag": "quest",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": "SQ01",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ01_v3",
+   "name": "Parish wells - variation 3",
+   "zone": "wild",
+   "local_uv": [
+    0.3,
+    0.7
+   ],
+   "continent_m": [
+    2238.7,
+    1677.6
+   ],
+   "tag": "quest",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": "SQ01",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ02_v1",
+   "name": "Parish fonts - variation 1",
+   "zone": "town",
+   "local_uv": [
+    0.74,
+    0.32
+   ],
+   "continent_m": [
+    2380.7,
+    1844.0
+   ],
+   "tag": "quest",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": "SQ02",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ02_v2",
+   "name": "Parish fonts - variation 2",
+   "zone": "bluffs",
+   "local_uv": [
+    0.6,
+    0.3
+   ],
+   "continent_m": [
+    2752.5,
+    2096.5
+   ],
+   "tag": "quest",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": "SQ02",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ02_v3",
+   "name": "Parish fonts - variation 3",
+   "zone": "n_manor_bluffs",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    2921.5,
+    2426.1
+   ],
+   "tag": "quest",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": "SQ02",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ03_v1",
+   "name": "Parish lofts - variation 1",
+   "zone": "town",
+   "local_uv": [
+    0.3,
+    0.2
+   ],
+   "continent_m": [
+    2275.1,
+    1817.6
+   ],
+   "tag": "quest",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": "SQ03",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ03_v2",
+   "name": "Parish lofts - variation 2",
+   "zone": "briarE",
+   "local_uv": [
+    0.7,
+    0.4
+   ],
+   "continent_m": [
+    2010.7,
+    1584.3
+   ],
+   "tag": "quest",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": "SQ03",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ03_v3",
+   "name": "Parish lofts - variation 3",
+   "zone": "mires",
+   "local_uv": [
+    0.4,
+    0.6
+   ],
+   "continent_m": [
+    2960.5,
+    2216.1
+   ],
+   "tag": "quest",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": "SQ03",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ04_v1",
+   "name": "Inquisitor cottages - variation 1",
+   "zone": "n_quarantine",
+   "local_uv": [
+    0.3,
+    0.4
+   ],
+   "continent_m": [
+    3343.7,
+    2879.1
+   ],
+   "tag": "quest",
+   "faction": "Halvane's Inquisition",
+   "skill_quest": "SQ04",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ04_v2",
+   "name": "Inquisitor cottages - variation 2",
+   "zone": "gaol",
+   "local_uv": [
+    0.5,
+    0.7
+   ],
+   "continent_m": [
+    3621.7,
+    2961.1
+   ],
+   "tag": "quest",
+   "faction": "Halvane's Inquisition",
+   "skill_quest": "SQ04",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ04_v3",
+   "name": "Inquisitor cottages - variation 3",
+   "zone": "bastion",
+   "local_uv": [
+    0.4,
+    0.5
+   ],
+   "continent_m": [
+    2488.5,
+    2160.8
+   ],
+   "tag": "quest",
+   "faction": "Halvane's Inquisition",
+   "skill_quest": "SQ04",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ05_v1",
+   "name": "Inquisitor ovens & chimneys - variation 1",
+   "zone": "n_quarantine",
+   "local_uv": [
+    0.7,
+    0.6
+   ],
+   "continent_m": [
+    3439.7,
+    2923.1
+   ],
+   "tag": "quest",
+   "faction": "Halvane's Inquisition",
+   "skill_quest": "SQ05",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ05_v2",
+   "name": "Inquisitor ovens & chimneys - variation 2",
+   "zone": "lut",
+   "local_uv": [
+    0.3,
+    0.4
+   ],
+   "continent_m": [
+    1139.9,
+    1876.9
+   ],
+   "tag": "quest",
+   "faction": "Halvane's Inquisition",
+   "skill_quest": "SQ05",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ05_v3",
+   "name": "Inquisitor ovens & chimneys - variation 3",
+   "zone": "wild",
+   "local_uv": [
+    0.7,
+    0.25
+   ],
+   "continent_m": [
+    2398.7,
+    1533.6
+   ],
+   "tag": "quest",
+   "faction": "Halvane's Inquisition",
+   "skill_quest": "SQ05",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ06_v1",
+   "name": "Citadel approaches - variation 1",
+   "zone": "n_citadel",
+   "local_uv": [
+    0.2,
+    0.8
+   ],
+   "continent_m": [
+    3779.9,
+    2677.1
+   ],
+   "tag": "quest",
+   "faction": "Open Eye knights",
+   "skill_quest": "SQ06",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ06_v2",
+   "name": "Citadel approaches - variation 2",
+   "zone": "iron",
+   "local_uv": [
+    0.7,
+    0.5
+   ],
+   "continent_m": [
+    3657.9,
+    2581.1
+   ],
+   "tag": "quest",
+   "faction": "Open Eye knights",
+   "skill_quest": "SQ06",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ06_v3",
+   "name": "Citadel approaches - variation 3",
+   "zone": "ascent",
+   "local_uv": [
+    0.5,
+    0.3
+   ],
+   "continent_m": [
+    3606.5,
+    2243.1
+   ],
+   "tag": "quest",
+   "faction": "Open Eye knights",
+   "skill_quest": "SQ06",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ07_v1",
+   "name": "Toll bridges - variation 1",
+   "zone": "n_tollgorge",
+   "local_uv": [
+    0.3,
+    0.5
+   ],
+   "continent_m": [
+    2627.5,
+    1900.5
+   ],
+   "tag": "quest",
+   "faction": "Toll families",
+   "skill_quest": "SQ07",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ07_v2",
+   "name": "Toll bridges - variation 2",
+   "zone": "n_tollgorge",
+   "local_uv": [
+    0.75,
+    0.4
+   ],
+   "continent_m": [
+    2762.5,
+    1880.5
+   ],
+   "tag": "quest",
+   "faction": "Toll families",
+   "skill_quest": "SQ07",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ07_v3",
+   "name": "Toll bridges - variation 3",
+   "zone": "chasm",
+   "local_uv": [
+    0.5,
+    0.4
+   ],
+   "continent_m": [
+    3831.8,
+    2036.5
+   ],
+   "tag": "quest",
+   "faction": "Toll families",
+   "skill_quest": "SQ07",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ08_v1",
+   "name": "Smuggler ridges - variation 1",
+   "zone": "n_hollowridge",
+   "local_uv": [
+    0.3,
+    0.4
+   ],
+   "continent_m": [
+    1662.5,
+    2449.6
+   ],
+   "tag": "quest",
+   "faction": "Hollow smugglers",
+   "skill_quest": "SQ08",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ08_v2",
+   "name": "Smuggler ridges - variation 2",
+   "zone": "ridge",
+   "local_uv": [
+    0.3,
+    0.2
+   ],
+   "continent_m": [
+    3224.5,
+    2200.4
+   ],
+   "tag": "quest",
+   "faction": "Hollow smugglers",
+   "skill_quest": "SQ08",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ08_v3",
+   "name": "Smuggler ridges - variation 3",
+   "zone": "hollow",
+   "local_uv": [
+    0.7,
+    0.6
+   ],
+   "continent_m": [
+    1734.5,
+    2349.6
+   ],
+   "tag": "quest",
+   "faction": "Hollow smugglers",
+   "skill_quest": "SQ08",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ09_v1",
+   "name": "Ash pits - variation 1",
+   "zone": "n_ashcamp",
+   "local_uv": [
+    0.3,
+    0.3
+   ],
+   "continent_m": [
+    851.9,
+    2090.7
+   ],
+   "tag": "quest",
+   "faction": "Ash-camp of the Touched",
+   "skill_quest": "SQ09",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ09_v2",
+   "name": "Ash pits - variation 2",
+   "zone": "waste",
+   "local_uv": [
+    0.6,
+    0.7
+   ],
+   "continent_m": [
+    587.9,
+    1975.7
+   ],
+   "tag": "quest",
+   "faction": "Ash-camp of the Touched",
+   "skill_quest": "SQ09",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ09_v3",
+   "name": "Ash pits - variation 3",
+   "zone": "market",
+   "local_uv": [
+    0.2,
+    0.8
+   ],
+   "continent_m": [
+    811.9,
+    1972.7
+   ],
+   "tag": "quest",
+   "faction": "Ash-camp of the Touched",
+   "skill_quest": "SQ09",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ10_v1",
+   "name": "Survivor sinkholes - variation 1",
+   "zone": "n_sinkholes",
+   "local_uv": [
+    0.3,
+    0.6
+   ],
+   "continent_m": [
+    2178.7,
+    1357.6
+   ],
+   "tag": "quest",
+   "faction": "Survivors",
+   "skill_quest": "SQ10",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ10_v2",
+   "name": "Survivor sinkholes - variation 2",
+   "zone": "sink",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    3000.3,
+    1961.1
+   ],
+   "tag": "quest",
+   "faction": "Survivors",
+   "skill_quest": "SQ10",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ10_v3",
+   "name": "Survivor sinkholes - variation 3",
+   "zone": "mires",
+   "local_uv": [
+    0.8,
+    0.3
+   ],
+   "continent_m": [
+    3064.5,
+    2126.1
+   ],
+   "tag": "quest",
+   "faction": "Survivors",
+   "skill_quest": "SQ10",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ11_v1",
+   "name": "Survivor rivers - variation 1",
+   "zone": "wild",
+   "local_uv": [
+    0.5,
+    0.45
+   ],
+   "continent_m": [
+    2318.7,
+    1597.6
+   ],
+   "tag": "quest",
+   "faction": "Survivors",
+   "skill_quest": "SQ11",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ11_v2",
+   "name": "Survivor rivers - variation 2",
+   "zone": "briarE",
+   "local_uv": [
+    0.3,
+    0.7
+   ],
+   "continent_m": [
+    1866.7,
+    1662.3
+   ],
+   "tag": "quest",
+   "faction": "Survivors",
+   "skill_quest": "SQ11",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ11_v3",
+   "name": "Survivor rivers - variation 3",
+   "zone": "desert",
+   "local_uv": [
+    0.8,
+    0.6
+   ],
+   "continent_m": [
+    1418.7,
+    1636.9
+   ],
+   "tag": "quest",
+   "faction": "Survivors",
+   "skill_quest": "SQ11",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ12_v1",
+   "name": "Choir cellars - variation 1",
+   "zone": "town",
+   "local_uv": [
+    0.42,
+    0.55
+   ],
+   "continent_m": [
+    2303.9,
+    1894.6
+   ],
+   "tag": "quest",
+   "faction": "Quiet Choir",
+   "skill_quest": "SQ12",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ12_v2",
+   "name": "Choir cellars - variation 2",
+   "zone": "n_quarantine",
+   "local_uv": [
+    0.5,
+    0.2
+   ],
+   "continent_m": [
+    3391.7,
+    2835.1
+   ],
+   "tag": "quest",
+   "faction": "Quiet Choir",
+   "skill_quest": "SQ12",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ12_v3",
+   "name": "Choir cellars - variation 3",
+   "zone": "lut",
+   "local_uv": [
+    0.6,
+    0.6
+   ],
+   "continent_m": [
+    1211.9,
+    1920.9
+   ],
+   "tag": "quest",
+   "faction": "Quiet Choir",
+   "skill_quest": "SQ12",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ13_v1",
+   "name": "Covenant circles - variation 1",
+   "zone": "n_burn",
+   "local_uv": [
+    0.3,
+    0.4
+   ],
+   "continent_m": [
+    483.9,
+    1567.7
+   ],
+   "tag": "quest",
+   "faction": "Ashen Covenant",
+   "skill_quest": "SQ13",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ13_v2",
+   "name": "Covenant circles - variation 2",
+   "zone": "waste",
+   "local_uv": [
+    0.3,
+    0.3
+   ],
+   "continent_m": [
+    467.9,
+    1831.7
+   ],
+   "tag": "quest",
+   "faction": "Ashen Covenant",
+   "skill_quest": "SQ13",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ13_v3",
+   "name": "Covenant circles - variation 3",
+   "zone": "duneW",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    1628.7,
+    1610.5
+   ],
+   "tag": "quest",
+   "faction": "Ashen Covenant",
+   "skill_quest": "SQ13",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ14_v1",
+   "name": "Tidebound coves & cairns - variation 1",
+   "zone": "n_tidecoves",
+   "local_uv": [
+    0.3,
+    0.7
+   ],
+   "continent_m": [
+    2068.5,
+    2314.4
+   ],
+   "tag": "quest",
+   "faction": "Tidebound",
+   "skill_quest": "SQ14",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ14_v2",
+   "name": "Tidebound coves & cairns - variation 2",
+   "zone": "flotsam",
+   "local_uv": [
+    0.6,
+    0.5
+   ],
+   "continent_m": [
+    1724.5,
+    2213.6
+   ],
+   "tag": "quest",
+   "faction": "Tidebound",
+   "skill_quest": "SQ14",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "SQ14_v3",
+   "name": "Tidebound coves & cairns - variation 3",
+   "zone": "coast",
+   "local_uv": [
+    0.2,
+    0.85
+   ],
+   "continent_m": [
+    2272.5,
+    2299.6
+   ],
+   "tag": "quest",
+   "faction": "Tidebound",
+   "skill_quest": "SQ14",
+   "on_road": true,
+   "footprint_m": [
+    20,
+    20
+   ],
+   "reuse": [
+    "existing spot props of the zone"
+   ],
+   "new_assets": [],
+   "note": "placeholder quest id (the faction/skill-quest file is ON HOLD); same reward, spot + opposition change",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "NL1",
+   "name": "Choir safe-cellar network (entrances)",
+   "zone": "town",
+   "local_uv": [
+    0.5,
+    0.7
+   ],
+   "continent_m": [
+    2323.1,
+    1927.6
+   ],
+   "tag": "faction",
+   "faction": "Quiet Choir",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    0,
+    0
+   ],
+   "reuse": [
+    "interior choir",
+    "interior sewer"
+   ],
+   "new_assets": [
+    "cellar hatch prop"
+   ],
+   "note": "same network as F08; plus entrances in V01 and V03",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "NL2",
+   "name": "Tidebound tidal caves",
+   "zone": "n_tidecoves",
+   "local_uv": [
+    0.2,
+    0.8
+   ],
+   "continent_m": [
+    2044.5,
+    2334.4
+   ],
+   "tag": "faction",
+   "faction": "Tidebound",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    40,
+    30
+   ],
+   "reuse": [
+    "interior den",
+    "border_kit/glb/bk_sea_{season}.glb"
+   ],
+   "new_assets": [
+    "tidal-cave mouth piece"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "NL3",
+   "name": "Covenant burn-circles (outer ring)",
+   "zone": "waste",
+   "local_uv": [
+    0.2,
+    0.2
+   ],
+   "continent_m": [
+    427.9,
+    1795.7
+   ],
+   "tag": "faction",
+   "faction": "Ashen Covenant",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    40,
+    40
+   ],
+   "reuse": [
+    "martsirt_v2_2/props/prop_bonfire_main.glb",
+    "martsirt_v2_2/dressing/dress_rocks.glb"
+   ],
+   "new_assets": [
+    "standing-stone ring"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "NL4",
+   "name": "Outer Citadel drainage wards",
+   "zone": "n_citadel",
+   "local_uv": [
+    0.8,
+    0.7
+   ],
+   "continent_m": [
+    3983.9,
+    2645.1
+   ],
+   "tag": "faction",
+   "faction": "Open Eye knights",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    80,
+    60
+   ],
+   "reuse": [
+    "interior sewer",
+    "martsirt_v2_2/gatehouse_south/seg_curtain_wall_4m_shared.glb"
+   ],
+   "new_assets": [
+    "drainage grate"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "NL5",
+   "name": "Toll undercrofts",
+   "zone": "n_tollgorge",
+   "local_uv": [
+    0.55,
+    0.65
+   ],
+   "continent_m": [
+    2702.5,
+    1930.5
+   ],
+   "tag": "faction",
+   "faction": "Toll families",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    20
+   ],
+   "reuse": [
+    "interior undercroft"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "NL6",
+   "name": "Single untouched-cache ruin (far off-road)",
+   "zone": "n_ruin",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    4062.1,
+    3153.1
+   ],
+   "tag": "remnant",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": false,
+   "footprint_m": [
+    60,
+    60
+   ],
+   "reuse": [
+    "martsirt_v2_2/chapel_st_noll/bld_chapel_st_noll_shared.glb",
+    "martsirt_v2_2/dressing/dress_rocks.glb",
+    "border_kit/glb/bk_mountain_{season}.glb"
+   ],
+   "new_assets": [
+    "broken chapel ruin variant (cut chapel)"
+   ],
+   "note": "ONE on the map. No road; reached by a goat path from Obsidian Spires. An angelic remnant cache nobody has looted.",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "NL7",
+   "name": "Survivor sinkhole shrines (deep water)",
+   "zone": "n_sinkholes",
+   "local_uv": [
+    0.7,
+    0.3
+   ],
+   "continent_m": [
+    2298.7,
+    1285.6
+   ],
+   "tag": "faction",
+   "faction": "Survivors",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    40,
+    40
+   ],
+   "reuse": [
+    "martsirt_v2_2/shrines/shrine_weeping_angel.glb",
+    "martsirt_v2_2/dressing/creek.glb"
+   ],
+   "new_assets": [
+    "sinkhole collapse mesh"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "X01",
+   "name": "Fallen Parish church ruin (Briarwood)",
+   "zone": "wild",
+   "local_uv": [
+    0.2,
+    0.3
+   ],
+   "continent_m": [
+    2198.7,
+    1549.6
+   ],
+   "tag": "faction",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    50,
+    40
+   ],
+   "reuse": [
+    "martsirt_v2_2/chapel_st_noll/bld_chapel_st_noll_shared.glb",
+    "martsirt_v2_2/graveyard/bld_graveyard_st_noll_shared.glb",
+    "interior church1/church2"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "X02",
+   "name": "Fallen Parish church ruin (Mourning Bluffs)",
+   "zone": "bluffs",
+   "local_uv": [
+    0.7,
+    0.6
+   ],
+   "continent_m": [
+    2778.5,
+    2192.5
+   ],
+   "tag": "faction",
+   "faction": "Fallen Parish of Martsirt",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    50,
+    40
+   ],
+   "reuse": [
+    "martsirt_v2_2/chapel_st_noll/bld_chapel_st_noll_shared.glb",
+    "martsirt_v2_2/dressing/dress_graveyard.glb",
+    "interior nave"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "X03",
+   "name": "Ash-camp outer ring (Cinder Barrens edge)",
+   "zone": "waste",
+   "local_uv": [
+    0.8,
+    0.85
+   ],
+   "continent_m": [
+    667.9,
+    2029.7
+   ],
+   "tag": "faction",
+   "faction": "Ash-camp of the Touched",
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    60,
+    40
+   ],
+   "reuse": [
+    "martsirt_v2_2/props/prop_campfire.glb",
+    "martsirt_v2_2/gatehouse_south/seg_palisade_4m_shared.glb"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "V01",
+   "name": "Kettle Ford (coast-road village)",
+   "zone": "bastion",
+   "local_uv": [
+    0.5,
+    0.8
+   ],
+   "continent_m": [
+    2506.5,
+    2226.8
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    90,
+    70
+   ],
+   "reuse": [
+    "martsirt_v2_2/cottage_ness/bld_cottage_ness_shared.glb",
+    "martsirt_v2_2/mill/bld_mill_shared.glb",
+    "martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+    "martsirt_v2_2/herbs_ysara/bld_herbs_ysara_shared.glb",
+    "interior house",
+    "interior cottage"
+   ],
+   "new_assets": [],
+   "note": "4-6 cottages, a mill on the ford; Choir cellar entrance",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "V02",
+   "name": "Greywater (Briarwood road village)",
+   "zone": "briarE",
+   "local_uv": [
+    0.55,
+    0.5
+   ],
+   "continent_m": [
+    1956.7,
+    1610.3
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    100,
+    80
+   ],
+   "reuse": [
+    "martsirt_v2_2/cottage_ness/bld_cottage_ness_shared.glb",
+    "martsirt_v2_2/lodge_orrin/bld_lodge_orrin_shared.glb",
+    "martsirt_v2_2/stable/bld_stable_shared.glb",
+    "martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+    "interior taproom"
+   ],
+   "new_assets": [],
+   "note": "west road waystop before The Narrow",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "V03",
+   "name": "Hightarn (ridge switchback hamlet)",
+   "zone": "ridge",
+   "local_uv": [
+    0.55,
+    0.5
+   ],
+   "continent_m": [
+    3314.5,
+    2278.4
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    80,
+    60
+   ],
+   "reuse": [
+    "martsirt_v2_2/cottage_ness/bld_cottage_ness_shared.glb",
+    "martsirt_v2_2/v2/bld_forge_wolchen_v2_shared.glb",
+    "martsirt_v2_2/gatehouse_south/seg_palisade_4m_shared.glb",
+    "interior cottage"
+   ],
+   "new_assets": [],
+   "note": "on a plateau between hairpins; Choir cellar entrance",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "V04",
+   "name": "Saltmere (Qadren basin village)",
+   "zone": "lut",
+   "local_uv": [
+    0.5,
+    0.35
+   ],
+   "continent_m": [
+    1187.9,
+    1865.9
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    90,
+    80
+   ],
+   "reuse": [
+    "martsirt_v2_2/props/prop_market_stall_c.glb",
+    "martsirt_v2_2/props/prop_crate_stack.glb",
+    "martsirt_v2_2/cottage_ness/bld_cottage_ness_shared.glb",
+    "interior house"
+   ],
+   "new_assets": [
+    "desert reskin of cottage (material swap)"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "H01",
+   "name": "Hidden oasis (secret quest)",
+   "zone": "n_oasis",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    1338.7,
+    1188.9
+   ],
+   "tag": "remnant",
+   "faction": null,
+   "skill_quest": "SECRET",
+   "on_road": false,
+   "footprint_m": [
+    100,
+    100
+   ],
+   "reuse": [
+    "martsirt_v2_2/dressing/creek.glb",
+    "martsirt_v2_2/dressing/dress_trees.glb",
+    "martsirt_v2_2/dressing/dress_rocks.glb",
+    "border_kit/glb/bk_desert_{season}.glb"
+   ],
+   "new_assets": [
+    "palm/date tree (1 asset)"
+   ],
+   "note": "ONE only. NO road and no map marker; entered through a dune cleft 140 m off the desert basin; secret quest hook.",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "M01",
+   "name": "Vael Manor (Briarwood, gothic, interior)",
+   "zone": "n_manor_briar",
+   "local_uv": [
+    0.5,
+    0.45
+   ],
+   "continent_m": [
+    1938.7,
+    1381.3
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    90,
+    70
+   ],
+   "reuse": [
+    "martsirt_v2_2/chapel_st_noll/bld_chapel_st_noll_shared.glb",
+    "martsirt_v2_2/chapel_st_noll/bld_chapel_st_noll_tower_shared.glb",
+    "martsirt_v2_2/dressing/dress_graveyard.glb",
+    "interior castle1-4",
+    "interior house"
+   ],
+   "new_assets": [
+    "manor shell from chapel+tower kitbash (one new facade)"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "M02",
+   "name": "Ossery Hall (Mourning Bluffs, gothic, interior)",
+   "zone": "n_manor_bluffs",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    2921.5,
+    2426.1
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    90,
+    70
+   ],
+   "reuse": [
+    "martsirt_v2_2/chapel_st_noll/bld_chapel_st_noll_shared.glb",
+    "martsirt_v2_2/gatehouse_south/seg_curtain_wall_4m_shared.glb",
+    "interior castle1-4",
+    "interior nave"
+   ],
+   "new_assets": [
+    "same manor facade, winter/dead season"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "M03",
+   "name": "Drowned House (sea cliff W of Martsirt, gothic, interior)",
+   "zone": "n_manor_coast",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    2103.1,
+    1927.6
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    80,
+    60
+   ],
+   "reuse": [
+    "martsirt_v2_2/chapel_st_noll/bld_chapel_st_noll_tower_shared.glb",
+    "border_kit/glb/bk_sea_{season}.glb",
+    "interior house",
+    "interior vault"
+   ],
+   "new_assets": [
+    "same manor facade"
+   ],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E01",
+   "name": "Cliff overlook above the sea",
+   "zone": "coast",
+   "local_uv": [
+    0.15,
+    0.55
+   ],
+   "continent_m": [
+    2263.5,
+    2191.6
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E02",
+   "name": "Wreck shallows",
+   "zone": "flotsam",
+   "local_uv": [
+    0.3,
+    0.3
+   ],
+   "continent_m": [
+    1670.5,
+    2185.6
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E03",
+   "name": "Fog hollow with standing stones",
+   "zone": "wild",
+   "local_uv": [
+    0.85,
+    0.8
+   ],
+   "continent_m": [
+    2458.7,
+    1709.6
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E04",
+   "name": "Fallen watchtower",
+   "zone": "bluffs",
+   "local_uv": [
+    0.2,
+    0.2
+   ],
+   "continent_m": [
+    2648.5,
+    2064.5
+   ],
+   "tag": "remnant",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E05",
+   "name": "Bog lights boardwalk",
+   "zone": "mires",
+   "local_uv": [
+    0.2,
+    0.3
+   ],
+   "continent_m": [
+    2908.5,
+    2126.1
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E06",
+   "name": "Hairpin shrine ledge",
+   "zone": "ascent",
+   "local_uv": [
+    0.3,
+    0.7
+   ],
+   "continent_m": [
+    3554.5,
+    2339.1
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E07",
+   "name": "Flooded crypt gallery",
+   "zone": "crypts",
+   "local_uv": [
+    0.3,
+    0.6
+   ],
+   "continent_m": [
+    3581.8,
+    2083.1
+   ],
+   "tag": "remnant",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E08",
+   "name": "Obsidian spire field",
+   "zone": "weald",
+   "local_uv": [
+    0.6,
+    0.3
+   ],
+   "continent_m": [
+    3660.1,
+    3153.1
+   ],
+   "tag": "remnant",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E09",
+   "name": "Dune ship skeleton",
+   "zone": "desert",
+   "local_uv": [
+    0.2,
+    0.2
+   ],
+   "continent_m": [
+    1178.7,
+    1484.9
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E10",
+   "name": "Glass flats",
+   "zone": "waste",
+   "local_uv": [
+    0.5,
+    0.5
+   ],
+   "continent_m": [
+    547.9,
+    1903.7
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E11",
+   "name": "Blackwater shore ruin",
+   "zone": "isle",
+   "local_uv": [
+    0.4,
+    0.6
+   ],
+   "continent_m": [
+    1386.5,
+    3107.6
+   ],
+   "tag": "remnant",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E12",
+   "name": "Gorge waterfall cave",
+   "zone": "n_tollgorge",
+   "local_uv": [
+    0.15,
+    0.2
+   ],
+   "continent_m": [
+    2582.5,
+    1840.5
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E13",
+   "name": "Highmarket rooftops",
+   "zone": "market",
+   "local_uv": [
+    0.5,
+    0.3
+   ],
+   "continent_m": [
+    907.9,
+    1842.7
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  },
+  {
+   "id": "E14",
+   "name": "The Narrow cliff shelf",
+   "zone": "duneW",
+   "local_uv": [
+    0.3,
+    0.2
+   ],
+   "continent_m": [
+    1576.7,
+    1574.5
+   ],
+   "tag": "explore-only",
+   "faction": null,
+   "skill_quest": null,
+   "on_road": true,
+   "footprint_m": [
+    30,
+    30
+   ],
+   "reuse": [
+    "zone kit + dressing"
+   ],
+   "new_assets": [],
+   "note": "",
+   "status": "HOLD for Brian"
+  }
+ ]
+}

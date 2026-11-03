@@ -1,0 +1,1293 @@
+{
+ "id": "bastion__coast",
+ "zone_a": {
+  "id": "coast",
+  "name": "Ashen Coast",
+  "size": [
+   42,
+   112
+  ],
+  "edge": "E",
+  "exit_tile": [
+   40.4,
+   14.2
+  ],
+  "arrive": [
+   16.6,
+   24.6
+  ],
+  "offset_along_edge_m": 14.2,
+  "edge_len_m": 112
+ },
+ "zone_b": {
+  "id": "bastion",
+  "name": "Bastion of Hope",
+  "size": [
+   34,
+   28
+  ],
+  "edge": "S",
+  "exit_tile": [
+   16.2,
+   26.2
+  ],
+  "arrive": [
+   37.4,
+   14.2
+  ],
+  "offset_along_edge_m": 17.8,
+  "edge_len_m": 34,
+  "proposed_offset_m": 11.9,
+  "proposal_note": "exit sits at the edge centre; PROPOSAL ONLY (needs a world-JSON change by the engineer, not done): move to the proposed offset and bend the road; the other side follows via the transform"
+ },
+ "transform": {
+  "b_to_a": {
+   "rot_deg": 90,
+   "formula": "pA = exitA + R(rot)(pB - exitB)"
+  },
+  "a_to_b": {
+   "rot_deg": 270,
+   "formula": "pB = exitB + R(rot)(pA - exitA)"
+  },
+  "orientation_mismatch": true,
+  "note": "edges are not opposite (E vs S): the copy is rotated 90 deg; continent layout places B rotated"
+ },
+ "pass_span": {
+  "a": [
+   8.2,
+   20.2
+  ],
+  "b": [
+   11.8,
+   23.8
+  ],
+  "corridor_open_m": 6.0,
+  "rule": "ring skips this span on both sides; road corridor stays open"
+ },
+ "terrain": {
+  "seam_height_a": 0.0,
+  "seam_height_b": 0.0,
+  "consistent": true
+ },
+ "copy_into_a": {
+  "count": 68,
+  "dropped": {
+   "on_pass_corridor": 11,
+   "too_close_to_dst_prop": 9,
+   "would_clip_inside": 33
+  },
+  "items": [
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 5.5,
+    "style": "picket",
+    "src_xy": [
+     7.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 6.5,
+    "style": "picket",
+    "src_xy": [
+     8.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 7.5,
+    "style": "picket",
+    "src_xy": [
+     9.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 8.5,
+    "style": "picket",
+    "src_xy": [
+     10.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 9.5,
+    "style": "picket",
+    "src_xy": [
+     11.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 10.5,
+    "style": "picket",
+    "src_xy": [
+     12.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 18.5,
+    "style": "picket",
+    "src_xy": [
+     20.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 19.5,
+    "style": "picket",
+    "src_xy": [
+     21.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 20.5,
+    "style": "picket",
+    "src_xy": [
+     22.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 21.5,
+    "style": "picket",
+    "src_xy": [
+     23.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 22.5,
+    "style": "picket",
+    "src_xy": [
+     24.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 23.5,
+    "style": "picket",
+    "src_xy": [
+     25.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 24.5,
+    "style": "picket",
+    "src_xy": [
+     26.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 25.5,
+    "style": "picket",
+    "src_xy": [
+     27.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 44.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 56.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 56.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 55.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     11.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 55.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     11.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 54.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     12.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 54.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     12.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 53.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     13.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 53.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     13.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 52.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     14.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 52.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     14.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 51.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     15.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 51.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     15.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 50.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     16.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 50.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     16.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 49.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     17.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 49.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     17.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 48.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     18.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 48.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     18.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 47.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     19.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 47.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     19.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 46.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     20.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 46.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     20.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 45.1,
+    "y": 4.5,
+    "style": "picket",
+    "src_xy": [
+     6.5,
+     21.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "fence",
+    "x": 45.1,
+    "y": 26.5,
+    "style": "picket",
+    "src_xy": [
+     28.5,
+     21.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "well",
+    "x": 52.0,
+    "y": 10.4,
+    "style": "heal",
+    "src_xy": [
+     12.4,
+     14.6
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "crate",
+    "x": 51.0,
+    "y": 18.4,
+    "style": null,
+    "src_xy": [
+     20.4,
+     15.6
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "barrel",
+    "x": 51.2,
+    "y": 9.2,
+    "style": null,
+    "src_xy": [
+     11.2,
+     15.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "lamp",
+    "x": 54.4,
+    "y": 17.4,
+    "style": null,
+    "src_xy": [
+     19.4,
+     12.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 56.12,
+    "y": 2.52,
+    "style": "shelf",
+    "src_xy": [
+     4.52,
+     10.48
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 54.97,
+    "y": 0.37,
+    "style": "shelf",
+    "src_xy": [
+     2.37,
+     11.63
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 53.02,
+    "y": 0.42,
+    "style": "shelf",
+    "src_xy": [
+     2.42,
+     13.58
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 51.13,
+    "y": 28.53,
+    "style": "shelf",
+    "src_xy": [
+     30.53,
+     15.47
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 50.22,
+    "y": 2.62,
+    "style": "shelf",
+    "src_xy": [
+     4.62,
+     16.38
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 49.08,
+    "y": 0.48,
+    "style": "shelf",
+    "src_xy": [
+     2.48,
+     17.52
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 49.13,
+    "y": 28.53,
+    "style": "shelf",
+    "src_xy": [
+     30.53,
+     17.47
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 47.96,
+    "y": 2.36,
+    "style": "shelf",
+    "src_xy": [
+     4.36,
+     18.64
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 47.19,
+    "y": 28.59,
+    "style": "shelf",
+    "src_xy": [
+     30.59,
+     19.41
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 44.98,
+    "y": 0.38,
+    "style": "shelf",
+    "src_xy": [
+     2.38,
+     21.62
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 44.04,
+    "y": 2.44,
+    "style": "shelf",
+    "src_xy": [
+     4.44,
+     22.56
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "folio",
+    "x": 49.4,
+    "y": 20.2,
+    "style": "gates",
+    "src_xy": [
+     22.2,
+     17.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 52.93,
+    "y": 30.68,
+    "style": "peak",
+    "src_xy": [
+     32.68,
+     13.67
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 54.05,
+    "y": -7.36,
+    "style": "far",
+    "src_xy": [
+     -5.36,
+     12.55
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 54.54,
+    "y": -3.35,
+    "style": "bone",
+    "src_xy": [
+     -1.35,
+     12.06
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 55.14,
+    "y": 34.84,
+    "style": "far",
+    "src_xy": [
+     36.84,
+     11.46
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 52.04,
+    "y": -6.08,
+    "style": "peak",
+    "src_xy": [
+     -4.08,
+     14.56
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 51.98,
+    "y": -4.58,
+    "style": "bone",
+    "src_xy": [
+     -2.58,
+     14.62
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 46.41,
+    "y": -6.83,
+    "style": "far",
+    "src_xy": [
+     -4.83,
+     20.19
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 46.59,
+    "y": 34.86,
+    "style": "peak",
+    "src_xy": [
+     36.86,
+     20.01
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 42.72,
+    "y": -5.98,
+    "style": "far",
+    "src_xy": [
+     -3.98,
+     23.88
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 39.84,
+    "y": -6.48,
+    "style": "far",
+    "src_xy": [
+     -4.48,
+     26.76
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 34.47,
+    "y": -6.12,
+    "style": "far",
+    "src_xy": [
+     -4.12,
+     32.13
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 31.92,
+    "y": -6.75,
+    "style": "far",
+    "src_xy": [
+     -4.75,
+     34.68
+    ]
+   }
+  ]
+ },
+ "copy_into_b": {
+  "count": 40,
+  "dropped": {
+   "would_clip_inside": 40,
+   "pass_piece": 1,
+   "too_close_to_dst_prop": 10,
+   "on_pass_corridor": 6
+  },
+  "items": [
+   {
+    "src": "kit",
+    "id": "straight3",
+    "style": "coast_land",
+    "x": 2.0,
+    "y": 40.4,
+    "rotY": -4.7124,
+    "scaleX": 1.0533,
+    "src_xy": [
+     26.2,
+     0.0
+    ]
+   },
+   {
+    "src": "kit",
+    "id": "straight12_b",
+    "style": "coast_land",
+    "x": 2.0,
+    "y": 37.24,
+    "rotY": -4.7124,
+    "scaleX": 1.0533,
+    "src_xy": [
+     29.36,
+     0.0
+    ]
+   },
+   {
+    "src": "border_prop",
+    "id": "grass",
+    "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+    "x": 2.46,
+    "y": 36.11,
+    "rotY": -2.184,
+    "scale": 0.721,
+    "collider": "none (walkable)",
+    "src_xy": [
+     30.49,
+     0.46
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "body",
+    "x": 20.4,
+    "y": 42.0,
+    "style": null,
+    "src_xy": [
+     24.6,
+     18.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tomb",
+    "x": 12.2,
+    "y": 36.2,
+    "style": null,
+    "src_xy": [
+     30.4,
+     10.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tomb",
+    "x": 13.2,
+    "y": 34.4,
+    "style": null,
+    "src_xy": [
+     32.2,
+     11.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 5.5,
+    "y": 33.1,
+    "style": null,
+    "src_xy": [
+     33.5,
+     3.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 8.5,
+    "y": 39.1,
+    "style": null,
+    "src_xy": [
+     27.5,
+     6.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 8.5,
+    "y": 34.1,
+    "style": null,
+    "src_xy": [
+     32.5,
+     6.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 24.5,
+    "y": 33.1,
+    "style": "dead",
+    "src_xy": [
+     33.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 24.5,
+    "y": 36.1,
+    "style": "dead",
+    "src_xy": [
+     30.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "bush",
+    "x": 21.2,
+    "y": 28.8,
+    "style": "thorn",
+    "src_xy": [
+     37.8,
+     19.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "bush",
+    "x": 22.2,
+    "y": 32.2,
+    "style": "thorn",
+    "src_xy": [
+     34.4,
+     20.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "bush",
+    "x": 21.4,
+    "y": 33.4,
+    "style": "thorn",
+    "src_xy": [
+     33.2,
+     19.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "bush",
+    "x": 23.6,
+    "y": 30.4,
+    "style": "thorn",
+    "src_xy": [
+     36.2,
+     21.6
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "bush",
+    "x": 19.6,
+    "y": 29.4,
+    "style": "thorn",
+    "src_xy": [
+     37.2,
+     17.6
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "bush",
+    "x": 24.2,
+    "y": 32.0,
+    "style": "thorn",
+    "src_xy": [
+     34.6,
+     22.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "bush",
+    "x": 23.4,
+    "y": 35.8,
+    "style": "thorn",
+    "src_xy": [
+     30.8,
+     21.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 20.6,
+    "y": 33.0,
+    "style": "bone",
+    "src_xy": [
+     33.6,
+     18.6
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "lamp",
+    "x": 23.6,
+    "y": 32.0,
+    "style": "flicker",
+    "src_xy": [
+     34.6,
+     21.6
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "body",
+    "x": 24.2,
+    "y": 34.0,
+    "style": null,
+    "src_xy": [
+     32.6,
+     22.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "stairs",
+    "x": 21.8,
+    "y": 30.0,
+    "style": "trap",
+    "src_xy": [
+     36.6,
+     19.8
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 4.55,
+    "y": 38.15,
+    "style": "dead",
+    "src_xy": [
+     28.45,
+     2.55
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 4.46,
+    "y": 30.06,
+    "style": "dune",
+    "src_xy": [
+     36.54,
+     2.46
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 5.41,
+    "y": 36.01,
+    "style": "dead",
+    "src_xy": [
+     30.59,
+     3.41
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 6.4,
+    "y": 38.0,
+    "style": "dead",
+    "src_xy": [
+     28.6,
+     4.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 2.46,
+    "y": 38.13,
+    "style": "peak",
+    "src_xy": [
+     28.47,
+     0.46
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 2.46,
+    "y": 32.37,
+    "style": "peak",
+    "src_xy": [
+     34.23,
+     0.46
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -5.5,
+    "y": 23.16,
+    "style": "far",
+    "src_xy": [
+     43.44,
+     -7.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -3.34,
+    "y": 37.02,
+    "style": "far",
+    "src_xy": [
+     29.58,
+     -5.34
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -3.29,
+    "y": 21.07,
+    "style": "far",
+    "src_xy": [
+     45.53,
+     -5.29
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -0.11,
+    "y": 35.19,
+    "style": "peak",
+    "src_xy": [
+     31.41,
+     -2.11
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 0.67,
+    "y": 32.4,
+    "style": "bone",
+    "src_xy": [
+     34.2,
+     -1.33
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -0.59,
+    "y": 29.99,
+    "style": "peak",
+    "src_xy": [
+     36.61,
+     -2.59
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "cart",
+    "x": 24.1,
+    "y": 41.6,
+    "style": null,
+    "src_xy": [
+     25,
+     22.1
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "crate",
+    "x": 23.35,
+    "y": 39.05,
+    "style": null,
+    "src_xy": [
+     27.55,
+     21.35
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "barrel",
+    "x": 24.75,
+    "y": 39.0,
+    "style": null,
+    "src_xy": [
+     27.6,
+     22.75
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 5.5,
+    "y": 33.1,
+    "style": null,
+    "src_xy": [
+     33.5,
+     3.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 8.5,
+    "y": 39.1,
+    "style": null,
+    "src_xy": [
+     27.5,
+     6.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 4.46,
+    "y": 30.06,
+    "style": null,
+    "src_xy": [
+     36.54,
+     2.46
+    ]
+   }
+  ]
+ },
+ "exits_offset": {
+  "a": true,
+  "b": false
+ },
+ "kind": "edge_seam"
+}

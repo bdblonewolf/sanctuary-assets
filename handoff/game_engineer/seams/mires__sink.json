@@ -1,0 +1,25 @@
+{
+ "id": "mires__sink",
+ "kind": "interior_exit",
+ "zone_a": {
+  "id": "mires",
+  "exit_tile": [
+   9.2,
+   15.2
+  ],
+  "edge_dist": 9.2
+ },
+ "zone_b": {
+  "id": "sink",
+  "exit_tile": [
+   14.2,
+   21.2
+  ],
+  "edge_dist": 2.8
+ },
+ "rule": "exit is inside a zone (dock/boat/sinkhole/stair), not on an edge: no ring skip, no scenery copy; the continent layout places the zones apart (by water or a drop); terrain heights still match at the trigger tiles.",
+ "terrain": {
+  "seam_height_a": 22.0,
+  "seam_height_b": 22.0
+ }
+}

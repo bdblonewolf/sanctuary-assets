@@ -1,0 +1,658 @@
+{
+ "id": "ascent__ridge",
+ "zone_a": {
+  "id": "ridge",
+  "name": "Razor Ridge",
+  "size": [
+   44,
+   46
+  ],
+  "edge": "N",
+  "exit_tile": [
+   24.4,
+   1.2
+  ],
+  "arrive": [
+   16.2,
+   26.6
+  ],
+  "offset_along_edge_m": 24.4,
+  "edge_len_m": 44
+ },
+ "zone_b": {
+  "id": "ascent",
+  "name": "Bitter Ascent",
+  "size": [
+   32,
+   30
+  ],
+  "edge": "S",
+  "exit_tile": [
+   16.2,
+   28.4
+  ],
+  "arrive": [
+   24.4,
+   3.4
+  ],
+  "offset_along_edge_m": 15.8,
+  "edge_len_m": 32,
+  "proposed_offset_m": 20.8,
+  "proposal_note": "exit sits at the edge centre; PROPOSAL ONLY (needs a world-JSON change by the engineer, not done): move to the proposed offset and bend the road; the other side follows via the transform"
+ },
+ "transform": {
+  "b_to_a": {
+   "rot_deg": 0,
+   "formula": "pA = exitA + R(rot)(pB - exitB)"
+  },
+  "a_to_b": {
+   "rot_deg": 0,
+   "formula": "pB = exitB + R(rot)(pA - exitA)"
+  },
+  "orientation_mismatch": false,
+  "note": "opposite edges, pure translation"
+ },
+ "pass_span": {
+  "a": [
+   18.4,
+   30.4
+  ],
+  "b": [
+   9.8,
+   21.8
+  ],
+  "corridor_open_m": 6.0,
+  "rule": "ring skips this span on both sides; road corridor stays open"
+ },
+ "terrain": {
+  "seam_height_a": 45.0,
+  "seam_height_b": 45.0,
+  "consistent": true
+ },
+ "copy_into_a": {
+  "count": 23,
+  "dropped": {
+   "too_close_to_dst_prop": 12,
+   "on_pass_corridor": 3,
+   "would_clip_inside": 31
+  },
+  "items": [
+   {
+    "src": "world_prop",
+    "id": "tomb",
+    "x": 30.6,
+    "y": -8.8,
+    "style": null,
+    "src_xy": [
+     22.4,
+     18.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "body",
+    "x": 28.4,
+    "y": -10.0,
+    "style": null,
+    "src_xy": [
+     20.2,
+     17.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 17.7,
+    "y": -3.7,
+    "style": "bone",
+    "src_xy": [
+     9.5,
+     23.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 12.7,
+    "y": -2.7,
+    "style": "bone",
+    "src_xy": [
+     4.5,
+     24.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 27.7,
+    "y": -5.7,
+    "style": "bone",
+    "src_xy": [
+     19.5,
+     21.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 12.82,
+    "y": -10.82,
+    "style": "shelf",
+    "src_xy": [
+     4.62,
+     16.38
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 36.5,
+    "y": -10.5,
+    "style": "shelf",
+    "src_xy": [
+     28.3,
+     16.7
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 10.68,
+    "y": -9.68,
+    "style": "shelf",
+    "src_xy": [
+     2.48,
+     17.52
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 12.56,
+    "y": -8.56,
+    "style": "shelf",
+    "src_xy": [
+     4.36,
+     18.64
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 36.63,
+    "y": -8.63,
+    "style": "shelf",
+    "src_xy": [
+     28.43,
+     18.57
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 12.63,
+    "y": -6.63,
+    "style": "shelf",
+    "src_xy": [
+     4.43,
+     20.57
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 36.63,
+    "y": -6.63,
+    "style": "shelf",
+    "src_xy": [
+     28.43,
+     20.57
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 10.58,
+    "y": -5.58,
+    "style": "shelf",
+    "src_xy": [
+     2.38,
+     21.62
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 12.64,
+    "y": -4.64,
+    "style": "shelf",
+    "src_xy": [
+     4.44,
+     22.56
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 32.76,
+    "y": -0.76,
+    "style": "shelf",
+    "src_xy": [
+     24.56,
+     26.44
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 36.63,
+    "y": -0.63,
+    "style": "shelf",
+    "src_xy": [
+     28.43,
+     26.57
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 38.88,
+    "y": -8.01,
+    "style": "peak",
+    "src_xy": [
+     30.68,
+     19.19
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 38.88,
+    "y": -4.77,
+    "style": "peak",
+    "src_xy": [
+     30.68,
+     22.43
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 38.88,
+    "y": -2.03,
+    "style": "peak",
+    "src_xy": [
+     30.68,
+     25.17
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 3.37,
+    "y": -7.01,
+    "style": "dead",
+    "src_xy": [
+     -4.83,
+     20.19
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 45.06,
+    "y": -7.19,
+    "style": "peak",
+    "src_xy": [
+     36.86,
+     20.01
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 4.22,
+    "y": -3.32,
+    "style": "dead",
+    "src_xy": [
+     -3.98,
+     23.88
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 5.88,
+    "y": -3.79,
+    "style": "bone",
+    "src_xy": [
+     -2.32,
+     23.41
+    ]
+   }
+  ]
+ },
+ "copy_into_b": {
+  "count": 28,
+  "dropped": {
+   "on_pass_corridor": 1,
+   "would_clip_inside": 24,
+   "too_close_to_dst_prop": 7
+  },
+  "items": [
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 31.4,
+    "y": 39.6,
+    "style": null,
+    "src_xy": [
+     39.6,
+     12.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 3.3,
+    "y": 31.7,
+    "style": null,
+    "src_xy": [
+     11.5,
+     4.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -3.87,
+    "y": 29.87,
+    "style": "shelf",
+    "src_xy": [
+     4.33,
+     2.67
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -1.87,
+    "y": 30.87,
+    "style": "shelf",
+    "src_xy": [
+     6.33,
+     3.67
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 2.48,
+    "y": 30.52,
+    "style": "shelf",
+    "src_xy": [
+     10.68,
+     3.32
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 10.45,
+    "y": 30.55,
+    "style": "shelf",
+    "src_xy": [
+     18.65,
+     3.35
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 22.39,
+    "y": 30.61,
+    "style": "shelf",
+    "src_xy": [
+     30.59,
+     3.41
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 32.28,
+    "y": 31.72,
+    "style": "shelf",
+    "src_xy": [
+     40.48,
+     4.52
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 32.27,
+    "y": 33.73,
+    "style": "shelf",
+    "src_xy": [
+     40.47,
+     6.53
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -3.57,
+    "y": 35.57,
+    "style": "shelf",
+    "src_xy": [
+     4.63,
+     8.37
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -5.73,
+    "y": 36.73,
+    "style": "shelf",
+    "src_xy": [
+     2.47,
+     9.53
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -3.68,
+    "y": 37.68,
+    "style": "shelf",
+    "src_xy": [
+     4.52,
+     10.48
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 32.24,
+    "y": 37.76,
+    "style": "shelf",
+    "src_xy": [
+     40.44,
+     10.56
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -5.78,
+    "y": 40.78,
+    "style": "shelf",
+    "src_xy": [
+     2.42,
+     13.58
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -3.84,
+    "y": 41.84,
+    "style": "shelf",
+    "src_xy": [
+     4.36,
+     14.64
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -3.58,
+    "y": 43.58,
+    "style": "shelf",
+    "src_xy": [
+     4.62,
+     16.38
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 32.39,
+    "y": 43.61,
+    "style": "shelf",
+    "src_xy": [
+     40.59,
+     16.41
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 34.12,
+    "y": 35.25,
+    "style": "peak",
+    "src_xy": [
+     42.32,
+     8.05
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 34.48,
+    "y": 40.87,
+    "style": "peak",
+    "src_xy": [
+     42.68,
+     13.67
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -1.36,
+    "y": 19.91,
+    "style": "far",
+    "src_xy": [
+     6.84,
+     -7.29
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 35.24,
+    "y": 19.7,
+    "style": "far",
+    "src_xy": [
+     43.44,
+     -7.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 37.33,
+    "y": 21.91,
+    "style": "far",
+    "src_xy": [
+     45.53,
+     -5.29
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -3.87,
+    "y": 25.37,
+    "style": "bone",
+    "src_xy": [
+     4.33,
+     -1.83
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -2.34,
+    "y": 24.84,
+    "style": "peak",
+    "src_xy": [
+     5.86,
+     -2.36
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 38.11,
+    "y": 25.02,
+    "style": "peak",
+    "src_xy": [
+     46.31,
+     -2.18
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": 37.73,
+    "y": 28.67,
+    "style": "peak",
+    "src_xy": [
+     45.93,
+     1.47
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 37.77,
+    "y": 30.22,
+    "style": "bone",
+    "src_xy": [
+     45.97,
+     3.02
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 37.03,
+    "y": 37.22,
+    "style": "bone",
+    "src_xy": [
+     45.23,
+     10.02
+    ]
+   }
+  ]
+ },
+ "exits_offset": {
+  "a": true,
+  "b": false
+ },
+ "kind": "edge_seam"
+}

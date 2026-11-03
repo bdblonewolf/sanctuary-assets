@@ -1,0 +1,1046 @@
+{
+ "id": "town__wild",
+ "zone_a": {
+  "id": "town",
+  "name": "Martsirt",
+  "size": [
+   162,
+   154
+  ],
+  "edge": "N",
+  "exit_tile": [
+   76.2,
+   1.4
+  ],
+  "arrive": [
+   35.5,
+   51.2
+  ],
+  "offset_along_edge_m": 76.2,
+  "edge_len_m": 162
+ },
+ "zone_b": {
+  "id": "wild",
+  "name": "Briarwood",
+  "size": [
+   72,
+   56
+  ],
+  "edge": "S",
+  "exit_tile": [
+   35.5,
+   54.6
+  ],
+  "arrive": [
+   19.8,
+   3.2
+  ],
+  "offset_along_edge_m": 36.5,
+  "edge_len_m": 72,
+  "proposed_offset_m": 46.8,
+  "proposal_note": "exit sits at the edge centre; PROPOSAL ONLY (needs a world-JSON change by the engineer, not done): move to the proposed offset and bend the road; the other side follows via the transform"
+ },
+ "transform": {
+  "b_to_a": {
+   "rot_deg": 0,
+   "formula": "pA = exitA + R(rot)(pB - exitB)"
+  },
+  "a_to_b": {
+   "rot_deg": 0,
+   "formula": "pB = exitB + R(rot)(pA - exitA)"
+  },
+  "orientation_mismatch": false,
+  "note": "opposite edges, pure translation"
+ },
+ "pass_span": {
+  "a": [
+   70.2,
+   82.2
+  ],
+  "b": [
+   30.5,
+   42.5
+  ],
+  "corridor_open_m": 6.0,
+  "rule": "ring skips this span on both sides; road corridor stays open"
+ },
+ "terrain": {
+  "seam_height_a": 0.0,
+  "seam_height_b": 0.0,
+  "consistent": true
+ },
+ "copy_into_a": {
+  "count": 78,
+  "dropped": {
+   "would_clip_inside": 43,
+   "too_close_to_dst_prop": 5,
+   "on_pass_corridor": 6
+  },
+  "items": [
+   {
+    "src": "world_prop",
+    "id": "log",
+    "x": 81.1,
+    "y": -5.0,
+    "style": null,
+    "src_xy": [
+     40.4,
+     48.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tomb",
+    "x": 96.2,
+    "y": -12.7,
+    "style": null,
+    "src_xy": [
+     55.5,
+     40.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "body",
+    "x": 79.56,
+    "y": -11.87,
+    "style": null,
+    "src_xy": [
+     38.86,
+     41.33
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 95.2,
+    "y": -2.7,
+    "style": null,
+    "src_xy": [
+     54.5,
+     50.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 58.2,
+    "y": -3.7,
+    "style": null,
+    "src_xy": [
+     17.5,
+     49.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 79.2,
+    "y": -12.7,
+    "style": null,
+    "src_xy": [
+     38.5,
+     40.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 88.2,
+    "y": -7.7,
+    "style": null,
+    "src_xy": [
+     47.5,
+     45.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 84.2,
+    "y": -10.7,
+    "style": null,
+    "src_xy": [
+     43.5,
+     42.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 62.2,
+    "y": -7.7,
+    "style": null,
+    "src_xy": [
+     21.5,
+     45.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 86.2,
+    "y": -2.7,
+    "style": null,
+    "src_xy": [
+     45.5,
+     50.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 54.2,
+    "y": -11.7,
+    "style": null,
+    "src_xy": [
+     13.5,
+     41.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 57.2,
+    "y": -12.7,
+    "style": null,
+    "src_xy": [
+     16.5,
+     40.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 67.2,
+    "y": -1.7,
+    "style": null,
+    "src_xy": [
+     26.5,
+     51.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 54.2,
+    "y": -9.7,
+    "style": null,
+    "src_xy": [
+     13.5,
+     43.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 57.2,
+    "y": -10.7,
+    "style": null,
+    "src_xy": [
+     16.5,
+     42.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 92.2,
+    "y": -12.7,
+    "style": null,
+    "src_xy": [
+     51.5,
+     40.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 95.2,
+    "y": -3.7,
+    "style": null,
+    "src_xy": [
+     54.5,
+     49.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 93.2,
+    "y": -13.7,
+    "style": null,
+    "src_xy": [
+     52.5,
+     39.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 90.2,
+    "y": -4.7,
+    "style": null,
+    "src_xy": [
+     49.5,
+     48.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 91.2,
+    "y": -5.7,
+    "style": null,
+    "src_xy": [
+     50.5,
+     47.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 83.2,
+    "y": -5.7,
+    "style": null,
+    "src_xy": [
+     42.5,
+     47.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 56.2,
+    "y": -13.7,
+    "style": null,
+    "src_xy": [
+     15.5,
+     39.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 58.2,
+    "y": -13.7,
+    "style": null,
+    "src_xy": [
+     17.5,
+     39.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 55.2,
+    "y": -3.7,
+    "style": null,
+    "src_xy": [
+     14.5,
+     49.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 57.2,
+    "y": -11.7,
+    "style": null,
+    "src_xy": [
+     16.5,
+     41.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 83.2,
+    "y": -8.7,
+    "style": null,
+    "src_xy": [
+     42.5,
+     44.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 56.2,
+    "y": -6.7,
+    "style": null,
+    "src_xy": [
+     15.5,
+     46.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 67.2,
+    "y": -2.7,
+    "style": null,
+    "src_xy": [
+     26.5,
+     50.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 94.2,
+    "y": -11.7,
+    "style": null,
+    "src_xy": [
+     53.5,
+     41.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 91.2,
+    "y": -4.7,
+    "style": null,
+    "src_xy": [
+     50.5,
+     48.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 81.2,
+    "y": -7.7,
+    "style": null,
+    "src_xy": [
+     40.5,
+     45.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 62.2,
+    "y": -5.7,
+    "style": null,
+    "src_xy": [
+     21.5,
+     47.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 96.2,
+    "y": -11.7,
+    "style": null,
+    "src_xy": [
+     55.5,
+     41.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 63.2,
+    "y": -9.7,
+    "style": null,
+    "src_xy": [
+     22.5,
+     43.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 86.2,
+    "y": -7.7,
+    "style": null,
+    "src_xy": [
+     45.5,
+     45.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 84.2,
+    "y": -8.7,
+    "style": null,
+    "src_xy": [
+     43.5,
+     44.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 94.2,
+    "y": -13.7,
+    "style": null,
+    "src_xy": [
+     53.5,
+     39.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 91.2,
+    "y": -13.7,
+    "style": null,
+    "src_xy": [
+     50.5,
+     39.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 58.2,
+    "y": -12.7,
+    "style": null,
+    "src_xy": [
+     17.5,
+     40.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 93.2,
+    "y": -2.7,
+    "style": null,
+    "src_xy": [
+     52.5,
+     50.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 82.2,
+    "y": -3.7,
+    "style": null,
+    "src_xy": [
+     41.5,
+     49.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 81.2,
+    "y": -4.7,
+    "style": null,
+    "src_xy": [
+     40.5,
+     48.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 70.2,
+    "y": -2.7,
+    "style": null,
+    "src_xy": [
+     29.5,
+     50.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 96.2,
+    "y": -3.7,
+    "style": null,
+    "src_xy": [
+     55.5,
+     49.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 68.2,
+    "y": -13.7,
+    "style": null,
+    "src_xy": [
+     27.5,
+     39.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 66.2,
+    "y": -12.7,
+    "style": null,
+    "src_xy": [
+     25.5,
+     40.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 73.1,
+    "y": -4.8,
+    "style": "print",
+    "src_xy": [
+     32.4,
+     48.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 72.9,
+    "y": -5.64,
+    "style": "print",
+    "src_xy": [
+     32.2,
+     47.56
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 72.7,
+    "y": -6.48,
+    "style": "print",
+    "src_xy": [
+     32,
+     46.72
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 72.5,
+    "y": -7.32,
+    "style": "print",
+    "src_xy": [
+     31.8,
+     45.88
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 72.3,
+    "y": -8.16,
+    "style": "print",
+    "src_xy": [
+     31.6,
+     45.04
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 72.1,
+    "y": -9.0,
+    "style": "print",
+    "src_xy": [
+     31.4,
+     44.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 72.1,
+    "y": -9.0,
+    "style": "print",
+    "src_xy": [
+     31.4,
+     44.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 71.86,
+    "y": -9.84,
+    "style": "print",
+    "src_xy": [
+     31.16,
+     43.36
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 71.62,
+    "y": -10.68,
+    "style": "print",
+    "src_xy": [
+     30.92,
+     42.52
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 71.38,
+    "y": -11.52,
+    "style": "print",
+    "src_xy": [
+     30.68,
+     41.68
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 71.14,
+    "y": -12.36,
+    "style": "print",
+    "src_xy": [
+     30.44,
+     40.84
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 70.9,
+    "y": -13.2,
+    "style": "print",
+    "src_xy": [
+     30.2,
+     40
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 70.9,
+    "y": -13.2,
+    "style": "print",
+    "src_xy": [
+     30.2,
+     40
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 70.62,
+    "y": -13.96,
+    "style": "print",
+    "src_xy": [
+     29.92,
+     39.24
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 59.16,
+    "y": -1.66,
+    "style": "bone",
+    "src_xy": [
+     18.46,
+     51.54
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 71.12,
+    "y": -1.62,
+    "style": "bone",
+    "src_xy": [
+     30.42,
+     51.58
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 87.4,
+    "y": -1.9,
+    "style": "bone",
+    "src_xy": [
+     46.7,
+     51.3
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 57.05,
+    "y": -0.55,
+    "style": "bone",
+    "src_xy": [
+     16.35,
+     52.65
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 81.29,
+    "y": -0.79,
+    "style": "bone",
+    "src_xy": [
+     40.59,
+     52.41
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 85.02,
+    "y": -0.52,
+    "style": null,
+    "src_xy": [
+     44.32,
+     52.68
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 89.24,
+    "y": -0.74,
+    "style": null,
+    "src_xy": [
+     48.54,
+     52.46
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 93.06,
+    "y": -0.56,
+    "style": null,
+    "src_xy": [
+     52.36,
+     52.64
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "flower",
+    "x": 92.42,
+    "y": -8.8,
+    "style": null,
+    "src_xy": [
+     51.72,
+     44.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "flower",
+    "x": 92.9,
+    "y": -8.8,
+    "style": "white",
+    "src_xy": [
+     52.2,
+     44.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "flower",
+    "x": 93.38,
+    "y": -8.8,
+    "style": null,
+    "src_xy": [
+     52.68,
+     44.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "flower",
+    "x": 92.42,
+    "y": -8.34,
+    "style": "white",
+    "src_xy": [
+     51.72,
+     44.86
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "flower",
+    "x": 92.9,
+    "y": -8.34,
+    "style": null,
+    "src_xy": [
+     52.2,
+     44.86
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "flower",
+    "x": 93.38,
+    "y": -8.34,
+    "style": "white",
+    "src_xy": [
+     52.68,
+     44.86
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "flower",
+    "x": 92.42,
+    "y": -7.88,
+    "style": null,
+    "src_xy": [
+     51.72,
+     45.32
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "flower",
+    "x": 92.9,
+    "y": -7.88,
+    "style": "white",
+    "src_xy": [
+     52.2,
+     45.32
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "bench",
+    "x": 92.1,
+    "y": -7.0,
+    "style": "face-e",
+    "src_xy": [
+     51.4,
+     46.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mark",
+    "x": 94.9,
+    "y": -6.8,
+    "style": "ambush:raver",
+    "src_xy": [
+     54.2,
+     46.4
+    ]
+   }
+  ]
+ },
+ "copy_into_b": {
+  "count": 7,
+  "dropped": {
+   "would_clip_inside": 12,
+   "pass_piece": 1,
+   "too_close_to_dst_prop": 1
+  },
+  "items": [
+   {
+    "src": "world_prop",
+    "id": "bld_watchhouse_gibbet_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared.glb",
+    "x": 42.8,
+    "y": 69.7,
+    "rotY": 0.0698,
+    "kind": "building",
+    "src_xy": [
+     83.5,
+     16.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 50.23,
+    "y": 59.78,
+    "rotY": -0.1126,
+    "kind": "prop",
+    "src_xy": [
+     90.93,
+     6.58
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 15.15,
+    "y": 62.89,
+    "rotY": 0.2912,
+    "kind": "prop",
+    "src_xy": [
+     55.85,
+     9.69
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 18.9,
+    "y": 61.86,
+    "rotY": 0.246,
+    "kind": "prop",
+    "src_xy": [
+     59.6,
+     8.66
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 22.69,
+    "y": 61.0,
+    "rotY": 0.2013,
+    "kind": "prop",
+    "src_xy": [
+     63.39,
+     7.8
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 26.51,
+    "y": 60.3,
+    "rotY": 0.1568,
+    "kind": "prop",
+    "src_xy": [
+     67.21,
+     7.1
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 30.37,
+    "y": 59.78,
+    "rotY": 0.1126,
+    "kind": "prop",
+    "src_xy": [
+     71.07,
+     6.58
+    ]
+   }
+  ]
+ },
+ "exits_offset": {
+  "a": true,
+  "b": false
+ },
+ "kind": "edge_seam"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "desert__lut",
+ "kind": "interior_exit",
+ "zone_a": {
+  "id": "desert",
+  "exit_tile": [
+   27.4,
+   5.6
+  ],
+  "edge_dist": 5.6
+ },
+ "zone_b": {
+  "id": "lut",
+  "exit_tile": [
+   14.2,
+   22.4
+  ],
+  "edge_dist": 1.6
+ },
+ "rule": "exit is inside a zone (dock/boat/sinkhole/stair), not on an edge: no ring skip, no scenery copy; the continent layout places the zones apart (by water or a drop); terrain heights still match at the trigger tiles.",
+ "terrain": {
+  "seam_height_a": 1.75,
+  "seam_height_b": 1.75
+ }
+}

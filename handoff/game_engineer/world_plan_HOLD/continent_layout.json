@@ -1,0 +1,1019 @@
+{
+ "version": "continent_layout_v1",
+ "status": "PLAN - nothing built; HOLD for Brian",
+ "sheet_m": [
+  4500,
+  4500
+ ],
+ "total_km2": 20.25,
+ "frame": "x east, y south, metres; zone rect = [x0,y0,x1,y1]; rot = quarter turns clockwise of the zone tile frame",
+ "proposals": [
+  {
+   "id": "P1",
+   "change": "wild: move the briarE exit from the E edge (70.4,27.2) to the W edge (1.4,27.2) so the west road runs west into The Narrow and the desert basin (mountains stay east). briarE..waste chain is placed rotated 180 deg; their own exits do not move.",
+   "edge": [
+    "wild",
+    "briarE"
+   ],
+   "new": [
+    "W",
+    0.4857142857142857
+   ]
+  },
+  {
+   "id": "P2",
+   "change": "desert->lut exit (27.4,5.6) is 5.6 m inside the N edge; treated as an N-edge seam (move to y=1.2 when the zone is rebuilt).",
+   "edge": [
+    "desert",
+    "lut"
+   ],
+   "new": [
+    "N",
+    0.7611111111111111
+   ]
+  },
+  {
+   "id": "P4",
+   "change": "coast later grid: the bastion exit sits at t=0.45 of the E edge (live 14.2/112 = 0.13 would push Bastion into Martsirt once both grow).",
+   "edge": [
+    "coast",
+    "bastion"
+   ],
+   "new": [
+    "E",
+    0.45
+   ]
+  },
+  {
+   "id": "P3",
+   "change": "mires->sink is a stair/drop inside mires (9.2,15.2); sink is laid flush to the mires W edge 6 m below (cliff), no road seam.",
+   "edge": [
+    "mires",
+    "sink"
+   ],
+   "new": [
+    "W",
+    0.44705882352941173
+   ]
+  }
+ ],
+ "overlaps": [],
+ "zones": {
+  "town": {
+   "name": "Martsirt",
+   "status": "live",
+   "style": "town",
+   "role": "hub town (Martsirt)",
+   "now_grid": [
+    162,
+    154
+   ],
+   "later_grid": [
+    240,
+    220
+   ],
+   "rot": 0,
+   "center": [
+    2323.1,
+    1883.6
+   ],
+   "rect": [
+    2203.1,
+    1773.6,
+    2443.1,
+    1993.6
+   ],
+   "base_m": 0.0,
+   "relief_m": 0.0
+  },
+  "coast": {
+   "name": "Ashen Coast",
+   "status": "live",
+   "style": "coast_land",
+   "role": "coast road, sea W/S",
+   "now_grid": [
+    42,
+    112
+   ],
+   "later_grid": [
+    180,
+    360
+   ],
+   "rot": 0,
+   "center": [
+    2326.5,
+    2173.6
+   ],
+   "rect": [
+    2236.5,
+    1993.6,
+    2416.5,
+    2353.6
+   ],
+   "base_m": 0.0,
+   "relief_m": 0.0
+  },
+  "flotsam": {
+   "name": "Bleak Flotsam",
+   "status": "live",
+   "style": "coast_land",
+   "role": "wreck shore across the bay (boat)",
+   "now_grid": [
+    36,
+    28
+   ],
+   "later_grid": [
+    180,
+    140
+   ],
+   "rot": 0,
+   "center": [
+    1706.5,
+    2213.6
+   ],
+   "rect": [
+    1616.5,
+    2143.6,
+    1796.5,
+    2283.6
+   ],
+   "base_m": 0.6,
+   "relief_m": 1.0
+  },
+  "hollow": {
+   "name": "Smuggler's Hollow",
+   "status": "live",
+   "style": "coast_land",
+   "role": "smuggler cove",
+   "now_grid": [
+    26,
+    22
+   ],
+   "later_grid": [
+    140,
+    110
+   ],
+   "rot": 0,
+   "center": [
+    1706.5,
+    2338.6
+   ],
+   "rect": [
+    1636.5,
+    2283.6,
+    1776.5,
+    2393.6
+   ],
+   "base_m": 0.4,
+   "relief_m": 1.0
+  },
+  "bastion": {
+   "name": "Bastion of Hope",
+   "status": "live",
+   "style": "mountain",
+   "role": "coast road climbs (switchbacks)",
+   "now_grid": [
+    34,
+    28
+   ],
+   "later_grid": [
+    220,
+    180
+   ],
+   "rot": 1,
+   "center": [
+    2506.5,
+    2160.8
+   ],
+   "rect": [
+    2416.5,
+    2050.8,
+    2596.5,
+    2270.8
+   ],
+   "base_m": 8,
+   "relief_m": 4
+  },
+  "bluffs": {
+   "name": "Mourning Bluffs",
+   "status": "live",
+   "style": "mountain",
+   "role": "cliff plateaus",
+   "now_grid": [
+    52,
+    44
+   ],
+   "later_grid": [
+    320,
+    260
+   ],
+   "rot": 1,
+   "center": [
+    2726.5,
+    2160.5
+   ],
+   "rect": [
+    2596.5,
+    2000.5,
+    2856.5,
+    2320.5
+   ],
+   "base_m": 17,
+   "relief_m": 7
+  },
+  "mires": {
+   "name": "Silt Mires",
+   "status": "live",
+   "style": "forest",
+   "role": "high bog shelf",
+   "now_grid": [
+    40,
+    34
+   ],
+   "later_grid": [
+    300,
+    260
+   ],
+   "rot": 1,
+   "center": [
+    2986.5,
+    2186.1
+   ],
+   "rect": [
+    2856.5,
+    2036.1,
+    3116.5,
+    2336.1
+   ],
+   "base_m": 25,
+   "relief_m": 2
+  },
+  "sink": {
+   "name": "The Putrid Sink",
+   "status": "live",
+   "style": "mountain",
+   "role": "sinkhole (stair down)",
+   "now_grid": [
+    28,
+    24
+   ],
+   "later_grid": [
+    150,
+    130
+   ],
+   "rot": 1,
+   "center": [
+    3000.3,
+    1961.1
+   ],
+   "rect": [
+    2935.3,
+    1886.1,
+    3065.3,
+    2036.1
+   ],
+   "base_m": 19,
+   "relief_m": 5
+  },
+  "ridge": {
+   "name": "Razor Ridge",
+   "status": "live",
+   "style": "mountain",
+   "role": "switchback ridge",
+   "now_grid": [
+    44,
+    46
+   ],
+   "later_grid": [
+    260,
+    360
+   ],
+   "rot": 1,
+   "center": [
+    3296.5,
+    2278.4
+   ],
+   "rect": [
+    3116.5,
+    2148.4,
+    3476.5,
+    2408.4
+   ],
+   "base_m": 38,
+   "relief_m": 9
+  },
+  "ascent": {
+   "name": "Bitter Ascent",
+   "status": "live",
+   "style": "mountain",
+   "role": "hairpin climb",
+   "now_grid": [
+    32,
+    30
+   ],
+   "later_grid": [
+    240,
+    260
+   ],
+   "rot": 1,
+   "center": [
+    3606.5,
+    2291.1
+   ],
+   "rect": [
+    3476.5,
+    2171.1,
+    3736.5,
+    2411.1
+   ],
+   "base_m": 52,
+   "relief_m": 9
+  },
+  "crypts": {
+   "name": "Sunken Crypts",
+   "status": "live",
+   "style": "mountain",
+   "role": "sunken crypt shelf",
+   "now_grid": [
+    34,
+    28
+   ],
+   "later_grid": [
+    220,
+    200
+   ],
+   "rot": 1,
+   "center": [
+    3621.8,
+    2061.1
+   ],
+   "rect": [
+    3521.8,
+    1951.1,
+    3721.8,
+    2171.1
+   ],
+   "base_m": 47,
+   "relief_m": 6
+  },
+  "chasm": {
+   "name": "Drowned Chasm",
+   "status": "live",
+   "style": "mountain",
+   "role": "flooded gorge",
+   "now_grid": [
+    26,
+    28
+   ],
+   "later_grid": [
+    180,
+    220
+   ],
+   "rot": 1,
+   "center": [
+    3831.8,
+    2054.5
+   ],
+   "rect": [
+    3721.8,
+    1964.5,
+    3941.8,
+    2144.5
+   ],
+   "base_m": 36,
+   "relief_m": 8
+  },
+  "iron": {
+   "name": "Iron Bastion Pass",
+   "status": "live",
+   "style": "mountain",
+   "role": "Iron Bastion pass",
+   "now_grid": [
+    38,
+    24
+   ],
+   "later_grid": [
+    340,
+    180
+   ],
+   "rot": 1,
+   "center": [
+    3621.9,
+    2581.1
+   ],
+   "rect": [
+    3531.9,
+    2411.1,
+    3711.9,
+    2751.1
+   ],
+   "base_m": 60,
+   "relief_m": 6
+  },
+  "gaol": {
+   "name": "Inquisitor's Gaol",
+   "status": "live",
+   "style": "mountain",
+   "role": "Inquisitor plateau",
+   "now_grid": [
+    32,
+    42
+   ],
+   "later_grid": [
+    220,
+    300
+   ],
+   "rot": 2,
+   "center": [
+    3621.7,
+    2901.1
+   ],
+   "rect": [
+    3511.7,
+    2751.1,
+    3731.7,
+    3051.1
+   ],
+   "base_m": 67,
+   "relief_m": 6
+  },
+  "weald": {
+   "name": "Obsidian Spires",
+   "status": "live",
+   "style": "mountain",
+   "role": "Obsidian Spires summit plateau",
+   "now_grid": [
+    44,
+    40
+   ],
+   "later_grid": [
+    380,
+    340
+   ],
+   "rot": 2,
+   "center": [
+    3622.1,
+    3221.1
+   ],
+   "rect": [
+    3432.1,
+    3051.1,
+    3812.1,
+    3391.1
+   ],
+   "base_m": 72,
+   "relief_m": 6
+  },
+  "wild": {
+   "name": "Briarwood",
+   "status": "live",
+   "style": "forest",
+   "role": "Briarwood",
+   "now_grid": [
+    72,
+    56
+   ],
+   "later_grid": [
+    400,
+    320
+   ],
+   "rot": 0,
+   "center": [
+    2318.7,
+    1613.6
+   ],
+   "rect": [
+    2118.7,
+    1453.6,
+    2518.7,
+    1773.6
+   ],
+   "base_m": 6,
+   "relief_m": 5
+  },
+  "briarE": {
+   "name": "Briarwood East",
+   "status": "live",
+   "style": "forest",
+   "role": "Briarwood East (falls toward The Narrow)",
+   "now_grid": [
+    52,
+    40
+   ],
+   "later_grid": [
+    360,
+    260
+   ],
+   "rot": 2,
+   "center": [
+    1938.7,
+    1610.3
+   ],
+   "rect": [
+    1758.7,
+    1480.3,
+    2118.7,
+    1740.3
+   ],
+   "base_m": 12,
+   "relief_m": 7
+  },
+  "duneW": {
+   "name": "The Narrow",
+   "status": "live",
+   "style": "desert",
+   "role": "The Narrow (pass, drop into the basin)",
+   "now_grid": [
+    28,
+    16
+   ],
+   "later_grid": [
+    260,
+    120
+   ],
+   "rot": 2,
+   "center": [
+    1628.7,
+    1610.5
+   ],
+   "rect": [
+    1498.7,
+    1550.5,
+    1758.7,
+    1670.5
+   ],
+   "base_m": 6,
+   "relief_m": 4
+  },
+  "desert": {
+   "name": "Desert",
+   "status": "live",
+   "style": "desert",
+   "role": "desert basin",
+   "now_grid": [
+    36,
+    30
+   ],
+   "later_grid": [
+    400,
+    380
+   ],
+   "rot": 2,
+   "center": [
+    1298.7,
+    1598.9
+   ],
+   "rect": [
+    1098.7,
+    1408.9,
+    1498.7,
+    1788.9
+   ],
+   "base_m": 1.5,
+   "relief_m": 3
+  },
+  "lut": {
+   "name": "Qadren",
+   "status": "live",
+   "style": "desert",
+   "role": "Qadren",
+   "now_grid": [
+    30,
+    24
+   ],
+   "later_grid": [
+    240,
+    220
+   ],
+   "rot": 2,
+   "center": [
+    1187.9,
+    1898.9
+   ],
+   "rect": [
+    1067.9,
+    1788.9,
+    1307.9,
+    2008.9
+   ],
+   "base_m": 2,
+   "relief_m": 2
+  },
+  "market": {
+   "name": "Highmarket",
+   "status": "live",
+   "style": "desert",
+   "role": "Highmarket",
+   "now_grid": [
+    48,
+    40
+   ],
+   "later_grid": [
+    320,
+    260
+   ],
+   "rot": 2,
+   "center": [
+    907.9,
+    1894.7
+   ],
+   "rect": [
+    747.9,
+    1764.7,
+    1067.9,
+    2024.7
+   ],
+   "base_m": 2.5,
+   "relief_m": 1.5
+  },
+  "waste": {
+   "name": "Cinder Barrens",
+   "status": "live",
+   "style": "desert",
+   "role": "Cinder Barrens",
+   "now_grid": [
+    50,
+    42
+   ],
+   "later_grid": [
+    400,
+    360
+   ],
+   "rot": 2,
+   "center": [
+    547.9,
+    1903.7
+   ],
+   "rect": [
+    347.9,
+    1723.7,
+    747.9,
+    2083.7
+   ],
+   "base_m": 7,
+   "relief_m": 6
+  },
+  "isle": {
+   "name": "Blackwater",
+   "status": "live",
+   "style": "coast_land",
+   "role": "Blackwater (island, boat only)",
+   "now_grid": [
+    96,
+    80
+   ],
+   "later_grid": [
+    400,
+    340
+   ],
+   "rot": 0,
+   "center": [
+    1426.5,
+    3073.6
+   ],
+   "rect": [
+    1226.5,
+    2903.6,
+    1626.5,
+    3243.6
+   ],
+   "base_m": 2,
+   "relief_m": 6
+  },
+  "n_tidecoves": {
+   "name": "Tidebound leeward coves + tidal caves",
+   "status": "NEW - HOLD for Brian",
+   "style": "coast_land",
+   "role": "Tidebound leeward coves + tidal caves (night coves)",
+   "now_grid": null,
+   "later_grid": [
+    240,
+    200
+   ],
+   "rot": 0,
+   "center": [
+    2116.5,
+    2274.4
+   ],
+   "rect": [
+    1996.5,
+    2174.4,
+    2236.5,
+    2374.4
+   ],
+   "base_m": 0.3,
+   "relief_m": null
+  },
+  "n_hollowridge": {
+   "name": "Hollow smuggler ridge path + cove",
+   "status": "NEW - HOLD for Brian",
+   "style": "coast_land",
+   "role": "Hollow smuggler ridge path + cove",
+   "now_grid": null,
+   "later_grid": [
+    220,
+    140
+   ],
+   "rot": 0,
+   "center": [
+    1706.5,
+    2463.6
+   ],
+   "rect": [
+    1596.5,
+    2393.6,
+    1816.5,
+    2533.6
+   ],
+   "base_m": 3,
+   "relief_m": null
+  },
+  "n_tollgorge": {
+   "name": "Toll bridges + undercrofts",
+   "status": "NEW - HOLD for Brian",
+   "style": "mountain",
+   "role": "Toll bridges + undercrofts (gorge on the bluffs road)",
+   "now_grid": null,
+   "later_grid": [
+    300,
+    200
+   ],
+   "rot": 0,
+   "center": [
+    2687.5,
+    1900.5
+   ],
+   "rect": [
+    2537.5,
+    1800.5,
+    2837.5,
+    2000.5
+   ],
+   "base_m": 18,
+   "relief_m": null
+  },
+  "n_manor_bluffs": {
+   "name": "Gothic manor",
+   "status": "NEW - HOLD for Brian",
+   "style": "mountain",
+   "role": "Gothic manor (Mourning Bluffs) explore-only",
+   "now_grid": null,
+   "later_grid": [
+    220,
+    180
+   ],
+   "rot": 0,
+   "center": [
+    2921.5,
+    2426.1
+   ],
+   "rect": [
+    2811.5,
+    2336.1,
+    3031.5,
+    2516.1
+   ],
+   "base_m": 22,
+   "relief_m": null
+  },
+  "n_quarantine": {
+   "name": "Inquisition quarantine village",
+   "status": "NEW - HOLD for Brian",
+   "style": "mountain",
+   "role": "Inquisition quarantine village",
+   "now_grid": null,
+   "later_grid": [
+    240,
+    220
+   ],
+   "rot": 0,
+   "center": [
+    3391.7,
+    2901.1
+   ],
+   "rect": [
+    3271.7,
+    2791.1,
+    3511.7,
+    3011.1
+   ],
+   "base_m": 64,
+   "relief_m": null
+  },
+  "n_citadel": {
+   "name": "Open Eye citadel outer wards + drainage grates",
+   "status": "NEW - HOLD for Brian",
+   "style": "mountain",
+   "role": "Open Eye citadel outer wards + drainage grates",
+   "now_grid": null,
+   "later_grid": [
+    340,
+    320
+   ],
+   "rot": 0,
+   "center": [
+    3881.9,
+    2581.1
+   ],
+   "rect": [
+    3711.9,
+    2421.1,
+    4051.9,
+    2741.1
+   ],
+   "base_m": 62,
+   "relief_m": null
+  },
+  "n_ruin": {
+   "name": "Single untouched-cache ruin",
+   "status": "NEW - HOLD for Brian",
+   "style": "mountain",
+   "role": "Single untouched-cache ruin (far off-road)",
+   "now_grid": null,
+   "later_grid": [
+    180,
+    180
+   ],
+   "rot": 0,
+   "center": [
+    4062.1,
+    3153.1
+   ],
+   "rect": [
+    3972.1,
+    3063.1,
+    4152.1,
+    3243.1
+   ],
+   "base_m": 80,
+   "relief_m": null
+  },
+  "n_sinkholes": {
+   "name": "Survivor sinkhole shrines",
+   "status": "NEW - HOLD for Brian",
+   "style": "forest",
+   "role": "Survivor sinkhole shrines",
+   "now_grid": null,
+   "later_grid": [
+    300,
+    240
+   ],
+   "rot": 0,
+   "center": [
+    2238.7,
+    1333.6
+   ],
+   "rect": [
+    2088.7,
+    1213.6,
+    2388.7,
+    1453.6
+   ],
+   "base_m": 10,
+   "relief_m": null
+  },
+  "n_manor_briar": {
+   "name": "Gothic manor",
+   "status": "NEW - HOLD for Brian",
+   "style": "forest",
+   "role": "Gothic manor (Briarwood) explore-only",
+   "now_grid": null,
+   "later_grid": [
+    220,
+    180
+   ],
+   "rot": 0,
+   "center": [
+    1938.7,
+    1390.3
+   ],
+   "rect": [
+    1828.7,
+    1300.3,
+    2048.7,
+    1480.3
+   ],
+   "base_m": 13,
+   "relief_m": null
+  },
+  "n_burn": {
+   "name": "Ashen Covenant burn-circles",
+   "status": "NEW - HOLD for Brian",
+   "style": "desert",
+   "role": "Ashen Covenant burn-circles",
+   "now_grid": null,
+   "later_grid": [
+    320,
+    260
+   ],
+   "rot": 0,
+   "center": [
+    547.9,
+    1593.7
+   ],
+   "rect": [
+    387.9,
+    1463.7,
+    707.9,
+    1723.7
+   ],
+   "base_m": 8,
+   "relief_m": null
+  },
+  "n_ashcamp": {
+   "name": "Ash-camp of the Touched",
+   "status": "NEW - HOLD for Brian",
+   "style": "desert",
+   "role": "Ash-camp of the Touched",
+   "now_grid": null,
+   "later_grid": [
+    280,
+    220
+   ],
+   "rot": 0,
+   "center": [
+    907.9,
+    2134.7
+   ],
+   "rect": [
+    767.9,
+    2024.7,
+    1047.9,
+    2244.7
+   ],
+   "base_m": 3,
+   "relief_m": null
+  },
+  "n_oasis": {
+   "name": "Hidden oasis - NO road, secret quest",
+   "status": "NEW - HOLD for Brian",
+   "style": "desert",
+   "role": "Hidden oasis - NO road, secret quest",
+   "now_grid": null,
+   "later_grid": [
+    160,
+    160
+   ],
+   "rot": 0,
+   "center": [
+    1338.7,
+    1188.9
+   ],
+   "rect": [
+    1258.7,
+    1108.9,
+    1418.7,
+    1268.9
+   ],
+   "base_m": -2,
+   "relief_m": null
+  },
+  "n_manor_coast": {
+   "name": "Gothic manor",
+   "status": "NEW - HOLD for Brian",
+   "style": "coast_land",
+   "role": "Gothic manor (sea cliff W of Martsirt) explore-only",
+   "now_grid": null,
+   "later_grid": [
+    200,
+    180
+   ],
+   "rot": 0,
+   "center": [
+    2103.1,
+    1927.6
+   ],
+   "rect": [
+    2003.1,
+    1837.6,
+    2203.1,
+    2017.6
+   ],
+   "base_m": 6,
+   "relief_m": null
+  }
+ },
+ "area": {
+  "now_walkable_km2": 0.065,
+  "later_walkable_km2": 2.386,
+  "zones_now": 23,
+  "zones_later": 36
+ },
+ "land_km2": 11.3,
+ "illusion": {
+  "dividers": "massifs (impassable, kit mountain border + impostor ridges) and the SW sea; Blackwater is an island (boat only)",
+  "skeleton": "roads only between seams; zones <= 400 m; repeated border kit; fog 30/110 town, ring fog per style; procedural filler on massifs (no collision)",
+  "walkable_share_of_footprint": 0.118,
+  "land_share": 0.558
+ },
+ "poi_slots": {
+  "file": "continent/poi_slots.json",
+  "count": 84,
+  "tags": {
+   "faction": 19,
+   "quest": 42,
+   "remnant": 6,
+   "explore-only": 17
+  }
+ }
+}

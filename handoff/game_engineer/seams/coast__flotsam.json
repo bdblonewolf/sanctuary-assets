@@ -1,0 +1,25 @@
+{
+ "id": "coast__flotsam",
+ "kind": "interior_exit",
+ "zone_a": {
+  "id": "coast",
+  "exit_tile": [
+   20.6,
+   28.2
+  ],
+  "edge_dist": 20.6
+ },
+ "zone_b": {
+  "id": "flotsam",
+  "exit_tile": [
+   18.2,
+   1.4
+  ],
+  "edge_dist": 1.4
+ },
+ "rule": "exit is inside a zone (dock/boat/sinkhole/stair), not on an edge: no ring skip, no scenery copy; the continent layout places the zones apart (by water or a drop); terrain heights still match at the trigger tiles.",
+ "terrain": {
+  "seam_height_a": 0.0,
+  "seam_height_b": 0.0
+ }
+}
