@@ -46,3 +46,22 @@ Pipeline (`/workspace/sanctuary_art/tools/mobile_compress.sh`):
 5. drop translation tracks, except on mixamorig:Hips, the root bones, animated pieces and the empties (mouth, javelin)
 
 **No meshopt or Draco** is used, so the loader needs no decoder. The release and impact frames listed above are unchanged: they were checked frame by frame against the master.
+
+## Update 2026-11-03: walk clip (new file `red_demon_spawnling_walk.glb`)
+The walk is in its **own file**, so nothing live is touched: `red_demon_spawnling_anim_v2.glb`, `red_demon_spawnling_v2.glb` and the other GLBs are unchanged.
+The file holds the v1 mesh (`red_demon_spawnling.glb`) and the same 52-bone mixamorig skeleton (same joint names and rest as `red_demon_spawnling_anim_v2.glb`), plus one clip.
+
+| clip | frames | seconds | key frames (0-based, 30 fps) |
+|---|---|---|---|
+| walk | 41 keys (0–40; frame 40 = frame 0, a 40-frame loop) | 1.333 | **left** heel-down f11, toe-off f31; **right** heel-down f31, toe-off f11 (f51) |
+
+- A hunched, predatory prowl: a crouched torso and the claws held forward to match the run. It is **in place**: the hips only bob (0.67–0.73 m) and sway; there is no root motion.
+- **Loop distance**, measured from the foot plants (the planted ankle moves back at a constant 0.0338 m per frame): **1.353 m per cycle = 1.01 m/s** on this rig (v1 and anim_v2). On `red_demon_spawnling_v2.glb` the legs are shorter, so the same clip covers **1.292 m per cycle = 0.97 m/s**. Use the value for the mesh in use (at native scale; multiply by any model scale). Moving at that speed gives no foot slide.
+- Feet: the planted foot is pinned (heel, then a toe roll from f24/f44), and the swing foot clears the floor. On v2 the stance feet sit 0–2 cm above y = 0. On v1 they sit 1–4 cm into it, the same v1/v2 offset as the existing idle and run.
+- Plays on both meshes: the channels are rotations for all bones plus the Hips translation only (no other bone translations), so it binds to `red_demon_spawnling_v2.glb` as well. This was checked by grafting it onto the v2 file.
+- Hips are centred at the idle/run position (mean z 0.08), so run ⇄ walk crossfades don't jump.
+- Preview: `previews/red_demon_spawnling_walk.png` (v1 and v2, side and 3/4 views, with foot-height and ankle-track plots).
+
+Source / licence: Mixamo "Pro Magic Pack / Crouch Walk Forward" (root motion, 34-frame cycle), retargeted onto this rig by script (world-rotation retarget). It was then made in place, re-timed to 40 frames, stride ×0.85, foot-pinned with two-bone leg IK, and given hand-set spine, head and arm layers. Used under Adobe's Mixamo terms (free for use in games; the raw files must not be redistributed).
+
+Master vs mobile: `masters/red_demon_spawnling_walk.glb` is the uncompressed master. `red_demon_spawnling_walk.glb` is the mobile copy, made by `mobile_compress.sh` (2,173 → 1,666 keyframes, max joint drift 0.32 mm, plant frames f11/f31 within 0.03 mm). **No meshopt or Draco.** The two files are about the same size (4.06 MB) because the mesh dominates and the clip is short.
