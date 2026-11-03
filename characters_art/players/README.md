@@ -273,3 +273,82 @@ Metrics come from MediaPipe on **plain-shaded untextured** renders (`PLAIN=1`: g
 - The elementalist red is darker and browner on the front-lit side than the ref's crimson.
 - The necromancer's crown still reads as flat or painted in the side view.
 - Archer lip_up is still about −12 %.
+
+## Pass 5: necromancer slicked-back hair, crimson elementalist, softer tops, archer upper lip, real helm check (2026-11-03)
+
+What Brian asked for after pass 4 (1754f68), and what changed:
+
+- **Necromancer hair**: the crown and sides read as painted on the skull. They're replaced with real hair-card hair: Elvaerwyn's "Keylth" long half-updo (CC-BY), fitted to the necromancer head and skinned to the 52-bone rig. It has volume over the crown, with strands combed straight back from the hairline and temples into long straight hair down the back. It's white with grey strand shading: the low-contrast source texture got a high-pass and strand-noise boost, so individual locks read. 4,334 tris. The brow/ear piercings are kept (`player_necromancer_piercings.glb`, 440 tris).
+- **Elementalist**: the hair is now deep vivid crimson. Albedo dark→light is (0.22,0.008,0.016)→(0.88,0.07,0.06), the specular tint is (1.0,0.35,0.30), and the scalp paint is matched. The peaked, hood-like top is flattened (the offset above the scalp is compressed along the skin normal above the brow line). The front locks are pulled clear of the face so the waves fall around it.
+- **Warrior**: the top peak is flattened the same way. A side-swept part replaces the centre part (hair is pushed to one side across the crown, ramping with height). Each curl chain is pulled toward a smoothed path, which makes the curls a little tighter. 5,972 tris.
+- **Archer**: the upper lip was about 12% thin. A new upper-lip fullness control pushes the upper vermilion forward and rolls its border up slightly; the lower lip is untouched. Measured upper lip is now 0.109 vs ref 0.111 (was 0.097). Nothing else changed beyond the rebuild.
+- **Hair fitter fix**: a few MakeHuman hair references point at basemesh helper vertices with very large weights, which made a 9 cm spike on the top of the hair. Those rows are now fitted from the base-mesh offset instead of extrapolating.
+
+### Helm check (now real)
+The old `head_through_helm` field was a placeholder that always returned 0. It is now a real test. For every pose sample, a ray is cast from the posed head centre to each head vertex that isn't in the helm's open-face mask. If the ray hits the helm surface more than 1 mm before reaching the vertex, that vertex is past the helm's inner wall. The test also counts vertices within 3 mm of the inner wall.
+
+As a sanity check on the warrior: inflating the head 12% about its centre flags 5 vertices at 3 mm depth, and the rest pose has a minimum clearance of 6.6 mm (median 33 mm).
+
+Hair is hidden under helms as before, so hair-vs-helm is informational only.
+
+Results (max over rest, idle, run, heavy attack, bow draw and both casts):
+
+| class | hair in body | hair in plate | head through helm | head within 3 mm of helm | unmasked head verts checked | piercings in body |
+|---|---|---|---|---|---|---|
+| archer | 4 | 349 | 0 | 0 | 1279 | - |
+| elementalist | 24 | 465 | 0 | 0 | 1269 | - |
+| warrior | 56 | 435 | 0 | 5 | 1317 | - |
+| necromancer | 16 | 266 | 0 | 0 | 1282 | 2 |
+
+- Head through helm is 0 everywhere.
+- The warrior has 5 head verts that come within 3 mm of the helm during bow draw; none go through.
+- Hair-in-plate counts are hair lying on the pauldrons/collar, the same as pass 4. Plate is worn with the helm, so the hair is hidden then.
+
+### Metrics (plain-shaded, landmark ratios vs ref)
+| class | metric | ref | pass 4 | pass 5 |
+|---|---|---|---|---|
+| archer | lip_up | 0.111 | 0.097 (-12%) | 0.109 (-1%) |
+| archer | philtrum | 0.186 | 0.195 (+5%) | 0.180 (-3%) |
+| archer | lip_lo | 0.175 | 0.172 (-2%) | 0.179 (+2%) |
+| archer | mouth_w | 0.688 | 0.641 (-7%) | 0.640 (-7%) |
+| elementalist | lip_up | 0.097 | 0.102 (+5%) | 0.095 (-2%) |
+| elementalist | philtrum | 0.208 | 0.188 (-10%) | 0.201 (-3%) |
+| elementalist | third_top | 0.255 | 0.314 (+23%) | 0.320 (+25%) |
+| elementalist | brow_h | 0.366 | 0.247 (-33%) | 0.238 (-35%) |
+| warrior | lip_up | 0.102 | 0.113 (+11%) | 0.114 (+12%) |
+| warrior | eyew_over_gap | 0.774 | 0.830 (+7%) | 0.869 (+12%) |
+| warrior | brow_h | 0.271 | 0.286 (+5%) | 0.272 (+0%) |
+| necromancer | len_over_w | 1.366 | 1.537 (+13%) | 1.455 (+7%) |
+| necromancer | third_top | 0.221 | 0.332 (+51%) | 0.282 (+28%) |
+| necromancer | brow_h | 0.318 | 0.261 (-18%) | 0.263 (-17%) |
+
+The full table is in the work folder (meas/table_v5.md).
+
+### Hair sources and licences
+| class | hair | author | licence |
+|---|---|---|---|
+| necromancer | elvs_keylth_hair (MakeHuman Community hair02 pack) | Elvaerwyn | CC-BY (stated in the asset file by the author) |
+| archer | punkduck_alpha7_curly | MakeHuman alpha-7 content, adapted by punkduck | **unclear: see below** |
+| elementalist, warrior | punkduck_alpha7_curly2 | MakeHuman alpha-7 content, adapted by punkduck | **unclear: see below** |
+
+**Licence warning for the curly hair (archer, elementalist, warrior).**
+
+- The asset files say "author Unknown, adaptation by punkduck, license AGPL3".
+- The community asset page labels them CC-BY, with the note "The licence was GPL, but author was set to unknown. So I consider it CC BY, but the author is the MH team."
+- That relabel was done by the adapter, not by the copyright holder, so these are **not clearly CC-BY**. They shouldn't ship in a commercial build until they're replaced or cleared.
+
+Clean replacements are already on the box, unmodified, in `/workspace/free_packs/`:
+
+| licence | asset | tris | notes |
+|---|---|---|---|
+| CC-BY (Elvaerwyn) | elvs_that_80s_babe_hair | 6,004 | "long male hair"; warrior candidate |
+| CC-BY (Elvaerwyn) | elvs_daisy_hair | 6,639 | long and wavy; elementalist |
+| CC-BY (Elvaerwyn) | elvs_ashley_may_hair | 8,467 | long and full; archer, decimate to 8k |
+| CC-BY (Elvaerwyn) | elvs_wavy_bob | 4,288 | |
+| CC-BY (Elvaerwyn) | elvs_inverted_curly_bob | 2,980 | |
+| CC BY 4.0 (04saken) | o4saken_curly01 | 120k | needs heavy decimation |
+| CC0 | MakeHuman system hair: afro01, bob01, bob02, braid01, long01, ponytail01, short01–04 | | |
+| CC0 (MRT) | toigo bobs | | |
+| CC0 (cortu) | cortu_strawberry_cloud_hair | | |
+
+**Attribution required for what ships now:** "Hair: 'Keylth' by Elvaerwyn, MakeHuman Community asset repository, CC-BY."
