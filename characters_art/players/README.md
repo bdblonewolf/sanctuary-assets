@@ -209,3 +209,67 @@ This pass responds to Brian's review: the top of the head looked the same on eve
 - Archer hair is less wild/curly than the ref.
 - Warrior hair is shorter than the ref's collar-length curls. The projection leaves a greenish stubble tint and a faint jaw seam.
 - The landmark metrics (MediaPipe on renders) now respond more to the projected textures than to the small geometry moves, so see the report table before trusting single ±5 % numbers.
+
+## Pass 4: real curly hair, face fixes, plain-shaded metrics (2026-11-03)
+
+### Hair sources
+The procedural card hair is gone for three classes. Each one now uses a MakeHuman community strand-tube hair, fitted to the hm08 body through its `.mhclo` refs. The files are unmodified in `/workspace/free_packs/mh_hair03/`, with a SOURCE.txt.
+
+| Class | Asset | Author | Pack / licence | Tris (budget) |
+|---|---|---|---|---|
+| archer | `punkduck_alpha7_curly` (node/480) | MakeHuman team; MH 1.1 adaptation by punkduck | MakeHuman Community hair03, **CC-BY** | 7 524 (≤ 8k), one ring in three collapsed |
+| elementalist | `punkduck_alpha7_curly2` (node/477) | MakeHuman team; MH 1.1 adaptation by punkduck | hair03, **CC-BY** | 6 026 (≤ 8k) |
+| warrior | `punkduck_alpha7_curly2`, cut to collar length | as above | hair03, **CC-BY** | 5 972 (≤ 6k), one inner strand dropped |
+| necromancer | pass-3 flow hair (own), with a taller crown | — | — | 5 768 (≤ 6k), piercings 440 |
+
+**Licence note.** The pack is distributed as CC-BY (`hair03_ccby.zip`). The asset JSON says the original licence "was GPL but author was set to unknown", so it is treated as CC-BY by the MakeHuman team. The `.mhclo` headers say "AGPL3", which is the MakeHuman exporter's boilerplate line. **Credit:** "Hair: alpha7 curly / curly2 by the MakeHuman team, adapted by punkduck, MakeHuman Community asset repository, CC-BY."
+
+### Processing (tools in `work/faces/tools/hair4.py`)
+- **Fitting and colour.** Each hair is fitted with the `.mhclo` offsets (×0.6 for curly2, which lowers its tall crown) and skinned from the nearest body skin weights to the 52-bone rig. It is recoloured per class: archer blue-black, elementalist deep red, warrior dark brown. A scalp-coloured hair base is painted under each hairline.
+- **Warrior:** the length is compressed smoothly to collar length, with the curls pulled in toward the neck.
+- **Warrior and elementalist:** strands hanging in front of the face are swept out to the sides and back.
+
+### Face fixes
+- **Elementalist:** the red scalp streaks, temple edge and cheek streaks are reduced. The photo weight is blurred and the photo luminance is hue-locked to the skin hue.
+- **Archer:**
+  - The upper lip is fuller.
+  - The dark forehead band is gone, now that the old cap hair has been replaced.
+- **Warrior:** the green stubble tint and the jaw seam are removed, using hue-lock 0.75 and a blurred photo mask.
+- **Necromancer:** the crown flow layers are 1.8× taller and lifted 3 mm.
+
+### Integrity
+- Body vertex count and order, indices, JOINTS/WEIGHTS, UVs, 52 joints, IBMs and the skin/linen/eye primitive order are unchanged.
+- Each hair is still a separate skinned GLB.
+- **Mobile files:** textures are WebP ≤ 1024, there is no meshopt or Draco, and the extensions are `EXT_texture_webp` and `KHR_materials_specular` only.
+- Masters are in `masters/`.
+
+### Clipping (rest + idle, run, ss_attack_heavy, bow_draw, magic_cast; 3 mm threshold)
+**Correction.** The pass 2 and pass 3 hair numbers (≤ 1 vert) were wrong. The checker picked a 42-vert helper mesh instead of the hair mesh. That is fixed, and both passes were re-measured.
+
+Maximum verts over all poses:
+
+| Class | Hair verts | Hair in body (pass 3 → 4) | Hair in plate (pass 3 → 4) | Head out of helm (open face) |
+|---|---|---|---|---|
+| archer | 4 856 | 35 → 5 | 261 → 346 | 245 (= pass 3) |
+| elementalist | 4 068 | 44 → 27 | 248 → 462 | 241 (= pass 3) |
+| necromancer | 5 751 | 78 → 78 | 263 → 254 | 133 (= pass 3) |
+| warrior | 4 028 | 80 → 51 | 43 → 419 | 229 (= pass 3) |
+
+- Piercings: in the body 2 (as at rest), in the plate 27.
+- **Hair in body:** all clipping is pose-only, where shoulder/neck motion pushes into the hair ends. Rest is 0–3.
+- **Hair in plate:** this is hair resting on the shoulder plates. It is hidden only when the helm is worn (`player_<class>_hair` hidden with the helm, as before). If the plate can be worn without the helm, the long hair needs an armour-on variant or a shoulder-region cut.
+
+### Metrics
+Metrics come from MediaPipe on **plain-shaded untextured** renders (`PLAIN=1`: grey skin, flat dark hair alpha, iris kept). See `work/faces/meas/table_v4.md`. Brow metrics read low in plain mode on every pass, because the brows are mostly texture.
+
+### Renders
+- `renders/heads/heads_sheet_v4.png` (also `heads_sheet.png`): ref, front, 3/4, side and back.
+- `renders/heads/heads_before_after_v4.png` (also `heads_before_after.png`): pass 3 (e1aec46) versus pass 4.
+- Bare renders, per-class sheets and the lineup were regenerated.
+
+### Known gaps
+- curly2 keeps a slightly peaked, hood-like outline above the crown for the elementalist and warrior.
+- The warrior is centre-parted rather than side-swept, and the hair is a little straighter and heavier than the ref's tight curls.
+- The elementalist red is darker and browner on the front-lit side than the ref's crimson.
+- The necromancer's crown still reads as flat or painted in the side view.
+- Archer lip_up is still about −12 %.
