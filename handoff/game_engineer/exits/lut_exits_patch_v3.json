@@ -1,0 +1,57 @@
+{
+ "patch_id": "exits_v3_lut",
+ "target_world": "lut",
+ "name": "Qadren",
+ "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x + exits_final) on the generated lut world, after the scene is built and before it is cached. Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final. Idempotent (world.exitsPatch marker).",
+ "schema": "live generated world object (sc(zone) in the routes bundle): w,h, tiles[] (row-major, i=y*w+x, enum Grass0 Grass2 1 Dirt2 Sand3 Sand2 4 Stone5 Road6 Plaza7 Water8 Bridge9 Plank10 Wall11 Cave12 Rug13 Blood14), solid[] (0/1), exits[{x,y,to,sx,sy}], props[{kind,x,y,style?,w?,...}]. tiles_set/solid_set rows = [x,y,old,new]: apply only if the current value == old (else warn and skip).",
+ "match_rule": "exits by \"to\"",
+ "exits_set": [
+  {
+   "match": {
+    "to": "desert"
+   },
+   "old": {
+    "x": 14.2,
+    "y": 22.4,
+    "sx": 26.2,
+    "sy": 8.2
+   },
+   "new": {
+    "x": 14.2,
+    "y": 22.4,
+    "sx": 27.4,
+    "sy": 3.4
+   },
+   "why": "desert moved its lut exit to (27.4,0.6); arrivals from here now land just inside it at (27.4,3.4). This zone's own exit tile, tiles and props are unchanged."
+  }
+ ],
+ "tiles_set": [],
+ "solid_set": [],
+ "props_move": [],
+ "props_add": [],
+ "replaces": "exits_v2_lut",
+ "exits_final": [
+  {
+   "to": "desert",
+   "x": 14.2,
+   "y": 22.4,
+   "sx": 8.6,
+   "sy": 3.4,
+   "edge": "S",
+   "was": {
+    "x": 14.2,
+    "y": 22.4,
+    "sx": 27.4,
+    "sy": 3.4,
+    "edge": "S"
+   }
+  }
+ ],
+ "why_v3": "Same as exits_v2_lut except the arrival: the desert is mirrored, so leaving Qadren's S gate lands just inside the desert's N-edge cut at (8.6,3.4).",
+ "chart": {
+  "rule": "in-game chart (Od/cardinalExits: nearest edge of the exit, no rotation) places the target on the side the exit is on",
+  "exits": {
+   "desert": "S"
+  }
+ }
+}

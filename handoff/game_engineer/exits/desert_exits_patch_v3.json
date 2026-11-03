@@ -1,0 +1,391 @@
+{
+ "patch_id": "exits_v3_desert",
+ "target_world": "desert",
+ "name": "Desert",
+ "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x + exits_final) on the generated desert world, after the scene is built and before it is cached. Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final. Idempotent (world.exitsPatch marker).",
+ "schema": "live generated world object (sc(zone) in the routes bundle): w,h, tiles[] (row-major, i=y*w+x, enum Grass0 Grass2 1 Dirt2 Sand3 Sand2 4 Stone5 Road6 Plaza7 Water8 Bridge9 Plank10 Wall11 Cave12 Rug13 Blood14), solid[] (0/1), exits[{x,y,to,sx,sy}], props[{kind,x,y,style?,w?,...}]. tiles_set/solid_set rows = [x,y,old,new]: apply only if the current value == old (else warn and skip).",
+ "match_rule": "exits by \"to\"; props by {kind,x,y[,style]} with |dx|,|dy|<0.01; tiles/solid by [x,y] with old-value check",
+ "exits_set": [
+  {
+   "match": {
+    "to": "lut"
+   },
+   "old": {
+    "x": 27.4,
+    "y": 5.6
+   },
+   "new": {
+    "x": 27.4,
+    "y": 0.6
+   },
+   "sx_sy": "unchanged (14,18.5)",
+   "edge": "N",
+   "why": "P2: Qadren (lut) is laid flush NORTH of the desert basin (t=0.761). The old trigger sat 5 tiles inside the north wall; the road now runs through a real cut in the ridge to the N edge so the seam lines up and the walk reads as leaving the basin."
+  }
+ ],
+ "partner_arrival_in_this_zone": {
+  "x": 27.4,
+  "y": 3.4
+ },
+ "tiles_set": [
+  [
+   26,
+   0,
+   4,
+   6
+  ],
+  [
+   27,
+   0,
+   4,
+   6
+  ],
+  [
+   28,
+   0,
+   4,
+   6
+  ],
+  [
+   26,
+   1,
+   4,
+   6
+  ],
+  [
+   27,
+   1,
+   4,
+   6
+  ],
+  [
+   28,
+   1,
+   4,
+   6
+  ],
+  [
+   27,
+   2,
+   5,
+   6
+  ],
+  [
+   28,
+   2,
+   5,
+   6
+  ],
+  [
+   27,
+   3,
+   5,
+   6
+  ],
+  [
+   28,
+   3,
+   5,
+   6
+  ],
+  [
+   27,
+   4,
+   4,
+   6
+  ],
+  [
+   28,
+   4,
+   4,
+   6
+  ],
+  [
+   29,
+   6,
+   4,
+   6
+  ]
+ ],
+ "solid_set": [
+  [
+   26,
+   0,
+   1,
+   0
+  ],
+  [
+   27,
+   0,
+   1,
+   0
+  ],
+  [
+   28,
+   0,
+   1,
+   0
+  ],
+  [
+   26,
+   1,
+   1,
+   0
+  ],
+  [
+   27,
+   1,
+   1,
+   0
+  ],
+  [
+   28,
+   1,
+   1,
+   0
+  ],
+  [
+   27,
+   2,
+   1,
+   0
+  ],
+  [
+   28,
+   2,
+   1,
+   0
+  ],
+  [
+   27,
+   3,
+   1,
+   0
+  ],
+  [
+   28,
+   3,
+   1,
+   0
+  ],
+  [
+   28,
+   4,
+   1,
+   0
+  ]
+ ],
+ "props_move": [
+  {
+   "match": {
+    "kind": "arch",
+    "x": 27.2,
+    "y": 6.2
+   },
+   "to": {
+    "x": 27.4,
+    "y": 0.6
+   },
+   "why": "arch follows its exit"
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 28.4482,
+    "y": 2.5518
+   },
+   "to": {
+    "x": 29.45,
+    "y": 1.55
+   },
+   "why": "stood in the new exit gap/road; moved onto the edge ring"
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 28.6,
+    "y": 4.4
+   },
+   "to": {
+    "x": 30.6,
+    "y": 1.4
+   },
+   "why": "stood in the new exit gap/road; moved onto the edge ring"
+  }
+ ],
+ "props_add": [],
+ "road_path": {
+  "to": "lut",
+  "centerline": [
+   [
+    28,
+    0
+   ],
+   [
+    28,
+    1
+   ],
+   [
+    28,
+    2
+   ],
+   [
+    28,
+    3
+   ],
+   [
+    28,
+    4
+   ],
+   [
+    28,
+    5
+   ]
+  ],
+  "gap": [
+   [
+    26,
+    0
+   ],
+   [
+    26,
+    1
+   ],
+   [
+    27,
+    0
+   ],
+   [
+    27,
+    1
+   ],
+   [
+    27,
+    2
+   ],
+   [
+    27,
+    3
+   ],
+   [
+    28,
+    0
+   ],
+   [
+    28,
+    1
+   ],
+   [
+    28,
+    2
+   ],
+   [
+    28,
+    3
+   ],
+   [
+    28,
+    4
+   ]
+  ],
+  "old_gap_closed": [],
+  "road_tiles": 17,
+  "pruned_stub_tiles": 0
+ },
+ "tile_names": {
+  "0": "Grass",
+  "1": "Grass2",
+  "2": "Dirt",
+  "3": "Sand",
+  "4": "Sand2",
+  "5": "Stone",
+  "6": "Road",
+  "7": "Plaza",
+  "8": "Water",
+  "9": "Bridge",
+  "10": "Plank",
+  "11": "Wall",
+  "12": "Cave",
+  "13": "Rug",
+  "14": "Blood"
+ },
+ "checks": {
+  "before": {
+   "exits": {
+    "duneW": true,
+    "lut": true
+   },
+   "npcs": {},
+   "key_props": 6,
+   "key_total": 6,
+   "area_m2": 519.1
+  },
+  "after": {
+   "exits": {
+    "duneW": true,
+    "lut": true
+   },
+   "npcs": {},
+   "key_props": 6,
+   "key_total": 6,
+   "area_m2": 529.2
+  },
+  "new_road_tiles": 13,
+  "road_tiles_blocked_by_prop_or_solid": [],
+  "road_tiles_unreachable": [],
+  "partner_arrival": {
+   "pt": [
+    27.4,
+    3.4
+   ],
+   "blocked": false,
+   "reachable": true
+  }
+ },
+ "replaces": "exits_v2_desert",
+ "mirror_x": {
+  "expect_w": 36,
+  "expect_h": 30,
+  "rule": "x -> w - x for every point (props, npcs, spawn, lights, nests, exits ...); tile rows reversed; face-e <-> face-w; rotY -> -rotY"
+ },
+ "exits_final": [
+  {
+   "to": "duneW",
+   "x": 34.8,
+   "y": 14.2,
+   "sx": 3.8,
+   "sy": 8.4,
+   "edge": "E",
+   "was": {
+    "x": 1.2,
+    "y": 14.2,
+    "sx": 24.2,
+    "sy": 8.4,
+    "edge": "W"
+   }
+  },
+  {
+   "to": "lut",
+   "x": 8.6,
+   "y": 0.6,
+   "sx": 14,
+   "sy": 18.5,
+   "edge": "N",
+   "was": {
+    "x": 27.4,
+    "y": 0.6,
+    "sx": 14,
+    "sy": 18.5,
+    "edge": "N"
+   }
+  }
+ ],
+ "why_v3": "v2 ops (lut road cut through the N ridge) then mirrored left<->right. The Narrow (duneW) is EAST of here (exit E edge (34.8,14.2)); Qadren (lut) stays NORTH (exit N edge, now (8.6,0.6)). Lut is not mirrored: its S gate already faces the desert.",
+ "chart": {
+  "rule": "in-game chart (Od/cardinalExits: nearest edge of the exit, no rotation) places the target on the side the exit is on",
+  "exits": {
+   "duneW": "E",
+   "lut": "N"
+  }
+ }
+}

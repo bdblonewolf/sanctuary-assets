@@ -1,0 +1,58 @@
+{
+ "patch_id": "exits_v3_duneW",
+ "target_world": "duneW",
+ "name": "The Narrow",
+ "schema": "live generated world object (sc(zone) in the routes bundle): w,h, tiles[] (row-major, i=y*w+x, enum Grass0 Grass2 1 Dirt2 Sand3 Sand2 4 Stone5 Road6 Plaza7 Water8 Bridge9 Plank10 Wall11 Cave12 Rug13 Blood14), solid[] (0/1), exits[{x,y,to,sx,sy}], props[{kind,x,y,style?,w?,...}]. tiles_set/solid_set rows = [x,y,old,new]: apply only if the current value == old (else warn and skip).",
+ "tiles_set": [],
+ "solid_set": [],
+ "props_move": [],
+ "props_add": [],
+ "exits_set": [],
+ "replaces": "none (no v2 patch for this zone)",
+ "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x + exits_final) on the generated duneW world, after the scene is built and before it is cached. Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final. Idempotent (world.exitsPatch marker).",
+ "mirror_x": {
+  "expect_w": 28,
+  "expect_h": 16,
+  "rule": "x -> w - x for every point (props, npcs, spawn, lights, nests, exits ...); tile rows reversed; face-e <-> face-w; rotY -> -rotY"
+ },
+ "exits_final": [
+  {
+   "to": "briarE",
+   "x": 26.8,
+   "y": 8.2,
+   "sx": 5.5,
+   "sy": 20.2,
+   "edge": "E",
+   "was": {
+    "x": 1.2,
+    "y": 8.2,
+    "sx": 46.5,
+    "sy": 20.2,
+    "edge": "W"
+   }
+  },
+  {
+   "to": "desert",
+   "x": 1.8,
+   "y": 8.2,
+   "sx": 31.8,
+   "sy": 14.2,
+   "edge": "W",
+   "was": {
+    "x": 26.2,
+    "y": 8.2,
+    "sx": 4.2,
+    "sy": 14.2,
+    "edge": "E"
+   }
+  }
+ ],
+ "why_v3": "Mirrored left<->right. Briarwood East is EAST of here (exit E edge (26.8,8.2)); the desert is WEST (exit W edge (1.8,8.2)). Arches, shrine and dunes follow.",
+ "chart": {
+  "rule": "in-game chart (Od/cardinalExits: nearest edge of the exit, no rotation) places the target on the side the exit is on",
+  "exits": {
+   "briarE": "E",
+   "desert": "W"
+  }
+ }
+}

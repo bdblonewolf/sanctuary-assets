@@ -26,7 +26,35 @@ function applyExitsPatch(world, patch) {
     for (const k in m.to) p[k] = m.to[k];
   }
   for (const a of patch.props_add || []) props.push(Object.assign({}, a));
+  // exits_v3: mirror the whole zone left<->right (x -> w - x), then set the final exits. Used for the west-road
+  // wilderness zones (briarE, duneW, desert) so the in-game chart (unrotated, north up) reads wild <- briarE <- duneW <- desert.
+  if (patch.mirror_x) mirrorX(world, patch.mirror_x);
+  for (const s of patch.exits_final || []) {
+    const e = (world.exits || []).find(q => q.to === s.to); if (!e) { console.warn('[exits] no exit', s.to); continue; }
+    for (const k of ['x', 'y', 'sx', 'sy']) if (s[k] !== undefined) e[k] = s[k];
+  }
   world.exitsPatch = patch.patch_id;
   return world;
 }
-if (typeof module !== 'undefined') module.exports = { applyExitsPatch };
+// Mirror a generated world left<->right in place. Tiles/solid and any other per-tile array (length w*h) have each row
+// reversed; every point-like object (has numeric x and y) found directly on the world or in a top-level array
+// (props, npcs, spawn, lights, nests, spawns, loreSpots, ...) gets x -> w - x (homeX too), rotY -> -rotY and
+// face-e <-> face-w. exits get x -> w - x; their sx/sy point into OTHER zones and are set by exits_final.
+function mirrorX(world, opt) {
+  const w = world.w, h = world.h, N = w * h, done = new Set();
+  if (opt && opt.expect_w && (opt.expect_w !== w || opt.expect_h !== h)) { console.warn('[exits] mirror size mismatch', w, h); return; }
+  const pt = o => {
+    if (!o || typeof o !== 'object' || done.has(o) || typeof o.x !== 'number' || typeof o.y !== 'number') return; done.add(o);
+    o.x = +(w - o.x).toFixed(4); if (typeof o.homeX === 'number') o.homeX = +(w - o.homeX).toFixed(4);
+    if (typeof o.rotY === 'number') o.rotY = -o.rotY;
+    if (o.style === 'face-e') o.style = 'face-w'; else if (o.style === 'face-w') o.style = 'face-e';
+  };
+  for (const k of Object.keys(world)) {
+    const v = world[k];
+    if (k === 'exits') { for (const e of v || []) { e.x = +(w - e.x).toFixed(4); done.add(e); } continue; }
+    if ((Array.isArray(v) || ArrayBuffer.isView(v)) && v.length === N && (typeof v[0] === 'number' || typeof v[0] === 'boolean')) {
+      for (let y = 0; y < h; y++) for (let a = y * w, b = a + w - 1; a < b; a++, b--) { const t = v[a]; v[a] = v[b]; v[b] = t; }
+    } else if (Array.isArray(v)) v.forEach(pt); else pt(v);
+  }
+}
+if (typeof module !== 'undefined') module.exports = { applyExitsPatch, mirrorX };

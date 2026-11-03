@@ -1,0 +1,144 @@
+{
+ "note": "exits_v3 continent check: gen_layout_v3 on worlds_v3 (briarE, duneW, desert mirrored). Same algorithm as v2. HOLD plan file itself is NOT rewritten.",
+ "west_road": "Plan and game now agree: Martsirt -> wild -> (wild W edge) -> briarE -> duneW -> desert, each WEST of the last, all rot 0 (v2 needed rot 2 = 180deg, which the game cannot represent).",
+ "qadren_branch_divergence": "lut, market, waste are towns and were NOT changed. Their live exits run lut E-> market E-> waste, so with the west road un-rotated the branch now runs EAST from lut, back over the west road. The HOLD plan (rot 2) had it running WEST. At later-grid sizes this gives the overlaps below. In-game chart is fine (row above the west road, no bump). Resolving it is a plan decision: (a) re-place the HOLD plan nodes (n_*) / pull the branch north, or (b) move lut/market/waste exits to the W side (contradicts Hesta: \"East of the lamps, the Barrens begin\"). Not done here.",
+ "overlaps": [
+  [
+   "briarE",
+   "waste",
+   4694
+  ],
+  [
+   "duneW",
+   "n_ashcamp",
+   14635
+  ],
+  [
+   "desert",
+   "market",
+   4309
+  ],
+  [
+   "desert",
+   "n_ashcamp",
+   34770
+  ],
+  [
+   "lut",
+   "n_oasis",
+   4956
+  ],
+  [
+   "market",
+   "n_oasis",
+   9393
+  ],
+  [
+   "waste",
+   "n_manor_briar",
+   38152
+  ]
+ ],
+ "zones_moved": {
+  "briarE": {
+   "shift_m_rel_martsirt": [
+    0.0,
+    -2.7
+   ],
+   "rot": [
+    2,
+    0
+   ]
+  },
+  "duneW": {
+   "shift_m_rel_martsirt": [
+    0.0,
+    -3.1
+   ],
+   "rot": [
+    2,
+    0
+   ]
+  },
+  "desert": {
+   "shift_m_rel_martsirt": [
+    0.0,
+    20.2
+   ],
+   "rot": [
+    2,
+    0
+   ]
+  },
+  "lut": {
+   "shift_m_rel_martsirt": [
+    12.8,
+    -579.8
+   ],
+   "rot": [
+    2,
+    0
+   ]
+  },
+  "market": {
+   "shift_m_rel_martsirt": [
+    572.8,
+    -571.4
+   ],
+   "rot": [
+    2,
+    0
+   ]
+  },
+  "waste": {
+   "shift_m_rel_martsirt": [
+    1292.8,
+    -589.3
+   ],
+   "rot": [
+    2,
+    0
+   ]
+  },
+  "n_manor_briar": {
+   "shift_m_rel_martsirt": [
+    0.0,
+    -2.7
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_burn": {
+   "shift_m_rel_martsirt": [
+    1292.8,
+    -589.3
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_ashcamp": {
+   "shift_m_rel_martsirt": [
+    572.8,
+    -571.4
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_oasis": {
+   "shift_m_rel_martsirt": [
+    0.0,
+    20.2
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  }
+ }
+}

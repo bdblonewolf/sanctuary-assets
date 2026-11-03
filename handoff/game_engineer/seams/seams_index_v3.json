@@ -1,0 +1,395 @@
+[
+ {
+  "file": "ascent__crypts.json",
+  "a": "ascent",
+  "b": "crypts",
+  "edges": "W|E",
+  "rot": 0,
+  "off_a": 16.6,
+  "off_b": 14.2,
+  "h": [
+   49.5,
+   49.5
+  ],
+  "into_a": 5,
+  "into_b": 49,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  }
+ },
+ {
+  "file": "ascent__iron.json",
+  "a": "ascent",
+  "b": "iron",
+  "edges": "E|W",
+  "rot": 0,
+  "off_a": 13.4,
+  "off_b": 11.8,
+  "h": [
+   56.0,
+   56.0
+  ],
+  "into_a": 36,
+  "into_b": 37,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  }
+ },
+ {
+  "file": "ascent__ridge.json",
+  "a": "ridge",
+  "b": "ascent",
+  "edges": "N|S",
+  "rot": 0,
+  "off_a": 24.4,
+  "off_b": 15.8,
+  "h": [
+   45.0,
+   45.0
+  ],
+  "into_a": 23,
+  "into_b": 28,
+  "offset_exits": {
+   "a": true,
+   "b": false
+  }
+ },
+ {
+  "file": "bastion__bluffs.json",
+  "a": "bastion",
+  "b": "bluffs",
+  "edges": "N|S",
+  "rot": 0,
+  "off_a": 16.2,
+  "off_b": 26.8,
+  "h": [
+   12.5,
+   12.5
+  ],
+  "into_a": 17,
+  "into_b": 64,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  }
+ },
+ {
+  "file": "bastion__coast_v2.json",
+  "a": "coast",
+  "b": "bastion",
+  "edges": "E|S",
+  "rot": 90,
+  "off_a": 14.2,
+  "off_b": 17.8,
+  "h": [
+   0.0,
+   0.0
+  ],
+  "into_a": 68,
+  "into_b": 39,
+  "offset_exits": {
+   "a": true,
+   "b": false
+  },
+  "exits_v2": "regenerated"
+ },
+ {
+  "file": "bluffs__mires.json",
+  "a": "bluffs",
+  "b": "mires",
+  "edges": "N|S",
+  "rot": 0,
+  "off_a": 30.4,
+  "off_b": 19.8,
+  "h": [
+   21.0,
+   21.0
+  ],
+  "into_a": 5,
+  "into_b": 19,
+  "offset_exits": {
+   "a": true,
+   "b": false
+  }
+ },
+ {
+  "file": "briarE__duneW_v3.json",
+  "a": "briarE",
+  "b": "duneW",
+  "edges": "W|E",
+  "rot": 0,
+  "off_a": 19.8,
+  "off_b": 8.2,
+  "h": [
+   9.0,
+   9.0
+  ],
+  "into_a": 29,
+  "into_b": 42,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  },
+  "exits_v3": "regenerated (mirror)"
+ },
+ {
+  "file": "briarE__wild_v3.json",
+  "a": "wild",
+  "b": "briarE",
+  "edges": "W|E",
+  "rot": 0,
+  "off_a": 28.5,
+  "off_b": 20.2,
+  "h": [
+   9.0,
+   9.0
+  ],
+  "into_a": 37,
+  "into_b": 17,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  },
+  "exits_v3": "regenerated (mirror)"
+ },
+ {
+  "file": "chasm__crypts.json",
+  "a": "crypts",
+  "b": "chasm",
+  "edges": "N|S",
+  "rot": 0,
+  "off_a": 16.2,
+  "off_b": 12.8,
+  "h": [
+   41.5,
+   41.5
+  ],
+  "into_a": 2,
+  "into_b": 4,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  }
+ },
+ {
+  "file": "coast__flotsam.json",
+  "a": "coast",
+  "b": "flotsam",
+  "kind": "interior_exit"
+ },
+ {
+  "file": "coast__martsirt_v2.json",
+  "a": "town",
+  "b": "coast",
+  "edges": "S|N",
+  "rot": 0,
+  "off_a": 112.4,
+  "off_b": 12.5,
+  "h": [
+   0.0,
+   0.0
+  ],
+  "into_a": 28,
+  "into_b": 9,
+  "offset_exits": {
+   "a": true,
+   "b": true
+  },
+  "exits_v2": "regenerated"
+ },
+ {
+  "file": "desert__duneW_v3.json",
+  "a": "duneW",
+  "b": "desert",
+  "edges": "W|E",
+  "rot": 0,
+  "off_a": 7.8,
+  "off_b": 14.2,
+  "h": [
+   3.75,
+   3.75
+  ],
+  "into_a": 65,
+  "into_b": 33,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  },
+  "exits_v3": "regenerated (mirror)"
+ },
+ {
+  "file": "desert__lut_v3.json",
+  "a": "desert",
+  "b": "lut",
+  "edges": "N|S",
+  "rot": 0,
+  "off_a": 8.6,
+  "off_b": 15.8,
+  "h": [
+   1.75,
+   1.75
+  ],
+  "into_a": 46,
+  "into_b": 31,
+  "offset_exits": {
+   "a": true,
+   "b": false
+  },
+  "exits_v3": "regenerated (mirror)"
+ },
+ {
+  "file": "flotsam__hollow.json",
+  "a": "flotsam",
+  "b": "hollow",
+  "edges": "S|N",
+  "rot": 0,
+  "off_a": 17.8,
+  "off_b": 13.2,
+  "h": [
+   0.5,
+   0.5
+  ],
+  "into_a": 9,
+  "into_b": 48,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  }
+ },
+ {
+  "file": "gaol__iron.json",
+  "a": "iron",
+  "b": "gaol",
+  "edges": "E|S",
+  "rot": 90,
+  "off_a": 12.2,
+  "off_b": 15.8,
+  "h": [
+   63.5,
+   63.5
+  ],
+  "into_a": 4,
+  "into_b": 28,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  }
+ },
+ {
+  "file": "gaol__weald.json",
+  "a": "gaol",
+  "b": "weald",
+  "edges": "N|S",
+  "rot": 0,
+  "off_a": 16.2,
+  "off_b": 21.8,
+  "h": [
+   69.5,
+   69.5
+  ],
+  "into_a": 44,
+  "into_b": 5,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  }
+ },
+ {
+  "file": "lut__market.json",
+  "a": "lut",
+  "b": "market",
+  "edges": "E|W",
+  "rot": 0,
+  "off_a": 12.6,
+  "off_b": 19.8,
+  "h": [
+   2.25,
+   2.25
+  ],
+  "into_a": 56,
+  "into_b": 32,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  }
+ },
+ {
+  "file": "market__waste.json",
+  "a": "market",
+  "b": "waste",
+  "edges": "E|W",
+  "rot": 0,
+  "off_a": 20.2,
+  "off_b": 19.8,
+  "h": [
+   4.75,
+   4.75
+  ],
+  "into_a": 37,
+  "into_b": 28,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  }
+ },
+ {
+  "file": "mires__ridge.json",
+  "a": "mires",
+  "b": "ridge",
+  "edges": "N|S",
+  "rot": 0,
+  "off_a": 34.2,
+  "off_b": 19.6,
+  "h": [
+   31.5,
+   31.5
+  ],
+  "into_a": 27,
+  "into_b": 6,
+  "offset_exits": {
+   "a": true,
+   "b": true
+  }
+ },
+ {
+  "file": "mires__sink_v2.json",
+  "a": "mires",
+  "b": "sink",
+  "edges": "W|S",
+  "rot": 270,
+  "off_a": 18.5,
+  "off_b": 13.8,
+  "h": [
+   22.0,
+   22.0
+  ],
+  "into_a": 6,
+  "into_b": 10,
+  "offset_exits": {
+   "a": false,
+   "b": false
+  },
+  "exits_v2": "regenerated"
+ },
+ {
+  "file": "martsirt__wild.json",
+  "a": "town",
+  "b": "wild",
+  "edges": "N|S",
+  "rot": 0,
+  "off_a": 76.2,
+  "off_b": 36.5,
+  "h": [
+   0.0,
+   0.0
+  ],
+  "into_a": 78,
+  "into_b": 7,
+  "offset_exits": {
+   "a": true,
+   "b": false
+  }
+ }
+]

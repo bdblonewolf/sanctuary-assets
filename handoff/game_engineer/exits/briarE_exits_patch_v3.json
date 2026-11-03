@@ -1,0 +1,59 @@
+{
+ "patch_id": "exits_v3_briarE",
+ "target_world": "briarE",
+ "name": "Briarwood East",
+ "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js (v3: supports mirror_x + exits_final) on the generated briarE world, after the scene is built and before it is cached. Use INSTEAD of the v2 patch for this zone (v3 contains the v2 ops). Order inside the function: tiles_set, solid_set, exits_set, props_move, props_add (all in the original unmirrored frame), then mirror_x, then exits_final. Idempotent (world.exitsPatch marker).",
+ "schema": "live generated world object (sc(zone) in the routes bundle): w,h, tiles[] (row-major, i=y*w+x, enum Grass0 Grass2 1 Dirt2 Sand3 Sand2 4 Stone5 Road6 Plaza7 Water8 Bridge9 Plank10 Wall11 Cave12 Rug13 Blood14), solid[] (0/1), exits[{x,y,to,sx,sy}], props[{kind,x,y,style?,w?,...}]. tiles_set/solid_set rows = [x,y,old,new]: apply only if the current value == old (else warn and skip).",
+ "match_rule": "exits by \"to\"",
+ "exits_set": [],
+ "tiles_set": [],
+ "solid_set": [],
+ "props_move": [],
+ "props_add": [],
+ "replaces": "exits_v2_briarE",
+ "mirror_x": {
+  "expect_w": 52,
+  "expect_h": 40,
+  "rule": "x -> w - x for every point (props, npcs, spawn, lights, nests, exits ...); tile rows reversed; face-e <-> face-w; rotY -> -rotY"
+ },
+ "exits_final": [
+  {
+   "to": "wild",
+   "x": 50.6,
+   "y": 20.2,
+   "sx": 3.4,
+   "sy": 27.5,
+   "edge": "E",
+   "was": {
+    "x": 1.4,
+    "y": 20.2,
+    "sx": 3.4,
+    "sy": 27.5,
+    "edge": "W"
+   }
+  },
+  {
+   "to": "duneW",
+   "x": 2.6,
+   "y": 20.2,
+   "sx": 25.4,
+   "sy": 8.2,
+   "edge": "W",
+   "was": {
+    "x": 49.4,
+    "y": 20.2,
+    "sx": 2.6,
+    "sy": 8.2,
+    "edge": "E"
+   }
+  }
+ ],
+ "why_v3": "Mirrored left<->right. Briarwood (wild) is EAST of here: the BRIARWOOD arch and the wild exit are now on the E edge (50.6,20.2), and you arrive from wild just inside it at (48.6,20.4). The Narrow (duneW) exit and its arch are on the W edge (2.6,20.2). The ridge road, trees, tomb and bonfire are the same layout, mirrored.",
+ "chart": {
+  "rule": "in-game chart (Od/cardinalExits: nearest edge of the exit, no rotation) places the target on the side the exit is on",
+  "exits": {
+   "wild": "E",
+   "duneW": "W"
+  }
+ }
+}

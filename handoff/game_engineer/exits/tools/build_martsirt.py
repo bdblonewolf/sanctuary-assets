@@ -29,7 +29,7 @@ chk=checks()
 patch=dict(patch_id='exits_v2_martsirt',target_world='martsirt_world.json (Martsirt v2.2, 162x154, origin [81,76])',
  name='Martsirt: coast exit moves off the centre line to the SW trail',
  apply='Edit martsirt_world.json exits[to=coast] and arrive.coast as below; append roads_add to placements.json header.v2.roads; '
-       'add the road class to models/town/ground_v1/manifest.json road_classes; swap martsirt_splat.png for martsirt_splat_v2.png (same size/format, r channel = trail). '
+       'add the road class to models/town/ground_v1/manifest.json road_classes; swap models/town/ground_v1/martsirt_splat.png for handoff/game_engineer/exits/martsirt_splat_v2.png (same size/format, r channel = trail). '
        'Border: use borders/martsirt/layout_martsirt_v2.json (pass12 moved to the new exit). Seam: seams/coast__martsirt_v2.json. Idempotent: match exits by to=="coast".',
  schema='live martsirt_world.json exits:[{x,y,to,sx,sy,label}], arrive:{zone:[x,y]} (tile metres = town-local + origin)',
  requires=['coast_exits_patch.json (the coast side moves to x=12.5 on its N edge in the same release)'],
@@ -42,7 +42,7 @@ patch=dict(patch_id='exits_v2_martsirt',target_world='martsirt_world.json (Marts
  arrive_set=dict(coast=dict(old=M['arrive']['coast'],new=ARRIVE,why='arrive on the trail 4 m inside the exit, facing east along the palisade toward the gate (Ilyra stays at the gate, 84,136)')),
  roads_add=[road],
  manifest_road_classes_add={road['label']:['dirt trail',WIDTH]},
- splat=dict(file='exits/martsirt/martsirt_splat_v2.png',replaces='models/town/ground_v1/martsirt_splat.png',size_px=[Wp,Hp],changed_px=changed,
+ splat=dict(file='handoff/game_engineer/exits/martsirt_splat_v2.png',replaces='models/town/ground_v1/martsirt_splat.png',size_px=[Wp,Hp],changed_px=changed,
             rule='r = max(r, trail); g,b scaled down only where r+g+b>1; cobble (g>=0.5, the gate mouth) untouched'),
  solid_set=[],solid_note='trail runs on open ground; no solid or water bit changes',
  props_move=[],props_note='no placements move. dressLife gate camp (campfire 84.2,150.6, fence 86,150.8, crates/barrels) is east of the trail; nearest 3.6 m',
