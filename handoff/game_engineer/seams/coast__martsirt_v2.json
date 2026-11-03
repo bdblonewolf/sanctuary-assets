@@ -1,0 +1,563 @@
+{
+ "id": "coast__town",
+ "zone_a": {
+  "id": "town",
+  "name": "Martsirt",
+  "size": [
+   162,
+   154
+  ],
+  "edge": "S",
+  "exit_tile": [
+   49.6,
+   152.4
+  ],
+  "arrive": [
+   12.5,
+   4.0
+  ],
+  "offset_along_edge_m": 112.4,
+  "edge_len_m": 162
+ },
+ "zone_b": {
+  "id": "coast",
+  "name": "Ashen Coast",
+  "size": [
+   42,
+   112
+  ],
+  "edge": "N",
+  "exit_tile": [
+   12.5,
+   1.2
+  ],
+  "arrive": [
+   19.8,
+   31.6
+  ],
+  "offset_along_edge_m": 12.5,
+  "edge_len_m": 42
+ },
+ "transform": {
+  "b_to_a": {
+   "rot_deg": 0,
+   "formula": "pA = exitA + R(rot)(pB - exitB)"
+  },
+  "a_to_b": {
+   "rot_deg": 0,
+   "formula": "pB = exitB + R(rot)(pA - exitA)"
+  },
+  "orientation_mismatch": false,
+  "note": "opposite edges, pure translation"
+ },
+ "pass_span": {
+  "a": [
+   106.4,
+   118.4
+  ],
+  "b": [
+   6.5,
+   18.5
+  ],
+  "corridor_open_m": 6.0,
+  "rule": "ring skips this span on both sides; road corridor stays open"
+ },
+ "terrain": {
+  "seam_height_a": 0.0,
+  "seam_height_b": 0.0,
+  "consistent": true
+ },
+ "copy_into_a": {
+  "count": 28,
+  "dropped": {
+   "would_clip_inside": 35,
+   "pass_piece": 1,
+   "on_pass_corridor": 4,
+   "too_close_to_dst_prop": 2
+  },
+  "items": [
+   {
+    "src": "kit",
+    "id": "straight12_b",
+    "style": "sea",
+    "x": 37.1,
+    "y": 163.34,
+    "rotY": 1.5708,
+    "scaleX": 1.0115,
+    "src_xy": [
+     0.0,
+     12.14
+    ]
+   },
+   {
+    "src": "border_prop",
+    "id": "shore_rock",
+    "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+    "x": 31.15,
+    "y": 159.64,
+    "rotY": 4.0966,
+    "scale": 1.146,
+    "collider": "none (water tiles already solid)",
+    "src_xy": [
+     -5.95,
+     8.44
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tomb",
+    "x": 67.5,
+    "y": 161.4,
+    "style": null,
+    "src_xy": [
+     30.4,
+     10.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tomb",
+    "x": 69.3,
+    "y": 162.4,
+    "style": null,
+    "src_xy": [
+     32.2,
+     11.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "body",
+    "x": 66.3,
+    "y": 162.6,
+    "style": null,
+    "src_xy": [
+     29.2,
+     11.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 58.6,
+    "y": 167.7,
+    "style": null,
+    "src_xy": [
+     21.5,
+     16.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 60.6,
+    "y": 161.7,
+    "style": null,
+    "src_xy": [
+     23.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 70.6,
+    "y": 154.7,
+    "style": null,
+    "src_xy": [
+     33.5,
+     3.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 65.6,
+    "y": 167.7,
+    "style": null,
+    "src_xy": [
+     28.5,
+     16.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 54.6,
+    "y": 161.7,
+    "style": null,
+    "src_xy": [
+     17.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 64.6,
+    "y": 157.7,
+    "style": null,
+    "src_xy": [
+     27.5,
+     6.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 53.6,
+    "y": 161.7,
+    "style": null,
+    "src_xy": [
+     16.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 69.6,
+    "y": 157.7,
+    "style": null,
+    "src_xy": [
+     32.5,
+     6.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 55.15,
+    "y": 154.8,
+    "style": "dead",
+    "src_xy": [
+     18.05,
+     3.6
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 59.45,
+    "y": 154.8,
+    "style": "dead",
+    "src_xy": [
+     22.35,
+     3.6
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 55.15,
+    "y": 157.0,
+    "style": "dead",
+    "src_xy": [
+     18.05,
+     5.8
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 59.45,
+    "y": 157.0,
+    "style": "dead",
+    "src_xy": [
+     22.35,
+     5.8
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 45.78,
+    "y": 154.52,
+    "style": "dead",
+    "src_xy": [
+     8.68,
+     3.32
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 67.69,
+    "y": 154.61,
+    "style": "dead",
+    "src_xy": [
+     30.59,
+     3.41
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 65.7,
+    "y": 155.6,
+    "style": "dead",
+    "src_xy": [
+     28.6,
+     4.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "folio",
+    "x": 55.5,
+    "y": 166.4,
+    "style": "gideon",
+    "src_xy": [
+     18.4,
+     15.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 35.75,
+    "y": 163.26,
+    "style": "bone",
+    "src_xy": [
+     -1.35,
+     12.06
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 34.52,
+    "y": 165.82,
+    "style": "bone",
+    "src_xy": [
+     -2.58,
+     14.62
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 58.6,
+    "y": 167.7,
+    "style": null,
+    "src_xy": [
+     21.5,
+     16.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 60.6,
+    "y": 161.7,
+    "style": null,
+    "src_xy": [
+     23.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 70.6,
+    "y": 154.7,
+    "style": null,
+    "src_xy": [
+     33.5,
+     3.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 54.6,
+    "y": 161.7,
+    "style": null,
+    "src_xy": [
+     17.5,
+     10.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rubble",
+    "x": 64.6,
+    "y": 157.7,
+    "style": null,
+    "src_xy": [
+     27.5,
+     6.5
+    ]
+   }
+  ]
+ },
+ "copy_into_b": {
+  "count": 9,
+  "dropped": {
+   "would_clip_inside": 5,
+   "pass_piece": 1,
+   "too_close_to_dst_prop": 2,
+   "on_pass_corridor": 2
+  },
+  "items": [
+   {
+    "src": "kit",
+    "id": "straight6",
+    "style": "town",
+    "x": -5.96,
+    "y": 2.8,
+    "rotY": 3.1416,
+    "scaleX": 1.0381,
+    "src_xy": [
+     31.14,
+     154.0
+    ]
+   },
+   {
+    "src": "border_prop",
+    "id": "tree_dead",
+    "asset": "models/outdoor/v5/plants/tree_dead_b_v5.glb",
+    "x": -7.42,
+    "y": 3.61,
+    "rotY": 3.2821,
+    "scale": 0.365,
+    "collider": "cyl r0.35",
+    "src_xy": [
+     29.68,
+     154.81
+    ]
+   },
+   {
+    "src": "border_prop",
+    "id": "grass",
+    "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+    "x": -3.87,
+    "y": 2.63,
+    "rotY": 0.9856,
+    "scale": 0.685,
+    "collider": "none (walkable)",
+    "src_xy": [
+     33.23,
+     153.83
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 33.97,
+    "y": -5.78,
+    "rotY": 3.029,
+    "kind": "prop",
+    "src_xy": [
+     71.07,
+     145.42
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 26.29,
+    "y": -7.0,
+    "rotY": 2.9403,
+    "kind": "prop",
+    "src_xy": [
+     63.39,
+     144.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 22.5,
+    "y": -7.86,
+    "rotY": 2.8955,
+    "kind": "prop",
+    "src_xy": [
+     59.6,
+     143.34
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 18.75,
+    "y": -8.89,
+    "rotY": 2.8504,
+    "kind": "prop",
+    "src_xy": [
+     55.85,
+     142.31
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 7.84,
+    "y": -13.0,
+    "rotY": 2.712,
+    "kind": "prop",
+    "src_xy": [
+     44.94,
+     138.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "seg_palisade_4m_shared",
+    "asset": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+    "x": 4.34,
+    "y": -14.7,
+    "rotY": 2.6647,
+    "kind": "prop",
+    "src_xy": [
+     41.44,
+     136.5
+    ]
+   }
+  ]
+ },
+ "exits_offset": {
+  "a": true,
+  "b": true
+ },
+ "kind": "edge_seam",
+ "exits_v2": {
+  "version": "exits_v2",
+  "source_owner_msg": "pt101u: exits/entrances can be anywhere; whatever is more natural and flowing",
+  "v1_file": "seams/coast__martsirt.json (kept, not overwritten)",
+  "v1_kind": "edge_seam",
+  "review": {
+   "town": {
+    "status": "moved",
+    "old_exit_tile": [
+     81,
+     152
+    ],
+    "new_exit_tile": [
+     49.6,
+     152.4
+    ],
+    "why": "S gate stays the way out; a 4 m dirt trail bears W under the palisade to the SW corner (49.6,152.4). Off-centre so the town road and the coast A0 path meet at the same t~0.30, and the S gate approach is no longer a straight shot down the middle."
+   },
+   "coast": {
+    "status": "moved",
+    "old_exit_tile": [
+     20.2,
+     1.2
+    ],
+    "new_exit_tile": [
+     12.5,
+     1.2
+    ],
+    "why": "Ashen A0 dirt path already climbs to the NW; the trigger now sits at its top (12.5,1.2) instead of a bare edge-centre stub."
+   }
+  },
+  "inputs": "worlds_v2 / world_extract_v2 / coast_world_after_v2 / martsirt_world_v2 / layout_{coast,martsirt}_v2 / terrain *_v2",
+  "apply": "inert until the matching handoff/game_engineer/exits/*_exits_patch.json is applied"
+ }
+}

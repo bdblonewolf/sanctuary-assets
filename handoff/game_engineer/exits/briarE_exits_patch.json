@@ -1,0 +1,32 @@
+{
+ "patch_id": "exits_v2_briarE",
+ "target_world": "briarE",
+ "name": "Briarwood East",
+ "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js on the generated briarE world, after the scene is built and before it is cached. Idempotent (world.exitsPatch marker).",
+ "schema": "live generated world object (sc(zone) in the routes bundle): w,h, tiles[] (row-major, i=y*w+x, enum Grass0 Grass2 1 Dirt2 Sand3 Sand2 4 Stone5 Road6 Plaza7 Water8 Bridge9 Plank10 Wall11 Cave12 Rug13 Blood14), solid[] (0/1), exits[{x,y,to,sx,sy}], props[{kind,x,y,style?,w?,...}]. tiles_set/solid_set rows = [x,y,old,new]: apply only if the current value == old (else warn and skip).",
+ "match_rule": "exits by \"to\"",
+ "exits_set": [
+  {
+   "match": {
+    "to": "wild"
+   },
+   "old": {
+    "x": 1.4,
+    "y": 20.2,
+    "sx": 67.6,
+    "sy": 27.2
+   },
+   "new": {
+    "x": 1.4,
+    "y": 20.2,
+    "sx": 3.4,
+    "sy": 27.5
+   },
+   "why": "wild moved its briarE exit to (0.6,27.5); arrivals from here now land just inside it at (3.4,27.5). This zone's own exit tile, tiles and props are unchanged."
+  }
+ ],
+ "tiles_set": [],
+ "solid_set": [],
+ "props_move": [],
+ "props_add": []
+}

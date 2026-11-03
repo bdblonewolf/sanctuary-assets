@@ -1,0 +1,748 @@
+{
+ "id": "briarE__wild",
+ "zone_a": {
+  "id": "wild",
+  "name": "Briarwood",
+  "size": [
+   72,
+   56
+  ],
+  "edge": "W",
+  "exit_tile": [
+   0.6,
+   27.5
+  ],
+  "arrive": [
+   3.4,
+   20.4
+  ],
+  "offset_along_edge_m": 28.5,
+  "edge_len_m": 56,
+  "proposed_offset_m": null,
+  "proposal_note": "SUPERSEDED by exits_v2 (pt101u): moved at this position on purpose - P1: The Narrow (briarE) lies WEST of Briarwood on the continent; the existing E-W highway on rows 26-28 now runs west over a 3-wide bridge causeway to the W edge. Near-centre is natural here: it is where the highway already is."
+ },
+ "zone_b": {
+  "id": "briarE",
+  "name": "Briarwood East",
+  "size": [
+   52,
+   40
+  ],
+  "edge": "W",
+  "exit_tile": [
+   1.4,
+   20.2
+  ],
+  "arrive": [
+   3.4,
+   27.5
+  ],
+  "offset_along_edge_m": 19.8,
+  "edge_len_m": 40,
+  "proposed_offset_m": null,
+  "proposal_note": "SUPERSEDED by exits_v2 (pt101u): kept at this position on purpose - briarE's W-edge exit (1.4,20.2) already sits where its ridge road starts and lines up with Briarwood's W exit under the 180 deg placement; only the arrival sx/sy changed (3.4,27.5)."
+ },
+ "transform": {
+  "b_to_a": {
+   "rot_deg": 180,
+   "formula": "pA = exitA + R(rot)(pB - exitB)"
+  },
+  "a_to_b": {
+   "rot_deg": 180,
+   "formula": "pB = exitB + R(rot)(pA - exitA)"
+  },
+  "orientation_mismatch": true,
+  "note": "edges are not opposite (W vs W): the copy is rotated 180 deg; continent layout places B rotated"
+ },
+ "pass_span": {
+  "a": [
+   22.5,
+   34.5
+  ],
+  "b": [
+   13.8,
+   25.8
+  ],
+  "corridor_open_m": 6.0,
+  "rule": "ring skips this span on both sides; road corridor stays open"
+ },
+ "terrain": {
+  "seam_height_a": 9.0,
+  "seam_height_b": 9.0,
+  "consistent": true
+ },
+ "copy_into_a": {
+  "count": 38,
+  "dropped": {
+   "would_clip_inside": 41,
+   "on_pass_corridor": 5,
+   "too_close_to_dst_prop": 3
+  },
+  "items": [
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -6.5,
+    "y": 22.2,
+    "style": null,
+    "src_xy": [
+     8.5,
+     25.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -7.5,
+    "y": 12.2,
+    "style": null,
+    "src_xy": [
+     9.5,
+     35.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -2.5,
+    "y": 9.2,
+    "style": null,
+    "src_xy": [
+     4.5,
+     38.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -5.5,
+    "y": 10.2,
+    "style": null,
+    "src_xy": [
+     7.5,
+     37.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -14.5,
+    "y": 39.2,
+    "style": null,
+    "src_xy": [
+     16.5,
+     8.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -3.5,
+    "y": 33.2,
+    "style": null,
+    "src_xy": [
+     5.5,
+     14.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -8.5,
+    "y": 9.2,
+    "style": null,
+    "src_xy": [
+     10.5,
+     38.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -3.5,
+    "y": 24.2,
+    "style": null,
+    "src_xy": [
+     5.5,
+     23.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -2.33,
+    "y": 45.03,
+    "style": null,
+    "src_xy": [
+     4.33,
+     2.67
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -10.46,
+    "y": 45.16,
+    "style": null,
+    "src_xy": [
+     12.46,
+     2.54
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -4.33,
+    "y": 44.03,
+    "style": "bone",
+    "src_xy": [
+     6.33,
+     3.67
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -8.68,
+    "y": 44.38,
+    "style": null,
+    "src_xy": [
+     10.68,
+     3.32
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -2.4,
+    "y": 43.1,
+    "style": "bone",
+    "src_xy": [
+     4.4,
+     4.6
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -10.57,
+    "y": 43.27,
+    "style": null,
+    "src_xy": [
+     12.57,
+     4.43
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -2.62,
+    "y": 41.32,
+    "style": null,
+    "src_xy": [
+     4.62,
+     6.38
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -0.53,
+    "y": 40.23,
+    "style": null,
+    "src_xy": [
+     2.53,
+     7.47
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -2.63,
+    "y": 39.33,
+    "style": null,
+    "src_xy": [
+     4.63,
+     8.37
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -2.62,
+    "y": 31.32,
+    "style": "bone",
+    "src_xy": [
+     4.62,
+     16.38
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -0.7,
+    "y": 18.4,
+    "style": null,
+    "src_xy": [
+     2.7,
+     29.3
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -0.57,
+    "y": 16.27,
+    "style": null,
+    "src_xy": [
+     2.57,
+     31.43
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -0.68,
+    "y": 14.38,
+    "style": "bone",
+    "src_xy": [
+     2.68,
+     33.32
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -2.37,
+    "y": 13.07,
+    "style": "bone",
+    "src_xy": [
+     4.37,
+     34.63
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -4.66,
+    "y": 12.36,
+    "style": null,
+    "src_xy": [
+     6.66,
+     35.34
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -12.35,
+    "y": 12.05,
+    "style": null,
+    "src_xy": [
+     14.35,
+     35.65
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -2.64,
+    "y": 11.34,
+    "style": "bone",
+    "src_xy": [
+     4.64,
+     36.36
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -10.49,
+    "y": 11.19,
+    "style": null,
+    "src_xy": [
+     12.49,
+     36.51
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -14.64,
+    "y": 11.34,
+    "style": null,
+    "src_xy": [
+     16.64,
+     36.36
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -2.32,
+    "y": 47.24,
+    "style": "peak",
+    "src_xy": [
+     4.32,
+     0.46
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -2.53,
+    "y": 9.02,
+    "style": "peak",
+    "src_xy": [
+     4.53,
+     38.68
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -9.2,
+    "y": 46.32,
+    "style": "peak",
+    "src_xy": [
+     11.2,
+     1.38
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -8.15,
+    "y": 9.38,
+    "style": "peak",
+    "src_xy": [
+     10.15,
+     38.32
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -11.52,
+    "y": 47.24,
+    "style": "peak",
+    "src_xy": [
+     13.52,
+     0.46
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -11.33,
+    "y": 9.02,
+    "style": "peak",
+    "src_xy": [
+     13.33,
+     38.68
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -14.71,
+    "y": 47.24,
+    "style": "peak",
+    "src_xy": [
+     16.71,
+     0.46
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -14.14,
+    "y": 9.02,
+    "style": "peak",
+    "src_xy": [
+     16.14,
+     38.68
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "mountain",
+    "x": -7.13,
+    "y": 49.22,
+    "style": "peak",
+    "src_xy": [
+     9.13,
+     -1.52
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -9.57,
+    "y": 48.98,
+    "style": "bone",
+    "src_xy": [
+     11.57,
+     -1.28
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -15.37,
+    "y": 49.18,
+    "style": "bone",
+    "src_xy": [
+     17.37,
+     -1.48
+    ]
+   }
+  ]
+ },
+ "copy_into_b": {
+  "count": 18,
+  "dropped": {
+   "on_pass_corridor": 2,
+   "would_clip_inside": 6
+  },
+  "items": [
+   {
+    "src": "world_prop",
+    "id": "boat",
+    "x": -12.55,
+    "y": 33.5,
+    "style": null,
+    "src_xy": [
+     14.55,
+     14.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -12.5,
+    "y": 23.2,
+    "style": null,
+    "src_xy": [
+     14.5,
+     24.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -11.5,
+    "y": 6.2,
+    "style": null,
+    "src_xy": [
+     13.5,
+     41.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -14.5,
+    "y": 7.2,
+    "style": null,
+    "src_xy": [
+     16.5,
+     40.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -14.5,
+    "y": 25.2,
+    "style": null,
+    "src_xy": [
+     16.5,
+     22.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -11.5,
+    "y": 4.2,
+    "style": null,
+    "src_xy": [
+     13.5,
+     43.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -14.5,
+    "y": 5.2,
+    "style": null,
+    "src_xy": [
+     16.5,
+     42.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -13.5,
+    "y": 41.2,
+    "style": null,
+    "src_xy": [
+     15.5,
+     6.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -13.5,
+    "y": 8.2,
+    "style": null,
+    "src_xy": [
+     15.5,
+     39.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -12.5,
+    "y": -1.8,
+    "style": null,
+    "src_xy": [
+     14.5,
+     49.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -14.5,
+    "y": 6.2,
+    "style": null,
+    "src_xy": [
+     16.5,
+     41.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -13.5,
+    "y": 1.2,
+    "style": null,
+    "src_xy": [
+     15.5,
+     46.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -11.5,
+    "y": 17.2,
+    "style": null,
+    "src_xy": [
+     13.5,
+     30.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -12.5,
+    "y": 42.2,
+    "style": null,
+    "src_xy": [
+     14.5,
+     5.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -12.5,
+    "y": 10.2,
+    "style": null,
+    "src_xy": [
+     14.5,
+     37.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -14.5,
+    "y": 14.2,
+    "style": null,
+    "src_xy": [
+     16.5,
+     33.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": -14.5,
+    "y": 17.2,
+    "style": null,
+    "src_xy": [
+     16.5,
+     30.5
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 3.59,
+    "y": 41.45,
+    "style": "bone",
+    "src_xy": [
+     -1.59,
+     6.25
+    ]
+   }
+  ]
+ },
+ "exits_offset": {
+  "a": false,
+  "b": false
+ },
+ "kind": "edge_seam",
+ "exits_v2": {
+  "version": "exits_v2",
+  "source_owner_msg": "pt101u: exits/entrances can be anywhere; whatever is more natural and flowing",
+  "v1_file": "seams/briarE__wild.json (kept, not overwritten)",
+  "v1_kind": "edge_seam",
+  "review": {
+   "wild": {
+    "status": "moved",
+    "old_exit_tile": [
+     70.4,
+     27.2
+    ],
+    "new_exit_tile": [
+     0.6,
+     27.5
+    ],
+    "why": "P1: The Narrow (briarE) lies WEST of Briarwood on the continent; the existing E-W highway on rows 26-28 now runs west over a 3-wide bridge causeway to the W edge. Near-centre is natural here: it is where the highway already is."
+   },
+   "briarE": {
+    "status": "kept",
+    "old_exit_tile": [
+     1.4,
+     20.2
+    ],
+    "new_exit_tile": [
+     1.4,
+     20.2
+    ],
+    "why": "briarE's W-edge exit (1.4,20.2) already sits where its ridge road starts and lines up with Briarwood's W exit under the 180 deg placement; only the arrival sx/sy changed (3.4,27.5)."
+   }
+  },
+  "inputs": "worlds_v2 / world_extract_v2 / coast_world_after_v2 / martsirt_world_v2 / layout_{coast,martsirt}_v2 / terrain *_v2",
+  "apply": "inert until the matching handoff/game_engineer/exits/*_exits_patch.json is applied"
+ }
+}

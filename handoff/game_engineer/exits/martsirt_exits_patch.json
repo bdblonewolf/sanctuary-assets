@@ -1,0 +1,147 @@
+{
+ "patch_id": "exits_v2_martsirt",
+ "target_world": "martsirt_world.json (Martsirt v2.2, 162x154, origin [81,76])",
+ "name": "Martsirt: coast exit moves off the centre line to the SW trail",
+ "apply": "Edit martsirt_world.json exits[to=coast] and arrive.coast as below; append roads_add to placements.json header.v2.roads; add the road class to models/town/ground_v1/manifest.json road_classes; swap martsirt_splat.png for martsirt_splat_v2.png (same size/format, r channel = trail). Border: use borders/martsirt/layout_martsirt_v2.json (pass12 moved to the new exit). Seam: seams/coast__martsirt_v2.json. Idempotent: match exits by to==\"coast\".",
+ "schema": "live martsirt_world.json exits:[{x,y,to,sx,sy,label}], arrive:{zone:[x,y]} (tile metres = town-local + origin)",
+ "requires": [
+  "coast_exits_patch.json (the coast side moves to x=12.5 on its N edge in the same release)"
+ ],
+ "match_rule": {
+  "exits": "to == \"coast\"",
+  "arrive": "key \"coast\""
+ },
+ "exits_set": [
+  {
+   "match": {
+    "to": "coast"
+   },
+   "old": {
+    "x": 81.0,
+    "y": 152.0,
+    "sx": 20.2,
+    "sy": 3.6,
+    "label": "ACT I"
+   },
+   "new": {
+    "x": 49.6,
+    "y": 152.4,
+    "sx": 12.5,
+    "sy": 4.0,
+    "label": "ACT I"
+   },
+   "why": "Leaving town you still walk out through the south gatehouse (the \"ACT I\" gate keeps its label and its camp), but the road no longer runs dead-straight down the centre line to the map edge: a dirt trail bears west under the palisade to the SW corner, which is where the coast road climbs in (continent: the coast lies south-west). The gate camp east of the gate stays a stop on the way, not a wall in the way."
+  }
+ ],
+ "arrive_set": {
+  "coast": {
+   "old": [
+    81.0,
+    136.0
+   ],
+   "new": [
+    53.8,
+    150.9
+   ],
+   "why": "arrive on the trail 4 m inside the exit, facing east along the palisade toward the gate (Ilyra stays at the gate, 84,136)"
+  }
+ },
+ "roads_add": [
+  {
+   "label": "coast trail: south gate - SW to the coast road",
+   "width_m": 4.0,
+   "points": [
+    [
+     0.0,
+     71.0
+    ],
+    [
+     -1.1,
+     73.0
+    ],
+    [
+     -5.5,
+     73.9
+    ],
+    [
+     -12.5,
+     74.2
+    ],
+    [
+     -20.0,
+     74.3
+    ],
+    [
+     -26.0,
+     74.7
+    ],
+    [
+     -30.0,
+     75.5
+    ],
+    [
+     -31.8,
+     77.6
+    ]
+   ],
+   "surface": "dirt trail",
+   "note": "exits_v2: leaves the gatehouse mouth, bears west under the palisade (3+ m off the wall, 3+ m off the map edge) and meets the S edge at x=49.6 where the coast road arrives"
+  }
+ ],
+ "manifest_road_classes_add": {
+  "coast trail: south gate - SW to the coast road": [
+   "dirt trail",
+   4.0
+  ]
+ },
+ "splat": {
+  "file": "exits/martsirt/martsirt_splat_v2.png",
+  "replaces": "models/town/ground_v1/martsirt_splat.png",
+  "size_px": [
+   648,
+   616
+  ],
+  "changed_px": 2504,
+  "rule": "r = max(r, trail); g,b scaled down only where r+g+b>1; cobble (g>=0.5, the gate mouth) untouched"
+ },
+ "solid_set": [],
+ "solid_note": "trail runs on open ground; no solid or water bit changes",
+ "props_move": [],
+ "props_note": "no placements move. dressLife gate camp (campfire 84.2,150.6, fence 86,150.8, crates/barrels) is east of the trail; nearest 3.6 m",
+ "north_exit": {
+  "to": "wild",
+  "kept": true,
+  "why": "north gap west of the watch-house already sits off-centre (76.2 of 162) and the north high road bends into it; it reads naturally"
+ },
+ "alternative_B": {
+  "status": "NOT the default; flagged only",
+  "idea": "a west postern at the end of the mill lane (local -50.9,27.4), out through the west palisade, then a trail south to the SW corner",
+  "cost": "needs one palisade segment removed/turned into a postern (placements change) and a 50 m trail; the gate story (\"ACT I\") would move off the gatehouse",
+  "why_not": "more invasive than needed; the south gate is the town's front door"
+ },
+ "checks": {
+  "trail_min_clear_to_solid_m": 1.32,
+  "trail_min_clear_gate_mouth_m": 0.65,
+  "trail_min_clear_to_life_props_m": 3.63,
+  "trail_inside_map": true,
+  "spawn_reaches_new_coast_exit": true,
+  "spawn_reaches_arrival": true,
+  "spawn_reaches_all_exits": {
+   "wild": true,
+   "church1": true,
+   "coast": true,
+   "castle1": true,
+   "cottage": true,
+   "taproom": true
+  },
+  "spawn_reaches_npcs": {
+   "Wolchen": true,
+   "Ysara": true,
+   "Ilyra": true,
+   "Quill": true,
+   "Bram": true
+  },
+  "trail_samples_blocked": 0
+ },
+ "continent_note": "continent_layout places coast flush S of Martsirt with exits coinciding: coast x0 shifts from 60.8 to 37.1 (Martsirt frame); still clear of all other rects (see EXITS.md)"
+}

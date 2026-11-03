@@ -1,0 +1,346 @@
+{
+ "note": "exits_v2 continent check: gen_layout_v2 on worlds_v2 (P1-P3 live, P4 kept as proposal). Shifts are relative to Martsirt, later-grid metres. HOLD plan file itself is not rewritten.",
+ "overlaps": [],
+ "zones_moved": {
+  "coast": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "flotsam": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "hollow": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "bastion": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    1,
+    1
+   ]
+  },
+  "bluffs": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    0.1
+   ],
+   "rot": [
+    1,
+    1
+   ]
+  },
+  "mires": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    0.0
+   ],
+   "rot": [
+    1,
+    1
+   ]
+  },
+  "sink": {
+   "shift_m_rel_martsirt": [
+    -15.8,
+    0.0
+   ],
+   "rot": [
+    1,
+    1
+   ]
+  },
+  "ridge": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    0.1
+   ],
+   "rot": [
+    1,
+    1
+   ]
+  },
+  "ascent": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    1,
+    1
+   ]
+  },
+  "crypts": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    0.0
+   ],
+   "rot": [
+    1,
+    1
+   ]
+  },
+  "chasm": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    0.1
+   ],
+   "rot": [
+    1,
+    1
+   ]
+  },
+  "iron": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    1,
+    1
+   ]
+  },
+  "gaol": {
+   "shift_m_rel_martsirt": [
+    -13.4,
+    -0.0
+   ],
+   "rot": [
+    2,
+    2
+   ]
+  },
+  "weald": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    2,
+    2
+   ]
+  },
+  "wild": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "briarE": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.8
+   ],
+   "rot": [
+    2,
+    2
+   ]
+  },
+  "duneW": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.8
+   ],
+   "rot": [
+    2,
+    2
+   ]
+  },
+  "desert": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.8
+   ],
+   "rot": [
+    2,
+    2
+   ]
+  },
+  "lut": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.8
+   ],
+   "rot": [
+    2,
+    2
+   ]
+  },
+  "market": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.8
+   ],
+   "rot": [
+    2,
+    2
+   ]
+  },
+  "waste": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.7
+   ],
+   "rot": [
+    2,
+    2
+   ]
+  },
+  "isle": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_tidecoves": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_hollowridge": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_tollgorge": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    0.1
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_manor_bluffs": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_quarantine": {
+   "shift_m_rel_martsirt": [
+    -13.4,
+    -0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_citadel": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_ruin": {
+   "shift_m_rel_martsirt": [
+    -13.5,
+    -0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_sinkholes": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    0.0
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_manor_briar": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.8
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_burn": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.7
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_ashcamp": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.8
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  },
+  "n_oasis": {
+   "shift_m_rel_martsirt": [
+    0.1,
+    1.8
+   ],
+   "rot": [
+    0,
+    0
+   ]
+  }
+ }
+}

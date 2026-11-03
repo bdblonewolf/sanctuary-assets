@@ -1,0 +1,357 @@
+{
+ "patch_id": "exits_v2_mires",
+ "target_world": "mires",
+ "name": "Silt Mires",
+ "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js on the generated mires world, after the scene is built and before it is cached. Idempotent (world.exitsPatch marker).",
+ "schema": "live generated world object (sc(zone) in the routes bundle): w,h, tiles[] (row-major, i=y*w+x, enum Grass0 Grass2 1 Dirt2 Sand3 Sand2 4 Stone5 Road6 Plaza7 Water8 Bridge9 Plank10 Wall11 Cave12 Rug13 Blood14), solid[] (0/1), exits[{x,y,to,sx,sy}], props[{kind,x,y,style?,w?,...}]. tiles_set/solid_set rows = [x,y,old,new]: apply only if the current value == old (else warn and skip).",
+ "match_rule": "exits by \"to\"; props by {kind,x,y[,style]} with |dx|,|dy|<0.01; tiles/solid by [x,y] with old-value check",
+ "exits_set": [
+  {
+   "match": {
+    "to": "sink"
+   },
+   "old": {
+    "x": 9.2,
+    "y": 15.2
+   },
+   "new": {
+    "x": 0.6,
+    "y": 15.5
+   },
+   "sx_sy": "unchanged (14.2,19.4)",
+   "edge": "W",
+   "why": "P3: the Sink sits flush against the mires WEST edge. A short boardwalk now runs out over the black water to the W edge and drops into the sinkhole, instead of a trigger buried in a walled pocket mid-marsh."
+  }
+ ],
+ "partner_arrival_in_this_zone": {
+  "x": 3.4,
+  "y": 15.5
+ },
+ "tiles_set": [
+  [
+   0,
+   14,
+   8,
+   10
+  ],
+  [
+   1,
+   14,
+   8,
+   10
+  ],
+  [
+   2,
+   14,
+   8,
+   10
+  ],
+  [
+   3,
+   14,
+   8,
+   10
+  ],
+  [
+   4,
+   14,
+   8,
+   10
+  ],
+  [
+   5,
+   14,
+   14,
+   10
+  ],
+  [
+   0,
+   15,
+   8,
+   10
+  ],
+  [
+   1,
+   15,
+   8,
+   10
+  ],
+  [
+   2,
+   15,
+   8,
+   10
+  ],
+  [
+   3,
+   15,
+   8,
+   10
+  ],
+  [
+   4,
+   15,
+   8,
+   10
+  ],
+  [
+   5,
+   15,
+   14,
+   10
+  ],
+  [
+   0,
+   16,
+   8,
+   10
+  ],
+  [
+   1,
+   16,
+   8,
+   10
+  ],
+  [
+   2,
+   16,
+   8,
+   10
+  ],
+  [
+   3,
+   16,
+   8,
+   10
+  ],
+  [
+   4,
+   16,
+   8,
+   10
+  ],
+  [
+   5,
+   16,
+   14,
+   10
+  ]
+ ],
+ "solid_set": [
+  [
+   0,
+   14,
+   1,
+   0
+  ],
+  [
+   1,
+   14,
+   1,
+   0
+  ],
+  [
+   2,
+   14,
+   1,
+   0
+  ],
+  [
+   3,
+   14,
+   1,
+   0
+  ],
+  [
+   4,
+   14,
+   1,
+   0
+  ],
+  [
+   0,
+   15,
+   1,
+   0
+  ],
+  [
+   1,
+   15,
+   1,
+   0
+  ],
+  [
+   2,
+   15,
+   1,
+   0
+  ],
+  [
+   3,
+   15,
+   1,
+   0
+  ],
+  [
+   4,
+   15,
+   1,
+   0
+  ],
+  [
+   0,
+   16,
+   1,
+   0
+  ],
+  [
+   1,
+   16,
+   1,
+   0
+  ],
+  [
+   2,
+   16,
+   1,
+   0
+  ],
+  [
+   3,
+   16,
+   1,
+   0
+  ],
+  [
+   4,
+   16,
+   1,
+   0
+  ]
+ ],
+ "props_move": [
+  {
+   "match": {
+    "kind": "arch",
+    "x": 9.2,
+    "y": 15.2
+   },
+   "to": {
+    "x": 0.6,
+    "y": 15.5
+   },
+   "why": "arch follows its exit"
+  }
+ ],
+ "props_add": [],
+ "road_path": {
+  "to": "sink",
+  "centerline": [
+   [
+    0,
+    15
+   ],
+   [
+    1,
+    15
+   ],
+   [
+    2,
+    15
+   ],
+   [
+    3,
+    15
+   ],
+   [
+    4,
+    15
+   ],
+   [
+    5,
+    15
+   ],
+   [
+    6,
+    15
+   ],
+   [
+    6,
+    15
+   ]
+  ],
+  "gap": [
+   [
+    0,
+    14
+   ],
+   [
+    0,
+    15
+   ],
+   [
+    0,
+    16
+   ]
+  ],
+  "old_gap_closed": [],
+  "road_tiles": 24,
+  "pruned_stub_tiles": 0
+ },
+ "tile_names": {
+  "0": "Grass",
+  "1": "Grass2",
+  "2": "Dirt",
+  "3": "Sand",
+  "4": "Sand2",
+  "5": "Stone",
+  "6": "Road",
+  "7": "Plaza",
+  "8": "Water",
+  "9": "Bridge",
+  "10": "Plank",
+  "11": "Wall",
+  "12": "Cave",
+  "13": "Rug",
+  "14": "Blood"
+ },
+ "checks": {
+  "before": {
+   "exits": {
+    "bluffs": true,
+    "ridge": true,
+    "sink": true
+   },
+   "npcs": {
+    "Moth": true
+   },
+   "key_props": 3,
+   "key_total": 3,
+   "area_m2": 544.1
+  },
+  "after": {
+   "exits": {
+    "bluffs": true,
+    "ridge": true,
+    "sink": true
+   },
+   "npcs": {
+    "Moth": true
+   },
+   "key_props": 3,
+   "key_total": 3,
+   "area_m2": 557.1
+  },
+  "new_road_tiles": 18,
+  "road_tiles_blocked_by_prop_or_solid": [],
+  "road_tiles_unreachable": [],
+  "partner_arrival": {
+   "pt": [
+    3.4,
+    15.5
+   ],
+   "blocked": false,
+   "reachable": true
+  }
+ }
+}

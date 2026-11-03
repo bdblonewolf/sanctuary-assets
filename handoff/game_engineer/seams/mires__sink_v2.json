@@ -1,0 +1,304 @@
+{
+ "id": "mires__sink",
+ "zone_a": {
+  "id": "mires",
+  "name": "Silt Mires",
+  "size": [
+   40,
+   34
+  ],
+  "edge": "W",
+  "exit_tile": [
+   0.6,
+   15.5
+  ],
+  "arrive": [
+   14.2,
+   19.4
+  ],
+  "offset_along_edge_m": 18.5,
+  "edge_len_m": 34,
+  "proposed_offset_m": null,
+  "proposal_note": "SUPERSEDED by exits_v2 (pt101u): moved at this position on purpose - P3: the Sink sits flush against the mires W edge; a plank boardwalk now runs over the black water to the W edge."
+ },
+ "zone_b": {
+  "id": "sink",
+  "name": "The Putrid Sink",
+  "size": [
+   28,
+   24
+  ],
+  "edge": "S",
+  "exit_tile": [
+   14.2,
+   21.2
+  ],
+  "arrive": [
+   3.4,
+   15.5
+  ],
+  "offset_along_edge_m": 13.8,
+  "edge_len_m": 28,
+  "proposed_offset_m": null,
+  "proposal_note": "SUPERSEDED by exits_v2 (pt101u): kept at this position on purpose - The Sink exit (14.2,21.2) is the climb out of the sinkhole; only the arrival sx/sy changed (3.4,15.5)."
+ },
+ "transform": {
+  "b_to_a": {
+   "rot_deg": 270,
+   "formula": "pA = exitA + R(rot)(pB - exitB)"
+  },
+  "a_to_b": {
+   "rot_deg": 90,
+   "formula": "pB = exitB + R(rot)(pA - exitA)"
+  },
+  "orientation_mismatch": true,
+  "note": "edges are not opposite (W vs S): the copy is rotated 270 deg; continent layout places B rotated"
+ },
+ "pass_span": {
+  "a": [
+   12.5,
+   24.5
+  ],
+  "b": [
+   7.8,
+   19.8
+  ],
+  "corridor_open_m": 6.0,
+  "rule": "ring skips this span on both sides; road corridor stays open"
+ },
+ "terrain": {
+  "seam_height_a": 22.0,
+  "seam_height_b": 22.0,
+  "consistent": true
+ },
+ "copy_into_a": {
+  "count": 6,
+  "dropped": {},
+  "items": [
+   {
+    "src": "world_prop",
+    "id": "body",
+    "x": -4.2,
+    "y": 20.3,
+    "style": null,
+    "src_xy": [
+     9.4,
+     16.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "barrel",
+    "x": -4.4,
+    "y": 10.5,
+    "style": "fire",
+    "src_xy": [
+     19.2,
+     16.2
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "torch",
+    "x": -14.2,
+    "y": 20.3,
+    "style": null,
+    "src_xy": [
+     9.4,
+     6.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "torch",
+    "x": -14.2,
+    "y": 10.3,
+    "style": null,
+    "src_xy": [
+     19.4,
+     6.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "torch",
+    "x": -3.2,
+    "y": 20.3,
+    "style": null,
+    "src_xy": [
+     9.4,
+     17.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "torch",
+    "x": -3.2,
+    "y": 11.3,
+    "style": null,
+    "src_xy": [
+     18.4,
+     17.4
+    ]
+   }
+  ]
+ },
+ "copy_into_b": {
+  "count": 10,
+  "dropped": {
+   "on_pass_corridor": 3,
+   "would_clip_inside": 6
+  },
+  "items": [
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 21.3,
+    "y": 27.0,
+    "style": "dead",
+    "src_xy": [
+     6.4,
+     8.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 5.3,
+    "y": 28.8,
+    "style": "dead",
+    "src_xy": [
+     8.2,
+     24.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "tree",
+    "x": 23.3,
+    "y": 35.0,
+    "style": "dead",
+    "src_xy": [
+     14.4,
+     6.4
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 32.33,
+    "y": 21.35,
+    "style": "bone",
+    "src_xy": [
+     0.75,
+     -2.63
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 31.53,
+    "y": 24.93,
+    "style": "bone",
+    "src_xy": [
+     4.33,
+     -1.83
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 32.06,
+    "y": 26.46,
+    "style": "bone",
+    "src_xy": [
+     5.86,
+     -2.36
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 31.22,
+    "y": 29.73,
+    "style": "bone",
+    "src_xy": [
+     9.13,
+     -1.52
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 30.98,
+    "y": 32.17,
+    "style": "bone",
+    "src_xy": [
+     11.57,
+     -1.28
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": 31.99,
+    "y": 34.91,
+    "style": "bone",
+    "src_xy": [
+     14.31,
+     -2.29
+    ]
+   },
+   {
+    "src": "world_prop",
+    "id": "rock",
+    "x": -4.11,
+    "y": 18.16,
+    "style": "bone",
+    "src_xy": [
+     -2.44,
+     33.81
+    ]
+   }
+  ]
+ },
+ "exits_offset": {
+  "a": false,
+  "b": false
+ },
+ "kind": "edge_seam",
+ "exits_v2": {
+  "version": "exits_v2",
+  "source_owner_msg": "pt101u: exits/entrances can be anywhere; whatever is more natural and flowing",
+  "v1_file": "seams/mires__sink.json (kept, not overwritten)",
+  "v1_kind": "interior_exit",
+  "review": {
+   "mires": {
+    "status": "moved",
+    "old_exit_tile": [
+     9.2,
+     15.2
+    ],
+    "new_exit_tile": [
+     0.6,
+     15.5
+    ],
+    "why": "P3: the Sink sits flush against the mires W edge; a plank boardwalk now runs over the black water to the W edge."
+   },
+   "sink": {
+    "status": "kept",
+    "old_exit_tile": [
+     14.2,
+     21.2
+    ],
+    "new_exit_tile": [
+     14.2,
+     21.2
+    ],
+    "why": "The Sink exit (14.2,21.2) is the climb out of the sinkhole; only the arrival sx/sy changed (3.4,15.5)."
+   }
+  },
+  "inputs": "worlds_v2 / world_extract_v2 / coast_world_after_v2 / martsirt_world_v2 / layout_{coast,martsirt}_v2 / terrain *_v2",
+  "apply": "inert until the matching handoff/game_engineer/exits/*_exits_patch.json is applied"
+ }
+}

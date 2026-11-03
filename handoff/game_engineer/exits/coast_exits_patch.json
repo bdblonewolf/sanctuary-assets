@@ -1,0 +1,799 @@
+{
+ "patch_id": "exits_v2_coast",
+ "target_world": "coast",
+ "name": "Ashen Coast",
+ "apply": "applyExitsPatch(world, patch) from apply_exits_patch.js on the generated coast world, after the scene is built and AFTER applyAshenPatch (prop matches use post-Ashen positions) and before it is cached. Idempotent (world.exitsPatch marker).",
+ "schema": "live generated world object (sc(zone) in the routes bundle): w,h, tiles[] (row-major, i=y*w+x, enum Grass0 Grass2 1 Dirt2 Sand3 Sand2 4 Stone5 Road6 Plaza7 Water8 Bridge9 Plank10 Wall11 Cave12 Rug13 Blood14), solid[] (0/1), exits[{x,y,to,sx,sy}], props[{kind,x,y,style?,w?,...}]. tiles_set/solid_set rows = [x,y,old,new]: apply only if the current value == old (else warn and skip).",
+ "match_rule": "exits by \"to\"; props by {kind,x,y[,style]} with |dx|,|dy|<0.01; tiles/solid by [x,y] with old-value check",
+ "exits_set": [
+  {
+   "match": {
+    "to": "town"
+   },
+   "old": {
+    "x": 20.2,
+    "y": 1.2
+   },
+   "new": {
+    "x": 12.5,
+    "y": 1.2
+   },
+   "sx_sy": "unchanged (19.8,31.6): legacy 2D-town value; the live Martsirt scene places arrivals from martsirt_world.json arrive.coast (see martsirt_exits_patch.json)",
+   "edge": "N",
+   "why": "The Ashen A0 walk already runs north up the dirt coast path (x 11-13). Putting the Martsirt gate at the top of that path makes the first walk one natural line from the beach camp to town, instead of a dog-leg east to the old x=20 stub. t=0.30 matches the Martsirt side (SW trail out of the south gate)."
+  }
+ ],
+ "partner_arrival_in_this_zone": {
+  "x": 12.5,
+  "y": 4.0
+ },
+ "tiles_set": [
+  [
+   11,
+   0,
+   1,
+   6
+  ],
+  [
+   12,
+   0,
+   1,
+   6
+  ],
+  [
+   13,
+   0,
+   1,
+   6
+  ],
+  [
+   19,
+   0,
+   6,
+   1
+  ],
+  [
+   20,
+   0,
+   6,
+   1
+  ],
+  [
+   11,
+   1,
+   1,
+   6
+  ],
+  [
+   12,
+   1,
+   1,
+   6
+  ],
+  [
+   13,
+   1,
+   1,
+   6
+  ],
+  [
+   19,
+   1,
+   6,
+   1
+  ],
+  [
+   20,
+   1,
+   6,
+   1
+  ],
+  [
+   10,
+   2,
+   4,
+   6
+  ],
+  [
+   11,
+   2,
+   3,
+   6
+  ],
+  [
+   12,
+   2,
+   1,
+   6
+  ],
+  [
+   13,
+   2,
+   4,
+   6
+  ],
+  [
+   19,
+   2,
+   6,
+   4
+  ],
+  [
+   20,
+   2,
+   6,
+   4
+  ],
+  [
+   10,
+   3,
+   1,
+   6
+  ],
+  [
+   11,
+   3,
+   3,
+   6
+  ],
+  [
+   12,
+   3,
+   3,
+   6
+  ],
+  [
+   13,
+   3,
+   3,
+   6
+  ],
+  [
+   19,
+   3,
+   6,
+   4
+  ],
+  [
+   20,
+   3,
+   6,
+   3
+  ],
+  [
+   10,
+   4,
+   4,
+   6
+  ],
+  [
+   11,
+   4,
+   3,
+   6
+  ],
+  [
+   12,
+   4,
+   1,
+   6
+  ],
+  [
+   10,
+   5,
+   4,
+   6
+  ],
+  [
+   11,
+   5,
+   3,
+   6
+  ],
+  [
+   12,
+   5,
+   3,
+   6
+  ],
+  [
+   10,
+   6,
+   3,
+   6
+  ],
+  [
+   11,
+   6,
+   4,
+   6
+  ],
+  [
+   12,
+   6,
+   3,
+   6
+  ],
+  [
+   10,
+   7,
+   3,
+   6
+  ],
+  [
+   11,
+   7,
+   3,
+   6
+  ],
+  [
+   12,
+   7,
+   4,
+   6
+  ],
+  [
+   10,
+   8,
+   3,
+   6
+  ],
+  [
+   11,
+   8,
+   4,
+   6
+  ],
+  [
+   12,
+   8,
+   3,
+   6
+  ],
+  [
+   10,
+   9,
+   3,
+   6
+  ],
+  [
+   11,
+   9,
+   4,
+   6
+  ],
+  [
+   12,
+   9,
+   3,
+   6
+  ],
+  [
+   10,
+   10,
+   3,
+   6
+  ],
+  [
+   11,
+   10,
+   3,
+   6
+  ],
+  [
+   12,
+   10,
+   3,
+   6
+  ],
+  [
+   10,
+   11,
+   4,
+   6
+  ],
+  [
+   11,
+   11,
+   3,
+   6
+  ],
+  [
+   12,
+   11,
+   3,
+   6
+  ],
+  [
+   10,
+   12,
+   3,
+   6
+  ],
+  [
+   11,
+   12,
+   4,
+   6
+  ],
+  [
+   12,
+   12,
+   3,
+   6
+  ],
+  [
+   10,
+   13,
+   3,
+   6
+  ],
+  [
+   11,
+   13,
+   4,
+   6
+  ],
+  [
+   12,
+   13,
+   3,
+   6
+  ],
+  [
+   13,
+   13,
+   4,
+   6
+  ],
+  [
+   10,
+   14,
+   3,
+   6
+  ],
+  [
+   11,
+   14,
+   3,
+   6
+  ],
+  [
+   12,
+   14,
+   4,
+   6
+  ],
+  [
+   13,
+   14,
+   4,
+   6
+  ],
+  [
+   14,
+   14,
+   3,
+   6
+  ],
+  [
+   15,
+   14,
+   3,
+   6
+  ],
+  [
+   11,
+   15,
+   3,
+   6
+  ],
+  [
+   12,
+   15,
+   3,
+   6
+  ],
+  [
+   13,
+   15,
+   4,
+   6
+  ],
+  [
+   14,
+   15,
+   3,
+   6
+  ],
+  [
+   15,
+   15,
+   3,
+   6
+  ]
+ ],
+ "solid_set": [
+  [
+   11,
+   0,
+   1,
+   0
+  ],
+  [
+   12,
+   0,
+   1,
+   0
+  ],
+  [
+   13,
+   0,
+   1,
+   0
+  ],
+  [
+   19,
+   0,
+   0,
+   1
+  ],
+  [
+   20,
+   0,
+   0,
+   1
+  ],
+  [
+   11,
+   1,
+   1,
+   0
+  ],
+  [
+   12,
+   1,
+   1,
+   0
+  ],
+  [
+   13,
+   1,
+   1,
+   0
+  ],
+  [
+   19,
+   1,
+   0,
+   1
+  ],
+  [
+   20,
+   1,
+   0,
+   1
+  ],
+  [
+   12,
+   2,
+   1,
+   0
+  ],
+  [
+   8,
+   3,
+   0,
+   1
+  ],
+  [
+   10,
+   3,
+   1,
+   0
+  ],
+  [
+   12,
+   4,
+   1,
+   0
+  ],
+  [
+   14,
+   5,
+   0,
+   1
+  ]
+ ],
+ "props_move": [
+  {
+   "match": {
+    "kind": "arch",
+    "x": 20.2,
+    "y": 1.2
+   },
+   "to": {
+    "x": 12.5,
+    "y": 1.2
+   },
+   "why": "arch follows its exit"
+  },
+  {
+   "match": {
+    "kind": "tree",
+    "x": 12.4633,
+    "y": 2.5367
+   },
+   "to": {
+    "x": 10.46,
+    "y": 1.54
+   },
+   "why": "stood in the new exit gap/road; moved onto the edge ring"
+  },
+  {
+   "match": {
+    "kind": "tree",
+    "x": 10.6763,
+    "y": 3.3237
+   },
+   "to": {
+    "x": 8.68,
+    "y": 3.32
+   },
+   "why": "stood in the new exit gap/road; moved onto the edge ring ; then stood in the new road; moved just off it (same prop, same collider)"
+  },
+  {
+   "match": {
+    "kind": "tree",
+    "x": 12.5651,
+    "y": 4.4349
+   },
+   "to": {
+    "x": 14.57,
+    "y": 5.43
+   },
+   "why": "stood in the new exit gap/road; moved onto the edge ring ; then stood in the new road; moved just off it (same prop, same collider)"
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 11.2,
+    "y": 1.38
+   },
+   "to": {
+    "x": 19.2,
+    "y": 0.38
+   },
+   "why": "stood in the new exit gap/road; moved onto the edge ring"
+  },
+  {
+   "match": {
+    "kind": "mountain",
+    "x": 13.5207,
+    "y": 0.46
+   },
+   "to": {
+    "x": 19.52,
+    "y": 1.46
+   },
+   "why": "stood in the new exit gap/road; moved onto the edge ring"
+  }
+ ],
+ "props_add": [
+  {
+   "kind": "mountain",
+   "x": 20.5,
+   "y": 0.5,
+   "style": "peak",
+   "w": 4.5697766708675776
+  }
+ ],
+ "road_path": {
+  "to": "town",
+  "centerline": [
+   [
+    12,
+    0
+   ],
+   [
+    12,
+    1
+   ],
+   [
+    12,
+    2
+   ],
+   [
+    11,
+    3
+   ],
+   [
+    11,
+    4
+   ],
+   [
+    11,
+    5
+   ],
+   [
+    11,
+    6
+   ],
+   [
+    11,
+    7
+   ],
+   [
+    11,
+    8
+   ],
+   [
+    11,
+    9
+   ],
+   [
+    11,
+    10
+   ],
+   [
+    11,
+    11
+   ],
+   [
+    11,
+    12
+   ],
+   [
+    11,
+    13
+   ],
+   [
+    12,
+    14
+   ],
+   [
+    12,
+    15
+   ],
+   [
+    12,
+    15
+   ],
+   [
+    13,
+    15
+   ],
+   [
+    14,
+    15
+   ],
+   [
+    14,
+    16
+   ]
+  ],
+  "gap": [
+   [
+    11,
+    0
+   ],
+   [
+    11,
+    1
+   ],
+   [
+    12,
+    0
+   ],
+   [
+    12,
+    1
+   ],
+   [
+    12,
+    2
+   ],
+   [
+    13,
+    0
+   ],
+   [
+    13,
+    1
+   ]
+  ],
+  "old_gap_closed": [
+   [
+    19,
+    0
+   ],
+   [
+    19,
+    1
+   ],
+   [
+    20,
+    0
+   ],
+   [
+    20,
+    1
+   ]
+  ],
+  "road_tiles": 60,
+  "pruned_stub_tiles": 4
+ },
+ "tile_names": {
+  "0": "Grass",
+  "1": "Grass2",
+  "2": "Dirt",
+  "3": "Sand",
+  "4": "Sand2",
+  "5": "Stone",
+  "6": "Road",
+  "7": "Plaza",
+  "8": "Water",
+  "9": "Bridge",
+  "10": "Plank",
+  "11": "Wall",
+  "12": "Cave",
+  "13": "Rug",
+  "14": "Blood"
+ },
+ "checks": {
+  "before": {
+   "exits": {
+    "town": true,
+    "bastion": true,
+    "flotsam": true
+   },
+   "npcs": {
+    "Wynn": true
+   },
+   "key_props": 19,
+   "key_total": 19,
+   "area_m2": 1671.5
+  },
+  "after": {
+   "exits": {
+    "town": true,
+    "bastion": true,
+    "flotsam": true
+   },
+   "npcs": {
+    "Wynn": true
+   },
+   "key_props": 19,
+   "key_total": 19,
+   "area_m2": 1675.7
+  },
+  "new_road_tiles": 56,
+  "road_tiles_blocked_by_prop_or_solid": [],
+  "road_tiles_unreachable": [],
+  "partner_arrival": {
+   "pt": [
+    12.5,
+    4.0
+   ],
+   "blocked": false,
+   "reachable": true
+  },
+  "A0_spawn_reaches_all_exits": {
+   "town": true,
+   "bastion": true,
+   "flotsam": true
+  },
+  "A0_adds_reachable": {
+   "before": 74,
+   "after": 74,
+   "total": 75,
+   "lost": []
+  },
+  "A0_intro_line_blocked_samples": 0,
+  "A0_spawn_to_town_exit": true
+ },
+ "requires": [
+  "martsirt_exits_patch.json (same release: the Martsirt side moves to its SW corner, x=49.6)"
+ ],
+ "note_P4": "coast->bastion (E edge, 40.4,14.2) stays: the E side below y~20 is open sea on the current 42x112 coast; revisit when the coast grid grows (P4 deferred)"
+}
