@@ -1,0 +1,38 @@
+{
+ "ice_shard_01": {
+  "tris": 22,
+  "height_m": 0.327
+ },
+ "ice_shard_02": {
+  "tris": 18,
+  "height_m": 0.247
+ },
+ "ice_shard_03": {
+  "tris": 22,
+  "height_m": 0.185
+ },
+ "ice_shard_04": {
+  "tris": 14,
+  "height_m": 0.144
+ },
+ "ice_shard_05": {
+  "tris": 18,
+  "height_m": 0.114
+ },
+ "ice_shard_06": {
+  "tris": 26,
+  "height_m": 0.369
+ },
+ "ice_shard_07": {
+  "tris": 14,
+  "height_m": 0.083
+ },
+ "ice_shard_08": {
+  "tris": 18,
+  "height_m": 0.217
+ },
+ "ice_cluster_a": {
+  "tris": 90,
+  "height_m": 0.322
+ }
+}
