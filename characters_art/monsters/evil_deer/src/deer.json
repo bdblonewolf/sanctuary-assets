@@ -1,0 +1,152 @@
+{
+ "name": "evil_deer",
+ "src": "/workspace/free_packs/quaternius_animated_animal_pack/Stag.glb",
+ "out_dir": "/workspace/sanctuary_art/monsters/models3d/wildlife/evil_deer",
+ "height": 1.9,
+ "subdiv": 1,
+ "shader": "/workspace/wl/wb_shader.py",
+ "file_pattern": "evil_deer.glb",
+ "coats": [
+  "dark"
+ ],
+ "coat_colors": {
+  "dark": {
+   "base": [
+    0.11,
+    0.07,
+    0.045,
+    1
+   ],
+   "light": [
+    0.17,
+    0.125,
+    0.085,
+    1
+   ],
+   "dark": [
+    0.05,
+    0.035,
+    0.025,
+    1
+   ],
+   "saddle": [
+    0.55,
+    0.5,
+    0.47
+   ]
+  }
+ },
+ "roles": {
+  "Material.003": "fur",
+  "Material": "fur_light",
+  "Material.001": "hoof",
+  "Material.010": "nose",
+  "Material.011": "eye",
+  "Antler": "horn"
+ },
+ "tweaks": [
+  {
+   "group": "Torso",
+   "scale": [
+    0.88,
+    1.0,
+    0.95
+   ]
+  },
+  {
+   "group": "Torso2",
+   "scale": [
+    0.88,
+    1.0,
+    0.95
+   ]
+  },
+  {
+   "group": "Torso3",
+   "scale": [
+    0.88,
+    1.0,
+    0.95
+   ]
+  },
+  {
+   "group": "Head",
+   "scale": [
+    0.92,
+    1.05,
+    0.95
+   ]
+  }
+ ],
+ "head_bone": "Head",
+ "feet": [
+  "FF.L",
+  "FF.R",
+  "FFB.L",
+  "FFB.R"
+ ],
+ "impact_clips": [
+  "attack",
+  "attack2"
+ ],
+ "clips": {
+  "idle": {
+   "src": "Idle_AnimalArmature"
+  },
+  "walk": {
+   "src": "Walk_AnimalArmature"
+  },
+  "run": {
+   "src": "Gallop_AnimalArmature"
+  },
+  "attack": {
+   "src": "Attack_Headbutt_AnimalArmature"
+  },
+  "attack2": {
+   "key": "/workspace/wl/charge_key.py",
+   "cycles": 2,
+   "blend": 5
+  },
+  "hit": {
+   "src": "Idle_HitReact_Left_AnimalArmature"
+  },
+  "death": {
+   "src": "Death_AnimalArmature"
+  }
+ },
+ "mange": 0.58,
+ "vein_glow": 0.14,
+ "vein_cov": 0.55,
+ "glow": [
+  0.7,
+  0.07,
+  0.02,
+  1
+ ],
+ "eye_glow": [
+  0.6,
+  0.08,
+  0.01,
+  1
+ ],
+ "vein_color": [
+  0.035,
+  0.008,
+  0.012,
+  1
+ ],
+ "land_clips": [],
+ "tex_scale": 0.9,
+ "impact_min": {
+  "attack2": 25
+ },
+ "quads": true,
+ "decimate": 0.75,
+ "rigid_mat": {
+  "Stag_Horns": "Antler"
+ },
+ "saddle_z": [
+  0.45,
+  0.7
+ ]
+}

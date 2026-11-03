@@ -1,0 +1,42 @@
+{
+ "name": "evil_rabbit",
+ "tris": 5456,
+ "height_m": 0.543,
+ "length_m": 0.678,
+ "fps": 30,
+ "in_place": true,
+ "walk_speed_mps": 0.62,
+ "run_speed_mps": 0.95,
+ "clips": {
+  "idle": {
+   "frames": 81,
+   "loop": true
+  },
+  "walk": {
+   "frames": 33,
+   "loop": true
+  },
+  "run": {
+   "frames": 21,
+   "loop": true
+  },
+  "attack": {
+   "frames": 22,
+   "loop": false,
+   "impact": 8
+  },
+  "attack2": {
+   "frames": 36,
+   "loop": false,
+   "impact": 20
+  },
+  "hit": {
+   "frames": 16,
+   "loop": false
+  },
+  "death": {
+   "frames": 26,
+   "loop": false
+  }
+ }
+}

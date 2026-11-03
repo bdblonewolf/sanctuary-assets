@@ -1,0 +1,42 @@
+{
+ "name": "evil_rat",
+ "tris": 4204,
+ "height_m": 0.32,
+ "length_m": 0.974,
+ "fps": 30,
+ "in_place": true,
+ "walk_speed_mps": 0.1,
+ "run_speed_mps": 0.49,
+ "clips": {
+  "idle": {
+   "frames": 72,
+   "loop": true
+  },
+  "walk": {
+   "frames": 41,
+   "loop": true
+  },
+  "run": {
+   "frames": 16,
+   "loop": true
+  },
+  "attack": {
+   "frames": 21,
+   "loop": false,
+   "impact": 13
+  },
+  "attack2": {
+   "frames": 31,
+   "loop": false,
+   "impact": 24
+  },
+  "hit": {
+   "frames": 16,
+   "loop": false
+  },
+  "death": {
+   "frames": 33,
+   "loop": false
+  }
+ }
+}

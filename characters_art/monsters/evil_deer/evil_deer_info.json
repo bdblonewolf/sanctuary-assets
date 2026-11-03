@@ -1,0 +1,42 @@
+{
+ "name": "evil_deer",
+ "tris": 11428,
+ "height_m": 1.866,
+ "length_m": 1.656,
+ "fps": 30,
+ "in_place": true,
+ "walk_speed_mps": 0.48,
+ "run_speed_mps": 1.8,
+ "clips": {
+  "idle": {
+   "frames": 101,
+   "loop": true
+  },
+  "walk": {
+   "frames": 36,
+   "loop": true
+  },
+  "run": {
+   "frames": 16,
+   "loop": true
+  },
+  "attack": {
+   "frames": 24,
+   "loop": false,
+   "impact": 11
+  },
+  "attack2": {
+   "frames": 50,
+   "loop": false,
+   "impact": 36
+  },
+  "hit": {
+   "frames": 14,
+   "loop": false
+  },
+  "death": {
+   "frames": 33,
+   "loop": false
+  }
+ }
+}
