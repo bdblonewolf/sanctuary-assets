@@ -25,7 +25,9 @@ Node names are `player_<class>` (armature) and `player_<class>_body` (mesh). The
 ## Damaged Black masks
 `characters_art/equipment/damaged_black/pieces/*_<class>.mask.json` now point `body_file` at `characters_art/players/player_<class>.glb`. The base (male_regular) masks point at `characters_art/bodies/male_regular.glb`, which fixes a stray `tmp/...` path. Mask indices are body vertex indices as imported in Blender.
 
-## Clipping check (Damaged Black, anim_v2 clips, armor verts >3 mm inside *visible* skin)
+## Clipping check (Damaged Black, anim_v2 clips, armor verts >3 mm inside *visible* skin), pre-mobile masters
+> Superseded by the final mobile pass. See `characters_art/equipment/damaged_black/README.md` (“Clipping / gap check (final)”). Boots now have 0 skin gaps in every pose.
+
 | Class (clips) | Rest | Walk a / b | Sit | Stand up |
 |---|---|---|---|---|
 | warrior (male_regular) | knee 28 | knee 27/27, shoulder 0/6 | knee 38, shoulder 2, hip 1 | knee 36, shoulder 1, hip 1 |
@@ -38,3 +40,8 @@ Archer hair vs body (new pokes beyond the tucked roots): walk 42–68, sit 204, 
 
 ## Renders (`renders/`)
 `player_<class>_bare_{front,q34}.png`, `player_<class>_damaged_black_{front,q34}.png`, `player_<class>_sheet.png`, and the lineup `players_lineup_sheet.png` (all four bodies, bare and in the full set). They are Eevee renders on a dark background. Armored renders hide the masked body faces and the archer's hair.
+
+### Final Damaged Black mobile pass
+- The bodies in this folder are **unchanged** (52 mixamorig bones, metres, primitives skin/linen/eye, same vertex order). They are not decimated or compressed, so there is no `masters/` copy here.
+- The armored renders, the per-class sheets and `players_lineup_sheet.png` were regenerated with the mobile `pieces/` (shared WebP atlas). The bare renders are unchanged.
+- The optional skin-texture pass was skipped.

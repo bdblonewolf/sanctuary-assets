@@ -1,0 +1,358 @@
+{
+ "cls": "necromancer",
+ "pieces": "../../masters/",
+ "per_pose_worst": {
+  "rest": {
+   "boots_hem": {
+    "skin_gap": 59,
+    "hole": 650,
+    "clip": 9,
+    "edge": 19,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 2130,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 18,
+    "hole": 78,
+    "clip": 0,
+    "edge": 7,
+    "visor_view": 139
+   },
+   "belt_waist": {
+    "skin_gap": 0,
+    "hole": 0,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  },
+  "idle": {
+   "boots_hem": {
+    "skin_gap": 61,
+    "hole": 669,
+    "clip": 9,
+    "edge": 19,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 1493,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 22,
+    "hole": 80,
+    "clip": 0,
+    "edge": 7,
+    "visor_view": 145
+   },
+   "belt_waist": {
+    "skin_gap": 0,
+    "hole": 0,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  },
+  "run": {
+   "boots_hem": {
+    "skin_gap": 61,
+    "hole": 658,
+    "clip": 9,
+    "edge": 19,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 1863,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 21,
+    "hole": 78,
+    "clip": 0,
+    "edge": 6,
+    "visor_view": 147
+   },
+   "belt_waist": {
+    "skin_gap": 0,
+    "hole": 0,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  },
+  "ss_attack_heavy": {
+   "boots_hem": {
+    "skin_gap": 61,
+    "hole": 667,
+    "clip": 11,
+    "edge": 19,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 2208,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 24,
+    "hole": 71,
+    "clip": 0,
+    "edge": 6,
+    "visor_view": 142
+   },
+   "belt_waist": {
+    "skin_gap": 0,
+    "hole": 0,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  },
+  "bow_draw": {
+   "boots_hem": {
+    "skin_gap": 60,
+    "hole": 666,
+    "clip": 9,
+    "edge": 19,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 2087,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 22,
+    "hole": 75,
+    "clip": 16,
+    "edge": 6,
+    "visor_view": 120
+   },
+   "belt_waist": {
+    "skin_gap": 0,
+    "hole": 0,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  },
+  "magic_cast": {
+   "boots_hem": {
+    "skin_gap": 60,
+    "hole": 661,
+    "clip": 10,
+    "edge": 19,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 2307,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 19,
+    "hole": 78,
+    "clip": 0,
+    "edge": 6,
+    "visor_view": 131
+   },
+   "belt_waist": {
+    "skin_gap": 0,
+    "hole": 0,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  },
+  "walk_a": {
+   "boots_hem": {
+    "skin_gap": 58,
+    "hole": 666,
+    "clip": 10,
+    "edge": 18,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 1418,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 23,
+    "hole": 78,
+    "clip": 0,
+    "edge": 7,
+    "visor_view": 136
+   },
+   "belt_waist": {
+    "skin_gap": 1,
+    "hole": 0,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  },
+  "walk_b": {
+   "boots_hem": {
+    "skin_gap": 58,
+    "hole": 656,
+    "clip": 10,
+    "edge": 17,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 1369,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 25,
+    "hole": 78,
+    "clip": 0,
+    "edge": 6,
+    "visor_view": 138
+   },
+   "belt_waist": {
+    "skin_gap": 0,
+    "hole": 0,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  },
+  "sit": {
+   "boots_hem": {
+    "skin_gap": 59,
+    "hole": 700,
+    "clip": 10,
+    "edge": 19,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 901,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 24,
+    "hole": 80,
+    "clip": 0,
+    "edge": 8,
+    "visor_view": 136
+   },
+   "belt_waist": {
+    "skin_gap": 0,
+    "hole": 0,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  },
+  "stand_up": {
+   "boots_hem": {
+    "skin_gap": 58,
+    "hole": 697,
+    "clip": 11,
+    "edge": 17,
+    "visor_view": 0
+   },
+   "gauntlet_sleeve": {
+    "skin_gap": 0,
+    "hole": 1165,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   },
+   "helm_collar": {
+    "skin_gap": 22,
+    "hole": 81,
+    "clip": 0,
+    "edge": 6,
+    "visor_view": 136
+   },
+   "belt_waist": {
+    "skin_gap": 0,
+    "hole": 2,
+    "clip": 0,
+    "edge": 0,
+    "visor_view": 0
+   }
+  }
+ },
+ "worst_frame": {
+  "rest": [
+   2944,
+   null,
+   0
+  ],
+  "idle": [
+   2334,
+   "ss_idle",
+   1.8
+  ],
+  "run": [
+   2690,
+   "ss_run",
+   0.14
+  ],
+  "ss_attack_heavy": [
+   3042,
+   "ss_attack_heavy",
+   0.657
+  ],
+  "bow_draw": [
+   2935,
+   "bow_draw",
+   1.0
+  ],
+  "magic_cast": [
+   3135,
+   "magic_cast_1h",
+   1.7
+  ],
+  "walk_a": [
+   2254,
+   "v2:walk",
+   0.36
+  ],
+  "walk_b": [
+   2196,
+   "v2:walk",
+   1.079
+  ],
+  "sit": [
+   1774,
+   "v2:sit",
+   2.5
+  ],
+  "stand_up": [
+   2036,
+   "v2:stand_up",
+   0.363
+  ]
+ }
+}
