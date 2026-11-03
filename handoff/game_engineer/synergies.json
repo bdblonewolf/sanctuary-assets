@@ -885,7 +885,7 @@
    "breakpoints": [
     {
      "rank": 10,
-     "text": "foes caught by both the nova and a Hoarfrost patch freeze for 0.6s (once per 4s per foe"
+     "text": "foes caught by both the nova and a Hoarfrost patch freeze for 0.6s (once per 4s per foe; boss rules apply)"
     }
    ],
    "condition": [
@@ -895,7 +895,7 @@
     {
      "rank": 10,
      "action": "applyStatus",
-     "text": "foes caught by both the nova and a Hoarfrost patch freeze for 0.6s (once per 4s per foe"
+     "text": "foes caught by both the nova and a Hoarfrost patch freeze for 0.6s (once per 4s per foe; boss rules apply)"
     }
    ],
    "text": "Frost Nova leaves a 2s rime ring on the ground at its edge",
@@ -977,7 +977,7 @@
    "breakpoints": [
     {
      "rank": 10,
-     "text": "an attacker struck by the ward 5 times freezes for 1s (once per 6s"
+     "text": "an attacker struck by the ward 5 times freezes for 1s (once per 6s; bosses 50% duration and 1s immunity)"
     }
    ],
    "condition": [],
@@ -985,7 +985,7 @@
     {
      "rank": 10,
      "action": "applyStatus",
-     "text": "an attacker struck by the ward 5 times freezes for 1s (once per 6s"
+     "text": "an attacker struck by the ward 5 times freezes for 1s (once per 6s; bosses 50% duration and 1s immunity)"
     }
    ],
    "text": "the ward holds longer and keeps count of hits from each attacker",
@@ -1206,7 +1206,7 @@
    "breakpoints": [
     {
      "rank": 15,
-     "text": "Storm Call bolts hitting a foe on Hoarfrost arc to every foe on the patch (arcs cannot shock or re-arc"
+     "text": "Storm Call bolts hitting a foe on Hoarfrost arc to every foe on the patch (arcs cannot shock or re-arc; max 6)"
     }
    ],
    "condition": [
@@ -1216,7 +1216,7 @@
     {
      "rank": 15,
      "action": "castRite",
-     "text": "Storm Call bolts hitting a foe on Hoarfrost arc to every foe on the patch (arcs cannot shock or re-arc"
+     "text": "Storm Call bolts hitting a foe on Hoarfrost arc to every foe on the patch (arcs cannot shock or re-arc; max 6)"
     }
    ],
    "text": "the patch conducts electricity",
@@ -3397,7 +3397,7 @@
    "breakpoints": [
     {
      "rank": 10,
-     "text": "Execute kills trigger a Wide Cut that costs nothing (once per 3s"
+     "text": "Execute kills trigger a Wide Cut that costs nothing (once per 3s; outside the cost clamp)"
     }
    ],
    "condition": [],
@@ -3405,7 +3405,7 @@
     {
      "rank": 10,
      "action": "other",
-     "text": "Execute kills trigger a Wide Cut that costs nothing (once per 3s"
+     "text": "Execute kills trigger a Wide Cut that costs nothing (once per 3s; outside the cost clamp)"
     }
    ],
    "text": "if Wide Cut hit the foe in the last 1.5s, Execute follows through into an adjacent foe",
@@ -4598,7 +4598,7 @@
    "breakpoints": [
     {
      "rank": 10,
-     "text": "a foe pulled onto the trap's plate is pinned 0.4s (root cap 15%"
+     "text": "a foe pulled onto the trap's plate is pinned 0.4s (root cap 15%; bosses flinch)"
     }
    ],
    "condition": [],
@@ -4606,7 +4606,7 @@
     {
      "rank": 10,
      "action": "applyStatus",
-     "text": "a foe pulled onto the trap's plate is pinned 0.4s (root cap 15%"
+     "text": "a foe pulled onto the trap's plate is pinned 0.4s (root cap 15%; bosses flinch)"
     }
    ],
    "text": "Ironjaw bolts drag foes toward the trap instead of pushing them away",
@@ -5653,7 +5653,7 @@
    "breakpoints": [
     {
      "rank": 15,
-     "text": "the spin flings javelins out in 4 directions (counts as the +1 projectile"
+     "text": "the spin flings javelins out in 4 directions (counts as the +1 projectile; the 4 spears share one target cap)"
     }
    ],
    "condition": [],
@@ -5661,7 +5661,7 @@
     {
      "rank": 15,
      "action": "applyStatus",
-     "text": "the spin flings javelins out in 4 directions (counts as the +1 projectile"
+     "text": "the spin flings javelins out in 4 directions (counts as the +1 projectile; the 4 spears share one target cap)"
     }
    ],
    "text": "you spin with a spear, reaching further",
@@ -6160,7 +6160,7 @@
    "breakpoints": [
     {
      "rank": 10,
-     "text": "a poisoned foe frozen by a caltrop takes its remaining poison at once (once per freeze"
+     "text": "a poisoned foe frozen by a caltrop takes its remaining poison at once (once per freeze; boss rules apply)"
     }
    ],
    "condition": [
@@ -6171,7 +6171,7 @@
     {
      "rank": 10,
      "action": "applyStatus",
-     "text": "a poisoned foe frozen by a caltrop takes its remaining poison at once (once per freeze"
+     "text": "a poisoned foe frozen by a caltrop takes its remaining poison at once (once per freeze; boss rules apply)"
     }
    ],
    "text": "poison numbs the limbs so the caltrop chill bites deeper",
@@ -6255,7 +6255,7 @@
    "breakpoints": [
     {
      "rank": 20,
-     "text": "a foe standing in Cinder Bed with 3+ poison stacks is weakened: \u221215% damage for 2s (once per 5s)"
+     "text": "a foe standing in Cinder Bed with 3+ poison stacks is weakened: −15% damage for 2s (once per 5s)"
     }
    ],
    "condition": [
@@ -6265,7 +6265,7 @@
     {
      "rank": 20,
      "action": "other",
-     "text": "a foe standing in Cinder Bed with 3+ poison stacks is weakened: \u221215% damage for 2s (once per 5s)"
+     "text": "a foe standing in Cinder Bed with 3+ poison stacks is weakened: −15% damage for 2s (once per 5s)"
     }
    ],
    "text": "Cinder Bed smoke carries the cask's venom",
@@ -6349,7 +6349,7 @@
    "breakpoints": [
     {
      "rank": 15,
-     "text": "frozen foes inside the ring deal \u221220% damage for 2s after they thaw (once per freeze)"
+     "text": "frozen foes inside the ring deal −20% damage for 2s after they thaw (once per freeze)"
     }
    ],
    "condition": [
@@ -6359,7 +6359,7 @@
     {
      "rank": 15,
      "action": "applyStatus",
-     "text": "frozen foes inside the ring deal \u221220% damage for 2s after they thaw (once per freeze)"
+     "text": "frozen foes inside the ring deal −20% damage for 2s after they thaw (once per freeze)"
     }
    ],
    "text": "every freeze near the hearth gives the circle a frost barrier",
@@ -6396,7 +6396,7 @@
    "breakpoints": [
     {
      "rank": 10,
-     "text": "the dropped caltrop fires 2 shards before it melts (once per blink"
+     "text": "the dropped caltrop fires 2 shards before it melts (once per blink; cannot freeze)"
     }
    ],
    "condition": [],
@@ -6404,7 +6404,7 @@
     {
      "rank": 10,
      "action": "other",
-     "text": "the dropped caltrop fires 2 shards before it melts (once per blink"
+     "text": "the dropped caltrop fires 2 shards before it melts (once per blink; cannot freeze)"
     }
    ],
    "text": "blinking away drops a spent caltrop that chills foes who follow",
@@ -6861,7 +6861,7 @@
    "breakpoints": [
     {
      "rank": 10,
-     "text": "Drowned foes have \u221210% Attack Rating against members"
+     "text": "Drowned foes have −10% Attack Rating against members"
     }
    ],
    "condition": [
@@ -6871,7 +6871,7 @@
     {
      "rank": 10,
      "action": "extend",
-     "text": "Drowned foes have \u221210% Attack Rating against members"
+     "text": "Drowned foes have −10% Attack Rating against members"
     }
    ],
    "text": "reading the foe warns the whole circle",
@@ -6908,7 +6908,7 @@
    "breakpoints": [
     {
      "rank": 15,
-     "text": "a read foe pinned by Ironjaw has \u221215% dodge for 3s"
+     "text": "a read foe pinned by Ironjaw has −15% dodge for 3s"
     }
    ],
    "condition": [
@@ -6918,7 +6918,7 @@
     {
      "rank": 15,
      "action": "applyStatus",
-     "text": "a read foe pinned by Ironjaw has \u221215% dodge for 3s"
+     "text": "a read foe pinned by Ironjaw has −15% dodge for 3s"
     }
    ],
    "text": "Ironjaw bolts strike the weak joints Truesight reveals",
@@ -6955,7 +6955,7 @@
    "breakpoints": [
     {
      "rank": 10,
-     "text": "a Bone Spear crit on a read foe pierces 1 extra foe (once per cast"
+     "text": "a Bone Spear crit on a read foe pierces 1 extra foe (once per cast; +1 projectile cap)"
     }
    ],
    "condition": [
@@ -6965,7 +6965,7 @@
     {
      "rank": 10,
      "action": "castRite",
-     "text": "a Bone Spear crit on a read foe pierces 1 extra foe (once per cast"
+     "text": "a Bone Spear crit on a read foe pierces 1 extra foe (once per cast; +1 projectile cap)"
     }
    ],
    "text": "spears thrown at read foes find the gaps",
@@ -7049,7 +7049,7 @@
    "breakpoints": [
     {
      "rank": 15,
-     "text": "minion hits on a poisoned foe add 1 poison stack (max once per minion per 2s"
+     "text": "minion hits on a poisoned foe add 1 poison stack (max once per minion per 2s; stacks still capped)"
     }
    ],
    "condition": [
@@ -7059,7 +7059,7 @@
     {
      "rank": 15,
      "action": "other",
-     "text": "minion hits on a poisoned foe add 1 poison stack (max once per minion per 2s"
+     "text": "minion hits on a poisoned foe add 1 poison stack (max once per minion per 2s; stacks still capped)"
     }
    ],
    "text": "the cask's venom rides the undertow",
