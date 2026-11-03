@@ -4125,7 +4125,7 @@
   "weapons": {
     "Parish Blade": {
       "glb": "models/weapons/weapon_parish_blade.glb",
-      "fallback": "models/weapon_sword.glb",
+      "fallback": "models/weapon_sword_v2.glb",
       "grid": [
         1,
         3
@@ -4136,7 +4136,7 @@
     },
     "Ash Saber": {
       "glb": "models/weapons/weapon_ash_saber.glb",
-      "fallback": "models/weapon_sword.glb",
+      "fallback": "models/weapon_sword_v2.glb",
       "grid": [
         1,
         3
@@ -4147,7 +4147,7 @@
     },
     "Spire Falchion": {
       "glb": "models/weapons/weapon_spire_falchion.glb",
-      "fallback": "models/weapon_sword.glb",
+      "fallback": "models/weapon_sword_v2.glb",
       "grid": [
         1,
         3
@@ -4455,7 +4455,7 @@
     },
     "Rusted Iron Sword": {
       "glb": "models/weapons/weapon_parish_blade.glb",
-      "fallback": "models/weapon_sword.glb",
+      "fallback": "models/weapon_sword_v2.glb",
       "grid": [
         1,
         3
