@@ -13,7 +13,7 @@ Maintained by Sounds Of Sanctuary. All audio is original (synthesized from scrat
 | `audio/town/martsirt_theme.m4a` | Martsirt town theme v5 (Act I hub) |
 | `audio/town/martsirt_theme.ogg` | Martsirt town theme v5 (Act I hub) |
 
-## SFX (DRAFT batches B1 and B2, 230 files, Ogg Vorbis 44.1 kHz mono, peak <= -1 dBTP)
+## SFX (APPROVED by Brian 2026-11-02, batches B1 and B2, 230 files, Ogg Vorbis 44.1 kHz mono, peak <= -1 dBTP)
 
 Player hurt/effort/death voices in audio/sfx/player/ are synthesized placeholders until real voice work.
 
@@ -248,7 +248,7 @@ Player hurt/effort/death voices in audio/sfx/player/ are synthesized placeholder
 - `audio/sfx/weapon/swing_staff_03.ogg`
 - `audio/sfx/weapon/swing_staff_04.ogg`
 
-## Death and gore SFX (synthesized, for Characters And Monster)
+## Death and gore SFX (APPROVED 2026-11-02, synthesized, for Characters And Monster)
 
 Times are seconds from file start, for syncing animation frames.
 
