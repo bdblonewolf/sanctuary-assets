@@ -367,3 +367,36 @@ The new hair is fuller and longer over the shoulders, so it intersects the shoul
 - `renders/heads/heads_before_after_v6.png` (pass 5 vs pass 6)
 
 `heads_sheet.png`, `heads_before_after.png`, the per-view `player_*_head_*.png` and the bare/sheet renders are updated in place.
+
+## hair_v2: hair that clears the shoulder and chest plates when no helm is worn (2026-11-03)
+
+New files are added next to the pass-6 hair. `player_<class>_hair.glb` is unchanged, so the engine can switch over when ready:
+`player_archer_hair_v2.glb`, `player_elementalist_hair_v2.glb`, `player_warrior_hair_v2.glb` and `player_necromancer_hair_v2.glb`, with masters in `masters/`.
+
+### What changed
+These are the same hair02 assets as in pass 6. The credits and attribution below are unchanged. The hair was shortened and refitted:
+- **archer and elementalist:** back locks are lifted so they rest on the plate surface, and their weights follow the plate (Spine2 and shoulder bones). Face and side locks keep their head weights and are cut back to jaw or collar length. The result reads as a shoulder-length cut, or a bob for the elementalist.
+- **warrior and necromancer:** the pass-6 geometry is kept and trimmed where it reached the collar or plates. The back now ends at the collar.
+- Any triangle that crossed a plate or the body in a sampled pose was removed, together with its neighbours in the same lock within 2.5 cm.
+
+| Class | Tris (budget) | pass 6 |
+|---|---|---|
+| archer | 4,116 (≤ 8k) | 7,903 |
+| elementalist | 3,349 (≤ 8k) | 6,639 |
+| warrior | 3,220 (≤ 6k) | 5,920 |
+| necromancer | 3,138 (≤ 6k) | 4,334 |
+
+The format is the same as before: separate skinned GLBs, 1024 WebP textures, no meshopt or Draco, and the 52-bone rig. Bodies are unchanged.
+
+### Clipping (Damaged Black, no helm; rest, idle, run, ss_attack_heavy, bow_draw, magic_cast)
+- **Visible penetration** is a hair triangle actually intersecting a plate or skin triangle. It was checked at 5× the clip frame density, i.e. including in-between frames.
+  - Result: **0 plate and 0 body for every class in every pose.**
+- **Hidden verts:** up to 8 per class (warrior). These are root vertices sitting just under the scalp, covered by the hair cap, with no triangle crossing the skin. The necromancer has 0.
+- The **legacy "hair in plate" count** from the older check is still non-zero:
+  - archer ≤ 75, elementalist ≤ 115, warrior ≤ 39, necromancer ≤ 33;
+  - pass 6 was 1139, 935, 1018 and 266.
+  
+  That check tests each hair vertex against the nearest plate face. The plates are open, double-sided sheets, so hair that sits outside the plate but behind an inward-facing panel is still flagged. None of these are visible intersections.
+
+### Render
+`renders/hair_v2_plate_check.png`: each class in Damaged Black with no helm, front, 3/4 and back.
