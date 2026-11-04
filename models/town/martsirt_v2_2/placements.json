@@ -689,7 +689,7 @@
     {
       "name": "1 Salted Kettle inn",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/inn/bld_inn_salted_kettle_shared_lite.glb",
       "pos": [
         -24.5,
         0.0,
@@ -706,7 +706,7 @@
     {
       "name": "2 Wolchen's Forge",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/forge/v2/bld_forge_wolchen_v2_shared_lite.glb",
       "pos": [
         -50.5,
         0.0,
@@ -723,7 +723,7 @@
     {
       "name": "3 Chapel of St. Noll",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
       "pos": [
         40.5,
         0.0,
@@ -740,7 +740,7 @@
     {
       "name": "3b chapel_st_noll_tower",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_tower_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_tower_shared_lite.glb",
       "pos": [
         31.27,
         0.0,
@@ -758,7 +758,7 @@
     {
       "name": "4 Graveyard",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/graveyard/bld_graveyard_st_noll_shared_lite.glb",
       "pos": [
         48.0,
         0.0,
@@ -775,7 +775,7 @@
     {
       "name": "5 Ysara's herbs",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/herbs_ysara/bld_herbs_ysara_shared_lite.glb",
       "pos": [
         41.0,
         0.0,
@@ -792,7 +792,7 @@
     {
       "name": "6 Quill's scriptorium",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/scriptorium_quill/bld_scriptorium_quill_shared_lite.glb",
       "pos": [
         11.5,
         0.0,
@@ -809,7 +809,7 @@
     {
       "name": "7 South gatehouse (Ilyra)",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/bld_gatehouse_south_shared_lite.glb",
       "pos": [
         0.0,
         0.0,
@@ -826,7 +826,7 @@
     {
       "name": "gate_curtain_W",
       "kind": "wall",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_curtain_wall_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_curtain_wall_4m_shared_lite.glb",
       "pos": [
         -6.0,
         0.0,
@@ -840,7 +840,7 @@
     {
       "name": "gate_curtain_E",
       "kind": "wall",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_curtain_wall_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_curtain_wall_4m_shared_lite.glb",
       "pos": [
         6.0,
         0.0,
@@ -854,7 +854,7 @@
     {
       "name": "8 Miller's house + wheel",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/mill/bld_mill_shared_lite.glb",
       "pos": [
         -57.0,
         0.0,
@@ -871,7 +871,7 @@
     {
       "name": "9 Ness's cottage",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/cottage_ness/bld_cottage_ness_shared_lite.glb",
       "pos": [
         -33.5,
         0.0,
@@ -888,7 +888,7 @@
     {
       "name": "10 Orrin's lodge",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/lodge_orrin/bld_lodge_orrin_shared_lite.glb",
       "pos": [
         60.5,
         0.0,
@@ -905,7 +905,7 @@
     {
       "name": "11 Stable + yard",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/stable/bld_stable_shared_lite.glb",
       "pos": [
         41.0,
         0.0,
@@ -922,7 +922,7 @@
     {
       "name": "12 Watch-house + gibbet",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/watchhouse_gibbet/bld_watchhouse_gibbet_shared_lite.glb",
       "pos": [
         2.5,
         0.0,
@@ -939,7 +939,7 @@
     {
       "name": "14 town_square",
       "kind": "building",
-      "piece": "models/town/martsirt_v2_2/buildings/square/bld_square_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/square/bld_square_shared_lite.glb",
       "pos": [
         0.0,
         0.0,
@@ -956,7 +956,7 @@
     {
       "name": "herb_fence_0",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         37.15,
         0.0,
@@ -970,7 +970,7 @@
     {
       "name": "herb_fence_1",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         39.05,
         0.0,
@@ -984,7 +984,7 @@
     {
       "name": "herb_fence_2",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         40.95,
         0.0,
@@ -998,7 +998,7 @@
     {
       "name": "herb_fence_3",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         42.85,
         0.0,
@@ -1012,7 +1012,7 @@
     {
       "name": "herb_fence_4",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         44.75,
         0.0,
@@ -1026,7 +1026,7 @@
     {
       "name": "herb_fence_5",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         46.66,
         0.0,
@@ -1040,7 +1040,7 @@
     {
       "name": "herb_fence_6",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         48.56,
         0.0,
@@ -1054,7 +1054,7 @@
     {
       "name": "herb_fence_7",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         49.21,
         0.0,
@@ -1068,7 +1068,7 @@
     {
       "name": "herb_fence_8",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         48.59,
         0.0,
@@ -1082,7 +1082,7 @@
     {
       "name": "herb_fence_9",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         47.97,
         0.0,
@@ -1096,7 +1096,7 @@
     {
       "name": "herb_fence_10",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         47.35,
         0.0,
@@ -1110,7 +1110,7 @@
     {
       "name": "herb_fence_11",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         46.74,
         0.0,
@@ -1124,7 +1124,7 @@
     {
       "name": "herb_fence_12",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         46.11,
         0.0,
@@ -1138,7 +1138,7 @@
     {
       "name": "herb_fence_13",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         44.85,
         0.0,
@@ -1152,7 +1152,7 @@
     {
       "name": "herb_fence_14",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         42.95,
         0.0,
@@ -1166,7 +1166,7 @@
     {
       "name": "herb_fence_15",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         41.05,
         0.0,
@@ -1180,7 +1180,7 @@
     {
       "name": "herb_fence_16",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         37.25,
         0.0,
@@ -1194,7 +1194,7 @@
     {
       "name": "herb_fence_17",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         35.34,
         0.0,
@@ -1208,7 +1208,7 @@
     {
       "name": "herb_fence_18",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         33.44,
         0.0,
@@ -1222,7 +1222,7 @@
     {
       "name": "herb_fence_19",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         32.79,
         0.0,
@@ -1236,7 +1236,7 @@
     {
       "name": "herb_fence_20",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         33.41,
         0.0,
@@ -1250,7 +1250,7 @@
     {
       "name": "herb_fence_21",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         34.03,
         0.0,
@@ -1264,7 +1264,7 @@
     {
       "name": "herb_fence_22",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         34.65,
         0.0,
@@ -1278,7 +1278,7 @@
     {
       "name": "herb_fence_23",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         35.26,
         0.0,
@@ -1292,7 +1292,7 @@
     {
       "name": "herb_fence_24",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_fence_wattle_2m_lite.glb",
       "pos": [
         35.89,
         0.0,
@@ -1323,7 +1323,7 @@
     {
       "name": "market_stall_tallow",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_market_stall_c.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_market_stall_c_lite.glb",
       "pos": [
         -6.75,
         0.0,
@@ -1337,7 +1337,7 @@
     {
       "name": "market_barrels",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_barrel_group.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_barrel_group_lite.glb",
       "pos": [
         -3.84,
         0.0,
@@ -1351,7 +1351,7 @@
     {
       "name": "bonfire_main",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_bonfire_main.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_bonfire_main_lite.glb",
       "pos": [
         14.99,
         0.0,
@@ -1365,7 +1365,7 @@
     {
       "name": "campfire_gate",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_campfire.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_campfire_lite.glb",
       "pos": [
         -9.0,
         0.0,
@@ -1379,7 +1379,7 @@
     {
       "name": "inn_barrels",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_barrel_group.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_barrel_group_lite.glb",
       "pos": [
         -32.61,
         0.0,
@@ -1393,7 +1393,7 @@
     {
       "name": "forge_crates",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_crate_stack.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_crate_stack_lite.glb",
       "pos": [
         -41.37,
         0.0,
@@ -1407,7 +1407,7 @@
     {
       "name": "palisade_0",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         9.93,
         0.0,
@@ -1420,7 +1420,7 @@
     {
       "name": "palisade_1",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         13.79,
         0.0,
@@ -1433,7 +1433,7 @@
     {
       "name": "palisade_2",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         17.61,
         0.0,
@@ -1446,7 +1446,7 @@
     {
       "name": "palisade_3",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         21.4,
         0.0,
@@ -1459,7 +1459,7 @@
     {
       "name": "palisade_4",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         25.15,
         0.0,
@@ -1472,7 +1472,7 @@
     {
       "name": "palisade_5",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         28.85,
         0.0,
@@ -1485,7 +1485,7 @@
     {
       "name": "palisade_6",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         32.49,
         0.0,
@@ -1498,7 +1498,7 @@
     {
       "name": "palisade_7",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         36.06,
         0.0,
@@ -1511,7 +1511,7 @@
     {
       "name": "palisade_8",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         39.56,
         0.0,
@@ -1524,7 +1524,7 @@
     {
       "name": "palisade_9",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         42.97,
         0.0,
@@ -1537,7 +1537,7 @@
     {
       "name": "palisade_10",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         46.29,
         0.0,
@@ -1550,7 +1550,7 @@
     {
       "name": "palisade_11",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         49.5,
         0.0,
@@ -1563,7 +1563,7 @@
     {
       "name": "palisade_12",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         55.57,
         0.0,
@@ -1576,7 +1576,7 @@
     {
       "name": "palisade_13",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         58.42,
         0.0,
@@ -1589,7 +1589,7 @@
     {
       "name": "palisade_14",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         61.11,
         0.0,
@@ -1602,7 +1602,7 @@
     {
       "name": "palisade_15",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         63.66,
         0.0,
@@ -1615,7 +1615,7 @@
     {
       "name": "palisade_16",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         66.04,
         0.0,
@@ -1628,7 +1628,7 @@
     {
       "name": "palisade_17",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         68.24,
         0.0,
@@ -1641,7 +1641,7 @@
     {
       "name": "palisade_18",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         70.26,
         0.0,
@@ -1654,7 +1654,7 @@
     {
       "name": "palisade_19",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         72.08,
         0.0,
@@ -1667,7 +1667,7 @@
     {
       "name": "palisade_20",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         73.7,
         0.0,
@@ -1680,7 +1680,7 @@
     {
       "name": "palisade_21",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         75.1,
         0.0,
@@ -1693,7 +1693,7 @@
     {
       "name": "palisade_22",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         76.29,
         0.0,
@@ -1706,7 +1706,7 @@
     {
       "name": "palisade_23",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         77.24,
         0.0,
@@ -1719,7 +1719,7 @@
     {
       "name": "palisade_24",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         77.96,
         0.0,
@@ -1732,7 +1732,7 @@
     {
       "name": "palisade_25",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         78.45,
         0.0,
@@ -1745,7 +1745,7 @@
     {
       "name": "palisade_26",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         78.69,
         0.0,
@@ -1758,7 +1758,7 @@
     {
       "name": "palisade_27",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         78.69,
         0.0,
@@ -1771,7 +1771,7 @@
     {
       "name": "palisade_28",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         78.45,
         0.0,
@@ -1784,7 +1784,7 @@
     {
       "name": "palisade_29",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         77.96,
         0.0,
@@ -1797,7 +1797,7 @@
     {
       "name": "palisade_30",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         77.24,
         0.0,
@@ -1810,7 +1810,7 @@
     {
       "name": "palisade_31",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         76.29,
         0.0,
@@ -1823,7 +1823,7 @@
     {
       "name": "palisade_32",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         75.1,
         0.0,
@@ -1836,7 +1836,7 @@
     {
       "name": "palisade_33",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         73.7,
         0.0,
@@ -1849,7 +1849,7 @@
     {
       "name": "palisade_34",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         72.08,
         0.0,
@@ -1862,7 +1862,7 @@
     {
       "name": "palisade_35",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         70.26,
         0.0,
@@ -1875,7 +1875,7 @@
     {
       "name": "palisade_36",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         68.24,
         0.0,
@@ -1888,7 +1888,7 @@
     {
       "name": "palisade_37",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         66.04,
         0.0,
@@ -1901,7 +1901,7 @@
     {
       "name": "palisade_38",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         63.66,
         0.0,
@@ -1914,7 +1914,7 @@
     {
       "name": "palisade_39",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         61.11,
         0.0,
@@ -1927,7 +1927,7 @@
     {
       "name": "palisade_40",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         58.42,
         0.0,
@@ -1940,7 +1940,7 @@
     {
       "name": "palisade_41",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         55.57,
         0.0,
@@ -1953,7 +1953,7 @@
     {
       "name": "palisade_42",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         52.6,
         0.0,
@@ -1966,7 +1966,7 @@
     {
       "name": "palisade_43",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         49.5,
         0.0,
@@ -1979,7 +1979,7 @@
     {
       "name": "palisade_44",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         46.29,
         0.0,
@@ -1992,7 +1992,7 @@
     {
       "name": "palisade_45",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         42.97,
         0.0,
@@ -2005,7 +2005,7 @@
     {
       "name": "palisade_46",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         39.56,
         0.0,
@@ -2018,7 +2018,7 @@
     {
       "name": "palisade_47",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         36.06,
         0.0,
@@ -2031,7 +2031,7 @@
     {
       "name": "palisade_48",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         32.49,
         0.0,
@@ -2044,7 +2044,7 @@
     {
       "name": "palisade_49",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         28.85,
         0.0,
@@ -2057,7 +2057,7 @@
     {
       "name": "palisade_50",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         25.15,
         0.0,
@@ -2070,7 +2070,7 @@
     {
       "name": "palisade_51",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         21.4,
         0.0,
@@ -2083,7 +2083,7 @@
     {
       "name": "palisade_52",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         17.61,
         0.0,
@@ -2096,7 +2096,7 @@
     {
       "name": "palisade_53",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         13.79,
         0.0,
@@ -2109,7 +2109,7 @@
     {
       "name": "palisade_54",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         9.93,
         0.0,
@@ -2122,7 +2122,7 @@
     {
       "name": "palisade_55",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -9.93,
         0.0,
@@ -2135,7 +2135,7 @@
     {
       "name": "palisade_56",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -13.79,
         0.0,
@@ -2148,7 +2148,7 @@
     {
       "name": "palisade_57",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -17.61,
         0.0,
@@ -2161,7 +2161,7 @@
     {
       "name": "palisade_58",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -21.4,
         0.0,
@@ -2174,7 +2174,7 @@
     {
       "name": "palisade_59",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -25.15,
         0.0,
@@ -2187,7 +2187,7 @@
     {
       "name": "palisade_60",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -28.85,
         0.0,
@@ -2200,7 +2200,7 @@
     {
       "name": "palisade_61",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -32.49,
         0.0,
@@ -2213,7 +2213,7 @@
     {
       "name": "palisade_62",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -36.06,
         0.0,
@@ -2226,7 +2226,7 @@
     {
       "name": "palisade_63",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -39.56,
         0.0,
@@ -2239,7 +2239,7 @@
     {
       "name": "palisade_64",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -42.97,
         0.0,
@@ -2252,7 +2252,7 @@
     {
       "name": "palisade_65",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -46.29,
         0.0,
@@ -2265,7 +2265,7 @@
     {
       "name": "palisade_66",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -49.5,
         0.0,
@@ -2278,7 +2278,7 @@
     {
       "name": "palisade_67",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -52.6,
         0.0,
@@ -2291,7 +2291,7 @@
     {
       "name": "palisade_68",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -55.57,
         0.0,
@@ -2304,7 +2304,7 @@
     {
       "name": "palisade_69",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -58.42,
         0.0,
@@ -2317,7 +2317,7 @@
     {
       "name": "palisade_70",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -61.11,
         0.0,
@@ -2330,7 +2330,7 @@
     {
       "name": "palisade_71",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -63.66,
         0.0,
@@ -2343,7 +2343,7 @@
     {
       "name": "palisade_72",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -66.04,
         0.0,
@@ -2356,7 +2356,7 @@
     {
       "name": "palisade_73",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -68.24,
         0.0,
@@ -2369,7 +2369,7 @@
     {
       "name": "palisade_74",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -70.26,
         0.0,
@@ -2382,7 +2382,7 @@
     {
       "name": "palisade_75",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -72.08,
         0.0,
@@ -2395,7 +2395,7 @@
     {
       "name": "palisade_76",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -73.7,
         0.0,
@@ -2408,7 +2408,7 @@
     {
       "name": "palisade_77",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -75.1,
         0.0,
@@ -2421,7 +2421,7 @@
     {
       "name": "palisade_78",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -76.29,
         0.0,
@@ -2434,7 +2434,7 @@
     {
       "name": "palisade_79",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -77.24,
         0.0,
@@ -2447,7 +2447,7 @@
     {
       "name": "palisade_80",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -77.96,
         0.0,
@@ -2460,7 +2460,7 @@
     {
       "name": "palisade_81",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -78.45,
         0.0,
@@ -2473,7 +2473,7 @@
     {
       "name": "palisade_82",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -78.69,
         0.0,
@@ -2486,7 +2486,7 @@
     {
       "name": "palisade_83",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -78.69,
         0.0,
@@ -2499,7 +2499,7 @@
     {
       "name": "palisade_84",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -78.45,
         0.0,
@@ -2512,7 +2512,7 @@
     {
       "name": "palisade_85",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -77.96,
         0.0,
@@ -2525,7 +2525,7 @@
     {
       "name": "palisade_86",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -77.24,
         0.0,
@@ -2538,7 +2538,7 @@
     {
       "name": "palisade_87",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -76.29,
         0.0,
@@ -2551,7 +2551,7 @@
     {
       "name": "palisade_88",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -75.1,
         0.0,
@@ -2564,7 +2564,7 @@
     {
       "name": "palisade_89",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -73.7,
         0.0,
@@ -2577,7 +2577,7 @@
     {
       "name": "palisade_90",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -72.08,
         0.0,
@@ -2590,7 +2590,7 @@
     {
       "name": "palisade_91",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -70.26,
         0.0,
@@ -2603,7 +2603,7 @@
     {
       "name": "palisade_92",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -68.24,
         0.0,
@@ -2616,7 +2616,7 @@
     {
       "name": "palisade_93",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -66.04,
         0.0,
@@ -2629,7 +2629,7 @@
     {
       "name": "palisade_94",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -63.66,
         0.0,
@@ -2642,7 +2642,7 @@
     {
       "name": "palisade_95",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -61.11,
         0.0,
@@ -2655,7 +2655,7 @@
     {
       "name": "palisade_96",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -58.42,
         0.0,
@@ -2668,7 +2668,7 @@
     {
       "name": "palisade_97",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -55.57,
         0.0,
@@ -2681,7 +2681,7 @@
     {
       "name": "palisade_98",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -52.6,
         0.0,
@@ -2694,7 +2694,7 @@
     {
       "name": "palisade_99",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -49.5,
         0.0,
@@ -2707,7 +2707,7 @@
     {
       "name": "palisade_100",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -46.29,
         0.0,
@@ -2720,7 +2720,7 @@
     {
       "name": "palisade_101",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -42.97,
         0.0,
@@ -2733,7 +2733,7 @@
     {
       "name": "palisade_102",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -39.56,
         0.0,
@@ -2746,7 +2746,7 @@
     {
       "name": "palisade_103",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -36.06,
         0.0,
@@ -2759,7 +2759,7 @@
     {
       "name": "palisade_104",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -32.49,
         0.0,
@@ -2772,7 +2772,7 @@
     {
       "name": "palisade_105",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -28.85,
         0.0,
@@ -2785,7 +2785,7 @@
     {
       "name": "palisade_106",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -25.15,
         0.0,
@@ -2798,7 +2798,7 @@
     {
       "name": "palisade_107",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -21.4,
         0.0,
@@ -2811,7 +2811,7 @@
     {
       "name": "palisade_108",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -17.61,
         0.0,
@@ -2824,7 +2824,7 @@
     {
       "name": "palisade_109",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -13.79,
         0.0,
@@ -2837,7 +2837,7 @@
     {
       "name": "palisade_110",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared.glb",
+      "piece": "models/town/martsirt_v2_2/buildings/gatehouse_south/seg_palisade_4m_shared_lite.glb",
       "pos": [
         -9.93,
         0.0,
@@ -2850,7 +2850,7 @@
     {
       "name": "dress_trees",
       "kind": "dressing",
-      "piece": "models/town/martsirt_v2_2/dressing/dress_trees.glb",
+      "piece": "models/town/martsirt_v2_2/dressing/dress_trees_lite.glb",
       "pos": [
         0.0,
         0.0,
@@ -2863,7 +2863,7 @@
     {
       "name": "dress_rocks",
       "kind": "dressing",
-      "piece": "models/town/martsirt_v2_2/dressing/dress_rocks.glb",
+      "piece": "models/town/martsirt_v2_2/dressing/dress_rocks_lite.glb",
       "pos": [
         0.0,
         0.0,
@@ -2876,7 +2876,7 @@
     {
       "name": "dress_fences",
       "kind": "dressing",
-      "piece": "models/town/martsirt_v2_2/dressing/dress_fences.glb",
+      "piece": "models/town/martsirt_v2_2/dressing/dress_fences_lite.glb",
       "pos": [
         0.0,
         0.0,
@@ -2889,7 +2889,7 @@
     {
       "name": "dress_graveyard",
       "kind": "dressing",
-      "piece": "models/town/martsirt_v2_2/dressing/dress_graveyard.glb",
+      "piece": "models/town/martsirt_v2_2/dressing/dress_graveyard_lite.glb",
       "pos": [
         0.0,
         0.0,
@@ -2902,7 +2902,7 @@
     {
       "name": "dress_clutter",
       "kind": "dressing",
-      "piece": "models/town/martsirt_v2_2/dressing/dress_clutter.glb",
+      "piece": "models/town/martsirt_v2_2/dressing/dress_clutter_lite.glb",
       "pos": [
         0.0,
         0.0,
@@ -2915,7 +2915,7 @@
     {
       "name": "creek",
       "kind": "dressing",
-      "piece": "models/town/martsirt_v2_2/dressing/creek.glb",
+      "piece": "models/town/martsirt_v2_2/dressing/creek_lite.glb",
       "pos": [
         0.0,
         0.0,
@@ -2928,7 +2928,7 @@
     {
       "name": "seat_kettle_bench",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench_lite.glb",
       "pos": [
         -20.8,
         0.0,
@@ -2942,7 +2942,7 @@
     {
       "name": "seat_forge_bench",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench_lite.glb",
       "pos": [
         -52.5,
         0.0,
@@ -2956,7 +2956,7 @@
     {
       "name": "seat_stable_bale",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench_lite.glb",
       "pos": [
         9.4,
         0.0,
@@ -2970,7 +2970,7 @@
     {
       "name": "seat_ness_bench",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench_lite.glb",
       "pos": [
         -30.4,
         0.0,
@@ -2984,7 +2984,7 @@
     {
       "name": "seat_orrin_chair",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_seat_stone_bench_lite.glb",
       "pos": [
         55.85,
         0.0,
@@ -2998,7 +2998,7 @@
     {
       "name": "seat_camp_l1",
       "kind": "prop",
-      "piece": "models/town/martsirt_v2_2/props/prop_seat_log.glb",
+      "piece": "models/town/martsirt_v2_2/props/prop_seat_log_lite.glb",
       "pos": [
         -6.8,
         0.0,
@@ -3012,7 +3012,7 @@
     {
       "name": "creek_water_col",
       "kind": "dressing",
-      "piece": "models/town/martsirt_v2_2/dressing/creek_water_col.glb",
+      "piece": "models/town/martsirt_v2_2/dressing/creek_water_col_lite.glb",
       "pos": [
         0.0,
         0.0,
