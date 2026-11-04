@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="theme-color" content="#14161a">
 <title>Sanctuary Zone Builder</title>
 <style>
@@ -16,7 +16,13 @@ button:disabled{opacity:.4}
 button.pri{background:#3b5b2e;border-color:#557a42}
 button.warn{background:#5a2a2a;border-color:#7a3c3c}
 #zone{flex:1;min-width:150px}
-#wrap{position:relative;flex:1;min-height:120px}
+#wrap{position:relative;flex:1;min-height:120px;touch-action:none;overflow:hidden}
+#zoomb{position:absolute;right:6px;bottom:8px;display:flex;flex-direction:column;gap:6px}
+#zoomb button{width:48px;height:48px;font-size:22px;padding:0;background:#2a2e36e6}
+.gk{display:inline-flex;align-items:center;gap:4px;min-height:40px;margin:2px;padding:0 8px;font-size:13px}
+.gk.off{opacity:.35;text-decoration:line-through}
+.gk img{width:20px;height:20px}
+.ro{background:#16283a;border:1px solid #2f5f8a;color:#cfe6ff;border-radius:8px;padding:6px 8px;margin:4px 0;font-size:13px}
 canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
 #coord{position:absolute;left:6px;top:6px;background:#000a;padding:4px 8px;border-radius:6px;font:13px ui-monospace,monospace;pointer-events:none}
 #status{position:absolute;right:6px;top:6px;background:#000a;padding:4px 8px;border-radius:6px;font-size:12px;max-width:60%;pointer-events:none}
@@ -51,7 +57,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;displa
   <button id="bFit" title="Fit map">Fit</button>
   <button id="bSave" class="pri">Save</button>
  </div>
- <div id="wrap"><canvas id="cv"></canvas><div id="coord">x – z –</div><div id="status">Pick a zone, tap Load</div><div id="toast"></div></div>
+ <div id="wrap"><canvas id="cv"></canvas><div id="coord">x – z –</div><div id="status">Pick a zone, tap Load</div><div id="toast"></div><div id="zoomb"><button id="bZin" aria-label="Zoom in">+</button><button id="bZout" aria-label="Zoom out">−</button><button id="bFit2" aria-label="Fit" style="font-size:15px">Fit</button></div></div>
  <div id="tools">
   <button id="bUndo">↶ Undo</button><button id="bRedo">↷ Redo</button>
   <button id="bAdd">＋ Add</button><button id="bDup">Dup</button><button id="bDel" class="warn">🗑 Del</button>
@@ -66,12 +72,12 @@ var RAW='https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/';
 var WORLD='models/town/martsirt_v2_2/martsirt_world.json';
 // Only zones whose layout the live engine loads from a repo data file (checked against the live bundle: TD()/ED() for coast,bastion,lut,market; town calls kD('martsirt'); yu() loads placements.json)
 var ZONES=[
- {id:'coast',label:'Ashen Coast — border props',path:'handoff/game_engineer/borders/ashen/layout_coast_v2.json',kind:'layout'},
- {id:'martsirt',label:'Martsirt — border ring',path:'handoff/game_engineer/borders/martsirt/layout_martsirt_v2.json',kind:'layout',world:1},
- {id:'martsirt_town',label:'Martsirt — town placements',path:'models/town/martsirt_v2_2/placements.json',kind:'town',world:1},
- {id:'bastion',label:'Bastion of Hope — border props',path:'handoff/game_engineer/borders/bastion/layout_bastion.json',kind:'layout',fallback:[34,28]},
- {id:'lut',label:'Qadren (lut) — border props',path:'handoff/game_engineer/borders/lut/layout_lut.json',kind:'layout',fallback:[30,24]},
- {id:'market',label:'Market — border props',path:'handoff/game_engineer/borders/market/layout_market.json',kind:'layout',fallback:[48,40]}
+ {id:'coast',label:'Ashen Coast — border props',path:'handoff/game_engineer/borders/ashen/layout_coast_v2.json',kind:'layout',gp:'coast'},
+ {id:'martsirt',label:'Martsirt — border ring',path:'handoff/game_engineer/borders/martsirt/layout_martsirt_v2.json',kind:'layout',world:1,gp:'town'},
+ {id:'martsirt_town',label:'Martsirt — town placements',path:'models/town/martsirt_v2_2/placements.json',kind:'town',world:1,gp:'town'},
+ {id:'bastion',label:'Bastion of Hope — border props',path:'handoff/game_engineer/borders/bastion/layout_bastion.json',kind:'layout',fallback:[34,28],gp:'bastion'},
+ {id:'lut',label:'Qadren (lut) — border props',path:'handoff/game_engineer/borders/lut/layout_lut.json',kind:'layout',fallback:[30,24],gp:'lut'},
+ {id:'market',label:'Market — border props',path:'handoff/game_engineer/borders/market/layout_market.json',kind:'layout',fallback:[48,40],gp:'market'}
 ];
 // town GLBs that contain col_* collider nodes (checked offline); moving these moves real collision
 var TOWN_COL={bld_inn_salted_kettle_shared_lite:1,bld_forge_wolchen_v2_shared_lite:1,bld_chapel_st_noll_shared_lite:1,bld_chapel_st_noll_tower_shared_lite:1,bld_graveyard_st_noll_shared_lite:1,bld_herbs_ysara_shared_lite:1,bld_scriptorium_quill_shared_lite:1,bld_gatehouse_south_shared_lite:1,seg_curtain_wall_4m_shared_lite:1,bld_mill_shared_lite:1,bld_cottage_ness_shared_lite:1,bld_lodge_orrin_shared_lite:1,bld_stable_shared_lite:1,bld_watchhouse_gibbet_shared_lite:1,bld_square_shared_lite:1,prop_fence_wattle_2m_lite:1,shrine_weeping_angel:1,prop_market_stall_c_lite:1,prop_barrel_group_lite:1,prop_bonfire_main_lite:1,prop_campfire_lite:1,prop_crate_stack_lite:1,seg_palisade_4m_shared_lite:1,dress_trees_lite:1,dress_rocks_lite:1,dress_fences_lite:1,prop_seat_stone_bench_lite:1,prop_seat_log_lite:1,creek_water_col_lite:1};
@@ -140,8 +146,83 @@ var $=function(id){return document.getElementById(id)};
 var cv=$('cv'),cx=cv.getContext('2d'),DPR=Math.min(2,window.devicePixelRatio||1);
 var Z=null,doc=null,docText='',key='props',orig=[],items=[],W=0,H=0,ORG=[0,0],solid=null,worldW=0;
 var view={s:6,ox:0,oy:0},sel=-1,undo=[],redo=[],snap=0,labels=1,dirty=false,warned={};
+// ---------- game-code props (read-only overlay from game_props.json, built by extract_props.js) ----------
+var GP=null,GPP=null,gsel=-1,GPOFF={mountain:1};
+try{var go=JSON.parse(localStorage.getItem('zb_gpoff')||'null');if(go)GPOFF=go}catch(e){}
+function loadGP(){if(GPP)return GPP;
+ GPP=fetch('game_props.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw Error();return r.json()})
+  .catch(function(){return fetch(RAW+'tools/zone_builder/game_props.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null})})
+  .catch(function(){return null}).then(function(j){GP=j;addViewZones();return j});return GPP}
+function gpZone(){return GP&&Z&&Z.gp&&GP.zones[Z.gp]||null}
+function gps(){var g=gpZone();return g?g.props:[]}
+function gpOn(p){return !GPOFF[p.kind]}
+// kind -> [shape, colour, default radius m]
+var GS={bonfire:['flame','#ff8a1f',.7],body:['x','#c0392b',.55],bones:['x','#e8e0d0',.4],chest:['box','#e8b923',.5],tomb:['slab','#9aa0a6',.6],
+ tree:['circle','#3fae4a',.9],gtree:['circle','#3fae4a',.9],palm:['circle','#7ed957',.8],bush:['circle','#2e8b3e',.5],stump:['circle','#8a6a3a',.35],cactus:['circle','#5fbf6f',.4],flower:['pt','#ff7ad9',.2],grass:['pt','#9acd32',.2],
+ rock:['blob','#8d8f94',.6],shore_rock:['blob','#7d8a96',.6],rubble:['blob','#77706a',.45],crag:['tri','#6a6560',1],mountain:['tri','#4d4a47',1.2],spire:['tri','#5c5856',.8],
+ well:['ring','#3fa7ff',.7],bench:['rect','#9a6b3c',.5],log:['rect','#8a5a2c',.55],pew:['rect','#9a6b3c',.6],stool:['rect','#9a6b3c',.25],chair:['rect','#9a6b3c',.3],table:['rect','#b07a45',.55],bar:['rect','#b07a45',.8],bed:['rect','#c9a27a',.6],bookshelf:['rect','#8e5fd0',.5],
+ crate:['box','#c49a5a',.4],barrel:['circle','#a0703a',.35],sack:['circle','#c9b28a',.3],urn:['circle','#b88a6a',.3],pot:['circle','#b88a6a',.25],cart:['rect','#a07a4a',.7],weapon_rack:['rect','#9aa0aa',.5],hearth:['flame','#ff5a1f',.5],
+ torch:['dot','#ffd23f',.25],lamp:['dot','#fff07a',.3],arch:['arch','#3fe0ff',.9],stairs:['arch','#5ff0c0',.7],mouth:['ring','#222',.8],
+ sign:['post','#ffffff',.35],mark:['post','#ff4f9a',.35],waymark:['post','#ffffff',.35],folio:['box','#b98cff',.25],pillar:['circle','#c8c8c8',.4],shrine:['star','#ff5cf0',.7],organ:['rect','#b98cff',.7],
+ boat:['boat','#3f7fd0',1.2],skiff:['boat','#3f7fd0',1],building:['bld','#d0a070',1],fence:['rect','#a08060',.3]};
+function gsOf(k){if(GS[k])return GS[k];var h=0;for(var i=0;i<k.length;i++)h=(h*31+k.charCodeAt(i))%360;return ['circle','hsl('+h+',60%,60%)',.4]}
+function gpRad(p){var g=gsOf(p.kind);return Math.max(g[2],p.w&&p.kind!=='building'?Math.min(p.w,3)/2:0)}
+function shape(c,sh,col,x,z,r,a){c.fillStyle=col;c.strokeStyle=col;c.beginPath();
+ if(sh==='flame'){c.moveTo(x,z-1.3*r);c.bezierCurveTo(x+1.1*r,z-.2*r,x+.9*r,z+.9*r,x,z+.9*r);c.bezierCurveTo(x-.9*r,z+.9*r,x-1.1*r,z-.2*r,x,z-1.3*r);c.fill();c.fillStyle='#ffe066';c.beginPath();c.moveTo(x,z-.3*r);c.bezierCurveTo(x+.5*r,z+.2*r,x+.45*r,z+.75*r,x,z+.75*r);c.bezierCurveTo(x-.45*r,z+.75*r,x-.5*r,z+.2*r,x,z-.3*r);c.fill()}
+ else if(sh==='x'){c.lineWidth=r*.5;c.lineCap='round';c.strokeStyle='#1a0a08';c.moveTo(x-r,z-r);c.lineTo(x+r,z+r);c.moveTo(x+r,z-r);c.lineTo(x-r,z+r);c.lineWidth=r*.75;c.stroke();c.beginPath();c.strokeStyle=col;c.lineWidth=r*.45;c.moveTo(x-r,z-r);c.lineTo(x+r,z+r);c.moveTo(x+r,z-r);c.lineTo(x-r,z+r);c.stroke();c.lineCap='butt'}
+ else if(sh==='box'){c.rect(x-r,z-.7*r,2*r,1.4*r);c.fill();c.fillStyle='#5a3a10';c.fillRect(x-r,z-.12*r,2*r,.24*r)}
+ else if(sh==='slab'){c.rect(x-.6*r,z-r,1.2*r,2*r);c.fill();c.fillStyle='#55595e';c.fillRect(x-.6*r,z-r,1.2*r,.3*r)}
+ else if(sh==='blob'){for(var i=0;i<7;i++){var t=i/7*6.2832,q=r*(.75+.25*Math.sin(i*2.7+x*3.1));i?c.lineTo(x+Math.cos(t)*q,z+Math.sin(t)*q):c.moveTo(x+Math.cos(t)*q,z+Math.sin(t)*q)}c.closePath();c.fill()}
+ else if(sh==='tri'){c.moveTo(x,z-r);c.lineTo(x+r*.9,z+r*.65);c.lineTo(x-r*.9,z+r*.65);c.closePath();c.fill()}
+ else if(sh==='ring'){c.lineWidth=r*.35;c.arc(x,z,r*.8,0,6.2832);c.stroke()}
+ else if(sh==='rect'){c.save();c.translate(x,z);c.rotate(-(a||0));c.fillRect(-r,-r*.45,2*r,r*.9);c.restore()}
+ else if(sh==='dot'){c.globalAlpha*=.35;c.arc(x,z,r*1.9,0,6.2832);c.fill();c.globalAlpha/= .35;c.beginPath();c.arc(x,z,r*.8,0,6.2832);c.fill()}
+ else if(sh==='pt'){c.arc(x,z,r*.6,0,6.2832);c.fill()}
+ else if(sh==='arch'){c.lineWidth=r*.35;c.arc(x,z+.2*r,r*.75,Math.PI,0);c.lineTo(x+.75*r,z+r);c.moveTo(x-.75*r,z+.2*r);c.lineTo(x-.75*r,z+r);c.stroke()}
+ else if(sh==='post'){c.fillRect(x-r*.7,z-r,1.4*r,.8*r);c.fillRect(x-r*.12,z-r,.24*r,2*r)}
+ else if(sh==='star'){for(var j=0;j<10;j++){var t2=-Math.PI/2+j*Math.PI/5,q2=j%2?r*.45:r;j?c.lineTo(x+Math.cos(t2)*q2,z+Math.sin(t2)*q2):c.moveTo(x+Math.cos(t2)*q2,z+Math.sin(t2)*q2)}c.closePath();c.fill()}
+ else if(sh==='boat'){c.moveTo(x-r,z);c.quadraticCurveTo(x,z+r*.9,x+r,z);c.quadraticCurveTo(x,z-r*.3,x-r,z);c.fill()}
+ else {c.arc(x,z,r,0,6.2832);c.fill()}}
+var ICONS={};function icon(k){if(ICONS[k])return ICONS[k];var e=document.createElement('canvas');e.width=e.height=40;var c=e.getContext('2d'),g=gsOf(k);shape(c,g[0]==='bld'?'rect':g[0],g[1],20,20,13,0);return ICONS[k]=e.toDataURL()}
+var GPKEY={bonfire:2,body:1,chest:1,tomb:1,shrine:1,arch:1,stairs:1,well:1,sign:1,mark:1,waymark:1,bones:1,hearth:1,mouth:1,folio:1};
+function gpOrder(g){if(g._ord)return g._ord;var o=g.props.map(function(p,i){return i});o.sort(function(a,b){var pa=GPKEY[g.props[a].kind]?1+GPKEY[g.props[a].kind]:g.props[a].kind==='building'?0:1,pb=GPKEY[g.props[b].kind]?1+GPKEY[g.props[b].kind]:g.props[b].kind==='building'?0:1;return pa-pb||a-b});return g._ord=o}
+function drawGP(c,s,tl,br){var L=gps();if(!L.length)return;var minR=4*DPR/s,minK=8*DPR/s,fs=11*DPR/s,O=gpOrder(gpZone());
+ var g=gpZone();if(g&&g.lights&&!GPOFF.light){c.fillStyle='#ffcc55';c.globalAlpha=.18;g.lights.forEach(function(l){c.beginPath();c.arc(l.x,l.y,Math.max(1.2,minR*1.2),0,6.2832);c.fill()});c.globalAlpha=1}
+ for(var oi=0;oi<O.length;oi++){var i=O[oi],p=L[i];if(!gpOn(p))continue;var x=p.x,z=p.y,r=Math.max(GPKEY[p.kind]?minK:minR,gpRad(p));if(x+r<tl[0]-3||x-r>br[0]+3||z+r<tl[1]-3||z-r>br[1]+3)continue;var st=gsOf(p.kind);
+  c.globalAlpha=p.looted?.55:.95;
+  if(st[0]==='bld'){var w=p.w||2,d=p.d||2;c.fillStyle='#d0a07055';c.strokeStyle='#d0a070';c.lineWidth=2/s;c.fillRect(x,z,w,d);c.strokeRect(x,z,w,d);if(p.label&&s>=4*DPR){c.fillStyle='#fff';c.font=fs+'px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(p.label,x+w/2,z+d/2)}}
+  else shape(c,st[0],st[1],x,z,r,p.rotY);
+  c.globalAlpha=1;
+  if(i===gsel){c.strokeStyle='#00ffd0';c.lineWidth=3/s;c.beginPath();c.arc(st[0]==='bld'?x+(p.w||2)/2:x,st[0]==='bld'?z+(p.d||2)/2:z,r+.4+4/s,0,6.2832);c.stroke()}
+  if(i===gsel||(labels&&s>=22*DPR&&st[0]!=='bld')){c.fillStyle='#ffe9c0';c.font=fs+'px sans-serif';c.textAlign='center';c.textBaseline='top';c.fillText(p.kind+(p.style?' '+p.style:''),x,z+r+.15)}}}
+function gpCenter(p){return gsOf(p.kind)[0]==='bld'?[p.x+(p.w||2)/2,p.y+(p.d||2)/2]:[p.x,p.y]}
+function gpPrompt(p){var zid=Z.gp==='town'?'town (Martsirt)':Z.gp;return 'zone '+zid+' '+p.kind+(p.style?' ('+p.style+')':'')+(p.label?' "'+p.label+'"':'')+(p.tag?' tag '+p.tag:'')+' at ('+r3(p.x)+', '+r3(p.y)+')'}
+function gpPanel(){var p=gps()[gsel],h='';var st=gsOf(p.kind);
+ h+='<div class="kv"><img src="'+icon(p.kind)+'" style="width:22px;height:22px;vertical-align:middle"> <b>'+esc(p.kind)+'</b>'+(p.style?' · style <b>'+esc(p.style)+'</b>':'')+(p.label?' · "'+esc(p.label)+'"':'')+'</div>';
+ h+='<div class="kv">x <b>'+r3(p.x)+'</b> · y <b>'+r3(p.y)+'</b> (game tiles = map x,z)'+(p.w?' · w '+p.w:'')+(p.d?' · d '+p.d:'')+(p.rotY!=null?' · rot '+deg(p.rotY).toFixed(0)+'°':'')+'</div>';
+ var ex=[];for(var k in p)if(['kind','x','y','style','label','w','d','rotY','gen'].indexOf(k)<0)ex.push(k+': '+p[k]);if(ex.length)h+='<div class="kv" style="color:#9aa0aa">'+esc(ex.join(' · '))+'</div>';
+ h+='<div class="ro">🔒 In game code, change via prompt. (Read-only here — '+(p.gen?'placed by a loop/fill/seeded generator':'hand-placed literal in the bundle')+'.)</div>';
+ h+='<div class="row"><button id="bGpCopy" class="pri" style="flex:1">Copy for prompt</button><button id="bGpDesel">Close</button></div>';
+ $('panel').innerHTML=h;$('bGpCopy').onclick=function(){copy(gpPrompt(p))};$('bGpDesel').onclick=function(){gsel=-1;panel();draw()}}
+function gpLegend(){var L=gps(),g=gpZone();if(!g)return '';var cnt={};L.forEach(function(p){cnt[p.kind]=(cnt[p.kind]||0)+1});
+ var ks=Object.keys(cnt).sort(function(a,b){var pr=['bonfire','body','chest','tomb','shrine','well','arch','stairs'];var ia=pr.indexOf(a),ib=pr.indexOf(b);if(ia<0)ia=99;if(ib<0)ib=99;return ia-ib||cnt[b]-cnt[a]});
+ var h='<div class="kv" style="margin-top:6px"><b>Game props</b> (in game code, read-only · tap to toggle)</div><div>';
+ ks.forEach(function(k){h+='<button class="gk'+(GPOFF[k]?' off':'')+'" data-k="'+esc(k)+'"><img src="'+icon(k)+'">'+esc(k)+' '+cnt[k]+'</button>'});
+ if(g.lights&&g.lights.length)h+='<button class="gk'+(GPOFF.light?' off':'')+'" data-k="light"><span class="sw" style="background:#ffcc55;border-radius:50%"></span>lights '+g.lights.length+'</button>';
+ h+='<button class="gk" data-k="_all">all</button><button class="gk" data-k="_none">none</button></div>';
+ if(g.notes&&g.notes.length)h+='<div class="note">'+esc(g.notes.join(' · '))+'</div>';
+ return h}
+function bindGpLegend(){var bs=document.querySelectorAll('.gk');for(var i=0;i<bs.length;i++)bs[i].onclick=function(){var k=this.getAttribute('data-k');
+ if(k==='_all')GPOFF={};else if(k==='_none'){GPOFF={light:1};gps().forEach(function(p){GPOFF[p.kind]=1})}else{if(GPOFF[k])delete GPOFF[k];else GPOFF[k]=1}
+ try{localStorage.setItem('zb_gpoff',JSON.stringify(GPOFF))}catch(e){}if(gsel>=0&&GPOFF[gps()[gsel].kind])gsel=-1;panel();draw()}}
+function addViewZones(){if(!GP||addViewZones.done)return;addViewZones.done=1;var cov={};ZONES.forEach(function(z){if(z.gp)cov[z.gp]=1});
+ var og=document.createElement('optgroup');og.label='View only (game-code props)';
+ Object.keys(GP.zones).forEach(function(id){var g=GP.zones[id];if(cov[id]||!g.props||!g.props.length||!g.w)return;var z={id:id,label:(g.name&&g.name!==id?g.name+' ('+id+')':id)+' — view',kind:'view',gp:id};ZONES.push(z);var o=document.createElement('option');o.value=id;o.textContent=z.label;og.appendChild(o)});
+ $('zone').appendChild(og)}
+function zoomBy(f){var cxp=cv.width/DPR/2,cyp=cv.height/DPR/2,w=s2w(cxp,cyp);view.s=Math.max(.3,Math.min(400,view.s*f));view.ox=cxp*DPR-w[0]*view.s;view.oy=cyp*DPR-w[1]*view.s;draw()}
+function viewOnly(){if(Z&&Z.kind==='view'){toast('View-only zone: these props live in game code. Tap one → Copy for prompt.');return true}return false}
 ZONES.forEach(function(z){var o=document.createElement('option');o.value=z.id;o.textContent=z.label;$('zone').appendChild(o)});
-try{var lz=localStorage.getItem('zb_last');if(lz)$('zone').value=lz}catch(e){}
+
 function status(s){$('status').textContent=s}
 function toast(s,ms){var t=$('toast');t.textContent=s;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(function(){t.style.display='none'},ms||3500)}
 function resize(){var r=cv.getBoundingClientRect();cv.width=Math.max(1,r.width*DPR|0);cv.height=Math.max(1,r.height*DPR|0);draw()}
@@ -153,6 +234,7 @@ function setM(p,x,z){var o=Z.kind==='town'?ORG:[0,0];var np=p.pos.slice();var m=
 function s2w(px,py){return [(px*DPR-view.ox)/view.s,(py*DPR-view.oy)/view.s]}
 function w2s(x,z){return [x*view.s+view.ox,z*view.s+view.oy]}
 function fit(){if(!W)return;var minx=0,minz=0,maxx=W,maxz=H;items.forEach(function(it){var x=mx(it.p),z=mz(it.p);if(x<minx)minx=x;if(x>maxx)maxx=x;if(z<minz)minz=z;if(z>maxz)maxz=z});
+ gps().forEach(function(p){if(!gpOn(p))return;var q=gpCenter(p);if(q[0]<minx)minx=q[0];if(q[0]>maxx)maxx=q[0];if(q[1]<minz)minz=q[1];if(q[1]>maxz)maxz=q[1]});
  var pad=2,cw=cv.width,ch=cv.height;view.s=Math.min(cw/(maxx-minx+pad*2),ch/(maxz-minz+pad*2));view.ox=(cw-(maxx+minx)*view.s)/2;view.oy=(ch-(maxz+minz)*view.s)/2;draw()}
 var LAYC={lip_outer:'#d98b3a',lip_inner:'#e0c050',ring_front:'#5fb0d0',outer_far:'#8a7fd0',outer:'#c070b0',building:'#d0a070',wall:'#b0b0b0',prop:'#70c090',interactable:'#ff80c0',dressing:'#7090ff'};
 function colorOf(p){var k=Z.kind==='town'?p.kind:p.layer;if(LAYC[k])return LAYC[k];var h=0,s=String(k);for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%360;return 'hsl('+h+',55%,60%)'}
@@ -174,9 +256,9 @@ function paint(){raf=0;var c=cx,cw=cv.width,ch=cv.height;c.setTransform(1,0,0,1,
  for(var gz=Math.ceil(z0/step)*step;gz<=z1;gz+=step){c.strokeStyle=gz%10===0?'#3c4650':'#272e35';c.beginPath();c.moveTo(x0,gz);c.lineTo(x1,gz);c.stroke()}
  c.strokeStyle='#9ab';c.lineWidth=2/s;c.strokeRect(0,0,W,H);
  // seams / exits
- if(Array.isArray(doc.seams)){c.strokeStyle='#3fe0ff';c.lineWidth=4/s;doc.seams.forEach(function(sm){if(!sm.walk_t)return;var a=sm.walk_t[0],b=sm.walk_t[1];c.beginPath();if(sm.edge==='N'){c.moveTo(a,0);c.lineTo(b,0)}else if(sm.edge==='S'){c.moveTo(a,H);c.lineTo(b,H)}else if(sm.edge==='W'){c.moveTo(0,a);c.lineTo(0,b)}else{c.moveTo(W,a);c.lineTo(W,b)}c.stroke()})}
+ if(doc&&Array.isArray(doc.seams)){c.strokeStyle='#3fe0ff';c.lineWidth=4/s;doc.seams.forEach(function(sm){if(!sm.walk_t)return;var a=sm.walk_t[0],b=sm.walk_t[1];c.beginPath();if(sm.edge==='N'){c.moveTo(a,0);c.lineTo(b,0)}else if(sm.edge==='S'){c.moveTo(a,H);c.lineTo(b,H)}else if(sm.edge==='W'){c.moveTo(0,a);c.lineTo(0,b)}else{c.moveTo(W,a);c.lineTo(W,b)}c.stroke()})}
  // kit pieces (read-only)
- if(Z.kind==='layout'&&Array.isArray(doc.pieces)){c.strokeStyle='#8890a0';c.lineWidth=Math.max(.5,3/s);doc.pieces.forEach(function(p){var a=p.pos||[0,0,0],r=p.rotY||0,L=p.length_m||2;c.beginPath();c.moveTo(a[0],a[2]);c.lineTo(a[0]+Math.cos(r)*L,a[2]-Math.sin(r)*L);c.stroke()})}
+ if(Z.kind==='layout'&&doc&&Array.isArray(doc.pieces)){c.strokeStyle='#8890a0';c.lineWidth=Math.max(.5,3/s);doc.pieces.forEach(function(p){var a=p.pos||[0,0,0],r=p.rotY||0,L=p.length_m||2;c.beginPath();c.moveTo(a[0],a[2]);c.lineTo(a[0]+Math.cos(r)*L,a[2]-Math.sin(r)*L);c.stroke()})}
  var fs=12*DPR/s;c.font=fs+'px sans-serif';c.textAlign='center';c.textBaseline='top';
  var minR=4*DPR/s;
  for(var n=0;n<items.length;n++){var p=items[n].p,x=mx(p),z=mz(p),r=Math.max(minR,radM(p)),k=cat(p),col=colorOf(p),rot=p.rotY||0,bi=blockInfo(Z,p);
@@ -195,7 +277,8 @@ function paint(){raf=0;var c=cx,cw=cv.width,ch=cv.height;c.setTransform(1,0,0,1,
   if(items[n].o==null||changed(n)){c.fillStyle='#ffe14a';c.beginPath();c.arc(x+r*.7,z-r*.7,3*DPR/s,0,6.2832);c.fill()}
   if(n===sel){c.strokeStyle='#00ffd0';c.lineWidth=3/s;c.beginPath();c.arc(x,z,r+.5+4/s,0,6.2832);c.stroke()}
   if(n===sel||(labels&&s>=22*DPR)){c.fillStyle='#fff';c.fillText(Z.kind==='town'?p.name:p.id,x,z+r+.2)}
- }}
+ }
+ drawGP(c,s,tl,br)}
 function changed(n){var it=items[n];if(it.o==null)return true;var a=orig[it.o],b=it.p;return a.pos!==b.pos||a.rotY!==b.rotY||a.scale!==b.scale}
 // ---------- state, undo, storage ----------
 function snapState(){return items.map(function(it){return {o:it.o,src:it.src,p:it.p}})}
@@ -205,15 +288,17 @@ function restore(st){items=st.items.map(function(it){return {o:it.o,src:it.src,p
 function editP(n,fn){var it=items[n];var p=cloneKeep(it.p);fn(p);it.p=p;markDirty()}
 function markDirty(){dirty=true;clearTimeout(markDirty.h);markDirty.h=setTimeout(saveLocal,400)}
 function sKey(){return 'zb_'+Z.id}
-function saveLocal(){if(!Z)return;try{var d=diffLines(Z,orig,items);if(!d.lines.length){localStorage.removeItem(sKey());return}
+function saveLocal(){if(!Z||Z.kind==='view')return;try{var d=diffLines(Z,orig,items);if(!d.lines.length){localStorage.removeItem(sKey());return}
  localStorage.setItem(sKey(),JSON.stringify({t:Date.now(),base:hash(docText),items:items.map(function(it){return {o:it.o,src:it.src,p:(it.o!=null&&it.p===orig[it.o])?0:it.p}})}))}catch(e){}}
 function hash(s){var h=5381;for(var i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36)+s.length}
 function warnIf(p,what){var b=blockInfo(Z,p);if(!b)return;var k=what+(p.name||p.id)+mx(p);toast('⚠ '+(b==='edgecol'?'EDGE COLLIDER (town wall/palisade)':b==='block'?'This blocks walking (has collider)':'Sits on a solid edge tile')+' — '+what+'. Brian\'s rule: edge colliders only change with your OK. Flagged in the change list.',5000)}
 // ---------- load ----------
-function load(){var z=ZONES.filter(function(q){return q.id===$('zone').value})[0];try{localStorage.setItem('zb_last',z.id)}catch(e){}
+function load(){var z=ZONES.filter(function(q){return q.id===$('zone').value})[0];if(!z)return;try{localStorage.setItem('zb_last',z.id)}catch(e){}gsel=-1;
+ if(z.kind==='view'){status('Loading game props …');loadGP().then(function(){var g=GP&&GP.zones[z.gp];if(!g){status('game_props.json failed to load');return}Z=z;doc=null;docText='';key='props';orig=[];items=[];ORG=[0,0];solid=null;W=g.w;H=g.h;undo=[];redo=[];sel=-1;Z.note='View only: '+(g.name||z.id)+' has no layout data file — everything here lives in game code (read-only). Tap a prop → Copy for prompt.';
+  status(z.id+': '+g.props.length+' game props (view only)');panel();resize();fit()});return}
  status('Loading '+z.path+' …');var bust='?t='+Date.now();
  var pr=[fetch(RAW+z.path+bust,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.text()})];
- if(z.world)pr.push(fetch(RAW+WORLD+bust,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}));
+ pr.push(z.world?fetch(RAW+WORLD+bust,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}):null);pr.push(loadGP());
  Promise.all(pr).then(function(res){Z=z;docText=res[0];doc=parseKeep(docText);var wd=res[1]||null;
   key=z.kind==='town'?'placements':'props';orig=doc[key]||[];items=orig.map(function(p,i){return {o:i,p:p}});
   ORG=[0,0];solid=null;var note='';
@@ -226,13 +311,14 @@ function load(){var z=ZONES.filter(function(q){return q.id===$('zone').value})[0
    if(confirm(msg)){var ok=true;var ni=sv.items.map(function(it){if(it.p===0){if(!orig[it.o])ok=false;return {o:it.o,src:it.src,p:orig[it.o]}}if(it.o!=null&&!orig[it.o])it.o=null;return {o:it.o,src:it.src,p:it.p}}).filter(function(it){return it.p});items=ni;if(!ok)toast('Some restored items no longer match the file.')}
    else if(confirm('Discard the saved edits for '+z.id+'?'))localStorage.removeItem(sKey())}}catch(e){}
   var nS=items.filter(function(it){return skipped(it.p)}).length;
-  status(z.id+': '+items.length+' '+key+(nS?' ('+nS+' border-mound props are skipped by the live engine)':''));
+  status(z.id+': '+items.length+' '+key+(gps().length?' + '+gps().length+' game props':'')+(nS?' ('+nS+' border-mound props are skipped by the live engine)':''));
   if(note)toast(note,6000);
   panel();resize();fit()}).catch(function(e){status('Load failed: '+e.message)})}
 // ---------- pointer input ----------
 var ptrs={},gest=null;
 function hit(px,py){var w=s2w(px,py),best=-1,bd=1e9,tol=22*DPR/view.s;
- for(var n=items.length-1;n>=0;n--){var p=items[n].p,d=Math.hypot(mx(p)-w[0],mz(p)-w[1]),r=Math.max(radM(p),tol);if(n===sel)d*=.5;if(d<r&&d<bd){bd=d;best=n}}return best}
+ for(var n=items.length-1;n>=0;n--){var p=items[n].p,d=Math.hypot(mx(p)-w[0],mz(p)-w[1]),r=Math.max(radM(p),tol);if(n===sel)d*=.5;if(d<r&&d<bd){bd=d;best=n}}
+ var L=gps(),gt=18*DPR/view.s;for(var i=0;i<L.length;i++){var g=L[i];if(!gpOn(g))continue;var q=gpCenter(g),dd=Math.hypot(q[0]-w[0],q[1]-w[1]),rr=Math.max(gpRad(g),gt);if(gsOf(g.kind)[0]==='bld'){if(w[0]>=g.x&&w[0]<=g.x+(g.w||2)&&w[1]>=g.y&&w[1]<=g.y+(g.d||2))dd=Math.min(dd,rr*.9)}if(i===gsel)dd*=.5;if(dd<rr&&dd<bd*1.05){bd=dd;best=-2-i}}return best}
 function rel(e){var r=cv.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top]}
 cv.addEventListener('pointerdown',function(e){cv.setPointerCapture(e.pointerId);var q=rel(e);ptrs[e.pointerId]=q;var ids=Object.keys(ptrs);
  if(ids.length===1){var h=Z?hit(q[0],q[1]):-1;gest={m:'press',sx:q[0],sy:q[1],h:h,ox:view.ox,oy:view.oy,moved:false};
@@ -248,14 +334,17 @@ cv.addEventListener('pointermove',function(e){var q=rel(e);var w=s2w(q[0],q[1]);
  else if(gest.m==='drag'){var nx=w[0]+gest.gx,nz=w[1]+gest.gz;if(snap){nx=Math.round(nx/snap)*snap;nz=Math.round(nz/snap)*snap}editP(sel,function(p){setM(p,nx,nz)});panelVals();draw()}
 });
 function up(e){var q=ptrs[e.pointerId];delete ptrs[e.pointerId];if(!gest)return;
- if(gest.m==='press'&&!gest.moved){sel=gest.h;panel();draw()}
+ if(gest.m==='press'&&!gest.moved){if(gest.h<=-2){gsel=-2-gest.h;sel=-1}else{sel=gest.h;gsel=-1}panel();draw()}
  if(Object.keys(ptrs).length===0)gest=null;else if(gest.m==='pinch'){var id=Object.keys(ptrs)[0];var r=ptrs[id];gest={m:'pan',sx:r[0],sy:r[1],ox:view.ox,oy:view.oy,moved:true,h:-1}}}
 cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+// stop the browser from scrolling/zooming the page under the map (Android Chrome)
+['touchstart','touchmove'].forEach(function(t){$('wrap').addEventListener(t,function(e){if(e.target===cv||e.touches.length>1)e.preventDefault()},{passive:false})});
+document.addEventListener('gesturestart',function(e){e.preventDefault()});document.addEventListener('dblclick',function(e){if(e.target===cv)e.preventDefault()});
 cv.addEventListener('wheel',function(e){e.preventDefault();var q=rel(e),w=s2w(q[0],q[1]);view.s=Math.max(.3,Math.min(400,view.s*Math.exp(-e.deltaY*.0015)));view.ox=q[0]*DPR-w[0]*view.s;view.oy=q[1]*DPR-w[1]*view.s;draw()},{passive:false});
 // ---------- panel ----------
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function panel(){var P=$('panel');if(!Z){P.className='hide';return}P.className='';
- if(sel<0){P.innerHTML='<div class="kv">Tap a shape to select it. Drag the <b>selected</b> shape to move it; drag elsewhere to pan; pinch to zoom.</div>'+(Z.note?'<div class="note">'+esc(Z.note)+'</div>':'')+legend();return}
+function panel(){var P=$('panel');if(!Z){P.className='hide';return}P.className='';['bAdd','bDup','bDel','bSave','bUndo','bRedo','bSnap'].forEach(function(b){$(b).style.opacity=Z.kind==='view'?.35:''});if(gsel>=0&&gps()[gsel])return gpPanel();
+ if(sel<0){P.innerHTML='<div class="kv">Tap a shape to select it. Drag the <b>selected</b> shape to move it; drag elsewhere to pan; pinch (or +/−) to zoom.</div>'+(Z.note?'<div class="note">'+esc(Z.note)+'</div>':'')+(Z.kind==='view'?'':legend())+gpLegend();bindGpLegend();return}
  var it=items[sel],p=it.p,town=Z.kind==='town',bi=blockInfo(Z,p),h='';
  h+='<div class="kv"><b>'+esc(town?p.name:p.id)+'</b> '+(it.o!=null?'#'+it.o:'(new)')+' · <span style="color:'+colorOf(p)+'">■</span> '+esc(town?p.kind:p.layer)+(p.edge?' · edge '+esc(p.edge):'')+'</div>';
  h+='<div class="kv">model: <b>'+esc(base(town?p.piece:p.asset))+'</b></div>';
@@ -282,19 +371,19 @@ function legend(){var seen={};items.forEach(function(it){seen[Z.kind==='town'?it
  return h+'<br><span style="color:#ff3b3b">thick red</span> = edge collider · <span style="color:#ff3b3b">thin red</span> = has collider · <span style="color:#ff9a2a">orange dashed</span> = on solid edge tile · <span style="color:#3fe0ff">cyan</span> = seam/exit · grey lines = kit pieces (read-only) · yellow dot = edited'+(solid?' · dark red tiles = solid (martsirt_world.json)':'')+'</div>'}
 // ---------- tools ----------
 $('bLoad').onclick=function(){if(dirty&&Z&&diffLines(Z,orig,items).lines.length&&!confirm('Reload? Your edits stay saved on this phone and you can restore them.'))return;saveLocal();load()};
-$('bFit').onclick=fit;
+$('bFit').onclick=fit;$('bFit2').onclick=fit;$('bZin').onclick=function(){zoomBy(1.5)};$('bZout').onclick=function(){zoomBy(1/1.5)};
 $('bUndo').onclick=function(){if(!undo.length)return;redo.push({items:snapState(),sel:sel});restore(undo.pop())};
 $('bRedo').onclick=function(){if(!redo.length)return;undo.push({items:snapState(),sel:sel});restore(redo.pop())};
-$('bDel').onclick=function(){if(sel<0)return toast('Select something first');var p=items[sel].p;pushUndo();warnIf(p,'deleting it');items.splice(sel,1);sel=-1;panel();draw()};
-$('bDup').onclick=function(){if(sel<0)return toast('Select something first');var it=items[sel];pushUndo();var p=cloneKeep(it.p);if(p.name)p.name=p.name+' copy';setM(p,mx(p)+1.5,mz(p));items.push({o:null,src:it.o!=null?it.o:it.src,p:p});sel=items.length-1;warnIf(p,'adding a copy');panel();draw()};
+$('bDel').onclick=function(){if(viewOnly())return;if(gsel>=0)return toast('Game props are read-only (game code) — use Copy for prompt');if(sel<0)return toast('Select something first');var p=items[sel].p;pushUndo();warnIf(p,'deleting it');items.splice(sel,1);sel=-1;panel();draw()};
+$('bDup').onclick=function(){if(viewOnly())return;if(gsel>=0)return toast('Game props are read-only (game code) — use Copy for prompt');if(sel<0)return toast('Select something first');var it=items[sel];pushUndo();var p=cloneKeep(it.p);if(p.name)p.name=p.name+' copy';setM(p,mx(p)+1.5,mz(p));items.push({o:null,src:it.o!=null?it.o:it.src,p:p});sel=items.length-1;warnIf(p,'adding a copy');panel();draw()};
 $('bSnap').onclick=function(){snap=snap===0?.5:snap===.5?1:0;this.textContent='Snap '+(snap?snap+'m':'off')};
 $('bLbl').onclick=function(){labels=!labels;draw()};
-$('bAdd').onclick=function(){if(!Z)return;var m={},order=[];orig.forEach(function(p,i){var a=Z.kind==='town'?p.piece:p.asset;if(!m[a]){m[a]={i:i,n:0};order.push(a)}m[a].n++});
+$('bAdd').onclick=function(){if(!Z||viewOnly())return;var m={},order=[];orig.forEach(function(p,i){var a=Z.kind==='town'?p.piece:p.asset;if(!m[a]){m[a]={i:i,n:0};order.push(a)}m[a].n++});
  var b=document.createElement('div');order.forEach(function(a){var t=document.createElement('button');t.className='mitem';t.innerHTML='<span>'+esc(base(a))+'</span><span style="color:#9aa0aa">×'+m[a].n+'</span>';t.onclick=function(){
   var src=orig[m[a].i],p=cloneKeep(src);var c=s2w(cv.width/DPR/2,cv.height/DPR/2);setM(p,c[0],c[1]);if(p.name)p.name=p.name+' (added)';pushUndo();items.push({o:null,src:m[a].i,p:p});sel=items.length-1;closeM();panel();draw();toast('Added at view centre — drag it into place',2500)};b.appendChild(t)});
  openM('Add a model used in '+Z.id+' (copies its first use)',b,[['Close',closeM]])};
 $('bHelp').onclick=function(){var d=document.createElement('div');d.className='kv';d.innerHTML='<p><b>Tap</b> a shape to select. <b>Drag the selected</b> shape to move it. Drag empty space to pan, pinch or mouse-wheel to zoom. Coordinates are tile metres (x east, z south).</p><p>Facing tick = the way the model faces (rotY). Size ≈ model × scale.</p><p><b>Save</b> → Copy changes (zone, file, change list and the full JSON) to paste in chat, or Download JSON. Unsaved edits are kept on this phone per zone.</p><p>Nothing is sent anywhere; the page only reads files from GitHub.</p>';openM('Zone Builder help',d,[['Close',closeM]])};
-$('bSave').onclick=function(){if(!Z)return toast('Load a zone first');var d=diffLines(Z,orig,items),out=buildOut(doc,key,items);
+$('bSave').onclick=function(){if(!Z)return toast('Load a zone first');if(viewOnly())return;var d=diffLines(Z,orig,items),out=buildOut(doc,key,items);
  var full=dumpPy(out,detectFmt(docText)),compact=JSON.stringify(out);
  var head='ZONE BUILDER — zone '+Z.id+'\nfile: '+Z.path+'\nbase: main @ '+new Date().toISOString().slice(0,16)+'Z · '+items.length+' '+key+' ('+orig.length+' before)\n';
  var list=d.lines.length?d.lines.join('\n'):'(no changes)';
@@ -302,7 +391,7 @@ $('bSave').onclick=function(){if(!Z)return toast('Load a zone first');var d=diff
  var copyText=head+'\nCHANGES ('+d.lines.length+'):\n'+list+'\n'+warn+'\nJSON (compact; same structure, untouched fields preserved):\n'+compact;
  var box=document.createElement('div');var ta=document.createElement('textarea');ta.readOnly=true;ta.value=head+'\nCHANGES ('+d.lines.length+'):\n'+list+'\n'+warn;box.appendChild(ta);
  openM('Save — '+d.lines.length+' change(s)',box,[['Copy changes',function(){copy(copyText)}],['Copy list only',function(){copy(head+'\n'+list+warn)}],['Download JSON',function(){dl(base(Z.path)+'.json',full)}],['Close',closeM]])};
-function copy(t){var done=function(){toast('Copied '+Math.round(t.length/1024)+' KB — paste it in chat',3000)};
+function copy(t){var done=function(){toast(t.length<300?'Copied: '+t:'Copied '+Math.round(t.length/1024)+' KB — paste it in chat',3000)};
  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,function(){fb()});else fb();
  function fb(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){toast('Copy failed — use Download JSON')}ta.remove()}}
 function dl(name,t){var u=URL.createObjectURL(new Blob([t],{type:'application/json'}));var a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000)}
@@ -311,6 +400,7 @@ function closeM(){$('modal').style.display='none'}
 window.addEventListener('beforeunload',saveLocal);
 document.addEventListener('visibilitychange',function(){if(document.hidden)saveLocal()});
 resize();
-(function(){var m=/[?&]zone=([\w]+)/.exec(location.search);if(m&&ZONES.some(function(z){return z.id===m[1]})){$('zone').value=m[1];load()}})();
+loadGP().then(function(){var m=/[?&]zone=([\w]+)/.exec(location.search),lz=null;try{lz=localStorage.getItem('zb_last')}catch(e){}
+ var want=m?m[1]:lz;if(want&&ZONES.some(function(z){return z.id===want})){$('zone').value=want;if(m)load()}});
 </script>
 </body></html>
