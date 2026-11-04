@@ -1,0 +1,539 @@
+{
+ "base_m": {
+  "town": 0.0,
+  "coast": 0.0,
+  "flotsam": 0.6,
+  "hollow": 0.4,
+  "wild": 6,
+  "briarE": 12,
+  "duneW": 6,
+  "desert": 1.5,
+  "lut": 2,
+  "market": 2.5,
+  "waste": 7,
+  "bastion": 8,
+  "bluffs": 17,
+  "mires": 25,
+  "sink": 19,
+  "ridge": 38,
+  "ascent": 52,
+  "crypts": 47,
+  "chasm": 36,
+  "iron": 60,
+  "gaol": 67,
+  "weald": 72,
+  "isle": 2
+ },
+ "relief_m": {
+  "town": 0.0,
+  "coast": 0.0,
+  "flotsam": 1.0,
+  "hollow": 1.0,
+  "wild": 5,
+  "briarE": 7,
+  "duneW": 4,
+  "desert": 3,
+  "lut": 2,
+  "market": 1.5,
+  "waste": 6,
+  "bastion": 4,
+  "bluffs": 7,
+  "mires": 2,
+  "sink": 5,
+  "ridge": 9,
+  "ascent": 9,
+  "crypts": 6,
+  "chasm": 8,
+  "iron": 6,
+  "gaol": 6,
+  "weald": 6,
+  "isle": 6
+ },
+ "role": {
+  "town": "hub",
+  "coast": "coast",
+  "flotsam": "coast",
+  "hollow": "cove",
+  "wild": "forest",
+  "briarE": "forest ridge (approach to The Narrow)",
+  "duneW": "The Narrow (pass, drops into the basin)",
+  "desert": "basin",
+  "lut": "basin",
+  "market": "basin town",
+  "waste": "ash country",
+  "bastion": "coast climb",
+  "bluffs": "switchbacks",
+  "mires": "high marsh plateau",
+  "sink": "sinkhole",
+  "ridge": "ridge switchbacks",
+  "ascent": "mountain plateau",
+  "crypts": "cliff shelf",
+  "chasm": "gorge",
+  "iron": "mountain pass",
+  "gaol": "high pass",
+  "weald": "high forest plateau",
+  "isle": "island"
+ },
+ "seam_heights": {
+  "town|wild": 0.0,
+  "coast|town": 0.0,
+  "coast|flotsam": 0.0,
+  "flotsam|hollow": 0.5,
+  "briarE|wild": 9.0,
+  "briarE|duneW": 9.0,
+  "desert|duneW": 3.75,
+  "desert|lut": 1.75,
+  "lut|market": 2.25,
+  "market|waste": 4.75,
+  "bastion|coast": 0.0,
+  "bastion|bluffs": 12.5,
+  "bluffs|mires": 21.0,
+  "mires|sink": 22.0,
+  "mires|ridge": 31.5,
+  "ascent|ridge": 45.0,
+  "ascent|crypts": 49.5,
+  "ascent|iron": 56.0,
+  "chasm|crypts": 41.5,
+  "gaol|iron": 63.5,
+  "gaol|weald": 69.5
+ },
+ "summary": [
+  {
+   "zone": "coast",
+   "size": [
+    42,
+    112
+   ],
+   "range": [
+    -1.2,
+    0.0
+   ],
+   "road_max": 0.0,
+   "viol": 0,
+   "climb": 0.0,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 1,
+   "cliffs": 0,
+   "offs": 0
+  },
+  {
+   "zone": "martsirt",
+   "size": [
+    162,
+    154
+   ],
+   "range": [
+    0.0,
+    0.0
+   ],
+   "road_max": 0.0,
+   "viol": 0,
+   "climb": 0.0,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 1,
+   "cliffs": 0,
+   "offs": 0
+  },
+  {
+   "zone": "flotsam",
+   "size": [
+    36,
+    28
+   ],
+   "range": [
+    -1.2,
+    0.5
+   ],
+   "road_max": 2.9,
+   "viol": 0,
+   "climb": 0.5,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 1,
+   "cliffs": 0,
+   "offs": 0
+  },
+  {
+   "zone": "hollow",
+   "size": [
+    26,
+    22
+   ],
+   "range": [
+    0.41,
+    1.92
+   ],
+   "road_max": 0.0,
+   "viol": 0,
+   "climb": 0,
+   "switch": false,
+   "extra": 0,
+   "plateaus": 1,
+   "cliffs": 0,
+   "offs": 0
+  },
+  {
+   "zone": "bastion",
+   "size": [
+    34,
+    28
+   ],
+   "range": [
+    0.0,
+    12.5
+   ],
+   "road_max": 48.2,
+   "viol": 13,
+   "climb": 12.5,
+   "switch": true,
+   "extra": 25.1,
+   "plateaus": 2,
+   "cliffs": 72,
+   "offs": 0
+  },
+  {
+   "zone": "bluffs",
+   "size": [
+    52,
+    44
+   ],
+   "range": [
+    11.73,
+    24.57
+   ],
+   "road_max": 21.5,
+   "viol": 0,
+   "climb": 8.5,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 9,
+   "cliffs": 364,
+   "offs": 0
+  },
+  {
+   "zone": "mires",
+   "size": [
+    40,
+    34
+   ],
+   "range": [
+    20.4,
+    31.5
+   ],
+   "road_max": 37.8,
+   "viol": 6,
+   "climb": 10.5,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 1,
+   "cliffs": 4,
+   "offs": 0
+  },
+  {
+   "zone": "sink",
+   "size": [
+    28,
+    24
+   ],
+   "range": [
+    15.56,
+    23.27
+   ],
+   "road_max": 0.7,
+   "viol": 0,
+   "climb": 0,
+   "switch": false,
+   "extra": 0,
+   "plateaus": 1,
+   "cliffs": 141,
+   "offs": 0
+  },
+  {
+   "zone": "ridge",
+   "size": [
+    44,
+    46
+   ],
+   "range": [
+    31.04,
+    48.66
+   ],
+   "road_max": 24.3,
+   "viol": 0,
+   "climb": 13.5,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 4,
+   "cliffs": 254,
+   "offs": 0
+  },
+  {
+   "zone": "ascent",
+   "size": [
+    32,
+    30
+   ],
+   "range": [
+    42.76,
+    57.03
+   ],
+   "road_max": 32.5,
+   "viol": 1,
+   "climb": 11.0,
+   "switch": true,
+   "extra": 6.1,
+   "plateaus": 2,
+   "cliffs": 168,
+   "offs": 0
+  },
+  {
+   "zone": "crypts",
+   "size": [
+    34,
+    28
+   ],
+   "range": [
+    41.5,
+    50.41
+   ],
+   "road_max": 1.6,
+   "viol": 0,
+   "climb": 8.0,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 2,
+   "cliffs": 173,
+   "offs": 0
+  },
+  {
+   "zone": "chasm",
+   "size": [
+    26,
+    28
+   ],
+   "range": [
+    31.98,
+    42.42
+   ],
+   "road_max": 1.9,
+   "viol": 0,
+   "climb": 0,
+   "switch": false,
+   "extra": 0,
+   "plateaus": 3,
+   "cliffs": 165,
+   "offs": 0
+  },
+  {
+   "zone": "iron",
+   "size": [
+    38,
+    24
+   ],
+   "range": [
+    55.26,
+    64.48
+   ],
+   "road_max": 32.2,
+   "viol": 2,
+   "climb": 7.5,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 2,
+   "cliffs": 74,
+   "offs": 0
+  },
+  {
+   "zone": "gaol",
+   "size": [
+    32,
+    42
+   ],
+   "range": [
+    62.38,
+    71.15
+   ],
+   "road_max": 0.8,
+   "viol": 0,
+   "climb": 6.0,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 5,
+   "cliffs": 268,
+   "offs": 0
+  },
+  {
+   "zone": "weald",
+   "size": [
+    44,
+    40
+   ],
+   "range": [
+    67.74,
+    77.42
+   ],
+   "road_max": 9.6,
+   "viol": 0,
+   "climb": 0,
+   "switch": false,
+   "extra": 0,
+   "plateaus": 3,
+   "cliffs": 263,
+   "offs": 0
+  },
+  {
+   "zone": "wild",
+   "size": [
+    72,
+    56
+   ],
+   "range": [
+    -0.57,
+    10.45
+   ],
+   "road_max": 17.3,
+   "viol": 0,
+   "climb": 9.0,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 4,
+   "cliffs": 308,
+   "offs": 0
+  },
+  {
+   "zone": "briarE",
+   "size": [
+    52,
+    40
+   ],
+   "range": [
+    7.46,
+    17.28
+   ],
+   "road_max": 12.7,
+   "viol": 0,
+   "climb": 0.0,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 6,
+   "cliffs": 300,
+   "offs": 0
+  },
+  {
+   "zone": "duneW",
+   "size": [
+    28,
+    16
+   ],
+   "range": [
+    3.75,
+    9.54
+   ],
+   "road_max": 21.0,
+   "viol": 0,
+   "climb": 5.25,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 0,
+   "cliffs": 1,
+   "offs": 0
+  },
+  {
+   "zone": "desert",
+   "size": [
+    36,
+    30
+   ],
+   "range": [
+    0.26,
+    3.75
+   ],
+   "road_max": 15.9,
+   "viol": 0,
+   "climb": 2.0,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 3,
+   "cliffs": 0,
+   "offs": 0
+  },
+  {
+   "zone": "lut",
+   "size": [
+    30,
+    24
+   ],
+   "range": [
+    0.57,
+    3.57
+   ],
+   "road_max": 3.7,
+   "viol": 0,
+   "climb": 0.5,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 1,
+   "cliffs": 0,
+   "offs": 0
+  },
+  {
+   "zone": "market",
+   "size": [
+    48,
+    40
+   ],
+   "range": [
+    0.96,
+    4.75
+   ],
+   "road_max": 14.8,
+   "viol": 0,
+   "climb": 2.5,
+   "switch": false,
+   "extra": 0.0,
+   "plateaus": 2,
+   "cliffs": 2,
+   "offs": 0
+  },
+  {
+   "zone": "waste",
+   "size": [
+    50,
+    42
+   ],
+   "range": [
+    4.35,
+    6.97
+   ],
+   "road_max": 3.7,
+   "viol": 0,
+   "climb": 0,
+   "switch": false,
+   "extra": 0,
+   "plateaus": 1,
+   "cliffs": 6,
+   "offs": 0
+  },
+  {
+   "zone": "isle",
+   "size": [
+    96,
+    80
+   ],
+   "range": [
+    -1.2,
+    8.0
+   ],
+   "road_max": 0.0,
+   "viol": 0,
+   "climb": 0,
+   "switch": false,
+   "extra": 0,
+   "plateaus": 8,
+   "cliffs": 841,
+   "offs": 0
+  }
+ ]
+}
