@@ -26,9 +26,13 @@ button.warn{background:#5a2a2a;border-color:#7a3c3c}
 canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
 #coord{position:absolute;left:6px;top:6px;background:#000a;padding:4px 8px;border-radius:6px;font:13px ui-monospace,monospace;pointer-events:none}
 #status{position:absolute;right:6px;top:6px;background:#000a;padding:4px 8px;border-radius:6px;font-size:12px;max-width:60%;pointer-events:none}
-#toast{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:#7a2f12;color:#fff;padding:8px 12px;border-radius:8px;font-size:14px;display:none;max-width:92%;text-align:center}
+#toast{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);background:#7a2f12;color:#fff;padding:8px 12px;border-radius:8px;font-size:14px;display:none;max-width:92%;text-align:center;pointer-events:none}
 #tools{display:flex;flex-wrap:wrap;gap:6px;padding:6px;background:#1d2026;border-top:1px solid #2c3038;overflow-x:auto}
-#tools button{flex:1 1 22%;padding-left:4px;padding-right:4px}
+#tools>button{flex:1 1 14%;padding-left:2px;padding-right:2px}
+#more{display:flex;flex-wrap:wrap;gap:6px;flex-basis:100%}
+#more button{flex:1 1 30%;padding-left:4px;padding-right:4px}
+.hide{display:none!important}
+#selchip{position:absolute;left:6px;bottom:8px;background:#0b5f55e6;border-color:#00ffd0;color:#fff;font-weight:600}
 #panel{background:#181b20;border-top:1px solid #2c3038;padding:6px 8px;max-height:42vh;overflow-y:auto}
 #panel.hide{display:none}
 .row{display:flex;align-items:center;gap:8px;margin:4px 0}
@@ -57,11 +61,10 @@ canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;displa
   <button id="bFit" title="Fit map">Fit</button>
   <button id="bSave" class="pri">Save</button>
  </div>
- <div id="wrap"><canvas id="cv"></canvas><div id="coord">x – z –</div><div id="status">Pick a zone, tap Load</div><div id="toast"></div><div id="zoomb"><button id="bZin" aria-label="Zoom in">+</button><button id="bZout" aria-label="Zoom out">−</button><button id="bFit2" aria-label="Fit" style="font-size:15px">Fit</button></div></div>
+ <div id="wrap"><canvas id="cv"></canvas><div id="coord">x – z –</div><div id="status">Pick a zone, tap Load</div><div id="toast"></div><button id="selchip" class="hide"></button><div id="zoomb"><button id="bZin" aria-label="Zoom in">+</button><button id="bZout" aria-label="Zoom out">−</button><button id="bFit2" aria-label="Fit" style="font-size:15px">Fit</button></div></div>
  <div id="tools">
-  <button id="bUndo">↶ Undo</button><button id="bRedo">↷ Redo</button>
-  <button id="bAdd">＋ Add</button><button id="bDup">Dup</button><button id="bDel" class="warn">🗑 Del</button>
-  <button id="bSnap">Snap off</button><button id="bLbl">Labels</button><button id="bHelp">?</button>
+  <button id="bSel">☐ Select</button><button id="bUndo" aria-label="Undo">↶</button><button id="bRedo" aria-label="Redo">↷</button><button id="bDup">Dup</button><button id="bDel" class="warn">🗑 Del</button><button id="bMore" aria-label="More tools">⋯</button>
+  <div id="more" class="hide"><button id="bAdd">＋ Add</button><button id="bGpEdit">✎ Mark game props: off</button><button id="bClrMarks">Clear marks</button><button id="bReset" class="warn">Reset zone</button><button id="bSnap">Snap off</button><button id="bLbl">Labels</button><button id="bPanel">▾ Hide panel</button><button id="bHelp">? Help</button></div>
  </div>
  <div id="panel" class="hide"></div>
 </div>
@@ -186,41 +189,79 @@ function shape(c,sh,col,x,z,r,a){c.fillStyle=col;c.strokeStyle=col;c.beginPath()
 var ICONS={};function icon(k){if(ICONS[k])return ICONS[k];var e=document.createElement('canvas');e.width=e.height=40;var c=e.getContext('2d'),g=gsOf(k);shape(c,g[0]==='bld'?'rect':g[0],g[1],20,20,13,0);return ICONS[k]=e.toDataURL()}
 var GPKEY={bonfire:2,body:1,chest:1,tomb:1,shrine:1,arch:1,stairs:1,well:1,sign:1,mark:1,waymark:1,bones:1,hearth:1,mouth:1,folio:1};
 function gpOrder(g){if(g._ord)return g._ord;var o=g.props.map(function(p,i){return i});o.sort(function(a,b){var pa=GPKEY[g.props[a].kind]?1+GPKEY[g.props[a].kind]:g.props[a].kind==='building'?0:1,pb=GPKEY[g.props[b].kind]?1+GPKEY[g.props[b].kind]:g.props[b].kind==='building'?0:1;return pa-pb||a-b});return g._ord=o}
-function drawGP(c,s,tl,br){var L=gps();if(!L.length)return;var minR=4*DPR/s,minK=8*DPR/s,fs=11*DPR/s,O=gpOrder(gpZone());
- var g=gpZone();if(g&&g.lights&&!GPOFF.light){c.fillStyle='#ffcc55';c.globalAlpha=.18;g.lights.forEach(function(l){c.beginPath();c.arc(l.x,l.y,Math.max(1.2,minR*1.2),0,6.2832);c.fill()});c.globalAlpha=1}
- for(var oi=0;oi<O.length;oi++){var i=O[oi],p=L[i];if(!gpOn(p))continue;var x=p.x,z=p.y,r=Math.max(GPKEY[p.kind]?minK:minR,gpRad(p));if(x+r<tl[0]-3||x-r>br[0]+3||z+r<tl[1]-3||z-r>br[1]+3)continue;var st=gsOf(p.kind);
-  c.globalAlpha=p.looted?.55:.95;
-  if(st[0]==='bld'){var w=p.w||2,d=p.d||2;c.fillStyle='#d0a07055';c.strokeStyle='#d0a070';c.lineWidth=2/s;c.fillRect(x,z,w,d);c.strokeRect(x,z,w,d);if(p.label&&s>=4*DPR){c.fillStyle='#fff';c.font=fs+'px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(p.label,x+w/2,z+d/2)}}
-  else shape(c,st[0],st[1],x,z,r,p.rotY);
-  c.globalAlpha=1;
-  if(i===gsel){c.strokeStyle='#00ffd0';c.lineWidth=3/s;c.beginPath();c.arc(st[0]==='bld'?x+(p.w||2)/2:x,st[0]==='bld'?z+(p.d||2)/2:z,r+.4+4/s,0,6.2832);c.stroke()}
-  if(i===gsel||(labels&&s>=22*DPR&&st[0]!=='bld')){c.fillStyle='#ffe9c0';c.font=fs+'px sans-serif';c.textAlign='center';c.textBaseline='top';c.fillText(p.kind+(p.style?' '+p.style:''),x,z+r+.15)}}}
+// ---- selection + requested game-code changes (marks) ----
+var S={},G={},selMode=false,boxR=null,UID=0,gpEdit=false,LOFF={};
+try{gpEdit=localStorage.getItem('zb_gpedit')==='1';LOFF=JSON.parse(localStorage.getItem('zb_loff')||'{}')||{}}catch(e){}
+// REQ.m[i]={del:1}|{to:[x,y]} keyed by game prop index; REQ.adds=[{kind,style,label,x,y,from}]  -- requests only, never applied to a file
+var REQ={m:{},adds:[]},GV=null;
+function gpInv(){GV=null}
+function gpAll(){if(GV)return GV;GV=[];var g=gpZone();if(!g)return GV;var N=g.props.length;
+ for(var i=0;i<N;i++){var p=g.props[i],r=REQ.m[i];GV.push({i:i,p:p,x:r&&r.to?r.to[0]:p.x,y:r&&r.to?r.to[1]:p.y,del:!!(r&&r.del),mv:!!(r&&r.to)})}
+ REQ.adds.forEach(function(a,k){GV.push({i:N+k,p:a,x:a.x,y:a.y,add:1,k:k})});return GV}
+function vCenter(v){var p=v.p;return gsOf(p.kind)[0]==='bld'?[v.x+(p.w||2)/2,v.y+(p.d||2)/2]:[v.x,v.y]}
 function gpCenter(p){return gsOf(p.kind)[0]==='bld'?[p.x+(p.w||2)/2,p.y+(p.d||2)/2]:[p.x,p.y]}
-function gpPrompt(p){var zid=Z.gp==='town'?'town (Martsirt)':Z.gp;return 'zone '+zid+' '+p.kind+(p.style?' ('+p.style+')':'')+(p.label?' "'+p.label+'"':'')+(p.tag?' tag '+p.tag:'')+' at ('+r3(p.x)+', '+r3(p.y)+')'}
-function gpPanel(){var p=gps()[gsel],h='';var st=gsOf(p.kind);
- h+='<div class="kv"><img src="'+icon(p.kind)+'" style="width:22px;height:22px;vertical-align:middle"> <b>'+esc(p.kind)+'</b>'+(p.style?' · style <b>'+esc(p.style)+'</b>':'')+(p.label?' · "'+esc(p.label)+'"':'')+'</div>';
- h+='<div class="kv">x <b>'+r3(p.x)+'</b> · y <b>'+r3(p.y)+'</b> (game tiles = map x,z)'+(p.w?' · w '+p.w:'')+(p.d?' · d '+p.d:'')+(p.rotY!=null?' · rot '+deg(p.rotY).toFixed(0)+'°':'')+'</div>';
- var ex=[];for(var k in p)if(['kind','x','y','style','label','w','d','rotY','gen'].indexOf(k)<0)ex.push(k+': '+p[k]);if(ex.length)h+='<div class="kv" style="color:#9aa0aa">'+esc(ex.join(' · '))+'</div>';
- h+='<div class="ro">🔒 In game code, change via prompt. (Read-only here — '+(p.gen?'placed by a loop/fill/seeded generator':'hand-placed literal in the bundle')+'.)</div>';
- h+='<div class="row"><button id="bGpCopy" class="pri" style="flex:1">Copy for prompt</button><button id="bGpDesel">Close</button></div>';
- $('panel').innerHTML=h;$('bGpCopy').onclick=function(){copy(gpPrompt(p))};$('bGpDesel').onclick=function(){gsel=-1;panel();draw()}}
+function reqN(r){r=r||REQ;return Object.keys(r.m).length+r.adds.length}
+function setGpPos(i,x,y){var L=gps(),N=L.length;if(i>=N){var a=REQ.adds[i-N];if(a){a.x=r3(x);a.y=r3(y)}}
+ else{var p=L[i],r=REQ.m[i]||{};if(Math.abs(x-p.x)<.005&&Math.abs(y-p.y)<.005)delete r.to;else r.to=[r3(x),r3(y)];if(r.to||r.del)REQ.m[i]=r;else delete REQ.m[i]}gpInv()}
+function setGpDel(i,on){var L=gps(),N=L.length;if(i>=N){REQ.adds.splice(i-N,1);for(var k in G)if(+k>=N)delete G[k]}
+ else{var r=REQ.m[i]||{};if(on)r.del=1;else delete r.del;if(r.to||r.del)REQ.m[i]=r;else delete REQ.m[i]}gpInv()}
+function drawOne(c,st,p,x,z,r,s,fs){if(st[0]==='bld'){var w=p.w||2,d=p.d||2;c.fillStyle='#d0a07055';c.strokeStyle='#d0a070';c.lineWidth=2/s;c.fillRect(x,z,w,d);c.strokeRect(x,z,w,d);if(p.label&&s>=4*DPR){c.fillStyle='#fff';c.font=fs+'px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(p.label,x+w/2,z+d/2)}}else shape(c,st[0],st[1],x,z,r,p.rotY)}
+function drawGP(c,s,tl,br){var V=gpAll();if(!V.length)return;var g=gpZone(),N=g.props.length,minR=4*DPR/s,minK=8*DPR/s,fs=11*DPR/s,O=gpOrder(g).concat(REQ.adds.map(function(a,k){return N+k})),one=nSel()===1;
+ if(g.lights&&!GPOFF.light){c.fillStyle='#ffcc55';c.globalAlpha=.18;g.lights.forEach(function(l){c.beginPath();c.arc(l.x,l.y,Math.max(1.2,minR*1.2),0,6.2832);c.fill()});c.globalAlpha=1}
+ for(var oi=0;oi<O.length;oi++){var v=V[O[oi]];if(!v)continue;var p=v.p;if(!gpOn(p))continue;var x=v.x,z=v.y,r=Math.max(GPKEY[p.kind]?minK:minR,gpRad(p)),st=gsOf(p.kind);
+  var vis=!(x+r<tl[0]-3||x-r>br[0]+3||z+r<tl[1]-3||z-r>br[1]+3);
+  if(v.mv){var q0=gpCenter(p),q1=vCenter(v);c.globalAlpha=.3;drawOne(c,st,p,p.x,p.y,r,s,fs);c.globalAlpha=1;c.strokeStyle='#ffe14a';c.lineWidth=2/s;c.setLineDash([5/s,4/s]);c.beginPath();c.moveTo(q0[0],q0[1]);c.lineTo(q1[0],q1[1]);c.stroke();c.setLineDash([])}
+  if(!vis)continue;
+  c.globalAlpha=v.del?.55:p.looted?.55:.95;drawOne(c,st,p,x,z,r,s,fs);c.globalAlpha=1;var q=vCenter(v);
+  if(v.del){var R=r+3*DPR/s;c.fillStyle='rgba(255,32,32,.45)';c.beginPath();c.arc(q[0],q[1],R*1.25,0,6.2832);c.fill();c.strokeStyle='#ff2020';c.lineWidth=2.5*DPR/s;c.stroke();c.strokeStyle='#fff';c.lineWidth=3*DPR/s;c.beginPath();c.moveTo(q[0]-R*.7,q[1]-R*.7);c.lineTo(q[0]+R*.7,q[1]+R*.7);c.moveTo(q[0]+R*.7,q[1]-R*.7);c.lineTo(q[0]-R*.7,q[1]+R*.7);c.stroke()}
+  if(v.add||v.mv){c.fillStyle=v.add?'#3fdc6a':'#ffe14a';c.beginPath();c.arc(q[0]+r*.85,q[1]-r*.85,3.5*DPR/s,0,6.2832);c.fill()}
+  if(G[v.i]){c.strokeStyle='#00ffd0';c.lineWidth=3/s;c.beginPath();c.arc(q[0],q[1],r+.4+4/s,0,6.2832);c.stroke()}
+  if((G[v.i]&&one)||(labels&&s>=22*DPR&&st[0]!=='bld')){c.fillStyle='#ffe9c0';c.font=fs+'px sans-serif';c.textAlign='center';c.textBaseline='top';c.fillText(p.kind+(p.style?' '+p.style:''),q[0],q[1]+r+.15)}}}
+function zName(gp){return gp==='town'?'town (Martsirt)':gp}
+function f2(n){return (Math.round(n*100)/100).toFixed(2).replace(/0$/,'')}
+function xy(x,y){return '('+f2(x)+', '+f2(y)+')'}
+function gDesc(p){return p.kind+(p.style?' ('+p.style+')':'')+(p.label?' "'+p.label+'"':'')+(p.tag?' tag '+p.tag:'')}
+function vPrompt(v){var zn=zName(Z.gp);if(v.add)return 'zone '+zn+' NEW '+gDesc(v.p)+' at '+xy(v.x,v.y)+' (requested add)';
+ var s='zone '+zn+' '+gDesc(v.p)+' at '+xy(v.p.x,v.p.y);if(v.del)s+=' — requested: delete';else if(v.mv)s+=' — requested: move -> '+xy(v.x,v.y);return s}
+function gpPrompt(p){return vPrompt({p:p,x:p.x,y:p.y})}
+function reqLines(gp,req){var g=GP&&GP.zones[gp];if(!g)return [];var L=[];
+ Object.keys(req.m).map(Number).sort(function(a,b){return a-b}).forEach(function(i){var p=g.props[i],r=req.m[i];if(!p)return;
+  if(r.del)L.push('- delete '+gDesc(p)+' at '+xy(p.x,p.y)+(r.to?' (was also moved; delete wins)':''));else if(r.to)L.push('- move '+gDesc(p)+' '+xy(p.x,p.y)+' -> '+xy(r.to[0],r.to[1]))});
+ (req.adds||[]).forEach(function(a){var src=a.from!=null&&g.props[a.from];L.push('- add '+gDesc(a)+' at '+xy(a.x,a.y)+(src?' (copy of the one at '+xy(src.x,src.y)+')':''))});return L}
+function gpPanel(){var v=gpAll()[gsel],p=v.p,h=selBar();
+ h+='<div class="kv"><img src="'+icon(p.kind)+'" style="width:22px;height:22px;vertical-align:middle"> <b>'+esc(p.kind)+'</b>'+(p.style?' · style <b>'+esc(p.style)+'</b>':'')+(p.label?' · "'+esc(p.label)+'"':'')+(v.add?' · <b style="color:#3fdc6a">requested NEW</b>':'')+'</div>';
+ h+='<div class="kv">'+(v.add?'':'in game at x <b>'+r3(p.x)+'</b> · y <b>'+r3(p.y)+'</b> (game tiles = map x,z)')+(p.w?' · w '+p.w:'')+(p.d?' · d '+p.d:'')+(p.rotY!=null?' · rot '+deg(p.rotY).toFixed(0)+'°':'')+'</div>';
+ var ex=[];for(var k in p)if(['kind','x','y','style','label','w','d','rotY','gen','from'].indexOf(k)<0)ex.push(k+': '+p[k]);if(ex.length)h+='<div class="kv" style="color:#9aa0aa">'+esc(ex.join(' · '))+'</div>';
+ h+='<div class="ro">🔒 In game code, change via prompt. Marks below are only <b>requests</b> (listed under "Game-code changes" in Copy changes) — no file is edited.'+(v.add?'':' ('+(p.gen?'placed by a loop/fill/seeded generator':'hand-placed literal in the bundle')+')')+'</div>';
+ if(v.del)h+='<div class="flag">Marked: delete</div>';if(v.mv&&!v.del)h+='<div class="note">Marked: move '+xy(p.x,p.y)+' → '+xy(v.x,v.y)+'</div>';
+ h+='<div class="row"><label>'+(v.add?'x':'move to x')+'</label><input type="number" id="gx" step="0.1" value="'+r3(v.x)+'"><label>y</label><input type="number" id="gy" step="0.1" value="'+r3(v.y)+'"></div>';
+ h+='<div class="row"><button id="bGpDel" class="warn" style="flex:1">'+(v.add?'Remove this add':v.del?'Unmark delete':'Mark delete')+'</button>'+(v.add?'':'<button id="bGpOrig" style="flex:1">Clear its marks</button>')+'</div>';
+ h+='<div class="row"><button id="bGpCopy" class="pri" style="flex:1">Copy for prompt</button></div>';
+ $('panel').innerHTML=h;bindSelBar();var i=v.i;
+ $('bGpCopy').onclick=function(){copy(vPrompt(gpAll()[i]))};
+ function mv(){var x=+$('gx').value,y=+$('gy').value;if(!isFinite(x)||!isFinite(y))return;pushUndo();setGpPos(i,x,y);saveLocal();panel();draw()}
+ $('gx').onchange=mv;$('gy').onchange=mv;
+ $('bGpDel').onclick=function(){pushUndo();var vv=gpAll()[i];if(vv.add){setGpDel(i);delete G[i];syncSel()}else setGpDel(i,!vv.del);saveLocal();panel();draw()};
+ if($('bGpOrig'))$('bGpOrig').onclick=function(){if(!REQ.m[i])return toast('No marks on this one');pushUndo();delete REQ.m[i];gpInv();saveLocal();panel();draw()}}
 function gpLegend(){var L=gps(),g=gpZone();if(!g)return '';var cnt={};L.forEach(function(p){cnt[p.kind]=(cnt[p.kind]||0)+1});
  var ks=Object.keys(cnt).sort(function(a,b){var pr=['bonfire','body','chest','tomb','shrine','well','arch','stairs'];var ia=pr.indexOf(a),ib=pr.indexOf(b);if(ia<0)ia=99;if(ib<0)ib=99;return ia-ib||cnt[b]-cnt[a]});
- var h='<div class="kv" style="margin-top:6px"><b>Game props</b> (in game code, read-only · tap to toggle)</div><div>';
+ var h='<div class="kv" style="margin-top:6px"><b>Game props</b> (in game code · tap to show/hide; hidden kinds are never selected)</div><div>';
  ks.forEach(function(k){h+='<button class="gk'+(GPOFF[k]?' off':'')+'" data-k="'+esc(k)+'"><img src="'+icon(k)+'">'+esc(k)+' '+cnt[k]+'</button>'});
  if(g.lights&&g.lights.length)h+='<button class="gk'+(GPOFF.light?' off':'')+'" data-k="light"><span class="sw" style="background:#ffcc55;border-radius:50%"></span>lights '+g.lights.length+'</button>';
  h+='<button class="gk" data-k="_all">all</button><button class="gk" data-k="_none">none</button></div>';
+ if(reqN())h+='<div class="note">'+reqN()+' requested game-code change(s) in '+esc(zName(Z.gp))+': red disc with white ✕ = delete, faint ghost + dashed line = move, green dot = add.</div>';
  if(g.notes&&g.notes.length)h+='<div class="note">'+esc(g.notes.join(' · '))+'</div>';
  return h}
-function bindGpLegend(){var bs=document.querySelectorAll('.gk');for(var i=0;i<bs.length;i++)bs[i].onclick=function(){var k=this.getAttribute('data-k');
- if(k==='_all')GPOFF={};else if(k==='_none'){GPOFF={light:1};gps().forEach(function(p){GPOFF[p.kind]=1})}else{if(GPOFF[k])delete GPOFF[k];else GPOFF[k]=1}
- try{localStorage.setItem('zb_gpoff',JSON.stringify(GPOFF))}catch(e){}if(gsel>=0&&GPOFF[gps()[gsel].kind])gsel=-1;panel();draw()}}
+function bindGpLegend(){var bs=document.querySelectorAll('.gk');for(var i=0;i<bs.length;i++)bs[i].onclick=function(){var k=this.getAttribute('data-k'),l=this.getAttribute('data-l');
+ if(l!=null){if(LOFF[l])delete LOFF[l];else LOFF[l]=1;try{localStorage.setItem('zb_loff',JSON.stringify(LOFF))}catch(e){}}
+ else if(k==='_all')GPOFF={};else if(k==='_none'){GPOFF={light:1};gps().forEach(function(p){GPOFF[p.kind]=1})}else{if(GPOFF[k])delete GPOFF[k];else GPOFF[k]=1}
+ try{localStorage.setItem('zb_gpoff',JSON.stringify(GPOFF))}catch(e){}syncSel();panel();draw()}}
 function addViewZones(){if(!GP||addViewZones.done)return;addViewZones.done=1;var cov={};ZONES.forEach(function(z){if(z.gp)cov[z.gp]=1});
  var og=document.createElement('optgroup');og.label='View only (game-code props)';
  Object.keys(GP.zones).forEach(function(id){var g=GP.zones[id];if(cov[id]||!g.props||!g.props.length||!g.w)return;var z={id:id,label:(g.name&&g.name!==id?g.name+' ('+id+')':id)+' — view',kind:'view',gp:id};ZONES.push(z);var o=document.createElement('option');o.value=id;o.textContent=z.label;og.appendChild(o)});
  $('zone').appendChild(og)}
 function zoomBy(f){var cxp=cv.width/DPR/2,cyp=cv.height/DPR/2,w=s2w(cxp,cyp);view.s=Math.max(.3,Math.min(400,view.s*f));view.ox=cxp*DPR-w[0]*view.s;view.oy=cyp*DPR-w[1]*view.s;draw()}
-function viewOnly(){if(Z&&Z.kind==='view'){toast('View-only zone: these props live in game code. Tap one → Copy for prompt.');return true}return false}
+function viewOnly(){if(Z&&Z.kind==='view'){toast('View-only zone: no layout file to add to. Tap props → Copy for prompt, or ✎ Mark game props to request changes.');return true}return false}
 ZONES.forEach(function(z){var o=document.createElement('option');o.value=z.id;o.textContent=z.label;$('zone').appendChild(o)});
 
 function status(s){$('status').textContent=s}
@@ -262,7 +303,7 @@ function paint(){raf=0;var c=cx,cw=cv.width,ch=cv.height;c.setTransform(1,0,0,1,
  var fs=12*DPR/s;c.font=fs+'px sans-serif';c.textAlign='center';c.textBaseline='top';
  var minR=4*DPR/s;
  for(var n=0;n<items.length;n++){var p=items[n].p,x=mx(p),z=mz(p),r=Math.max(minR,radM(p)),k=cat(p),col=colorOf(p),rot=p.rotY||0,bi=blockInfo(Z,p);
-  if(x+r<tl[0]-5||x-r>br[0]+5||z+r<tl[1]-5||z-r>br[1]+5)continue;
+  if(!itemOn(p)||x+r<tl[0]-5||x-r>br[0]+5||z+r<tl[1]-5||z-r>br[1]+5)continue;
   c.globalAlpha=skipped(p)?.35:.85;c.fillStyle=col;c.beginPath();
   if(k==='bld'){var f=p.footprint||[6,6];c.save();c.translate(x,z);c.rotate(-rot);c.rect(-f[0]/2,-f[1]/2,f[0],f[1]);c.restore()}
   else if(k==='seg'){c.save();c.translate(x,z);c.rotate(-rot);c.rect(-r,-.3,2*r,.6);c.restore()}
@@ -275,79 +316,137 @@ function paint(){raf=0;var c=cx,cw=cv.width,ch=cv.height;c.setTransform(1,0,0,1,
   // facing tick (unrotated GLB faces +z/south)
   c.strokeStyle='#fff';c.lineWidth=1.5/s;c.beginPath();c.moveTo(x,z);c.lineTo(x+Math.sin(rot)*(r+.6),z+Math.cos(rot)*(r+.6));c.stroke();
   if(items[n].o==null||changed(n)){c.fillStyle='#ffe14a';c.beginPath();c.arc(x+r*.7,z-r*.7,3*DPR/s,0,6.2832);c.fill()}
-  if(n===sel){c.strokeStyle='#00ffd0';c.lineWidth=3/s;c.beginPath();c.arc(x,z,r+.5+4/s,0,6.2832);c.stroke()}
+  if(S[items[n].u]){c.strokeStyle='#00ffd0';c.lineWidth=3/s;c.beginPath();c.arc(x,z,r+.5+4/s,0,6.2832);c.stroke()}
   if(n===sel||(labels&&s>=22*DPR)){c.fillStyle='#fff';c.fillText(Z.kind==='town'?p.name:p.id,x,z+r+.2)}
  }
- drawGP(c,s,tl,br)}
+ drawGP(c,s,tl,br);
+ if(boxR){c.setTransform(1,0,0,1,0,0);var bx=Math.min(boxR[0],boxR[2])*DPR,by=Math.min(boxR[1],boxR[3])*DPR,bw=Math.abs(boxR[2]-boxR[0])*DPR,bh=Math.abs(boxR[3]-boxR[1])*DPR;c.fillStyle='#00ffd022';c.fillRect(bx,by,bw,bh);c.strokeStyle='#00ffd0';c.lineWidth=2;c.setLineDash([8,5]);c.strokeRect(bx,by,bw,bh);c.setLineDash([])}}
 function changed(n){var it=items[n];if(it.o==null)return true;var a=orig[it.o],b=it.p;return a.pos!==b.pos||a.rotY!==b.rotY||a.scale!==b.scale}
 // ---------- state, undo, storage ----------
-function snapState(){return items.map(function(it){return {o:it.o,src:it.src,p:it.p}})}
-function pushUndo(){undo.push({items:snapState(),sel:sel});if(undo.length>120)undo.shift();redo.length=0;markDirty()}
-function restore(st){items=st.items.map(function(it){return {o:it.o,src:it.src,p:it.p}});sel=Math.min(st.sel,items.length-1);markDirty();panel();draw()}
+function mkIt(o,src,p){return {o:o,src:src,p:p,u:++UID}}
+function cpIt(it){return {o:it.o,src:it.src,p:it.p,u:it.u}}
+function snapState(){return {items:items.map(cpIt),req:JSON.stringify(REQ),S:Object.assign({},S),G:Object.assign({},G)}}
+function pushUndo(){undo.push(snapState());if(undo.length>120)undo.shift();redo.length=0;markDirty()}
+function restore(st){items=st.items.map(cpIt);REQ=JSON.parse(st.req);S=st.S;G=st.G;gpInv();GT=null;markDirty();syncSel();panel();draw()}
 // props objects are treated as immutable: every edit replaces item.p with a modified clone
 function editP(n,fn){var it=items[n];var p=cloneKeep(it.p);fn(p);it.p=p;markDirty()}
 function markDirty(){dirty=true;clearTimeout(markDirty.h);markDirty.h=setTimeout(saveLocal,400)}
 function sKey(){return 'zb_'+Z.id}
-function saveLocal(){if(!Z||Z.kind==='view')return;try{var d=diffLines(Z,orig,items);if(!d.lines.length){localStorage.removeItem(sKey());return}
- localStorage.setItem(sKey(),JSON.stringify({t:Date.now(),base:hash(docText),items:items.map(function(it){return {o:it.o,src:it.src,p:(it.o!=null&&it.p===orig[it.o])?0:it.p}})}))}catch(e){}}
+function rKey(gp){return 'zb_gm_'+gp}
+function saveLocal(){if(!Z)return;try{
+ if(Z.kind!=='view'){var d=diffLines(Z,orig,items);if(!d.lines.length)localStorage.removeItem(sKey());
+  else localStorage.setItem(sKey(),JSON.stringify({t:Date.now(),base:hash(docText),items:items.map(function(it){return {o:it.o,src:it.src,p:(it.o!=null&&it.p===orig[it.o])?0:it.p}})}))}
+ if(Z.gp){var L=gps();if(!reqN())localStorage.removeItem(rKey(Z.gp));else{var m=[];for(var i in REQ.m){var p=L[i];if(p)m.push({i:+i,kind:p.kind,x:p.x,y:p.y,del:REQ.m[i].del||0,to:REQ.m[i].to||null})}
+  localStorage.setItem(rKey(Z.gp),JSON.stringify({t:Date.now(),bundle:GP&&GP._meta&&GP._meta.bundle,m:m,adds:REQ.adds}))}}}catch(e){}}
+// stored marks carry kind+position so they survive a re-extract that reorders props
+function readReq(gp){var out={m:{},adds:[]},lost=0;try{var sv=JSON.parse(localStorage.getItem(rKey(gp))||'null');if(!sv)return out;var L=GP.zones[gp].props;
+ (sv.m||[]).forEach(function(e){var i=e.i,p=L[i];if(!p||p.kind!==e.kind||Math.abs(p.x-e.x)>.01||Math.abs(p.y-e.y)>.01){i=-1;for(var j=0;j<L.length;j++)if(L[j].kind===e.kind&&Math.abs(L[j].x-e.x)<.05&&Math.abs(L[j].y-e.y)<.05){i=j;break}}
+  if(i<0){lost++;return}var r={};if(e.del)r.del=1;if(e.to)r.to=e.to;out.m[i]=r});out.adds=sv.adds||[]}catch(e){}out.lost=lost;return out}
 function hash(s){var h=5381;for(var i=0;i<s.length;i++)h=(h*33^s.charCodeAt(i))>>>0;return h.toString(36)+s.length}
-function warnIf(p,what){var b=blockInfo(Z,p);if(!b)return;var k=what+(p.name||p.id)+mx(p);toast('⚠ '+(b==='edgecol'?'EDGE COLLIDER (town wall/palisade)':b==='block'?'This blocks walking (has collider)':'Sits on a solid edge tile')+' — '+what+'. Brian\'s rule: edge colliders only change with your OK. Flagged in the change list.',5000)}
+function warnIf(p,what){var b=blockInfo(Z,p);if(!b)return;toast('⚠ '+(b==='edgecol'?'EDGE COLLIDER (town wall/palisade)':b==='block'?'This blocks walking (has collider)':'Sits on a solid edge tile')+' — '+what+'. Brian\'s rule: edge colliders only change with your OK. Flagged in the change list.',5000)}
+function warnGroup(ns,what){if(ns.length===1)return warnIf(items[ns[0]].p,what);var b=0;ns.forEach(function(n){if(blockInfo(Z,items[n].p))b++});if(b)toast('⚠ '+b+' of these block walking / are edge colliders — '+what+'. Flagged in the change list (needs Brian\'s OK).',5000)}
+// ---------- selection ----------
+function itemOn(p){return !LOFF[Z.kind==='town'?p.kind:p.layer]}
+function nSel(){return Object.keys(S).length+Object.keys(G).length}
+function selIdx(){var a=[];for(var n=0;n<items.length;n++)if(S[items[n].u])a.push(n);return a}
+function selG(){return Object.keys(G).map(Number).sort(function(a,b){return a-b})}
+function syncSel(){var ok={},V=gpAll();items.forEach(function(it){if(S[it.u]&&itemOn(it.p))ok[it.u]=1});S=ok;var g2={};for(var k in G)if(V[k]&&gpOn(V[k].p))g2[k]=1;G=g2;
+ var a=selIdx(),b=selG();sel=a.length===1&&!b.length?a[0]:-1;gsel=b.length===1&&!a.length?b[0]:-1;
+ var n=a.length+b.length,c=$('selchip');if(n){c.className='';c.textContent=n+' selected  ✕'}else c.className='hide'}
+function selH(h,on){if(h>=0){var u=items[h].u;if(on===undefined)on=!S[u];if(on)S[u]=1;else delete S[u]}else if(h<=-2){var i=-2-h;if(on===undefined)on=!G[i];if(on)G[i]=1;else delete G[i]}}
+function clearSel(){S={};G={};syncSel();panel();draw()}
+function isSel(h){return h>=0?!!S[items[h].u]:h<=-2?!!G[-2-h]:false}
+function selBar(){var a=selIdx().length,b=selG().length,n=a+b;if(!n)return '';
+ return '<div class="row" style="justify-content:space-between"><b>'+n+' selected</b><span class="kv">'+(a?a+' layout':'')+(a&&b?' · ':'')+(b?b+' game-code':'')+'</span></div>'+
+ '<div class="row"><button id="bAllK" style="flex:1">All of kind</button><button id="bCopySel" class="pri" style="flex:1">Copy selected</button><button id="bClrSel" style="flex:1">Clear ✕</button></div>'}
+function bindSelBar(){if(!$('bAllK'))return;$('bAllK').onclick=allOfKind;$('bCopySel').onclick=function(){copy(selText())};$('bClrSel').onclick=clearSel}
+function mdl(p){return base(Z.kind==='town'?p.piece:p.asset)}
+function allOfKind(){var ms={},ks={},n0=nSel();selIdx().forEach(function(n){ms[mdl(items[n].p)]=1});var V=gpAll();selG().forEach(function(i){ks[V[i].p.kind]=1});
+ items.forEach(function(it){if(ms[mdl(it.p)]&&itemOn(it.p))S[it.u]=1});V.forEach(function(v){if(ks[v.p.kind]&&gpOn(v.p))G[v.i]=1});syncSel();panel();draw();
+ toast(nSel()+' selected (same '+Object.keys(ms).concat(Object.keys(ks)).join(', ')+')'+(nSel()===n0?' — nothing else visible of that kind':''),3000)}
+function selText(){var a=selIdx(),b=selG(),town=Z.kind==='town',V=gpAll(),out=['ZONE BUILDER — '+(a.length+b.length)+' selected in zone '+Z.id+(Z.path?' (file '+Z.path+')':'')];
+ if(a.length){out.push('','LAYOUT ITEMS ('+a.length+'):');a.forEach(function(n){var it=items[n],p=it.p;out.push((town?p.name+' ['+p.kind+']':p.id+' ['+(p.layer||'?')+']')+' '+(it.o!=null?'#'+it.o:'(new)')+' · model '+mdl(p)+' · x '+mx(p).toFixed(2)+' z '+mz(p).toFixed(2)+(town?' (pos '+r3(p.pos[0])+', '+r3(p.pos[2])+')':'')+' · rot '+deg(p.rotY||0).toFixed(1)+'°'+(p.scale!=null?' · scale '+p.scale:'')+(blockInfo(Z,p)?' ⚠ collider':''))})}
+ if(b.length){out.push('','GAME-CODE PROPS ('+b.length+', in game code — change via prompt):');b.forEach(function(i){out.push(vPrompt(V[i]))})}
+ return out.join('\n')}
 // ---------- load ----------
-function load(){var z=ZONES.filter(function(q){return q.id===$('zone').value})[0];if(!z)return;try{localStorage.setItem('zb_last',z.id)}catch(e){}gsel=-1;
- if(z.kind==='view'){status('Loading game props …');loadGP().then(function(){var g=GP&&GP.zones[z.gp];if(!g){status('game_props.json failed to load');return}Z=z;doc=null;docText='';key='props';orig=[];items=[];ORG=[0,0];solid=null;W=g.w;H=g.h;undo=[];redo=[];sel=-1;Z.note='View only: '+(g.name||z.id)+' has no layout data file — everything here lives in game code (read-only). Tap a prop → Copy for prompt.';
-  status(z.id+': '+g.props.length+' game props (view only)');panel();resize();fit()});return}
+function resetState(){undo=[];redo=[];S={};G={};GT=null;boxR=null;sel=-1;gsel=-1;warned={};REQ={m:{},adds:[]};gpInv()}
+function loadReq(){if(!Z.gp||!GP||!GP.zones[Z.gp])return;var r=readReq(Z.gp);REQ={m:r.m,adds:r.adds};gpInv();var n=reqN();if(n||r.lost)toast(n+' requested game-code change(s) restored for '+zName(Z.gp)+(r.lost?' · '+r.lost+' no longer match the game and were dropped':''),3500)}
+function load(){var z=ZONES.filter(function(q){return q.id===$('zone').value})[0];if(!z)return;try{localStorage.setItem('zb_last',z.id)}catch(e){}
+ if(z.kind==='view'){status('Loading game props …');loadGP().then(function(){var g=GP&&GP.zones[z.gp];if(!g){status('game_props.json failed to load');return}Z=z;doc=null;docText='';key='props';orig=[];items=[];ORG=[0,0];solid=null;W=g.w;H=g.h;resetState();loadReq();Z.note='View only: '+(g.name||z.id)+' has no layout data file — everything here lives in game code. Tap a prop → Copy for prompt, or mark moves/deletes as requests.';
+  status(z.id+': '+g.props.length+' game props (view only)');syncSel();panel();resize();fit()});return}
  status('Loading '+z.path+' …');var bust='?t='+Date.now();
  var pr=[fetch(RAW+z.path+bust,{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.text()})];
  pr.push(z.world?fetch(RAW+WORLD+bust,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null}):null);pr.push(loadGP());
  Promise.all(pr).then(function(res){Z=z;docText=res[0];doc=parseKeep(docText);var wd=res[1]||null;
-  key=z.kind==='town'?'placements':'props';orig=doc[key]||[];items=orig.map(function(p,i){return {o:i,p:p}});
+  key=z.kind==='town'?'placements':'props';orig=doc[key]||[];items=orig.map(function(p,i){return mkIt(i,undefined,p)});
   ORG=[0,0];solid=null;var note='';
   if(Array.isArray(doc.size)){W=doc.size[0];H=doc.size[1]}else if(z.fallback){W=z.fallback[0];H=z.fallback[1];note='size field is "'+doc.size+'" (not [w,h]); bounds '+W+'×'+H+' taken from the game bundle.'}
   if(wd){if(z.kind==='town'){ORG=wd.origin||[0,0];W=wd.w;H=wd.h}worldW=wd.w;if(wd.solid&&wd.w===W){try{var b=atob(wd.solid);solid=new Uint8Array(b.length);for(var i=0;i<b.length;i++)solid[i]=b.charCodeAt(i)}catch(e){solid=null}}}
   if(z.kind==='town'&&!wd){ORG=[81,76];W=162;H=154;note+=' (world json failed; using origin 81,76)'}
-  Z.note=note;undo=[];redo=[];sel=-1;warned={};
+  Z.note=note;resetState();
   // restore unsaved work
   try{var sv=JSON.parse(localStorage.getItem(sKey())||'null');if(sv&&sv.items){var same=sv.base===hash(docText);var msg='Restore unsaved edits from '+new Date(sv.t).toLocaleString()+'?'+(same?'':'\n\nWARNING: the file on main changed since then. Restoring will apply your old list on top of the new file and may undo someone else\'s change.');
-   if(confirm(msg)){var ok=true;var ni=sv.items.map(function(it){if(it.p===0){if(!orig[it.o])ok=false;return {o:it.o,src:it.src,p:orig[it.o]}}if(it.o!=null&&!orig[it.o])it.o=null;return {o:it.o,src:it.src,p:it.p}}).filter(function(it){return it.p});items=ni;if(!ok)toast('Some restored items no longer match the file.')}
+   if(confirm(msg)){var ok=true;var ni=sv.items.map(function(it){if(it.p===0){if(!orig[it.o])ok=false;return mkIt(it.o,it.src,orig[it.o])}if(it.o!=null&&!orig[it.o])it.o=null;return mkIt(it.o,it.src,it.p)}).filter(function(it){return it.p});items=ni;if(!ok)toast('Some restored items no longer match the file.')}
    else if(confirm('Discard the saved edits for '+z.id+'?'))localStorage.removeItem(sKey())}}catch(e){}
+  loadReq();
   var nS=items.filter(function(it){return skipped(it.p)}).length;
   status(z.id+': '+items.length+' '+key+(gps().length?' + '+gps().length+' game props':'')+(nS?' ('+nS+' border-mound props are skipped by the live engine)':''));
   if(note)toast(note,6000);
-  panel();resize();fit()}).catch(function(e){status('Load failed: '+e.message)})}
+  syncSel();panel();resize();fit()}).catch(function(e){status('Load failed: '+e.message)})}
 // ---------- pointer input ----------
-var ptrs={},gest=null;
+var ptrs={},gest=null,GT=null;
 function hit(px,py){var w=s2w(px,py),best=-1,bd=1e9,tol=22*DPR/view.s;
- for(var n=items.length-1;n>=0;n--){var p=items[n].p,d=Math.hypot(mx(p)-w[0],mz(p)-w[1]),r=Math.max(radM(p),tol);if(n===sel)d*=.5;if(d<r&&d<bd){bd=d;best=n}}
- var L=gps(),gt=18*DPR/view.s;for(var i=0;i<L.length;i++){var g=L[i];if(!gpOn(g))continue;var q=gpCenter(g),dd=Math.hypot(q[0]-w[0],q[1]-w[1]),rr=Math.max(gpRad(g),gt);if(gsOf(g.kind)[0]==='bld'){if(w[0]>=g.x&&w[0]<=g.x+(g.w||2)&&w[1]>=g.y&&w[1]<=g.y+(g.d||2))dd=Math.min(dd,rr*.9)}if(i===gsel)dd*=.5;if(dd<rr&&dd<bd*1.05){bd=dd;best=-2-i}}return best}
+ for(var n=items.length-1;n>=0;n--){var p=items[n].p;if(!itemOn(p))continue;var d=Math.hypot(mx(p)-w[0],mz(p)-w[1]),r=Math.max(radM(p),tol);if(S[items[n].u])d*=.5;if(d<r&&d<bd){bd=d;best=n}}
+ var V=gpAll(),gt=18*DPR/view.s;for(var i=0;i<V.length;i++){var v=V[i],g=v.p;if(!gpOn(g))continue;var q=vCenter(v),dd=Math.hypot(q[0]-w[0],q[1]-w[1]),rr=Math.max(gpRad(g),gt);if(gsOf(g.kind)[0]==='bld'){if(w[0]>=v.x&&w[0]<=v.x+(g.w||2)&&w[1]>=v.y&&w[1]<=v.y+(g.d||2))dd=Math.min(dd,rr*.9)}if(G[i])dd*=.5;if(dd<rr&&dd<bd*1.05){bd=dd;best=-2-i}}return best}
 function rel(e){var r=cv.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top]}
+function movable(){return selIdx().length+(gpEdit?selG().length:0)}
+function skipNote(what){var b=selG().length;if(b&&!gpEdit)toast(b+' game-code prop'+(b>1?'s':'')+' skipped ('+what+') — turn on ⋯ → ✎ Mark game props to record requests',3500)}
+function startDrag(){pushUndo();var V=gpAll();gest.base={it:selIdx().map(function(n){return {n:n,x:mx(items[n].p),z:mz(items[n].p)}}),gv:gpEdit?selG().map(function(i){return {i:i,x:V[i].x,y:V[i].y}}):[]};
+ warnGroup(selIdx(),'moving'+(selIdx().length>1?' them':' it'));skipNote('moves')}
+function applyDrag(dx,dz){gest.base.it.forEach(function(b){editP(b.n,function(p){setM(p,b.x+dx,b.z+dz)})});gest.base.gv.forEach(function(b){setGpPos(b.i,b.x+dx,b.y+dz)});panelVals();draw()}
 cv.addEventListener('pointerdown',function(e){cv.setPointerCapture(e.pointerId);var q=rel(e);ptrs[e.pointerId]=q;var ids=Object.keys(ptrs);
- if(ids.length===1){var h=Z?hit(q[0],q[1]):-1;gest={m:'press',sx:q[0],sy:q[1],h:h,ox:view.ox,oy:view.oy,moved:false};
-  if(h>=0&&h===sel){var w=s2w(q[0],q[1]);gest.gx=mx(items[h].p)-w[0];gest.gz=mz(items[h].p)-w[1]}}
- else if(ids.length===2){if(gest&&gest.m==='drag'){/* finish drag */}var a=ptrs[ids[0]],b=ptrs[ids[1]];var mid=[(a[0]+b[0])/2,(a[1]+b[1])/2];gest={m:'pinch',d:Math.hypot(a[0]-b[0],a[1]-b[1])||1,s:view.s,w:s2w(mid[0],mid[1])}}
+ if(ids.length===1){var h=Z?hit(q[0],q[1]):-1;gest={m:'press',sx:q[0],sy:q[1],h:h,ox:view.ox,oy:view.oy,moved:false,w0:s2w(q[0],q[1]),onSel:Z?isSel(h):false}}
+ else if(ids.length===2){if(gest&&gest.m==='drag')saveLocal();boxR=null;var a=ptrs[ids[0]],b=ptrs[ids[1]];var mid=[(a[0]+b[0])/2,(a[1]+b[1])/2];gest={m:'pinch',d:Math.hypot(a[0]-b[0],a[1]-b[1])||1,s:view.s,w:s2w(mid[0],mid[1])};draw()}
 });
 cv.addEventListener('pointermove',function(e){var q=rel(e);var w=s2w(q[0],q[1]);$('coord').textContent='x '+w[0].toFixed(2)+'  z '+w[1].toFixed(2)+(Z&&Z.kind==='town'?'  (pos '+(w[0]-ORG[0]).toFixed(1)+','+(w[1]-ORG[1]).toFixed(1)+')':'');
  if(!ptrs[e.pointerId])return;ptrs[e.pointerId]=q;if(!gest)return;
  if(gest.m==='pinch'){var ids=Object.keys(ptrs);if(ids.length<2)return;var a=ptrs[ids[0]],b=ptrs[ids[1]];var d=Math.hypot(a[0]-b[0],a[1]-b[1])||1;var mid=[(a[0]+b[0])/2,(a[1]+b[1])/2];view.s=Math.max(.3,Math.min(400,gest.s*d/gest.d));view.ox=mid[0]*DPR-gest.w[0]*view.s;view.oy=mid[1]*DPR-gest.w[1]*view.s;draw();return}
  var dx=q[0]-gest.sx,dy=q[1]-gest.sy;if(!gest.moved&&Math.hypot(dx,dy)<7)return;
- if(!gest.moved){gest.moved=true;if(gest.h>=0&&gest.h===sel&&gest.gx!=null){gest.m='drag';pushUndo();warnIf(items[sel].p,'moving it')}else gest.m='pan'}
+ if(!gest.moved){gest.moved=true;if(gest.onSel&&movable()){gest.m='drag';startDrag()}else if(selMode&&Z)gest.m='box';else gest.m='pan'}
  if(gest.m==='pan'){view.ox=gest.ox+dx*DPR;view.oy=gest.oy+dy*DPR;draw()}
- else if(gest.m==='drag'){var nx=w[0]+gest.gx,nz=w[1]+gest.gz;if(snap){nx=Math.round(nx/snap)*snap;nz=Math.round(nz/snap)*snap}editP(sel,function(p){setM(p,nx,nz)});panelVals();draw()}
+ else if(gest.m==='box'){boxR=[gest.sx,gest.sy,q[0],q[1]];draw()}
+ else if(gest.m==='drag'){var ddx=w[0]-gest.w0[0],ddz=w[1]-gest.w0[1];if(snap){ddx=Math.round(ddx/snap)*snap;ddz=Math.round(ddz/snap)*snap}applyDrag(ddx,ddz)}
 });
-function up(e){var q=ptrs[e.pointerId];delete ptrs[e.pointerId];if(!gest)return;
- if(gest.m==='press'&&!gest.moved){if(gest.h<=-2){gsel=-2-gest.h;sel=-1}else{sel=gest.h;gsel=-1}panel();draw()}
+function boxSelect(r){var a=s2w(Math.min(r[0],r[2]),Math.min(r[1],r[3])),b=s2w(Math.max(r[0],r[2]),Math.max(r[1],r[3])),n0=nSel();
+ items.forEach(function(it){var p=it.p,x=mx(p),z=mz(p);if(itemOn(p)&&x>=a[0]&&x<=b[0]&&z>=a[1]&&z<=b[1])S[it.u]=1});
+ gpAll().forEach(function(v){var q=vCenter(v);if(gpOn(v.p)&&q[0]>=a[0]&&q[0]<=b[0]&&q[1]>=a[1]&&q[1]<=b[1])G[v.i]=1});syncSel();toast('+'+(nSel()-n0)+' → '+nSel()+' selected',1800)}
+function up(e){if(!ptrs[e.pointerId])return;delete ptrs[e.pointerId];if(!gest)return;
+ if(gest.m==='press'&&!gest.moved&&Z){var h=gest.h;if(selMode){if(h!==-1)selH(h)}else{S={};G={};if(h!==-1)selH(h,true)}syncSel();panel();draw()}
+ else if(gest.m==='box'&&boxR){boxSelect(boxR);boxR=null;panel();draw()}
+ else if(gest.m==='drag'){saveLocal();panel()}
  if(Object.keys(ptrs).length===0)gest=null;else if(gest.m==='pinch'){var id=Object.keys(ptrs)[0];var r=ptrs[id];gest={m:'pan',sx:r[0],sy:r[1],ox:view.ox,oy:view.oy,moved:true,h:-1}}}
 cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
 // stop the browser from scrolling/zooming the page under the map (Android Chrome)
 ['touchstart','touchmove'].forEach(function(t){$('wrap').addEventListener(t,function(e){if(e.target===cv||e.touches.length>1)e.preventDefault()},{passive:false})});
 document.addEventListener('gesturestart',function(e){e.preventDefault()});document.addEventListener('dblclick',function(e){if(e.target===cv)e.preventDefault()});
 cv.addEventListener('wheel',function(e){e.preventDefault();var q=rel(e),w=s2w(q[0],q[1]);view.s=Math.max(.3,Math.min(400,view.s*Math.exp(-e.deltaY*.0015)));view.ox=q[0]*DPR-w[0]*view.s;view.oy=q[1]*DPR-w[1]*view.s;draw()},{passive:false});
+// ---------- group transforms (rotate / scale) ----------
+function gtStart(){if(GT)return;pushUndo();var a=selIdx(),V=gpAll(),gv=gpEdit?selG():[],cx0=0,cz0=0,n=0;
+ a.forEach(function(k){cx0+=mx(items[k].p);cz0+=mz(items[k].p);n++});gv.forEach(function(i){var q=vCenter(V[i]);cx0+=q[0];cz0+=q[1];n++});
+ GT={c:[cx0/(n||1),cz0/(n||1)],it:a.map(function(k){var p=items[k].p;return {n:k,x:mx(p),z:mz(p),r:p.rotY||0,s:p.scale!=null?p.scale:(Z.kind==='town'?null:1)}}),gv:gv.map(function(i){return {i:i,x:V[i].x,y:V[i].y}})};warnGroup(a,'changing them')}
+function gtApply(th,f){var around=$('grC')&&$('grC').checked,c=GT.c,cs=Math.cos(th||0),sn=Math.sin(th||0);
+ GT.it.forEach(function(b){editP(b.n,function(p){if(th!=null){p.rotY=r4(((b.r+th)%6.2832+6.2832)%6.2832);if(around){var dx=b.x-c[0],dz=b.z-c[1];setM(p,c[0]+dx*cs+dz*sn,c[1]-dx*sn+dz*cs)}}if(f!=null&&b.s!=null)p.scale=r3(Math.max(.01,b.s*f))})});
+ if(th!=null&&around)GT.gv.forEach(function(b){var dx=b.x-c[0],dz=b.y-c[1];setGpPos(b.i,c[0]+dx*cs+dz*sn,c[1]-dx*sn+dz*cs)});draw()}
+function gtEnd(){if(!GT)return;GT=null;saveLocal()}
 // ---------- panel ----------
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function panel(){var P=$('panel');if(!Z){P.className='hide';return}P.className='';['bAdd','bDup','bDel','bSave','bUndo','bRedo','bSnap'].forEach(function(b){$(b).style.opacity=Z.kind==='view'?.35:''});if(gsel>=0&&gps()[gsel])return gpPanel();
- if(sel<0){P.innerHTML='<div class="kv">Tap a shape to select it. Drag the <b>selected</b> shape to move it; drag elsewhere to pan; pinch (or +/−) to zoom.</div>'+(Z.note?'<div class="note">'+esc(Z.note)+'</div>':'')+(Z.kind==='view'?'':legend())+gpLegend();bindGpLegend();return}
- var it=items[sel],p=it.p,town=Z.kind==='town',bi=blockInfo(Z,p),h='';
+function panel(){var P=$('panel');if(!Z){P.className='hide';return}P.className=panelHidden?'hide':'';$('bAdd').style.opacity=Z.kind==='view'?.35:'';$('bSel').className=selMode?'pri':'';$('bSel').textContent=selMode?'☑ Select':'☐ Select';$('bGpEdit').className=gpEdit?'pri':'';$('bGpEdit').textContent='✎ Mark game props: '+(gpEdit?'on':'off');
+ var n=nSel();if(gsel>=0&&gpAll()[gsel])return gpPanel();
+ if(n===0){P.innerHTML='<div class="kv">'+(selMode?'<b>Select mode</b>: tap shapes to add/remove · drag on the map to box-select · 2 fingers pan/zoom.':'Tap a shape to select it. Drag the <b>selected</b> shape to move it; drag elsewhere to pan; pinch (or +/−) to zoom. ☐ Select = pick many.')+'</div>'+(Z.note?'<div class="note">'+esc(Z.note)+'</div>':'')+(Z.kind==='view'?'':legend())+gpLegend();bindGpLegend();return}
+ if(sel<0)return groupPanel();
+ var it=items[sel],p=it.p,town=Z.kind==='town',bi=blockInfo(Z,p),h=selBar();
  h+='<div class="kv"><b>'+esc(town?p.name:p.id)+'</b> '+(it.o!=null?'#'+it.o:'(new)')+' · <span style="color:'+colorOf(p)+'">■</span> '+esc(town?p.kind:p.layer)+(p.edge?' · edge '+esc(p.edge):'')+'</div>';
- h+='<div class="kv">model: <b>'+esc(base(town?p.piece:p.asset))+'</b></div>';
+ h+='<div class="kv">model: <b>'+esc(mdl(p))+'</b></div>';
  if(!town&&p.collider!==undefined)h+='<div class="kv">collider: '+esc(typeof p.collider==='string'?p.collider:JSON.stringify(p.collider))+' · blocks_walk: '+esc(p.blocks_walk)+'</div>';
  if(town&&p.attach_to)h+='<div class="note">Attached to "'+esc(p.attach_to)+'" — moving one does not move the other.</div>';
  if(town&&p.kind==='dressing')h+='<div class="note">Dressing is a merged town-wide GLB placed at 0,0 — moving it shifts every tree/rock/fence in it.</div>';
@@ -358,7 +457,7 @@ function panel(){var P=$('panel');if(!Z){P.className='hide';return}P.className='
  h+='<div class="row"><label>rot°</label><input type="range" id="rr" min="0" max="360" step="1"><input type="number" id="ir" step="1" style="width:70px"></div>';
  if(p.scale!==undefined||!town)h+='<div class="row"><label>scale</label><input type="range" id="rs" min="0.05" max="8" step="0.01"><input type="number" id="is" step="0.01" style="width:70px"></div>';
  else h+='<div class="kv" style="color:#9aa0aa">Town placements have no scale field (engine ignores scale here).</div>';
- P.innerHTML=h;panelVals();
+ P.innerHTML=h;bindSelBar();panelVals();
  var commit=false;function start(){if(!commit){pushUndo();commit=true;warnIf(items[sel].p,'changing it')}}function end(){commit=false;saveLocal()}
  function rot(v){start();editP(sel,function(p){p.rotY=r4(((+v)%360)*Math.PI/180)});panelVals();draw()}
  function scl(v){v=Math.max(.01,+v||1);start();editP(sel,function(p){p.scale=r3(v)});panelVals();draw()}
@@ -366,32 +465,72 @@ function panel(){var P=$('panel');if(!Z){P.className='hide';return}P.className='
  if($('rs')){$('rs').oninput=function(){scl(this.value)};$('rs').onchange=end;$('is').onchange=function(){scl(this.value);end()}}
  function mv(){start();var x=+$('ix').value,z=+$('iz').value;editP(sel,function(p){setM(p,x,z)});end();draw()}
  $('ix').onchange=mv;$('iz').onchange=mv}
+function groupPanel(){var a=selIdx(),b=selG(),h=selBar(),town=Z.kind==='town';
+ if(a.length){h+='<div class="row"><label>rotate</label><input type="range" id="grR" min="-180" max="180" step="1" value="0"><span id="grRv" style="min-width:44px">0°</span></div>';
+  h+='<div class="row"><label></label><button class="gq" data-r="-90">−90°</button><button class="gq" data-r="-15">−15°</button><button class="gq" data-r="15">+15°</button><button class="gq" data-r="90">+90°</button></div>';
+  h+='<div class="row"><label style="min-width:0;color:#e4e2dc"><input type="checkbox" id="grC" style="width:22px;height:22px;vertical-align:middle"'+(grAround?' checked':'')+'> rotate around group centre (else each in place)</label></div>';
+  if(!town)h+='<div class="row"><label>scale</label><input type="range" id="grS" min="-2" max="2" step="0.01" value="0"><span id="grSv" style="min-width:44px">×1.00</span></div><div class="row"><label></label><button class="gq" data-s="0.8">×0.8</button><button class="gq" data-s="0.9">×0.9</button><button class="gq" data-s="1.1">×1.1</button><button class="gq" data-s="1.25">×1.25</button></div>';
+  else h+='<div class="kv" style="color:#9aa0aa">Town placements have no scale field — scale is not offered here.</div>'}
+ h+='<div class="kv">Drag any selected shape to move them all together. 🗑 Del / Dup in the toolbar act on everything selected. Each action = one Undo step.</div>';
+ if(b.length)h+='<div class="'+(gpEdit?'note':'ro')+'">'+b.length+' game-code prop(s) selected. '+(gpEdit?'✎ Marking is ON: move/delete/dup on them are recorded as <b>requests</b> for a prompt (no file changes).':'They are copy-only right now; group move/delete/dup skip them.')+'</div><div class="row"><button id="bGpEdit2" style="flex:1"'+(gpEdit?' class="pri"':'')+'>✎ Mark game props: '+(gpEdit?'on':'off')+'</button></div>';
+ $('panel').innerHTML=h;bindSelBar();
+ if($('bGpEdit2'))$('bGpEdit2').onclick=toggleGpEdit;
+ if($('grC'))$('grC').onchange=function(){grAround=this.checked};
+ if($('grR')){$('grR').oninput=function(){gtStart();$('grRv').textContent=this.value+'°';gtApply(this.value*Math.PI/180,null)};$('grR').onchange=function(){gtEnd();this.value=0;$('grRv').textContent='0°';panelVals()}}
+ if($('grS')){$('grS').oninput=function(){gtStart();var f=Math.pow(2,+this.value);$('grSv').textContent='×'+f.toFixed(2);gtApply(null,f)};$('grS').onchange=function(){gtEnd();this.value=0;$('grSv').textContent='×1.00'}}
+ var qs=document.querySelectorAll('.gq');for(var i=0;i<qs.length;i++)qs[i].onclick=function(){var r=this.getAttribute('data-r'),s=this.getAttribute('data-s');gtStart();gtApply(r!=null?r*Math.PI/180:null,s!=null?+s:null);gtEnd();toast(r!=null?'Rotated '+selIdx().length+' by '+r+'°':'Scaled '+selIdx().length+' ×'+s,1500)}}
+var grAround=false,panelHidden=false;
 function panelVals(){if(sel<0||!$('ix'))return;var p=items[sel].p;$('ix').value=mx(p).toFixed(2);$('iz').value=mz(p).toFixed(2);var d=deg(p.rotY||0);$('rr').value=d;if(document.activeElement!==$('ir'))$('ir').value=d.toFixed(1);if($('rs')){$('rs').value=p.scale;if(document.activeElement!==$('is'))$('is').value=p.scale}}
-function legend(){var seen={};items.forEach(function(it){seen[Z.kind==='town'?it.p.kind:it.p.layer]=colorOf(it.p)});var h='<div id="legend">';for(var k in seen)h+='<span class="sw" style="background:'+seen[k]+'"></span>'+esc(k)+' &nbsp;';
+function legend(){var seen={},cnt={};items.forEach(function(it){var k=Z.kind==='town'?it.p.kind:it.p.layer;seen[k]=colorOf(it.p);cnt[k]=(cnt[k]||0)+1});var h='<div id="legend"><div class="kv"><b>Layout layers</b> (tap to show/hide)</div>';for(var k in seen)h+='<button class="gk'+(LOFF[k]?' off':'')+'" data-l="'+esc(k)+'"><span class="sw" style="background:'+seen[k]+'"></span>'+esc(k)+' '+cnt[k]+'</button>';
  return h+'<br><span style="color:#ff3b3b">thick red</span> = edge collider · <span style="color:#ff3b3b">thin red</span> = has collider · <span style="color:#ff9a2a">orange dashed</span> = on solid edge tile · <span style="color:#3fe0ff">cyan</span> = seam/exit · grey lines = kit pieces (read-only) · yellow dot = edited'+(solid?' · dark red tiles = solid (martsirt_world.json)':'')+'</div>'}
 // ---------- tools ----------
-$('bLoad').onclick=function(){if(dirty&&Z&&diffLines(Z,orig,items).lines.length&&!confirm('Reload? Your edits stay saved on this phone and you can restore them.'))return;saveLocal();load()};
+function toggleGpEdit(){gpEdit=!gpEdit;try{localStorage.setItem('zb_gpedit',gpEdit?'1':'0')}catch(e){}toast(gpEdit?'✎ Marking ON: moving/deleting/duplicating game-code props records requests (no files change)':'Marking OFF: game-code props are copy-only',3000);panel()}
+$('bGpEdit').onclick=toggleGpEdit;
+$('bSel').onclick=function(){selMode=!selMode;toast(selMode?'Select mode: tap to add/remove · drag to box-select · 2 fingers pan/zoom':'Select mode off: drag pans the map',2500);panel()};
+$('selchip').onclick=clearSel;
+$('bMore').onclick=function(){var m=$('more');m.className=m.className?'':'hide';this.className=m.className?'':'pri'};
+$('more').addEventListener('click',function(e){if(e.target.tagName==='BUTTON')setTimeout(function(){$('more').className='hide';$('bMore').className=''},0)});
+$('bPanel').onclick=function(){panelHidden=!panelHidden;this.textContent=panelHidden?'▴ Show panel':'▾ Hide panel';panel()};
+$('bLoad').onclick=function(){if(dirty&&Z&&Z.kind!=='view'&&diffLines(Z,orig,items).lines.length&&!confirm('Reload? Your edits stay saved on this phone and you can restore them.'))return;saveLocal();load()};
 $('bFit').onclick=fit;$('bFit2').onclick=fit;$('bZin').onclick=function(){zoomBy(1.5)};$('bZout').onclick=function(){zoomBy(1/1.5)};
-$('bUndo').onclick=function(){if(!undo.length)return;redo.push({items:snapState(),sel:sel});restore(undo.pop())};
-$('bRedo').onclick=function(){if(!redo.length)return;undo.push({items:snapState(),sel:sel});restore(redo.pop())};
-$('bDel').onclick=function(){if(viewOnly())return;if(gsel>=0)return toast('Game props are read-only (game code) — use Copy for prompt');if(sel<0)return toast('Select something first');var p=items[sel].p;pushUndo();warnIf(p,'deleting it');items.splice(sel,1);sel=-1;panel();draw()};
-$('bDup').onclick=function(){if(viewOnly())return;if(gsel>=0)return toast('Game props are read-only (game code) — use Copy for prompt');if(sel<0)return toast('Select something first');var it=items[sel];pushUndo();var p=cloneKeep(it.p);if(p.name)p.name=p.name+' copy';setM(p,mx(p)+1.5,mz(p));items.push({o:null,src:it.o!=null?it.o:it.src,p:p});sel=items.length-1;warnIf(p,'adding a copy');panel();draw()};
+$('bUndo').onclick=function(){if(!undo.length)return toast('Nothing to undo',1200);redo.push(snapState());restore(undo.pop())};
+$('bRedo').onclick=function(){if(!redo.length)return toast('Nothing to redo',1200);undo.push(snapState());restore(redo.pop())};
+$('bDel').onclick=function(){if(!Z)return;var a=selIdx(),b=selG();if(!a.length&&!b.length)return toast('Select something first');if(!a.length&&!gpEdit)return skipNote('delete');
+ pushUndo();warnGroup(a,'deleting');var del={};a.forEach(function(n){del[items[n].u]=1});items=items.filter(function(it){return !del[it.u]});var nm=0;
+ if(gpEdit){var N=gps().length;b.filter(function(i){return i<N}).forEach(function(i){setGpDel(i,true);nm++});b.filter(function(i){return i>=N}).sort(function(x,y){return y-x}).forEach(function(i){setGpDel(i);nm++})}
+ var sk=gpEdit?0:b.length;S={};G={};syncSel();saveLocal();panel();draw();toast((a.length?'Deleted '+a.length+' layout item(s)':'')+(nm?(a.length?' · ':'')+'marked '+nm+' game-code prop(s) for delete':'')+(sk?' · '+sk+' game-code props skipped':''),3000)};
+$('bDup').onclick=function(){if(!Z)return;var a=selIdx(),b=selG();if(!a.length&&!b.length)return toast('Select something first');if(!a.length&&!gpEdit)return skipNote('duplicate');
+ pushUndo();var nS={},nG={},V=gpAll(),N=gps().length;a.forEach(function(n){var it=items[n],p=cloneKeep(it.p);if(p.name)p.name=p.name+' copy';setM(p,mx(p)+1.5,mz(p));var ni=mkIt(null,it.o!=null?it.o:it.src,p);items.push(ni);nS[ni.u]=1});
+ if(gpEdit)b.forEach(function(i){var v=V[i],src=v.p,a2={kind:src.kind,x:r3(v.x+1.5),y:r3(v.y)};['style','label','tag','w','d','rotY'].forEach(function(k){if(src[k]!=null)a2[k]=src[k]});a2.from=v.add?src.from:i;REQ.adds.push(a2);nG[N+REQ.adds.length-1]=1});
+ gpInv();S=nS;G=nG;warnGroup(selIdx(),'adding copies');syncSel();saveLocal();panel();draw();toast('Duplicated '+(a.length+(gpEdit?b.length:0))+' (offset +1.5 x)'+(!gpEdit&&b.length?' · '+b.length+' game-code props skipped':''),2500)};
 $('bSnap').onclick=function(){snap=snap===0?.5:snap===.5?1:0;this.textContent='Snap '+(snap?snap+'m':'off')};
 $('bLbl').onclick=function(){labels=!labels;draw()};
+$('bClrMarks').onclick=function(){if(!Z||!Z.gp)return;var n=reqN();if(!n)return toast('No game-code requests in '+zName(Z.gp));pushUndo();REQ={m:{},adds:[]};for(var k in G)if(+k>=gps().length)delete G[k];gpInv();syncSel();saveLocal();panel();draw();toast('Cleared '+n+' game-code request(s) — Undo brings them back',3000)};
+$('bReset').onclick=function(){if(!Z)return;var nl=Z.kind==='view'?0:diffLines(Z,orig,items).lines.length,nr=reqN();
+ if(!confirm('Reset zone '+Z.id+'?\n\nThis discards '+nl+' unsaved layout change(s) and '+nr+' game-code request(s)'+(Z.gp==='town'?' (town requests are shared by both Martsirt entries)':'')+', clears Undo, and reloads the file state. This cannot be undone.'))return;
+ items=orig.map(function(p,i){return mkIt(i,undefined,p)});resetState();try{if(Z.kind!=='view')localStorage.removeItem(sKey());if(Z.gp)localStorage.removeItem(rKey(Z.gp))}catch(e){}dirty=false;syncSel();panel();draw();toast('Zone reset to the file on main',2500)};
 $('bAdd').onclick=function(){if(!Z||viewOnly())return;var m={},order=[];orig.forEach(function(p,i){var a=Z.kind==='town'?p.piece:p.asset;if(!m[a]){m[a]={i:i,n:0};order.push(a)}m[a].n++});
  var b=document.createElement('div');order.forEach(function(a){var t=document.createElement('button');t.className='mitem';t.innerHTML='<span>'+esc(base(a))+'</span><span style="color:#9aa0aa">×'+m[a].n+'</span>';t.onclick=function(){
-  var src=orig[m[a].i],p=cloneKeep(src);var c=s2w(cv.width/DPR/2,cv.height/DPR/2);setM(p,c[0],c[1]);if(p.name)p.name=p.name+' (added)';pushUndo();items.push({o:null,src:m[a].i,p:p});sel=items.length-1;closeM();panel();draw();toast('Added at view centre — drag it into place',2500)};b.appendChild(t)});
+  var src=orig[m[a].i],p=cloneKeep(src);var c=s2w(cv.width/DPR/2,cv.height/DPR/2);setM(p,c[0],c[1]);if(p.name)p.name=p.name+' (added)';pushUndo();var ni=mkIt(null,m[a].i,p);items.push(ni);S={};G={};S[ni.u]=1;syncSel();closeM();panel();draw();toast('Added at view centre — drag it into place',2500)};b.appendChild(t)});
  openM('Add a model used in '+Z.id+' (copies its first use)',b,[['Close',closeM]])};
-$('bHelp').onclick=function(){var d=document.createElement('div');d.className='kv';d.innerHTML='<p><b>Tap</b> a shape to select. <b>Drag the selected</b> shape to move it. Drag empty space to pan, pinch or mouse-wheel to zoom. Coordinates are tile metres (x east, z south).</p><p>Facing tick = the way the model faces (rotY). Size ≈ model × scale.</p><p><b>Save</b> → Copy changes (zone, file, change list and the full JSON) to paste in chat, or Download JSON. Unsaved edits are kept on this phone per zone.</p><p>Nothing is sent anywhere; the page only reads files from GitHub.</p>';openM('Zone Builder help',d,[['Close',closeM]])};
-$('bSave').onclick=function(){if(!Z)return toast('Load a zone first');if(viewOnly())return;var d=diffLines(Z,orig,items),out=buildOut(doc,key,items);
- var full=dumpPy(out,detectFmt(docText)),compact=JSON.stringify(out);
- var head='ZONE BUILDER — zone '+Z.id+'\nfile: '+Z.path+'\nbase: main @ '+new Date().toISOString().slice(0,16)+'Z · '+items.length+' '+key+' ('+orig.length+' before)\n';
- var list=d.lines.length?d.lines.join('\n'):'(no changes)';
- var warn=d.warn?'\n⚠ '+d.warn+' change(s) touch walk blockers / edge colliders — need Brian\'s OK.\n':'';
- var copyText=head+'\nCHANGES ('+d.lines.length+'):\n'+list+'\n'+warn+'\nJSON (compact; same structure, untouched fields preserved):\n'+compact;
- var box=document.createElement('div');var ta=document.createElement('textarea');ta.readOnly=true;ta.value=head+'\nCHANGES ('+d.lines.length+'):\n'+list+'\n'+warn;box.appendChild(ta);
- openM('Save — '+d.lines.length+' change(s)',box,[['Copy changes',function(){copy(copyText)}],['Copy list only',function(){copy(head+'\n'+list+warn)}],['Download JSON',function(){dl(base(Z.path)+'.json',full)}],['Close',closeM]])};
-function copy(t){var done=function(){toast(t.length<300?'Copied: '+t:'Copied '+Math.round(t.length/1024)+' KB — paste it in chat',3000)};
+$('bHelp').onclick=function(){var d=document.createElement('div');d.className='kv';d.innerHTML='<p><b>Tap</b> a shape to select. <b>Drag the selected</b> shape(s) to move. Drag empty space to pan, pinch or +/− to zoom. Coordinates are tile metres (x east, z south).</p><p><b>☐ Select</b> mode: tap to add/remove, one-finger drag draws a box that selects everything visible inside; two fingers still pan/zoom. <b>All of kind</b> grabs every visible item with the same model/kind. Rotate/scale sliders, 🗑 Del and Dup act on the whole selection — one Undo step each.</p><p><b>Game-code props</b> (bonfires, bodies…) live in game code. Turn on ⋯ → <b>✎ Mark game props</b> to record moves/deletes/dups as requests; they show as ghost→new, red disc with white ✕ (delete), green dot, and are listed under "Game-code changes for a prompt" in Save → Copy changes.</p><p>⋯ → <b>Clear marks</b> drops game-code requests (undoable); <b>Reset zone</b> discards everything unsaved for the zone. The "N selected ✕" chip clears the selection.</p><p>Nothing is sent anywhere; the page only reads files from GitHub. Edits are kept on this phone per zone.</p>';openM('Zone Builder help',d,[['Close',closeM]])};
+// all requested game-code changes across zones (current zone live, others from this phone's storage)
+function allReq(){saveLocal();var zs={},out=[];if(Z&&Z.gp)zs[Z.gp]=1;try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf('zb_gm_')===0)zs[k.slice(6)]=1}}catch(e){}
+ Object.keys(zs).sort().forEach(function(gp){var r=Z&&Z.gp===gp?REQ:readReq(gp);var L=reqLines(gp,r);if(L.length)out.push({gp:gp,lines:L})});return out}
+function changesText(){var parts=[],list='',warn='',compact='',nl=0;
+ if(Z.kind!=='view'){var d=diffLines(Z,orig,items),out=buildOut(doc,key,items);nl=d.lines.length;compact=JSON.stringify(out);
+  var head='ZONE BUILDER — zone '+Z.id+'\nfile: '+Z.path+'\nbase: main @ '+new Date().toISOString().slice(0,16)+'Z · '+items.length+' '+key+' ('+orig.length+' before)\n';
+  list=head+'\nLAYOUT FILE CHANGES ('+nl+'):\n'+(nl?d.lines.join('\n'):'(no changes)')+'\n'+(d.warn?'\n⚠ '+d.warn+' change(s) touch walk blockers / edge colliders — need Brian\'s OK.\n':'')}
+ else list='ZONE BUILDER — zone '+Z.id+' (view only, no layout file)\n';
+ var R=allReq(),nr=0,g='';R.forEach(function(z){nr+=z.lines.length;g+='\nzone '+zName(z.gp)+':\n'+z.lines.join('\n')+'\n'});
+ if(nr)g='\nGAME-CODE CHANGES FOR A PROMPT ('+nr+' request'+(nr>1?'s':'')+', not applied to any file — props live in game code, bundle '+(GP&&GP._meta?GP._meta.bundle:'?')+'):'+g;
+ var full=list+g+(Z.kind!=='view'?'\nJSON for '+Z.path+' (compact; same structure, untouched fields preserved):\n'+compact:'');
+ return {full:full,list:list+g,nl:nl,nr:nr}}
+$('bSave').onclick=function(){if(!Z)return toast('Load a zone first');var t=changesText();
+ var box=document.createElement('div');var ta=document.createElement('textarea');ta.readOnly=true;ta.value=t.list;box.appendChild(ta);
+ var btns=[['Copy changes',function(){copy(t.full)}],['Copy list only',function(){copy(t.list)}]];if(Z.kind!=='view')btns.push(['Download JSON',function(){dl(base(Z.path)+'.json',dumpPy(buildOut(doc,key,items),detectFmt(docText)))}]);btns.push(['Close',closeM]);
+ openM('Save — '+t.nl+' layout change(s) · '+t.nr+' game-code request(s)',box,btns)};
+function copy(t){window.__lastCopy=t;var done=function(){toast(t.length<300?'Copied: '+t:'Copied '+Math.round(t.length/1024)+' KB — paste it in chat',3000)};
  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,function(){fb()});else fb();
  function fb(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){toast('Copy failed — use Download JSON')}ta.remove()}}
 function dl(name,t){var u=URL.createObjectURL(new Blob([t],{type:'application/json'}));var a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000)}
