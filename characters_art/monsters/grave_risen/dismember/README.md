@@ -80,3 +80,10 @@ The 5 clips have the same frame counts and event frames in both files. Node name
 ## Sound (audio/sfx/impact/limb_sever_0[1-3].ogg)
 Each file = chop at 0 s, limb hits the ground at 0.448 / 0.440 / 0.331 s.
 Play at the sever frame (the killing blow's impact). Land the severed piece **13 / 13 / 10 frames** later (30 fps) to sync with the thud.
+
+## v2 parts for the live v2 body (2026-11-04, add-only)
+`grave_risen_dismember_v2.glb`, `grave_risen_half_v2.glb`, `grave_risen_severed_v2.glb` (+ `masters/`) match the live `grave_risen_v2` / `grave_risen_full_v2.glb` bind pose. The old dismember/half/severed files used the v1 bind and do not line up with the v2 body.
+- Parts: the v2 mesh cut by dominant bone into head, upper_torso, lower_body, arm_l, arm_r, leg_l, leg_r (same follow bones as before). Caps/sevcaps are the existing ones moved from the v1 bind to the v2 bind, `gore_flesh`.
+- All skinned files use the exact v2 skin: 52 joints, same names and order, inverse bind matrices identical to `grave_risen_full_v2.glb` (max diff 0).
+- dismember_v2 clips = v2 clips (idle, walk, attack, hit, death; 30 fps). half_v2 clips crawl, idle_half, crawl_swipe, hit_half, death_half are retargeted to the v2 bind (same names, frame counts and event frames; Hips height scaled to v2).
+- severed_v2: static pieces in v2 bind space, same names; place with `bone.matrixWorld * boneInverses[i]` of the v2 skeleton.
