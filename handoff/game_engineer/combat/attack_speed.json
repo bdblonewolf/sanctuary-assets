@@ -2,14 +2,14 @@
  "version": "as2b",
  "replaces": "as2 (3 tiers, 34 bases). Backup: attack_speed_as2.json. as1 backup: attack_speed_as1.json",
  "player": {
-  "baseAps": 1.89,
+  "baseAps": 1.0,
   "apsCap": 10.0,
   "apsFloor": 0.5,
   "classBaseAps": {
-   "ironvow": 1.89,
-   "longmark": 1.89,
-   "cinderwake": 1.89,
-   "gravewell": 1.89
+   "ironvow": 1.0,
+   "longmark": 1.0,
+   "cinderwake": 1.0,
+   "gravewell": 1.0
   },
   "classNote": "No class differences: every class starts with a weaponSpeed 0 starter at exactly 1.89 APS; class identity comes from skills and gear.",
   "baseCastRate": 1.0,
@@ -22,7 +22,8 @@
    "gravewell": 1.0
   },
   "weaponSkillMul": 1.15,
-  "weaponSkillNote": "weapon skills (cleave, bladedance, execute, rupture, blindrush, javelin, aimed, smite) take swingSeconds*1.15 (replaces the old +2 frames on 13)"
+  "weaponSkillNote": "weapon skills (cleave, bladedance, execute, rupture, blindrush, javelin, aimed, smite) take swingSeconds*1.15 (replaces the old +2 frames on 13)",
+  "baseApsNote": "Brian Nov 4 2026: base lowered from 1.89 to 1.0 attacks/sec (animations were playing ~3x)."
  },
  "formula": {
   "aps": "clamp(baseAps * (1+weaponSpeed/100) * (1+ias/100) * (1+shrine/100) * (1+stride/100) * (1+boundIas/100) * (1-tradeoffIas/100) * tr(boundTradeoff()), apsFloor, apsCap). Every source is its own factor (fully multiplicative); ias = player.ias (gear + passives summed as today).",
