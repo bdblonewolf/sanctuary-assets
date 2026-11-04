@@ -2,7 +2,7 @@
   "version": 1,
   "kinds": {
     "skeleton": {
-      "url": "characters_art/monsters/bone_archer/bone_archer.glb",
+      "url": "characters_art/monsters/bone_archer/bone_archer_v2.glb",
       "height": 1.84,
       "yaw": 0,
       "clips": {
@@ -11,7 +11,7 @@
         "run": "walk",
         "attack": "attack1",
         "hit": "hit",
-        "death": "death"
+        "death": "death_crumble"
       },
       "attackSpeed": 1.0,
       "walkNat": 1.29,
