@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "kinds": {
+    "skeleton": {
+      "url": "characters_art/monsters/bone_archer/bone_archer.glb",
+      "height": 1.84,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "walk",
+        "attack": "attack1",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0,
+      "walkNat": 1.29,
+      "atkFrames": 25,
+      "atkWsm": -5,
+      "atkAction": 12,
+      "atkHitT": 0.47,
+      "atkClipDur": 1.0,
+      "atkNote": "right-hand release peak (2nd speed peak after draw) ; frames = DA 15 x old archer 1.67 factor"
+    },
+    "zombie": {
+      "url": "characters_art/monsters/rag_zombie/rag_zombie.glb",
+      "height": 1.78,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "walk",
+        "attack": "attack",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0,
+      "walkNat": 0.59,
+      "atkFrames": 18,
+      "atkWsm": 10,
+      "atkAction": 6,
+      "atkHitT": 0.31,
+      "atkClipDur": 1.0,
+      "atkNote": "left-hand speed peak ; frames/wsm = game DA table"
+    },
+    "corpse": {
+      "url": "characters_art/monsters/grave_old_man/grave_old_man.glb",
+      "height": 1.78,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "walk",
+        "attack": "attack",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0,
+      "walkNat": 0.5,
+      "atkFrames": 16,
+      "atkWsm": 6,
+      "atkAction": 5,
+      "atkHitT": 0.37,
+      "atkClipDur": 1.133,
+      "atkNote": "left-hand speed peak ; frames/wsm = game DA table"
+    },
+    "imp": {
+      "url": "characters_art/monsters/red_demon_spawnling/red_demon_spawnling_anim_v3.glb",
+      "height": 1.45,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "run",
+        "attack": "attack",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0,
+      "walkNat": 2.0,
+      "atkFrames": 11,
+      "atkWsm": -12,
+      "atkAction": 4,
+      "atkHitT": 0.59,
+      "atkClipDur": 1.5,
+      "atkNote": "right-hand speed peak ; frames/wsm = game DA table"
+    },
+    "raver": {
+      "url": "characters_art/monsters/red_demon_spawnling/red_demon_spawnling_anim_v3.glb",
+      "height": 1.9,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "run",
+        "attack": "attack",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0,
+      "walkNat": 2.6,
+      "atkFrames": 10,
+      "atkWsm": -20,
+      "atkAction": 4,
+      "atkHitT": 0.59,
+      "atkClipDur": 1.5,
+      "atkNote": "right-hand speed peak ; frames/wsm = game DA table"
+    },
+    "brute": {
+      "url": "characters_art/monsters/corrupted_phimn/corrupted_phimn_feral_lod15k_walk.glb",
+      "height": 2.2,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "run",
+        "attack": "attack_claw",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0,
+      "walkNat": 1.4,
+      "atkFrames": 17,
+      "atkWsm": 8,
+      "atkAction": 8,
+      "atkHitT": 0.44,
+      "atkClipDur": 0.958,
+      "atkNote": "right-claw speed peak ; frames/wsm = game DA table"
+    },
+    "bear": {
+      "url": "characters_art/monsters/corrupted_phimn/corrupted_phimn_feral_lod15k_walk.glb",
+      "height": 3.0,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "run",
+        "attack": "attack_claw",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0,
+      "walkNat": 1.91,
+      "atkFrames": 20,
+      "atkWsm": 12,
+      "atkAction": 9,
+      "atkHitT": 0.44,
+      "atkClipDur": 0.958,
+      "atkNote": "right-claw speed peak ; frames/wsm = game DA table"
+    },
+    "melakir": {
+      "url": "characters_art/monsters/corrupted_phimn/corrupted_phimn_feral_lod15k_walk.glb",
+      "height": 1.8,
+      "yaw": 0,
+      "clips": {
+        "idle": "idle",
+        "walk": "walk",
+        "run": "run",
+        "attack": "attack_claw",
+        "hit": "hit",
+        "death": "death"
+      },
+      "attackSpeed": 1.0,
+      "walkNat": 1.145,
+      "atkFrames": 12,
+      "atkWsm": -14,
+      "atkAction": 6,
+      "atkHitT": 0.44,
+      "atkClipDur": 0.958,
+      "atkNote": "right-claw speed peak ; frames/wsm = game DA table"
+    }
+  },
+  "walkNatNote": "walkNat = ground speed (m/s) the walk clip covers at timeScale 1 at this kind's height (measured from foot travel). Code sets walk timeScale = clamp(moveSpeed / walkNat, 0.5, 1.8).",
+  "atkNote": "as1: attack frames at 25 fps, D2 formula in handoff/game_engineer/combat/attack_speed.json. atkAction = contact frame measured from the GLB attack clip (hand speed peak)."
+}
