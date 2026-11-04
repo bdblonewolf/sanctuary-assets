@@ -3377,6 +3377,666 @@
    "scale": 0.933,
    "collider": "none (walkable)",
    "blocks_walk": false
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    1.756,
+    0.0,
+    -1.876
+   ],
+   "rotY": 3.2159,
+   "scale": 0.551,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    16.53,
+    0.0,
+    -3.613
+   ],
+   "rotY": 5.6223,
+   "scale": 0.627,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    31.949,
+    0.0,
+    -2.045
+   ],
+   "rotY": 3.442,
+   "scale": 0.607,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    51.299,
+    0.0,
+    -1.555
+   ],
+   "rotY": 3.6852,
+   "scale": 0.6,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    64.147,
+    0.0,
+    -4.191
+   ],
+   "rotY": 0.6958,
+   "scale": 0.573,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    91.396,
+    0.0,
+    -2.804
+   ],
+   "rotY": 5.5981,
+   "scale": 0.452,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    103.396,
+    0.0,
+    -2.622
+   ],
+   "rotY": 2.4958,
+   "scale": 0.513,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    121.418,
+    0.0,
+    -2.562
+   ],
+   "rotY": 2.2408,
+   "scale": 0.65,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    137.731,
+    0.0,
+    -3.529
+   ],
+   "rotY": 4.0069,
+   "scale": 0.599,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    147.766,
+    0.0,
+    -1.577
+   ],
+   "rotY": 1.8355,
+   "scale": 0.561,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "N",
+   "pos": [
+    160.175,
+    0.0,
+    -2.997
+   ],
+   "rotY": 4.4232,
+   "scale": 0.625,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    163.508,
+    0.0,
+    4.567
+   ],
+   "rotY": 4.4665,
+   "scale": 0.455,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    165.719,
+    0.0,
+    17.03
+   ],
+   "rotY": 2.5056,
+   "scale": 0.534,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    164.117,
+    0.0,
+    31.64
+   ],
+   "rotY": 0.7317,
+   "scale": 0.55,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    163.555,
+    0.0,
+    49.771
+   ],
+   "rotY": 3.771,
+   "scale": 0.6,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    165.66,
+    0.0,
+    62.014
+   ],
+   "rotY": 1.6251,
+   "scale": 0.633,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    164.256,
+    0.0,
+    78.56
+   ],
+   "rotY": 3.0108,
+   "scale": 0.635,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    164.891,
+    0.0,
+    96.972
+   ],
+   "rotY": 1.4107,
+   "scale": 0.455,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    164.966,
+    0.0,
+    113.813
+   ],
+   "rotY": 4.4275,
+   "scale": 0.46,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    166.028,
+    0.0,
+    126.342
+   ],
+   "rotY": 2.6981,
+   "scale": 0.593,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    163.987,
+    0.0,
+    141.979
+   ],
+   "rotY": 5.3384,
+   "scale": 0.627,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "E",
+   "pos": [
+    165.617,
+    0.0,
+    151.93
+   ],
+   "rotY": 4.2368,
+   "scale": 0.59,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    157.424,
+    0.0,
+    157.768
+   ],
+   "rotY": 2.5264,
+   "scale": 0.5,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    147.418,
+    0.0,
+    155.94
+   ],
+   "rotY": 3.1535,
+   "scale": 0.61,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    134.58,
+    0.0,
+    156.325
+   ],
+   "rotY": 2.721,
+   "scale": 0.627,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    124.861,
+    0.0,
+    156.425
+   ],
+   "rotY": 0.208,
+   "scale": 0.504,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    112.104,
+    0.0,
+    157.708
+   ],
+   "rotY": 5.0488,
+   "scale": 0.642,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    100.643,
+    0.0,
+    158.009
+   ],
+   "rotY": 1.6343,
+   "scale": 0.634,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    88.707,
+    0.0,
+    158.265
+   ],
+   "rotY": 5.191,
+   "scale": 0.552,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    73.308,
+    0.0,
+    157.356
+   ],
+   "rotY": 0.2112,
+   "scale": 0.583,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    62.274,
+    0.0,
+    155.537
+   ],
+   "rotY": 5.1013,
+   "scale": 0.542,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    34.361,
+    0.0,
+    157.712
+   ],
+   "rotY": 6.0458,
+   "scale": 0.593,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    17.757,
+    0.0,
+    156.499
+   ],
+   "rotY": 1.1501,
+   "scale": 0.634,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "S",
+   "pos": [
+    1.965,
+    0.0,
+    155.604
+   ],
+   "rotY": 5.9071,
+   "scale": 0.596,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -3.398,
+    0.0,
+    144.8
+   ],
+   "rotY": 1.2226,
+   "scale": 0.524,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -3.039,
+    0.0,
+    125.97
+   ],
+   "rotY": 0.0882,
+   "scale": 0.54,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -2.836,
+    0.0,
+    115.475
+   ],
+   "rotY": 5.8571,
+   "scale": 0.566,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -3.553,
+    0.0,
+    105.534
+   ],
+   "rotY": 1.5572,
+   "scale": 0.609,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_oak_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -2.398,
+    0.0,
+    89.811
+   ],
+   "rotY": 4.2002,
+   "scale": 0.641,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -4.275,
+    0.0,
+    75.32
+   ],
+   "rotY": 4.1757,
+   "scale": 0.451,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -2.271,
+    0.0,
+    58.77
+   ],
+   "rotY": 5.408,
+   "scale": 0.635,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -2.46,
+    0.0,
+    42.897
+   ],
+   "rotY": 2.9719,
+   "scale": 0.559,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_tall_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -2.766,
+    0.0,
+    27.997
+   ],
+   "rotY": 4.3514,
+   "scale": 0.57,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
+  },
+  {
+   "id": "tree_autumn",
+   "asset": "handoff/game_engineer/borders/martsirt/trees_v2_1/btree_gothic_twisted_autumn.glb",
+   "layer": "lip_outer",
+   "edge": "W",
+   "pos": [
+    -3.959,
+    0.0,
+    9.614
+   ],
+   "rotY": 1.0061,
+   "scale": 0.534,
+   "collider": "cyl r0.45",
+   "blocks_walk": true
   }
  ],
  "stats": {
@@ -3385,9 +4045,9 @@
   "kit_tris": 42380,
   "prop_by_id": {
    "boulder": 30,
-   "conifer": 44,
    "grass": 82,
-   "tree_dead": 47
+   "tree_dead": 47,
+   "tree_autumn": 44
   },
   "moved_world_props": 0
  }
