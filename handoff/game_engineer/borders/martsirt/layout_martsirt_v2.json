@@ -1004,9 +1004,7 @@
     -1.843
    ],
    "rotY": 3.3448,
-   "scale": 0.481,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.481
   },
   {
    "id": "tree_dead",
@@ -1019,9 +1017,7 @@
     -1.854
    ],
    "rotY": 5.0097,
-   "scale": 0.484,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.484
   },
   {
    "id": "tree_dead",
@@ -1034,9 +1030,7 @@
     -1.353
    ],
    "rotY": 0.2128,
-   "scale": 0.322,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.322
   },
   {
    "id": "tree_dead",
@@ -1049,9 +1043,7 @@
     -1.985
    ],
    "rotY": 2.2002,
-   "scale": 0.466,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.466
   },
   {
    "id": "tree_dead",
@@ -1064,9 +1056,7 @@
     -1.706
    ],
    "rotY": 1.3431,
-   "scale": 0.375,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.375
   },
   {
    "id": "tree_dead",
@@ -1079,9 +1069,7 @@
     -0.901
    ],
    "rotY": 1.26,
-   "scale": 0.405,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.405
   },
   {
    "id": "tree_dead",
@@ -1094,9 +1082,7 @@
     -1.27
    ],
    "rotY": 4.4895,
-   "scale": 0.373,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.373
   },
   {
    "id": "tree_dead",
@@ -1109,9 +1095,7 @@
     -1.263
    ],
    "rotY": 0.3971,
-   "scale": 0.336,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.336
   },
   {
    "id": "tree_dead",
@@ -1124,9 +1108,7 @@
     -1.272
    ],
    "rotY": 6.0891,
-   "scale": 0.418,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.418
   },
   {
    "id": "tree_dead",
@@ -1139,9 +1121,7 @@
     -1.492
    ],
    "rotY": 1.4288,
-   "scale": 0.421,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.421
   },
   {
    "id": "boulder",
@@ -1154,9 +1134,7 @@
     -0.435
    ],
    "rotY": 4.4777,
-   "scale": 2.412,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.412
   },
   {
    "id": "boulder",
@@ -1169,9 +1147,7 @@
     -1.923
    ],
    "rotY": 0.6143,
-   "scale": 2.561,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.561
   },
   {
    "id": "boulder",
@@ -1184,9 +1160,7 @@
     -0.647
    ],
    "rotY": 1.6328,
-   "scale": 2.41,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.41
   },
   {
    "id": "boulder",
@@ -1199,9 +1173,7 @@
     -1.881
    ],
    "rotY": 4.0364,
-   "scale": 2.345,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.345
   },
   {
    "id": "boulder",
@@ -1214,9 +1186,7 @@
     -0.951
    ],
    "rotY": 4.6593,
-   "scale": 2.557,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.557
   },
   {
    "id": "boulder",
@@ -1229,9 +1199,7 @@
     -1.878
    ],
    "rotY": 0.5774,
-   "scale": 2.308,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.308
   },
   {
    "id": "boulder",
@@ -1244,9 +1212,7 @@
     -1.674
    ],
    "rotY": 3.5562,
-   "scale": 2.268,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.268
   },
   {
    "id": "grass",
@@ -1559,9 +1525,7 @@
     4.105
    ],
    "rotY": 2.8157,
-   "scale": 0.36,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.36
   },
   {
    "id": "tree_dead",
@@ -1574,9 +1538,7 @@
     13.667
    ],
    "rotY": 3.5504,
-   "scale": 0.362,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.362
   },
   {
    "id": "tree_dead",
@@ -1589,9 +1551,7 @@
     27.875
    ],
    "rotY": 0.7602,
-   "scale": 0.499,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.499
   },
   {
    "id": "tree_dead",
@@ -1604,9 +1564,7 @@
     36.074
    ],
    "rotY": 1.98,
-   "scale": 0.399,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.399
   },
   {
    "id": "tree_dead",
@@ -1619,9 +1577,7 @@
     51.776
    ],
    "rotY": 5.0283,
-   "scale": 0.49,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.49
   },
   {
    "id": "tree_dead",
@@ -1634,9 +1590,7 @@
     66.034
    ],
    "rotY": 5.1398,
-   "scale": 0.5,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.5
   },
   {
    "id": "tree_dead",
@@ -1649,9 +1603,7 @@
     74.916
    ],
    "rotY": 0.4785,
-   "scale": 0.487,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.487
   },
   {
    "id": "tree_dead",
@@ -1664,9 +1616,7 @@
     88.82
    ],
    "rotY": 1.0329,
-   "scale": 0.383,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.383
   },
   {
    "id": "tree_dead",
@@ -1679,9 +1629,7 @@
     105.115
    ],
    "rotY": 3.4408,
-   "scale": 0.417,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.417
   },
   {
    "id": "tree_dead",
@@ -1694,9 +1642,7 @@
     117.739
    ],
    "rotY": 3.7605,
-   "scale": 0.447,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.447
   },
   {
    "id": "tree_dead",
@@ -1709,9 +1655,7 @@
     129.611
    ],
    "rotY": 1.071,
-   "scale": 0.403,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.403
   },
   {
    "id": "tree_dead",
@@ -1724,9 +1668,7 @@
     144.239
    ],
    "rotY": 4.7069,
-   "scale": 0.337,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.337
   },
   {
    "id": "boulder",
@@ -1739,9 +1681,7 @@
     9.945
    ],
    "rotY": 3.5532,
-   "scale": 2.312,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.312
   },
   {
    "id": "boulder",
@@ -1754,9 +1694,7 @@
     28.559
    ],
    "rotY": 2.8274,
-   "scale": 1.793,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 1.793
   },
   {
    "id": "boulder",
@@ -1769,9 +1707,7 @@
     50.898
    ],
    "rotY": 4.8819,
-   "scale": 2.575,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.575
   },
   {
    "id": "boulder",
@@ -1784,9 +1720,7 @@
     69.736
    ],
    "rotY": 1.7438,
-   "scale": 1.753,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 1.753
   },
   {
    "id": "boulder",
@@ -1799,9 +1733,7 @@
     83.843
    ],
    "rotY": 4.3793,
-   "scale": 2.246,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.246
   },
   {
    "id": "boulder",
@@ -1814,9 +1746,7 @@
     102.122
    ],
    "rotY": 4.9215,
-   "scale": 2.079,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.079
   },
   {
    "id": "boulder",
@@ -1829,9 +1759,7 @@
     120.071
    ],
    "rotY": 5.1075,
-   "scale": 2.297,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.297
   },
   {
    "id": "boulder",
@@ -1844,9 +1772,7 @@
     134.586
    ],
    "rotY": 5.2894,
-   "scale": 1.664,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 1.664
   },
   {
    "id": "grass",
@@ -2189,9 +2115,7 @@
     155.102
    ],
    "rotY": 1.9756,
-   "scale": 0.348,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.348
   },
   {
    "id": "tree_dead",
@@ -2204,9 +2128,7 @@
     155.966
    ],
    "rotY": 4.0163,
-   "scale": 0.361,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.361
   },
   {
    "id": "tree_dead",
@@ -2219,9 +2141,7 @@
     154.817
    ],
    "rotY": 5.8823,
-   "scale": 0.342,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.342
   },
   {
    "id": "tree_dead",
@@ -2234,9 +2154,7 @@
     156.675
    ],
    "rotY": 2.2619,
-   "scale": 0.325,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.325
   },
   {
    "id": "tree_dead",
@@ -2249,9 +2167,7 @@
     156.84
    ],
    "rotY": 2.5649,
-   "scale": 0.352,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.352
   },
   {
    "id": "tree_dead",
@@ -2264,9 +2180,7 @@
     155.128
    ],
    "rotY": 3.2362,
-   "scale": 0.37,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.37
   },
   {
    "id": "tree_dead",
@@ -2279,9 +2193,7 @@
     155.673
    ],
    "rotY": 5.3011,
-   "scale": 0.414,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.414
   },
   {
    "id": "tree_dead",
@@ -2294,9 +2206,7 @@
     156.41
    ],
    "rotY": 1.7301,
-   "scale": 0.398,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.398
   },
   {
    "id": "tree_dead",
@@ -2309,9 +2219,7 @@
     156.287
    ],
    "rotY": 0.9349,
-   "scale": 0.322,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.322
   },
   {
    "id": "tree_dead",
@@ -2324,9 +2232,7 @@
     154.809
    ],
    "rotY": 3.2821,
-   "scale": 0.365,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.365
   },
   {
    "id": "tree_dead",
@@ -2339,9 +2245,7 @@
     156.982
    ],
    "rotY": 6.1013,
-   "scale": 0.429,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.429
   },
   {
    "id": "tree_dead",
@@ -2354,9 +2258,7 @@
     155.53
    ],
    "rotY": 2.6575,
-   "scale": 0.434,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.434
   },
   {
    "id": "boulder",
@@ -2369,9 +2271,7 @@
     155.021
    ],
    "rotY": 2.981,
-   "scale": 2.297,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.297
   },
   {
    "id": "boulder",
@@ -2384,9 +2284,7 @@
     155.554
    ],
    "rotY": 4.716,
-   "scale": 1.893,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 1.893
   },
   {
    "id": "boulder",
@@ -2399,9 +2297,7 @@
     154.761
    ],
    "rotY": 0.3806,
-   "scale": 1.818,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 1.818
   },
   {
    "id": "boulder",
@@ -2414,9 +2310,7 @@
     154.593
    ],
    "rotY": 1.6681,
-   "scale": 2.092,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.092
   },
   {
    "id": "boulder",
@@ -2429,9 +2323,7 @@
     154.735
    ],
    "rotY": 1.2803,
-   "scale": 2.497,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.497
   },
   {
    "id": "boulder",
@@ -2444,9 +2336,7 @@
     154.79
    ],
    "rotY": 1.2843,
-   "scale": 2.496,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.496
   },
   {
    "id": "boulder",
@@ -2459,9 +2349,7 @@
     155.424
    ],
    "rotY": 2.7856,
-   "scale": 2.449,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.449
   },
   {
    "id": "grass",
@@ -2744,9 +2632,7 @@
     150.477
    ],
    "rotY": 0.9959,
-   "scale": 0.359,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.359
   },
   {
    "id": "tree_dead",
@@ -2759,9 +2645,7 @@
     137.01
    ],
    "rotY": 4.3434,
-   "scale": 0.407,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.407
   },
   {
    "id": "tree_dead",
@@ -2774,9 +2658,7 @@
     125.521
    ],
    "rotY": 4.0777,
-   "scale": 0.43,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.43
   },
   {
    "id": "tree_dead",
@@ -2789,9 +2671,7 @@
     112.248
    ],
    "rotY": 5.2853,
-   "scale": 0.485,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.485
   },
   {
    "id": "tree_dead",
@@ -2804,9 +2684,7 @@
     98.439
    ],
    "rotY": 5.2053,
-   "scale": 0.371,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.371
   },
   {
    "id": "tree_dead",
@@ -2819,9 +2697,7 @@
     88.135
    ],
    "rotY": 3.3845,
-   "scale": 0.448,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.448
   },
   {
    "id": "tree_dead",
@@ -2834,9 +2710,7 @@
     75.864
    ],
    "rotY": 5.4813,
-   "scale": 0.421,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.421
   },
   {
    "id": "tree_dead",
@@ -2849,9 +2723,7 @@
     64.934
    ],
    "rotY": 1.5243,
-   "scale": 0.477,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.477
   },
   {
    "id": "tree_dead",
@@ -2864,9 +2736,7 @@
     52.911
    ],
    "rotY": 1.9155,
-   "scale": 0.329,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.329
   },
   {
    "id": "tree_dead",
@@ -2879,9 +2749,7 @@
     42.414
    ],
    "rotY": 4.3475,
-   "scale": 0.406,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.406
   },
   {
    "id": "tree_dead",
@@ -2894,9 +2762,7 @@
     30.988
    ],
    "rotY": 2.9562,
-   "scale": 0.498,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.498
   },
   {
    "id": "tree_dead",
@@ -2909,9 +2775,7 @@
     17.681
    ],
    "rotY": 2.497,
-   "scale": 0.338,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.338
   },
   {
    "id": "tree_dead",
@@ -2924,9 +2788,7 @@
     4.26
    ],
    "rotY": 0.9099,
-   "scale": 0.458,
-   "collider": "cyl r0.35",
-   "blocks_walk": true
+   "scale": 0.458
   },
   {
    "id": "boulder",
@@ -2939,9 +2801,7 @@
     144.495
    ],
    "rotY": 1.231,
-   "scale": 2.14,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.14
   },
   {
    "id": "boulder",
@@ -2954,9 +2814,7 @@
     123.989
    ],
    "rotY": 5.4106,
-   "scale": 2.479,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.479
   },
   {
    "id": "boulder",
@@ -2969,9 +2827,7 @@
     110.19
    ],
    "rotY": 3.2617,
-   "scale": 2.007,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.007
   },
   {
    "id": "boulder",
@@ -2984,9 +2840,7 @@
     85.778
    ],
    "rotY": 4.4681,
-   "scale": 2.144,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.144
   },
   {
    "id": "boulder",
@@ -2999,9 +2853,7 @@
     67.96
    ],
    "rotY": 5.0368,
-   "scale": 1.664,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 1.664
   },
   {
    "id": "boulder",
@@ -3014,9 +2866,7 @@
     46.03
    ],
    "rotY": 5.7316,
-   "scale": 1.872,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 1.872
   },
   {
    "id": "boulder",
@@ -3029,9 +2879,7 @@
     27.991
    ],
    "rotY": 1.6284,
-   "scale": 1.782,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 1.782
   },
   {
    "id": "boulder",
@@ -3044,9 +2892,7 @@
     11.685
    ],
    "rotY": 6.2033,
-   "scale": 2.165,
-   "collider": "box 0.7*scale",
-   "blocks_walk": true
+   "scale": 2.165
   },
   {
    "id": "grass",
@@ -3389,9 +3235,7 @@
     -1.876
    ],
    "rotY": 3.2159,
-   "scale": 0.551,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.551
   },
   {
    "id": "tree_autumn",
@@ -3404,9 +3248,7 @@
     -3.613
    ],
    "rotY": 5.6223,
-   "scale": 0.627,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.627
   },
   {
    "id": "tree_autumn",
@@ -3419,9 +3261,7 @@
     -2.045
    ],
    "rotY": 3.442,
-   "scale": 0.607,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.607
   },
   {
    "id": "tree_autumn",
@@ -3434,9 +3274,7 @@
     -1.555
    ],
    "rotY": 3.6852,
-   "scale": 0.6,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.6
   },
   {
    "id": "tree_autumn",
@@ -3449,9 +3287,7 @@
     -4.191
    ],
    "rotY": 0.6958,
-   "scale": 0.573,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.573
   },
   {
    "id": "tree_autumn",
@@ -3464,9 +3300,7 @@
     -2.804
    ],
    "rotY": 5.5981,
-   "scale": 0.452,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.452
   },
   {
    "id": "tree_autumn",
@@ -3479,9 +3313,7 @@
     -2.622
    ],
    "rotY": 2.4958,
-   "scale": 0.513,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.513
   },
   {
    "id": "tree_autumn",
@@ -3494,9 +3326,7 @@
     -2.562
    ],
    "rotY": 2.2408,
-   "scale": 0.65,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.65
   },
   {
    "id": "tree_autumn",
@@ -3509,9 +3339,7 @@
     -3.529
    ],
    "rotY": 4.0069,
-   "scale": 0.599,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.599
   },
   {
    "id": "tree_autumn",
@@ -3524,9 +3352,7 @@
     -1.577
    ],
    "rotY": 1.8355,
-   "scale": 0.561,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.561
   },
   {
    "id": "tree_autumn",
@@ -3539,9 +3365,7 @@
     -2.997
    ],
    "rotY": 4.4232,
-   "scale": 0.625,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.625
   },
   {
    "id": "tree_autumn",
@@ -3554,9 +3378,7 @@
     4.567
    ],
    "rotY": 4.4665,
-   "scale": 0.455,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.455
   },
   {
    "id": "tree_autumn",
@@ -3569,9 +3391,7 @@
     17.03
    ],
    "rotY": 2.5056,
-   "scale": 0.534,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.534
   },
   {
    "id": "tree_autumn",
@@ -3584,9 +3404,7 @@
     31.64
    ],
    "rotY": 0.7317,
-   "scale": 0.55,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.55
   },
   {
    "id": "tree_autumn",
@@ -3599,9 +3417,7 @@
     49.771
    ],
    "rotY": 3.771,
-   "scale": 0.6,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.6
   },
   {
    "id": "tree_autumn",
@@ -3614,9 +3430,7 @@
     62.014
    ],
    "rotY": 1.6251,
-   "scale": 0.633,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.633
   },
   {
    "id": "tree_autumn",
@@ -3629,9 +3443,7 @@
     78.56
    ],
    "rotY": 3.0108,
-   "scale": 0.635,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.635
   },
   {
    "id": "tree_autumn",
@@ -3644,9 +3456,7 @@
     96.972
    ],
    "rotY": 1.4107,
-   "scale": 0.455,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.455
   },
   {
    "id": "tree_autumn",
@@ -3659,9 +3469,7 @@
     113.813
    ],
    "rotY": 4.4275,
-   "scale": 0.46,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.46
   },
   {
    "id": "tree_autumn",
@@ -3674,9 +3482,7 @@
     126.342
    ],
    "rotY": 2.6981,
-   "scale": 0.593,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.593
   },
   {
    "id": "tree_autumn",
@@ -3689,9 +3495,7 @@
     141.979
    ],
    "rotY": 5.3384,
-   "scale": 0.627,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.627
   },
   {
    "id": "tree_autumn",
@@ -3704,9 +3508,7 @@
     151.93
    ],
    "rotY": 4.2368,
-   "scale": 0.59,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.59
   },
   {
    "id": "tree_autumn",
@@ -3719,9 +3521,7 @@
     157.768
    ],
    "rotY": 2.5264,
-   "scale": 0.5,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.5
   },
   {
    "id": "tree_autumn",
@@ -3734,9 +3534,7 @@
     155.94
    ],
    "rotY": 3.1535,
-   "scale": 0.61,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.61
   },
   {
    "id": "tree_autumn",
@@ -3749,9 +3547,7 @@
     156.325
    ],
    "rotY": 2.721,
-   "scale": 0.627,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.627
   },
   {
    "id": "tree_autumn",
@@ -3764,9 +3560,7 @@
     156.425
    ],
    "rotY": 0.208,
-   "scale": 0.504,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.504
   },
   {
    "id": "tree_autumn",
@@ -3779,9 +3573,7 @@
     157.708
    ],
    "rotY": 5.0488,
-   "scale": 0.642,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.642
   },
   {
    "id": "tree_autumn",
@@ -3794,9 +3586,7 @@
     158.009
    ],
    "rotY": 1.6343,
-   "scale": 0.634,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.634
   },
   {
    "id": "tree_autumn",
@@ -3809,9 +3599,7 @@
     158.265
    ],
    "rotY": 5.191,
-   "scale": 0.552,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.552
   },
   {
    "id": "tree_autumn",
@@ -3824,9 +3612,7 @@
     157.356
    ],
    "rotY": 0.2112,
-   "scale": 0.583,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.583
   },
   {
    "id": "tree_autumn",
@@ -3839,9 +3625,7 @@
     155.537
    ],
    "rotY": 5.1013,
-   "scale": 0.542,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.542
   },
   {
    "id": "tree_autumn",
@@ -3854,9 +3638,7 @@
     157.712
    ],
    "rotY": 6.0458,
-   "scale": 0.593,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.593
   },
   {
    "id": "tree_autumn",
@@ -3869,9 +3651,7 @@
     156.499
    ],
    "rotY": 1.1501,
-   "scale": 0.634,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.634
   },
   {
    "id": "tree_autumn",
@@ -3884,9 +3664,7 @@
     155.604
    ],
    "rotY": 5.9071,
-   "scale": 0.596,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.596
   },
   {
    "id": "tree_autumn",
@@ -3899,9 +3677,7 @@
     144.8
    ],
    "rotY": 1.2226,
-   "scale": 0.524,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.524
   },
   {
    "id": "tree_autumn",
@@ -3914,9 +3690,7 @@
     125.97
    ],
    "rotY": 0.0882,
-   "scale": 0.54,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.54
   },
   {
    "id": "tree_autumn",
@@ -3929,9 +3703,7 @@
     115.475
    ],
    "rotY": 5.8571,
-   "scale": 0.566,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.566
   },
   {
    "id": "tree_autumn",
@@ -3944,9 +3716,7 @@
     105.534
    ],
    "rotY": 1.5572,
-   "scale": 0.609,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.609
   },
   {
    "id": "tree_autumn",
@@ -3959,9 +3729,7 @@
     89.811
    ],
    "rotY": 4.2002,
-   "scale": 0.641,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.641
   },
   {
    "id": "tree_autumn",
@@ -3974,9 +3742,7 @@
     75.32
    ],
    "rotY": 4.1757,
-   "scale": 0.451,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.451
   },
   {
    "id": "tree_autumn",
@@ -3989,9 +3755,7 @@
     58.77
    ],
    "rotY": 5.408,
-   "scale": 0.635,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.635
   },
   {
    "id": "tree_autumn",
@@ -4004,9 +3768,7 @@
     42.897
    ],
    "rotY": 2.9719,
-   "scale": 0.559,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.559
   },
   {
    "id": "tree_autumn",
@@ -4019,9 +3781,7 @@
     27.997
    ],
    "rotY": 4.3514,
-   "scale": 0.57,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.57
   },
   {
    "id": "tree_autumn",
@@ -4034,9 +3794,7 @@
     9.614
    ],
    "rotY": 1.0061,
-   "scale": 0.534,
-   "collider": "cyl r0.45",
-   "blocks_walk": true
+   "scale": 0.534
   }
  ],
  "stats": {
