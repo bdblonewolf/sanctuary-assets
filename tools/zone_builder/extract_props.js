@@ -59,7 +59,8 @@ const RAW='https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/'
   let rnd=0;const props=[];for(const p of a.props||[]){if(typeof p.x!=='number')continue;if(!bk.has(key(p))){rnd++;continue}const q=keepP(p);if(TAG.get(p)!=='f'&&!lit.has(p.kind+'|'+r4(p.x)+'|'+r4(p.y))&&!fixKey.has(r4(p.x)+'|'+r4(p.y)))q.gen=1;props.push(q)}
   const lights=(a.lights||[]).filter(l=>typeof l.x==='number').map(l=>({x:r4(l.x),y:r4(l.y),r:l.r,warm:l.warm?1:0}));
   const notes=[];const g=props.filter(p=>p.gen).length;if(g)notes.push(g+' props are placed by loops/fills/seeded generators, not literal coordinates (shown as the game builds them; change them via prompt)');if(rnd)notes.push(rnd+' props are randomized every load (Math.random) and not shown');
-  out.zones[id]={name:a.name||id,w:a.w,h:a.h,props,lights,notes};}
+  const water=[];if(a.tiles&&a.w){for(let y=0;y<a.h;y++){let x=0;while(x<a.w){const T=i=>{const t=a.tiles[i];return t===8||t===9?t:(a.water&&a.water.length===a.w*a.h&&a.water[i]?8:0)};const t=T(y*a.w+x);if(t){const x0=x,br=t===9;while(x<a.w&&T(y*a.w+x)===t)x++;water.push(br?[y,x0,x-x0,1]:[y,x0,x-x0])}else x++}}}
+  out.zones[id]={name:a.name||id,w:a.w,h:a.h,props,lights,notes,water};}
  fs.writeFileSync(path.join(__dirname,'game_props.json'),JSON.stringify(out));
  console.log=log;const summ={};for(const [id,z] of Object.entries(out.zones)){const c={};z.props.forEach(p=>c[p.kind]=(c[p.kind]||0)+1);summ[id]={n:z.props.length,w:z.w,h:z.h,c,notes:z.notes,err:z.error}}
  log(JSON.stringify(summ,null,0).replace(/\},"/g,'},\n"'));log('bytes',fs.statSync(path.join(__dirname,'game_props.json')).size,'bundle',bundleName);
