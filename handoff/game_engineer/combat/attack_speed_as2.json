@@ -1,0 +1,1263 @@
+{
+ "version": "as2",
+ "replaces": "as1 (frames). Pure percent attack and cast speed, no frames. Backup of as1: attack_speed_as1.json",
+ "player": {
+  "baseAps": 1.89,
+  "apsCap": 10.0,
+  "apsFloor": 0.5,
+  "classBaseAps": {
+   "ironvow": 1.89,
+   "longmark": 1.89,
+   "cinderwake": 1.89,
+   "gravewell": 1.89
+  },
+  "classNote": "No class differences: every class starts with a weaponSpeed 0 starter at exactly 1.89 APS; class identity comes from skills and gear.",
+  "baseCastRate": 1.0,
+  "castCap": 6.0,
+  "castFloor": 0.25,
+  "classBaseCast": {
+   "ironvow": 1.0,
+   "longmark": 1.0,
+   "cinderwake": 1.0,
+   "gravewell": 1.0
+  },
+  "weaponSkillMul": 1.15,
+  "weaponSkillNote": "weapon skills (cleave, bladedance, execute, rupture, blindrush, javelin, aimed, smite) take swingSeconds*1.15 (replaces the old +2 frames on 13)"
+ },
+ "formula": {
+  "aps": "clamp(baseAps * (1+weaponSpeed/100) * (1+ias/100) * (1+shrine/100) * (1+stride/100) * (1+boundIas/100) * (1-tradeoffIas/100) * tr(boundTradeoff()), apsFloor, apsCap). Every source is its own factor (fully multiplicative); ias = player.ias (gear + passives summed as today).",
+  "swingSeconds": "1/aps",
+  "hitSeconds": "swingSeconds * hitFrac (clip hitFrac = clips[clip].hitT/clips[clip].dur; bow uses sets.bow.hitFrac)",
+  "cast": "castRate = clamp(baseCastRate * (1+fcr/100) * (1+knell/100) * (1+stride/100) * (1+weaponCastSpeed/100), castFloor, castCap); castSeconds = 1/castRate. fcr = round(gearFcr*100).",
+  "weaponSpeed": "item.wspd if number, else bases[item.base].weaponSpeed, else 0. Items with no line roll [-10,-5,0,5,10] + tierBonus.",
+  "tierBonusNoLine": {
+   "normal": 0,
+   "exceptional": 25,
+   "elite": 50,
+   "note": "only for items whose base has no entry in bases; line bases carry their own per-tier weaponSpeed"
+  },
+  "reqStat": "Cs(): reqBrawn when bases[base].reqStat==\"brawn\", else reqMark (same split as today wsm>=0)",
+  "damage": "dmgHi = max(1, floor((6+rand*5) * rarity.m * (1+(ilvl-1)*0.13) * Zo[tier] * 100/(100+weaponSpeed) * (weight>=1.5 ? 1.12 : 1))); dmgLo = max(1, floor(dmgHi*(0.55+rand*0.12))). Replaces go(16,0,wsm)/16 in ws(). Zo = normal 1, exceptional 2.15, elite 3.8.",
+  "dpsParity": "damage*APS is constant per tier and ilvl across all lines (floor rounding only); lines with weight>=1.5 (Timber Axe, Yew Longbow) keep the existing two-hand x1.12.",
+  "animation": "two-segment timeScale: before clip.hitT ts = hitT/hitSeconds, after ts = (dur-hitT)/max(0.02, swingSeconds-hitSeconds). No timeScale clamp; at 10 APS ts reaches ~15-30, valid for AnimationMixer. __up masks while moving.",
+  "elite": "elite tier only drops in Hell (ls(): elite -> exceptional when difficulty !== hell); an upgrade path (normal->exceptional->elite, same line) re-derives weaponSpeed and damage from this table."
+ },
+ "speedRange": {
+  "slowest": [
+   "Timber Axe",
+   -25,
+   1.417
+  ],
+  "fastest": [
+   "Widow Stitch",
+   112,
+   4.007
+  ],
+  "fastestNonElite": [
+   "Seam Knife",
+   65,
+   3.118
+  ]
+ },
+ "bases": {
+  "Stitched Blade": {
+   "type": "dagger",
+   "set": "dagger",
+   "line": "Stitched Blade",
+   "tier": "normal",
+   "weaponSpeed": 30,
+   "label": "Fast",
+   "q": 2,
+   "dmgFactor": 0.7692,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     10,
+     18
+    ],
+    "dmgMid": [
+     8,
+     14
+    ],
+    "aps": 2.457,
+    "dps": 27.0
+   },
+   "oldWsm": -28,
+   "reqStat": "mark"
+  },
+  "Seam Knife": {
+   "type": "dagger",
+   "set": "dagger",
+   "line": "Stitched Blade",
+   "tier": "exceptional",
+   "weaponSpeed": 65,
+   "label": "Very Fast",
+   "q": 16,
+   "dmgFactor": 0.6061,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     47,
+     87
+    ],
+    "dmgMid": [
+     40,
+     67
+    ],
+    "aps": 3.118,
+    "dps": 166.8
+   },
+   "oldWsm": -28,
+   "reqStat": "mark"
+  },
+  "Widow Stitch": {
+   "type": "dagger",
+   "set": "dagger",
+   "line": "Stitched Blade",
+   "tier": "elite",
+   "weaponSpeed": 112,
+   "label": "Very Fast",
+   "q": 32,
+   "dmgFactor": 0.4717,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     121,
+     222
+    ],
+    "dmgMid": [
+     104,
+     171
+    ],
+    "aps": 4.007,
+    "dps": 550.9
+   },
+   "oldWsm": -28,
+   "reqStat": "mark"
+  },
+  "Wicker Bow": {
+   "type": "short bow",
+   "set": "bow",
+   "line": "Wicker Bow",
+   "tier": "normal",
+   "weaponSpeed": 25,
+   "label": "Fast",
+   "q": 1,
+   "dmgFactor": 0.8,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     10,
+     19
+    ],
+    "dmgMid": [
+     8,
+     14
+    ],
+    "aps": 2.362,
+    "dps": 26.0
+   },
+   "oldWsm": -24,
+   "reqStat": "mark"
+  },
+  "Thorn Wicker": {
+   "type": "short bow",
+   "set": "bow",
+   "line": "Wicker Bow",
+   "tier": "exceptional",
+   "weaponSpeed": 55,
+   "label": "Very Fast",
+   "q": 14,
+   "dmgFactor": 0.6452,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     50,
+     92
+    ],
+    "dmgMid": [
+     43,
+     71
+    ],
+    "aps": 2.929,
+    "dps": 167.0
+   },
+   "oldWsm": -24,
+   "reqStat": "mark"
+  },
+  "Spite Wicker": {
+   "type": "short bow",
+   "set": "bow",
+   "line": "Wicker Bow",
+   "tier": "elite",
+   "weaponSpeed": 95,
+   "label": "Very Fast",
+   "q": 30,
+   "dmgFactor": 0.5128,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     131,
+     241
+    ],
+    "dmgMid": [
+     113,
+     186
+    ],
+    "aps": 3.685,
+    "dps": 551.0
+   },
+   "oldWsm": -24,
+   "reqStat": "mark"
+  },
+  "Parish Blade": {
+   "type": "sword",
+   "set": "sword",
+   "line": "Parish Blade",
+   "tier": "normal",
+   "weaponSpeed": 15,
+   "label": "Fast",
+   "q": 1,
+   "dmgFactor": 0.8696,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     11,
+     20
+    ],
+    "dmgMid": [
+     9,
+     16
+    ],
+    "aps": 2.173,
+    "dps": 27.2
+   },
+   "oldWsm": -10,
+   "reqStat": "mark"
+  },
+  "Ash Saber": {
+   "type": "sword",
+   "set": "sword",
+   "line": "Parish Blade",
+   "tier": "exceptional",
+   "weaponSpeed": 40,
+   "label": "Fast",
+   "q": 16,
+   "dmgFactor": 0.7143,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     55,
+     102
+    ],
+    "dmgMid": [
+     48,
+     79
+    ],
+    "aps": 2.646,
+    "dps": 168.0
+   },
+   "oldWsm": -10,
+   "reqStat": "mark"
+  },
+  "Spire Falchion": {
+   "type": "sword",
+   "set": "sword",
+   "line": "Parish Blade",
+   "tier": "elite",
+   "weaponSpeed": 75,
+   "label": "Very Fast",
+   "q": 32,
+   "dmgFactor": 0.5714,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     146,
+     269
+    ],
+    "dmgMid": [
+     126,
+     208
+    ],
+    "aps": 3.307,
+    "dps": 552.4
+   },
+   "oldWsm": -10,
+   "reqStat": "mark"
+  },
+  "Sting Wand": {
+   "type": "wand",
+   "set": "wand",
+   "line": "Sting Wand",
+   "tier": "normal",
+   "weaponSpeed": 10,
+   "label": "Fast",
+   "q": 2,
+   "dmgFactor": 0.9091,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     11,
+     21
+    ],
+    "dmgMid": [
+     9,
+     16
+    ],
+    "aps": 2.079,
+    "dps": 26.0
+   },
+   "oldWsm": -8,
+   "castSpeed": 5,
+   "reqStat": "mark"
+  },
+  "Thorn Wand": {
+   "type": "wand",
+   "set": "wand",
+   "line": "Sting Wand",
+   "tier": "exceptional",
+   "weaponSpeed": 35,
+   "label": "Fast",
+   "q": 16,
+   "dmgFactor": 0.7407,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     58,
+     106
+    ],
+    "dmgMid": [
+     50,
+     82
+    ],
+    "aps": 2.551,
+    "dps": 168.4
+   },
+   "oldWsm": -8,
+   "castSpeed": 10,
+   "reqStat": "mark"
+  },
+  "Omen Wand": {
+   "type": "wand",
+   "set": "wand",
+   "line": "Sting Wand",
+   "tier": "elite",
+   "weaponSpeed": 70,
+   "label": "Very Fast",
+   "q": 32,
+   "dmgFactor": 0.5882,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     151,
+     277
+    ],
+    "dmgMid": [
+     130,
+     214
+    ],
+    "aps": 3.213,
+    "dps": 552.6
+   },
+   "oldWsm": -8,
+   "castSpeed": 15,
+   "reqStat": "mark"
+  },
+  "Ferry Pike": {
+   "type": "spear",
+   "set": "staff",
+   "line": "Ferry Pike",
+   "tier": "normal",
+   "weaponSpeed": 0,
+   "label": "Normal",
+   "q": 6,
+   "dmgFactor": 1.0,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     13,
+     23
+    ],
+    "dmgMid": [
+     10,
+     18
+    ],
+    "aps": 1.89,
+    "dps": 26.5
+   },
+   "oldWsm": -4,
+   "reqStat": "mark"
+  },
+  "Mourning Spear": {
+   "type": "spear",
+   "set": "staff",
+   "line": "Ferry Pike",
+   "tier": "exceptional",
+   "weaponSpeed": 25,
+   "label": "Fast",
+   "q": 21,
+   "dmgFactor": 0.8,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     62,
+     114
+    ],
+    "dmgMid": [
+     53,
+     88
+    ],
+    "aps": 2.362,
+    "dps": 166.6
+   },
+   "oldWsm": -4,
+   "reqStat": "mark"
+  },
+  "Lid Glaive": {
+   "type": "spear",
+   "set": "staff",
+   "line": "Ferry Pike",
+   "tier": "elite",
+   "weaponSpeed": 55,
+   "label": "Very Fast",
+   "q": 38,
+   "dmgFactor": 0.6452,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     165,
+     303
+    ],
+    "dmgMid": [
+     142,
+     234
+    ],
+    "aps": 2.929,
+    "dps": 550.7
+   },
+   "oldWsm": -4,
+   "reqStat": "mark"
+  },
+  "Briar Hatchet": {
+   "type": "axe",
+   "set": "greataxe",
+   "line": "Briar Hatchet",
+   "tier": "normal",
+   "weaponSpeed": -5,
+   "label": "Normal",
+   "q": 4,
+   "dmgFactor": 1.0526,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     13,
+     25
+    ],
+    "dmgMid": [
+     11,
+     19
+    ],
+    "aps": 1.795,
+    "dps": 26.9
+   },
+   "oldWsm": 2,
+   "reqStat": "brawn"
+  },
+  "Cinder Axe": {
+   "type": "axe",
+   "set": "greataxe",
+   "line": "Briar Hatchet",
+   "tier": "exceptional",
+   "weaponSpeed": 20,
+   "label": "Fast",
+   "q": 19,
+   "dmgFactor": 0.8333,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     65,
+     119
+    ],
+    "dmgMid": [
+     56,
+     92
+    ],
+    "aps": 2.268,
+    "dps": 167.8
+   },
+   "oldWsm": 2,
+   "reqStat": "brawn"
+  },
+  "Sable Cleaver": {
+   "type": "axe",
+   "set": "greataxe",
+   "line": "Briar Hatchet",
+   "tier": "elite",
+   "weaponSpeed": 50,
+   "label": "Very Fast",
+   "q": 36,
+   "dmgFactor": 0.6667,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     171,
+     314
+    ],
+    "dmgMid": [
+     147,
+     242
+    ],
+    "aps": 2.835,
+    "dps": 551.4
+   },
+   "oldWsm": 2,
+   "reqStat": "brawn"
+  },
+  "Ash Staff": {
+   "type": "staff",
+   "set": "staff",
+   "line": "Ash Staff",
+   "tier": "normal",
+   "weaponSpeed": -10,
+   "label": "Slow",
+   "q": 3,
+   "dmgFactor": 1.1111,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     14,
+     26
+    ],
+    "dmgMid": [
+     12,
+     20
+    ],
+    "aps": 1.701,
+    "dps": 27.2
+   },
+   "oldWsm": 10,
+   "castSpeed": 10,
+   "reqStat": "brawn"
+  },
+  "Chapel Staff": {
+   "type": "staff",
+   "set": "staff",
+   "line": "Ash Staff",
+   "tier": "exceptional",
+   "weaponSpeed": 15,
+   "label": "Fast",
+   "q": 18,
+   "dmgFactor": 0.8696,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     68,
+     124
+    ],
+    "dmgMid": [
+     58,
+     96
+    ],
+    "aps": 2.173,
+    "dps": 167.4
+   },
+   "oldWsm": 10,
+   "castSpeed": 20,
+   "reqStat": "brawn"
+  },
+  "Weald Staff": {
+   "type": "staff",
+   "set": "staff",
+   "line": "Ash Staff",
+   "tier": "elite",
+   "weaponSpeed": 40,
+   "label": "Fast",
+   "q": 34,
+   "dmgFactor": 0.7143,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     183,
+     336
+    ],
+    "dmgMid": [
+     158,
+     260
+    ],
+    "aps": 2.646,
+    "dps": 553.0
+   },
+   "oldWsm": 10,
+   "castSpeed": 30,
+   "reqStat": "brawn"
+  },
+  "Chapel Maul": {
+   "type": "mace",
+   "set": "sword",
+   "line": "Chapel Maul",
+   "tier": "normal",
+   "weaponSpeed": -10,
+   "label": "Slow",
+   "q": 8,
+   "dmgFactor": 1.1111,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     14,
+     26
+    ],
+    "dmgMid": [
+     12,
+     20
+    ],
+    "aps": 1.701,
+    "dps": 27.2
+   },
+   "oldWsm": 10,
+   "reqStat": "brawn"
+  },
+  "Mercy Hammer": {
+   "type": "mace",
+   "set": "sword",
+   "line": "Chapel Maul",
+   "tier": "exceptional",
+   "weaponSpeed": 15,
+   "label": "Fast",
+   "q": 24,
+   "dmgFactor": 0.8696,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     68,
+     124
+    ],
+    "dmgMid": [
+     58,
+     96
+    ],
+    "aps": 2.173,
+    "dps": 167.4
+   },
+   "oldWsm": 10,
+   "reqStat": "brawn"
+  },
+  "Inquisitor's Nail": {
+   "type": "mace",
+   "set": "sword",
+   "line": "Chapel Maul",
+   "tier": "elite",
+   "weaponSpeed": 40,
+   "label": "Fast",
+   "q": 42,
+   "dmgFactor": 0.7143,
+   "twoHandPremium": false,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     183,
+     336
+    ],
+    "dmgMid": [
+     158,
+     260
+    ],
+    "aps": 2.646,
+    "dps": 553.0
+   },
+   "oldWsm": 10,
+   "reqStat": "brawn"
+  },
+  "Yew Longbow": {
+   "type": "long bow",
+   "set": "bow",
+   "line": "Yew Longbow",
+   "tier": "normal",
+   "weaponSpeed": -15,
+   "label": "Slow",
+   "q": 4,
+   "dmgFactor": 1.3176,
+   "twoHandPremium": true,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     17,
+     31
+    ],
+    "dmgMid": [
+     14,
+     24
+    ],
+    "aps": 1.606,
+    "dps": 30.5
+   },
+   "oldWsm": 14,
+   "reqStat": "brawn"
+  },
+  "Ash Longbow": {
+   "type": "long bow",
+   "set": "bow",
+   "line": "Yew Longbow",
+   "tier": "exceptional",
+   "weaponSpeed": 10,
+   "label": "Fast",
+   "q": 18,
+   "dmgFactor": 1.0182,
+   "twoHandPremium": true,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     79,
+     146
+    ],
+    "dmgMid": [
+     68,
+     112
+    ],
+    "aps": 2.079,
+    "dps": 187.1
+   },
+   "oldWsm": 14,
+   "reqStat": "brawn"
+  },
+  "Spire Longbow": {
+   "type": "long bow",
+   "set": "bow",
+   "line": "Yew Longbow",
+   "tier": "elite",
+   "weaponSpeed": 35,
+   "label": "Fast",
+   "q": 36,
+   "dmgFactor": 0.8296,
+   "twoHandPremium": true,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     213,
+     390
+    ],
+    "dmgMid": [
+     184,
+     302
+    ],
+    "aps": 2.551,
+    "dps": 620.0
+   },
+   "oldWsm": 14,
+   "reqStat": "brawn"
+  },
+  "Timber Axe": {
+   "type": "great axe",
+   "set": "greataxe",
+   "line": "Timber Axe",
+   "tier": "normal",
+   "weaponSpeed": -25,
+   "label": "Very Slow",
+   "q": 6,
+   "dmgFactor": 1.4933,
+   "twoHandPremium": true,
+   "example": {
+    "ilvl": 10,
+    "rarity": "common",
+    "dmgHiRange": [
+     19,
+     35
+    ],
+    "dmgMid": [
+     16,
+     27
+    ],
+    "aps": 1.417,
+    "dps": 30.5
+   },
+   "oldWsm": 20,
+   "reqStat": "brawn"
+  },
+  "War Axe": {
+   "type": "great axe",
+   "set": "greataxe",
+   "line": "Timber Axe",
+   "tier": "exceptional",
+   "weaponSpeed": 0,
+   "label": "Normal",
+   "q": 22,
+   "dmgFactor": 1.12,
+   "twoHandPremium": true,
+   "example": {
+    "ilvl": 40,
+    "rarity": "common",
+    "dmgHiRange": [
+     87,
+     160
+    ],
+    "dmgMid": [
+     75,
+     124
+    ],
+    "aps": 1.89,
+    "dps": 188.1
+   },
+   "oldWsm": 20,
+   "reqStat": "brawn"
+  },
+  "Kingrender": {
+   "type": "great axe",
+   "set": "greataxe",
+   "line": "Timber Axe",
+   "tier": "elite",
+   "weaponSpeed": 25,
+   "label": "Fast",
+   "q": 40,
+   "dmgFactor": 0.896,
+   "twoHandPremium": true,
+   "example": {
+    "ilvl": 80,
+    "rarity": "common",
+    "dmgHiRange": [
+     230,
+     422
+    ],
+    "dmgMid": [
+     198,
+     326
+    ],
+    "aps": 2.362,
+    "dps": 619.0
+   },
+   "oldWsm": 20,
+   "reqStat": "brawn"
+  },
+  "Rusted Iron Sword": {
+   "type": "sword",
+   "set": "sword",
+   "line": null,
+   "tier": "normal",
+   "weaponSpeed": 0,
+   "label": "Normal",
+   "starter": "ironvow (also the Rusty Sword in Bo())",
+   "dmgFactor": 1,
+   "fixedDamage": [
+    3,
+    8
+   ],
+   "example": {
+    "aps": 1.89,
+    "dps": 10.39
+   },
+   "reqStat": "mark"
+  },
+  "Ashwood Short Bow": {
+   "type": "bow",
+   "set": "bow",
+   "line": null,
+   "tier": "normal",
+   "weaponSpeed": 0,
+   "label": "Normal",
+   "starter": "longmark",
+   "dmgFactor": 1,
+   "fixedDamage": [
+    2,
+    5
+   ],
+   "example": {
+    "aps": 1.89,
+    "dps": 6.61
+   },
+   "reqStat": "mark"
+  },
+  "Gnarled Yew Wand": {
+   "type": "wand",
+   "set": "wand",
+   "line": null,
+   "tier": "normal",
+   "weaponSpeed": 0,
+   "label": "Normal",
+   "starter": "cinderwake",
+   "dmgFactor": 1,
+   "fixedDamage": [
+    2,
+    4
+   ],
+   "example": {
+    "aps": 1.89,
+    "dps": 5.67
+   },
+   "castSpeed": 0,
+   "reqStat": "mark"
+  },
+  "Chipped Bone Dagger": {
+   "type": "dagger",
+   "set": "dagger",
+   "line": null,
+   "tier": "normal",
+   "weaponSpeed": 0,
+   "label": "Normal",
+   "starter": "gravewell",
+   "dmgFactor": 1,
+   "fixedDamage": [
+    2,
+    6
+   ],
+   "example": {
+    "aps": 1.89,
+    "dps": 7.56
+   },
+   "reqStat": "mark"
+  }
+ },
+ "sets": {
+  "sword": {
+   "light": [
+    "ss_attack_1",
+    "ss_attack_2",
+    "ss_attack_3"
+   ],
+   "hitFrac": 0.44
+  },
+  "axe": {
+   "light": [
+    "axe_attack_1",
+    "axe_attack_2",
+    "axe_attack_3"
+   ],
+   "hitFrac": 0.362
+  },
+  "greataxe": {
+   "light": [
+    "gs_attack_1",
+    "gs_attack_2",
+    "gs_attack_3"
+   ],
+   "hitFrac": 0.456
+  },
+  "greatsword": {
+   "light": [
+    "gs_attack_1",
+    "gs_attack_2",
+    "gs_attack_3"
+   ],
+   "hitFrac": 0.456
+  },
+  "dagger": {
+   "light": [
+    "dagger_attack_1",
+    "dagger_attack_2",
+    "dagger_attack_3"
+   ],
+   "hitFrac": 0.34
+  },
+  "staff": {
+   "light": [
+    "magic_attack_2h"
+   ],
+   "hitFrac": 0.42
+  },
+  "wand": {
+   "light": [
+    "magic_attack_1h"
+   ],
+   "hitFrac": 0.343
+  },
+  "unarmed": {
+   "light": [
+    "ss_attack_1"
+   ],
+   "hitFrac": 0.393
+  },
+  "bow": {
+   "light": [
+    "bow_draw",
+    "bow_release"
+   ],
+   "hitFrac": 0.588,
+   "note": "arrow looses at end of bow_draw: hitFrac = bow_draw.dur/(bow_draw.dur+bow_release.dur)"
+  }
+ },
+ "clips": {
+  "axe_attack_1": {
+   "dur": 2.4,
+   "hitT": 0.97,
+   "hitFrac": 0.404,
+   "method": "weapon_tip_speed_peak"
+  },
+  "axe_attack_2": {
+   "dur": 2.267,
+   "hitT": 0.83,
+   "hitFrac": 0.366,
+   "method": "weapon_tip_speed_peak"
+  },
+  "axe_attack_3": {
+   "dur": 3.167,
+   "hitT": 1.0,
+   "hitFrac": 0.316,
+   "method": "weapon_tip_speed_peak"
+  },
+  "axe_attack_heavy": {
+   "dur": 3.167,
+   "hitT": 1.06,
+   "hitFrac": 0.335,
+   "method": "weapon_tip_speed_peak"
+  },
+  "bow_aim_overdraw": {
+   "dur": 3.667,
+   "hitT": 1.44,
+   "hitFrac": 0.393,
+   "method": "weapon_tip_speed_peak"
+  },
+  "bow_draw": {
+   "dur": 1.0,
+   "hitT": 1.0,
+   "hitFrac": 1.0,
+   "method": "full_draw_then_bow_release",
+   "note": "arrow looses at end of bow_draw; bow_release plays the remaining frames"
+  },
+  "bow_release": {
+   "dur": 0.7,
+   "hitT": 0.18,
+   "hitFrac": 0.257,
+   "method": "weapon_tip_speed_peak"
+  },
+  "gs_attack_1": {
+   "dur": 1.267,
+   "hitT": 0.64,
+   "hitFrac": 0.505,
+   "method": "weapon_tip_speed_peak"
+  },
+  "gs_attack_2": {
+   "dur": 1.833,
+   "hitT": 0.94,
+   "hitFrac": 0.513,
+   "method": "weapon_tip_speed_peak"
+  },
+  "gs_attack_3": {
+   "dur": 1.433,
+   "hitT": 0.5,
+   "hitFrac": 0.349,
+   "method": "weapon_tip_speed_peak"
+  },
+  "gs_attack_heavy": {
+   "dur": 1.2,
+   "hitT": 1.07,
+   "hitFrac": 0.892,
+   "method": "weapon_tip_max_reach",
+   "note": "velocity peak weak (conf 2.4), used max reach"
+  },
+  "magic_attack_1h": {
+   "dur": 2.3,
+   "hitT": 0.79,
+   "hitFrac": 0.343,
+   "method": "weapon_tip_speed_peak"
+  },
+  "magic_attack_2h": {
+   "dur": 2.667,
+   "hitT": 1.12,
+   "hitFrac": 0.42,
+   "method": "weapon_tip_speed_peak"
+  },
+  "magic_cast_1h": {
+   "dur": 2.267,
+   "hitT": 0.59,
+   "hitFrac": 0.26,
+   "method": "weapon_tip_speed_peak"
+  },
+  "magic_cast_2h": {
+   "dur": 2.167,
+   "hitT": 0.63,
+   "hitFrac": 0.291,
+   "method": "weapon_tip_speed_peak"
+  },
+  "ss_attack_1": {
+   "dur": 1.5,
+   "hitT": 0.59,
+   "hitFrac": 0.393,
+   "method": "weapon_tip_speed_peak"
+  },
+  "ss_attack_2": {
+   "dur": 1.567,
+   "hitT": 0.8,
+   "hitFrac": 0.511,
+   "method": "weapon_tip_speed_peak"
+  },
+  "ss_attack_3": {
+   "dur": 1.367,
+   "hitT": 0.57,
+   "hitFrac": 0.417,
+   "method": "weapon_tip_speed_peak"
+  },
+  "ss_attack_heavy": {
+   "dur": 2.3,
+   "hitT": 1.37,
+   "hitFrac": 0.596,
+   "method": "weapon_tip_speed_peak"
+  },
+  "dagger_attack_1": {
+   "dur": 1.6,
+   "hitT": 0.7,
+   "hitFrac": 0.437,
+   "method": "weapon_tip_max_reach",
+   "note": "velocity peak is a 1-sample key pop, used max reach"
+  },
+  "dagger_attack_2": {
+   "dur": 1.0,
+   "hitT": 0.4,
+   "hitFrac": 0.4,
+   "method": "weapon_tip_speed_peak"
+  },
+  "dagger_attack_3": {
+   "dur": 1.367,
+   "hitT": 0.25,
+   "hitFrac": 0.183,
+   "method": "weapon_tip_speed_peak"
+  },
+  "dagger_attack_heavy": {
+   "dur": 1.6,
+   "hitT": 0.38,
+   "hitFrac": 0.237,
+   "method": "weapon_tip_speed_peak"
+  }
+ },
+ "monsters": {
+  "note": "seconds per swing = today live go(frames,0,wsm)/25 (x1.67 archer/skeleton). In game: swingSec = monsters_3d kinds[k].swingSec ?? monsters.kinds[k].swingSec; / ((1+ias/100)*(1+auraIas/100)); chill/atkSlow/goreHalf after. hitFrac from GLB contact where measured, else 0.62.",
+  "kinds": {
+   "zombie": {
+    "swingSec": 0.88,
+    "aps": 1.136,
+    "hitFrac": 0.31
+   },
+   "skeleton": {
+    "swingSec": 0.868,
+    "aps": 1.152,
+    "hitFrac": 0.47
+   },
+   "ghost": {
+    "swingSec": 0.4,
+    "aps": 2.5,
+    "hitFrac": 0.62
+   },
+   "imp": {
+    "swingSec": 0.32,
+    "aps": 3.125,
+    "hitFrac": 0.393
+   },
+   "caller": {
+    "swingSec": 0.72,
+    "aps": 1.389,
+    "hitFrac": 0.62
+   },
+   "corpse": {
+    "swingSec": 0.72,
+    "aps": 1.389,
+    "hitFrac": 0.327
+   },
+   "brute": {
+    "swingSec": 0.8,
+    "aps": 1.25,
+    "hitFrac": 0.459
+   },
+   "wraith": {
+    "swingSec": 0.64,
+    "aps": 1.562,
+    "hitFrac": 0.62
+   },
+   "bear": {
+    "swingSec": 1.04,
+    "aps": 0.962,
+    "hitFrac": 0.459
+   },
+   "snake": {
+    "swingSec": 0.28,
+    "aps": 3.571,
+    "hitFrac": 0.62
+   },
+   "raver": {
+    "swingSec": 0.2,
+    "aps": 5.0,
+    "hitFrac": 0.393
+   },
+   "melakir": {
+    "swingSec": 0.32,
+    "aps": 3.125,
+    "hitFrac": 0.459
+   },
+   "worm": {
+    "swingSec": 0.88,
+    "aps": 1.136,
+    "hitFrac": 0.62
+   },
+   "king": {
+    "swingSec": 0.76,
+    "aps": 1.316,
+    "hitFrac": 0.62
+   },
+   "rabbit": {
+    "swingSec": 0.32,
+    "aps": 3.125,
+    "hitFrac": 0.62
+   },
+   "rat": {
+    "swingSec": 0.24,
+    "aps": 4.167,
+    "hitFrac": 0.62
+   },
+   "deer": {
+    "swingSec": 0.52,
+    "aps": 1.923,
+    "hitFrac": 0.62
+   },
+   "crow": {
+    "swingSec": 0.24,
+    "aps": 4.167,
+    "hitFrac": 0.62
+   }
+  }
+ }
+}

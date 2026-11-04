@@ -1,0 +1,4502 @@
+{
+  "version": 1,
+  "repo": "https://raw.githubusercontent.com/bdblonewolf/sanctuary-assets/main/",
+  "atlases": [
+    "models/items/items_armor.glb",
+    "models/items/items_belts.glb",
+    "models/items/items_gloves.glb",
+    "models/items/items_helms.glb",
+    "models/items/items_jewelry.glb",
+    "models/items/items_misc.glb",
+    "models/items/items_shields.glb"
+  ],
+  "icons": {
+    "png": "icons/items_icons.png",
+    "json": "icons/items_icons.json"
+  },
+  "lookup": "1) quest items: kinds.quest_ring / kinds.quest_scroll by type; 2) bases[item.base]; 3) for type potion/manapotion/portal/jewel/rune/book use kinds[type]; scroll: bossStone->kinds.bossstone, keyId->kinds.key, else kinds.scroll; gold loot ->kinds.gold; 4) weapons[item.base]; else old sprite",
+  "bases": {
+    "Wick Coat": {
+      "type": "armor",
+      "tier": "normal",
+      "glb": "models/items/items_armor.glb",
+      "node": "armor_wick_coat",
+      "icon": "armor_wick_coat",
+      "grid": [
+        2,
+        3
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.708,
+        0.901,
+        0.566
+      ],
+      "children": [
+        "armor_wick_coat_pauldron_L",
+        "armor_wick_coat_pauldron_R",
+        "armor_wick_coat_fauld"
+      ],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "armor_wick_coat",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.01,
+                -0.22732,
+                -0.29063
+              ],
+              "quat": [
+                0.687215,
+                -0.0,
+                0.0,
+                0.726454
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box013_07 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox013_07_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_wick_coat_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_wick_coat_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_wick_coat_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box001xcsa001_12 - Default_0",
+                "Mannequin:Box001bdfbdf001_08 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001xcsa001_12_-_Default_0",
+                "MannequinBox001bdfbdf001_08_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001xcsa001_12_-_Default_0",
+            "MannequinBox013_07_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "armor_wick_coat",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.008,
+                -0.22099,
+                -0.05013
+              ],
+              "quat": [
+                0.600316,
+                -0.0,
+                0.0,
+                0.799763
+              ],
+              "scale": [
+                0.8,
+                0.66,
+                0.94
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_wick_coat_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_wick_coat_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_wick_coat_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.00012,
+                0.02461,
+                0.02635
+              ],
+              "quat": [
+                -0.081538,
+                0.00977,
+                0.009555,
+                0.996577
+              ],
+              "scale": [
+                0.84,
+                0.95,
+                0.7
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Silt Hauberk": {
+      "type": "armor",
+      "tier": "exceptional",
+      "glb": "models/items/items_armor.glb",
+      "node": "armor_silt_hauberk",
+      "icon": "armor_silt_hauberk",
+      "grid": [
+        2,
+        3
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.698,
+        0.86,
+        0.517
+      ],
+      "children": [
+        "armor_silt_hauberk_pauldron_L",
+        "armor_silt_hauberk_pauldron_R",
+        "armor_silt_hauberk_fauld"
+      ],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "armor_silt_hauberk",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.01,
+                -0.20579,
+                -0.26808
+              ],
+              "quat": [
+                0.687215,
+                -0.0,
+                0.0,
+                0.726454
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box013_07 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox013_07_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_silt_hauberk_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_silt_hauberk_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_silt_hauberk_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box001xcsa001_12 - Default_0",
+                "Mannequin:Box001bdfbdf001_08 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001xcsa001_12_-_Default_0",
+                "MannequinBox001bdfbdf001_08_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001xcsa001_12_-_Default_0",
+            "MannequinBox013_07_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "armor_silt_hauberk",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.008,
+                -0.19834,
+                -0.04041
+              ],
+              "quat": [
+                0.600316,
+                -0.0,
+                0.0,
+                0.799763
+              ],
+              "scale": [
+                0.8,
+                0.66,
+                0.94
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_silt_hauberk_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_silt_hauberk_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_silt_hauberk_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.00012,
+                0.02461,
+                0.02635
+              ],
+              "quat": [
+                -0.081538,
+                0.00977,
+                0.009555,
+                0.996577
+              ],
+              "scale": [
+                0.84,
+                0.95,
+                0.7
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Bile Shroud": {
+      "type": "armor",
+      "tier": "elite",
+      "glb": "models/items/items_armor.glb",
+      "node": "armor_bile_shroud",
+      "icon": "armor_bile_shroud",
+      "grid": [
+        2,
+        3
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.793,
+        1.331,
+        0.788
+      ],
+      "children": [
+        "armor_bile_shroud_pauldron_L",
+        "armor_bile_shroud_pauldron_R",
+        "armor_bile_shroud_fauld"
+      ],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "armor_bile_shroud",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.01324,
+                -0.4279,
+                -0.39125
+              ],
+              "quat": [
+                0.687215,
+                -0.0,
+                0.0,
+                0.726454
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box013_07 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox013_07_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_bile_shroud_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_bile_shroud_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_bile_shroud_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box001xcsa001_12 - Default_0",
+                "Mannequin:Box001bdfbdf001_08 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001xcsa001_12_-_Default_0",
+                "MannequinBox001bdfbdf001_08_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001xcsa001_12_-_Default_0",
+            "MannequinBox013_07_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "armor_bile_shroud",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.0106,
+                -0.41728,
+                -0.06974
+              ],
+              "quat": [
+                0.600316,
+                -0.0,
+                0.0,
+                0.799763
+              ],
+              "scale": [
+                0.8,
+                0.66,
+                0.94
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_bile_shroud_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_bile_shroud_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_bile_shroud_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.00012,
+                0.02461,
+                0.02635
+              ],
+              "quat": [
+                -0.081538,
+                0.00977,
+                0.009555,
+                0.996577
+              ],
+              "scale": [
+                0.84,
+                0.95,
+                0.7
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Tanner's Vest": {
+      "type": "armor",
+      "tier": "normal",
+      "glb": "models/items/items_armor.glb",
+      "node": "armor_tanners_vest",
+      "icon": "armor_tanners_vest",
+      "grid": [
+        2,
+        3
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.711,
+        0.689,
+        0.521
+      ],
+      "children": [
+        "armor_tanners_vest_pauldron_L",
+        "armor_tanners_vest_pauldron_R",
+        "armor_tanners_vest_fauld"
+      ],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "armor_tanners_vest",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.01,
+                -0.15077,
+                -0.27272
+              ],
+              "quat": [
+                0.687215,
+                -0.0,
+                0.0,
+                0.726454
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box013_07 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox013_07_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_tanners_vest_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_tanners_vest_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_tanners_vest_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box001xcsa001_12 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001xcsa001_12_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001xcsa001_12_-_Default_0",
+            "MannequinBox013_07_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "armor_tanners_vest",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.008,
+                -0.14882,
+                -0.05591
+              ],
+              "quat": [
+                0.600316,
+                -0.0,
+                0.0,
+                0.799763
+              ],
+              "scale": [
+                0.8,
+                0.66,
+                0.94
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_tanners_vest_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_tanners_vest_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_tanners_vest_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.00012,
+                0.02461,
+                0.02635
+              ],
+              "quat": [
+                -0.081538,
+                0.00977,
+                0.009555,
+                0.996577
+              ],
+              "scale": [
+                0.84,
+                0.95,
+                0.7
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Ash Brigandine": {
+      "type": "armor",
+      "tier": "exceptional",
+      "glb": "models/items/items_armor.glb",
+      "node": "armor_ash_brigandine",
+      "icon": "armor_ash_brigandine",
+      "grid": [
+        2,
+        3
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.71,
+        0.7,
+        0.471
+      ],
+      "children": [
+        "armor_ash_brigandine_pauldron_L",
+        "armor_ash_brigandine_pauldron_R",
+        "armor_ash_brigandine_fauld"
+      ],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "armor_ash_brigandine",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.01,
+                -0.14473,
+                -0.24291
+              ],
+              "quat": [
+                0.687215,
+                -0.0,
+                0.0,
+                0.726454
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box013_07 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox013_07_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_ash_brigandine_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_ash_brigandine_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_ash_brigandine_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box001xcsa001_12 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001xcsa001_12_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001xcsa001_12_-_Default_0",
+            "MannequinBox013_07_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "armor_ash_brigandine",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.008,
+                -0.13932,
+                -0.03798
+              ],
+              "quat": [
+                0.600316,
+                -0.0,
+                0.0,
+                0.799763
+              ],
+              "scale": [
+                0.8,
+                0.66,
+                0.94
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_ash_brigandine_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_ash_brigandine_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_ash_brigandine_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.00012,
+                0.02461,
+                0.02635
+              ],
+              "quat": [
+                -0.081538,
+                0.00977,
+                0.009555,
+                0.996577
+              ],
+              "scale": [
+                0.84,
+                0.95,
+                0.7
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Spire Harness": {
+      "type": "armor",
+      "tier": "elite",
+      "glb": "models/items/items_armor.glb",
+      "node": "armor_spire_harness",
+      "icon": "armor_spire_harness",
+      "grid": [
+        2,
+        3
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.766,
+        0.897,
+        0.514
+      ],
+      "children": [
+        "armor_spire_harness_pauldron_L",
+        "armor_spire_harness_pauldron_R",
+        "armor_spire_harness_fauld",
+        "armor_spire_harness_tasset_L",
+        "armor_spire_harness_tasset_R"
+      ],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "armor_spire_harness",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.01,
+                -0.18308,
+                -0.24694
+              ],
+              "quat": [
+                0.687215,
+                -0.0,
+                0.0,
+                0.726454
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box013_07 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox013_07_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_spire_harness_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_spire_harness_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_spire_harness_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box001xcsa001_12 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001xcsa001_12_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_spire_harness_tasset_L",
+              "bone": "mixamorig:LeftUpLeg",
+              "bone_three": "mixamorigLeftUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.000402,
+                0.01159,
+                0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.99999,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_spire_harness_tasset_R",
+              "bone": "mixamorig:RightUpLeg",
+              "bone_three": "mixamorigRightUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.000402,
+                -0.01159,
+                -0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.99999,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001xcsa001_12_-_Default_0",
+            "MannequinBox013_07_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "armor_spire_harness",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.008,
+                -0.17481,
+                -0.03189
+              ],
+              "quat": [
+                0.600316,
+                -0.0,
+                0.0,
+                0.799763
+              ],
+              "scale": [
+                0.8,
+                0.66,
+                0.94
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_spire_harness_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_spire_harness_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_spire_harness_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.00012,
+                0.02461,
+                0.02635
+              ],
+              "quat": [
+                -0.081538,
+                0.00977,
+                0.009555,
+                0.996577
+              ],
+              "scale": [
+                0.84,
+                0.95,
+                0.7
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_spire_harness_tasset_L",
+              "bone": "mixamorig:LeftUpLeg",
+              "bone_three": "mixamorigLeftUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.000402,
+                0.01159,
+                0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.85,
+                0.95,
+                0.75
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_spire_harness_tasset_R",
+              "bone": "mixamorig:RightUpLeg",
+              "bone_three": "mixamorigRightUpLeg",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.000401,
+                -0.01159,
+                -0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.85,
+                0.95,
+                0.75001
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Parish Plate": {
+      "type": "armor",
+      "tier": "normal",
+      "glb": "models/items/items_armor.glb",
+      "node": "armor_parish_plate",
+      "icon": "armor_parish_plate",
+      "grid": [
+        2,
+        3
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.752,
+        0.897,
+        0.491
+      ],
+      "children": [
+        "armor_parish_plate_pauldron_L",
+        "armor_parish_plate_pauldron_R",
+        "armor_parish_plate_fauld",
+        "armor_parish_plate_tasset_L",
+        "armor_parish_plate_tasset_R"
+      ],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "armor_parish_plate",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.01,
+                -0.18308,
+                -0.24694
+              ],
+              "quat": [
+                0.687215,
+                -0.0,
+                0.0,
+                0.726454
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box013_07 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox013_07_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_parish_plate_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_parish_plate_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_parish_plate_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box001xcsa001_12 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001xcsa001_12_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_parish_plate_tasset_L",
+              "bone": "mixamorig:LeftUpLeg",
+              "bone_three": "mixamorigLeftUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.000402,
+                0.01159,
+                0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.99999,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_parish_plate_tasset_R",
+              "bone": "mixamorig:RightUpLeg",
+              "bone_three": "mixamorigRightUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.000402,
+                -0.01159,
+                -0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.99999,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001xcsa001_12_-_Default_0",
+            "MannequinBox013_07_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "armor_parish_plate",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.008,
+                -0.17481,
+                -0.03189
+              ],
+              "quat": [
+                0.600316,
+                -0.0,
+                0.0,
+                0.799763
+              ],
+              "scale": [
+                0.8,
+                0.66,
+                0.94
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_parish_plate_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_parish_plate_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_parish_plate_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.00012,
+                0.02461,
+                0.02635
+              ],
+              "quat": [
+                -0.081538,
+                0.00977,
+                0.009555,
+                0.996577
+              ],
+              "scale": [
+                0.84,
+                0.95,
+                0.7
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_parish_plate_tasset_L",
+              "bone": "mixamorig:LeftUpLeg",
+              "bone_three": "mixamorigLeftUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.000402,
+                0.01159,
+                0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.85,
+                0.95,
+                0.75
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_parish_plate_tasset_R",
+              "bone": "mixamorig:RightUpLeg",
+              "bone_three": "mixamorigRightUpLeg",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.000401,
+                -0.01159,
+                -0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.85,
+                0.95,
+                0.75001
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Grave Plate": {
+      "type": "armor",
+      "tier": "exceptional",
+      "glb": "models/items/items_armor.glb",
+      "node": "armor_grave_plate",
+      "icon": "armor_grave_plate",
+      "grid": [
+        2,
+        3
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.752,
+        0.897,
+        0.499
+      ],
+      "children": [
+        "armor_grave_plate_pauldron_L",
+        "armor_grave_plate_pauldron_R",
+        "armor_grave_plate_fauld",
+        "armor_grave_plate_tasset_L",
+        "armor_grave_plate_tasset_R"
+      ],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "armor_grave_plate",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.01,
+                -0.18308,
+                -0.24694
+              ],
+              "quat": [
+                0.687215,
+                -0.0,
+                0.0,
+                0.726454
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box013_07 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox013_07_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_grave_plate_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_grave_plate_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_grave_plate_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box001xcsa001_12 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001xcsa001_12_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_grave_plate_tasset_L",
+              "bone": "mixamorig:LeftUpLeg",
+              "bone_three": "mixamorigLeftUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.000402,
+                0.01159,
+                0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.99999,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_grave_plate_tasset_R",
+              "bone": "mixamorig:RightUpLeg",
+              "bone_three": "mixamorigRightUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.000402,
+                -0.01159,
+                -0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.99999,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001xcsa001_12_-_Default_0",
+            "MannequinBox013_07_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "armor_grave_plate",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.008,
+                -0.17481,
+                -0.03189
+              ],
+              "quat": [
+                0.600316,
+                -0.0,
+                0.0,
+                0.799763
+              ],
+              "scale": [
+                0.8,
+                0.66,
+                0.94
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_grave_plate_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_grave_plate_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_grave_plate_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.00012,
+                0.02461,
+                0.02635
+              ],
+              "quat": [
+                -0.081538,
+                0.00977,
+                0.009555,
+                0.996577
+              ],
+              "scale": [
+                0.84,
+                0.95,
+                0.7
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_grave_plate_tasset_L",
+              "bone": "mixamorig:LeftUpLeg",
+              "bone_three": "mixamorigLeftUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.000402,
+                0.01159,
+                0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.85,
+                0.95,
+                0.75
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_grave_plate_tasset_R",
+              "bone": "mixamorig:RightUpLeg",
+              "bone_three": "mixamorigRightUpLeg",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.000401,
+                -0.01159,
+                -0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.85,
+                0.95,
+                0.75001
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Obsidian Cuirass": {
+      "type": "armor",
+      "tier": "elite",
+      "glb": "models/items/items_armor.glb",
+      "node": "armor_obsidian_cuirass",
+      "icon": "armor_obsidian_cuirass",
+      "grid": [
+        2,
+        3
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.752,
+        0.897,
+        0.504
+      ],
+      "children": [
+        "armor_obsidian_cuirass_pauldron_L",
+        "armor_obsidian_cuirass_pauldron_R",
+        "armor_obsidian_cuirass_fauld",
+        "armor_obsidian_cuirass_tasset_L",
+        "armor_obsidian_cuirass_tasset_R"
+      ],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "armor_obsidian_cuirass",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.01,
+                -0.18308,
+                -0.24694
+              ],
+              "quat": [
+                0.687215,
+                -0.0,
+                0.0,
+                0.726454
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box013_07 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox013_07_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_obsidian_cuirass_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_obsidian_cuirass_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_obsidian_cuirass_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [
+                "Mannequin:Box001xcsa001_12 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001xcsa001_12_-_Default_0"
+              ]
+            },
+            {
+              "node": "armor_obsidian_cuirass_tasset_L",
+              "bone": "mixamorig:LeftUpLeg",
+              "bone_three": "mixamorigLeftUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.000402,
+                0.01159,
+                0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.99999,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_obsidian_cuirass_tasset_R",
+              "bone": "mixamorig:RightUpLeg",
+              "bone_three": "mixamorigRightUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.000402,
+                -0.01159,
+                -0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.99999,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001xcsa001_12_-_Default_0",
+            "MannequinBox013_07_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "armor_obsidian_cuirass",
+              "bone": "mixamorig:Spine2",
+              "bone_three": "mixamorigSpine2",
+              "pos": [
+                -0.008,
+                -0.17481,
+                -0.03189
+              ],
+              "quat": [
+                0.600316,
+                -0.0,
+                0.0,
+                0.799763
+              ],
+              "scale": [
+                0.8,
+                0.66,
+                0.94
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_obsidian_cuirass_pauldron_L",
+              "bone": "mixamorig:LeftArm",
+              "bone_three": "mixamorigLeftArm",
+              "pos": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "quat": [
+                -0.017028,
+                0.127153,
+                0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_obsidian_cuirass_pauldron_R",
+              "bone": "mixamorig:RightArm",
+              "bone_three": "mixamorigRightArm",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.017028,
+                -0.127153,
+                -0.982962,
+                0.131636
+              ],
+              "scale": [
+                0.82,
+                0.82,
+                0.82
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_obsidian_cuirass_fauld",
+              "bone": "mixamorig:Hips",
+              "bone_three": "mixamorigHips",
+              "pos": [
+                0.00012,
+                0.02461,
+                0.02635
+              ],
+              "quat": [
+                -0.081538,
+                0.00977,
+                0.009555,
+                0.996577
+              ],
+              "scale": [
+                0.84,
+                0.95,
+                0.7
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_obsidian_cuirass_tasset_L",
+              "bone": "mixamorig:LeftUpLeg",
+              "bone_three": "mixamorigLeftUpLeg",
+              "pos": [
+                -0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.000402,
+                0.01159,
+                0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.85,
+                0.95,
+                0.75
+              ],
+              "hide": [],
+              "hide_three": []
+            },
+            {
+              "node": "armor_obsidian_cuirass_tasset_R",
+              "bone": "mixamorig:RightUpLeg",
+              "bone_three": "mixamorigRightUpLeg",
+              "pos": [
+                0.0,
+                0.0,
+                -0.0
+              ],
+              "quat": [
+                -0.000401,
+                -0.01159,
+                -0.999326,
+                0.034818
+              ],
+              "scale": [
+                0.85,
+                0.95,
+                0.75001
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Bent Brow": {
+      "type": "helm",
+      "tier": "normal",
+      "glb": "models/items/items_helms.glb",
+      "node": "helm_bent_brow",
+      "icon": "helm_bent_brow",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.342,
+        0.321,
+        0.532
+      ],
+      "children": [],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "helm_bent_brow",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.0,
+                -0.09179,
+                0.01402
+              ],
+              "quat": [
+                -0.02271,
+                -0.0,
+                -0.0,
+                0.999742
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "hide": [
+                "Mannequin:Box001cc001_06 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001cc001_06_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001cc001_06_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "helm_bent_brow",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.00177,
+                -0.09612,
+                0.05748
+              ],
+              "quat": [
+                -0.008055,
+                -0.005762,
+                -0.005762,
+                0.999934
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Ash Sallet": {
+      "type": "helm",
+      "tier": "exceptional",
+      "glb": "models/items/items_helms.glb",
+      "node": "helm_ash_sallet",
+      "icon": "helm_ash_sallet",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.3,
+        0.313,
+        0.446
+      ],
+      "children": [],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "helm_ash_sallet",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                0.0,
+                -0.0922,
+                -0.00641
+              ],
+              "quat": [
+                -0.02271,
+                -0.0,
+                -0.0,
+                0.999742
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "hide": [
+                "Mannequin:Box001cc001_06 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001cc001_06_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001cc001_06_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "helm_ash_sallet",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.0015,
+                -0.0959,
+                0.03477
+              ],
+              "quat": [
+                -0.008055,
+                -0.005762,
+                -0.005762,
+                0.999934
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Rite Crown": {
+      "type": "helm",
+      "tier": "elite",
+      "glb": "models/items/items_helms.glb",
+      "node": "helm_rite_crown",
+      "icon": "helm_rite_crown",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.42,
+        0.333,
+        0.573
+      ],
+      "children": [],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "helm_rite_crown",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                0.0,
+                -0.09282,
+                -0.014
+              ],
+              "quat": [
+                -0.02271,
+                -0.0,
+                -0.0,
+                0.999742
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "hide": [
+                "Mannequin:Box001cc001_06 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001cc001_06_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001cc001_06_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "helm_rite_crown",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.00141,
+                -0.09635,
+                0.02633
+              ],
+              "quat": [
+                -0.008055,
+                -0.005762,
+                -0.005762,
+                0.999934
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Mourner Hood": {
+      "type": "helm",
+      "tier": "normal",
+      "glb": "models/items/items_helms.glb",
+      "node": "helm_mourner_hood",
+      "icon": "helm_mourner_hood",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.4,
+        0.374,
+        0.423
+      ],
+      "children": [],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "helm_mourner_hood",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.0003,
+                -0.15256,
+                -0.00853
+              ],
+              "quat": [
+                -0.02271,
+                -0.0,
+                -0.0,
+                0.999742
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "hide": [
+                "Mannequin:Box001cc001_06 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001cc001_06_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001cc001_06_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "helm_mourner_hood",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.00255,
+                -0.16286,
+                0.03045
+              ],
+              "quat": [
+                -0.008055,
+                -0.005762,
+                -0.005762,
+                0.999934
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Grave Visor": {
+      "type": "helm",
+      "tier": "exceptional",
+      "glb": "models/items/items_helms.glb",
+      "node": "helm_grave_visor",
+      "icon": "helm_grave_visor",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.307,
+        0.368,
+        0.413
+      ],
+      "children": [],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "helm_grave_visor",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                0.0,
+                -0.09217,
+                -0.00503
+              ],
+              "quat": [
+                -0.02271,
+                -0.0,
+                -0.0,
+                0.999742
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "hide": [
+                "Mannequin:Box001cc001_06 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001cc001_06_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001cc001_06_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "helm_grave_visor",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.00152,
+                -0.09592,
+                0.03631
+              ],
+              "quat": [
+                -0.008055,
+                -0.005762,
+                -0.005762,
+                0.999934
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Weald Cowl": {
+      "type": "helm",
+      "tier": "elite",
+      "glb": "models/items/items_helms.glb",
+      "node": "helm_weald_cowl",
+      "icon": "helm_weald_cowl",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.4,
+        0.401,
+        0.424
+      ],
+      "children": [],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "helm_weald_cowl",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.00014,
+                -0.15276,
+                -0.01384
+              ],
+              "quat": [
+                -0.02271,
+                -0.0,
+                -0.0,
+                0.999742
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "hide": [
+                "Mannequin:Box001cc001_06 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001cc001_06_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001cc001_06_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "helm_weald_cowl",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.00231,
+                -0.16292,
+                0.02454
+              ],
+              "quat": [
+                -0.008055,
+                -0.005762,
+                -0.005762,
+                0.999934
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Iron Skull": {
+      "type": "helm",
+      "tier": "normal",
+      "glb": "models/items/items_helms.glb",
+      "node": "helm_iron_skull",
+      "icon": "helm_iron_skull",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.372,
+        0.307,
+        0.386
+      ],
+      "children": [],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "helm_iron_skull",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                0.0,
+                -0.09214,
+                -0.00364
+              ],
+              "quat": [
+                -0.02271,
+                -0.0,
+                -0.0,
+                0.999742
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "hide": [
+                "Mannequin:Box001cc001_06 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001cc001_06_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001cc001_06_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "helm_iron_skull",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.00154,
+                -0.09592,
+                0.03785
+              ],
+              "quat": [
+                -0.008055,
+                -0.005762,
+                -0.005762,
+                0.999934
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Bone Casque": {
+      "type": "helm",
+      "tier": "exceptional",
+      "glb": "models/items/items_helms.glb",
+      "node": "helm_bone_casque",
+      "icon": "helm_bone_casque",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.503,
+        0.312,
+        0.367
+      ],
+      "children": [],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "helm_bone_casque",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.0,
+                -0.0917,
+                0.01643
+              ],
+              "quat": [
+                -0.02271,
+                -0.0,
+                -0.0,
+                0.999742
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "hide": [
+                "Mannequin:Box001cc001_06 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001cc001_06_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001cc001_06_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "helm_bone_casque",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.0018,
+                -0.09609,
+                0.06016
+              ],
+              "quat": [
+                -0.008055,
+                -0.005762,
+                -0.005762,
+                0.999934
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Spire Mask": {
+      "type": "helm",
+      "tier": "elite",
+      "glb": "models/items/items_helms.glb",
+      "node": "helm_spire_mask",
+      "icon": "helm_spire_mask",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.4,
+        0.305,
+        0.554
+      ],
+      "children": [],
+      "worn": {
+        "knight": {
+          "parts": [
+            {
+              "node": "helm_spire_mask",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.0,
+                -0.09186,
+                0.01209
+              ],
+              "quat": [
+                -0.02271,
+                -0.0,
+                -0.0,
+                0.999742
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "hide": [
+                "Mannequin:Box001cc001_06 - Default_0"
+              ],
+              "hide_three": [
+                "MannequinBox001cc001_06_-_Default_0"
+              ]
+            }
+          ],
+          "hide_three": [
+            "MannequinBox001cc001_06_-_Default_0"
+          ]
+        },
+        "npc_male_regular": {
+          "parts": [
+            {
+              "node": "helm_spire_mask",
+              "bone": "mixamorig:Head",
+              "bone_three": "mixamorigHead",
+              "pos": [
+                -0.00174,
+                -0.09613,
+                0.05534
+              ],
+              "quat": [
+                -0.008055,
+                -0.005762,
+                -0.005762,
+                0.999934
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "hide": [],
+              "hide_three": []
+            }
+          ],
+          "hide_three": []
+        }
+      }
+    },
+    "Wicker Round": {
+      "type": "shield",
+      "tier": "normal",
+      "glb": "models/items/items_shields.glb",
+      "node": "shield_wicker_round",
+      "icon": "shield_wicker_round",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.62,
+        0.62,
+        0.129
+      ]
+    },
+    "Ash Guard": {
+      "type": "shield",
+      "tier": "exceptional",
+      "glb": "models/items/items_shields.glb",
+      "node": "shield_ash_guard",
+      "icon": "shield_ash_guard",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.596,
+        0.596,
+        0.139
+      ]
+    },
+    "Crypt Round": {
+      "type": "shield",
+      "tier": "elite",
+      "glb": "models/items/items_shields.glb",
+      "node": "shield_crypt_round",
+      "icon": "shield_crypt_round",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.636,
+        0.636,
+        0.219
+      ]
+    },
+    "Briar Targe": {
+      "type": "shield",
+      "tier": "normal",
+      "glb": "models/items/items_shields.glb",
+      "node": "shield_briar_targe",
+      "icon": "shield_briar_targe",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.536,
+        0.651,
+        0.094
+      ]
+    },
+    "Grave Wall": {
+      "type": "shield",
+      "tier": "exceptional",
+      "glb": "models/items/items_shields.glb",
+      "node": "shield_grave_wall",
+      "icon": "shield_grave_wall",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.523,
+        0.931,
+        0.128
+      ]
+    },
+    "Spire Targe": {
+      "type": "shield",
+      "tier": "elite",
+      "glb": "models/items/items_shields.glb",
+      "node": "shield_spire_targe",
+      "icon": "shield_spire_targe",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.576,
+        0.711,
+        0.099
+      ]
+    },
+    "Parish Kite": {
+      "type": "shield",
+      "tier": "normal",
+      "glb": "models/items/items_shields.glb",
+      "node": "shield_parish_kite",
+      "icon": "shield_parish_kite",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.576,
+        0.731,
+        0.145
+      ]
+    },
+    "War Tower": {
+      "type": "shield",
+      "tier": "exceptional",
+      "glb": "models/items/items_shields.glb",
+      "node": "shield_war_tower",
+      "icon": "shield_war_tower",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.516,
+        0.896,
+        0.152
+      ]
+    },
+    "Obsidian Aegis": {
+      "type": "shield",
+      "tier": "elite",
+      "glb": "models/items/items_shields.glb",
+      "node": "shield_obsidian_aegis",
+      "icon": "shield_obsidian_aegis",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.556,
+        0.916,
+        0.143
+      ]
+    },
+    "Wick Wraps": {
+      "type": "gloves",
+      "tier": "normal",
+      "glb": "models/items/items_gloves.glb",
+      "node": "gloves_wick_wraps",
+      "icon": "gloves_wick_wraps",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.239,
+        0.306,
+        0.105
+      ]
+    },
+    "Ash Grips": {
+      "type": "gloves",
+      "tier": "exceptional",
+      "glb": "models/items/items_gloves.glb",
+      "node": "gloves_ash_grips",
+      "icon": "gloves_ash_grips",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.247,
+        0.31,
+        0.117
+      ]
+    },
+    "Spire Hands": {
+      "type": "gloves",
+      "tier": "elite",
+      "glb": "models/items/items_gloves.glb",
+      "node": "gloves_spire_hands",
+      "icon": "gloves_spire_hands",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.238,
+        0.307,
+        0.105
+      ]
+    },
+    "Tanner Mitts": {
+      "type": "gloves",
+      "tier": "normal",
+      "glb": "models/items/items_gloves.glb",
+      "node": "gloves_tanner_mitts",
+      "icon": "gloves_tanner_mitts",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.245,
+        0.309,
+        0.114
+      ]
+    },
+    "Grave Claws": {
+      "type": "gloves",
+      "tier": "exceptional",
+      "glb": "models/items/items_gloves.glb",
+      "node": "gloves_grave_claws",
+      "icon": "gloves_grave_claws",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.238,
+        0.306,
+        0.105
+      ]
+    },
+    "Bile Grasp": {
+      "type": "gloves",
+      "tier": "elite",
+      "glb": "models/items/items_gloves.glb",
+      "node": "gloves_bile_grasp",
+      "icon": "gloves_bile_grasp",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.246,
+        0.32,
+        0.117
+      ]
+    },
+    "Chapel Gloves": {
+      "type": "gloves",
+      "tier": "normal",
+      "glb": "models/items/items_gloves.glb",
+      "node": "gloves_chapel_gloves",
+      "icon": "gloves_chapel_gloves",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.26,
+        0.324,
+        0.131
+      ]
+    },
+    "War Gauntlets": {
+      "type": "gloves",
+      "tier": "exceptional",
+      "glb": "models/items/items_gloves.glb",
+      "node": "gloves_war_gauntlets",
+      "icon": "gloves_war_gauntlets",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.236,
+        0.315,
+        0.105
+      ]
+    },
+    "Inquisitor's Hands": {
+      "type": "gloves",
+      "tier": "elite",
+      "glb": "models/items/items_gloves.glb",
+      "node": "gloves_inquisitors_hands",
+      "icon": "gloves_inquisitors_hands",
+      "grid": [
+        2,
+        2
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.26,
+        0.324,
+        0.131
+      ]
+    },
+    "Ferry Cord": {
+      "type": "belt",
+      "tier": "normal",
+      "glb": "models/items/items_belts.glb",
+      "node": "belt_ferry_cord",
+      "icon": "belt_ferry_cord",
+      "grid": [
+        2,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.28,
+        0.218,
+        0.058
+      ]
+    },
+    "Ash Sash": {
+      "type": "belt",
+      "tier": "exceptional",
+      "glb": "models/items/items_belts.glb",
+      "node": "belt_ash_sash",
+      "icon": "belt_ash_sash",
+      "grid": [
+        2,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.256,
+        0.192,
+        0.053
+      ]
+    },
+    "Spire Cord": {
+      "type": "belt",
+      "tier": "elite",
+      "glb": "models/items/items_belts.glb",
+      "node": "belt_spire_cord",
+      "icon": "belt_spire_cord",
+      "grid": [
+        2,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.276,
+        0.214,
+        0.053
+      ]
+    },
+    "Tanner Sash": {
+      "type": "belt",
+      "tier": "normal",
+      "glb": "models/items/items_belts.glb",
+      "node": "belt_tanner_sash",
+      "icon": "belt_tanner_sash",
+      "grid": [
+        2,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.282,
+        0.203,
+        0.13
+      ]
+    },
+    "Grave Cinch": {
+      "type": "belt",
+      "tier": "exceptional",
+      "glb": "models/items/items_belts.glb",
+      "node": "belt_grave_cinch",
+      "icon": "belt_grave_cinch",
+      "grid": [
+        2,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.281,
+        0.225,
+        0.112
+      ]
+    },
+    "Weald Belt": {
+      "type": "belt",
+      "tier": "elite",
+      "glb": "models/items/items_belts.glb",
+      "node": "belt_weald_belt",
+      "icon": "belt_weald_belt",
+      "grid": [
+        2,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.417,
+        0.253,
+        0.124
+      ]
+    },
+    "Chapel Girdle": {
+      "type": "belt",
+      "tier": "normal",
+      "glb": "models/items/items_belts.glb",
+      "node": "belt_chapel_girdle",
+      "icon": "belt_chapel_girdle",
+      "grid": [
+        2,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.315,
+        0.231,
+        0.056
+      ]
+    },
+    "War Girdle": {
+      "type": "belt",
+      "tier": "exceptional",
+      "glb": "models/items/items_belts.glb",
+      "node": "belt_war_girdle",
+      "icon": "belt_war_girdle",
+      "grid": [
+        2,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.313,
+        0.231,
+        0.076
+      ]
+    },
+    "Obsidian Belt": {
+      "type": "belt",
+      "tier": "elite",
+      "glb": "models/items/items_belts.glb",
+      "node": "belt_obsidian_belt",
+      "icon": "belt_obsidian_belt",
+      "grid": [
+        2,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.316,
+        0.23,
+        0.071
+      ]
+    },
+    "Copper Band": {
+      "type": "ring",
+      "tier": "normal",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_copper_band",
+      "icon": "ring_copper_band",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.026,
+        0.008,
+        0.026
+      ]
+    },
+    "Ash Signet": {
+      "type": "ring",
+      "tier": "exceptional",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_ash_signet",
+      "icon": "ring_ash_signet",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.025,
+        0.019,
+        0.031
+      ]
+    },
+    "Spire Circle": {
+      "type": "ring",
+      "tier": "elite",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_spire_circle",
+      "icon": "ring_spire_circle",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.025,
+        0.016,
+        0.035
+      ]
+    },
+    "Tin Loop": {
+      "type": "ring",
+      "tier": "normal",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_tin_loop",
+      "icon": "ring_tin_loop",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.028,
+        0.009,
+        0.028
+      ]
+    },
+    "Grave Loop": {
+      "type": "ring",
+      "tier": "exceptional",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_grave_loop",
+      "icon": "ring_grave_loop",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.026,
+        0.018,
+        0.036
+      ]
+    },
+    "Weald Loop": {
+      "type": "ring",
+      "tier": "elite",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_weald_loop",
+      "icon": "ring_weald_loop",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.025,
+        0.014,
+        0.034
+      ]
+    },
+    "Chapel Ring": {
+      "type": "ring",
+      "tier": "normal",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_chapel_ring",
+      "icon": "ring_chapel_ring",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.025,
+        0.016,
+        0.031
+      ]
+    },
+    "War Band": {
+      "type": "ring",
+      "tier": "exceptional",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_war_band",
+      "icon": "ring_war_band",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.029,
+        0.011,
+        0.029
+      ]
+    },
+    "Inquisitor's Seal": {
+      "type": "ring",
+      "tier": "elite",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_inquisitors_seal",
+      "icon": "ring_inquisitors_seal",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.025,
+        0.018,
+        0.031
+      ]
+    },
+    "Bone Charm": {
+      "type": "amulet",
+      "tier": "normal",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "amulet_bone_charm",
+      "icon": "amulet_bone_charm",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 3.5,
+      "size_m": [
+        0.057,
+        0.131,
+        0.009
+      ]
+    },
+    "Ash Eye": {
+      "type": "amulet",
+      "tier": "exceptional",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "amulet_ash_eye",
+      "icon": "amulet_ash_eye",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 3.5,
+      "size_m": [
+        0.061,
+        0.101,
+        0.014
+      ]
+    },
+    "Spire Stone": {
+      "type": "amulet",
+      "tier": "elite",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "amulet_spire_stone",
+      "icon": "amulet_spire_stone",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 3.5,
+      "size_m": [
+        0.061,
+        0.115,
+        0.02
+      ]
+    },
+    "Chapel Locket": {
+      "type": "amulet",
+      "tier": "normal",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "amulet_chapel_locket",
+      "icon": "amulet_chapel_locket",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 3.5,
+      "size_m": [
+        0.061,
+        0.116,
+        0.015
+      ]
+    },
+    "Grave Heart": {
+      "type": "amulet",
+      "tier": "exceptional",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "amulet_grave_heart",
+      "icon": "amulet_grave_heart",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 3.5,
+      "size_m": [
+        0.061,
+        0.115,
+        0.02
+      ]
+    },
+    "Weald Bead": {
+      "type": "amulet",
+      "tier": "elite",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "amulet_weald_bead",
+      "icon": "amulet_weald_bead",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 3.5,
+      "size_m": [
+        0.061,
+        0.107,
+        0.019
+      ]
+    },
+    "Tin Pendant": {
+      "type": "amulet",
+      "tier": "normal",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "amulet_tin_pendant",
+      "icon": "amulet_tin_pendant",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 3.5,
+      "size_m": [
+        0.061,
+        0.114,
+        0.008
+      ]
+    },
+    "War Beads": {
+      "type": "amulet",
+      "tier": "exceptional",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "amulet_war_beads",
+      "icon": "amulet_war_beads",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 3.5,
+      "size_m": [
+        0.078,
+        0.189,
+        0.008
+      ]
+    },
+    "Obsidian Tear": {
+      "type": "amulet",
+      "tier": "elite",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "amulet_obsidian_tear",
+      "icon": "amulet_obsidian_tear",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 3.5,
+      "size_m": [
+        0.061,
+        0.12,
+        0.018
+      ]
+    },
+    "Gold": {
+      "type": "gold",
+      "tier": null,
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_gold",
+      "icon": "misc_gold",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 1,
+      "size_m": [
+        0.093,
+        0.085,
+        0.027
+      ]
+    }
+  },
+  "kinds": {
+    "potion": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_potion",
+      "icon": "misc_potion",
+      "floorScale": 1.5,
+      "size_m": [
+        0.076,
+        0.076,
+        0.118
+      ]
+    },
+    "manapotion": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_manapotion",
+      "icon": "misc_manapotion",
+      "floorScale": 1.5,
+      "size_m": [
+        0.076,
+        0.076,
+        0.122
+      ]
+    },
+    "portal": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_portal",
+      "icon": "misc_portal",
+      "floorScale": 1.5,
+      "size_m": [
+        0.17,
+        0.088,
+        0.044
+      ]
+    },
+    "scroll": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_scroll",
+      "icon": "misc_scroll",
+      "floorScale": 1.5,
+      "size_m": [
+        0.131,
+        0.171,
+        0.019
+      ]
+    },
+    "bossstone": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_bossstone",
+      "icon": "misc_bossstone",
+      "floorScale": 1.5,
+      "size_m": [
+        0.1,
+        0.137,
+        0.035
+      ]
+    },
+    "key": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_key",
+      "icon": "misc_key",
+      "floorScale": 2.5,
+      "size_m": [
+        0.055,
+        0.169,
+        0.016
+      ]
+    },
+    "book": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_book",
+      "icon": "misc_book",
+      "floorScale": 1.5,
+      "size_m": [
+        0.172,
+        0.204,
+        0.043
+      ]
+    },
+    "jewel": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_jewel",
+      "icon": "misc_jewel",
+      "floorScale": 3,
+      "size_m": [
+        0.049,
+        0.058,
+        0.039
+      ]
+    },
+    "rune": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_rune",
+      "icon": "misc_rune",
+      "floorScale": 3,
+      "size_m": [
+        0.087,
+        0.119,
+        0.029
+      ]
+    },
+    "gold": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_gold",
+      "icon": "misc_gold",
+      "floorScale": 1.5,
+      "size_m": [
+        0.093,
+        0.085,
+        0.027
+      ]
+    },
+    "quest_ring": {
+      "type": "ring",
+      "tier": "elite",
+      "glb": "models/items/items_jewelry.glb",
+      "node": "ring_spire_circle",
+      "icon": "ring_spire_circle",
+      "grid": [
+        1,
+        1
+      ],
+      "floorScale": 5,
+      "size_m": [
+        0.025,
+        0.016,
+        0.035
+      ],
+      "note": "reuse elite ring"
+    },
+    "quest_scroll": {
+      "glb": "models/items/items_misc.glb",
+      "node": "misc_scroll",
+      "icon": "misc_scroll",
+      "floorScale": 1.5,
+      "size_m": [
+        0.131,
+        0.171,
+        0.019
+      ],
+      "note": "reuse scroll"
+    }
+  },
+  "weapons": {
+    "Parish Blade": {
+      "glb": "models/weapons/weapon_parish_blade.glb",
+      "fallback": "models/weapon_sword_v2.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "sword",
+      "icon": "wpn_parish_blade"
+    },
+    "Ash Saber": {
+      "glb": "models/weapons/weapon_ash_saber.glb",
+      "fallback": "models/weapon_sword_v2.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "sword",
+      "icon": "wpn_ash_saber"
+    },
+    "Spire Falchion": {
+      "glb": "models/weapons/weapon_spire_falchion.glb",
+      "fallback": "models/weapon_sword_v2.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "sword",
+      "icon": "wpn_spire_falchion"
+    },
+    "Briar Hatchet": {
+      "glb": "models/weapons/weapon_briar_hatchet.glb",
+      "fallback": "models/weapon_axe.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "greataxe",
+      "icon": "wpn_briar_hatchet"
+    },
+    "Cinder Axe": {
+      "glb": "models/weapons/weapon_cinder_axe.glb",
+      "fallback": "models/weapon_axe.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "greataxe",
+      "icon": "wpn_cinder_axe"
+    },
+    "Sable Cleaver": {
+      "glb": "models/weapons/weapon_sable_cleaver.glb",
+      "fallback": "models/weapon_axe.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "greataxe",
+      "icon": "wpn_sable_cleaver"
+    },
+    "Ferry Pike": {
+      "glb": "models/weapons/weapon_ferry_pike.glb",
+      "fallback": "models/weapon_spear.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "staff",
+      "icon": "wpn_ferry_pike"
+    },
+    "Mourning Spear": {
+      "glb": "models/weapons/weapon_mourning_spear.glb",
+      "fallback": "models/weapon_spear.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "staff",
+      "icon": "wpn_mourning_spear"
+    },
+    "Lid Glaive": {
+      "glb": "models/weapons/weapon_lid_glaive.glb",
+      "fallback": "models/weapon_spear.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "staff",
+      "icon": "wpn_lid_glaive"
+    },
+    "Chapel Maul": {
+      "glb": "models/weapons/weapon_chapel_maul.glb",
+      "fallback": "models/weapon_mace.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "sword",
+      "icon": "wpn_chapel_maul"
+    },
+    "Mercy Hammer": {
+      "glb": "models/weapons/weapon_mercy_hammer.glb",
+      "fallback": "models/weapon_mace.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "sword",
+      "icon": "wpn_mercy_hammer"
+    },
+    "Inquisitor's Nail": {
+      "glb": "models/weapons/weapon_inquisitors_nail.glb",
+      "fallback": "models/weapon_mace.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "sword",
+      "icon": "wpn_inquisitors_nail"
+    },
+    "Timber Axe": {
+      "glb": "models/weapons/weapon_timber_axe.glb",
+      "fallback": "models/weapon_greataxe.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "greataxe",
+      "icon": "wpn_timber_axe"
+    },
+    "War Axe": {
+      "glb": "models/weapons/weapon_war_axe.glb",
+      "fallback": "models/weapon_greataxe.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "greataxe",
+      "icon": "wpn_war_axe"
+    },
+    "Kingrender": {
+      "glb": "models/weapons/weapon_kingrender.glb",
+      "fallback": "models/weapon_greataxe.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "greataxe",
+      "icon": "wpn_kingrender"
+    },
+    "Stitched Blade": {
+      "glb": "models/weapons/weapon_stitched_blade.glb",
+      "fallback": "models/weapon_dagger.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "dagger",
+      "icon": "wpn_stitched_blade"
+    },
+    "Seam Knife": {
+      "glb": "models/weapons/weapon_seam_knife.glb",
+      "fallback": "models/weapon_dagger.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "dagger",
+      "icon": "wpn_seam_knife"
+    },
+    "Widow Stitch": {
+      "glb": "models/weapons/weapon_widow_stitch.glb",
+      "fallback": "models/weapon_dagger.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "dagger",
+      "icon": "wpn_widow_stitch"
+    },
+    "Yew Longbow": {
+      "glb": "models/weapons/weapon_yew_longbow.glb",
+      "fallback": "models/weapon_bow.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "bow",
+      "icon": "wpn_yew_longbow"
+    },
+    "Ash Longbow": {
+      "glb": "models/weapons/weapon_ash_longbow.glb",
+      "fallback": "models/weapon_bow.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "bow",
+      "icon": "wpn_ash_longbow"
+    },
+    "Spire Longbow": {
+      "glb": "models/weapons/weapon_spire_longbow.glb",
+      "fallback": "models/weapon_bow.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "bow",
+      "icon": "wpn_spire_longbow"
+    },
+    "Wicker Bow": {
+      "glb": "models/weapons/weapon_wicker_bow.glb",
+      "fallback": "models/weapon_bow.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "bow",
+      "icon": "wpn_wicker_bow"
+    },
+    "Thorn Wicker": {
+      "glb": "models/weapons/weapon_thorn_wicker.glb",
+      "fallback": "models/weapon_bow.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "bow",
+      "icon": "wpn_thorn_wicker"
+    },
+    "Spite Wicker": {
+      "glb": "models/weapons/weapon_spite_wicker.glb",
+      "fallback": "models/weapon_bow.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "bow",
+      "icon": "wpn_spite_wicker"
+    },
+    "Ash Staff": {
+      "glb": "models/weapons/weapon_ash_staff.glb",
+      "fallback": "models/weapon_staff.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "staff",
+      "icon": "wpn_ash_staff"
+    },
+    "Chapel Staff": {
+      "glb": "models/weapons/weapon_chapel_staff.glb",
+      "fallback": "models/weapon_staff.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "staff",
+      "icon": "wpn_chapel_staff"
+    },
+    "Weald Staff": {
+      "glb": "models/weapons/weapon_weald_staff.glb",
+      "fallback": "models/weapon_staff.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "staff",
+      "icon": "wpn_weald_staff"
+    },
+    "Sting Wand": {
+      "glb": "models/weapons/weapon_sting_wand.glb",
+      "fallback": "models/weapon_wand.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "wand",
+      "icon": "wpn_sting_wand"
+    },
+    "Thorn Wand": {
+      "glb": "models/weapons/weapon_thorn_wand.glb",
+      "fallback": "models/weapon_wand.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "wand",
+      "icon": "wpn_thorn_wand"
+    },
+    "Omen Wand": {
+      "glb": "models/weapons/weapon_omen_wand.glb",
+      "fallback": "models/weapon_wand.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "wand",
+      "icon": "wpn_omen_wand"
+    },
+    "Rusted Iron Sword": {
+      "glb": "models/weapons/weapon_parish_blade.glb",
+      "fallback": "models/weapon_sword_v2.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "sword",
+      "icon": "wpn_parish_blade"
+    },
+    "Ashwood Short Bow": {
+      "glb": "models/weapons/weapon_wicker_bow.glb",
+      "fallback": "models/weapon_bow.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "bow",
+      "icon": "wpn_wicker_bow"
+    },
+    "Gnarled Yew Wand": {
+      "glb": "models/weapons/weapon_thorn_wand.glb",
+      "fallback": "models/weapon_wand.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "wand",
+      "icon": "wpn_thorn_wand"
+    },
+    "Chipped Bone Dagger": {
+      "glb": "models/weapons/weapon_seam_knife.glb",
+      "fallback": "models/weapon_dagger.glb",
+      "grid": [
+        1,
+        3
+      ],
+      "floorScale": 1,
+      "set": "dagger",
+      "icon": "wpn_seam_knife"
+    }
+  },
+  "worn_doc": "bases[*].worn[bodyKey] (knight = models/knight_anim.glb, npc_male_regular = combat NPC male_regular.glb): parts[] lists every independently equippable node (root + children such as _pauldron_L/R, _fauld, _tasset_L/R). To equip: take node from the atlas (detach children from the root), attach it to the skeleton bone named bone_three (three.js-sanitized name; bone = original glTF name), set position=pos, quaternion=quat [x,y,z,w], scale=scale (bone-local, y-up, from bind pose). Hide body meshes in that part's hide_three (sanitized node names; hide = original names); unequip = remove the node and unhide only meshes no other equipped part still hides. children lists child node names; floor/icon use is unchanged (root node with children as-is)."
+}

@@ -1,6 +1,6 @@
 {
- "version": "as2",
- "replaces": "as1 (frames). Pure percent attack and cast speed, no frames. Backup of as1: attack_speed_as1.json",
+ "version": "as2b",
+ "replaces": "as2 (3 tiers, 34 bases). Backup: attack_speed_as2.json. as1 backup: attack_speed_as1.json",
  "player": {
   "baseAps": 1.89,
   "apsCap": 10.0,
@@ -42,916 +42,4649 @@
   "animation": "two-segment timeScale: before clip.hitT ts = hitT/hitSeconds, after ts = (dur-hitT)/max(0.02, swingSeconds-hitSeconds). No timeScale clamp; at 10 APS ts reaches ~15-30, valid for AnimationMixer. __up masks while moving.",
   "elite": "elite tier only drops in Hell (ls(): elite -> exceptional when difficulty !== hell); an upgrade path (normal->exceptional->elite, same line) re-derives weaponSpeed and damage from this table."
  },
- "speedRange": {
-  "slowest": [
-   "Timber Axe",
-   -25,
-   1.417
+ "tiers": {
+  "order": [
+   "normal",
+   "exceptional",
+   "elite",
+   "mythic"
   ],
-  "fastest": [
-   "Widow Stitch",
-   112,
-   4.007
-  ],
-  "fastestNonElite": [
-   "Seam Knife",
-   65,
-   3.118
-  ]
+  "names": {
+   "normal": "Normal",
+   "exceptional": "Exceptional",
+   "elite": "Elite",
+   "mythic": "Unwritten"
+  },
+  "zo": {
+   "normal": 1,
+   "exceptional": 2.15,
+   "elite": 3.8,
+   "mythic": 5.8
+  },
+  "speedShift": {
+   "normal": 0,
+   "exceptional": 17,
+   "elite": 33,
+   "mythic": 50
+  },
+  "refIlvl": {
+   "normal": 20,
+   "exceptional": 100,
+   "elite": 150,
+   "mythic": 183
+  },
+  "drop": {
+   "normal": "alvl<66: T1 only; 66-86: T2 15%; >=87: T2 25%",
+   "nightmare": "<120: T2 60% T1 40%; 120-128: T3 8% T2 67%; >=129: T3 20% T2 65%",
+   "hell": "not end: T3 65% T2 29% T1 6%; alvl>=183 or a Margin area: T4 20% T3 60% T2 16% T1 4%"
+  }
  },
- "bases": {
+ "labels": {
+  "bands": [
+   [
+    "Very Slow",
+    null,
+    -20
+   ],
+   [
+    "Slow",
+    -19,
+    -6
+   ],
+   [
+    "Medium",
+    -5,
+    9
+   ],
+   [
+    "Fast",
+    10,
+    39
+   ],
+   [
+    "Very Fast",
+    40,
+    null
+   ]
+  ],
+  "note": "band of (weaponSpeed - speedShift[tier]); each base stores its label and keeps it across tiers"
+ },
+ "damage": {
+  "rule": "avg=(min+max)/2 = 6.8425*(1+(refIlvl-1)*0.13)*zo[tier]*role*variancePremium/(1+weaponSpeed/100); DPS=avg*aps is speed-neutral",
+  "roles": {
+   "sword": 1.05,
+   "axe": 1.0,
+   "spear": 1.0,
+   "mace": 1.0,
+   "great axe": 1.18,
+   "dagger": 0.92,
+   "short bow": 1.0,
+   "long bow": 1.12,
+   "staff": 1.05,
+   "wand": 0.9
+  },
+  "variancePremium": "1+0.03*clamp((spread-0.35)/0.45,0,1)",
+  "roll": "dmg = round(base.dmg * (6+rand*5)/8.5 * fo[rarity].m * (1+(ilvl-1)*0.13)/(1+(refIlvl-1)*0.13))"
+ },
+ "castStep": {
+  "dagger": 4,
+  "staff": 9,
+  "wand": 3
+ },
+ "lines": [
+  {
+   "slot": "weapon",
+   "weight": 0.9,
+   "bases": [
+    "Crypt Brand",
+    "Grave Brand",
+    "Obsidian Brand",
+    "Errata Brand"
+   ],
+   "q": [
+    1,
+    12,
+    28,
+    88
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.9,
+   "bases": [
+    "Ferry Sword",
+    "Mourning Sword",
+    "Rite Sword",
+    "Gilt Sword"
+   ],
+   "q": [
+    1,
+    14,
+    30,
+    90
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.9,
+   "bases": [
+    "Wick Rapier",
+    "Silt Rapier",
+    "Sable Rapier",
+    "Rubric Rapier"
+   ],
+   "q": [
+    3,
+    18,
+    34,
+    94
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.15,
+   "bases": [
+    "Parish Broadaxe",
+    "Grave Broadaxe",
+    "Obsidian Broadaxe",
+    "Errata Broadaxe"
+   ],
+   "q": [
+    2,
+    17,
+    34,
+    94
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.15,
+   "bases": [
+    "Ash Hatchet",
+    "Thorn Hatchet",
+    "Spire Hatchet",
+    "Folio Hatchet"
+   ],
+   "q": [
+    6,
+    21,
+    38,
+    98
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.15,
+   "bases": [
+    "Wick Handaxe",
+    "Bile Handaxe",
+    "Spite Handaxe",
+    "Rubric Handaxe"
+   ],
+   "q": [
+    8,
+    23,
+    40,
+    100
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.0,
+   "bases": [
+    "Iron Warpike",
+    "Grave Warpike",
+    "King's Warpike",
+    "Errata Warpike"
+   ],
+   "q": [
+    2,
+    17,
+    34,
+    94
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.0,
+   "bases": [
+    "Crypt Spear",
+    "Bile Spear",
+    "Rite Glaive",
+    "Gilt Glaive"
+   ],
+   "q": [
+    4,
+    19,
+    36,
+    96
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.0,
+   "bases": [
+    "Briar Spear",
+    "Thorn Spear",
+    "Spite Spear",
+    "Rubric Spear"
+   ],
+   "q": [
+    8,
+    23,
+    40,
+    100
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.28,
+   "bases": [
+    "Iron Maul",
+    "Grave Maul",
+    "Obsidian Maul",
+    "Errata Maul"
+   ],
+   "q": [
+    6,
+    22,
+    40,
+    100
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.28,
+   "bases": [
+    "Parish Mace",
+    "Ash Mace",
+    "Spire Mace",
+    "Folio Mace"
+   ],
+   "q": [
+    10,
+    26,
+    44,
+    104
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.28,
+   "bases": [
+    "Tin Hammer",
+    "Bone Hammer",
+    "Rite Hammer",
+    "Rubric Hammer"
+   ],
+   "q": [
+    12,
+    28,
+    46,
+    106
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.85,
+   "bases": [
+    "Ferry Greataxe",
+    "Grave Greataxe",
+    "Obsidian Greataxe",
+    "Errata Greataxe"
+   ],
+   "q": [
+    4,
+    20,
+    38,
+    98
+   ],
+   "uniques": [],
+   "hands": 2
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.85,
+   "bases": [
+    "Iron Battleaxe",
+    "Mourning Battleaxe",
+    "Spire Battleaxe",
+    "Folio Battleaxe"
+   ],
+   "q": [
+    8,
+    24,
+    42,
+    102
+   ],
+   "uniques": [],
+   "hands": 2
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.85,
+   "bases": [
+    "Briar Splitaxe",
+    "Cinder Splitaxe",
+    "Sable Splitaxe",
+    "Rubric Splitaxe"
+   ],
+   "q": [
+    10,
+    26,
+    44,
+    104
+   ],
+   "uniques": [],
+   "hands": 2
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.48,
+   "bases": [
+    "Iron Dagger",
+    "Grave Dagger",
+    "Rite Dagger",
+    "Errata Dagger"
+   ],
+   "q": [
+    1,
+    10,
+    26,
+    86
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.48,
+   "bases": [
+    "Tanner Knife",
+    "Bile Knife",
+    "Obsidian Knife",
+    "Gilt Knife"
+   ],
+   "q": [
+    1,
+    12,
+    28,
+    88
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.48,
+   "bases": [
+    "Briar Fang",
+    "Thorn Fang",
+    "Spite Fang",
+    "Folio Fang"
+   ],
+   "q": [
+    1,
+    14,
+    30,
+    90
+   ],
+   "uniques": []
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.55,
+   "bases": [
+    "Crypt Bow",
+    "Grave Bow",
+    "Obsidian Bow",
+    "Errata Bow"
+   ],
+   "q": [
+    1,
+    8,
+    24,
+    84
+   ],
+   "uniques": [],
+   "hands": 2
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.55,
+   "bases": [
+    "Ferry Short Bow",
+    "Mourning Short Bow",
+    "Rite Short Bow",
+    "Gilt Short Bow"
+   ],
+   "q": [
+    1,
+    10,
+    26,
+    86
+   ],
+   "uniques": [],
+   "hands": 2
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.55,
+   "bases": [
+    "Briar Bow",
+    "Cinder Bow",
+    "Sable Bow",
+    "Folio Bow"
+   ],
+   "q": [
+    1,
+    12,
+    28,
+    88
+   ],
+   "uniques": [],
+   "hands": 2
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.55,
+   "bases": [
+    "Iron Warbow",
+    "Grave Warbow",
+    "King's Warbow",
+    "Errata Warbow"
+   ],
+   "q": [
+    2,
+    16,
+    34,
+    94
+   ],
+   "uniques": [],
+   "hands": 2
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.55,
+   "bases": [
+    "Tanner Longbow",
+    "Bile Longbow",
+    "Weald Longbow",
+    "Folio Longbow"
+   ],
+   "q": [
+    6,
+    20,
+    38,
+    98
+   ],
+   "uniques": [],
+   "hands": 2
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.55,
+   "bases": [
+    "Briar Flatbow",
+    "Thorn Flatbow",
+    "Spite Flatbow",
+    "Rubric Flatbow"
+   ],
+   "q": [
+    8,
+    22,
+    40,
+    100
+   ],
+   "uniques": [],
+   "hands": 2
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.05,
+   "bases": [
+    "Bone Greatstaff",
+    "Grave Greatstaff",
+    "Obsidian Greatstaff",
+    "Errata Greatstaff"
+   ],
+   "q": [
+    1,
+    16,
+    32,
+    92
+   ],
+   "uniques": [],
+   "hands": 2,
+   "kind": "staff"
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.05,
+   "bases": [
+    "Ferry Staff",
+    "Mourning Staff",
+    "Rite Staff",
+    "Folio Staff"
+   ],
+   "q": [
+    5,
+    20,
+    36,
+    96
+   ],
+   "uniques": [],
+   "hands": 2,
+   "kind": "staff"
+  },
+  {
+   "slot": "weapon",
+   "weight": 1.05,
+   "bases": [
+    "Briar Staff",
+    "Cinder Staff",
+    "Sable Staff",
+    "Rubric Staff"
+   ],
+   "q": [
+    7,
+    22,
+    38,
+    98
+   ],
+   "uniques": [],
+   "hands": 2,
+   "kind": "staff"
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.62,
+   "bases": [
+    "Bone Wand",
+    "Grave Wand",
+    "Obsidian Wand",
+    "Errata Wand"
+   ],
+   "q": [
+    1,
+    12,
+    28,
+    88
+   ],
+   "uniques": [],
+   "kind": "wand"
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.62,
+   "bases": [
+    "Ferry Wand",
+    "Ash Wand",
+    "Rite Wand",
+    "Gilt Wand"
+   ],
+   "q": [
+    1,
+    14,
+    30,
+    90
+   ],
+   "uniques": [],
+   "kind": "wand"
+  },
+  {
+   "slot": "weapon",
+   "weight": 0.62,
+   "bases": [
+    "Wick Wand",
+    "Bile Wand",
+    "Spite Wand",
+    "Rubric Wand"
+   ],
+   "q": [
+    4,
+    18,
+    34,
+    94
+   ],
+   "uniques": [],
+   "kind": "wand"
+  }
+ ],
+ "line4": {
+  "Parish Blade": {
+   "base": "Folio Falchion",
+   "q": 92
+  },
+  "Briar Hatchet": {
+   "base": "Gilt Cleaver",
+   "q": 96
+  },
+  "Ferry Pike": {
+   "base": "Folio Pike",
+   "q": 98
+  },
+  "Chapel Maul": {
+   "base": "Gilt Nail",
+   "q": 102
+  },
+  "Timber Axe": {
+   "base": "Pagerender",
+   "q": 100
+  },
   "Stitched Blade": {
-   "type": "dagger",
-   "set": "dagger",
-   "line": "Stitched Blade",
-   "tier": "normal",
-   "weaponSpeed": 30,
-   "label": "Fast",
-   "q": 2,
-   "dmgFactor": 0.7692,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     10,
-     18
-    ],
-    "dmgMid": [
-     8,
-     14
-    ],
-    "aps": 2.457,
-    "dps": 27.0
-   },
-   "oldWsm": -28,
-   "reqStat": "mark"
-  },
-  "Seam Knife": {
-   "type": "dagger",
-   "set": "dagger",
-   "line": "Stitched Blade",
-   "tier": "exceptional",
-   "weaponSpeed": 65,
-   "label": "Very Fast",
-   "q": 16,
-   "dmgFactor": 0.6061,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     47,
-     87
-    ],
-    "dmgMid": [
-     40,
-     67
-    ],
-    "aps": 3.118,
-    "dps": 166.8
-   },
-   "oldWsm": -28,
-   "reqStat": "mark"
-  },
-  "Widow Stitch": {
-   "type": "dagger",
-   "set": "dagger",
-   "line": "Stitched Blade",
-   "tier": "elite",
-   "weaponSpeed": 112,
-   "label": "Very Fast",
-   "q": 32,
-   "dmgFactor": 0.4717,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     121,
-     222
-    ],
-    "dmgMid": [
-     104,
-     171
-    ],
-    "aps": 4.007,
-    "dps": 550.9
-   },
-   "oldWsm": -28,
-   "reqStat": "mark"
+   "base": "Last Stitch",
+   "q": 92
   },
   "Wicker Bow": {
-   "type": "short bow",
-   "set": "bow",
-   "line": "Wicker Bow",
+   "base": "Margin Wicker",
+   "q": 90
+  },
+  "Yew Longbow": {
+   "base": "Gilt Longbow",
+   "q": 96
+  },
+  "Ash Staff": {
+   "base": "Gilt Staff",
+   "q": 94
+  },
+  "Sting Wand": {
+   "base": "Folio Wand",
+   "q": 92
+  }
+ },
+ "armor4": [
+  {
+   "slot": "armor",
+   "line": "Wick Coat",
+   "base": "Errata Shroud",
+   "q": 90,
+   "model": "Bile Shroud"
+  },
+  {
+   "slot": "armor",
+   "line": "Tanner's Vest",
+   "base": "Gilt Harness",
+   "q": 94,
+   "model": "Spire Harness"
+  },
+  {
+   "slot": "armor",
+   "line": "Parish Plate",
+   "base": "Folio Cuirass",
+   "q": 100,
+   "model": "Obsidian Cuirass"
+  },
+  {
+   "slot": "helm",
+   "line": "Bent Brow",
+   "base": "Gilt Crown",
+   "q": 93,
+   "model": "Rite Crown"
+  },
+  {
+   "slot": "helm",
+   "line": "Mourner Hood",
+   "base": "Errata Cowl",
+   "q": 96,
+   "model": "Weald Cowl"
+  },
+  {
+   "slot": "helm",
+   "line": "Iron Skull",
+   "base": "Folio Mask",
+   "q": 100,
+   "model": "Spire Mask"
+  },
+  {
+   "slot": "shield",
+   "line": "Wicker Round",
+   "base": "Errata Round",
+   "q": 91,
+   "model": "Crypt Round"
+  },
+  {
+   "slot": "shield",
+   "line": "Briar Targe",
+   "base": "Gilt Targe",
+   "q": 95,
+   "model": "Spire Targe"
+  },
+  {
+   "slot": "shield",
+   "line": "Parish Kite",
+   "base": "Folio Aegis",
+   "q": 101,
+   "model": "Obsidian Aegis"
+  },
+  {
+   "slot": "gloves",
+   "line": "Wick Wraps",
+   "base": "Errata Hands",
+   "q": 92,
+   "model": "Spire Hands"
+  },
+  {
+   "slot": "gloves",
+   "line": "Tanner Mitts",
+   "base": "Gilt Grasp",
+   "q": 96,
+   "model": "Bile Grasp"
+  },
+  {
+   "slot": "gloves",
+   "line": "Chapel Gloves",
+   "base": "Folio Gauntlets",
+   "q": 102,
+   "model": "Inquisitor's Hands"
+  },
+  {
+   "slot": "belt",
+   "line": "Ferry Cord",
+   "base": "Errata Cord",
+   "q": 90,
+   "model": "Spire Cord"
+  },
+  {
+   "slot": "belt",
+   "line": "Tanner Sash",
+   "base": "Gilt Belt",
+   "q": 95,
+   "model": "Weald Belt"
+  },
+  {
+   "slot": "belt",
+   "line": "Chapel Girdle",
+   "base": "Folio Girdle",
+   "q": 100,
+   "model": "Obsidian Belt"
+  },
+  {
+   "slot": "ring",
+   "line": "Copper Band",
+   "base": "Errata Circle",
+   "q": 93,
+   "model": "Spire Circle"
+  },
+  {
+   "slot": "ring",
+   "line": "Tin Loop",
+   "base": "Gilt Loop",
+   "q": 97,
+   "model": "Weald Loop"
+  },
+  {
+   "slot": "ring",
+   "line": "Chapel Ring",
+   "base": "Folio Seal",
+   "q": 103,
+   "model": "Inquisitor's Seal"
+  },
+  {
+   "slot": "amulet",
+   "line": "Bone Charm",
+   "base": "Errata Stone",
+   "q": 92,
+   "model": "Spire Stone"
+  },
+  {
+   "slot": "amulet",
+   "line": "Chapel Locket",
+   "base": "Gilt Heart",
+   "q": 96,
+   "model": "Weald Bead"
+  },
+  {
+   "slot": "amulet",
+   "line": "Tin Pendant",
+   "base": "Folio Tear",
+   "q": 101,
+   "model": "Obsidian Tear"
+  }
+ ],
+ "bases": {
+  "Crypt Brand": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
    "tier": "normal",
-   "weaponSpeed": 25,
-   "label": "Fast",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": -10,
+   "castSpeed": 0,
+   "dmg": [
+    21,
+    34
+   ],
+   "refIlvl": 20,
    "q": 1,
-   "dmgFactor": 0.8,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     10,
-     19
-    ],
-    "dmgMid": [
-     8,
-     14
-    ],
-    "aps": 2.362,
-    "dps": 26.0
-   },
-   "oldWsm": -24,
-   "reqStat": "mark"
+   "reqStat": "mark",
+   "line": "Crypt Brand",
+   "note": "Crypt Brand. A slow sword with a heavy edge. Each cut lands like a verdict.",
+   "aps": 1.701,
+   "dps": 46.8,
+   "model": "Parish Blade"
   },
-  "Thorn Wicker": {
-   "type": "short bow",
-   "set": "bow",
-   "line": "Wicker Bow",
+  "Grave Brand": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
    "tier": "exceptional",
-   "weaponSpeed": 55,
-   "label": "Very Fast",
-   "q": 14,
-   "dmgFactor": 0.6452,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     50,
-     92
-    ],
-    "dmgMid": [
-     43,
-     71
-    ],
-    "aps": 2.929,
-    "dps": 167.0
-   },
-   "oldWsm": -24,
-   "reqStat": "mark"
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 7,
+   "castSpeed": 0,
+   "dmg": [
+    150,
+    250
+   ],
+   "refIlvl": 100,
+   "q": 12,
+   "reqStat": "mark",
+   "line": "Crypt Brand",
+   "note": "Grave Brand. A slow sword with a heavy edge. Each cut lands like a verdict. Better made, a faster hand.",
+   "aps": 2.022,
+   "dps": 404.5,
+   "model": "Ash Saber"
   },
-  "Spite Wicker": {
-   "type": "short bow",
-   "set": "bow",
-   "line": "Wicker Bow",
+  "Obsidian Brand": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
    "tier": "elite",
-   "weaponSpeed": 95,
-   "label": "Very Fast",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 23,
+   "castSpeed": 0,
+   "dmg": [
+    339,
+    565
+   ],
+   "refIlvl": 150,
+   "q": 28,
+   "reqStat": "mark",
+   "line": "Crypt Brand",
+   "note": "Obsidian Brand. A slow sword with a heavy edge. Each cut lands like a verdict. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.325,
+   "dps": 1050.8,
+   "model": "Spire Falchion"
+  },
+  "Errata Brand": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
+   "tier": "mythic",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 40,
+   "castSpeed": 0,
+   "dmg": [
+    551,
+    917
+   ],
+   "refIlvl": 183,
+   "q": 88,
+   "reqStat": "mark",
+   "line": "Crypt Brand",
+   "note": "Errata Brand. A slow sword with a heavy edge. Each cut lands like a verdict. Unwritten. It only drops beyond the last page.",
+   "aps": 2.646,
+   "dps": 1942.2,
+   "model": "Obsidian Brand"
+  },
+  "Ferry Sword": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
+   "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 0,
+   "castSpeed": 0,
+   "dmg": [
+    16,
+    34
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Ferry Sword",
+   "note": "Ferry Sword. A plain sword. Medium speed, no tricks, good for any hand.",
+   "aps": 1.89,
+   "dps": 47.2,
+   "model": "Crypt Brand"
+  },
+  "Mourning Sword": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
+   "tier": "exceptional",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 17,
+   "castSpeed": 0,
+   "dmg": [
+    119,
+    247
+   ],
+   "refIlvl": 100,
+   "q": 14,
+   "reqStat": "mark",
+   "line": "Ferry Sword",
+   "note": "Mourning Sword. A plain sword. Medium speed, no tricks, good for any hand. Better made, a faster hand.",
+   "aps": 2.211,
+   "dps": 404.7,
+   "model": "Grave Brand"
+  },
+  "Rite Sword": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
+   "tier": "elite",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 33,
+   "castSpeed": 0,
+   "dmg": [
+    272,
+    564
+   ],
+   "refIlvl": 150,
    "q": 30,
-   "dmgFactor": 0.5128,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     131,
-     241
-    ],
-    "dmgMid": [
-     113,
-     186
-    ],
-    "aps": 3.685,
-    "dps": 551.0
-   },
-   "oldWsm": -24,
-   "reqStat": "mark"
+   "reqStat": "mark",
+   "line": "Ferry Sword",
+   "note": "Rite Sword. A plain sword. Medium speed, no tricks, good for any hand. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.514,
+   "dps": 1050.7,
+   "model": "Obsidian Brand"
+  },
+  "Gilt Sword": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 50,
+   "castSpeed": 0,
+   "dmg": [
+    445,
+    925
+   ],
+   "refIlvl": 183,
+   "q": 90,
+   "reqStat": "mark",
+   "line": "Ferry Sword",
+   "note": "Gilt Sword. A plain sword. Medium speed, no tricks, good for any hand. Unwritten. It only drops beyond the last page.",
+   "aps": 2.835,
+   "dps": 1942.0,
+   "model": "Obsidian Brand"
   },
   "Parish Blade": {
    "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
    "set": "sword",
-   "line": "Parish Blade",
    "tier": "normal",
-   "weaponSpeed": 15,
+   "variant": "Fast",
    "label": "Fast",
+   "weaponSpeed": 20,
+   "castSpeed": 0,
+   "dmg": [
+    12,
+    30
+   ],
+   "refIlvl": 20,
    "q": 1,
-   "dmgFactor": 0.8696,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     11,
-     20
-    ],
-    "dmgMid": [
-     9,
-     16
-    ],
-    "aps": 2.173,
-    "dps": 27.2
-   },
-   "oldWsm": -10,
-   "reqStat": "mark"
+   "reqStat": "mark",
+   "line": "Parish Blade",
+   "note": "Parish Blade. A quick blade that keeps its weight. The knight's favorite.",
+   "aps": 2.268,
+   "dps": 47.6,
+   "model": "Parish Blade"
   },
   "Ash Saber": {
    "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
    "set": "sword",
-   "line": "Parish Blade",
    "tier": "exceptional",
-   "weaponSpeed": 40,
+   "variant": "Fast",
    "label": "Fast",
+   "weaponSpeed": 37,
+   "castSpeed": 0,
+   "dmg": [
+    87,
+    228
+   ],
+   "refIlvl": 100,
    "q": 16,
-   "dmgFactor": 0.7143,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     55,
-     102
-    ],
-    "dmgMid": [
-     48,
-     79
-    ],
-    "aps": 2.646,
-    "dps": 168.0
-   },
-   "oldWsm": -10,
-   "reqStat": "mark"
+   "reqStat": "mark",
+   "line": "Parish Blade",
+   "note": "Ash Saber. A quick blade that keeps its weight. The knight's favorite. Better made, a faster hand.",
+   "aps": 2.589,
+   "dps": 407.8,
+   "model": "Ash Saber"
   },
   "Spire Falchion": {
    "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
    "set": "sword",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 53,
+   "castSpeed": 0,
+   "dmg": [
+    201,
+    531
+   ],
+   "refIlvl": 150,
+   "q": 32,
+   "reqStat": "mark",
    "line": "Parish Blade",
-   "tier": "elite",
-   "weaponSpeed": 75,
-   "label": "Very Fast",
-   "q": 32,
-   "dmgFactor": 0.5714,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     146,
-     269
-    ],
-    "dmgMid": [
-     126,
-     208
-    ],
-    "aps": 3.307,
-    "dps": 552.4
-   },
-   "oldWsm": -10,
-   "reqStat": "mark"
+   "note": "Spire Falchion. A quick blade that keeps its weight. The knight's favorite. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.892,
+   "dps": 1058.4,
+   "model": "Spire Falchion"
   },
-  "Sting Wand": {
-   "type": "wand",
-   "set": "wand",
-   "line": "Sting Wand",
-   "tier": "normal",
-   "weaponSpeed": 10,
+  "Folio Falchion": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
+   "tier": "mythic",
+   "variant": "Fast",
    "label": "Fast",
-   "q": 2,
-   "dmgFactor": 0.9091,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     11,
-     21
-    ],
-    "dmgMid": [
-     9,
-     16
-    ],
-    "aps": 2.079,
-    "dps": 26.0
-   },
-   "oldWsm": -8,
-   "castSpeed": 5,
-   "reqStat": "mark"
-  },
-  "Thorn Wand": {
-   "type": "wand",
-   "set": "wand",
-   "line": "Sting Wand",
-   "tier": "exceptional",
-   "weaponSpeed": 35,
-   "label": "Fast",
-   "q": 16,
-   "dmgFactor": 0.7407,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     58,
-     106
-    ],
-    "dmgMid": [
-     50,
-     82
-    ],
-    "aps": 2.551,
-    "dps": 168.4
-   },
-   "oldWsm": -8,
-   "castSpeed": 10,
-   "reqStat": "mark"
-  },
-  "Omen Wand": {
-   "type": "wand",
-   "set": "wand",
-   "line": "Sting Wand",
-   "tier": "elite",
    "weaponSpeed": 70,
-   "label": "Very Fast",
-   "q": 32,
-   "dmgFactor": 0.5882,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     151,
-     277
-    ],
-    "dmgMid": [
-     130,
-     214
-    ],
-    "aps": 3.213,
-    "dps": 552.6
-   },
-   "oldWsm": -8,
-   "castSpeed": 15,
-   "reqStat": "mark"
+   "castSpeed": 0,
+   "dmg": [
+    335,
+    882
+   ],
+   "refIlvl": 183,
+   "q": 92,
+   "reqStat": "mark",
+   "line": "Parish Blade",
+   "note": "Folio Falchion. A quick blade that keeps its weight. The knight's favorite. Unwritten. It only drops beyond the last page.",
+   "aps": 3.213,
+   "dps": 1955.1,
+   "model": "Obsidian Brand"
   },
-  "Ferry Pike": {
-   "type": "spear",
-   "set": "staff",
-   "line": "Ferry Pike",
+  "Wick Rapier": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
    "tier": "normal",
-   "weaponSpeed": 0,
-   "label": "Normal",
-   "q": 6,
-   "dmgFactor": 1.0,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     13,
-     23
-    ],
-    "dmgMid": [
-     10,
-     18
-    ],
-    "aps": 1.89,
-    "dps": 26.5
-   },
-   "oldWsm": -4,
-   "reqStat": "mark"
-  },
-  "Mourning Spear": {
-   "type": "spear",
-   "set": "staff",
-   "line": "Ferry Pike",
-   "tier": "exceptional",
-   "weaponSpeed": 25,
-   "label": "Fast",
-   "q": 21,
-   "dmgFactor": 0.8,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     62,
-     114
-    ],
-    "dmgMid": [
-     53,
-     88
-    ],
-    "aps": 2.362,
-    "dps": 166.6
-   },
-   "oldWsm": -4,
-   "reqStat": "mark"
-  },
-  "Lid Glaive": {
-   "type": "spear",
-   "set": "staff",
-   "line": "Ferry Pike",
-   "tier": "elite",
-   "weaponSpeed": 55,
+   "variant": "Very Fast",
    "label": "Very Fast",
-   "q": 38,
-   "dmgFactor": 0.6452,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     165,
-     303
-    ],
-    "dmgMid": [
-     142,
-     234
-    ],
-    "aps": 2.929,
-    "dps": 550.7
-   },
-   "oldWsm": -4,
-   "reqStat": "mark"
+   "weaponSpeed": 40,
+   "castSpeed": 0,
+   "dmg": [
+    5,
+    32
+   ],
+   "refIlvl": 20,
+   "q": 3,
+   "reqStat": "mark",
+   "line": "Wick Rapier",
+   "note": "Wick Rapier. A thin rapier. Very fast, wild damage: a scratch or a ruin.",
+   "aps": 2.646,
+   "dps": 49.0,
+   "model": "Crypt Brand"
+  },
+  "Silt Rapier": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
+   "tier": "exceptional",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 57,
+   "castSpeed": 0,
+   "dmg": [
+    35,
+    245
+   ],
+   "refIlvl": 100,
+   "q": 18,
+   "reqStat": "mark",
+   "line": "Wick Rapier",
+   "note": "Silt Rapier. A thin rapier. Very fast, wild damage: a scratch or a ruin. Better made, a faster hand.",
+   "aps": 2.967,
+   "dps": 415.4,
+   "model": "Grave Brand"
+  },
+  "Sable Rapier": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
+   "tier": "elite",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 73,
+   "castSpeed": 0,
+   "dmg": [
+    83,
+    577
+   ],
+   "refIlvl": 150,
+   "q": 34,
+   "reqStat": "mark",
+   "line": "Wick Rapier",
+   "note": "Sable Rapier. A thin rapier. Very fast, wild damage: a scratch or a ruin. Forged for the end of Nightmare and for Hell.",
+   "aps": 3.27,
+   "dps": 1079.0,
+   "model": "Obsidian Brand"
+  },
+  "Rubric Rapier": {
+   "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
+   "set": "sword",
+   "tier": "mythic",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 90,
+   "castSpeed": 0,
+   "dmg": [
+    139,
+    972
+   ],
+   "refIlvl": 183,
+   "q": 94,
+   "reqStat": "mark",
+   "line": "Wick Rapier",
+   "note": "Rubric Rapier. A thin rapier. Very fast, wild damage: a scratch or a ruin. Unwritten. It only drops beyond the last page.",
+   "aps": 3.591,
+   "dps": 1994.8,
+   "model": "Obsidian Brand"
+  },
+  "Parish Broadaxe": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "normal",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": -12,
+   "castSpeed": 0,
+   "dmg": [
+    12,
+    43
+   ],
+   "refIlvl": 20,
+   "q": 2,
+   "reqStat": "brawn",
+   "line": "Parish Broadaxe",
+   "note": "Parish Broadaxe. A broad axe for one hand. Slow, and it bites deep.",
+   "aps": 1.663,
+   "dps": 45.7,
+   "model": "Briar Hatchet"
+  },
+  "Grave Broadaxe": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "exceptional",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 5,
+   "castSpeed": 0,
+   "dmg": [
+    89,
+    305
+   ],
+   "refIlvl": 100,
+   "q": 17,
+   "reqStat": "brawn",
+   "line": "Parish Broadaxe",
+   "note": "Grave Broadaxe. A broad axe for one hand. Slow, and it bites deep. Better made, a faster hand.",
+   "aps": 1.984,
+   "dps": 390.9,
+   "model": "Cinder Axe"
+  },
+  "Obsidian Broadaxe": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "elite",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 21,
+   "castSpeed": 0,
+   "dmg": [
+    200,
+    687
+   ],
+   "refIlvl": 150,
+   "q": 34,
+   "reqStat": "brawn",
+   "line": "Parish Broadaxe",
+   "note": "Obsidian Broadaxe. A broad axe for one hand. Slow, and it bites deep. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.287,
+   "dps": 1014.2,
+   "model": "Sable Cleaver"
+  },
+  "Errata Broadaxe": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "mythic",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 38,
+   "castSpeed": 0,
+   "dmg": [
+    323,
+    1114
+   ],
+   "refIlvl": 183,
+   "q": 94,
+   "reqStat": "brawn",
+   "line": "Parish Broadaxe",
+   "note": "Errata Broadaxe. A broad axe for one hand. Slow, and it bites deep. Unwritten. It only drops beyond the last page.",
+   "aps": 2.608,
+   "dps": 1874.0,
+   "model": "Obsidian Broadaxe"
   },
   "Briar Hatchet": {
    "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
    "set": "greataxe",
-   "line": "Briar Hatchet",
    "tier": "normal",
-   "weaponSpeed": -5,
-   "label": "Normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 0,
+   "castSpeed": 0,
+   "dmg": [
+    14,
+    34
+   ],
+   "refIlvl": 20,
    "q": 4,
-   "dmgFactor": 1.0526,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     13,
-     25
-    ],
-    "dmgMid": [
-     11,
-     19
-    ],
-    "aps": 1.795,
-    "dps": 26.9
-   },
-   "oldWsm": 2,
-   "reqStat": "brawn"
+   "reqStat": "brawn",
+   "line": "Briar Hatchet",
+   "note": "Briar Hatchet. A camp axe. Medium speed, steady bite.",
+   "aps": 1.89,
+   "dps": 45.4,
+   "model": "Briar Hatchet"
   },
   "Cinder Axe": {
    "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
    "set": "greataxe",
-   "line": "Briar Hatchet",
    "tier": "exceptional",
-   "weaponSpeed": 20,
-   "label": "Fast",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 17,
+   "castSpeed": 0,
+   "dmg": [
+    105,
+    245
+   ],
+   "refIlvl": 100,
    "q": 19,
-   "dmgFactor": 0.8333,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     65,
-     119
-    ],
-    "dmgMid": [
-     56,
-     92
-    ],
-    "aps": 2.268,
-    "dps": 167.8
-   },
-   "oldWsm": 2,
-   "reqStat": "brawn"
+   "reqStat": "brawn",
+   "line": "Briar Hatchet",
+   "note": "Cinder Axe. A camp axe. Medium speed, steady bite. Better made, a faster hand.",
+   "aps": 2.211,
+   "dps": 387.0,
+   "model": "Cinder Axe"
   },
   "Sable Cleaver": {
    "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
    "set": "greataxe",
-   "line": "Briar Hatchet",
    "tier": "elite",
-   "weaponSpeed": 50,
-   "label": "Very Fast",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 33,
+   "castSpeed": 0,
+   "dmg": [
+    240,
+    559
+   ],
+   "refIlvl": 150,
    "q": 36,
-   "dmgFactor": 0.6667,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     171,
-     314
-    ],
-    "dmgMid": [
-     147,
-     242
-    ],
-    "aps": 2.835,
-    "dps": 551.4
-   },
-   "oldWsm": 2,
-   "reqStat": "brawn"
+   "reqStat": "brawn",
+   "line": "Briar Hatchet",
+   "note": "Sable Cleaver. A camp axe. Medium speed, steady bite. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.514,
+   "dps": 1004.2,
+   "model": "Sable Cleaver"
   },
-  "Ash Staff": {
-   "type": "staff",
-   "set": "staff",
-   "line": "Ash Staff",
+  "Gilt Cleaver": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 50,
+   "castSpeed": 0,
+   "dmg": [
+    393,
+    916
+   ],
+   "refIlvl": 183,
+   "q": 96,
+   "reqStat": "brawn",
+   "line": "Briar Hatchet",
+   "note": "Gilt Cleaver. A camp axe. Medium speed, steady bite. Unwritten. It only drops beyond the last page.",
+   "aps": 2.835,
+   "dps": 1855.5,
+   "model": "Obsidian Broadaxe"
+  },
+  "Ash Hatchet": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
    "tier": "normal",
-   "weaponSpeed": -10,
-   "label": "Slow",
-   "q": 3,
-   "dmgFactor": 1.1111,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     14,
-     26
-    ],
-    "dmgMid": [
-     12,
-     20
-    ],
-    "aps": 1.701,
-    "dps": 27.2
-   },
-   "oldWsm": 10,
-   "castSpeed": 10,
-   "reqStat": "brawn"
-  },
-  "Chapel Staff": {
-   "type": "staff",
-   "set": "staff",
-   "line": "Ash Staff",
-   "tier": "exceptional",
+   "variant": "Fast",
+   "label": "Fast",
    "weaponSpeed": 15,
-   "label": "Fast",
-   "q": 18,
-   "dmgFactor": 0.8696,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     68,
-     124
-    ],
-    "dmgMid": [
-     58,
-     96
-    ],
-    "aps": 2.173,
-    "dps": 167.4
-   },
-   "oldWsm": 10,
-   "castSpeed": 20,
-   "reqStat": "brawn"
+   "castSpeed": 0,
+   "dmg": [
+    10,
+    32
+   ],
+   "refIlvl": 20,
+   "q": 6,
+   "reqStat": "brawn",
+   "line": "Ash Hatchet",
+   "note": "Ash Hatchet. A light hatchet. Fast chops, good with a shield.",
+   "aps": 2.173,
+   "dps": 45.6,
+   "model": "Parish Broadaxe"
   },
-  "Weald Staff": {
-   "type": "staff",
-   "set": "staff",
-   "line": "Ash Staff",
-   "tier": "elite",
-   "weaponSpeed": 40,
+  "Thorn Hatchet": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "exceptional",
+   "variant": "Fast",
    "label": "Fast",
+   "weaponSpeed": 32,
+   "castSpeed": 0,
+   "dmg": [
+    78,
+    234
+   ],
+   "refIlvl": 100,
+   "q": 21,
+   "reqStat": "brawn",
+   "line": "Ash Hatchet",
+   "note": "Thorn Hatchet. A light hatchet. Fast chops, good with a shield. Better made, a faster hand.",
+   "aps": 2.495,
+   "dps": 389.2,
+   "model": "Grave Broadaxe"
+  },
+  "Spire Hatchet": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 48,
+   "castSpeed": 0,
+   "dmg": [
+    181,
+    542
+   ],
+   "refIlvl": 150,
+   "q": 38,
+   "reqStat": "brawn",
+   "line": "Ash Hatchet",
+   "note": "Spire Hatchet. A light hatchet. Fast chops, good with a shield. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.797,
+   "dps": 1011.2,
+   "model": "Obsidian Broadaxe"
+  },
+  "Folio Hatchet": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "mythic",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 65,
+   "castSpeed": 0,
+   "dmg": [
+    300,
+    898
+   ],
+   "refIlvl": 183,
+   "q": 98,
+   "reqStat": "brawn",
+   "line": "Ash Hatchet",
+   "note": "Folio Hatchet. A light hatchet. Fast chops, good with a shield. Unwritten. It only drops beyond the last page.",
+   "aps": 3.118,
+   "dps": 1868.0,
+   "model": "Obsidian Broadaxe"
+  },
+  "Wick Handaxe": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "normal",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 40,
+   "castSpeed": 0,
+   "dmg": [
+    5,
+    30
+   ],
+   "refIlvl": 20,
+   "q": 8,
+   "reqStat": "brawn",
+   "line": "Wick Handaxe",
+   "note": "Wick Handaxe. A throwing-weight handaxe. Very fast, and the damage swings wide.",
+   "aps": 2.646,
+   "dps": 46.3,
+   "model": "Parish Broadaxe"
+  },
+  "Bile Handaxe": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "exceptional",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 57,
+   "castSpeed": 0,
+   "dmg": [
+    40,
+    226
+   ],
+   "refIlvl": 100,
+   "q": 23,
+   "reqStat": "brawn",
+   "line": "Wick Handaxe",
+   "note": "Bile Handaxe. A throwing-weight handaxe. Very fast, and the damage swings wide. Better made, a faster hand.",
+   "aps": 2.967,
+   "dps": 394.7,
+   "model": "Grave Broadaxe"
+  },
+  "Spite Handaxe": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "elite",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 73,
+   "castSpeed": 0,
+   "dmg": [
+    94,
+    533
+   ],
+   "refIlvl": 150,
+   "q": 40,
+   "reqStat": "brawn",
+   "line": "Wick Handaxe",
+   "note": "Spite Handaxe. A throwing-weight handaxe. Very fast, and the damage swings wide. Forged for the end of Nightmare and for Hell.",
+   "aps": 3.27,
+   "dps": 1025.1,
+   "model": "Obsidian Broadaxe"
+  },
+  "Rubric Handaxe": {
+   "type": "axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "mythic",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 90,
+   "castSpeed": 0,
+   "dmg": [
+    158,
+    896
+   ],
+   "refIlvl": 183,
+   "q": 100,
+   "reqStat": "brawn",
+   "line": "Wick Handaxe",
+   "note": "Rubric Handaxe. A throwing-weight handaxe. Very fast, and the damage swings wide. Unwritten. It only drops beyond the last page.",
+   "aps": 3.591,
+   "dps": 1892.5,
+   "model": "Obsidian Broadaxe"
+  },
+  "Iron Warpike": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "normal",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -20,
+   "castSpeed": 0,
+   "dmg": [
+    12,
+    48
+   ],
+   "refIlvl": 20,
+   "q": 2,
+   "reqStat": "mark",
+   "line": "Iron Warpike",
+   "note": "Iron Warpike. A long war pike. Very slow, wide damage, keeps them at bay.",
+   "aps": 1.512,
+   "dps": 45.4,
+   "model": "Ferry Pike"
+  },
+  "Grave Warpike": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "exceptional",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -3,
+   "castSpeed": 0,
+   "dmg": [
+    86,
+    342
+   ],
+   "refIlvl": 100,
+   "q": 17,
+   "reqStat": "mark",
+   "line": "Iron Warpike",
+   "note": "Grave Warpike. A long war pike. Very slow, wide damage, keeps them at bay. Better made, a faster hand.",
+   "aps": 1.833,
+   "dps": 392.3,
+   "model": "Mourning Spear"
+  },
+  "King's Warpike": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "elite",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 13,
+   "castSpeed": 0,
+   "dmg": [
+    191,
+    762
+   ],
+   "refIlvl": 150,
    "q": 34,
-   "dmgFactor": 0.7143,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     183,
-     336
-    ],
-    "dmgMid": [
-     158,
-     260
-    ],
-    "aps": 2.646,
-    "dps": 553.0
-   },
-   "oldWsm": 10,
-   "castSpeed": 30,
-   "reqStat": "brawn"
+   "reqStat": "mark",
+   "line": "Iron Warpike",
+   "note": "King's Warpike. A long war pike. Very slow, wide damage, keeps them at bay. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.136,
+   "dps": 1017.7,
+   "model": "Lid Glaive"
+  },
+  "Errata Warpike": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "mythic",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 30,
+   "castSpeed": 0,
+   "dmg": [
+    306,
+    1225
+   ],
+   "refIlvl": 183,
+   "q": 94,
+   "reqStat": "mark",
+   "line": "Iron Warpike",
+   "note": "Errata Warpike. A long war pike. Very slow, wide damage, keeps them at bay. Unwritten. It only drops beyond the last page.",
+   "aps": 2.457,
+   "dps": 1880.8,
+   "model": "King's Warpike"
+  },
+  "Crypt Spear": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "normal",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": -10,
+   "castSpeed": 0,
+   "dmg": [
+    16,
+    37
+   ],
+   "refIlvl": 20,
+   "q": 4,
+   "reqStat": "mark",
+   "line": "Crypt Spear",
+   "note": "Crypt Spear. A heavy spear. Slow thrust, long reach.",
+   "aps": 1.701,
+   "dps": 45.1,
+   "model": "Iron Warpike"
+  },
+  "Bile Spear": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "exceptional",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 7,
+   "castSpeed": 0,
+   "dmg": [
+    115,
+    268
+   ],
+   "refIlvl": 100,
+   "q": 19,
+   "reqStat": "mark",
+   "line": "Crypt Spear",
+   "note": "Bile Spear. A heavy spear. Slow thrust, long reach. Better made, a faster hand.",
+   "aps": 2.022,
+   "dps": 387.3,
+   "model": "Grave Warpike"
+  },
+  "Rite Glaive": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "elite",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 23,
+   "castSpeed": 0,
+   "dmg": [
+    259,
+    605
+   ],
+   "refIlvl": 150,
+   "q": 36,
+   "reqStat": "mark",
+   "line": "Crypt Spear",
+   "note": "Rite Glaive. A heavy spear. Slow thrust, long reach. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.325,
+   "dps": 1004.3,
+   "model": "King's Warpike"
+  },
+  "Gilt Glaive": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "mythic",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 40,
+   "castSpeed": 0,
+   "dmg": [
+    421,
+    982
+   ],
+   "refIlvl": 183,
+   "q": 96,
+   "reqStat": "mark",
+   "line": "Crypt Spear",
+   "note": "Gilt Glaive. A heavy spear. Slow thrust, long reach. Unwritten. It only drops beyond the last page.",
+   "aps": 2.646,
+   "dps": 1856.2,
+   "model": "King's Warpike"
+  },
+  "Ferry Pike": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 0,
+   "castSpeed": 0,
+   "dmg": [
+    17,
+    30
+   ],
+   "refIlvl": 20,
+   "q": 6,
+   "reqStat": "mark",
+   "line": "Ferry Pike",
+   "note": "Ferry Pike. A ferryman's pike. Medium speed, tight damage, long reach.",
+   "aps": 1.89,
+   "dps": 44.4,
+   "model": "Ferry Pike"
+  },
+  "Mourning Spear": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "exceptional",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 17,
+   "castSpeed": 0,
+   "dmg": [
+    122,
+    227
+   ],
+   "refIlvl": 100,
+   "q": 21,
+   "reqStat": "mark",
+   "line": "Ferry Pike",
+   "note": "Mourning Spear. A ferryman's pike. Medium speed, tight damage, long reach. Better made, a faster hand.",
+   "aps": 2.211,
+   "dps": 385.9,
+   "model": "Mourning Spear"
+  },
+  "Lid Glaive": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "elite",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 33,
+   "castSpeed": 0,
+   "dmg": [
+    279,
+    517
+   ],
+   "refIlvl": 150,
+   "q": 38,
+   "reqStat": "mark",
+   "line": "Ferry Pike",
+   "note": "Lid Glaive. A ferryman's pike. Medium speed, tight damage, long reach. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.514,
+   "dps": 1000.5,
+   "model": "Lid Glaive"
+  },
+  "Folio Pike": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 50,
+   "castSpeed": 0,
+   "dmg": [
+    457,
+    848
+   ],
+   "refIlvl": 183,
+   "q": 98,
+   "reqStat": "mark",
+   "line": "Ferry Pike",
+   "note": "Folio Pike. A ferryman's pike. Medium speed, tight damage, long reach. Unwritten. It only drops beyond the last page.",
+   "aps": 2.835,
+   "dps": 1849.8,
+   "model": "King's Warpike"
+  },
+  "Briar Spear": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "normal",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 20,
+   "castSpeed": 0,
+   "dmg": [
+    10,
+    30
+   ],
+   "refIlvl": 20,
+   "q": 8,
+   "reqStat": "mark",
+   "line": "Briar Spear",
+   "note": "Briar Spear. A light spear. Fast jabs from out of reach.",
+   "aps": 2.268,
+   "dps": 45.4,
+   "model": "Iron Warpike"
+  },
+  "Thorn Spear": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "exceptional",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 37,
+   "castSpeed": 0,
+   "dmg": [
+    75,
+    226
+   ],
+   "refIlvl": 100,
+   "q": 23,
+   "reqStat": "mark",
+   "line": "Briar Spear",
+   "note": "Thorn Spear. A light spear. Fast jabs from out of reach. Better made, a faster hand.",
+   "aps": 2.589,
+   "dps": 389.7,
+   "model": "Grave Warpike"
+  },
+  "Spite Spear": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 53,
+   "castSpeed": 0,
+   "dmg": [
+    175,
+    524
+   ],
+   "refIlvl": 150,
+   "q": 40,
+   "reqStat": "mark",
+   "line": "Briar Spear",
+   "note": "Spite Spear. A light spear. Fast jabs from out of reach. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.892,
+   "dps": 1010.6,
+   "model": "King's Warpike"
+  },
+  "Rubric Spear": {
+   "type": "spear",
+   "kind": "spear",
+   "cls": "Polearm",
+   "set": "staff",
+   "tier": "mythic",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 70,
+   "castSpeed": 0,
+   "dmg": [
+    291,
+    872
+   ],
+   "refIlvl": 183,
+   "q": 100,
+   "reqStat": "mark",
+   "line": "Briar Spear",
+   "note": "Rubric Spear. A light spear. Fast jabs from out of reach. Unwritten. It only drops beyond the last page.",
+   "aps": 3.213,
+   "dps": 1868.4,
+   "model": "King's Warpike"
+  },
+  "Iron Maul": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "normal",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -25,
+   "castSpeed": 0,
+   "dmg": [
+    25,
+    38
+   ],
+   "refIlvl": 20,
+   "q": 6,
+   "reqStat": "brawn",
+   "line": "Iron Maul",
+   "note": "Iron Maul. A two-fist maul for one hand. Very slow, and it never misses its weight.",
+   "aps": 1.417,
+   "dps": 44.7,
+   "model": "Chapel Maul"
+  },
+  "Grave Maul": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "exceptional",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -8,
+   "castSpeed": 0,
+   "dmg": [
+    177,
+    267
+   ],
+   "refIlvl": 100,
+   "q": 22,
+   "reqStat": "brawn",
+   "line": "Iron Maul",
+   "note": "Grave Maul. A two-fist maul for one hand. Very slow, and it never misses its weight. Better made, a faster hand.",
+   "aps": 1.739,
+   "dps": 386.0,
+   "model": "Mercy Hammer"
+  },
+  "Obsidian Maul": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "elite",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 8,
+   "castSpeed": 0,
+   "dmg": [
+    392,
+    589
+   ],
+   "refIlvl": 150,
+   "q": 40,
+   "reqStat": "brawn",
+   "line": "Iron Maul",
+   "note": "Obsidian Maul. A two-fist maul for one hand. Very slow, and it never misses its weight. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.041,
+   "dps": 1001.2,
+   "model": "Inquisitor's Nail"
+  },
+  "Errata Maul": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "mythic",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 25,
+   "castSpeed": 0,
+   "dmg": [
+    626,
+    940
+   ],
+   "refIlvl": 183,
+   "q": 100,
+   "reqStat": "brawn",
+   "line": "Iron Maul",
+   "note": "Errata Maul. A two-fist maul for one hand. Very slow, and it never misses its weight. Unwritten. It only drops beyond the last page.",
+   "aps": 2.362,
+   "dps": 1849.8,
+   "model": "Obsidian Maul"
   },
   "Chapel Maul": {
    "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
    "set": "sword",
-   "line": "Chapel Maul",
    "tier": "normal",
-   "weaponSpeed": -10,
+   "variant": "Slow",
    "label": "Slow",
+   "weaponSpeed": -12,
+   "castSpeed": 0,
+   "dmg": [
+    23,
+    31
+   ],
+   "refIlvl": 20,
    "q": 8,
-   "dmgFactor": 1.1111,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     14,
-     26
-    ],
-    "dmgMid": [
-     12,
-     20
-    ],
-    "aps": 1.701,
-    "dps": 27.2
-   },
-   "oldWsm": 10,
-   "reqStat": "brawn"
+   "reqStat": "brawn",
+   "line": "Chapel Maul",
+   "note": "Chapel Maul. A chapel maul. Slow and steady. Every blow does about the same.",
+   "aps": 1.663,
+   "dps": 44.9,
+   "model": "Chapel Maul"
   },
   "Mercy Hammer": {
    "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
    "set": "sword",
-   "line": "Chapel Maul",
    "tier": "exceptional",
-   "weaponSpeed": 15,
-   "label": "Fast",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 5,
+   "castSpeed": 0,
+   "dmg": [
+    165,
+    224
+   ],
+   "refIlvl": 100,
    "q": 24,
-   "dmgFactor": 0.8696,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     68,
-     124
-    ],
-    "dmgMid": [
-     58,
-     96
-    ],
-    "aps": 2.173,
-    "dps": 167.4
-   },
-   "oldWsm": 10,
-   "reqStat": "brawn"
+   "reqStat": "brawn",
+   "line": "Chapel Maul",
+   "note": "Mercy Hammer. A chapel maul. Slow and steady. Every blow does about the same. Better made, a faster hand.",
+   "aps": 1.984,
+   "dps": 386.0,
+   "model": "Mercy Hammer"
   },
   "Inquisitor's Nail": {
    "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
    "set": "sword",
-   "line": "Chapel Maul",
    "tier": "elite",
-   "weaponSpeed": 40,
-   "label": "Fast",
-   "q": 42,
-   "dmgFactor": 0.7143,
-   "twoHandPremium": false,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     183,
-     336
-    ],
-    "dmgMid": [
-     158,
-     260
-    ],
-    "aps": 2.646,
-    "dps": 553.0
-   },
-   "oldWsm": 10,
-   "reqStat": "brawn"
-  },
-  "Yew Longbow": {
-   "type": "long bow",
-   "set": "bow",
-   "line": "Yew Longbow",
-   "tier": "normal",
-   "weaponSpeed": -15,
+   "variant": "Slow",
    "label": "Slow",
-   "q": 4,
-   "dmgFactor": 1.3176,
-   "twoHandPremium": true,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     17,
-     31
-    ],
-    "dmgMid": [
-     14,
-     24
-    ],
-    "aps": 1.606,
-    "dps": 30.5
-   },
-   "oldWsm": 14,
-   "reqStat": "brawn"
+   "weaponSpeed": 21,
+   "castSpeed": 0,
+   "dmg": [
+    372,
+    503
+   ],
+   "refIlvl": 150,
+   "q": 42,
+   "reqStat": "brawn",
+   "line": "Chapel Maul",
+   "note": "Inquisitor's Nail. A chapel maul. Slow and steady. Every blow does about the same. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.287,
+   "dps": 1000.5,
+   "model": "Inquisitor's Nail"
   },
-  "Ash Longbow": {
-   "type": "long bow",
-   "set": "bow",
-   "line": "Yew Longbow",
+  "Gilt Nail": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "mythic",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 38,
+   "castSpeed": 0,
+   "dmg": [
+    603,
+    815
+   ],
+   "refIlvl": 183,
+   "q": 102,
+   "reqStat": "brawn",
+   "line": "Chapel Maul",
+   "note": "Gilt Nail. A chapel maul. Slow and steady. Every blow does about the same. Unwritten. It only drops beyond the last page.",
+   "aps": 2.608,
+   "dps": 1849.2,
+   "model": "Obsidian Maul"
+  },
+  "Parish Mace": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 0,
+   "castSpeed": 0,
+   "dmg": [
+    18,
+    29
+   ],
+   "refIlvl": 20,
+   "q": 10,
+   "reqStat": "brawn",
+   "line": "Parish Mace",
+   "note": "Parish Mace. A parish mace. Medium speed, tight, dependable damage.",
+   "aps": 1.89,
+   "dps": 44.4,
+   "model": "Iron Maul"
+  },
+  "Ash Mace": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
    "tier": "exceptional",
-   "weaponSpeed": 10,
-   "label": "Fast",
-   "q": 18,
-   "dmgFactor": 1.0182,
-   "twoHandPremium": true,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     79,
-     146
-    ],
-    "dmgMid": [
-     68,
-     112
-    ],
-    "aps": 2.079,
-    "dps": 187.1
-   },
-   "oldWsm": 14,
-   "reqStat": "brawn"
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 17,
+   "castSpeed": 0,
+   "dmg": [
+    131,
+    218
+   ],
+   "refIlvl": 100,
+   "q": 26,
+   "reqStat": "brawn",
+   "line": "Parish Mace",
+   "note": "Ash Mace. A parish mace. Medium speed, tight, dependable damage. Better made, a faster hand.",
+   "aps": 2.211,
+   "dps": 385.9,
+   "model": "Grave Maul"
   },
-  "Spire Longbow": {
-   "type": "long bow",
-   "set": "bow",
-   "line": "Yew Longbow",
+  "Spire Mace": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
    "tier": "elite",
-   "weaponSpeed": 35,
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 33,
+   "castSpeed": 0,
+   "dmg": [
+    299,
+    497
+   ],
+   "refIlvl": 150,
+   "q": 44,
+   "reqStat": "brawn",
+   "line": "Parish Mace",
+   "note": "Spire Mace. A parish mace. Medium speed, tight, dependable damage. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.514,
+   "dps": 1000.5,
+   "model": "Obsidian Maul"
+  },
+  "Folio Mace": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 50,
+   "castSpeed": 0,
+   "dmg": [
+    489,
+    816
+   ],
+   "refIlvl": 183,
+   "q": 104,
+   "reqStat": "brawn",
+   "line": "Parish Mace",
+   "note": "Folio Mace. A parish mace. Medium speed, tight, dependable damage. Unwritten. It only drops beyond the last page.",
+   "aps": 2.835,
+   "dps": 1849.8,
+   "model": "Obsidian Maul"
+  },
+  "Tin Hammer": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "normal",
+   "variant": "Fast",
    "label": "Fast",
-   "q": 36,
-   "dmgFactor": 0.8296,
-   "twoHandPremium": true,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     213,
-     390
-    ],
-    "dmgMid": [
-     184,
-     302
-    ],
-    "aps": 2.551,
-    "dps": 620.0
-   },
-   "oldWsm": 14,
-   "reqStat": "brawn"
+   "weaponSpeed": 15,
+   "castSpeed": 0,
+   "dmg": [
+    13,
+    28
+   ],
+   "refIlvl": 20,
+   "q": 12,
+   "reqStat": "brawn",
+   "line": "Tin Hammer",
+   "note": "Tin Hammer. A light war hammer. Fast, and still crushes.",
+   "aps": 2.173,
+   "dps": 44.6,
+   "model": "Iron Maul"
+  },
+  "Bone Hammer": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "exceptional",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 32,
+   "castSpeed": 0,
+   "dmg": [
+    100,
+    209
+   ],
+   "refIlvl": 100,
+   "q": 28,
+   "reqStat": "brawn",
+   "line": "Tin Hammer",
+   "note": "Bone Hammer. A light war hammer. Fast, and still crushes. Better made, a faster hand.",
+   "aps": 2.495,
+   "dps": 385.4,
+   "model": "Grave Maul"
+  },
+  "Rite Hammer": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 48,
+   "castSpeed": 0,
+   "dmg": [
+    233,
+    483
+   ],
+   "refIlvl": 150,
+   "q": 46,
+   "reqStat": "brawn",
+   "line": "Tin Hammer",
+   "note": "Rite Hammer. A light war hammer. Fast, and still crushes. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.797,
+   "dps": 1001.4,
+   "model": "Obsidian Maul"
+  },
+  "Rubric Hammer": {
+   "type": "mace",
+   "kind": "mace",
+   "cls": "Mace",
+   "set": "sword",
+   "tier": "mythic",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 65,
+   "castSpeed": 0,
+   "dmg": [
+    386,
+    800
+   ],
+   "refIlvl": 183,
+   "q": 106,
+   "reqStat": "brawn",
+   "line": "Tin Hammer",
+   "note": "Rubric Hammer. A light war hammer. Fast, and still crushes. Unwritten. It only drops beyond the last page.",
+   "aps": 3.118,
+   "dps": 1849.3,
+   "model": "Obsidian Maul"
+  },
+  "Ferry Greataxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "normal",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -30,
+   "castSpeed": 0,
+   "dmg": [
+    18,
+    63
+   ],
+   "refIlvl": 20,
+   "q": 4,
+   "reqStat": "brawn",
+   "line": "Ferry Greataxe",
+   "note": "Ferry Greataxe. A great axe for the strongest arms. Very slow. Nothing hits harder.",
+   "aps": 1.323,
+   "dps": 53.6,
+   "hands": 2,
+   "model": "Timber Axe"
+  },
+  "Grave Greataxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "exceptional",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -13,
+   "castSpeed": 0,
+   "dmg": [
+    126,
+    435
+   ],
+   "refIlvl": 100,
+   "q": 20,
+   "reqStat": "brawn",
+   "line": "Ferry Greataxe",
+   "note": "Grave Greataxe. A great axe for the strongest arms. Very slow. Nothing hits harder. Better made, a faster hand.",
+   "aps": 1.644,
+   "dps": 461.2,
+   "hands": 2,
+   "model": "War Axe"
+  },
+  "Obsidian Greataxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "elite",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 3,
+   "castSpeed": 0,
+   "dmg": [
+    277,
+    953
+   ],
+   "refIlvl": 150,
+   "q": 38,
+   "reqStat": "brawn",
+   "line": "Ferry Greataxe",
+   "note": "Obsidian Greataxe. A great axe for the strongest arms. Very slow. Nothing hits harder. Forged for the end of Nightmare and for Hell.",
+   "aps": 1.947,
+   "dps": 1197.2,
+   "hands": 2,
+   "model": "Kingrender"
+  },
+  "Errata Greataxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "mythic",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 20,
+   "castSpeed": 0,
+   "dmg": [
+    439,
+    1511
+   ],
+   "refIlvl": 183,
+   "q": 98,
+   "reqStat": "brawn",
+   "line": "Ferry Greataxe",
+   "note": "Errata Greataxe. A great axe for the strongest arms. Very slow. Nothing hits harder. Unwritten. It only drops beyond the last page.",
+   "aps": 2.268,
+   "dps": 2211.3,
+   "hands": 2,
+   "model": "Obsidian Greataxe"
   },
   "Timber Axe": {
    "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
    "set": "greataxe",
-   "line": "Timber Axe",
    "tier": "normal",
-   "weaponSpeed": -25,
-   "label": "Very Slow",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": -15,
+   "castSpeed": 0,
+   "dmg": [
+    18,
+    48
+   ],
+   "refIlvl": 20,
    "q": 6,
-   "dmgFactor": 1.4933,
-   "twoHandPremium": true,
-   "example": {
-    "ilvl": 10,
-    "rarity": "common",
-    "dmgHiRange": [
-     19,
-     35
-    ],
-    "dmgMid": [
-     16,
-     27
-    ],
-    "aps": 1.417,
-    "dps": 30.5
-   },
-   "oldWsm": 20,
-   "reqStat": "brawn"
+   "reqStat": "brawn",
+   "line": "Timber Axe",
+   "note": "Timber Axe. A great woodsman's axe. Slow, brutal, two hands.",
+   "aps": 1.606,
+   "dps": 53.0,
+   "hands": 2,
+   "model": "Timber Axe"
   },
   "War Axe": {
    "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
    "set": "greataxe",
-   "line": "Timber Axe",
    "tier": "exceptional",
-   "weaponSpeed": 0,
-   "label": "Normal",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 2,
+   "castSpeed": 0,
+   "dmg": [
+    131,
+    344
+   ],
+   "refIlvl": 100,
    "q": 22,
-   "dmgFactor": 1.12,
-   "twoHandPremium": true,
-   "example": {
-    "ilvl": 40,
-    "rarity": "common",
-    "dmgHiRange": [
-     87,
-     160
-    ],
-    "dmgMid": [
-     75,
-     124
-    ],
-    "aps": 1.89,
-    "dps": 188.1
-   },
-   "oldWsm": 20,
-   "reqStat": "brawn"
+   "reqStat": "brawn",
+   "line": "Timber Axe",
+   "note": "War Axe. A great woodsman's axe. Slow, brutal, two hands. Better made, a faster hand.",
+   "aps": 1.928,
+   "dps": 457.9,
+   "hands": 2,
+   "model": "War Axe"
   },
   "Kingrender": {
    "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
    "set": "greataxe",
-   "line": "Timber Axe",
    "tier": "elite",
-   "weaponSpeed": 25,
-   "label": "Fast",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 18,
+   "castSpeed": 0,
+   "dmg": [
+    293,
+    773
+   ],
+   "refIlvl": 150,
    "q": 40,
-   "dmgFactor": 0.896,
-   "twoHandPremium": true,
-   "example": {
-    "ilvl": 80,
-    "rarity": "common",
-    "dmgHiRange": [
-     230,
-     422
-    ],
-    "dmgMid": [
-     198,
-     326
-    ],
-    "aps": 2.362,
-    "dps": 619.0
-   },
-   "oldWsm": 20,
-   "reqStat": "brawn"
+   "reqStat": "brawn",
+   "line": "Timber Axe",
+   "note": "Kingrender. It has ended dynasties.",
+   "aps": 2.23,
+   "dps": 1188.7,
+   "hands": 2,
+   "model": "Kingrender"
+  },
+  "Pagerender": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "mythic",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 35,
+   "castSpeed": 0,
+   "dmg": [
+    474,
+    1248
+   ],
+   "refIlvl": 183,
+   "q": 100,
+   "reqStat": "brawn",
+   "line": "Timber Axe",
+   "note": "Pagerender. It cuts a king out of the story.",
+   "aps": 2.551,
+   "dps": 2196.8,
+   "hands": 2,
+   "model": "Obsidian Greataxe"
+  },
+  "Iron Battleaxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 0,
+   "castSpeed": 0,
+   "dmg": [
+    18,
+    38
+   ],
+   "refIlvl": 20,
+   "q": 8,
+   "reqStat": "brawn",
+   "line": "Iron Battleaxe",
+   "note": "Iron Battleaxe. A battle axe. Medium speed for its size, and still the heaviest blow in the hall.",
+   "aps": 1.89,
+   "dps": 52.9,
+   "hands": 2,
+   "model": "Ferry Greataxe"
+  },
+  "Mourning Battleaxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "exceptional",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 17,
+   "castSpeed": 0,
+   "dmg": [
+    134,
+    278
+   ],
+   "refIlvl": 100,
+   "q": 24,
+   "reqStat": "brawn",
+   "line": "Iron Battleaxe",
+   "note": "Mourning Battleaxe. A battle axe. Medium speed for its size, and still the heaviest blow in the hall. Better made, a faster hand.",
+   "aps": 2.211,
+   "dps": 455.5,
+   "hands": 2,
+   "model": "Grave Greataxe"
+  },
+  "Spire Battleaxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "elite",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 33,
+   "castSpeed": 0,
+   "dmg": [
+    305,
+    635
+   ],
+   "refIlvl": 150,
+   "q": 42,
+   "reqStat": "brawn",
+   "line": "Iron Battleaxe",
+   "note": "Spire Battleaxe. A battle axe. Medium speed for its size, and still the heaviest blow in the hall. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.514,
+   "dps": 1181.4,
+   "hands": 2,
+   "model": "Obsidian Greataxe"
+  },
+  "Folio Battleaxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 50,
+   "castSpeed": 0,
+   "dmg": [
+    500,
+    1040
+   ],
+   "refIlvl": 183,
+   "q": 102,
+   "reqStat": "brawn",
+   "line": "Iron Battleaxe",
+   "note": "Folio Battleaxe. A battle axe. Medium speed for its size, and still the heaviest blow in the hall. Unwritten. It only drops beyond the last page.",
+   "aps": 2.835,
+   "dps": 2182.9,
+   "hands": 2,
+   "model": "Obsidian Greataxe"
+  },
+  "Briar Splitaxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "normal",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 15,
+   "castSpeed": 0,
+   "dmg": [
+    10,
+    40
+   ],
+   "refIlvl": 20,
+   "q": 10,
+   "reqStat": "brawn",
+   "line": "Briar Splitaxe",
+   "note": "Briar Splitaxe. A splitting axe. Fast for a great axe, wild damage.",
+   "aps": 2.173,
+   "dps": 54.3,
+   "hands": 2,
+   "model": "Ferry Greataxe"
+  },
+  "Cinder Splitaxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "exceptional",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 32,
+   "castSpeed": 0,
+   "dmg": [
+    74,
+    297
+   ],
+   "refIlvl": 100,
+   "q": 26,
+   "reqStat": "brawn",
+   "line": "Briar Splitaxe",
+   "note": "Cinder Splitaxe. A splitting axe. Fast for a great axe, wild damage. Better made, a faster hand.",
+   "aps": 2.495,
+   "dps": 462.8,
+   "hands": 2,
+   "model": "Grave Greataxe"
+  },
+  "Sable Splitaxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 48,
+   "castSpeed": 0,
+   "dmg": [
+    172,
+    687
+   ],
+   "refIlvl": 150,
+   "q": 44,
+   "reqStat": "brawn",
+   "line": "Briar Splitaxe",
+   "note": "Sable Splitaxe. A splitting axe. Fast for a great axe, wild damage. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.797,
+   "dps": 1201.4,
+   "hands": 2,
+   "model": "Obsidian Greataxe"
+  },
+  "Rubric Splitaxe": {
+   "type": "great axe",
+   "kind": "axe",
+   "cls": "Axe",
+   "set": "greataxe",
+   "tier": "mythic",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 65,
+   "castSpeed": 0,
+   "dmg": [
+    285,
+    1138
+   ],
+   "refIlvl": 183,
+   "q": 104,
+   "reqStat": "brawn",
+   "line": "Briar Splitaxe",
+   "note": "Rubric Splitaxe. A splitting axe. Fast for a great axe, wild damage. Unwritten. It only drops beyond the last page.",
+   "aps": 3.118,
+   "dps": 2218.8,
+   "hands": 2,
+   "model": "Obsidian Greataxe"
+  },
+  "Iron Dagger": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 5,
+   "castSpeed": 5,
+   "dmg": [
+    15,
+    27
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Iron Dagger",
+   "note": "Iron Dagger. A common dagger. Medium speed, and the hand casts a little faster with it.",
+   "aps": 1.984,
+   "dps": 41.7,
+   "model": "Stitched Blade"
+  },
+  "Grave Dagger": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "exceptional",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 22,
+   "castSpeed": 9,
+   "dmg": [
+    108,
+    200
+   ],
+   "refIlvl": 100,
+   "q": 10,
+   "reqStat": "mark",
+   "line": "Iron Dagger",
+   "note": "Grave Dagger. A common dagger. Medium speed, and the hand casts a little faster with it. Better made, a faster hand.",
+   "aps": 2.306,
+   "dps": 355.1,
+   "model": "Seam Knife"
+  },
+  "Rite Dagger": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "elite",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 38,
+   "castSpeed": 13,
+   "dmg": [
+    247,
+    459
+   ],
+   "refIlvl": 150,
+   "q": 26,
+   "reqStat": "mark",
+   "line": "Iron Dagger",
+   "note": "Rite Dagger. A common dagger. Medium speed, and the hand casts a little faster with it. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.608,
+   "dps": 920.7,
+   "model": "Widow Stitch"
+  },
+  "Errata Dagger": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 55,
+   "castSpeed": 17,
+   "dmg": [
+    407,
+    755
+   ],
+   "refIlvl": 183,
+   "q": 86,
+   "reqStat": "mark",
+   "line": "Iron Dagger",
+   "note": "Errata Dagger. A common dagger. Medium speed, and the hand casts a little faster with it. Unwritten. It only drops beyond the last page.",
+   "aps": 2.929,
+   "dps": 1702.0,
+   "model": "Rite Dagger"
+  },
+  "Tanner Knife": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "normal",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 25,
+   "castSpeed": 8,
+   "dmg": [
+    9,
+    26
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Tanner Knife",
+   "note": "Tanner Knife. A skinning knife. Fast cuts, faster spells.",
+   "aps": 2.362,
+   "dps": 41.3,
+   "model": "Iron Dagger"
+  },
+  "Bile Knife": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "exceptional",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 42,
+   "castSpeed": 12,
+   "dmg": [
+    67,
+    200
+   ],
+   "refIlvl": 100,
+   "q": 12,
+   "reqStat": "mark",
+   "line": "Tanner Knife",
+   "note": "Bile Knife. A skinning knife. Fast cuts, faster spells. Better made, a faster hand.",
+   "aps": 2.684,
+   "dps": 358.3,
+   "model": "Grave Dagger"
+  },
+  "Obsidian Knife": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 58,
+   "castSpeed": 16,
+   "dmg": [
+    156,
+    467
+   ],
+   "refIlvl": 150,
+   "q": 28,
+   "reqStat": "mark",
+   "line": "Tanner Knife",
+   "note": "Obsidian Knife. A skinning knife. Fast cuts, faster spells. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.986,
+   "dps": 930.2,
+   "model": "Rite Dagger"
+  },
+  "Gilt Knife": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "mythic",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 75,
+   "castSpeed": 20,
+   "dmg": [
+    260,
+    779
+   ],
+   "refIlvl": 183,
+   "q": 88,
+   "reqStat": "mark",
+   "line": "Tanner Knife",
+   "note": "Gilt Knife. A skinning knife. Fast cuts, faster spells. Unwritten. It only drops beyond the last page.",
+   "aps": 3.307,
+   "dps": 1718.2,
+   "model": "Rite Dagger"
+  },
+  "Briar Fang": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "normal",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 45,
+   "castSpeed": 10,
+   "dmg": [
+    4,
+    27
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Briar Fang",
+   "note": "Briar Fang. A fang-shaped blade. Very fast, scratch or gash.",
+   "aps": 2.74,
+   "dps": 42.5,
+   "model": "Iron Dagger"
+  },
+  "Thorn Fang": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "exceptional",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 62,
+   "castSpeed": 14,
+   "dmg": [
+    30,
+    208
+   ],
+   "refIlvl": 100,
+   "q": 14,
+   "reqStat": "mark",
+   "line": "Briar Fang",
+   "note": "Thorn Fang. A fang-shaped blade. Very fast, scratch or gash. Better made, a faster hand.",
+   "aps": 3.062,
+   "dps": 364.4,
+   "model": "Grave Dagger"
+  },
+  "Spite Fang": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "elite",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 78,
+   "castSpeed": 18,
+   "dmg": [
+    70,
+    492
+   ],
+   "refIlvl": 150,
+   "q": 30,
+   "reqStat": "mark",
+   "line": "Briar Fang",
+   "note": "Spite Fang. A fang-shaped blade. Very fast, scratch or gash. Forged for the end of Nightmare and for Hell.",
+   "aps": 3.364,
+   "dps": 945.3,
+   "model": "Rite Dagger"
+  },
+  "Folio Fang": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "mythic",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 95,
+   "castSpeed": 22,
+   "dmg": [
+    119,
+    829
+   ],
+   "refIlvl": 183,
+   "q": 90,
+   "reqStat": "mark",
+   "line": "Briar Fang",
+   "note": "Folio Fang. A fang-shaped blade. Very fast, scratch or gash. Unwritten. It only drops beyond the last page.",
+   "aps": 3.685,
+   "dps": 1746.9,
+   "model": "Rite Dagger"
+  },
+  "Stitched Blade": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "normal",
+   "variant": "Fastest",
+   "label": "Very Fast",
+   "weaponSpeed": 62,
+   "castSpeed": 12,
+   "dmg": [
+    5,
+    22
+   ],
+   "refIlvl": 20,
+   "q": 2,
+   "reqStat": "mark",
+   "line": "Stitched Blade",
+   "note": "Stitched Blade. The fastest blade there is. Light cuts, quick spells.",
+   "aps": 3.062,
+   "dps": 41.3,
+   "model": "Stitched Blade"
+  },
+  "Seam Knife": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "exceptional",
+   "variant": "Fastest",
+   "label": "Very Fast",
+   "weaponSpeed": 79,
+   "castSpeed": 16,
+   "dmg": [
+    43,
+    170
+   ],
+   "refIlvl": 100,
+   "q": 16,
+   "reqStat": "mark",
+   "line": "Stitched Blade",
+   "note": "Seam Knife. The fastest blade there is. Light cuts, quick spells. Better made, a faster hand.",
+   "aps": 3.383,
+   "dps": 360.3,
+   "model": "Seam Knife"
+  },
+  "Widow Stitch": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "elite",
+   "variant": "Fastest",
+   "label": "Very Fast",
+   "weaponSpeed": 95,
+   "castSpeed": 20,
+   "dmg": [
+    102,
+    406
+   ],
+   "refIlvl": 150,
+   "q": 32,
+   "reqStat": "mark",
+   "line": "Stitched Blade",
+   "note": "Widow Stitch. The fastest elite blade, and a widow-maker.",
+   "aps": 3.685,
+   "dps": 936.1,
+   "model": "Widow Stitch"
+  },
+  "Last Stitch": {
+   "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
+   "set": "dagger",
+   "tier": "mythic",
+   "variant": "Fastest",
+   "label": "Very Fast",
+   "weaponSpeed": 112,
+   "castSpeed": 24,
+   "dmg": [
+    173,
+    691
+   ],
+   "refIlvl": 183,
+   "q": 92,
+   "reqStat": "mark",
+   "line": "Stitched Blade",
+   "note": "Last Stitch. The fastest weapon ever forged.",
+   "aps": 4.007,
+   "dps": 1730.9,
+   "model": "Rite Dagger"
+  },
+  "Crypt Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "normal",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": -10,
+   "castSpeed": 0,
+   "dmg": [
+    20,
+    33
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Crypt Bow",
+   "note": "Crypt Bow. A stiff short bow. Slow draw, even arrows.",
+   "aps": 1.701,
+   "dps": 45.1,
+   "hands": 2,
+   "model": "Wicker Bow"
+  },
+  "Grave Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "exceptional",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 7,
+   "castSpeed": 0,
+   "dmg": [
+    143,
+    238
+   ],
+   "refIlvl": 100,
+   "q": 8,
+   "reqStat": "mark",
+   "line": "Crypt Bow",
+   "note": "Grave Bow. A stiff short bow. Slow draw, even arrows. Better made, a faster hand.",
+   "aps": 2.022,
+   "dps": 385.2,
+   "hands": 2,
+   "model": "Thorn Wicker"
+  },
+  "Obsidian Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "elite",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 23,
+   "castSpeed": 0,
+   "dmg": [
+    323,
+    538
+   ],
+   "refIlvl": 150,
+   "q": 24,
+   "reqStat": "mark",
+   "line": "Crypt Bow",
+   "note": "Obsidian Bow. A stiff short bow. Slow draw, even arrows. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.325,
+   "dps": 1000.8,
+   "hands": 2,
+   "model": "Spite Wicker"
+  },
+  "Errata Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "mythic",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 40,
+   "castSpeed": 0,
+   "dmg": [
+    524,
+    874
+   ],
+   "refIlvl": 183,
+   "q": 84,
+   "reqStat": "mark",
+   "line": "Crypt Bow",
+   "note": "Errata Bow. A stiff short bow. Slow draw, even arrows. Unwritten. It only drops beyond the last page.",
+   "aps": 2.646,
+   "dps": 1849.6,
+   "hands": 2,
+   "model": "Obsidian Bow"
+  },
+  "Ferry Short Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 0,
+   "castSpeed": 0,
+   "dmg": [
+    15,
+    32
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Ferry Short Bow",
+   "note": "Ferry Short Bow. A short bow. Medium draw, good for any archer.",
+   "aps": 1.89,
+   "dps": 44.4,
+   "hands": 2,
+   "model": "Crypt Bow"
+  },
+  "Mourning Short Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "exceptional",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 17,
+   "castSpeed": 0,
+   "dmg": [
+    113,
+    236
+   ],
+   "refIlvl": 100,
+   "q": 10,
+   "reqStat": "mark",
+   "line": "Ferry Short Bow",
+   "note": "Mourning Short Bow. A short bow. Medium draw, good for any archer. Better made, a faster hand.",
+   "aps": 2.211,
+   "dps": 385.9,
+   "hands": 2,
+   "model": "Grave Bow"
+  },
+  "Rite Short Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "elite",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 33,
+   "castSpeed": 0,
+   "dmg": [
+    259,
+    537
+   ],
+   "refIlvl": 150,
+   "q": 26,
+   "reqStat": "mark",
+   "line": "Ferry Short Bow",
+   "note": "Rite Short Bow. A short bow. Medium draw, good for any archer. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.514,
+   "dps": 1000.5,
+   "hands": 2,
+   "model": "Obsidian Bow"
+  },
+  "Gilt Short Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 50,
+   "castSpeed": 0,
+   "dmg": [
+    424,
+    881
+   ],
+   "refIlvl": 183,
+   "q": 86,
+   "reqStat": "mark",
+   "line": "Ferry Short Bow",
+   "note": "Gilt Short Bow. A short bow. Medium draw, good for any archer. Unwritten. It only drops beyond the last page.",
+   "aps": 2.835,
+   "dps": 1849.8,
+   "hands": 2,
+   "model": "Obsidian Bow"
+  },
+  "Briar Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "normal",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 25,
+   "castSpeed": 0,
+   "dmg": [
+    10,
+    28
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Briar Bow",
+   "note": "Briar Bow. A light hunting bow. Fast arrows.",
+   "aps": 2.362,
+   "dps": 44.9,
+   "hands": 2,
+   "model": "Crypt Bow"
+  },
+  "Cinder Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "exceptional",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 42,
+   "castSpeed": 0,
+   "dmg": [
+    73,
+    217
+   ],
+   "refIlvl": 100,
+   "q": 12,
+   "reqStat": "mark",
+   "line": "Briar Bow",
+   "note": "Cinder Bow. A light hunting bow. Fast arrows. Better made, a faster hand.",
+   "aps": 2.684,
+   "dps": 389.2,
+   "hands": 2,
+   "model": "Grave Bow"
+  },
+  "Sable Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 58,
+   "castSpeed": 0,
+   "dmg": [
+    169,
+    508
+   ],
+   "refIlvl": 150,
+   "q": 28,
+   "reqStat": "mark",
+   "line": "Briar Bow",
+   "note": "Sable Bow. A light hunting bow. Fast arrows. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.986,
+   "dps": 1010.8,
+   "hands": 2,
+   "model": "Obsidian Bow"
+  },
+  "Folio Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "mythic",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 75,
+   "castSpeed": 0,
+   "dmg": [
+    282,
+    848
+   ],
+   "refIlvl": 183,
+   "q": 88,
+   "reqStat": "mark",
+   "line": "Briar Bow",
+   "note": "Folio Bow. A light hunting bow. Fast arrows. Unwritten. It only drops beyond the last page.",
+   "aps": 3.307,
+   "dps": 1868.7,
+   "hands": 2,
+   "model": "Obsidian Bow"
+  },
+  "Wicker Bow": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "normal",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 45,
+   "castSpeed": 0,
+   "dmg": [
+    5,
+    29
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Wicker Bow",
+   "note": "Wicker Bow. A wicker bow. Very fast, light arrows, wide damage.",
+   "aps": 2.74,
+   "dps": 46.6,
+   "hands": 2,
+   "model": "Wicker Bow"
+  },
+  "Thorn Wicker": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "exceptional",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 62,
+   "castSpeed": 0,
+   "dmg": [
+    39,
+    219
+   ],
+   "refIlvl": 100,
+   "q": 14,
+   "reqStat": "mark",
+   "line": "Wicker Bow",
+   "note": "Thorn Wicker. A wicker bow. Very fast, light arrows, wide damage. Better made, a faster hand.",
+   "aps": 3.062,
+   "dps": 395.0,
+   "hands": 2,
+   "model": "Thorn Wicker"
+  },
+  "Spite Wicker": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "elite",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 78,
+   "castSpeed": 0,
+   "dmg": [
+    91,
+    518
+   ],
+   "refIlvl": 150,
+   "q": 30,
+   "reqStat": "mark",
+   "line": "Wicker Bow",
+   "note": "Spite Wicker. A wicker bow. Very fast, light arrows, wide damage. Forged for the end of Nightmare and for Hell.",
+   "aps": 3.364,
+   "dps": 1024.4,
+   "hands": 2,
+   "model": "Spite Wicker"
+  },
+  "Margin Wicker": {
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "mythic",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 95,
+   "castSpeed": 0,
+   "dmg": [
+    154,
+    873
+   ],
+   "refIlvl": 183,
+   "q": 90,
+   "reqStat": "mark",
+   "line": "Wicker Bow",
+   "note": "Margin Wicker. A wicker bow. Very fast, light arrows, wide damage. Unwritten. It only drops beyond the last page.",
+   "aps": 3.685,
+   "dps": 1892.5,
+   "hands": 2,
+   "model": "Obsidian Bow"
+  },
+  "Iron Warbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "normal",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -25,
+   "castSpeed": 0,
+   "dmg": [
+    25,
+    46
+   ],
+   "refIlvl": 20,
+   "q": 2,
+   "reqStat": "brawn",
+   "line": "Iron Warbow",
+   "note": "Iron Warbow. A war bow. Very slow to draw, heavy arrows.",
+   "aps": 1.417,
+   "dps": 50.3,
+   "hands": 2,
+   "model": "Yew Longbow"
+  },
+  "Grave Warbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "exceptional",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -8,
+   "castSpeed": 0,
+   "dmg": [
+    174,
+    323
+   ],
+   "refIlvl": 100,
+   "q": 16,
+   "reqStat": "brawn",
+   "line": "Iron Warbow",
+   "note": "Grave Warbow. A war bow. Very slow to draw, heavy arrows. Better made, a faster hand.",
+   "aps": 1.739,
+   "dps": 432.1,
+   "hands": 2,
+   "model": "Ash Longbow"
+  },
+  "King's Warbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "elite",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 8,
+   "castSpeed": 0,
+   "dmg": [
+    384,
+    715
+   ],
+   "refIlvl": 150,
+   "q": 34,
+   "reqStat": "brawn",
+   "line": "Iron Warbow",
+   "note": "King's Warbow. A war bow. Very slow to draw, heavy arrows. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.041,
+   "dps": 1121.6,
+   "hands": 2,
+   "model": "Spire Longbow"
+  },
+  "Errata Warbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "mythic",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 25,
+   "castSpeed": 0,
+   "dmg": [
+    614,
+    1140
+   ],
+   "refIlvl": 183,
+   "q": 94,
+   "reqStat": "brawn",
+   "line": "Iron Warbow",
+   "note": "Errata Warbow. A war bow. Very slow to draw, heavy arrows. Unwritten. It only drops beyond the last page.",
+   "aps": 2.362,
+   "dps": 2071.9,
+   "hands": 2,
+   "model": "King's Warbow"
+  },
+  "Yew Longbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "normal",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": -12,
+   "castSpeed": 0,
+   "dmg": [
+    18,
+    43
+   ],
+   "refIlvl": 20,
+   "q": 4,
+   "reqStat": "brawn",
+   "line": "Yew Longbow",
+   "note": "Yew Longbow. A longbow. Slow draw, a heavy arrow.",
+   "aps": 1.663,
+   "dps": 50.7,
+   "hands": 2,
+   "model": "Yew Longbow"
+  },
+  "Ash Longbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "exceptional",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 5,
+   "castSpeed": 0,
+   "dmg": [
+    131,
+    306
+   ],
+   "refIlvl": 100,
+   "q": 18,
+   "reqStat": "brawn",
+   "line": "Yew Longbow",
+   "note": "Ash Longbow. A longbow. Slow draw, a heavy arrow. Better made, a faster hand.",
+   "aps": 1.984,
+   "dps": 433.6,
+   "hands": 2,
+   "model": "Ash Longbow"
+  },
+  "Spire Longbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "elite",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 21,
+   "castSpeed": 0,
+   "dmg": [
+    295,
+    689
+   ],
+   "refIlvl": 150,
+   "q": 36,
+   "reqStat": "brawn",
+   "line": "Yew Longbow",
+   "note": "Spire Longbow. A longbow. Slow draw, a heavy arrow. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.287,
+   "dps": 1125.2,
+   "hands": 2,
+   "model": "Spire Longbow"
+  },
+  "Gilt Longbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "mythic",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 38,
+   "castSpeed": 0,
+   "dmg": [
+    478,
+    1116
+   ],
+   "refIlvl": 183,
+   "q": 96,
+   "reqStat": "brawn",
+   "line": "Yew Longbow",
+   "note": "Gilt Longbow. A longbow. Slow draw, a heavy arrow. Unwritten. It only drops beyond the last page.",
+   "aps": 2.608,
+   "dps": 2078.7,
+   "hands": 2,
+   "model": "King's Warbow"
+  },
+  "Tanner Longbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 0,
+   "castSpeed": 0,
+   "dmg": [
+    13,
+    41
+   ],
+   "refIlvl": 20,
+   "q": 6,
+   "reqStat": "brawn",
+   "line": "Tanner Longbow",
+   "note": "Tanner Longbow. A hunter's longbow. Medium draw, strong pull.",
+   "aps": 1.89,
+   "dps": 51.0,
+   "hands": 2,
+   "model": "Iron Warbow"
+  },
+  "Bile Longbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "exceptional",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 17,
+   "castSpeed": 0,
+   "dmg": [
+    99,
+    296
+   ],
+   "refIlvl": 100,
+   "q": 20,
+   "reqStat": "brawn",
+   "line": "Tanner Longbow",
+   "note": "Bile Longbow. A hunter's longbow. Medium draw, strong pull. Better made, a faster hand.",
+   "aps": 2.211,
+   "dps": 436.7,
+   "hands": 2,
+   "model": "Grave Warbow"
+  },
+  "Weald Longbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "elite",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 33,
+   "castSpeed": 0,
+   "dmg": [
+    225,
+    676
+   ],
+   "refIlvl": 150,
+   "q": 38,
+   "reqStat": "brawn",
+   "line": "Tanner Longbow",
+   "note": "Weald Longbow. A hunter's longbow. Medium draw, strong pull. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.514,
+   "dps": 1132.4,
+   "hands": 2,
+   "model": "King's Warbow"
+  },
+  "Folio Longbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 50,
+   "castSpeed": 0,
+   "dmg": [
+    369,
+    1107
+   ],
+   "refIlvl": 183,
+   "q": 98,
+   "reqStat": "brawn",
+   "line": "Tanner Longbow",
+   "note": "Folio Longbow. A hunter's longbow. Medium draw, strong pull. Unwritten. It only drops beyond the last page.",
+   "aps": 2.835,
+   "dps": 2092.2,
+   "hands": 2,
+   "model": "King's Warbow"
+  },
+  "Briar Flatbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "normal",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 15,
+   "castSpeed": 0,
+   "dmg": [
+    9,
+    38
+   ],
+   "refIlvl": 20,
+   "q": 8,
+   "reqStat": "brawn",
+   "line": "Briar Flatbow",
+   "note": "Briar Flatbow. A flat bow. Fast for a longbow, wide damage.",
+   "aps": 2.173,
+   "dps": 51.1,
+   "hands": 2,
+   "model": "Iron Warbow"
+  },
+  "Thorn Flatbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "exceptional",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 32,
+   "castSpeed": 0,
+   "dmg": [
+    70,
+    282
+   ],
+   "refIlvl": 100,
+   "q": 22,
+   "reqStat": "brawn",
+   "line": "Briar Flatbow",
+   "note": "Thorn Flatbow. A flat bow. Fast for a longbow, wide damage. Better made, a faster hand.",
+   "aps": 2.495,
+   "dps": 439.1,
+   "hands": 2,
+   "model": "Grave Warbow"
+  },
+  "Spite Flatbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 48,
+   "castSpeed": 0,
+   "dmg": [
+    163,
+    652
+   ],
+   "refIlvl": 150,
+   "q": 40,
+   "reqStat": "brawn",
+   "line": "Briar Flatbow",
+   "note": "Spite Flatbow. A flat bow. Fast for a longbow, wide damage. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.797,
+   "dps": 1139.9,
+   "hands": 2,
+   "model": "King's Warbow"
+  },
+  "Rubric Flatbow": {
+   "type": "long bow",
+   "kind": "bow",
+   "cls": "Bow",
+   "set": "bow",
+   "tier": "mythic",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 65,
+   "castSpeed": 0,
+   "dmg": [
+    270,
+    1081
+   ],
+   "refIlvl": 183,
+   "q": 100,
+   "reqStat": "brawn",
+   "line": "Briar Flatbow",
+   "note": "Rubric Flatbow. A flat bow. Fast for a longbow, wide damage. Unwritten. It only drops beyond the last page.",
+   "aps": 3.118,
+   "dps": 2106.5,
+   "hands": 2,
+   "model": "King's Warbow"
+  },
+  "Bone Greatstaff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "normal",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -20,
+   "castSpeed": 5,
+   "dmg": [
+    25,
+    37
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "brawn",
+   "line": "Bone Greatstaff",
+   "note": "Bone Greatstaff. A great staff. Very slow to swing. Spells come quicker through it.",
+   "aps": 1.512,
+   "dps": 46.9,
+   "hands": 2,
+   "model": "Ash Staff"
+  },
+  "Grave Greatstaff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "exceptional",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": -3,
+   "castSpeed": 14,
+   "dmg": [
+    177,
+    265
+   ],
+   "refIlvl": 100,
+   "q": 16,
+   "reqStat": "brawn",
+   "line": "Bone Greatstaff",
+   "note": "Grave Greatstaff. A great staff. Very slow to swing. Spells come quicker through it. Better made, a faster hand.",
+   "aps": 1.833,
+   "dps": 405.2,
+   "hands": 2,
+   "model": "Chapel Staff"
+  },
+  "Obsidian Greatstaff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "elite",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 13,
+   "castSpeed": 23,
+   "dmg": [
+    394,
+    590
+   ],
+   "refIlvl": 150,
+   "q": 32,
+   "reqStat": "brawn",
+   "line": "Bone Greatstaff",
+   "note": "Obsidian Greatstaff. A great staff. Very slow to swing. Spells come quicker through it. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.136,
+   "dps": 1050.8,
+   "hands": 2,
+   "model": "Weald Staff"
+  },
+  "Errata Greatstaff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "mythic",
+   "variant": "Very Slow",
+   "label": "Very Slow",
+   "weaponSpeed": 30,
+   "castSpeed": 32,
+   "dmg": [
+    632,
+    949
+   ],
+   "refIlvl": 183,
+   "q": 92,
+   "reqStat": "brawn",
+   "line": "Bone Greatstaff",
+   "note": "Errata Greatstaff. A great staff. Very slow to swing. Spells come quicker through it. Unwritten. It only drops beyond the last page.",
+   "aps": 2.457,
+   "dps": 1942.3,
+   "hands": 2,
+   "model": "Obsidian Greatstaff"
+  },
+  "Ash Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "normal",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": -10,
+   "castSpeed": 10,
+   "dmg": [
+    19,
+    36
+   ],
+   "refIlvl": 20,
+   "q": 3,
+   "reqStat": "brawn",
+   "line": "Ash Staff",
+   "note": "Ash Staff. A plain staff. Slow strike, fast spells.",
+   "aps": 1.701,
+   "dps": 46.8,
+   "hands": 2,
+   "model": "Ash Staff"
+  },
+  "Chapel Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "exceptional",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 7,
+   "castSpeed": 19,
+   "dmg": [
+    140,
+    260
+   ],
+   "refIlvl": 100,
+   "q": 18,
+   "reqStat": "brawn",
+   "line": "Ash Staff",
+   "note": "Chapel Staff. A plain staff. Slow strike, fast spells. Better made, a faster hand.",
+   "aps": 2.022,
+   "dps": 404.5,
+   "hands": 2,
+   "model": "Chapel Staff"
+  },
+  "Weald Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "elite",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 23,
+   "castSpeed": 28,
+   "dmg": [
+    316,
+    588
+   ],
+   "refIlvl": 150,
+   "q": 34,
+   "reqStat": "brawn",
+   "line": "Ash Staff",
+   "note": "Weald Staff. A plain staff. Slow strike, fast spells. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.325,
+   "dps": 1050.8,
+   "hands": 2,
+   "model": "Weald Staff"
+  },
+  "Gilt Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "mythic",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 40,
+   "castSpeed": 37,
+   "dmg": [
+    514,
+    954
+   ],
+   "refIlvl": 183,
+   "q": 94,
+   "reqStat": "brawn",
+   "line": "Ash Staff",
+   "note": "Gilt Staff. A plain staff. Slow strike, fast spells. Unwritten. It only drops beyond the last page.",
+   "aps": 2.646,
+   "dps": 1942.2,
+   "hands": 2,
+   "model": "Obsidian Greatstaff"
+  },
+  "Ferry Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 0,
+   "castSpeed": 15,
+   "dmg": [
+    16,
+    34
+   ],
+   "refIlvl": 20,
+   "q": 5,
+   "reqStat": "brawn",
+   "line": "Ferry Staff",
+   "note": "Ferry Staff. A pilgrim's staff. Medium swing, quick spells.",
+   "aps": 1.89,
+   "dps": 47.2,
+   "hands": 2,
+   "model": "Bone Greatstaff"
+  },
+  "Mourning Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "exceptional",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 17,
+   "castSpeed": 24,
+   "dmg": [
+    119,
+    247
+   ],
+   "refIlvl": 100,
+   "q": 20,
+   "reqStat": "brawn",
+   "line": "Ferry Staff",
+   "note": "Mourning Staff. A pilgrim's staff. Medium swing, quick spells. Better made, a faster hand.",
+   "aps": 2.211,
+   "dps": 404.7,
+   "hands": 2,
+   "model": "Grave Greatstaff"
+  },
+  "Rite Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "elite",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 33,
+   "castSpeed": 33,
+   "dmg": [
+    272,
+    564
+   ],
+   "refIlvl": 150,
+   "q": 36,
+   "reqStat": "brawn",
+   "line": "Ferry Staff",
+   "note": "Rite Staff. A pilgrim's staff. Medium swing, quick spells. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.514,
+   "dps": 1050.7,
+   "hands": 2,
+   "model": "Obsidian Greatstaff"
+  },
+  "Folio Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 50,
+   "castSpeed": 42,
+   "dmg": [
+    445,
+    925
+   ],
+   "refIlvl": 183,
+   "q": 96,
+   "reqStat": "brawn",
+   "line": "Ferry Staff",
+   "note": "Folio Staff. A pilgrim's staff. Medium swing, quick spells. Unwritten. It only drops beyond the last page.",
+   "aps": 2.835,
+   "dps": 1942.0,
+   "hands": 2,
+   "model": "Obsidian Greatstaff"
+  },
+  "Briar Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "normal",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 15,
+   "castSpeed": 20,
+   "dmg": [
+    12,
+    32
+   ],
+   "refIlvl": 20,
+   "q": 7,
+   "reqStat": "brawn",
+   "line": "Briar Staff",
+   "note": "Briar Staff. A light staff. Fast swing, the fastest spells a staff gives.",
+   "aps": 2.173,
+   "dps": 47.8,
+   "hands": 2,
+   "model": "Bone Greatstaff"
+  },
+  "Cinder Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "exceptional",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 32,
+   "castSpeed": 29,
+   "dmg": [
+    90,
+    237
+   ],
+   "refIlvl": 100,
+   "q": 22,
+   "reqStat": "brawn",
+   "line": "Briar Staff",
+   "note": "Cinder Staff. A light staff. Fast swing, the fastest spells a staff gives. Better made, a faster hand.",
+   "aps": 2.495,
+   "dps": 407.9,
+   "hands": 2,
+   "model": "Grave Greatstaff"
+  },
+  "Sable Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 48,
+   "castSpeed": 38,
+   "dmg": [
+    208,
+    549
+   ],
+   "refIlvl": 150,
+   "q": 38,
+   "reqStat": "brawn",
+   "line": "Briar Staff",
+   "note": "Sable Staff. A light staff. Fast swing, the fastest spells a staff gives. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.797,
+   "dps": 1058.7,
+   "hands": 2,
+   "model": "Obsidian Greatstaff"
+  },
+  "Rubric Staff": {
+   "type": "staff",
+   "kind": "staff",
+   "cls": "Staff",
+   "set": "staff",
+   "tier": "mythic",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 65,
+   "castSpeed": 47,
+   "dmg": [
+    345,
+    909
+   ],
+   "refIlvl": 183,
+   "q": 98,
+   "reqStat": "brawn",
+   "line": "Briar Staff",
+   "note": "Rubric Staff. A light staff. Fast swing, the fastest spells a staff gives. Unwritten. It only drops beyond the last page.",
+   "aps": 3.118,
+   "dps": 1955.3,
+   "hands": 2,
+   "model": "Obsidian Greatstaff"
+  },
+  "Bone Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "normal",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": -10,
+   "castSpeed": 4,
+   "dmg": [
+    17,
+    30
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Bone Wand",
+   "note": "Bone Wand. A bone wand. Slow, weak blows. The spells come a little faster.",
+   "aps": 1.701,
+   "dps": 40.0,
+   "model": "Sting Wand"
+  },
+  "Grave Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "exceptional",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 7,
+   "castSpeed": 7,
+   "dmg": [
+    120,
+    223
+   ],
+   "refIlvl": 100,
+   "q": 12,
+   "reqStat": "mark",
+   "line": "Bone Wand",
+   "note": "Grave Wand. A bone wand. Slow, weak blows. The spells come a little faster. Better made, a faster hand.",
+   "aps": 2.022,
+   "dps": 346.8,
+   "model": "Thorn Wand"
+  },
+  "Obsidian Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "elite",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 23,
+   "castSpeed": 10,
+   "dmg": [
+    271,
+    504
+   ],
+   "refIlvl": 150,
+   "q": 28,
+   "reqStat": "mark",
+   "line": "Bone Wand",
+   "note": "Obsidian Wand. A bone wand. Slow, weak blows. The spells come a little faster. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.325,
+   "dps": 900.8,
+   "model": "Omen Wand"
+  },
+  "Errata Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "mythic",
+   "variant": "Slow",
+   "label": "Slow",
+   "weaponSpeed": 40,
+   "castSpeed": 13,
+   "dmg": [
+    440,
+    818
+   ],
+   "refIlvl": 183,
+   "q": 88,
+   "reqStat": "mark",
+   "line": "Bone Wand",
+   "note": "Errata Wand. A bone wand. Slow, weak blows. The spells come a little faster. Unwritten. It only drops beyond the last page.",
+   "aps": 2.646,
+   "dps": 1664.3,
+   "model": "Obsidian Wand"
+  },
+  "Ferry Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 0,
+   "castSpeed": 6,
+   "dmg": [
+    13,
+    30
+   ],
+   "refIlvl": 20,
+   "q": 1,
+   "reqStat": "mark",
+   "line": "Ferry Wand",
+   "note": "Ferry Wand. A plain wand. Medium speed. It helps the casting more than the hitting.",
+   "aps": 1.89,
+   "dps": 40.6,
+   "model": "Bone Wand"
+  },
+  "Ash Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "exceptional",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 17,
+   "castSpeed": 9,
+   "dmg": [
+    94,
+    221
+   ],
+   "refIlvl": 100,
+   "q": 14,
+   "reqStat": "mark",
+   "line": "Ferry Wand",
+   "note": "Ash Wand. A plain wand. Medium speed. It helps the casting more than the hitting. Better made, a faster hand.",
+   "aps": 2.211,
+   "dps": 348.3,
+   "model": "Grave Wand"
+  },
+  "Rite Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "elite",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 33,
+   "castSpeed": 12,
+   "dmg": [
+    216,
+    503
+   ],
+   "refIlvl": 150,
+   "q": 30,
+   "reqStat": "mark",
+   "line": "Ferry Wand",
+   "note": "Rite Wand. A plain wand. Medium speed. It helps the casting more than the hitting. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.514,
+   "dps": 903.7,
+   "model": "Obsidian Wand"
+  },
+  "Gilt Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "mythic",
+   "variant": "Medium",
+   "label": "Medium",
+   "weaponSpeed": 50,
+   "castSpeed": 15,
+   "dmg": [
+    353,
+    825
+   ],
+   "refIlvl": 183,
+   "q": 90,
+   "reqStat": "mark",
+   "line": "Ferry Wand",
+   "note": "Gilt Wand. A plain wand. Medium speed. It helps the casting more than the hitting. Unwritten. It only drops beyond the last page.",
+   "aps": 2.835,
+   "dps": 1669.8,
+   "model": "Obsidian Wand"
+  },
+  "Sting Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "normal",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 20,
+   "castSpeed": 8,
+   "dmg": [
+    8,
+    28
+   ],
+   "refIlvl": 20,
+   "q": 2,
+   "reqStat": "mark",
+   "line": "Sting Wand",
+   "note": "Sting Wand. A sting wand. Fast pokes, quicker casting.",
+   "aps": 2.268,
+   "dps": 40.8,
+   "model": "Sting Wand"
+  },
+  "Thorn Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "exceptional",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 37,
+   "castSpeed": 11,
+   "dmg": [
+    61,
+    211
+   ],
+   "refIlvl": 100,
+   "q": 16,
+   "reqStat": "mark",
+   "line": "Sting Wand",
+   "note": "Thorn Wand. A sting wand. Fast pokes, quicker casting. Better made, a faster hand.",
+   "aps": 2.589,
+   "dps": 352.1,
+   "model": "Thorn Wand"
+  },
+  "Omen Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "elite",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 53,
+   "castSpeed": 14,
+   "dmg": [
+    142,
+    489
+   ],
+   "refIlvl": 150,
+   "q": 32,
+   "reqStat": "mark",
+   "line": "Sting Wand",
+   "note": "Omen Wand. A sting wand. Fast pokes, quicker casting. Forged for the end of Nightmare and for Hell.",
+   "aps": 2.892,
+   "dps": 912.3,
+   "model": "Omen Wand"
+  },
+  "Folio Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "mythic",
+   "variant": "Fast",
+   "label": "Fast",
+   "weaponSpeed": 70,
+   "castSpeed": 17,
+   "dmg": [
+    236,
+    814
+   ],
+   "refIlvl": 183,
+   "q": 92,
+   "reqStat": "mark",
+   "line": "Sting Wand",
+   "note": "Folio Wand. A sting wand. Fast pokes, quicker casting. Unwritten. It only drops beyond the last page.",
+   "aps": 3.213,
+   "dps": 1686.8,
+   "model": "Obsidian Wand"
+  },
+  "Wick Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "normal",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 40,
+   "castSpeed": 10,
+   "dmg": [
+    4,
+    27
+   ],
+   "refIlvl": 20,
+   "q": 4,
+   "reqStat": "mark",
+   "line": "Wick Wand",
+   "note": "Wick Wand. A whip-thin wand. Very fast, wild damage, quick casting.",
+   "aps": 2.646,
+   "dps": 41.0,
+   "model": "Bone Wand"
+  },
+  "Bile Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "exceptional",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 57,
+   "castSpeed": 13,
+   "dmg": [
+    30,
+    210
+   ],
+   "refIlvl": 100,
+   "q": 18,
+   "reqStat": "mark",
+   "line": "Wick Wand",
+   "note": "Bile Wand. A whip-thin wand. Very fast, wild damage, quick casting. Better made, a faster hand.",
+   "aps": 2.967,
+   "dps": 356.1,
+   "model": "Grave Wand"
+  },
+  "Spite Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "elite",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 73,
+   "castSpeed": 16,
+   "dmg": [
+    71,
+    495
+   ],
+   "refIlvl": 150,
+   "q": 34,
+   "reqStat": "mark",
+   "line": "Wick Wand",
+   "note": "Spite Wand. A whip-thin wand. Very fast, wild damage, quick casting. Forged for the end of Nightmare and for Hell.",
+   "aps": 3.27,
+   "dps": 925.3,
+   "model": "Obsidian Wand"
+  },
+  "Rubric Wand": {
+   "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
+   "set": "wand",
+   "tier": "mythic",
+   "variant": "Very Fast",
+   "label": "Very Fast",
+   "weaponSpeed": 90,
+   "castSpeed": 19,
+   "dmg": [
+    119,
+    833
+   ],
+   "refIlvl": 183,
+   "q": 94,
+   "reqStat": "mark",
+   "line": "Wick Wand",
+   "note": "Rubric Wand. A whip-thin wand. Very fast, wild damage, quick casting. Unwritten. It only drops beyond the last page.",
+   "aps": 3.591,
+   "dps": 1709.3,
+   "model": "Obsidian Wand"
   },
   "Rusted Iron Sword": {
    "type": "sword",
+   "kind": "sword",
+   "cls": "Sword",
    "set": "sword",
-   "line": null,
    "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
    "weaponSpeed": 0,
-   "label": "Normal",
-   "starter": "ironvow (also the Rusty Sword in Bo())",
-   "dmgFactor": 1,
-   "fixedDamage": [
+   "castSpeed": 0,
+   "dmg": [
     3,
     8
    ],
-   "example": {
-    "aps": 1.89,
-    "dps": 10.39
-   },
-   "reqStat": "mark"
+   "fixedDamage": true,
+   "starter": true,
+   "reqStat": "mark",
+   "note": "A rusted iron sword. Medium speed. Every hero starts somewhere.",
+   "aps": 1.89,
+   "dps": 10.39,
+   "model": "Rusted Iron Sword"
   },
   "Ashwood Short Bow": {
-   "type": "bow",
+   "type": "short bow",
+   "kind": "bow",
+   "cls": "Bow",
    "set": "bow",
-   "line": null,
    "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
    "weaponSpeed": 0,
-   "label": "Normal",
-   "starter": "longmark",
-   "dmgFactor": 1,
-   "fixedDamage": [
+   "castSpeed": 0,
+   "dmg": [
     2,
     5
    ],
-   "example": {
-    "aps": 1.89,
-    "dps": 6.61
-   },
-   "reqStat": "mark"
+   "fixedDamage": true,
+   "starter": true,
+   "reqStat": "mark",
+   "note": "An ashwood short bow. Medium draw. Enough to reach the first grave.",
+   "aps": 1.89,
+   "dps": 6.61,
+   "hands": 2,
+   "model": "Ashwood Short Bow"
   },
   "Gnarled Yew Wand": {
    "type": "wand",
+   "kind": "wand",
+   "cls": "Wand",
    "set": "wand",
-   "line": null,
    "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
    "weaponSpeed": 0,
-   "label": "Normal",
-   "starter": "cinderwake",
-   "dmgFactor": 1,
-   "fixedDamage": [
+   "castSpeed": 0,
+   "dmg": [
     2,
     4
    ],
-   "example": {
-    "aps": 1.89,
-    "dps": 5.67
-   },
-   "castSpeed": 0,
-   "reqStat": "mark"
+   "fixedDamage": true,
+   "starter": true,
+   "reqStat": "mark",
+   "note": "A gnarled yew wand. Medium speed. It knows a few sparks.",
+   "aps": 1.89,
+   "dps": 5.67,
+   "model": "Gnarled Yew Wand"
   },
   "Chipped Bone Dagger": {
    "type": "dagger",
+   "kind": "dagger",
+   "cls": "Dagger",
    "set": "dagger",
-   "line": null,
    "tier": "normal",
+   "variant": "Medium",
+   "label": "Medium",
    "weaponSpeed": 0,
-   "label": "Normal",
-   "starter": "gravewell",
-   "dmgFactor": 1,
-   "fixedDamage": [
+   "castSpeed": 0,
+   "dmg": [
     2,
     6
    ],
-   "example": {
-    "aps": 1.89,
-    "dps": 7.56
-   },
-   "reqStat": "mark"
+   "fixedDamage": true,
+   "starter": true,
+   "reqStat": "mark",
+   "note": "A chipped bone dagger. Medium speed. Sharp enough to start.",
+   "aps": 1.89,
+   "dps": 7.56,
+   "model": "Chipped Bone Dagger"
   }
  },
  "sets": {
@@ -1259,5 +4992,17 @@
     "hitFrac": 0.62
    }
   }
+ },
+ "speedRange": {
+  "slowest": [
+   "Ferry Greataxe",
+   -30,
+   1.323
+  ],
+  "fastest": [
+   "Last Stitch",
+   112,
+   4.007
+  ]
  }
 }
