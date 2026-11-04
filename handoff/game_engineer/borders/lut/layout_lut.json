@@ -1,0 +1,1725 @@
+{
+ "zone": "lut",
+ "size": 1,
+ "frame": "tile metres; three.js x east z south; map [0,w]x[0,h]",
+ "glb": "props only (no kit pieces)",
+ "runs": {},
+ "seams": 0,
+ "pieces": [],
+ "props": [
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    0.714,
+    0.0,
+    -7.653
+   ],
+   "rotY": 5.0088,
+   "scale": 3.693,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    4.174,
+    0.0,
+    -6.508
+   ],
+   "rotY": 1.4362,
+   "scale": 3.201,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    6.557,
+    0.0,
+    -7.721
+   ],
+   "rotY": 6.0073,
+   "scale": 3.008,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    10.23,
+    0.0,
+    -5.51
+   ],
+   "rotY": 5.7999,
+   "scale": 4.147,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    15.919,
+    0.0,
+    -5.621
+   ],
+   "rotY": 1.8354,
+   "scale": 4.206,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    18.738,
+    0.0,
+    -7.896
+   ],
+   "rotY": 1.9799,
+   "scale": 4.38,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    22.736,
+    0.0,
+    -6.336
+   ],
+   "rotY": 5.1633,
+   "scale": 4.41,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    25.481,
+    0.0,
+    -7.75
+   ],
+   "rotY": 4.5245,
+   "scale": 3.24,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    30.364,
+    0.0,
+    -5.502
+   ],
+   "rotY": 0.9258,
+   "scale": 4.59,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    33.898,
+    0.0,
+    -7.534
+   ],
+   "rotY": 3.0649,
+   "scale": 3.872,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    38.877,
+    0.0,
+    -8.96
+   ],
+   "rotY": 4.4435,
+   "scale": 3.881,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    -0.123,
+    0.0,
+    -1.236
+   ],
+   "rotY": 0.1088,
+   "scale": 3.059,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    3.779,
+    0.0,
+    -1.618
+   ],
+   "rotY": 2.5915,
+   "scale": 2.805,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    6.565,
+    0.0,
+    -2.874
+   ],
+   "rotY": 3.6908,
+   "scale": 2.455,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    9.647,
+    0.0,
+    -2.377
+   ],
+   "rotY": 0.5885,
+   "scale": 3.418,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    13.114,
+    0.0,
+    -2.461
+   ],
+   "rotY": 1.595,
+   "scale": 2.411,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    17.129,
+    0.0,
+    -3.548
+   ],
+   "rotY": 4.4346,
+   "scale": 2.809,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    19.986,
+    0.0,
+    -1.797
+   ],
+   "rotY": 2.9634,
+   "scale": 3.712,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    21.953,
+    0.0,
+    -3.039
+   ],
+   "rotY": 2.4482,
+   "scale": 2.7,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    25.761,
+    0.0,
+    -3.284
+   ],
+   "rotY": 5.6759,
+   "scale": 3.446,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    29.862,
+    0.0,
+    -3.86
+   ],
+   "rotY": 2.7235,
+   "scale": 3.469,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    32.615,
+    0.0,
+    -2.342
+   ],
+   "rotY": 2.5374,
+   "scale": 2.661,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    35.862,
+    0.0,
+    -3.42
+   ],
+   "rotY": 4.8226,
+   "scale": 2.476,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    3.7,
+    0.0,
+    0.611
+   ],
+   "rotY": 5.2428,
+   "scale": 1.207,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_a_boulder",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    5.959,
+    0.0,
+    1.332
+   ],
+   "rotY": 2.3587,
+   "scale": 0.871,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_d_cluster",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    9.679,
+    0.0,
+    0.567
+   ],
+   "rotY": 0.6757,
+   "scale": 1.049,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    12.303,
+    0.0,
+    1.065
+   ],
+   "rotY": 4.8137,
+   "scale": 1.14,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    14.918,
+    0.0,
+    0.965
+   ],
+   "rotY": 3.1376,
+   "scale": 0.981,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    17.919,
+    0.0,
+    0.816
+   ],
+   "rotY": 4.5978,
+   "scale": 1.191,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    19.754,
+    0.0,
+    1.054
+   ],
+   "rotY": 2.949,
+   "scale": 1.033,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_a_boulder",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    21.388,
+    0.0,
+    1.29
+   ],
+   "rotY": 1.3977,
+   "scale": 0.798,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    24.258,
+    0.0,
+    1.349
+   ],
+   "rotY": 5.968,
+   "scale": 1.296,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    27.62,
+    0.0,
+    0.638
+   ],
+   "rotY": 0.8532,
+   "scale": 1.226,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_d_cluster",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    30.491,
+    0.0,
+    0.514
+   ],
+   "rotY": 4.5752,
+   "scale": 0.773,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    -0.637,
+    0.0,
+    29.536
+   ],
+   "rotY": 4.6574,
+   "scale": 4.331,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    4.361,
+    0.0,
+    30.192
+   ],
+   "rotY": 3.4324,
+   "scale": 3.365,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    8.289,
+    0.0,
+    29.864
+   ],
+   "rotY": 2.6307,
+   "scale": 3.184,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    12.753,
+    0.0,
+    32.149
+   ],
+   "rotY": 1.7749,
+   "scale": 4.115,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    17.945,
+    0.0,
+    31.104
+   ],
+   "rotY": 1.231,
+   "scale": 4.639,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    21.297,
+    0.0,
+    32.41
+   ],
+   "rotY": 3.8664,
+   "scale": 4.018,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    26.128,
+    0.0,
+    30.333
+   ],
+   "rotY": 0.4698,
+   "scale": 4.242,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    30.417,
+    0.0,
+    32.762
+   ],
+   "rotY": 3.6034,
+   "scale": 4.502,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    33.95,
+    0.0,
+    30.225
+   ],
+   "rotY": 4.2326,
+   "scale": 3.744,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    -1.841,
+    0.0,
+    26.575
+   ],
+   "rotY": 4.7643,
+   "scale": 3.143,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    2.014,
+    0.0,
+    27.411
+   ],
+   "rotY": 5.7239,
+   "scale": 2.838,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    4.85,
+    0.0,
+    26.761
+   ],
+   "rotY": 3.2051,
+   "scale": 3.667,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    8.006,
+    0.0,
+    27.307
+   ],
+   "rotY": 2.4213,
+   "scale": 2.726,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    11.747,
+    0.0,
+    26.112
+   ],
+   "rotY": 1.3981,
+   "scale": 3.315,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    13.998,
+    0.0,
+    27.599
+   ],
+   "rotY": 3.6905,
+   "scale": 3.407,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    18.032,
+    0.0,
+    25.213
+   ],
+   "rotY": 1.0659,
+   "scale": 3.288,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    21.294,
+    0.0,
+    25.371
+   ],
+   "rotY": 3.2171,
+   "scale": 3.017,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    25.011,
+    0.0,
+    27.953
+   ],
+   "rotY": 1.2393,
+   "scale": 2.771,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    28.873,
+    0.0,
+    26.837
+   ],
+   "rotY": 5.0843,
+   "scale": 3.567,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    30.931,
+    0.0,
+    26.394
+   ],
+   "rotY": 0.1411,
+   "scale": 3.57,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "S",
+   "pos": [
+    35.088,
+    0.0,
+    26.048
+   ],
+   "rotY": 4.141,
+   "scale": 3.307,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    3.065,
+    0.0,
+    23.102
+   ],
+   "rotY": 6.1419,
+   "scale": 1.299,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_d_cluster",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    6.093,
+    0.0,
+    23.237
+   ],
+   "rotY": 2.8416,
+   "scale": 1.047,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    8.405,
+    0.0,
+    22.591
+   ],
+   "rotY": 5.1568,
+   "scale": 1.299,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_cluster_b_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_cluster_b_v5.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    19.385,
+    0.0,
+    23.592
+   ],
+   "rotY": 1.7198,
+   "scale": 1.177,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_a_boulder",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    22.403,
+    0.0,
+    22.573
+   ],
+   "rotY": 0.1878,
+   "scale": 0.872,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_a_boulder",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    24.575,
+    0.0,
+    22.426
+   ],
+   "rotY": 0.2886,
+   "scale": 0.776,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_a_boulder",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    26.558,
+    0.0,
+    23.488
+   ],
+   "rotY": 6.1711,
+   "scale": 1.003,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_d_cluster",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    29.577,
+    0.0,
+    22.468
+   ],
+   "rotY": 1.4439,
+   "scale": 0.736,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -8.67,
+    0.0,
+    1.494
+   ],
+   "rotY": 4.2031,
+   "scale": 4.537,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -8.986,
+    0.0,
+    4.61
+   ],
+   "rotY": 0.8814,
+   "scale": 3.141,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -7.14,
+    0.0,
+    7.649
+   ],
+   "rotY": 2.4996,
+   "scale": 3.16,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -8.1,
+    0.0,
+    12.74
+   ],
+   "rotY": 3.5564,
+   "scale": 3.137,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -6.925,
+    0.0,
+    18.619
+   ],
+   "rotY": 1.4718,
+   "scale": 4.265,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -6.106,
+    0.0,
+    23.548
+   ],
+   "rotY": 1.7171,
+   "scale": 3.013,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -6.799,
+    0.0,
+    28.184
+   ],
+   "rotY": 5.1156,
+   "scale": 4.554,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -2.669,
+    0.0,
+    -0.873
+   ],
+   "rotY": 4.6156,
+   "scale": 2.68,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -3.588,
+    0.0,
+    1.255
+   ],
+   "rotY": 1.2325,
+   "scale": 2.573,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -2.289,
+    0.0,
+    5.139
+   ],
+   "rotY": 4.2398,
+   "scale": 3.214,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -2.106,
+    0.0,
+    9.012
+   ],
+   "rotY": 3.1956,
+   "scale": 3.16,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -3.13,
+    0.0,
+    12.406
+   ],
+   "rotY": 2.19,
+   "scale": 2.938,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -2.334,
+    0.0,
+    15.813
+   ],
+   "rotY": 5.3624,
+   "scale": 2.424,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -1.77,
+    0.0,
+    19.155
+   ],
+   "rotY": 5.6308,
+   "scale": 3.006,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -3.431,
+    0.0,
+    23.055
+   ],
+   "rotY": 2.3658,
+   "scale": 2.535,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -2.306,
+    0.0,
+    25.851
+   ],
+   "rotY": 4.9792,
+   "scale": 2.86,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "W",
+   "pos": [
+    -2.386,
+    0.0,
+    29.528
+   ],
+   "rotY": 0.3758,
+   "scale": 2.489,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_d_cluster",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip_inner",
+   "edge": "W",
+   "pos": [
+    1.125,
+    0.0,
+    3.179
+   ],
+   "rotY": 0.5926,
+   "scale": 0.937,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "W",
+   "pos": [
+    0.88,
+    0.0,
+    6.806
+   ],
+   "rotY": 3.6862,
+   "scale": 0.971,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "W",
+   "pos": [
+    0.837,
+    0.0,
+    9.393
+   ],
+   "rotY": 2.6967,
+   "scale": 1.066,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "W",
+   "pos": [
+    0.76,
+    0.0,
+    12.101
+   ],
+   "rotY": 0.5537,
+   "scale": 0.912,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_d_cluster",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip_inner",
+   "edge": "W",
+   "pos": [
+    0.519,
+    0.0,
+    14.68
+   ],
+   "rotY": 6.1449,
+   "scale": 0.974,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_a_boulder",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip_inner",
+   "edge": "W",
+   "pos": [
+    1.482,
+    0.0,
+    17.903
+   ],
+   "rotY": 0.5777,
+   "scale": 0.725,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_a_boulder",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip_inner",
+   "edge": "W",
+   "pos": [
+    1.422,
+    0.0,
+    19.868
+   ],
+   "rotY": 2.1325,
+   "scale": 0.732,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_cluster_b_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_cluster_b_v5.glb",
+   "layer": "lip_inner",
+   "edge": "W",
+   "pos": [
+    1.354,
+    0.0,
+    22.595
+   ],
+   "rotY": 0.106,
+   "scale": 1.047,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_d_cluster",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip_inner",
+   "edge": "W",
+   "pos": [
+    0.734,
+    0.0,
+    23.993
+   ],
+   "rotY": 2.6327,
+   "scale": 1.049,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    36.5,
+    0.0,
+    0.199
+   ],
+   "rotY": 5.7469,
+   "scale": 3.599,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    37.992,
+    0.0,
+    3.696
+   ],
+   "rotY": 4.1958,
+   "scale": 3.028,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    35.916,
+    0.0,
+    8.012
+   ],
+   "rotY": 3.2599,
+   "scale": 3.056,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    36.78,
+    0.0,
+    11.897
+   ],
+   "rotY": 1.8221,
+   "scale": 3.38,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    36.83,
+    0.0,
+    16.86
+   ],
+   "rotY": 0.8475,
+   "scale": 3.524,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    37.657,
+    0.0,
+    21.077
+   ],
+   "rotY": 5.1841,
+   "scale": 4.319,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    38.15,
+    0.0,
+    26.174
+   ],
+   "rotY": 4.2792,
+   "scale": 3.865,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    37.792,
+    0.0,
+    31.06
+   ],
+   "rotY": 2.3984,
+   "scale": 4.021,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    33.667,
+    0.0,
+    -0.782
+   ],
+   "rotY": 4.0892,
+   "scale": 2.512,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    32.351,
+    0.0,
+    2.784
+   ],
+   "rotY": 4.7866,
+   "scale": 3.384,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    32.432,
+    0.0,
+    5.535
+   ],
+   "rotY": 0.351,
+   "scale": 3.042,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    33.487,
+    0.0,
+    8.757
+   ],
+   "rotY": 3.2794,
+   "scale": 3.172,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_summer.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    33.154,
+    0.0,
+    16.107
+   ],
+   "rotY": 1.8164,
+   "scale": 3.332,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_b_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_b_v5_summer.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    32.647,
+    0.0,
+    19.942
+   ],
+   "rotY": 1.5789,
+   "scale": 3.202,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    31.827,
+    0.0,
+    22.166
+   ],
+   "rotY": 2.3282,
+   "scale": 3.788,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    31.428,
+    0.0,
+    25.732
+   ],
+   "rotY": 4.1441,
+   "scale": 2.624,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_dune_c_v5_summer",
+   "asset": "models/outdoor/v5_maps/border/border_dune_c_v5_summer.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    33.309,
+    0.0,
+    29.867
+   ],
+   "rotY": 4.4376,
+   "scale": 3.269,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    28.863,
+    0.0,
+    3.944
+   ],
+   "rotY": 0.4261,
+   "scale": 1.039,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_a_boulder",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    29.217,
+    0.0,
+    5.31
+   ],
+   "rotY": 3.117,
+   "scale": 0.902,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_d_cluster",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    28.561,
+    0.0,
+    7.777
+   ],
+   "rotY": 4.2778,
+   "scale": 0.946,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    29.582,
+    0.0,
+    18.128
+   ],
+   "rotY": 4.9899,
+   "scale": 1.192,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "plant_cactus_column_a_v5",
+   "asset": "models/outdoor/v5/plants/plant_cactus_column_a_v5.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    28.934,
+    0.0,
+    20.963
+   ],
+   "rotY": 5.3155,
+   "scale": 0.989,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    29.577,
+    0.0,
+    23.471
+   ],
+   "rotY": 5.9859,
+   "scale": 0.969,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "shore_rock_d_cluster",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    28.682,
+    0.0,
+    24.548
+   ],
+   "rotY": 2.277,
+   "scale": 1.092,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  }
+ ],
+ "stats": {
+  "pieces": 0,
+  "props": 113,
+  "prop_by_id": {
+   "border_dune_a_v5_summer": 19,
+   "border_peak_b_v5_summer": 6,
+   "border_dune_c_v5_summer": 18,
+   "border_peak_a_v5_summer": 11,
+   "border_dune_b_v5_summer": 19,
+   "border_shelf_c_v5_summer": 5,
+   "plant_cactus_column_a_v5": 12,
+   "shore_rock_a_boulder": 8,
+   "shore_rock_d_cluster": 9,
+   "dead_stump_blighted": 4,
+   "plant_cactus_cluster_b_v5": 2
+  },
+  "moved_world_props": 0,
+  "collider_changes": 0
+ }
+}
