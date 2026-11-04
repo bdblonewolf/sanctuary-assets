@@ -1,0 +1,1623 @@
+{
+ "version": "as1",
+ "fps": 25,
+ "source": "D2 AnimData A1/SC FramesPerDirection, StartingFrame, ActionFlagFrames (theamazonbasin.com Attack speed). src:d2 = real D2 value for the mapped class/wclass; src:adapted = mapped or derived.",
+ "ias_stat": "ias",
+ "fcr_stat": "gearFcr (x100)",
+ "formula": {
+  "EIAS": "min(75, floor(120*IAS/(120+IAS)) + skillIAS - WSM); IAS<0 is used linearly; floor -85",
+  "IAS": "player.ias (affix stat `ias`, \"Increased Attack Speed\")",
+  "skillIAS": "shrineIasT>0 ? 30 : 0, + longmark stride*(0.6+0.004*lv), + boundIasT>0 ? boundIas : 0, - Gn(boundTradeoff()).ias",
+  "WSM": "item.wsm if number, else bases[item.base].wsm, else weaponTypeWsm[set]; cast uses WSM 0 and FCR in place of IAS",
+  "rate": "floor(256*(100+EIAS)/100)",
+  "frames": "max(minFrames(entry.min), ceil(256*base/rate) - 1)",
+  "hitFrames": "min(frames-1, max(1, ceil(256*action/rate)))",
+  "seconds": "frames/25 / er(boundTradeoff())  (atkPct multiplier); hitSeconds = hitFrames/25 / same",
+  "timeScale": "average = clipDuration/(frames/25). Exact: two segments so the GLB contact lands on the action frame: before clip.hitT timeScale = clip.hitT/hitSeconds; after = (clip.dur-clip.hitT)/(seconds-hitSeconds)",
+  "bow": "bow_draw (full clip) over hitSeconds, arrow looses at hitSeconds, bow_release over seconds-hitSeconds"
+ },
+ "weaponTypeWsm": {
+  "sword": -2,
+  "axe": 2,
+  "greataxe": 10,
+  "greatsword": 10,
+  "staff": 10,
+  "wand": -8,
+  "bow": 0,
+  "dagger": -10,
+  "unarmed": 0
+ },
+ "bases": {
+  "Parish Blade": {
+   "wsm": -10,
+   "set": "sword"
+  },
+  "Ash Saber": {
+   "wsm": -10,
+   "set": "sword"
+  },
+  "Spire Falchion": {
+   "wsm": -10,
+   "set": "sword"
+  },
+  "Briar Hatchet": {
+   "wsm": 2,
+   "set": "greataxe"
+  },
+  "Cinder Axe": {
+   "wsm": 2,
+   "set": "greataxe"
+  },
+  "Sable Cleaver": {
+   "wsm": 2,
+   "set": "greataxe"
+  },
+  "Ferry Pike": {
+   "wsm": -4,
+   "set": "staff"
+  },
+  "Mourning Spear": {
+   "wsm": -4,
+   "set": "staff"
+  },
+  "Lid Glaive": {
+   "wsm": -4,
+   "set": "staff"
+  },
+  "Chapel Maul": {
+   "wsm": 10,
+   "set": "sword"
+  },
+  "Mercy Hammer": {
+   "wsm": 10,
+   "set": "sword"
+  },
+  "Inquisitor's Nail": {
+   "wsm": 10,
+   "set": "sword"
+  },
+  "Timber Axe": {
+   "wsm": 20,
+   "set": "greataxe"
+  },
+  "War Axe": {
+   "wsm": 20,
+   "set": "greataxe"
+  },
+  "Kingrender": {
+   "wsm": 20,
+   "set": "greataxe"
+  },
+  "Stitched Blade": {
+   "wsm": -28,
+   "set": "dagger"
+  },
+  "Seam Knife": {
+   "wsm": -28,
+   "set": "dagger"
+  },
+  "Widow Stitch": {
+   "wsm": -28,
+   "set": "dagger"
+  },
+  "Yew Longbow": {
+   "wsm": 14,
+   "set": "bow"
+  },
+  "Ash Longbow": {
+   "wsm": 14,
+   "set": "bow"
+  },
+  "Spire Longbow": {
+   "wsm": 14,
+   "set": "bow"
+  },
+  "Wicker Bow": {
+   "wsm": -24,
+   "set": "bow"
+  },
+  "Thorn Wicker": {
+   "wsm": -24,
+   "set": "bow"
+  },
+  "Spite Wicker": {
+   "wsm": -24,
+   "set": "bow"
+  },
+  "Ash Staff": {
+   "wsm": 10,
+   "set": "staff"
+  },
+  "Chapel Staff": {
+   "wsm": 10,
+   "set": "staff"
+  },
+  "Weald Staff": {
+   "wsm": 10,
+   "set": "staff"
+  },
+  "Sting Wand": {
+   "wsm": -8,
+   "set": "wand"
+  },
+  "Thorn Wand": {
+   "wsm": -8,
+   "set": "wand"
+  },
+  "Omen Wand": {
+   "wsm": -8,
+   "set": "wand"
+  },
+  "Rusted Iron Sword": {
+   "wsm": -2,
+   "set": "sword"
+  },
+  "Ashwood Short Bow": {
+   "wsm": -14,
+   "set": "bow"
+  },
+  "Gnarled Yew Wand": {
+   "wsm": -8,
+   "set": "wand"
+  },
+  "Chipped Bone Dagger": {
+   "wsm": -10,
+   "set": "dagger"
+  }
+ },
+ "clips": {
+  "axe_attack_1": {
+   "dur": 2.4,
+   "hitT": 0.97,
+   "hitFrac": 0.404,
+   "method": "weapon_tip_speed_peak"
+  },
+  "axe_attack_2": {
+   "dur": 2.267,
+   "hitT": 0.83,
+   "hitFrac": 0.366,
+   "method": "weapon_tip_speed_peak"
+  },
+  "axe_attack_3": {
+   "dur": 3.167,
+   "hitT": 1.0,
+   "hitFrac": 0.316,
+   "method": "weapon_tip_speed_peak"
+  },
+  "axe_attack_heavy": {
+   "dur": 3.167,
+   "hitT": 1.06,
+   "hitFrac": 0.335,
+   "method": "weapon_tip_speed_peak"
+  },
+  "bow_aim_overdraw": {
+   "dur": 3.667,
+   "hitT": 1.44,
+   "hitFrac": 0.393,
+   "method": "weapon_tip_speed_peak"
+  },
+  "bow_draw": {
+   "dur": 1.0,
+   "hitT": 1.0,
+   "hitFrac": 1.0,
+   "method": "full_draw_then_bow_release",
+   "note": "arrow looses at end of bow_draw; bow_release plays the remaining frames"
+  },
+  "bow_release": {
+   "dur": 0.7,
+   "hitT": 0.18,
+   "hitFrac": 0.257,
+   "method": "weapon_tip_speed_peak"
+  },
+  "gs_attack_1": {
+   "dur": 1.267,
+   "hitT": 0.64,
+   "hitFrac": 0.505,
+   "method": "weapon_tip_speed_peak"
+  },
+  "gs_attack_2": {
+   "dur": 1.833,
+   "hitT": 0.94,
+   "hitFrac": 0.513,
+   "method": "weapon_tip_speed_peak"
+  },
+  "gs_attack_3": {
+   "dur": 1.433,
+   "hitT": 0.5,
+   "hitFrac": 0.349,
+   "method": "weapon_tip_speed_peak"
+  },
+  "gs_attack_heavy": {
+   "dur": 1.2,
+   "hitT": 1.07,
+   "hitFrac": 0.892,
+   "method": "weapon_tip_max_reach",
+   "note": "velocity peak weak (conf 2.4), used max reach"
+  },
+  "magic_attack_1h": {
+   "dur": 2.3,
+   "hitT": 0.79,
+   "hitFrac": 0.343,
+   "method": "weapon_tip_speed_peak"
+  },
+  "magic_attack_2h": {
+   "dur": 2.667,
+   "hitT": 1.12,
+   "hitFrac": 0.42,
+   "method": "weapon_tip_speed_peak"
+  },
+  "magic_cast_1h": {
+   "dur": 2.267,
+   "hitT": 0.59,
+   "hitFrac": 0.26,
+   "method": "weapon_tip_speed_peak"
+  },
+  "magic_cast_2h": {
+   "dur": 2.167,
+   "hitT": 0.63,
+   "hitFrac": 0.291,
+   "method": "weapon_tip_speed_peak"
+  },
+  "ss_attack_1": {
+   "dur": 1.5,
+   "hitT": 0.59,
+   "hitFrac": 0.393,
+   "method": "weapon_tip_speed_peak"
+  },
+  "ss_attack_2": {
+   "dur": 1.567,
+   "hitT": 0.8,
+   "hitFrac": 0.511,
+   "method": "weapon_tip_speed_peak"
+  },
+  "ss_attack_3": {
+   "dur": 1.367,
+   "hitT": 0.57,
+   "hitFrac": 0.417,
+   "method": "weapon_tip_speed_peak"
+  },
+  "ss_attack_heavy": {
+   "dur": 2.3,
+   "hitT": 1.37,
+   "hitFrac": 0.596,
+   "method": "weapon_tip_speed_peak"
+  },
+  "dagger_attack_1": {
+   "dur": 1.6,
+   "hitT": 0.7,
+   "hitFrac": 0.437,
+   "method": "weapon_tip_max_reach",
+   "note": "velocity peak is a 1-sample key pop, used max reach"
+  },
+  "dagger_attack_2": {
+   "dur": 1.0,
+   "hitT": 0.4,
+   "hitFrac": 0.4,
+   "method": "weapon_tip_speed_peak"
+  },
+  "dagger_attack_3": {
+   "dur": 1.367,
+   "hitT": 0.25,
+   "hitFrac": 0.183,
+   "method": "weapon_tip_speed_peak"
+  },
+  "dagger_attack_heavy": {
+   "dur": 1.6,
+   "hitT": 0.38,
+   "hitFrac": 0.237,
+   "method": "weapon_tip_speed_peak"
+  }
+ },
+ "classes": {
+  "ironvow": {
+   "body": "warrior",
+   "d2": "Barbarian",
+   "weapons": {
+    "sword": {
+     "light": {
+      "base": 16,
+      "action": 7,
+      "d2": "BA A1 1HS",
+      "src": "d2",
+      "clips": [
+       "ss_attack_1",
+       "ss_attack_2",
+       "ss_attack_3"
+      ],
+      "min": 9,
+      "frames0": 15
+     },
+     "heavy": {
+      "base": 18,
+      "action": 8,
+      "d2": "BA A1 1HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "ss_attack_heavy"
+      ],
+      "min": 10,
+      "frames0": 17
+     },
+     "cast": {
+      "base": 14,
+      "action": 9,
+      "d2": "BA SC",
+      "src": "d2",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "axe": {
+     "light": {
+      "base": 16,
+      "action": 7,
+      "d2": "BA A1 1HS",
+      "src": "d2",
+      "clips": [
+       "axe_attack_1",
+       "axe_attack_2",
+       "axe_attack_3"
+      ],
+      "min": 9,
+      "frames0": 15
+     },
+     "heavy": {
+      "base": 18,
+      "action": 8,
+      "d2": "BA A1 1HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "axe_attack_heavy"
+      ],
+      "min": 10,
+      "frames0": 17
+     },
+     "cast": {
+      "base": 14,
+      "action": 9,
+      "d2": "BA SC",
+      "src": "d2",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "greataxe": {
+     "light": {
+      "base": 18,
+      "action": 8,
+      "d2": "BA A1 2HS",
+      "src": "d2",
+      "clips": [
+       "gs_attack_1",
+       "gs_attack_2",
+       "gs_attack_3"
+      ],
+      "min": 10,
+      "frames0": 17
+     },
+     "heavy": {
+      "base": 20,
+      "action": 9,
+      "d2": "BA A1 2HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "gs_attack_heavy"
+      ],
+      "min": 11,
+      "frames0": 19
+     },
+     "cast": {
+      "base": 14,
+      "action": 9,
+      "d2": "BA SC",
+      "src": "d2",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "greatsword": {
+     "light": {
+      "base": 18,
+      "action": 8,
+      "d2": "BA A1 2HS",
+      "src": "d2",
+      "clips": [
+       "gs_attack_1",
+       "gs_attack_2",
+       "gs_attack_3"
+      ],
+      "min": 10,
+      "frames0": 17
+     },
+     "heavy": {
+      "base": 20,
+      "action": 9,
+      "d2": "BA A1 2HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "gs_attack_heavy"
+      ],
+      "min": 11,
+      "frames0": 19
+     },
+     "cast": {
+      "base": 14,
+      "action": 9,
+      "d2": "BA SC",
+      "src": "d2",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "staff": {
+     "light": {
+      "base": 19,
+      "action": 9,
+      "d2": "BA A1 STF",
+      "src": "adapted",
+      "clips": [
+       "magic_attack_2h",
+       "magic_cast_2h"
+      ],
+      "note": "D2 STF melee frames used for Sanctuary staff/wand basic attack (projectile looses at action)",
+      "min": 10,
+      "frames0": 18
+     },
+     "cast": {
+      "base": 14,
+      "action": 9,
+      "d2": "BA SC",
+      "src": "d2",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "wand": {
+     "light": {
+      "base": 16,
+      "action": 7,
+      "d2": "BA A1 1HS",
+      "src": "adapted",
+      "clips": [
+       "magic_attack_1h",
+       "magic_cast_1h"
+      ],
+      "note": "D2 1HS melee frames used for Sanctuary staff/wand basic attack (projectile looses at action)",
+      "min": 9,
+      "frames0": 15
+     },
+     "cast": {
+      "base": 14,
+      "action": 9,
+      "d2": "BA SC",
+      "src": "d2",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "bow": {
+     "bow": {
+      "base": 15,
+      "action": 7,
+      "d2": "BA A1 BOW",
+      "src": "d2",
+      "clips": [
+       "bow_draw",
+       "bow_release"
+      ],
+      "note": "real D2 BOW frames for this class",
+      "min": 8,
+      "frames0": 14
+     },
+     "heavy": {
+      "base": 17,
+      "action": 8,
+      "d2": "BA A1 BOW +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "bow_aim_overdraw"
+      ],
+      "min": 9,
+      "frames0": 16
+     },
+     "cast": {
+      "base": 14,
+      "action": 9,
+      "d2": "BA SC",
+      "src": "d2",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "dagger": {
+     "light": {
+      "base": 16,
+      "action": 7,
+      "d2": "BA A1 1HT",
+      "src": "d2",
+      "clips": [
+       "dagger_attack_1",
+       "dagger_attack_2",
+       "dagger_attack_3"
+      ],
+      "min": 9,
+      "frames0": 15
+     },
+     "heavy": {
+      "base": 18,
+      "action": 8,
+      "d2": "BA A1 1HT +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "dagger_attack_heavy"
+      ],
+      "min": 10,
+      "frames0": 17
+     },
+     "cast": {
+      "base": 14,
+      "action": 9,
+      "d2": "BA SC",
+      "src": "d2",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "unarmed": {
+     "light": {
+      "base": 12,
+      "action": 6,
+      "d2": "BA A1 HTH",
+      "src": "d2",
+      "clips": [
+       "ss_attack_1"
+      ],
+      "min": 6,
+      "frames0": 11
+     },
+     "cast": {
+      "base": 14,
+      "action": 9,
+      "d2": "BA SC",
+      "src": "d2",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "min": 7,
+      "frames0": 13
+     }
+    }
+   },
+   "minFrames": 6
+  },
+  "longmark": {
+   "body": "archer",
+   "d2": "Amazon",
+   "weapons": {
+    "sword": {
+     "light": {
+      "base": 14,
+      "action": 8,
+      "d2": "AM A1 1HS",
+      "src": "d2",
+      "clips": [
+       "ss_attack_1",
+       "ss_attack_2",
+       "ss_attack_3"
+      ],
+      "min": 7,
+      "frames0": 13
+     },
+     "heavy": {
+      "base": 16,
+      "action": 9,
+      "d2": "AM A1 1HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "ss_attack_heavy"
+      ],
+      "min": 9,
+      "frames0": 15
+     },
+     "cast": {
+      "base": 20,
+      "action": 5,
+      "d2": "AM SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 11,
+      "frames0": 19
+     }
+    },
+    "axe": {
+     "light": {
+      "base": 14,
+      "action": 8,
+      "d2": "AM A1 1HS",
+      "src": "d2",
+      "clips": [
+       "axe_attack_1",
+       "axe_attack_2",
+       "axe_attack_3"
+      ],
+      "min": 7,
+      "frames0": 13
+     },
+     "heavy": {
+      "base": 16,
+      "action": 9,
+      "d2": "AM A1 1HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "axe_attack_heavy"
+      ],
+      "min": 9,
+      "frames0": 15
+     },
+     "cast": {
+      "base": 20,
+      "action": 5,
+      "d2": "AM SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 11,
+      "frames0": 19
+     }
+    },
+    "greataxe": {
+     "light": {
+      "base": 18,
+      "action": 10,
+      "d2": "AM A1 2HS",
+      "src": "d2",
+      "clips": [
+       "gs_attack_1",
+       "gs_attack_2",
+       "gs_attack_3"
+      ],
+      "min": 10,
+      "frames0": 17
+     },
+     "heavy": {
+      "base": 20,
+      "action": 11,
+      "d2": "AM A1 2HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "gs_attack_heavy"
+      ],
+      "min": 11,
+      "frames0": 19
+     },
+     "cast": {
+      "base": 20,
+      "action": 6,
+      "d2": "AM SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 11,
+      "frames0": 19
+     }
+    },
+    "greatsword": {
+     "light": {
+      "base": 18,
+      "action": 10,
+      "d2": "AM A1 2HS",
+      "src": "d2",
+      "clips": [
+       "gs_attack_1",
+       "gs_attack_2",
+       "gs_attack_3"
+      ],
+      "min": 10,
+      "frames0": 17
+     },
+     "heavy": {
+      "base": 20,
+      "action": 11,
+      "d2": "AM A1 2HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "gs_attack_heavy"
+      ],
+      "min": 11,
+      "frames0": 19
+     },
+     "cast": {
+      "base": 20,
+      "action": 6,
+      "d2": "AM SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 11,
+      "frames0": 19
+     }
+    },
+    "staff": {
+     "light": {
+      "base": 18,
+      "action": 10,
+      "d2": "AM A1 STF",
+      "src": "adapted",
+      "clips": [
+       "magic_attack_2h",
+       "magic_cast_2h"
+      ],
+      "note": "D2 STF melee frames used for Sanctuary staff/wand basic attack (projectile looses at action)",
+      "min": 10,
+      "frames0": 17
+     },
+     "cast": {
+      "base": 20,
+      "action": 6,
+      "d2": "AM SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 11,
+      "frames0": 19
+     }
+    },
+    "wand": {
+     "light": {
+      "base": 14,
+      "action": 8,
+      "d2": "AM A1 1HS",
+      "src": "adapted",
+      "clips": [
+       "magic_attack_1h",
+       "magic_cast_1h"
+      ],
+      "note": "D2 1HS melee frames used for Sanctuary staff/wand basic attack (projectile looses at action)",
+      "min": 7,
+      "frames0": 13
+     },
+     "cast": {
+      "base": 20,
+      "action": 5,
+      "d2": "AM SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 11,
+      "frames0": 19
+     }
+    },
+    "bow": {
+     "bow": {
+      "base": 14,
+      "action": 6,
+      "d2": "AM A1 BOW",
+      "src": "d2",
+      "clips": [
+       "bow_draw",
+       "bow_release"
+      ],
+      "min": 7,
+      "frames0": 13
+     },
+     "heavy": {
+      "base": 16,
+      "action": 7,
+      "d2": "AM A1 BOW +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "bow_aim_overdraw"
+      ],
+      "min": 9,
+      "frames0": 15
+     },
+     "cast": {
+      "base": 20,
+      "action": 6,
+      "d2": "AM SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 11,
+      "frames0": 19
+     }
+    },
+    "dagger": {
+     "light": {
+      "base": 13,
+      "action": 7,
+      "d2": "AM A1 1HT",
+      "src": "d2",
+      "clips": [
+       "dagger_attack_1",
+       "dagger_attack_2",
+       "dagger_attack_3"
+      ],
+      "min": 7,
+      "frames0": 12
+     },
+     "heavy": {
+      "base": 15,
+      "action": 8,
+      "d2": "AM A1 1HT +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "dagger_attack_heavy"
+      ],
+      "min": 8,
+      "frames0": 14
+     },
+     "cast": {
+      "base": 20,
+      "action": 5,
+      "d2": "AM SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 11,
+      "frames0": 19
+     }
+    },
+    "unarmed": {
+     "light": {
+      "base": 12,
+      "action": 7,
+      "d2": "AM A1 HTH",
+      "src": "d2",
+      "clips": [
+       "ss_attack_1"
+      ],
+      "min": 6,
+      "frames0": 11
+     },
+     "cast": {
+      "base": 20,
+      "action": 5,
+      "d2": "AM SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 11,
+      "frames0": 19
+     }
+    }
+   },
+   "minFrames": 6
+  },
+  "cinderwake": {
+   "body": "elementalist",
+   "d2": "Sorceress",
+   "weapons": {
+    "sword": {
+     "light": {
+      "base": 18,
+      "action": 10,
+      "d2": "SO A1 1HS",
+      "src": "d2",
+      "clips": [
+       "ss_attack_1",
+       "ss_attack_2",
+       "ss_attack_3"
+      ],
+      "min": 10,
+      "frames0": 17
+     },
+     "heavy": {
+      "base": 20,
+      "action": 11,
+      "d2": "SO A1 1HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "ss_attack_heavy"
+      ],
+      "min": 11,
+      "frames0": 19
+     },
+     "cast": {
+      "base": 14,
+      "action": 4,
+      "d2": "SO SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "axe": {
+     "light": {
+      "base": 18,
+      "action": 10,
+      "d2": "SO A1 1HS",
+      "src": "d2",
+      "clips": [
+       "axe_attack_1",
+       "axe_attack_2",
+       "axe_attack_3"
+      ],
+      "min": 10,
+      "frames0": 17
+     },
+     "heavy": {
+      "base": 20,
+      "action": 11,
+      "d2": "SO A1 1HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "axe_attack_heavy"
+      ],
+      "min": 11,
+      "frames0": 19
+     },
+     "cast": {
+      "base": 14,
+      "action": 4,
+      "d2": "SO SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "greataxe": {
+     "light": {
+      "base": 22,
+      "action": 12,
+      "d2": "SO A1 2HS",
+      "src": "d2",
+      "clips": [
+       "gs_attack_1",
+       "gs_attack_2",
+       "gs_attack_3"
+      ],
+      "min": 12,
+      "frames0": 21
+     },
+     "heavy": {
+      "base": 24,
+      "action": 13,
+      "d2": "SO A1 2HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "gs_attack_heavy"
+      ],
+      "min": 13,
+      "frames0": 23
+     },
+     "cast": {
+      "base": 14,
+      "action": 4,
+      "d2": "SO SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "greatsword": {
+     "light": {
+      "base": 22,
+      "action": 12,
+      "d2": "SO A1 2HS",
+      "src": "d2",
+      "clips": [
+       "gs_attack_1",
+       "gs_attack_2",
+       "gs_attack_3"
+      ],
+      "min": 12,
+      "frames0": 21
+     },
+     "heavy": {
+      "base": 24,
+      "action": 13,
+      "d2": "SO A1 2HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "gs_attack_heavy"
+      ],
+      "min": 13,
+      "frames0": 23
+     },
+     "cast": {
+      "base": 14,
+      "action": 4,
+      "d2": "SO SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "staff": {
+     "light": {
+      "base": 16,
+      "action": 9,
+      "d2": "SO A1 STF",
+      "src": "adapted",
+      "clips": [
+       "magic_attack_2h",
+       "magic_cast_2h"
+      ],
+      "note": "D2 STF melee frames used for Sanctuary staff/wand basic attack (projectile looses at action)",
+      "min": 9,
+      "frames0": 15
+     },
+     "cast": {
+      "base": 14,
+      "action": 4,
+      "d2": "SO SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "wand": {
+     "light": {
+      "base": 18,
+      "action": 10,
+      "d2": "SO A1 1HS",
+      "src": "adapted",
+      "clips": [
+       "magic_attack_1h",
+       "magic_cast_1h"
+      ],
+      "note": "D2 1HS melee frames used for Sanctuary staff/wand basic attack (projectile looses at action)",
+      "min": 10,
+      "frames0": 17
+     },
+     "cast": {
+      "base": 14,
+      "action": 4,
+      "d2": "SO SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "bow": {
+     "bow": {
+      "base": 17,
+      "action": 9,
+      "d2": "SO A1 BOW",
+      "src": "d2",
+      "clips": [
+       "bow_draw",
+       "bow_release"
+      ],
+      "note": "real D2 BOW frames for this class",
+      "min": 9,
+      "frames0": 16
+     },
+     "heavy": {
+      "base": 19,
+      "action": 10,
+      "d2": "SO A1 BOW +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "bow_aim_overdraw"
+      ],
+      "min": 10,
+      "frames0": 18
+     },
+     "cast": {
+      "base": 14,
+      "action": 4,
+      "d2": "SO SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "dagger": {
+     "light": {
+      "base": 17,
+      "action": 9,
+      "d2": "SO A1 1HT",
+      "src": "d2",
+      "clips": [
+       "dagger_attack_1",
+       "dagger_attack_2",
+       "dagger_attack_3"
+      ],
+      "min": 9,
+      "frames0": 16
+     },
+     "heavy": {
+      "base": 19,
+      "action": 10,
+      "d2": "SO A1 1HT +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "dagger_attack_heavy"
+      ],
+      "min": 10,
+      "frames0": 18
+     },
+     "cast": {
+      "base": 14,
+      "action": 4,
+      "d2": "SO SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 7,
+      "frames0": 13
+     }
+    },
+    "unarmed": {
+     "light": {
+      "base": 15,
+      "action": 8,
+      "d2": "SO A1 HTH",
+      "src": "d2",
+      "clips": [
+       "ss_attack_1"
+      ],
+      "min": 8,
+      "frames0": 14
+     },
+     "cast": {
+      "base": 14,
+      "action": 4,
+      "d2": "SO SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 7,
+      "frames0": 13
+     }
+    }
+   },
+   "minFrames": 7
+  },
+  "gravewell": {
+   "body": "necromancer",
+   "d2": "Necromancer",
+   "weapons": {
+    "sword": {
+     "light": {
+      "base": 19,
+      "action": 9,
+      "d2": "NE A1 1HS",
+      "src": "d2",
+      "clips": [
+       "ss_attack_1",
+       "ss_attack_2",
+       "ss_attack_3"
+      ],
+      "min": 10,
+      "frames0": 18
+     },
+     "heavy": {
+      "base": 21,
+      "action": 10,
+      "d2": "NE A1 1HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "ss_attack_heavy"
+      ],
+      "min": 11,
+      "frames0": 20
+     },
+     "cast": {
+      "base": 16,
+      "action": 4,
+      "d2": "NE SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 9,
+      "frames0": 15
+     }
+    },
+    "axe": {
+     "light": {
+      "base": 19,
+      "action": 9,
+      "d2": "NE A1 1HS",
+      "src": "d2",
+      "clips": [
+       "axe_attack_1",
+       "axe_attack_2",
+       "axe_attack_3"
+      ],
+      "min": 10,
+      "frames0": 18
+     },
+     "heavy": {
+      "base": 21,
+      "action": 10,
+      "d2": "NE A1 1HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "axe_attack_heavy"
+      ],
+      "min": 11,
+      "frames0": 20
+     },
+     "cast": {
+      "base": 16,
+      "action": 4,
+      "d2": "NE SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 9,
+      "frames0": 15
+     }
+    },
+    "greataxe": {
+     "light": {
+      "base": 23,
+      "action": 11,
+      "d2": "NE A1 2HS",
+      "src": "d2",
+      "clips": [
+       "gs_attack_1",
+       "gs_attack_2",
+       "gs_attack_3"
+      ],
+      "min": 13,
+      "frames0": 22
+     },
+     "heavy": {
+      "base": 25,
+      "action": 12,
+      "d2": "NE A1 2HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "gs_attack_heavy"
+      ],
+      "min": 14,
+      "frames0": 24
+     },
+     "cast": {
+      "base": 16,
+      "action": 5,
+      "d2": "NE SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 9,
+      "frames0": 15
+     }
+    },
+    "greatsword": {
+     "light": {
+      "base": 23,
+      "action": 11,
+      "d2": "NE A1 2HS",
+      "src": "d2",
+      "clips": [
+       "gs_attack_1",
+       "gs_attack_2",
+       "gs_attack_3"
+      ],
+      "min": 13,
+      "frames0": 22
+     },
+     "heavy": {
+      "base": 25,
+      "action": 12,
+      "d2": "NE A1 2HS +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "gs_attack_heavy"
+      ],
+      "min": 14,
+      "frames0": 24
+     },
+     "cast": {
+      "base": 16,
+      "action": 5,
+      "d2": "NE SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 9,
+      "frames0": 15
+     }
+    },
+    "staff": {
+     "light": {
+      "base": 20,
+      "action": 11,
+      "d2": "NE A1 STF",
+      "src": "adapted",
+      "clips": [
+       "magic_attack_2h",
+       "magic_cast_2h"
+      ],
+      "note": "D2 STF melee frames used for Sanctuary staff/wand basic attack (projectile looses at action)",
+      "min": 11,
+      "frames0": 19
+     },
+     "cast": {
+      "base": 16,
+      "action": 5,
+      "d2": "NE SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 9,
+      "frames0": 15
+     }
+    },
+    "wand": {
+     "light": {
+      "base": 19,
+      "action": 9,
+      "d2": "NE A1 1HS",
+      "src": "adapted",
+      "clips": [
+       "magic_attack_1h",
+       "magic_cast_1h"
+      ],
+      "note": "D2 1HS melee frames used for Sanctuary staff/wand basic attack (projectile looses at action)",
+      "min": 10,
+      "frames0": 18
+     },
+     "cast": {
+      "base": 16,
+      "action": 4,
+      "d2": "NE SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 9,
+      "frames0": 15
+     }
+    },
+    "bow": {
+     "bow": {
+      "base": 18,
+      "action": 9,
+      "d2": "NE A1 BOW",
+      "src": "d2",
+      "clips": [
+       "bow_draw",
+       "bow_release"
+      ],
+      "note": "real D2 BOW frames for this class",
+      "min": 10,
+      "frames0": 17
+     },
+     "heavy": {
+      "base": 20,
+      "action": 10,
+      "d2": "NE A1 BOW +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "bow_aim_overdraw"
+      ],
+      "min": 11,
+      "frames0": 19
+     },
+     "cast": {
+      "base": 16,
+      "action": 5,
+      "d2": "NE SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_2h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 9,
+      "frames0": 15
+     }
+    },
+    "dagger": {
+     "light": {
+      "base": 19,
+      "action": 9,
+      "d2": "NE A1 1HT",
+      "src": "d2",
+      "clips": [
+       "dagger_attack_1",
+       "dagger_attack_2",
+       "dagger_attack_3"
+      ],
+      "min": 10,
+      "frames0": 18
+     },
+     "heavy": {
+      "base": 21,
+      "action": 10,
+      "d2": "NE A1 1HT +2",
+      "src": "adapted",
+      "note": "weapon skills (castSkill o=true): A1 +2 frames, keeps the game's existing +2 rule",
+      "clips": [
+       "dagger_attack_heavy"
+      ],
+      "min": 11,
+      "frames0": 20
+     },
+     "cast": {
+      "base": 16,
+      "action": 4,
+      "d2": "NE SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 9,
+      "frames0": 15
+     }
+    },
+    "unarmed": {
+     "light": {
+      "base": 15,
+      "action": 8,
+      "d2": "NE A1 HTH",
+      "src": "d2",
+      "clips": [
+       "ss_attack_1"
+      ],
+      "min": 8,
+      "frames0": 14
+     },
+     "cast": {
+      "base": 16,
+      "action": 4,
+      "d2": "NE SC",
+      "src": "adapted",
+      "stat": "fcr",
+      "clips": [
+       "magic_cast_1h"
+      ],
+      "note": "FPD from real D2 0%-FCR cast frames; action frame from GLB contact",
+      "min": 9,
+      "frames0": 15
+     }
+    }
+   },
+   "minFrames": 8
+  }
+ },
+ "monsters": {
+  "source": "characters_art/monsters/monsters_3d.json kinds[k].atkFrames/atkAction/atkWsm; kinds without them use DA[kind].frames/wsm and action = round(frames*0.62)",
+  "formula": "same EIAS/frames/hitFrames with IAS = e.ias + auraBuff(e).ias, WSM = atkWsm; chill/atkSlow/goreHalf multipliers apply to both seconds and hitSeconds"
+ }
+}
