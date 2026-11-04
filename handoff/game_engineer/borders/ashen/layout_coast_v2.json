@@ -1293,20 +1293,796 @@
    "scale": 1.554,
    "collider": "none",
    "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    2.225,
+    0.0,
+    -6.455
+   ],
+   "rotY": 2.0168,
+   "scale": 3.146,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_crooked_winter_lod0",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    6.095,
+    0.0,
+    -6.728
+   ],
+   "rotY": 3.6052,
+   "scale": 1.079,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    10.939,
+    0.0,
+    -5.42
+   ],
+   "rotY": 2.1168,
+   "scale": 2.799,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_crooked_winter_lod0",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    14.781,
+    0.0,
+    -5.832
+   ],
+   "rotY": 1.4684,
+   "scale": 1.334,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    19.173,
+    0.0,
+    -8.194
+   ],
+   "rotY": 1.057,
+   "scale": 3.047,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_a_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_a_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    23.345,
+    0.0,
+    -6.244
+   ],
+   "rotY": 1.9292,
+   "scale": 2.321,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    27.181,
+    0.0,
+    -7.105
+   ],
+   "rotY": 5.0863,
+   "scale": 2.441,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    32.128,
+    0.0,
+    -6.674
+   ],
+   "rotY": 5.7226,
+   "scale": 3.456,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    36.589,
+    0.0,
+    -8.218
+   ],
+   "rotY": 5.1957,
+   "scale": 1.364,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    41.421,
+    0.0,
+    -6.632
+   ],
+   "rotY": 3.8993,
+   "scale": 2.914,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    45.75,
+    0.0,
+    -8.033
+   ],
+   "rotY": 4.4869,
+   "scale": 2.947,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_crooked_winter_lod0",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    8.522,
+    0.0,
+    1.478
+   ],
+   "rotY": 3.4877,
+   "scale": 0.809,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "sway_dead_grass_patch_2m",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    11.358,
+    0.0,
+    0.907
+   ],
+   "rotY": 5.1307,
+   "scale": 1.026,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    14.039,
+    0.0,
+    1.339
+   ],
+   "rotY": 5.0435,
+   "scale": 0.898,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted_dead",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    23.111,
+    0.0,
+    1.466
+   ],
+   "rotY": 1.3987,
+   "scale": 1.282,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted_dead",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    25.635,
+    0.0,
+    1.244
+   ],
+   "rotY": 5.4174,
+   "scale": 1.177,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    33.521,
+    0.0,
+    1.351
+   ],
+   "rotY": 1.9764,
+   "scale": 1.123,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    42.32,
+    0.0,
+    0.412
+   ],
+   "rotY": 0.6014,
+   "scale": 1.187,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    49.359,
+    0.0,
+    1.837
+   ],
+   "rotY": 0.4515,
+   "scale": 2.138,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_a_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_a_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    48.306,
+    0.0,
+    5.489
+   ],
+   "rotY": 5.4154,
+   "scale": 3.649,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    47.7,
+    0.0,
+    9.536
+   ],
+   "rotY": 5.2399,
+   "scale": 2.171,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_a_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_a_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    50.437,
+    0.0,
+    14.113
+   ],
+   "rotY": 0.6331,
+   "scale": 2.855,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    47.842,
+    0.0,
+    17.836
+   ],
+   "rotY": 4.4232,
+   "scale": 1.25,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_a_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_a_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    48.075,
+    0.0,
+    21.456
+   ],
+   "rotY": 2.6748,
+   "scale": 2.943,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    49.657,
+    0.0,
+    26.686
+   ],
+   "rotY": 4.9528,
+   "scale": 2.782,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "E",
+   "pos": [
+    47.145,
+    0.0,
+    31.484
+   ],
+   "rotY": 1.035,
+   "scale": 1.279,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "sway_dead_grass_patch_2m",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    40.571,
+    0.0,
+    2.784
+   ],
+   "rotY": 1.3828,
+   "scale": 1.393,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    40.992,
+    0.0,
+    5.094
+   ],
+   "rotY": 4.2467,
+   "scale": 1.191,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "sway_dead_grass_patch_2m",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    40.686,
+    0.0,
+    8.265
+   ],
+   "rotY": 4.2988,
+   "scale": 1.269,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_crooked_winter_lod0",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "lip_inner",
+   "edge": "E",
+   "pos": [
+    40.51,
+    0.0,
+    18.618
+   ],
+   "rotY": 1.4216,
+   "scale": 0.843,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    2.143,
+    0.0,
+    119.235
+   ],
+   "rotY": 0.3608,
+   "scale": 1.132,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    6.532,
+    0.0,
+    118.781
+   ],
+   "rotY": 0.9335,
+   "scale": 1.02,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    10.433,
+    0.0,
+    120.354
+   ],
+   "rotY": 2.728,
+   "scale": 3.551,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_a_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_a_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    14.938,
+    0.0,
+    117.836
+   ],
+   "rotY": 2.9552,
+   "scale": 2.121,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    19.938,
+    0.0,
+    118.564
+   ],
+   "rotY": 1.6939,
+   "scale": 3.519,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    28.308,
+    0.0,
+    118.305
+   ],
+   "rotY": 5.6065,
+   "scale": 2.794,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_peak_b_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_peak_b_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    31.986,
+    0.0,
+    119.216
+   ],
+   "rotY": 2.8233,
+   "scale": 3.751,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "rock_spire_bare_16m_dead",
+   "asset": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    37.181,
+    0.0,
+    117.08
+   ],
+   "rotY": 6.1502,
+   "scale": 0.513,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    40.918,
+    0.0,
+    117.95
+   ],
+   "rotY": 1.0099,
+   "scale": 2.569,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "border_shelf_c_v5_dead",
+   "asset": "models/outdoor/v5_maps/border/border_shelf_c_v5_dead.glb",
+   "layer": "outer_far",
+   "edge": "S",
+   "pos": [
+    46.148,
+    0.0,
+    117.613
+   ],
+   "rotY": 4.354,
+   "scale": 2.64,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "sway_dead_grass_patch_2m",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    6.088,
+    0.0,
+    110.525
+   ],
+   "rotY": 1.4811,
+   "scale": 1.168,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted_dead",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    8.744,
+    0.0,
+    111.441
+   ],
+   "rotY": 2.4836,
+   "scale": 1.237,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted_dead",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    19.13,
+    0.0,
+    111.559
+   ],
+   "rotY": 2.7776,
+   "scale": 0.975,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted_dead",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    22.162,
+    0.0,
+    110.794
+   ],
+   "rotY": 5.4351,
+   "scale": 1.026,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "dead_stump_blighted_dead",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip_inner",
+   "edge": "S",
+   "pos": [
+    24.922,
+    0.0,
+    110.939
+   ],
+   "rotY": 0.0628,
+   "scale": 1.286,
+   "collider": "none (edge-ring tile already solid)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_crooked_winter_lod0",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -8.112,
+    0.0,
+    0.724
+   ],
+   "rotY": 3.0357,
+   "scale": 1.151,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_crooked_winter_lod0",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -6.099,
+    0.0,
+    5.954
+   ],
+   "rotY": 2.8546,
+   "scale": 1.485,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -7.407,
+    0.0,
+    10.954
+   ],
+   "rotY": 5.3199,
+   "scale": 1.497,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_crooked_winter_lod0",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -7.37,
+    0.0,
+    16.303
+   ],
+   "rotY": 5.7671,
+   "scale": 1.204,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -8.424,
+    0.0,
+    20.817
+   ],
+   "rotY": 2.2396,
+   "scale": 1.404,
+   "collider": "none (outside map)",
+   "blocks_walk": false
+  },
+  {
+   "id": "gtree_crooked_winter_lod0",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "W",
+   "pos": [
+    -7.847,
+    0.0,
+    29.6
+   ],
+   "rotY": 5.6776,
+   "scale": 1.22,
+   "collider": "none (outside map)",
+   "blocks_walk": false
   }
  ],
  "stats": {
   "pieces": 33,
-  "props": 46,
+  "props": 97,
   "kit_tris": 26044,
   "prop_by_id": {
    "crag": 9,
    "grass": 9,
-   "gtree": 2,
-   "seastack": 7,
+   "spire": 6,
    "shore_rock": 13,
-   "spire": 6
+   "seastack": 7,
+   "gtree": 2,
+   "border_peak_a_v5_dead": 4,
+   "gtree_crooked_winter_lod0": 8,
+   "border_peak_b_v5_dead": 8,
+   "border_shelf_a_v5_dead": 4,
+   "border_shelf_c_v5_dead": 5,
+   "gtree_twisted_winter_lod0": 11,
+   "sway_dead_grass_patch_2m": 4,
+   "dead_stump_blighted_dead": 6,
+   "rock_spire_bare_16m_dead": 1
   },
-  "moved_world_props": 0
+  "moved_world_props": 0,
+  "added_v2_2": 51,
+  "collider_changes": 0
  }
 }
