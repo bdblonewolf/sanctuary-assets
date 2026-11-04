@@ -215,14 +215,7 @@ This pass responds to Brian's review: the top of the head looked the same on eve
 ### Hair sources
 The procedural card hair is gone for three classes. Each one now uses a MakeHuman community strand-tube hair, fitted to the hm08 body through its `.mhclo` refs. The files are unmodified in `/workspace/free_packs/mh_hair03/`, with a SOURCE.txt.
 
-| Class | Asset | Author | Pack / licence | Tris (budget) |
-|---|---|---|---|---|
-| archer | `punkduck_alpha7_curly` (node/480) | MakeHuman team; MH 1.1 adaptation by punkduck | MakeHuman Community hair03, **CC-BY** | 7 524 (≤ 8k), one ring in three collapsed |
-| elementalist | `punkduck_alpha7_curly2` (node/477) | MakeHuman team; MH 1.1 adaptation by punkduck | hair03, **CC-BY** | 6 026 (≤ 8k) |
-| warrior | `punkduck_alpha7_curly2`, cut to collar length | as above | hair03, **CC-BY** | 5 972 (≤ 6k), one inner strand dropped |
-| necromancer | pass-3 flow hair (own), with a taller crown | — | — | 5 768 (≤ 6k), piercings 440 |
-
-**Licence note.** The pack is distributed as CC-BY (`hair03_ccby.zip`). The asset JSON says the original licence "was GPL but author was set to unknown", so it is treated as CC-BY by the MakeHuman team. The `.mhclo` headers say "AGPL3", which is the MakeHuman exporter's boilerplate line. **Credit:** "Hair: alpha7 curly / curly2 by the MakeHuman team, adapted by punkduck, MakeHuman Community asset repository, CC-BY."
+*(Removed in pass 6: the pass-4 curly hair for the archer, elementalist and warrior didn't have a clear CC-BY licence. It has been taken out of the ship files and masters; see **Pass 6** for the replacement hair and credits.)*
 
 ### Processing (tools in `work/faces/tools/hair4.py`)
 - **Fitting and colour.** Each hair is fitted with the `.mhclo` offsets (×0.6 for curly2, which lowers its tall crown) and skinned from the nearest body skin weights to the 52-bone rig. It is recoloured per class: archer blue-black, elementalist deep red, warrior dark brown. A scalp-coloured hair base is painted under each hairline.
@@ -328,27 +321,49 @@ The full table is in the work folder (meas/table_v5.md).
 | class | hair | author | licence |
 |---|---|---|---|
 | necromancer | elvs_keylth_hair (MakeHuman Community hair02 pack) | Elvaerwyn | CC-BY (stated in the asset file by the author) |
-| archer | punkduck_alpha7_curly | MakeHuman alpha-7 content, adapted by punkduck | **unclear: see below** |
-| elementalist, warrior | punkduck_alpha7_curly2 | MakeHuman alpha-7 content, adapted by punkduck | **unclear: see below** |
+| archer, elementalist, warrior | *replaced in pass 6, see below* | | |
 
-**Licence warning for the curly hair (archer, elementalist, warrior).**
+**Attribution (pass 5):** "Hair: 'Keylth' by Elvaerwyn, MakeHuman Community asset repository, CC-BY." For the full current credits, see **Pass 6**.
 
-- The asset files say "author Unknown, adaptation by punkduck, license AGPL3".
-- The community asset page labels them CC-BY, with the note "The licence was GPL, but author was set to unknown. So I consider it CC BY, but the author is the MH team."
-- That relabel was done by the adapter, not by the copyright holder, so these are **not clearly CC-BY**. They shouldn't ship in a commercial build until they're replaced or cleared.
+## Pass 6: hair with a clear licence for the archer, elementalist and warrior; brow, lip and necromancer-strand fixes (2026-11-03)
 
-Clean replacements are already on the box, unmodified, in `/workspace/free_packs/`:
+### Hair sources and licences (what ships now)
+All four classes now use hair from Elvaerwyn's MakeHuman Community **hair02** pack. Each asset file states CC-BY in the author's own header. The source files are unmodified on the box in `/workspace/free_packs/mh_hair02/`, with a SOURCE.txt. The alpha7 curly/curly2 hair (AGPL header) has been removed from every ship file and master.
 
-| licence | asset | tris | notes |
-|---|---|---|---|
-| CC-BY (Elvaerwyn) | elvs_that_80s_babe_hair | 6,004 | "long male hair"; warrior candidate |
-| CC-BY (Elvaerwyn) | elvs_daisy_hair | 6,639 | long and wavy; elementalist |
-| CC-BY (Elvaerwyn) | elvs_ashley_may_hair | 8,467 | long and full; archer, decimate to 8k |
-| CC-BY (Elvaerwyn) | elvs_wavy_bob | 4,288 | |
-| CC-BY (Elvaerwyn) | elvs_inverted_curly_bob | 2,980 | |
-| CC BY 4.0 (04saken) | o4saken_curly01 | 120k | needs heavy decimation |
-| CC0 | MakeHuman system hair: afro01, bob01, bob02, braid01, long01, ponytail01, short01–04 | | |
-| CC0 (MRT) | toigo bobs | | |
-| CC0 (cortu) | cortu_strawberry_cloud_hair | | |
+| Class | Asset | Author | Licence | Tris (budget) | Changes made (allowed under CC-BY) |
+|---|---|---|---|---|---|
+| archer | `elvs_ashley_may_hair` | Elvaerwyn | CC-BY | 7,903 (≤ 8k), 5 inner strands dropped | fitted and skinned to the rig, recoloured blue-black, curl added (a per-lock spiral that builds from the root down) |
+| elementalist | `elvs_daisy_hair` | Elvaerwyn | CC-BY | 6,639 (≤ 8k) | fitted and skinned, crimson recolour with a warm highlight, broad waves added (phase-matched between neighbouring locks), face locks swept back |
+| warrior | `elvs_that_80s_babe_hair` | Elvaerwyn | CC-BY | 5,920 (≤ 6k), 1 inner strand dropped | fitted and skinned, dark-brown recolour, shortened to collar length, tight curl added, side part, flatter top |
+| necromancer | `elvs_keylth_hair` (unchanged from pass 5) | Elvaerwyn | CC-BY | 4,334 (≤ 6k) | white recolour; pass 6 cuts thin alpha gaps along the strands so the wide cards read as separate locks (no extra tris) |
 
-**Attribution required for what ships now:** "Hair: 'Keylth' by Elvaerwyn, MakeHuman Community asset repository, CC-BY."
+Piercings are unchanged: 440 tris, own geometry.
+
+**Attribution (required, ship with the game credits):**
+"Hair: 'Ashley May', 'Daisy', 'That 80s Babe' and 'Keylth' by Elvaerwyn, MakeHuman Community asset repository (hair02 pack), CC-BY. Modified: fitted to the player bodies, recoloured, curl/wave added, and length and volume adjusted."
+
+### Fixes
+- **Elementalist brows:** the brow geometry is raised (+1.8 mm) and the arch increased. **Crown:** the new hair has a rounded top, so the crown point is gone.
+- **Warrior upper lip:** the fullness is cut from 0.25 to 0.05. In the plain-shaded measurement it went from +12% to −10% against the ref.
+- **Necromancer:** the wide ribbon cards are split visually by alpha gaps in the texture (as above).
+
+### Checks
+- **Bodies:** vertex count and order, the 52 bones, inverse bind matrices, indices and the skin/linen/eye primitive order are all unchanged (verify: every check true).
+- **Format:** each hair is a separate GLB skinned to the rig. Textures are 1024 WebP. No meshopt or Draco.
+
+Clipping, max over the rest, idle, run, heavy-attack, bow-draw and magic-cast poses (pass 5 in brackets):
+
+| Class | Hair in body | Hair in plate | Head through helm | Head within 3 mm of helm |
+|---|---|---|---|---|
+| archer | 32 (4) | 1139 (349) | 0 (0) | 0 (0) |
+| elementalist | 70 (24) | 935 (465) | 0 (0) | 0 (0) |
+| warrior | 123 (56) | 1018 (435) | 0 (0) | 5 (5) |
+| necromancer | 16 (16) | 266 (266) | 0 (0) | 0 (0); piercings in body: 2 |
+
+The new hair is fuller and longer over the shoulders, so it intersects the shoulder plate more. Hair is hidden under helms, as before.
+
+### Renders
+- `renders/heads/heads_sheet_v6.png` (ref plus front, 3/4, side and back)
+- `renders/heads/heads_before_after_v6.png` (pass 5 vs pass 6)
+
+`heads_sheet.png`, `heads_before_after.png`, the per-view `player_*_head_*.png` and the bare/sheet renders are updated in place.
