@@ -1,3 +1,5 @@
+> **SUPERSEDED** by the 3-file set (`anim_base_unisex.glb` + `anim_variant_male.glb` / `anim_variant_female.glb`). Kept for history — see `README_3d_rigs.md`.
+
 # hero_anims_m2m test pack (small)
 
 Add-only test build from `ANIM_MAPPING.md` (cab6525). Skeleton + animation only (no meshes/textures). mixamorig bones, 30 fps, in-place (hips X/Z zeroed, Y bob kept). Clip names match game (no `_v2` suffix).
