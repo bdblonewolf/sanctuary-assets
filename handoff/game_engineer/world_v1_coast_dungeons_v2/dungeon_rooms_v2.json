@@ -1,0 +1,1669 @@
+{
+ "patch_id": "dungeon_rooms_v2",
+ "applies_after": "PROMPT_WP1 (live); replaces DNG1 (never pasted)",
+ "room_size": 10,
+ "tile_enum": "0 Grass,1 Grass2,2 Dirt,3 Sand,4 Sand2,5 Stone,6 Road,7 Plaza,8 Water,9 Bridge,a Plank,b Wall,c Cave,d Rug,e Blood",
+ "wall_glbs": {
+  "hull": "models/border_kit_v1/bk_sea_dead.glb",
+  "brick": "models/border_kit_v1/bk_town_dead.glb",
+  "ruin": "models/border_kit_v1/bk_town_autumn.glb",
+  "cliff": "models/border_kit_v1/bk_mountain_dead.glb"
+ },
+ "wall_rule": "instance the style GLB on solid tiles that touch walkable tiles; random rotY in 90deg steps + scale 0.85-1.15 + skip 1 in 4 for rubble gaps; mix dress_rocks_lite on corners. No straight seams.",
+ "sockets": "door = 2 tiles mid-edge: N (4,0)(5,0), S (4,9)(5,9), W (0,4)(0,5), E (9,4)(9,5). Rooms stored unrotated.",
+ "rotate": "one 90deg CW step: tile new[y][x]=old[9-x][y]; point (x,y)->(10-y,x); sockets N->E->S->W->N. Rotate tiles+solid+points BEFORE building meshes and blocking.",
+ "seal": "after growth, each socket without a matching neighbour: set its 2 door tiles to Wall b, solid 1.",
+ "wall_caps": "solid tiles touching a walkable tile get a wall GLB; solid tiles with no walkable neighbour get nothing; map outer ring is always solid.",
+ "spawns": "each spawns[] point gets one random pack from area.packs; boss/quest room as given; loot -> chest/urn; 1-2 random area props per non-entrance room on a walkable tile.",
+ "areas": {
+  "wrecks": {
+   "name": "The Broken Hulls",
+   "wall_style": "wrecked hulls + rubble",
+   "count": [
+    6,
+    9
+   ],
+   "max_cells": 6,
+   "packs": [
+    [
+     "zombie",
+     "zombie",
+     "corpse"
+    ],
+    [
+     "imp",
+     "imp"
+    ],
+    [
+     "corpse",
+     "zombie",
+     "imp"
+    ]
+   ],
+   "props": [
+    "models/town/martsirt_v2_2/props/prop_crate_stack_lite.glb",
+    "models/town/martsirt_v2_2/props/prop_barrel_group_lite.glb",
+    "models/town/martsirt_v2_2/props/prop_barrel_group_lite.glb",
+    "models/border_kit_v1/bk_sea_dead.glb"
+   ],
+   "entrance_coast": {
+    "coast": [
+     45.8,
+     29.4
+    ],
+    "note": "beside the flotsam dock exit (44.6,28.2); separate trigger, flotsam exit untouched",
+    "label": "Climb into the wrecks"
+   },
+   "rooms": [
+    {
+     "id": "wrecks_entrance",
+     "kind": "entrance",
+     "sockets": [
+      "N"
+     ],
+     "tiles": [
+      "bbbbaabbbb",
+      "baaaaaaabb",
+      "baaaaaaaab",
+      "baaaaaaaab",
+      "ba2aaaaaab",
+      "baaaaaaaab",
+      "b2aaaaa2ab",
+      "bbaaa2aabb",
+      "b2aaaaaaab",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000011",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawn": [
+      4.5,
+      6.5
+     ],
+     "exit": {
+      "x": 4.5,
+      "y": 8.0,
+      "to": "coast",
+      "sx": 45.8,
+      "sy": 30.6,
+      "label": "Back to the strand"
+     }
+    },
+    {
+     "id": "wrecks_dead",
+     "kind": "dead_end",
+     "sockets": [
+      "N"
+     ],
+     "tiles": [
+      "bbbbaabbbb",
+      "b2aaaaaaab",
+      "b22aaa2abb",
+      "baaaaaaaab",
+      "baa2aaaaab",
+      "baaaaaaa2b",
+      "baa2aaaaab",
+      "bbaaaaaaab",
+      "bbaaa2aaab",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000001",
+      "1000000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000001",
+      "1100000001",
+      "1111111111"
+     ],
+     "spawns": [],
+     "loot": [
+      [
+       6.5,
+       6.5
+      ]
+     ]
+    },
+    {
+     "id": "wrecks_cor",
+     "kind": "corridor",
+     "sockets": [
+      "N",
+      "S"
+     ],
+     "tiles": [
+      "bbbbaabbbb",
+      "b882aaaaab",
+      "baaaaaaabb",
+      "baaaaa2aab",
+      "baaaaa2a2b",
+      "baaaaaaaab",
+      "baaaaa2aab",
+      "baaaaaaabb",
+      "baaaaaa88b",
+      "bbbbaabbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000001",
+      "1000000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000011",
+      "1000000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "wrecks_cor2",
+     "kind": "corridor",
+     "sockets": [
+      "N",
+      "S"
+     ],
+     "tiles": [
+      "bbbbaabbbb",
+      "b88aaa22bb",
+      "baaaaaaa2b",
+      "baaaaa2aab",
+      "ba2aaaaaab",
+      "baaaaa22ab",
+      "baaaaaaaab",
+      "bbaaaaaa2b",
+      "bbaaaaa88b",
+      "bbbbaabbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000001",
+      "1100000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "wrecks_crn",
+     "kind": "corner",
+     "sockets": [
+      "N",
+      "E"
+     ],
+     "tiles": [
+      "bbbbaabbbb",
+      "bb2aaaaaab",
+      "baaaaa2aab",
+      "baaaaaaaab",
+      "ba2aaaaaaa",
+      "baaaaaaaaa",
+      "baaaa2aa2b",
+      "bbaaaaaa2b",
+      "baaaaaaaab",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1100000001",
+      "1000000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "wrecks_crn2",
+     "kind": "corner",
+     "sockets": [
+      "N",
+      "E"
+     ],
+     "tiles": [
+      "bbbbaabbbb",
+      "bbaaaaa2bb",
+      "baaaaaaaab",
+      "b2aaaa2a2b",
+      "ba22aaaaaa",
+      "baaaaaaaaa",
+      "baaa222aab",
+      "b2aaaaaabb",
+      "ba2a2aa2ab",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1100000011",
+      "1000000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1000000011",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "wrecks_tee",
+     "kind": "junction",
+     "sockets": [
+      "N",
+      "E",
+      "S"
+     ],
+     "tiles": [
+      "bbbbaabbbb",
+      "b88aaaaaab",
+      "baaaaaaaab",
+      "b2aaaaaaab",
+      "b2aaaaaaaa",
+      "baaaaaaaaa",
+      "baaaaaaaab",
+      "ba2aaaaabb",
+      "ba2aaa288b",
+      "bbbbaabbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000001",
+      "1000000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1000000011",
+      "1000000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "wrecks_x",
+     "kind": "junction",
+     "sockets": [
+      "N",
+      "E",
+      "S",
+      "W"
+     ],
+     "tiles": [
+      "bbbbaabbbb",
+      "b88aaaa2bb",
+      "b2a2aaa2ab",
+      "baaaaa2aab",
+      "aaaaaaaaaa",
+      "aaaaaaaaaa",
+      "baaaaaaaab",
+      "baaaaaa2ab",
+      "bbaaaaa88b",
+      "bbbbaabbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000011",
+      "1000000001",
+      "1000000001",
+      "0000000000",
+      "0000000000",
+      "1000000001",
+      "1000000001",
+      "1100000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "wrecks_boss",
+     "kind": "boss",
+     "sockets": [
+      "S"
+     ],
+     "tiles": [
+      "bbbbbbbbbb",
+      "baaaaaaaab",
+      "ba2aa2aaab",
+      "baaaaaaaab",
+      "b2a2aaaaab",
+      "b222aaaa2b",
+      "baa2aaa2ab",
+      "bba2aaaabb",
+      "bb2aaaaa2b",
+      "bbbbaabbbb"
+     ],
+     "solid": [
+      "1111111111",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000011",
+      "1100000001",
+      "1111001111"
+     ],
+     "boss": {
+      "id": "wk_boss",
+      "kind": "zombie",
+      "elite": true,
+      "name": "The Drowned Bosun",
+      "pos": [
+       4.5,
+       3.5
+      ],
+      "drop": "chest"
+     },
+     "loot": [
+      [
+       2.5,
+       2.5
+      ]
+     ],
+     "spawns": [
+      [
+       6.5,
+       6.5
+      ]
+     ]
+    }
+   ]
+  },
+  "sewer_coast": {
+   "name": "Ashen Drains",
+   "wall_style": "brick + collapsed rubble",
+   "count": [
+    7,
+    10
+   ],
+   "max_cells": 6,
+   "packs": [
+    [
+     "zombie",
+     "corpse"
+    ],
+    [
+     "imp",
+     "imp",
+     "imp"
+    ],
+    [
+     "zombie",
+     "zombie",
+     "corpse"
+    ]
+   ],
+   "props": [
+    "models/town/martsirt_v2_2/dressing/dress_rocks_lite.glb",
+    "models/town/martsirt_v2_2/props/prop_crate_stack_lite.glb",
+    "models/env_extra/props_gothic_v1/props/chains_shackles_v1_lite.glb"
+   ],
+   "entrance_coast": {
+    "coast": [
+     60.6,
+     19.8
+    ],
+    "note": "WP1 sewer_stairs; if the live sewer world already exists, reuse its id and only add this layout as sewer_coast"
+   },
+   "rooms": [
+    {
+     "id": "sewer_coast_entrance",
+     "kind": "entrance",
+     "sockets": [
+      "N"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "be5555555b",
+      "bb5e55555b",
+      "b5ee55555b",
+      "b55555ee5b",
+      "b55e55555b",
+      "b5e555555b",
+      "bb5555555b",
+      "b5555555bb",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000001",
+      "1000000011",
+      "1111111111"
+     ],
+     "spawn": [
+      4.5,
+      6.5
+     ],
+     "exit": {
+      "x": 4.5,
+      "y": 8.0,
+      "to": "coast",
+      "sx": 60.6,
+      "sy": 21.0,
+      "label": "Up the stairs"
+     }
+    },
+    {
+     "id": "sewer_coast_dead",
+     "kind": "dead_end",
+     "sockets": [
+      "N"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "b5e55555bb",
+      "bb5555eebb",
+      "b55555555b",
+      "be5555555b",
+      "b55e555e5b",
+      "be5eeeee5b",
+      "b55555555b",
+      "b55eee555b",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000011",
+      "1100000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawns": [],
+     "loot": [
+      [
+       6.5,
+       6.5
+      ]
+     ]
+    },
+    {
+     "id": "sewer_coast_cor",
+     "kind": "corridor",
+     "sockets": [
+      "N",
+      "S"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "b88e5555bb",
+      "be555555bb",
+      "be5555555b",
+      "be5555e55b",
+      "b55555e55b",
+      "b55555555b",
+      "b5555555bb",
+      "b55555588b",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000011",
+      "1000000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000011",
+      "1000000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "sewer_coast_cor2",
+     "kind": "corridor",
+     "sockets": [
+      "N",
+      "S"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "b88555e5eb",
+      "b5555555eb",
+      "b5ee55555b",
+      "b55555555b",
+      "b55555555b",
+      "b5555555eb",
+      "b5e555555b",
+      "bb5555588b",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "sewer_coast_crn",
+     "kind": "corner",
+     "sockets": [
+      "N",
+      "E"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "bb555555bb",
+      "be5e55555b",
+      "b55555555b",
+      "be5e555555",
+      "b555555555",
+      "b5555e5e5b",
+      "bbe5eee55b",
+      "be5555555b",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1100000011",
+      "1000000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "sewer_coast_crn2",
+     "kind": "corner",
+     "sockets": [
+      "N",
+      "E"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "bb555555eb",
+      "bb5e55e55b",
+      "b55555555b",
+      "b555555555",
+      "b555555555",
+      "b55555555b",
+      "be555ee55b",
+      "b555eee5bb",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1100000001",
+      "1100000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1000000001",
+      "1000000011",
+      "1111111111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "sewer_coast_tee",
+     "kind": "junction",
+     "sockets": [
+      "N",
+      "E",
+      "S"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "b88e55e5bb",
+      "be5555555b",
+      "b5e55555eb",
+      "b5e5555555",
+      "b555555555",
+      "b55e55555b",
+      "b55555555b",
+      "bb5555588b",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000011",
+      "1000000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1000000001",
+      "1100000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "sewer_coast_x",
+     "kind": "junction",
+     "sockets": [
+      "N",
+      "E",
+      "S",
+      "W"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "b885555e5b",
+      "b5555555eb",
+      "b55555ee5b",
+      "5555555555",
+      "5555555555",
+      "b55555555b",
+      "b5555555bb",
+      "b55555588b",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000001",
+      "1000000001",
+      "1000000001",
+      "0000000000",
+      "0000000000",
+      "1000000001",
+      "1000000011",
+      "1000000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "sewer_coast_boss",
+     "kind": "boss",
+     "sockets": [
+      "S"
+     ],
+     "tiles": [
+      "bbbbbbbbbb",
+      "bbe5555e5b",
+      "b5555555bb",
+      "b5555e555b",
+      "be5555555b",
+      "b55555555b",
+      "b5e555555b",
+      "bb5555555b",
+      "b5555555eb",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111111111",
+      "1100000001",
+      "1000000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1111001111"
+     ],
+     "boss": {
+      "id": "sw_boss",
+      "kind": "corpse",
+      "elite": true,
+      "name": "The Drain Mother",
+      "pos": [
+       4.5,
+       3.5
+      ],
+      "drop": "chest"
+     },
+     "loot": [
+      [
+       2.5,
+       2.5
+      ]
+     ],
+     "spawns": [
+      [
+       6.5,
+       6.5
+      ]
+     ]
+    }
+   ]
+  },
+  "church_coast": {
+   "name": "Salt Chapel (ruin)",
+   "wall_style": "broken stone ruin",
+   "count": [
+    4,
+    6
+   ],
+   "max_cells": 6,
+   "packs": [
+    [
+     "corpse",
+     "corpse"
+    ],
+    [
+     "zombie",
+     "imp"
+    ]
+   ],
+   "props": [
+    "models/env_extra/props_gothic_v1/props/church_pew_v1_lite.glb",
+    "models/env_extra/props_gothic_v1/props/church_pew_v1_lite.glb",
+    "models/env_extra/props_gothic_v1/props/candelabra_tall_v1_lite.glb",
+    "models/env_extra/props_gothic_v1/props/altar_cloth_v1_lite.glb",
+    "models/env_extra/props_gothic_v1/props/cobweb_cards_v1_lite.glb"
+   ],
+   "entrance_coast": {
+    "coast": [
+     78.5,
+     76.0
+    ],
+    "note": "plan has no coast church slot: chosen open land tile nearest map centre on coast_v3 (5x5 walkable)",
+    "exterior_glb": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_shared_lite.glb",
+    "exterior_pos": [
+     78.5,
+     77.5
+    ]
+   },
+   "rooms": [
+    {
+     "id": "church_coast_entrance",
+     "kind": "entrance",
+     "sockets": [
+      "N"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "bb55555dbb",
+      "bdd555555b",
+      "b5d5555ddb",
+      "bd5555d55b",
+      "b55d55555b",
+      "b555555d5b",
+      "b5555555bb",
+      "bd555d5d5b",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1100000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000011",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawn": [
+      4.5,
+      6.5
+     ],
+     "exit": {
+      "x": 4.5,
+      "y": 8.0,
+      "to": "coast",
+      "sx": 78.5,
+      "sy": 79.0,
+      "label": "Out to the strand"
+     }
+    },
+    {
+     "id": "church_coast_dead",
+     "kind": "dead_end",
+     "sockets": [
+      "N"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "bd5d55555b",
+      "bb5555555b",
+      "b5d555d55b",
+      "bd5d55555b",
+      "b55d5555db",
+      "b5555d555b",
+      "b555555dbb",
+      "b55555d55b",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000011",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawns": [],
+     "loot": [
+      [
+       6.5,
+       6.5
+      ]
+     ]
+    },
+    {
+     "id": "church_coast_cor",
+     "kind": "corridor",
+     "sockets": [
+      "N",
+      "S"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "b5555555bb",
+      "bd555555bb",
+      "b5d555d55b",
+      "b5555555db",
+      "b5d55555db",
+      "b55555555b",
+      "b5dd5555db",
+      "b55555d5bb",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000011",
+      "1000000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000011",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "church_coast_cor2",
+     "kind": "corridor",
+     "sockets": [
+      "N",
+      "S"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "bb555555bb",
+      "b55555d55b",
+      "b555555d5b",
+      "b5dd55555b",
+      "bd5555555b",
+      "b55d555d5b",
+      "b55555d55b",
+      "b5555555bb",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1100000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000011",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "church_coast_crn",
+     "kind": "corner",
+     "sockets": [
+      "N",
+      "E"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "b5d55555db",
+      "b5dd5555db",
+      "bd5555555b",
+      "b5d5555555",
+      "b555555555",
+      "b555d5555b",
+      "b5555555bb",
+      "bb555555bb",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1000000011",
+      "1100000011",
+      "1111111111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "church_coast_crn2",
+     "kind": "corner",
+     "sockets": [
+      "N",
+      "E"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "b55555555b",
+      "bd5555555b",
+      "b5d5555d5b",
+      "b555555555",
+      "b555555555",
+      "b5d555555b",
+      "b5d5555dbb",
+      "b55555555b",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1000000011",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "church_coast_tee",
+     "kind": "junction",
+     "sockets": [
+      "N",
+      "E",
+      "S"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "bd55555dbb",
+      "b55d5555bb",
+      "b5555555db",
+      "b555555555",
+      "b5dd555555",
+      "b5d555dd5b",
+      "bb555555db",
+      "bdd555555b",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000011",
+      "1000000011",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "church_coast_x",
+     "kind": "junction",
+     "sockets": [
+      "N",
+      "E",
+      "S",
+      "W"
+     ],
+     "tiles": [
+      "bbbb55bbbb",
+      "b5555555bb",
+      "b5d55555bb",
+      "bddd55555b",
+      "5555555555",
+      "5555555555",
+      "b55555555b",
+      "b5d555555b",
+      "b5555555db",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000011",
+      "1000000011",
+      "1000000001",
+      "0000000000",
+      "0000000000",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "church_coast_quest",
+     "kind": "quest",
+     "sockets": [
+      "S"
+     ],
+     "tiles": [
+      "bbbbbbbbbb",
+      "bb5555555b",
+      "b555d555bb",
+      "b555d5555b",
+      "b55d555ddb",
+      "bd5555555b",
+      "b55555555b",
+      "bb555555db",
+      "bd5555555b",
+      "bbbb55bbbb"
+     ],
+     "solid": [
+      "1111111111",
+      "1100000001",
+      "1000000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1111001111"
+     ],
+     "quest": {
+      "id": "dng1_church",
+      "pos": [
+       4.5,
+       2.5
+      ],
+      "kind": "altar",
+      "note": "quest point at altar; hook to the quest Brian names (none assigned in plan)"
+     },
+     "loot": [
+      [
+       2.5,
+       2.5
+      ]
+     ],
+     "spawns": [
+      [
+       6.5,
+       6.5
+      ]
+     ]
+    }
+   ]
+  },
+  "tidecave": {
+   "name": "Tidebound Cave",
+   "wall_style": "sea cliffs + boulders",
+   "count": [
+    5,
+    8
+   ],
+   "max_cells": 6,
+   "packs": [
+    [
+     "zombie",
+     "zombie"
+    ],
+    [
+     "imp",
+     "corpse",
+     "imp"
+    ]
+   ],
+   "props": [
+    "models/town/martsirt_v2_2/dressing/dress_rocks_lite.glb",
+    "models/border_kit_v1/bk_sea_dead.glb",
+    "models/town/martsirt_v2_2/props/prop_barrel_group_lite.glb"
+   ],
+   "entrance_coast": {
+    "coast": [
+     17.5,
+     151.0
+    ],
+    "note": "cave mouth by SQ14_v3 (17.5,152.5), SW cove; mouth piece = bk_sea_dead + dress_rocks"
+   },
+   "rooms": [
+    {
+     "id": "tidecave_entrance",
+     "kind": "entrance",
+     "sockets": [
+      "N"
+     ],
+     "tiles": [
+      "bbbbccbbbb",
+      "bcc3cccc3b",
+      "bbc3cccccb",
+      "bccccccccb",
+      "b3cccccccb",
+      "b3cccccc3b",
+      "bcccccc3cb",
+      "bbcccccc3b",
+      "bcccc3c3cb",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawn": [
+      4.5,
+      6.5
+     ],
+     "exit": {
+      "x": 4.5,
+      "y": 8.0,
+      "to": "coast",
+      "sx": 17.5,
+      "sy": 153.5,
+      "label": "Out to the cove"
+     }
+    },
+    {
+     "id": "tidecave_dead",
+     "kind": "dead_end",
+     "sockets": [
+      "N"
+     ],
+     "tiles": [
+      "bbbbccbbbb",
+      "bccccccccb",
+      "bbc3cccccb",
+      "bcc3cccccb",
+      "bccccccccb",
+      "b3ccccc33b",
+      "b3cccc33cb",
+      "b3ccccccbb",
+      "b3cccccc3b",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000011",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawns": [],
+     "loot": [
+      [
+       6.5,
+       6.5
+      ]
+     ]
+    },
+    {
+     "id": "tidecave_cor",
+     "kind": "corridor",
+     "sockets": [
+      "N",
+      "S"
+     ],
+     "tiles": [
+      "bbbbccbbbb",
+      "b88ccc3ccb",
+      "bccccc3cbb",
+      "bccccccccb",
+      "bccccc3c3b",
+      "bcccccc3cb",
+      "b3cccc33cb",
+      "bccccc3cbb",
+      "bcccccc88b",
+      "bbbbccbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000001",
+      "1000000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000011",
+      "1000000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "tidecave_cor2",
+     "kind": "corridor",
+     "sockets": [
+      "N",
+      "S"
+     ],
+     "tiles": [
+      "bbbbccbbbb",
+      "b883ccccbb",
+      "bccccccc3b",
+      "bccccccccb",
+      "bc3ccccccb",
+      "bccccccccb",
+      "bcc3cccccb",
+      "bbcccccccb",
+      "b3c3ccc88b",
+      "bbbbccbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000011",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000001",
+      "1000000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "tidecave_crn",
+     "kind": "corner",
+     "sockets": [
+      "N",
+      "E"
+     ],
+     "tiles": [
+      "bbbbccbbbb",
+      "bbccccccbb",
+      "bbc3cc3c3b",
+      "bccccccc3b",
+      "bccccccccc",
+      "bcc3cccccc",
+      "b3cccccc3b",
+      "bccc3cc33b",
+      "bc33cccc3b",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1100000011",
+      "1100000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1111111111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "tidecave_crn2",
+     "kind": "corner",
+     "sockets": [
+      "N",
+      "E"
+     ],
+     "tiles": [
+      "bbbbccbbbb",
+      "b3cccccc3b",
+      "bbcccccccb",
+      "bccccccccb",
+      "bccccccccc",
+      "bc3ccccccc",
+      "bc3c3cc3cb",
+      "bcccc3ccbb",
+      "bbcccc3ccb",
+      "bbbbbbbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1000000001",
+      "1100000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1000000011",
+      "1100000001",
+      "1111111111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "tidecave_tee",
+     "kind": "junction",
+     "sockets": [
+      "N",
+      "E",
+      "S"
+     ],
+     "tiles": [
+      "bbbbccbbbb",
+      "b883ccccbb",
+      "bb3ccc3ccb",
+      "bccccc3ccb",
+      "bccccccccc",
+      "bccccccccc",
+      "bc3ccccccb",
+      "bbcccccc3b",
+      "bcc3cc388b",
+      "bbbbccbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000011",
+      "1100000001",
+      "1000000001",
+      "1000000000",
+      "1000000000",
+      "1000000001",
+      "1100000001",
+      "1000000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "tidecave_x",
+     "kind": "junction",
+     "sockets": [
+      "N",
+      "E",
+      "S",
+      "W"
+     ],
+     "tiles": [
+      "bbbbccbbbb",
+      "b88ccc3ccb",
+      "bccccccccb",
+      "bc3ccccccb",
+      "cccccccccc",
+      "cccccccccc",
+      "bcccccc3cb",
+      "bbcccc33cb",
+      "b3c3ccc88b",
+      "bbbbccbbbb"
+     ],
+     "solid": [
+      "1111001111",
+      "1110000001",
+      "1000000001",
+      "1000000001",
+      "0000000000",
+      "0000000000",
+      "1000000001",
+      "1100000001",
+      "1000000111",
+      "1111001111"
+     ],
+     "spawns": [
+      [
+       3.5,
+       3.5
+      ]
+     ],
+     "loot": []
+    },
+    {
+     "id": "tidecave_boss",
+     "kind": "boss",
+     "sockets": [
+      "S"
+     ],
+     "tiles": [
+      "bbbbbbbbbb",
+      "bccccc3ccb",
+      "bcccc3cc3b",
+      "bccccccccb",
+      "bc3ccccccb",
+      "bc3ccccc3b",
+      "bc3ccccccb",
+      "bccccccc3b",
+      "bbccccc3bb",
+      "bbbbccbbbb"
+     ],
+     "solid": [
+      "1111111111",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1000000001",
+      "1100000011",
+      "1111001111"
+     ],
+     "boss": {
+      "id": "tc_boss",
+      "kind": "imp",
+      "elite": true,
+      "name": "Cairn-Keeper",
+      "pos": [
+       4.5,
+       3.5
+      ],
+      "drop": "chest"
+     },
+     "quest": {
+      "id": "SQ14_v3",
+      "pos": [
+       6.5,
+       5.5
+      ],
+      "kind": "cairn",
+      "note": "Tidebound cairn variation 3"
+     },
+     "loot": [
+      [
+       2.5,
+       2.5
+      ]
+     ],
+     "spawns": [
+      [
+       6.5,
+       6.5
+      ]
+     ]
+    }
+   ]
+  }
+ }
+}

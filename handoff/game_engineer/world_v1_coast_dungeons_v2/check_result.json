@@ -1,0 +1,50 @@
+{
+ "wrecks": {
+  "passed": "200/200",
+  "retries_total": 0,
+  "rooms": [
+   6,
+   9
+  ],
+  "max_tiles_wh": [
+   60,
+   60
+  ]
+ },
+ "sewer_coast": {
+  "passed": "200/200",
+  "retries_total": 1,
+  "rooms": [
+   7,
+   10
+  ],
+  "max_tiles_wh": [
+   60,
+   60
+  ]
+ },
+ "church_coast": {
+  "passed": "200/200",
+  "retries_total": 0,
+  "rooms": [
+   4,
+   6
+  ],
+  "max_tiles_wh": [
+   60,
+   50
+  ]
+ },
+ "tidecave": {
+  "passed": "200/200",
+  "retries_total": 0,
+  "rooms": [
+   5,
+   8
+  ],
+  "max_tiles_wh": [
+   60,
+   60
+  ]
+ }
+}
