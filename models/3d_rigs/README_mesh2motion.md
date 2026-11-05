@@ -1,4 +1,7 @@
 # Mesh2Motion animations (CC0)
+
+**Repo path:** `models/3d_rigs/` (renamed from `models/mesh2motion`; nothing live loads this folder yet).
+
 Source: https://github.com/mesh2motion/mesh2motion-app (static/assets), https://github.com/Mesh2Motion/mesh2motion-assets — CC0 1.0. Some human animations from Quaternius, CC0.
 
 ## m2m_human_anims_mixamo.glb
