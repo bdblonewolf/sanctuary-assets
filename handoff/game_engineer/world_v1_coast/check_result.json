@@ -1,0 +1,179 @@
+{
+ "pass_": true,
+ "walkable_tiles": 8479,
+ "reachable_from_intro": 8479,
+ "unreached_walkable": 0,
+ "points": [
+  {
+   "name": "exit:town",
+   "pos": [
+    36.5,
+    1.2
+   ],
+   "tile": 6,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "exit:bastion",
+   "pos": [
+    89.4,
+    81.0
+   ],
+   "tile": 6,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "exit:flotsam",
+   "pos": [
+    44.6,
+    28.2
+   ],
+   "tile": 9,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "sewer",
+   "pos": [
+    60.6,
+    19.8
+   ],
+   "tile": 2,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "intro",
+   "pos": [
+    36.5,
+    46.4
+   ],
+   "tile": 2,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "martsirt_arrival",
+   "pos": [
+    36.5,
+    4.0
+   ],
+   "tile": 6,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "bastion_arrival",
+   "pos": [
+    87.4,
+    81.0
+   ],
+   "tile": 6,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "spawn:cv3_s1",
+   "pos": [
+    80.5,
+    21.5
+   ],
+   "tile": 1,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "spawn:cv3_s2",
+   "pos": [
+    86.5,
+    63.5
+   ],
+   "tile": 2,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "spawn:cv3_s3",
+   "pos": [
+    24.5,
+    128.5
+   ],
+   "tile": 0,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "spawn:cv3_s4",
+   "pos": [
+    47.5,
+    144.5
+   ],
+   "tile": 1,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "poi:E01",
+   "pos": [
+    13.5,
+    99.5
+   ],
+   "tile": 6,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "poi:SQ01_v2",
+   "pos": [
+    40.5,
+    35.5
+   ],
+   "tile": 3,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "poi:SQ14_v3",
+   "pos": [
+    17.5,
+    152.5
+   ],
+   "tile": 2,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "camp",
+   "pos": [
+    76.0,
+    30.5
+   ],
+   "tile": 4,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "camp",
+   "pos": [
+    30.5,
+    141.5
+   ],
+   "tile": 2,
+   "walkable": true,
+   "reachable": true
+  },
+  {
+   "name": "camp",
+   "pos": [
+    13.0,
+    8.5
+   ],
+   "tile": 3,
+   "walkable": true,
+   "reachable": true
+  }
+ ],
+ "props_on_road": 0
+}
