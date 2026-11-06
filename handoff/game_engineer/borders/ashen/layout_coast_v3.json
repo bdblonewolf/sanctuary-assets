@@ -1,0 +1,3782 @@
+{
+ "zone": "coast",
+ "size": [
+  90,
+  180
+ ],
+ "version": 3,
+ "frame": "tile metres; three.js x east, z south; map [0,90]x[0,180]. FINAL coordinates for the 90x180 coast: do NOT add ox/oy and do NOT skip by tile.",
+ "replaces": "layout_coast_v2.json (42x112) for the coast once world.coastV3 is set. v2 stays in the repo for the old 42x112 path.",
+ "glb": "props only (no kit pieces)",
+ "runs": {
+  "N": [
+   [
+    "sea",
+    0,
+    6
+   ],
+   [
+    "land",
+    6,
+    90
+   ]
+  ],
+  "E": [
+   [
+    "land",
+    0,
+    160
+   ],
+   [
+    "sea",
+    160,
+    180
+   ]
+  ],
+  "S": [
+   [
+    "sea",
+    0,
+    90
+   ]
+  ],
+  "W": [
+   [
+    "sea",
+    0,
+    180
+   ]
+  ]
+ },
+ "exits_open": {
+  "town_N": [
+   36.5,
+   1.2
+  ],
+  "bastion_E": [
+   89.4,
+   81.0
+  ],
+  "flotsam": [
+   44.6,
+   28.2
+  ],
+  "clear_m": 6.5
+ },
+ "ground": {
+  "land": "pos y 0 = ground; loader snaps to ground height minus a small bury",
+  "sea": "pos y -0.4 = sea plane (placeShore uses the same)"
+ },
+ "pieces": [],
+ "props": [
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    24.139,
+    0.0,
+    -0.762
+   ],
+   "rotY": 5.5084,
+   "scale": 0.607,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v2_carry"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    54.492,
+    0.0,
+    -1.131
+   ],
+   "rotY": 2.5284,
+   "scale": 0.721,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v2_carry"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    61.338,
+    0.0,
+    -0.979
+   ],
+   "rotY": 3.7908,
+   "scale": 0.769,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v2_carry"
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer_far",
+   "edge": "N",
+   "pos": [
+    60.589,
+    0.0,
+    -8.218
+   ],
+   "rotY": 5.1957,
+   "scale": 1.364,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v2_carry"
+  },
+  {
+   "id": "dead_stump_blighted_dead",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    47.111,
+    0.0,
+    -1.633
+   ],
+   "rotY": 1.3987,
+   "scale": 1.282,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v2_carry"
+  },
+  {
+   "id": "dead_stump_blighted_dead",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    49.635,
+    0.0,
+    -1.522
+   ],
+   "rotY": 5.4174,
+   "scale": 1.177,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v2_carry"
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    57.521,
+    0.0,
+    -1.576
+   ],
+   "rotY": 1.9764,
+   "scale": 1.123,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v2_carry"
+  },
+  {
+   "id": "gtree_twisted_winter_lod0",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "lip_inner",
+   "edge": "N",
+   "pos": [
+    66.32,
+    0.0,
+    -1.106
+   ],
+   "rotY": 0.6014,
+   "scale": 1.187,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v2_carry"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    6.785,
+    0.0,
+    -10.378
+   ],
+   "rotY": 2.1137,
+   "scale": 1.901,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    11.12,
+    0.0,
+    -6.219
+   ],
+   "rotY": 0.1229,
+   "scale": 1.805,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_weeping_winter_lod0.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    15.577,
+    0.0,
+    -9.558
+   ],
+   "rotY": 0.2661,
+   "scale": 1.487,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    20.908,
+    0.0,
+    -10.47
+   ],
+   "rotY": 3.0236,
+   "scale": 2.022,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    69.181,
+    0.0,
+    -7.359
+   ],
+   "rotY": 0.9162,
+   "scale": 1.496,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    74.402,
+    0.0,
+    -10.04
+   ],
+   "rotY": 2.7299,
+   "scale": 1.87,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    79.685,
+    0.0,
+    -8.136
+   ],
+   "rotY": 5.82,
+   "scale": 1.327,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    83.654,
+    0.0,
+    -10.675
+   ],
+   "rotY": 0.0118,
+   "scale": 2.02,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    87.365,
+    0.0,
+    -8.997
+   ],
+   "rotY": 2.6435,
+   "scale": 1.497,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    92.297,
+    0.0,
+    -10.895
+   ],
+   "rotY": 0.045,
+   "scale": 2.173,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "N",
+   "pos": [
+    100.787,
+    0.0,
+    -10.237
+   ],
+   "rotY": 0.6113,
+   "scale": 1.954,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    4.367,
+    0.0,
+    -4.25
+   ],
+   "rotY": 0.6134,
+   "scale": 1.019,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    7.872,
+    0.0,
+    -4.555
+   ],
+   "rotY": 1.0276,
+   "scale": 1.203,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    14.79,
+    0.0,
+    -2.514
+   ],
+   "rotY": 3.0259,
+   "scale": 0.948,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    18.485,
+    0.0,
+    -4.54
+   ],
+   "rotY": 2.3082,
+   "scale": 0.924,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    21.015,
+    0.0,
+    -2.337
+   ],
+   "rotY": 5.8299,
+   "scale": 1.223,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_weeping_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    72.214,
+    0.0,
+    -4.447
+   ],
+   "rotY": 2.8351,
+   "scale": 1.008,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    77.323,
+    0.0,
+    -3.032
+   ],
+   "rotY": 0.7077,
+   "scale": 1.402,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    80.762,
+    0.0,
+    -3.148
+   ],
+   "rotY": 6.0575,
+   "scale": 0.932,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    84.433,
+    0.0,
+    -2.614
+   ],
+   "rotY": 6.0937,
+   "scale": 1.499,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    88.234,
+    0.0,
+    -3.218
+   ],
+   "rotY": 0.4439,
+   "scale": 1.378,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    91.037,
+    0.0,
+    -4.485
+   ],
+   "rotY": 5.2977,
+   "scale": 1.411,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_weeping_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    95.257,
+    0.0,
+    -4.895
+   ],
+   "rotY": 1.05,
+   "scale": 0.91,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "N",
+   "pos": [
+    100.726,
+    0.0,
+    -4.447
+   ],
+   "rotY": 1.7801,
+   "scale": 1.103,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    5.702,
+    0.0,
+    -1.673
+   ],
+   "rotY": 4.8838,
+   "scale": 1.063,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    7.521,
+    0.0,
+    -1.601
+   ],
+   "rotY": 2.1926,
+   "scale": 0.886,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    9.516,
+    0.0,
+    -0.745
+   ],
+   "rotY": 1.6828,
+   "scale": 1.119,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    11.798,
+    0.0,
+    -1.058
+   ],
+   "rotY": 0.5647,
+   "scale": 0.869,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    14.086,
+    0.0,
+    -0.07
+   ],
+   "rotY": 4.6629,
+   "scale": 0.927,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    16.536,
+    0.0,
+    -0.673
+   ],
+   "rotY": 4.398,
+   "scale": 0.807,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    18.244,
+    0.0,
+    -1.477
+   ],
+   "rotY": 4.3883,
+   "scale": 1.179,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    69.096,
+    0.0,
+    -1.026
+   ],
+   "rotY": 1.6158,
+   "scale": 1.185,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    72.176,
+    0.0,
+    -1.668
+   ],
+   "rotY": 5.5639,
+   "scale": 0.954,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    74.166,
+    0.0,
+    -0.703
+   ],
+   "rotY": 5.4755,
+   "scale": 1.088,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    78.388,
+    0.0,
+    -0.737
+   ],
+   "rotY": 3.5618,
+   "scale": 0.91,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    80.801,
+    0.0,
+    -0.921
+   ],
+   "rotY": 0.6979,
+   "scale": 1.074,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    82.789,
+    0.0,
+    -0.776
+   ],
+   "rotY": 2.318,
+   "scale": 1.156,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    85.138,
+    0.0,
+    -0.634
+   ],
+   "rotY": 2.6904,
+   "scale": 1.167,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    88.306,
+    0.0,
+    -0.945
+   ],
+   "rotY": 2.2016,
+   "scale": 1.212,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    90.845,
+    0.0,
+    -0.466
+   ],
+   "rotY": 2.9168,
+   "scale": 1.079,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    93.337,
+    0.0,
+    -0.72
+   ],
+   "rotY": 0.6343,
+   "scale": 1.073,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    95.924,
+    0.0,
+    -0.886
+   ],
+   "rotY": 4.0128,
+   "scale": 0.954,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    97.835,
+    0.0,
+    -0.464
+   ],
+   "rotY": 1.3382,
+   "scale": 0.977,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "N",
+   "pos": [
+    100.149,
+    0.0,
+    -0.578
+   ],
+   "rotY": 2.2056,
+   "scale": 0.908,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    100.313,
+    0.0,
+    6.91
+   ],
+   "rotY": 5.7005,
+   "scale": 1.154,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    98.69,
+    0.0,
+    12.104
+   ],
+   "rotY": 5.5378,
+   "scale": 1.68,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    100.836,
+    0.0,
+    16.004
+   ],
+   "rotY": 4.3152,
+   "scale": 1.687,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    97.524,
+    0.0,
+    24.811
+   ],
+   "rotY": 0.9043,
+   "scale": 1.27,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_weeping_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    100.842,
+    0.0,
+    28.21
+   ],
+   "rotY": 2.2981,
+   "scale": 1.449,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    99.776,
+    0.0,
+    33.129
+   ],
+   "rotY": 5.0726,
+   "scale": 1.895,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    98.307,
+    0.0,
+    37.415
+   ],
+   "rotY": 5.6176,
+   "scale": 1.487,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_weeping_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    96.634,
+    0.0,
+    42.329
+   ],
+   "rotY": 0.3278,
+   "scale": 1.438,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    100.437,
+    0.0,
+    46.08
+   ],
+   "rotY": 0.6596,
+   "scale": 1.301,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    98.639,
+    0.0,
+    50.846
+   ],
+   "rotY": 3.9405,
+   "scale": 1.462,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    100.143,
+    0.0,
+    57.843
+   ],
+   "rotY": 1.0854,
+   "scale": 1.487,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    100.325,
+    0.0,
+    63.1
+   ],
+   "rotY": 4.6351,
+   "scale": 2.176,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    96.372,
+    0.0,
+    68.217
+   ],
+   "rotY": 3.4531,
+   "scale": 2.128,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    98.81,
+    0.0,
+    73.111
+   ],
+   "rotY": 2.8676,
+   "scale": 1.925,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    95.973,
+    0.0,
+    90.237
+   ],
+   "rotY": 6.0599,
+   "scale": 1.707,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    100.521,
+    0.0,
+    94.254
+   ],
+   "rotY": 2.349,
+   "scale": 1.672,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    100.468,
+    0.0,
+    102.529
+   ],
+   "rotY": 6.1916,
+   "scale": 1.555,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    96.454,
+    0.0,
+    107.141
+   ],
+   "rotY": 0.7744,
+   "scale": 1.785,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    99.254,
+    0.0,
+    115.549
+   ],
+   "rotY": 4.453,
+   "scale": 1.707,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "spire",
+   "asset": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    101.123,
+    0.0,
+    119.379
+   ],
+   "rotY": 4.9536,
+   "scale": 0.485,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "spire",
+   "asset": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    98.837,
+    0.0,
+    127.53
+   ],
+   "rotY": 3.4724,
+   "scale": 0.471,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    96.378,
+    0.0,
+    131.969
+   ],
+   "rotY": 0.4279,
+   "scale": 2.12,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    99.043,
+    0.0,
+    136.3
+   ],
+   "rotY": 4.1755,
+   "scale": 2.051,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    96.52,
+    0.0,
+    139.696
+   ],
+   "rotY": 5.5112,
+   "scale": 1.165,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_crooked_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    100.555,
+    0.0,
+    144.179
+   ],
+   "rotY": 2.4075,
+   "scale": 1.456,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "spire",
+   "asset": "models/env_extra/cliffkit_v2/rock_spire_bare_16m_dead.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    97.933,
+    0.0,
+    149.273
+   ],
+   "rotY": 1.8184,
+   "scale": 0.351,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_weeping_winter_lod0.glb",
+   "layer": "far",
+   "edge": "E",
+   "pos": [
+    98.707,
+    0.0,
+    157.975
+   ],
+   "rotY": 3.9609,
+   "scale": 1.446,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.096,
+    0.0,
+    1.781
+   ],
+   "rotY": 1.4785,
+   "scale": 0.955,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.101,
+    0.0,
+    4.757
+   ],
+   "rotY": 3.3718,
+   "scale": 1.1,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.871,
+    0.0,
+    8.819
+   ],
+   "rotY": 2.7838,
+   "scale": 1.291,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    93.836,
+    0.0,
+    11.83
+   ],
+   "rotY": 4.1041,
+   "scale": 1.138,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_weeping_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    93.772,
+    0.0,
+    17.974
+   ],
+   "rotY": 0.1914,
+   "scale": 1.085,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    93.378,
+    0.0,
+    22.118
+   ],
+   "rotY": 4.6366,
+   "scale": 0.983,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.347,
+    0.0,
+    29.755
+   ],
+   "rotY": 5.5237,
+   "scale": 1.226,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.72,
+    0.0,
+    32.465
+   ],
+   "rotY": 3.4818,
+   "scale": 1.499,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.514,
+    0.0,
+    36.084
+   ],
+   "rotY": 3.882,
+   "scale": 1.189,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.576,
+    0.0,
+    38.937
+   ],
+   "rotY": 4.1759,
+   "scale": 0.981,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "gtree",
+   "asset": "models/ashen_v1/gtree_twisted_winter_lod0.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.799,
+    0.0,
+    43.752
+   ],
+   "rotY": 0.4208,
+   "scale": 0.904,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    95.116,
+    0.0,
+    47.5
+   ],
+   "rotY": 2.4144,
+   "scale": 1.743,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.029,
+    0.0,
+    50.933
+   ],
+   "rotY": 4.7061,
+   "scale": 1.573,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    93.555,
+    0.0,
+    54.044
+   ],
+   "rotY": 5.3637,
+   "scale": 1.589,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    93.563,
+    0.0,
+    57.431
+   ],
+   "rotY": 5.5438,
+   "scale": 1.469,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.022,
+    0.0,
+    60.564
+   ],
+   "rotY": 6.1393,
+   "scale": 1.381,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.741,
+    0.0,
+    63.698
+   ],
+   "rotY": 0.0322,
+   "scale": 1.529,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    93.131,
+    0.0,
+    66.271
+   ],
+   "rotY": 4.4865,
+   "scale": 1.544,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.52,
+    0.0,
+    72.553
+   ],
+   "rotY": 3.9816,
+   "scale": 1.257,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.522,
+    0.0,
+    88.798
+   ],
+   "rotY": 1.8973,
+   "scale": 1.273,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    93.419,
+    0.0,
+    92.14
+   ],
+   "rotY": 2.5319,
+   "scale": 1.435,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    91.838,
+    0.0,
+    98.336
+   ],
+   "rotY": 2.7034,
+   "scale": 1.228,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.867,
+    0.0,
+    101.216
+   ],
+   "rotY": 1.6822,
+   "scale": 1.44,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.97,
+    0.0,
+    105.34
+   ],
+   "rotY": 1.1221,
+   "scale": 1.716,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    93.149,
+    0.0,
+    109.061
+   ],
+   "rotY": 0.4549,
+   "scale": 1.362,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.082,
+    0.0,
+    111.668
+   ],
+   "rotY": 0.7142,
+   "scale": 1.421,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.637,
+    0.0,
+    115.019
+   ],
+   "rotY": 5.4357,
+   "scale": 1.437,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    93.246,
+    0.0,
+    118.431
+   ],
+   "rotY": 4.1781,
+   "scale": 1.735,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    91.844,
+    0.0,
+    121.584
+   ],
+   "rotY": 3.916,
+   "scale": 1.479,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    91.945,
+    0.0,
+    124.48
+   ],
+   "rotY": 3.8329,
+   "scale": 1.247,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.757,
+    0.0,
+    128.089
+   ],
+   "rotY": 5.6294,
+   "scale": 1.59,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.253,
+    0.0,
+    135.211
+   ],
+   "rotY": 3.7723,
+   "scale": 1.417,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.973,
+    0.0,
+    140.748
+   ],
+   "rotY": 1.9374,
+   "scale": 1.574,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.268,
+    0.0,
+    143.947
+   ],
+   "rotY": 5.5797,
+   "scale": 1.442,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.726,
+    0.0,
+    147.08
+   ],
+   "rotY": 5.8526,
+   "scale": 1.324,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.834,
+    0.0,
+    151.339
+   ],
+   "rotY": 1.398,
+   "scale": 1.435,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    94.08,
+    0.0,
+    153.968
+   ],
+   "rotY": 1.7801,
+   "scale": 1.553,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    95.068,
+    0.0,
+    158.151
+   ],
+   "rotY": 1.5482,
+   "scale": 1.558,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "crag",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "outer",
+   "edge": "E",
+   "pos": [
+    92.642,
+    0.0,
+    161.103
+   ],
+   "rotY": 0.934,
+   "scale": 1.436,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.507,
+    0.0,
+    6.963
+   ],
+   "rotY": 6.0788,
+   "scale": 0.931,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.379,
+    0.0,
+    9.683
+   ],
+   "rotY": 5.463,
+   "scale": 1.179,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.389,
+    0.0,
+    12.571
+   ],
+   "rotY": 0.9597,
+   "scale": 1.015,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.021,
+    0.0,
+    15.842
+   ],
+   "rotY": 1.797,
+   "scale": 1.113,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.107,
+    0.0,
+    17.988
+   ],
+   "rotY": 1.9165,
+   "scale": 1.144,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.512,
+    0.0,
+    21.208
+   ],
+   "rotY": 3.0123,
+   "scale": 0.96,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.896,
+    0.0,
+    24.395
+   ],
+   "rotY": 3.751,
+   "scale": 1.105,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.424,
+    0.0,
+    26.348
+   ],
+   "rotY": 1.1878,
+   "scale": 1.292,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.209,
+    0.0,
+    28.193
+   ],
+   "rotY": 6.1007,
+   "scale": 1.246,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.32,
+    0.0,
+    38.278
+   ],
+   "rotY": 2.2358,
+   "scale": 0.95,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.57,
+    0.0,
+    40.795
+   ],
+   "rotY": 1.1817,
+   "scale": 1.017,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.247,
+    0.0,
+    43.495
+   ],
+   "rotY": 5.0908,
+   "scale": 1.071,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.798,
+    0.0,
+    45.288
+   ],
+   "rotY": 3.9891,
+   "scale": 1.249,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.98,
+    0.0,
+    47.511
+   ],
+   "rotY": 0.611,
+   "scale": 1.153,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.918,
+    0.0,
+    50.02
+   ],
+   "rotY": 4.6016,
+   "scale": 1.16,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.098,
+    0.0,
+    52.854
+   ],
+   "rotY": 0.4801,
+   "scale": 0.822,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.376,
+    0.0,
+    55.932
+   ],
+   "rotY": 5.5759,
+   "scale": 0.974,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.183,
+    0.0,
+    58.753
+   ],
+   "rotY": 3.1793,
+   "scale": 0.881,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.324,
+    0.0,
+    60.628
+   ],
+   "rotY": 5.4798,
+   "scale": 1.104,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.46,
+    0.0,
+    63.661
+   ],
+   "rotY": 1.6935,
+   "scale": 0.853,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.738,
+    0.0,
+    68.857
+   ],
+   "rotY": 2.9743,
+   "scale": 0.911,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.181,
+    0.0,
+    70.966
+   ],
+   "rotY": 1.2163,
+   "scale": 0.815,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.534,
+    0.0,
+    73.145
+   ],
+   "rotY": 4.6993,
+   "scale": 1.273,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.033,
+    0.0,
+    92.326
+   ],
+   "rotY": 5.3496,
+   "scale": 1.294,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.424,
+    0.0,
+    95.011
+   ],
+   "rotY": 1.2791,
+   "scale": 0.86,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.069,
+    0.0,
+    103.796
+   ],
+   "rotY": 0.9037,
+   "scale": 0.975,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.402,
+    0.0,
+    106.248
+   ],
+   "rotY": 1.6914,
+   "scale": 1.245,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.786,
+    0.0,
+    108.748
+   ],
+   "rotY": 5.229,
+   "scale": 1.096,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.788,
+    0.0,
+    111.838
+   ],
+   "rotY": 0.5537,
+   "scale": 0.954,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.055,
+    0.0,
+    114.678
+   ],
+   "rotY": 0.2179,
+   "scale": 1.266,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.235,
+    0.0,
+    117.338
+   ],
+   "rotY": 0.5571,
+   "scale": 1.086,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.942,
+    0.0,
+    129.677
+   ],
+   "rotY": 4.3972,
+   "scale": 1.065,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.115,
+    0.0,
+    132.773
+   ],
+   "rotY": 5.2784,
+   "scale": 1.122,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.599,
+    0.0,
+    135.626
+   ],
+   "rotY": 1.7255,
+   "scale": 1.162,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.977,
+    0.0,
+    138.297
+   ],
+   "rotY": 4.2308,
+   "scale": 1.105,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.586,
+    0.0,
+    140.265
+   ],
+   "rotY": 4.9917,
+   "scale": 1.21,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.614,
+    0.0,
+    150.51
+   ],
+   "rotY": 1.9428,
+   "scale": 1.231,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "grass",
+   "asset": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.235,
+    0.0,
+    152.686
+   ],
+   "rotY": 2.7642,
+   "scale": 1.229,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    91.619,
+    0.0,
+    158.632
+   ],
+   "rotY": 0.4226,
+   "scale": 1.023,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "stump",
+   "asset": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "layer": "lip",
+   "edge": "E",
+   "pos": [
+    90.218,
+    0.0,
+    160.814
+   ],
+   "rotY": 4.8743,
+   "scale": 0.948,
+   "ground": "land",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "W",
+   "pos": [
+    -20.721,
+    -0.4,
+    -9.032
+   ],
+   "rotY": 0.1283,
+   "scale": 1.498,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_far",
+   "edge": "W",
+   "pos": [
+    -15.763,
+    -0.4,
+    10.263
+   ],
+   "rotY": 3.8911,
+   "scale": 1.814,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_far",
+   "edge": "W",
+   "pos": [
+    -22.508,
+    -0.4,
+    28.056
+   ],
+   "rotY": 4.6023,
+   "scale": 2.138,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "W",
+   "pos": [
+    -23.625,
+    -0.4,
+    49.231
+   ],
+   "rotY": 5.4867,
+   "scale": 1.607,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_far",
+   "edge": "W",
+   "pos": [
+    -17.385,
+    -0.4,
+    74.798
+   ],
+   "rotY": 4.2601,
+   "scale": 1.708,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "W",
+   "pos": [
+    -23.796,
+    -0.4,
+    104.792
+   ],
+   "rotY": 5.4361,
+   "scale": 2.161,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "W",
+   "pos": [
+    -11.602,
+    -0.4,
+    131.585
+   ],
+   "rotY": 5.8153,
+   "scale": 1.739,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "W",
+   "pos": [
+    -21.494,
+    -0.4,
+    161.094
+   ],
+   "rotY": 5.1077,
+   "scale": 1.389,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "W",
+   "pos": [
+    -22.929,
+    -0.4,
+    183.948
+   ],
+   "rotY": 6.1035,
+   "scale": 1.761,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -4.198,
+    -0.4,
+    -11.919
+   ],
+   "rotY": 2.2912,
+   "scale": 1.149,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -5.981,
+    -0.4,
+    0.806
+   ],
+   "rotY": 2.8388,
+   "scale": 1.155,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -3.458,
+    -0.4,
+    11.202
+   ],
+   "rotY": 3.2827,
+   "scale": 1.081,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -1.884,
+    -0.4,
+    20.791
+   ],
+   "rotY": 0.5115,
+   "scale": 0.911,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -2.969,
+    -0.4,
+    27.638
+   ],
+   "rotY": 3.4246,
+   "scale": 0.869,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -5.918,
+    -0.4,
+    33.93
+   ],
+   "rotY": 3.6807,
+   "scale": 0.834,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -2.029,
+    -0.4,
+    45.269
+   ],
+   "rotY": 2.8029,
+   "scale": 1.317,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -2.813,
+    -0.4,
+    57.833
+   ],
+   "rotY": 2.1787,
+   "scale": 0.916,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -2.74,
+    -0.4,
+    68.189
+   ],
+   "rotY": 3.6694,
+   "scale": 1.587,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -4.135,
+    -0.4,
+    75.835
+   ],
+   "rotY": 2.9203,
+   "scale": 1.581,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -5.86,
+    -0.4,
+    87.185
+   ],
+   "rotY": 0.958,
+   "scale": 1.239,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -2.884,
+    -0.4,
+    95.139
+   ],
+   "rotY": 4.309,
+   "scale": 1.472,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -2.786,
+    -0.4,
+    103.548
+   ],
+   "rotY": 4.0183,
+   "scale": 1.538,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -1.155,
+    -0.4,
+    112.367
+   ],
+   "rotY": 2.4673,
+   "scale": 1.319,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -3.998,
+    -0.4,
+    124.572
+   ],
+   "rotY": 5.8784,
+   "scale": 0.873,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -5.147,
+    -0.4,
+    136.121
+   ],
+   "rotY": 4.1827,
+   "scale": 1.312,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -3.531,
+    -0.4,
+    146.102
+   ],
+   "rotY": 3.0528,
+   "scale": 1.201,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -1.37,
+    -0.4,
+    155.319
+   ],
+   "rotY": 1.1603,
+   "scale": 1.336,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -2.486,
+    -0.4,
+    163.249
+   ],
+   "rotY": 4.616,
+   "scale": 1.306,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -1.498,
+    -0.4,
+    170.506
+   ],
+   "rotY": 5.0193,
+   "scale": 0.836,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -4.835,
+    -0.4,
+    176.968
+   ],
+   "rotY": 5.4435,
+   "scale": 0.955,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "W",
+   "pos": [
+    -1.674,
+    -0.4,
+    186.663
+   ],
+   "rotY": 2.3136,
+   "scale": 0.927,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "S",
+   "pos": [
+    -8.047,
+    -0.4,
+    201.029
+   ],
+   "rotY": 1.7123,
+   "scale": 2.008,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_far",
+   "edge": "S",
+   "pos": [
+    10.567,
+    -0.4,
+    201.502
+   ],
+   "rotY": 3.6663,
+   "scale": 1.457,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "S",
+   "pos": [
+    35.087,
+    -0.4,
+    200.064
+   ],
+   "rotY": 0.926,
+   "scale": 2.095,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "S",
+   "pos": [
+    56.774,
+    -0.4,
+    203.686
+   ],
+   "rotY": 2.6024,
+   "scale": 1.562,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_far",
+   "edge": "S",
+   "pos": [
+    76.47,
+    -0.4,
+    195.086
+   ],
+   "rotY": 0.0413,
+   "scale": 2.107,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "S",
+   "pos": [
+    101.663,
+    -0.4,
+    195.018
+   ],
+   "rotY": 4.9987,
+   "scale": 2.167,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    -6.427,
+    -0.4,
+    182.295
+   ],
+   "rotY": 6.2132,
+   "scale": 1.521,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    5.368,
+    -0.4,
+    182.817
+   ],
+   "rotY": 3.7129,
+   "scale": 1.39,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    12.179,
+    -0.4,
+    181.787
+   ],
+   "rotY": 3.648,
+   "scale": 1.562,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    18.266,
+    -0.4,
+    182.676
+   ],
+   "rotY": 5.1009,
+   "scale": 1.231,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    28.14,
+    -0.4,
+    182.515
+   ],
+   "rotY": 1.5825,
+   "scale": 0.864,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    36.475,
+    -0.4,
+    182.537
+   ],
+   "rotY": 4.0158,
+   "scale": 0.825,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    45.692,
+    -0.4,
+    183.975
+   ],
+   "rotY": 1.1113,
+   "scale": 1.217,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    54.031,
+    -0.4,
+    185.819
+   ],
+   "rotY": 3.7158,
+   "scale": 1.289,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    63.34,
+    -0.4,
+    182.705
+   ],
+   "rotY": 5.4716,
+   "scale": 1.086,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    74.155,
+    -0.4,
+    182.456
+   ],
+   "rotY": 1.0192,
+   "scale": 1.274,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    81.233,
+    -0.4,
+    182.967
+   ],
+   "rotY": 3.2625,
+   "scale": 1.343,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_b_slab.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    90.408,
+    -0.4,
+    185.412
+   ],
+   "rotY": 2.3298,
+   "scale": 0.957,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_c_stack.glb",
+   "layer": "sea_lip",
+   "edge": "S",
+   "pos": [
+    99.34,
+    -0.4,
+    185.196
+   ],
+   "rotY": 0.4311,
+   "scale": 1.284,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "E",
+   "pos": [
+    104.868,
+    -0.4,
+    174.341
+   ],
+   "rotY": 5.9848,
+   "scale": 2.164,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "E",
+   "pos": [
+    114.925,
+    -0.4,
+    191.824
+   ],
+   "rotY": 3.3702,
+   "scale": 1.898,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "E",
+   "pos": [
+    91.066,
+    -0.4,
+    168.155
+   ],
+   "rotY": 5.675,
+   "scale": 0.92,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "E",
+   "pos": [
+    91.655,
+    -0.4,
+    178.621
+   ],
+   "rotY": 4.1649,
+   "scale": 1.196,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "E",
+   "pos": [
+    93.642,
+    -0.4,
+    190.825
+   ],
+   "rotY": 5.5028,
+   "scale": 1.412,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "seastack",
+   "asset": "models/ashen_v1/shore_rock_e_seastack.glb",
+   "layer": "sea_far",
+   "edge": "N",
+   "pos": [
+    3.084,
+    -0.4,
+    -19.937
+   ],
+   "rotY": 3.2155,
+   "scale": 1.314,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_d_cluster.glb",
+   "layer": "sea_lip",
+   "edge": "N",
+   "pos": [
+    -9.111,
+    -0.4,
+    -4.06
+   ],
+   "rotY": 4.543,
+   "scale": 1.224,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  },
+  {
+   "id": "shore_rock",
+   "asset": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "layer": "sea_lip",
+   "edge": "N",
+   "pos": [
+    -2.169,
+    -0.4,
+    -4.406
+   ],
+   "rotY": 3.8262,
+   "scale": 1.013,
+   "ground": "sea",
+   "collider": "none (outside map)",
+   "blocks_walk": false,
+   "src": "v3"
+  }
+ ],
+ "stats": {
+  "pieces": 0,
+  "props": 216,
+  "by_edge": {
+   "N": 55,
+   "E": 111,
+   "W": 31,
+   "S": 19
+  },
+  "by_asset": {
+   "sway_dead_grass_patch_2m.glb": 23,
+   "gtree_twisted_winter_lod0.glb": 20,
+   "dead_stump_blighted_dead.glb": 22,
+   "shore_rock_e_seastack.glb": 21,
+   "shore_rock_c_stack.glb": 56,
+   "gtree_weeping_winter_lod0.glb": 7,
+   "gtree_crooked_winter_lod0.glb": 5,
+   "shore_rock_d_cluster.glb": 30,
+   "shore_rock_a_boulder.glb": 19,
+   "rock_spire_bare_16m_dead.glb": 3,
+   "shore_rock_b_slab.glb": 10
+  },
+  "carried_from_v2_N": 8,
+  "v2_props_total": 97,
+  "v2_props_drawn_by_GD": 67,
+  "tris_v3": 274782,
+  "tris_v2_drawn": 244662,
+  "spires": 3,
+  "gtrees": 32,
+  "east_shoreline_row": 160,
+  "inside_map": 0,
+  "props_within_6_5m_of_N_gate": 0,
+  "props_within_6_5m_of_E_exit": 0,
+  "collider_changes": 0,
+  "moved_world_props": 0,
+  "tile_changes": 0
+ }
+}
