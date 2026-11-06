@@ -1,0 +1,35 @@
+<!doctype html><html><body style="margin:0;background:#000"><canvas id=c></canvas>
+<script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+const q=new URLSearchParams(location.search);
+const W=+q.get('w')||1280,H=+q.get('h')||720;
+const r=new THREE.WebGLRenderer({canvas:document.getElementById('c'),antialias:true,preserveDrawingBuffer:true});
+r.setSize(W,H); r.outputColorSpace=THREE.SRGBColorSpace; r.toneMapping=THREE.ACESFilmicToneMapping; r.toneMappingExposure=1.0;
+const sc=new THREE.Scene(); const sky=new THREE.Color(0x9fb3c4); sc.background=sky; sc.fog=new THREE.Fog(sky,+q.get('fn')||60,+q.get('ff')||320);
+sc.add(new THREE.HemisphereLight(0xcfdcec,0x3a3428,1.1));
+const sun=new THREE.DirectionalLight(0xfff1dc,2.4); sun.position.set(-60,90,40); sc.add(sun);
+const cam=new THREE.PerspectiveCamera(+q.get('fov')||45,W/H,0.5,2000);
+const p=q.get('cam').split(',').map(Number); cam.position.set(p[0],p[1],p[2]); const t=q.get('tgt').split(',').map(Number); cam.lookAt(t[0],t[1],t[2]);
+const kind=q.get('kind');
+const ONLY=q.get('only')==='trees';
+function prep(o){o.traverse(m=>{ if(!m.isMesh) return; m.frustumCulled=false; const hideColor=ONLY && !m.name.startsWith('trees_');
+  const f=mat=>{const n=mat.clone(); n.vertexColors=true; n.fog=true; if(hideColor) n.colorWrite=false;
+    if(kind==='ring'){ n.onBeforeCompile=s=>{ s.fragmentShader=s.fragmentShader.replace('#include <color_fragment>','diffuseColor.rgb *= vColor.rgb;').replace('#include <fog_fragment>','#include <fog_fragment>\ngl_FragColor.rgb = mix(gl_FragColor.rgb, fogColor, vColor.a * 0.6);'); }; n.customProgramCacheKey=()=>'ring'; }
+    return n;};
+  m.material=Array.isArray(m.material)?m.material.map(f):f(m.material);});}
+const ld=new GLTFLoader();
+ld.load(q.get('f'),g=>{
+  const s=g.scene;
+  if(kind==='ring'){ s.traverse(o=>{ if(/^near_sea_|^water_|^trees_sea_/.test(o.name)) o.visible=false; }); sc.add(s); prep(s); }
+  else { const pieces=(q.get('pieces')||'straight12_a,straight12_b,straight12_c,straight6,straight12_a,straight3,straight12_b').split(',');
+    let x=+(q.get('x0')||-36);
+    for(const pn of pieces){ const o=s.getObjectByName(pn); if(!o) continue; const c=o.clone(true); c.position.set(x,0,0);
+      c.traverse(e=>{ if(e.name.startsWith('col_')) e.visible=false; }); sc.add(c); prep(c);
+      x+= pn.includes('12')?12: pn.includes('6')?6:3; }
+    const gr=new THREE.Mesh(new THREE.PlaneGeometry(400,200),new THREE.MeshStandardMaterial({color:0x4a3f2c,roughness:1})); gr.rotation.x=-Math.PI/2; gr.position.set(0,-0.05,100); if(ONLY) gr.material.colorWrite=false; sc.add(gr);
+  }
+  r.render(sc,cam); window.DONE=1;
+},undefined,e=>{document.title='ERR '+e; window.DONE=1;});
+</script></body></html>

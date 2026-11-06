@@ -1,0 +1,5789 @@
+[
+ {
+  "file": "bk_forest_autumn",
+  "kind": "kit",
+  "season": "autumn",
+  "atlas": "kit_autumn",
+  "material": "ms_bk_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_straight12_a",
+    "cones": 93,
+    "old_verts": 708,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -4.3295,
+     -0.03,
+     -42.5669
+    ],
+    "aabb_max": [
+     15.0546,
+     27.6817,
+     -2.233
+    ]
+   },
+   {
+    "node": "trees_straight12_b",
+    "cones": 106,
+    "old_verts": 828,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -3.1389,
+     -0.0012,
+     -41.6725
+    ],
+    "aabb_max": [
+     16.9947,
+     26.0911,
+     -1.6616
+    ]
+   },
+   {
+    "node": "trees_straight12_c",
+    "cones": 90,
+    "old_verts": 636,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -3.7725,
+     0.0647,
+     -42.4268
+    ],
+    "aabb_max": [
+     16.4163,
+     27.392,
+     -0.2276
+    ]
+   },
+   {
+    "node": "trees_straight6",
+    "cones": 45,
+    "old_verts": 348,
+    "new_verts": 64,
+    "new_tris": 32,
+    "cards": 16,
+    "aabb_min": [
+     -4.426,
+     0.8402,
+     -43.498
+    ],
+    "aabb_max": [
+     12.2071,
+     27.1422,
+     -3.9179
+    ]
+   },
+   {
+    "node": "trees_straight3",
+    "cones": 14,
+    "old_verts": 96,
+    "new_verts": 40,
+    "new_tris": 20,
+    "cards": 10,
+    "aabb_min": [
+     -4.0367,
+     1.3574,
+     -34.6931
+    ],
+    "aabb_max": [
+     7.698,
+     20.5048,
+     -3.5846
+    ]
+   },
+   {
+    "node": "trees_corner_outer",
+    "cones": 240,
+    "old_verts": 1728,
+    "new_verts": 240,
+    "new_tris": 120,
+    "cards": 60,
+    "aabb_min": [
+     -3.9583,
+     -0.2945,
+     -42.1335
+    ],
+    "aabb_max": [
+     42.2607,
+     28.0516,
+     -0.9588
+    ]
+   },
+   {
+    "node": "trees_corner_inner",
+    "cones": 343,
+    "old_verts": 2460,
+    "new_verts": 304,
+    "new_tris": 152,
+    "cards": 76,
+    "aabb_min": [
+     -43.7841,
+     -0.9623,
+     -44.8167
+    ],
+    "aabb_max": [
+     3.8202,
+     26.323,
+     -0.6124
+    ]
+   },
+   {
+    "node": "trees_pass12",
+    "cones": 1,
+    "old_verts": 12,
+    "new_verts": 8,
+    "new_tris": 4,
+    "cards": 2,
+    "aabb_min": [
+     -5.1562,
+     3.9116,
+     -17.5094
+    ],
+    "aabb_max": [
+     5.9781,
+     16.1219,
+     -8.1018
+    ]
+   },
+   {
+    "node": "trees_endcap_land_to_sea",
+    "cones": 64,
+    "old_verts": 444,
+    "new_verts": 120,
+    "new_tris": 60,
+    "cards": 30,
+    "aabb_min": [
+     -4.1254,
+     -3.8015,
+     -58.6039
+    ],
+    "aabb_max": [
+     17.2374,
+     27.706,
+     -1.2272
+    ]
+   },
+   {
+    "node": "trees_endcap_sea_to_land",
+    "cones": 56,
+    "old_verts": 384,
+    "new_verts": 128,
+    "new_tris": 64,
+    "cards": 32,
+    "aabb_min": [
+     -4.9188,
+     -3.7663,
+     -63.001
+    ],
+    "aabb_max": [
+     15.2959,
+     27.1498,
+     -3.9425
+    ]
+   }
+  ]
+ },
+ {
+  "file": "bk_forest_dead",
+  "kind": "kit",
+  "season": "dead",
+  "atlas": "kit_dead",
+  "material": "ms_bk_treecard_dead",
+  "nodes": [
+   {
+    "node": "trees_straight12_a",
+    "cones": 53,
+    "old_verts": 456,
+    "new_verts": 80,
+    "new_tris": 40,
+    "cards": 20,
+    "aabb_min": [
+     -4.5275,
+     0.1761,
+     -41.1511
+    ],
+    "aabb_max": [
+     15.712,
+     27.6922,
+     -2.3936
+    ]
+   },
+   {
+    "node": "trees_straight12_b",
+    "cones": 48,
+    "old_verts": 432,
+    "new_verts": 96,
+    "new_tris": 48,
+    "cards": 24,
+    "aabb_min": [
+     -4.3502,
+     -0.2052,
+     -41.5256
+    ],
+    "aabb_max": [
+     16.8806,
+     27.0848,
+     0.3986
+    ]
+   },
+   {
+    "node": "trees_straight12_c",
+    "cones": 32,
+    "old_verts": 312,
+    "new_verts": 88,
+    "new_tris": 44,
+    "cards": 22,
+    "aabb_min": [
+     -4.5168,
+     -0.0336,
+     -44.5926
+    ],
+    "aabb_max": [
+     14.0764,
+     27.8066,
+     -0.1204
+    ]
+   },
+   {
+    "node": "trees_straight6",
+    "cones": 14,
+    "old_verts": 144,
+    "new_verts": 48,
+    "new_tris": 24,
+    "cards": 12,
+    "aabb_min": [
+     -2.8454,
+     -0.3234,
+     -38.5288
+    ],
+    "aabb_max": [
+     9.4958,
+     25.7899,
+     -1.7999
+    ]
+   },
+   {
+    "node": "trees_straight3",
+    "cones": 5,
+    "old_verts": 60,
+    "new_verts": 32,
+    "new_tris": 16,
+    "cards": 8,
+    "aabb_min": [
+     -1.7801,
+     -0.014,
+     -41.5878
+    ],
+    "aabb_max": [
+     6.0994,
+     25.761,
+     -2.4888
+    ]
+   },
+   {
+    "node": "trees_corner_outer",
+    "cones": 110,
+    "old_verts": 972,
+    "new_verts": 208,
+    "new_tris": 104,
+    "cards": 52,
+    "aabb_min": [
+     -3.7121,
+     1.6201,
+     -41.1458
+    ],
+    "aabb_max": [
+     39.8733,
+     28.304,
+     1.0311
+    ]
+   },
+   {
+    "node": "trees_corner_inner",
+    "cones": 119,
+    "old_verts": 1068,
+    "new_verts": 256,
+    "new_tris": 128,
+    "cards": 64,
+    "aabb_min": [
+     -42.158,
+     -1.0551,
+     -44.9236
+    ],
+    "aabb_max": [
+     4.1691,
+     25.0154,
+     -1.2109
+    ]
+   },
+   {
+    "node": "trees_pass12",
+    "cones": 2,
+    "old_verts": 24,
+    "new_verts": 16,
+    "new_tris": 8,
+    "cards": 4,
+    "aabb_min": [
+     -3.4158,
+     1.8328,
+     -13.0183
+    ],
+    "aabb_max": [
+     14.7256,
+     14.8054,
+     -5.3189
+    ]
+   },
+   {
+    "node": "trees_endcap_land_to_sea",
+    "cones": 21,
+    "old_verts": 192,
+    "new_verts": 72,
+    "new_tris": 36,
+    "cards": 18,
+    "aabb_min": [
+     -3.6981,
+     -3.189,
+     -57.5742
+    ],
+    "aabb_max": [
+     17.0287,
+     28.0345,
+     -3.11
+    ]
+   },
+   {
+    "node": "trees_endcap_sea_to_land",
+    "cones": 33,
+    "old_verts": 300,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -4.5225,
+     -3.842,
+     -65.0024
+    ],
+    "aabb_max": [
+     16.3356,
+     27.769,
+     -1.5006
+    ]
+   }
+  ]
+ },
+ {
+  "file": "bk_forest_summer",
+  "kind": "kit",
+  "season": "summer",
+  "atlas": "kit_summer",
+  "material": "ms_bk_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_straight12_a",
+    "cones": 95,
+    "old_verts": 744,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -2.8453,
+     1.0591,
+     -41.9364
+    ],
+    "aabb_max": [
+     15.6859,
+     26.173,
+     -2.843
+    ]
+   },
+   {
+    "node": "trees_straight12_b",
+    "cones": 84,
+    "old_verts": 672,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -4.994,
+     0.5048,
+     -44.1067
+    ],
+    "aabb_max": [
+     15.5964,
+     27.3657,
+     -0.7834
+    ]
+   },
+   {
+    "node": "trees_straight12_c",
+    "cones": 99,
+    "old_verts": 792,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -5.1707,
+     0.707,
+     -43.9735
+    ],
+    "aabb_max": [
+     18.0273,
+     27.7523,
+     -0.5446
+    ]
+   },
+   {
+    "node": "trees_straight6",
+    "cones": 66,
+    "old_verts": 504,
+    "new_verts": 56,
+    "new_tris": 28,
+    "cards": 14,
+    "aabb_min": [
+     -4.5555,
+     -0.1514,
+     -43.6007
+    ],
+    "aabb_max": [
+     12.6961,
+     26.9167,
+     -0.2228
+    ]
+   },
+   {
+    "node": "trees_straight3",
+    "cones": 27,
+    "old_verts": 228,
+    "new_verts": 40,
+    "new_tris": 20,
+    "cards": 10,
+    "aabb_min": [
+     -4.1419,
+     -0.5148,
+     -35.8687
+    ],
+    "aabb_max": [
+     9.1011,
+     24.4784,
+     -1.5376
+    ]
+   },
+   {
+    "node": "trees_corner_outer",
+    "cones": 226,
+    "old_verts": 1836,
+    "new_verts": 224,
+    "new_tris": 112,
+    "cards": 56,
+    "aabb_min": [
+     -3.8628,
+     -0.4818,
+     -43.2652
+    ],
+    "aabb_max": [
+     43.4773,
+     27.9924,
+     -0.5968
+    ]
+   },
+   {
+    "node": "trees_corner_inner",
+    "cones": 274,
+    "old_verts": 2232,
+    "new_verts": 288,
+    "new_tris": 144,
+    "cards": 72,
+    "aabb_min": [
+     -44.4851,
+     -1.0591,
+     -43.9609
+    ],
+    "aabb_max": [
+     3.1762,
+     26.5252,
+     -0.4277
+    ]
+   },
+   {
+    "node": "trees_pass12",
+    "cones": 5,
+    "old_verts": 36,
+    "new_verts": 24,
+    "new_tris": 12,
+    "cards": 6,
+    "aabb_min": [
+     -3.2372,
+     2.8689,
+     -16.5304
+    ],
+    "aabb_max": [
+     2.6733,
+     11.5914,
+     -4.6271
+    ]
+   },
+   {
+    "node": "trees_endcap_land_to_sea",
+    "cones": 56,
+    "old_verts": 444,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -4.8759,
+     -3.7686,
+     -61.1467
+    ],
+    "aabb_max": [
+     15.6764,
+     27.7005,
+     0.2624
+    ]
+   },
+   {
+    "node": "trees_endcap_sea_to_land",
+    "cones": 47,
+    "old_verts": 408,
+    "new_verts": 128,
+    "new_tris": 64,
+    "cards": 32,
+    "aabb_min": [
+     -5.2511,
+     -3.8264,
+     -60.6878
+    ],
+    "aabb_max": [
+     15.5551,
+     26.2238,
+     -3.3471
+    ]
+   }
+  ]
+ },
+ {
+  "file": "bk_forest_winter",
+  "kind": "kit",
+  "season": "winter",
+  "atlas": "kit_winter",
+  "material": "ms_bk_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_straight12_a",
+    "cones": 42,
+    "old_verts": 396,
+    "new_verts": 80,
+    "new_tris": 40,
+    "cards": 20,
+    "aabb_min": [
+     -4.2965,
+     0.5078,
+     -44.2117
+    ],
+    "aabb_max": [
+     15.5236,
+     27.3091,
+     -2.1708
+    ]
+   },
+   {
+    "node": "trees_straight12_b",
+    "cones": 53,
+    "old_verts": 468,
+    "new_verts": 96,
+    "new_tris": 48,
+    "cards": 24,
+    "aabb_min": [
+     -3.6322,
+     0.8647,
+     -44.1171
+    ],
+    "aabb_max": [
+     15.6799,
+     26.4041,
+     -1.1682
+    ]
+   },
+   {
+    "node": "trees_straight12_c",
+    "cones": 36,
+    "old_verts": 348,
+    "new_verts": 96,
+    "new_tris": 48,
+    "cards": 24,
+    "aabb_min": [
+     -3.5914,
+     0.4779,
+     -40.9329
+    ],
+    "aabb_max": [
+     15.0919,
+     26.9177,
+     -0.9155
+    ]
+   },
+   {
+    "node": "trees_straight6",
+    "cones": 22,
+    "old_verts": 216,
+    "new_verts": 48,
+    "new_tris": 24,
+    "cards": 12,
+    "aabb_min": [
+     -3.2246,
+     0.8247,
+     -44.0906
+    ],
+    "aabb_max": [
+     10.1264,
+     27.3305,
+     -2.5546
+    ]
+   },
+   {
+    "node": "trees_straight3",
+    "cones": 6,
+    "old_verts": 48,
+    "new_verts": 24,
+    "new_tris": 12,
+    "cards": 6,
+    "aabb_min": [
+     -4.3119,
+     8.8811,
+     -43.123
+    ],
+    "aabb_max": [
+     7.0844,
+     26.9434,
+     -20.8953
+    ]
+   },
+   {
+    "node": "trees_corner_outer",
+    "cones": 128,
+    "old_verts": 1128,
+    "new_verts": 208,
+    "new_tris": 104,
+    "cards": 52,
+    "aabb_min": [
+     -3.3355,
+     1.1626,
+     -43.9534
+    ],
+    "aabb_max": [
+     42.8199,
+     28.3921,
+     0.9702
+    ]
+   },
+   {
+    "node": "trees_corner_inner",
+    "cones": 126,
+    "old_verts": 1164,
+    "new_verts": 256,
+    "new_tris": 128,
+    "cards": 64,
+    "aabb_min": [
+     -44.971,
+     -0.7388,
+     -45.2573
+    ],
+    "aabb_max": [
+     3.1521,
+     26.774,
+     -2.2481
+    ]
+   },
+   {
+    "node": "trees_endcap_land_to_sea",
+    "cones": 19,
+    "old_verts": 156,
+    "new_verts": 72,
+    "new_tris": 36,
+    "cards": 18,
+    "aabb_min": [
+     -3.7942,
+     -3.8255,
+     -62.9777
+    ],
+    "aabb_max": [
+     16.0195,
+     27.3708,
+     -0.6699
+    ]
+   },
+   {
+    "node": "trees_endcap_sea_to_land",
+    "cones": 19,
+    "old_verts": 168,
+    "new_verts": 80,
+    "new_tris": 40,
+    "cards": 20,
+    "aabb_min": [
+     -3.7363,
+     -3.8084,
+     -62.9753
+    ],
+    "aabb_max": [
+     17.0943,
+     26.3684,
+     -15.4337
+    ]
+   }
+  ]
+ },
+ {
+  "file": "bk_town_autumn",
+  "kind": "kit",
+  "season": "autumn",
+  "atlas": "kit_autumn",
+  "material": "ms_bk_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_straight12_a",
+    "cones": 65,
+    "old_verts": 468,
+    "new_verts": 96,
+    "new_tris": 48,
+    "cards": 24,
+    "aabb_min": [
+     -2.1931,
+     0.2865,
+     -46.9964
+    ],
+    "aabb_max": [
+     16.0675,
+     25.2951,
+     -2.8615
+    ]
+   },
+   {
+    "node": "trees_straight12_b",
+    "cones": 74,
+    "old_verts": 552,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -3.7562,
+     0.0754,
+     -44.9228
+    ],
+    "aabb_max": [
+     16.3814,
+     24.9891,
+     -3.2156
+    ]
+   },
+   {
+    "node": "trees_straight12_c",
+    "cones": 67,
+    "old_verts": 516,
+    "new_verts": 96,
+    "new_tris": 48,
+    "cards": 24,
+    "aabb_min": [
+     -3.4636,
+     0.8432,
+     -46.0966
+    ],
+    "aabb_max": [
+     16.7774,
+     23.6362,
+     -3.7726
+    ]
+   },
+   {
+    "node": "trees_straight6",
+    "cones": 42,
+    "old_verts": 324,
+    "new_verts": 48,
+    "new_tris": 24,
+    "cards": 12,
+    "aabb_min": [
+     -4.5556,
+     3.0876,
+     -46.9581
+    ],
+    "aabb_max": [
+     10.6142,
+     25.2581,
+     -6.9146
+    ]
+   },
+   {
+    "node": "trees_straight3",
+    "cones": 15,
+    "old_verts": 96,
+    "new_verts": 40,
+    "new_tris": 20,
+    "cards": 10,
+    "aabb_min": [
+     -2.7685,
+     1.2796,
+     -45.5153
+    ],
+    "aabb_max": [
+     9.3126,
+     24.4358,
+     -4.9821
+    ]
+   },
+   {
+    "node": "trees_corner_outer",
+    "cones": 193,
+    "old_verts": 1416,
+    "new_verts": 240,
+    "new_tris": 120,
+    "cards": 60,
+    "aabb_min": [
+     -4.2806,
+     2.1681,
+     -45.291
+    ],
+    "aabb_max": [
+     43.7385,
+     25.1617,
+     -1.3817
+    ]
+   },
+   {
+    "node": "trees_corner_inner",
+    "cones": 235,
+    "old_verts": 1716,
+    "new_verts": 312,
+    "new_tris": 156,
+    "cards": 78,
+    "aabb_min": [
+     -47.7282,
+     -1.1067,
+     -49.1162
+    ],
+    "aabb_max": [
+     3.7135,
+     23.7605,
+     -2.7426
+    ]
+   },
+   {
+    "node": "trees_pass12",
+    "cones": 4,
+    "old_verts": 24,
+    "new_verts": 16,
+    "new_tris": 8,
+    "cards": 4,
+    "aabb_min": [
+     7.8854,
+     1.1907,
+     -20.9658
+    ],
+    "aabb_max": [
+     16.0619,
+     11.1934,
+     -3.4585
+    ]
+   },
+   {
+    "node": "trees_endcap_land_to_sea",
+    "cones": 18,
+    "old_verts": 144,
+    "new_verts": 64,
+    "new_tris": 32,
+    "cards": 16,
+    "aabb_min": [
+     -2.6613,
+     -3.8409,
+     -63.165
+    ],
+    "aabb_max": [
+     15.9396,
+     23.3,
+     -13.5008
+    ]
+   },
+   {
+    "node": "trees_endcap_sea_to_land",
+    "cones": 37,
+    "old_verts": 264,
+    "new_verts": 96,
+    "new_tris": 48,
+    "cards": 24,
+    "aabb_min": [
+     -4.4869,
+     -3.3558,
+     -58.7694
+    ],
+    "aabb_max": [
+     17.6575,
+     24.3898,
+     -9.0612
+    ]
+   }
+  ]
+ },
+ {
+  "file": "bk_town_dead",
+  "kind": "kit",
+  "season": "dead",
+  "atlas": "kit_dead",
+  "material": "ms_bk_treecard_dead",
+  "nodes": [
+   {
+    "node": "trees_straight12_a",
+    "cones": 28,
+    "old_verts": 264,
+    "new_verts": 72,
+    "new_tris": 36,
+    "cards": 18,
+    "aabb_min": [
+     -4.537,
+     0.8038,
+     -45.1451
+    ],
+    "aabb_max": [
+     15.4483,
+     23.3907,
+     -4.3309
+    ]
+   },
+   {
+    "node": "trees_straight12_b",
+    "cones": 20,
+    "old_verts": 192,
+    "new_verts": 72,
+    "new_tris": 36,
+    "cards": 18,
+    "aabb_min": [
+     -5.0556,
+     0.8238,
+     -41.0104
+    ],
+    "aabb_max": [
+     17.1249,
+     24.4082,
+     -3.7498
+    ]
+   },
+   {
+    "node": "trees_straight12_c",
+    "cones": 34,
+    "old_verts": 288,
+    "new_verts": 80,
+    "new_tris": 40,
+    "cards": 20,
+    "aabb_min": [
+     -4.9333,
+     0.8679,
+     -46.0374
+    ],
+    "aabb_max": [
+     16.8135,
+     24.7383,
+     -3.7621
+    ]
+   },
+   {
+    "node": "trees_straight6",
+    "cones": 24,
+    "old_verts": 180,
+    "new_verts": 56,
+    "new_tris": 28,
+    "cards": 14,
+    "aabb_min": [
+     -4.3108,
+     1.2968,
+     -47.0583
+    ],
+    "aabb_max": [
+     9.2108,
+     23.3612,
+     -3.6231
+    ]
+   },
+   {
+    "node": "trees_straight3",
+    "cones": 6,
+    "old_verts": 36,
+    "new_verts": 16,
+    "new_tris": 8,
+    "cards": 4,
+    "aabb_min": [
+     -4.0869,
+     2.6108,
+     -19.9307
+    ],
+    "aabb_max": [
+     5.8176,
+     12.7979,
+     -5.1617
+    ]
+   },
+   {
+    "node": "trees_corner_outer",
+    "cones": 82,
+    "old_verts": 756,
+    "new_verts": 192,
+    "new_tris": 96,
+    "cards": 48,
+    "aabb_min": [
+     -3.9179,
+     1.5569,
+     -47.5293
+    ],
+    "aabb_max": [
+     45.5807,
+     26.1977,
+     -3.4287
+    ]
+   },
+   {
+    "node": "trees_corner_inner",
+    "cones": 114,
+    "old_verts": 996,
+    "new_verts": 296,
+    "new_tris": 148,
+    "cards": 74,
+    "aabb_min": [
+     -47.5936,
+     -0.9692,
+     -47.9427
+    ],
+    "aabb_max": [
+     4.7993,
+     24.8393,
+     -2.2956
+    ]
+   },
+   {
+    "node": "trees_pass12",
+    "cones": 1,
+    "old_verts": 12,
+    "new_verts": 8,
+    "new_tris": 4,
+    "cards": 2,
+    "aabb_min": [
+     9.1645,
+     4.7017,
+     -20.7157
+    ],
+    "aabb_max": [
+     13.9348,
+     13.2096,
+     -15.9355
+    ]
+   },
+   {
+    "node": "trees_endcap_land_to_sea",
+    "cones": 12,
+    "old_verts": 108,
+    "new_verts": 72,
+    "new_tris": 36,
+    "cards": 18,
+    "aabb_min": [
+     -3.3428,
+     -3.8569,
+     -62.7189
+    ],
+    "aabb_max": [
+     14.8701,
+     23.2253,
+     -3.8236
+    ]
+   },
+   {
+    "node": "trees_endcap_sea_to_land",
+    "cones": 18,
+    "old_verts": 156,
+    "new_verts": 88,
+    "new_tris": 44,
+    "cards": 22,
+    "aabb_min": [
+     -3.6606,
+     -3.1068,
+     -61.1907
+    ],
+    "aabb_max": [
+     17.9231,
+     24.652,
+     -4.9898
+    ]
+   }
+  ]
+ },
+ {
+  "file": "bk_town_summer",
+  "kind": "kit",
+  "season": "summer",
+  "atlas": "kit_summer",
+  "material": "ms_bk_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_straight12_a",
+    "cones": 63,
+    "old_verts": 540,
+    "new_verts": 104,
+    "new_tris": 52,
+    "cards": 26,
+    "aabb_min": [
+     -4.3799,
+     1.2674,
+     -47.328
+    ],
+    "aabb_max": [
+     16.0247,
+     25.0443,
+     -1.6033
+    ]
+   },
+   {
+    "node": "trees_straight12_b",
+    "cones": 52,
+    "old_verts": 408,
+    "new_verts": 88,
+    "new_tris": 44,
+    "cards": 22,
+    "aabb_min": [
+     -1.7295,
+     0.9357,
+     -42.8842
+    ],
+    "aabb_max": [
+     16.4263,
+     25.1348,
+     -4.2172
+    ]
+   },
+   {
+    "node": "trees_straight12_c",
+    "cones": 57,
+    "old_verts": 456,
+    "new_verts": 88,
+    "new_tris": 44,
+    "cards": 22,
+    "aabb_min": [
+     -3.7346,
+     1.3442,
+     -47.304
+    ],
+    "aabb_max": [
+     15.9554,
+     24.5359,
+     -6.1091
+    ]
+   },
+   {
+    "node": "trees_straight6",
+    "cones": 40,
+    "old_verts": 300,
+    "new_verts": 48,
+    "new_tris": 24,
+    "cards": 12,
+    "aabb_min": [
+     -3.7633,
+     2.7319,
+     -49.1478
+    ],
+    "aabb_max": [
+     12.2381,
+     25.7946,
+     -4.3612
+    ]
+   },
+   {
+    "node": "trees_straight3",
+    "cones": 14,
+    "old_verts": 108,
+    "new_verts": 40,
+    "new_tris": 20,
+    "cards": 10,
+    "aabb_min": [
+     -5.4805,
+     1.582,
+     -46.5932
+    ],
+    "aabb_max": [
+     7.7648,
+     25.4072,
+     -4.1926
+    ]
+   },
+   {
+    "node": "trees_corner_outer",
+    "cones": 189,
+    "old_verts": 1440,
+    "new_verts": 240,
+    "new_tris": 120,
+    "cards": 60,
+    "aabb_min": [
+     -2.9897,
+     0.9718,
+     -46.7407
+    ],
+    "aabb_max": [
+     43.8907,
+     26.2125,
+     -1.1975
+    ]
+   },
+   {
+    "node": "trees_corner_inner",
+    "cones": 183,
+    "old_verts": 1428,
+    "new_verts": 272,
+    "new_tris": 136,
+    "cards": 68,
+    "aabb_min": [
+     -45.6658,
+     -1.0377,
+     -48.1465
+    ],
+    "aabb_max": [
+     3.4884,
+     24.1113,
+     -2.3872
+    ]
+   },
+   {
+    "node": "trees_pass12",
+    "cones": 3,
+    "old_verts": 24,
+    "new_verts": 8,
+    "new_tris": 4,
+    "cards": 2,
+    "aabb_min": [
+     -4.0537,
+     4.0749,
+     -21.9416
+    ],
+    "aabb_max": [
+     4.1119,
+     13.2597,
+     -13.0461
+    ]
+   },
+   {
+    "node": "trees_endcap_land_to_sea",
+    "cones": 21,
+    "old_verts": 168,
+    "new_verts": 72,
+    "new_tris": 36,
+    "cards": 18,
+    "aabb_min": [
+     -3.6495,
+     -3.0544,
+     -49.8686
+    ],
+    "aabb_max": [
+     14.5174,
+     21.9183,
+     -10.5322
+    ]
+   },
+   {
+    "node": "trees_endcap_sea_to_land",
+    "cones": 45,
+    "old_verts": 372,
+    "new_verts": 120,
+    "new_tris": 60,
+    "cards": 30,
+    "aabb_min": [
+     -4.3971,
+     -3.666,
+     -64.4372
+    ],
+    "aabb_max": [
+     15.8747,
+     24.0098,
+     -3.2121
+    ]
+   }
+  ]
+ },
+ {
+  "file": "bk_town_winter",
+  "kind": "kit",
+  "season": "winter",
+  "atlas": "kit_winter",
+  "material": "ms_bk_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_straight12_a",
+    "cones": 28,
+    "old_verts": 252,
+    "new_verts": 80,
+    "new_tris": 40,
+    "cards": 20,
+    "aabb_min": [
+     -3.8049,
+     0.6551,
+     -47.6162
+    ],
+    "aabb_max": [
+     15.8865,
+     25.2299,
+     -2.5538
+    ]
+   },
+   {
+    "node": "trees_straight12_b",
+    "cones": 32,
+    "old_verts": 300,
+    "new_verts": 96,
+    "new_tris": 48,
+    "cards": 24,
+    "aabb_min": [
+     -4.3443,
+     1.1283,
+     -48.2366
+    ],
+    "aabb_max": [
+     15.3468,
+     24.4644,
+     -3.7198
+    ]
+   },
+   {
+    "node": "trees_straight12_c",
+    "cones": 29,
+    "old_verts": 252,
+    "new_verts": 88,
+    "new_tris": 44,
+    "cards": 22,
+    "aabb_min": [
+     -3.8634,
+     1.7171,
+     -46.4053
+    ],
+    "aabb_max": [
+     16.3109,
+     23.6494,
+     -6.9356
+    ]
+   },
+   {
+    "node": "trees_straight6",
+    "cones": 11,
+    "old_verts": 108,
+    "new_verts": 24,
+    "new_tris": 12,
+    "cards": 6,
+    "aabb_min": [
+     -3.873,
+     2.5557,
+     -47.2051
+    ],
+    "aabb_max": [
+     10.4106,
+     25.7457,
+     -8.6038
+    ]
+   },
+   {
+    "node": "trees_straight3",
+    "cones": 8,
+    "old_verts": 60,
+    "new_verts": 32,
+    "new_tris": 16,
+    "cards": 8,
+    "aabb_min": [
+     -2.8487,
+     3.5087,
+     -37.9175
+    ],
+    "aabb_max": [
+     7.0459,
+     22.5456,
+     -7.4229
+    ]
+   },
+   {
+    "node": "trees_corner_outer",
+    "cones": 86,
+    "old_verts": 756,
+    "new_verts": 216,
+    "new_tris": 108,
+    "cards": 54,
+    "aabb_min": [
+     -3.713,
+     2.4539,
+     -48.4805
+    ],
+    "aabb_max": [
+     43.3433,
+     25.596,
+     -3.9341
+    ]
+   },
+   {
+    "node": "trees_corner_inner",
+    "cones": 115,
+    "old_verts": 1044,
+    "new_verts": 264,
+    "new_tris": 132,
+    "cards": 66,
+    "aabb_min": [
+     -46.7588,
+     -0.9943,
+     -46.0351
+    ],
+    "aabb_max": [
+     2.5418,
+     23.918,
+     -2.5896
+    ]
+   },
+   {
+    "node": "trees_pass12",
+    "cones": 2,
+    "old_verts": 12,
+    "new_verts": 8,
+    "new_tris": 4,
+    "cards": 2,
+    "aabb_min": [
+     -2.7186,
+     2.76,
+     -14.3002
+    ],
+    "aabb_max": [
+     3.1001,
+     9.7804,
+     -8.6473
+    ]
+   },
+   {
+    "node": "trees_endcap_land_to_sea",
+    "cones": 16,
+    "old_verts": 144,
+    "new_verts": 72,
+    "new_tris": 36,
+    "cards": 18,
+    "aabb_min": [
+     -3.4567,
+     -3.904,
+     -64.0209
+    ],
+    "aabb_max": [
+     16.2858,
+     24.3934,
+     -4.6241
+    ]
+   },
+   {
+    "node": "trees_endcap_sea_to_land",
+    "cones": 14,
+    "old_verts": 120,
+    "new_verts": 56,
+    "new_tris": 28,
+    "cards": 14,
+    "aabb_min": [
+     -5.0061,
+     -2.7817,
+     -60.5146
+    ],
+    "aabb_max": [
+     15.1221,
+     21.6115,
+     -3.2968
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_ascent_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1396,
+    "old_verts": 10726,
+    "new_verts": 2232,
+    "new_tris": 1116,
+    "cards": 558,
+    "aabb_min": [
+     17.2514,
+     -19.5281,
+     -199.2973
+    ],
+    "aabb_max": [
+     284.6426,
+     68.9012,
+     201.9321
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1124,
+    "old_verts": 8399,
+    "new_verts": 2168,
+    "new_tris": 1084,
+    "cards": 542,
+    "aabb_min": [
+     -197.8308,
+     -99.7285,
+     -286.3398
+    ],
+    "aabb_max": [
+     192.2037,
+     58.4042,
+     -18.7138
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1353,
+    "old_verts": 10463,
+    "new_verts": 2328,
+    "new_tris": 1164,
+    "cards": 582,
+    "aabb_min": [
+     -289.0865,
+     -17.9875,
+     -197.3373
+    ],
+    "aabb_max": [
+     -18.7191,
+     72.385,
+     202.0785
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1068,
+    "old_verts": 7705,
+    "new_verts": 2176,
+    "new_tris": 1088,
+    "cards": 544,
+    "aabb_min": [
+     -199.0772,
+     -96.7753,
+     17.7863
+    ],
+    "aabb_max": [
+     201.1357,
+     70.8175,
+     285.7437
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_ascent_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1290,
+    "old_verts": 10038,
+    "new_verts": 2304,
+    "new_tris": 1152,
+    "cards": 576,
+    "aabb_min": [
+     17.9692,
+     -17.0185,
+     -194.8066
+    ],
+    "aabb_max": [
+     287.1194,
+     70.996,
+     190.0234
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1068,
+    "old_verts": 7910,
+    "new_verts": 2200,
+    "new_tris": 1100,
+    "cards": 550,
+    "aabb_min": [
+     -194.9653,
+     -99.4798,
+     -286.0064
+    ],
+    "aabb_max": [
+     182.5325,
+     62.1809,
+     -18.9518
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1338,
+    "old_verts": 10512,
+    "new_verts": 2216,
+    "new_tris": 1108,
+    "cards": 554,
+    "aabb_min": [
+     -289.3266,
+     -17.5113,
+     -199.4628
+    ],
+    "aabb_max": [
+     -17.5022,
+     77.8988,
+     188.1067
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 966,
+    "old_verts": 7105,
+    "new_verts": 2144,
+    "new_tris": 1072,
+    "cards": 536,
+    "aabb_min": [
+     -195.6638,
+     -96.5667,
+     19.1258
+    ],
+    "aabb_max": [
+     199.0682,
+     70.7431,
+     287.289
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_ascent_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 564,
+    "old_verts": 4798,
+    "new_verts": 1112,
+    "new_tris": 556,
+    "cards": 278,
+    "aabb_min": [
+     18.0255,
+     -19.6895,
+     -186.8135
+    ],
+    "aabb_max": [
+     286.7131,
+     67.1275,
+     203.0204
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 346,
+    "old_verts": 2303,
+    "new_verts": 896,
+    "new_tris": 448,
+    "cards": 224,
+    "aabb_min": [
+     -176.2959,
+     -75.8167,
+     -290.7378
+    ],
+    "aabb_max": [
+     186.5657,
+     55.5933,
+     -38.3329
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 406,
+    "old_verts": 3015,
+    "new_verts": 1128,
+    "new_tris": 564,
+    "cards": 282,
+    "aabb_min": [
+     -288.8669,
+     -18.7256,
+     -169.0255
+    ],
+    "aabb_max": [
+     -16.7175,
+     64.3338,
+     177.6303
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 408,
+    "old_verts": 3186,
+    "new_verts": 1072,
+    "new_tris": 536,
+    "cards": 268,
+    "aabb_min": [
+     -179.5975,
+     -98.0543,
+     19.3368
+    ],
+    "aabb_max": [
+     201.4581,
+     67.6361,
+     288.5623
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_bluffs_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1433,
+    "old_verts": 11311,
+    "new_verts": 2264,
+    "new_tris": 1132,
+    "cards": 566,
+    "aabb_min": [
+     29.0326,
+     -19.8365,
+     -201.0626
+    ],
+    "aabb_max": [
+     284.7327,
+     70.2213,
+     196.7167
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1160,
+    "old_verts": 8971,
+    "new_verts": 2152,
+    "new_tris": 1076,
+    "cards": 538,
+    "aabb_min": [
+     -199.2318,
+     -98.3848,
+     -288.5681
+    ],
+    "aabb_max": [
+     189.8834,
+     58.6358,
+     -25.5853
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1379,
+    "old_verts": 10976,
+    "new_verts": 2240,
+    "new_tris": 1120,
+    "cards": 560,
+    "aabb_min": [
+     -284.2488,
+     -17.6112,
+     -192.3045
+    ],
+    "aabb_max": [
+     -27.1414,
+     71.4138,
+     201.1181
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1101,
+    "old_verts": 8208,
+    "new_verts": 2144,
+    "new_tris": 1072,
+    "cards": 536,
+    "aabb_min": [
+     -189.8535,
+     -98.0847,
+     26.4267
+    ],
+    "aabb_max": [
+     201.035,
+     75.9217,
+     287.0905
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_bluffs_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1321,
+    "old_verts": 10710,
+    "new_verts": 2200,
+    "new_tris": 1100,
+    "cards": 550,
+    "aabb_min": [
+     24.1394,
+     -19.1206,
+     -196.5802
+    ],
+    "aabb_max": [
+     286.234,
+     68.4357,
+     198.0694
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1063,
+    "old_verts": 8090,
+    "new_verts": 2224,
+    "new_tris": 1112,
+    "cards": 556,
+    "aabb_min": [
+     -201.3579,
+     -98.547,
+     -287.7312
+    ],
+    "aabb_max": [
+     193.5011,
+     57.6443,
+     -26.0397
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1359,
+    "old_verts": 11110,
+    "new_verts": 2240,
+    "new_tris": 1120,
+    "cards": 560,
+    "aabb_min": [
+     -289.0505,
+     -17.1385,
+     -183.7687
+    ],
+    "aabb_max": [
+     -26.6242,
+     77.4834,
+     190.7053
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1008,
+    "old_verts": 7788,
+    "new_verts": 2112,
+    "new_tris": 1056,
+    "cards": 528,
+    "aabb_min": [
+     -196.4213,
+     -96.8113,
+     26.5493
+    ],
+    "aabb_max": [
+     185.6673,
+     76.624,
+     287.469
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_bluffs_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 586,
+    "old_verts": 4988,
+    "new_verts": 1104,
+    "new_tris": 552,
+    "cards": 276,
+    "aabb_min": [
+     28.2838,
+     -20.6218,
+     -193.2104
+    ],
+    "aabb_max": [
+     284.9507,
+     67.5405,
+     202.4669
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 406,
+    "old_verts": 2997,
+    "new_verts": 1000,
+    "new_tris": 500,
+    "cards": 250,
+    "aabb_min": [
+     -169.0704,
+     -77.5172,
+     -287.7543
+    ],
+    "aabb_max": [
+     186.1188,
+     59.8358,
+     -35.423
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 340,
+    "old_verts": 2520,
+    "new_verts": 1016,
+    "new_tris": 508,
+    "cards": 254,
+    "aabb_min": [
+     -288.2837,
+     -18.6947,
+     -177.8311
+    ],
+    "aabb_max": [
+     -29.1591,
+     64.6607,
+     178.0473
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 391,
+    "old_verts": 3148,
+    "new_verts": 1000,
+    "new_tris": 500,
+    "cards": 250,
+    "aabb_min": [
+     -182.0632,
+     -98.0597,
+     25.5616
+    ],
+    "aabb_max": [
+     203.3966,
+     64.793,
+     289.0782
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_briarE_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1433,
+    "old_verts": 11311,
+    "new_verts": 2280,
+    "new_tris": 1140,
+    "cards": 570,
+    "aabb_min": [
+     27.805,
+     -19.8365,
+     -201.028
+    ],
+    "aabb_max": [
+     284.7327,
+     70.2213,
+     196.6555
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1160,
+    "old_verts": 8971,
+    "new_verts": 2160,
+    "new_tris": 1080,
+    "cards": 540,
+    "aabb_min": [
+     -199.1871,
+     -98.3848,
+     -288.5424
+    ],
+    "aabb_max": [
+     189.7103,
+     58.6358,
+     -23.6442
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1379,
+    "old_verts": 10976,
+    "new_verts": 2240,
+    "new_tris": 1120,
+    "cards": 560,
+    "aabb_min": [
+     -284.2488,
+     -17.6112,
+     -192.1667
+    ],
+    "aabb_max": [
+     -25.5246,
+     71.4138,
+     201.0688
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1101,
+    "old_verts": 8208,
+    "new_verts": 2112,
+    "new_tris": 1056,
+    "cards": 528,
+    "aabb_min": [
+     -189.752,
+     -98.0847,
+     24.489
+    ],
+    "aabb_max": [
+     200.9978,
+     75.9217,
+     287.055
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_briarE_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1317,
+    "old_verts": 10656,
+    "new_verts": 2184,
+    "new_tris": 1092,
+    "cards": 546,
+    "aabb_min": [
+     26.6819,
+     -19.1206,
+     -196.4912
+    ],
+    "aabb_max": [
+     286.234,
+     68.4357,
+     198.0262
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1063,
+    "old_verts": 8090,
+    "new_verts": 2216,
+    "new_tris": 1108,
+    "cards": 554,
+    "aabb_min": [
+     -201.3333,
+     -98.547,
+     -287.6966
+    ],
+    "aabb_max": [
+     193.3762,
+     57.6443,
+     -24.0985
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1357,
+    "old_verts": 11083,
+    "new_verts": 2232,
+    "new_tris": 1116,
+    "cards": 558,
+    "aabb_min": [
+     -289.0505,
+     -17.1385,
+     -183.7418
+    ],
+    "aabb_max": [
+     -27.4876,
+     77.4834,
+     190.5849
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1008,
+    "old_verts": 7788,
+    "new_verts": 2112,
+    "new_tris": 1056,
+    "cards": 528,
+    "aabb_min": [
+     -196.359,
+     -96.8113,
+     24.6262
+    ],
+    "aabb_max": [
+     185.5242,
+     76.624,
+     287.4449
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_briarE_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 591,
+    "old_verts": 5091,
+    "new_verts": 1096,
+    "new_tris": 548,
+    "cards": 274,
+    "aabb_min": [
+     26.6425,
+     -19.9832,
+     -192.6839
+    ],
+    "aabb_max": [
+     284.6202,
+     66.3278,
+     203.9187
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 409,
+    "old_verts": 2921,
+    "new_verts": 992,
+    "new_tris": 496,
+    "cards": 248,
+    "aabb_min": [
+     -167.1377,
+     -78.6668,
+     -288.6449
+    ],
+    "aabb_max": [
+     186.1573,
+     58.9339,
+     -39.7887
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 338,
+    "old_verts": 2515,
+    "new_verts": 984,
+    "new_tris": 492,
+    "cards": 246,
+    "aabb_min": [
+     -288.1767,
+     -17.834,
+     -173.6126
+    ],
+    "aabb_max": [
+     -28.6241,
+     65.4682,
+     176.0898
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 409,
+    "old_verts": 3288,
+    "new_verts": 1016,
+    "new_tris": 508,
+    "cards": 254,
+    "aabb_min": [
+     -182.2191,
+     -97.2138,
+     23.6087
+    ],
+    "aabb_max": [
+     201.5725,
+     66.0632,
+     288.7958
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_coast_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 983,
+    "old_verts": 8164,
+    "new_verts": 1952,
+    "new_tris": 976,
+    "cards": 488,
+    "aabb_min": [
+     24.696,
+     -20.0329,
+     -188.3514
+    ],
+    "aabb_max": [
+     283.5069,
+     66.5671,
+     184.7108
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 782,
+    "old_verts": 6339,
+    "new_verts": 1880,
+    "new_tris": 940,
+    "cards": 470,
+    "aabb_min": [
+     -198.882,
+     -98.6812,
+     -286.8304
+    ],
+    "aabb_max": [
+     195.2449,
+     60.3891,
+     -26.5981
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 937,
+    "old_verts": 7881,
+    "new_verts": 1896,
+    "new_tris": 948,
+    "cards": 474,
+    "aabb_min": [
+     -284.2607,
+     -17.5878,
+     -186.5542
+    ],
+    "aabb_max": [
+     -24.0287,
+     72.5453,
+     201.0863
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 741,
+    "old_verts": 5838,
+    "new_verts": 1800,
+    "new_tris": 900,
+    "cards": 450,
+    "aabb_min": [
+     -195.8212,
+     -97.0534,
+     27.6155
+    ],
+    "aabb_max": [
+     190.1509,
+     71.2476,
+     286.9101
+    ]
+   },
+   {
+    "node": "trees_sea_E_0",
+    "cones": 347,
+    "old_verts": 2775,
+    "new_verts": 624,
+    "new_tris": 312,
+    "cards": 156,
+    "aabb_min": [
+     29.493,
+     -0.113,
+     -191.9835
+    ],
+    "aabb_max": [
+     206.233,
+     67.5967,
+     190.6031
+    ]
+   },
+   {
+    "node": "trees_sea_N_0",
+    "cones": 299,
+    "old_verts": 2453,
+    "new_verts": 552,
+    "new_tris": 276,
+    "cards": 138,
+    "aabb_min": [
+     -186.4496,
+     0.0045,
+     -208.9304
+    ],
+    "aabb_max": [
+     191.7678,
+     59.4878,
+     -34.3025
+    ]
+   },
+   {
+    "node": "trees_sea_W_0",
+    "cones": 351,
+    "old_verts": 2683,
+    "new_verts": 640,
+    "new_tris": 320,
+    "cards": 160,
+    "aabb_min": [
+     -209.7354,
+     0.0252,
+     -182.5932
+    ],
+    "aabb_max": [
+     -29.8487,
+     63.3904,
+     190.215
+    ]
+   },
+   {
+    "node": "trees_sea_S_0",
+    "cones": 335,
+    "old_verts": 2494,
+    "new_verts": 616,
+    "new_tris": 308,
+    "cards": 154,
+    "aabb_min": [
+     -189.2622,
+     0.5318,
+     29.1986
+    ],
+    "aabb_max": [
+     178.6988,
+     68.5927,
+     211.2343
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_coast_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 880,
+    "old_verts": 7610,
+    "new_verts": 2024,
+    "new_tris": 1012,
+    "cards": 506,
+    "aabb_min": [
+     25.2357,
+     -19.0719,
+     -196.9535
+    ],
+    "aabb_max": [
+     283.8557,
+     68.5445,
+     188.4728
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 711,
+    "old_verts": 5801,
+    "new_verts": 1808,
+    "new_tris": 904,
+    "cards": 452,
+    "aabb_min": [
+     -201.4443,
+     -99.3787,
+     -281.7553
+    ],
+    "aabb_max": [
+     193.8826,
+     59.8093,
+     -26.7949
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 935,
+    "old_verts": 8108,
+    "new_verts": 1928,
+    "new_tris": 964,
+    "cards": 482,
+    "aabb_min": [
+     -288.5096,
+     -15.4411,
+     -181.4662
+    ],
+    "aabb_max": [
+     -23.8935,
+     76.0908,
+     201.0694
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 674,
+    "old_verts": 5380,
+    "new_verts": 1832,
+    "new_tris": 916,
+    "cards": 458,
+    "aabb_min": [
+     -193.2325,
+     -97.7951,
+     26.9995
+    ],
+    "aabb_max": [
+     197.8488,
+     73.7614,
+     285.6412
+    ]
+   },
+   {
+    "node": "trees_sea_E_0",
+    "cones": 320,
+    "old_verts": 2645,
+    "new_verts": 640,
+    "new_tris": 320,
+    "cards": 160,
+    "aabb_min": [
+     32.4081,
+     0.6288,
+     -192.541
+    ],
+    "aabb_max": [
+     208.3991,
+     70.091,
+     188.6353
+    ]
+   },
+   {
+    "node": "trees_sea_N_0",
+    "cones": 267,
+    "old_verts": 2204,
+    "new_verts": 536,
+    "new_tris": 268,
+    "cards": 134,
+    "aabb_min": [
+     -181.7083,
+     0.4444,
+     -204.5352
+    ],
+    "aabb_max": [
+     188.6671,
+     60.4441,
+     -32.4178
+    ]
+   },
+   {
+    "node": "trees_sea_W_0",
+    "cones": 319,
+    "old_verts": 2385,
+    "new_verts": 632,
+    "new_tris": 316,
+    "cards": 158,
+    "aabb_min": [
+     -214.3575,
+     0.2622,
+     -184.4071
+    ],
+    "aabb_max": [
+     -34.4285,
+     61.9772,
+     190.7049
+    ]
+   },
+   {
+    "node": "trees_sea_S_0",
+    "cones": 322,
+    "old_verts": 2537,
+    "new_verts": 632,
+    "new_tris": 316,
+    "cards": 158,
+    "aabb_min": [
+     -183.9454,
+     0.329,
+     32.5007
+    ],
+    "aabb_max": [
+     183.3692,
+     69.245,
+     207.8782
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_coast_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 584,
+    "old_verts": 5121,
+    "new_verts": 1152,
+    "new_tris": 576,
+    "cards": 288,
+    "aabb_min": [
+     23.6461,
+     -20.6637,
+     -193.463
+    ],
+    "aabb_max": [
+     285.508,
+     69.2714,
+     203.0204
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 428,
+    "old_verts": 3194,
+    "new_verts": 1016,
+    "new_tris": 508,
+    "cards": 254,
+    "aabb_min": [
+     -176.9633,
+     -78.5375,
+     -287.8275
+    ],
+    "aabb_max": [
+     184.9007,
+     57.0744,
+     -39.9665
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 346,
+    "old_verts": 2596,
+    "new_verts": 1024,
+    "new_tris": 512,
+    "cards": 256,
+    "aabb_min": [
+     -288.0644,
+     -18.1743,
+     -174.8868
+    ],
+    "aabb_max": [
+     -24.5113,
+     64.7719,
+     178.2665
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 397,
+    "old_verts": 3139,
+    "new_verts": 960,
+    "new_tris": 480,
+    "cards": 240,
+    "aabb_min": [
+     -178.0298,
+     -97.2206,
+     29.0109
+    ],
+    "aabb_max": [
+     202.0892,
+     66.3634,
+     289.1503
+    ]
+   },
+   {
+    "node": "trees_sea_E_0",
+    "cones": 85,
+    "old_verts": 790,
+    "new_verts": 208,
+    "new_tris": 104,
+    "cards": 52,
+    "aabb_min": [
+     29.9128,
+     0.2845,
+     -187.4511
+    ],
+    "aabb_max": [
+     200.9696,
+     59.7711,
+     128.4398
+    ]
+   },
+   {
+    "node": "trees_sea_N_0",
+    "cones": 62,
+    "old_verts": 449,
+    "new_verts": 240,
+    "new_tris": 120,
+    "cards": 60,
+    "aabb_min": [
+     -174.8525,
+     0.4796,
+     -205.6143
+    ],
+    "aabb_max": [
+     179.4068,
+     56.0357,
+     -45.9708
+    ]
+   },
+   {
+    "node": "trees_sea_W_0",
+    "cones": 71,
+    "old_verts": 452,
+    "new_verts": 272,
+    "new_tris": 136,
+    "cards": 68,
+    "aabb_min": [
+     -204.183,
+     3.3887,
+     -174.9189
+    ],
+    "aabb_max": [
+     -58.1418,
+     59.3885,
+     183.1677
+    ]
+   },
+   {
+    "node": "trees_sea_S_0",
+    "cones": 91,
+    "old_verts": 690,
+    "new_verts": 264,
+    "new_tris": 132,
+    "cards": 66,
+    "aabb_min": [
+     -179.8147,
+     0.699,
+     34.6525
+    ],
+    "aabb_max": [
+     170.139,
+     66.4799,
+     198.7122
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_desert_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1396,
+    "old_verts": 10726,
+    "new_verts": 2256,
+    "new_tris": 1128,
+    "cards": 564,
+    "aabb_min": [
+     17.7311,
+     -19.5281,
+     -199.3052
+    ],
+    "aabb_max": [
+     284.6637,
+     68.9012,
+     201.9387
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1124,
+    "old_verts": 8399,
+    "new_verts": 2168,
+    "new_tris": 1084,
+    "cards": 542,
+    "aabb_min": [
+     -197.8474,
+     -99.7285,
+     -286.3398
+    ],
+    "aabb_max": [
+     192.2038,
+     58.4042,
+     -18.7138
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1353,
+    "old_verts": 10463,
+    "new_verts": 2312,
+    "new_tris": 1156,
+    "cards": 578,
+    "aabb_min": [
+     -289.1076,
+     -17.9875,
+     -197.3607
+    ],
+    "aabb_max": [
+     -20.6898,
+     72.385,
+     202.0862
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1068,
+    "old_verts": 7705,
+    "new_verts": 2176,
+    "new_tris": 1088,
+    "cards": 544,
+    "aabb_min": [
+     -199.0775,
+     -96.7753,
+     17.7863
+    ],
+    "aabb_max": [
+     201.1394,
+     70.8175,
+     285.7437
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_desert_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1290,
+    "old_verts": 10038,
+    "new_verts": 2312,
+    "new_tris": 1156,
+    "cards": 578,
+    "aabb_min": [
+     18.5175,
+     -17.0185,
+     -194.832
+    ],
+    "aabb_max": [
+     287.1415,
+     70.996,
+     190.0616
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1068,
+    "old_verts": 7910,
+    "new_verts": 2200,
+    "new_tris": 1100,
+    "cards": 550,
+    "aabb_min": [
+     -194.9672,
+     -99.4798,
+     -286.0064
+    ],
+    "aabb_max": [
+     182.5325,
+     62.1809,
+     -18.9518
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1338,
+    "old_verts": 10512,
+    "new_verts": 2224,
+    "new_tris": 1112,
+    "cards": 556,
+    "aabb_min": [
+     -289.3589,
+     -17.5113,
+     -199.4792
+    ],
+    "aabb_max": [
+     -18.0022,
+     77.8988,
+     188.1497
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 966,
+    "old_verts": 7105,
+    "new_verts": 2144,
+    "new_tris": 1072,
+    "cards": 536,
+    "aabb_min": [
+     -195.6673,
+     -96.5667,
+     19.1258
+    ],
+    "aabb_max": [
+     199.082,
+     70.7431,
+     287.289
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_desert_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 577,
+    "old_verts": 4879,
+    "new_verts": 1120,
+    "new_tris": 560,
+    "cards": 280,
+    "aabb_min": [
+     19.3241,
+     -20.1497,
+     -186.6675
+    ],
+    "aabb_max": [
+     285.4734,
+     66.8465,
+     201.1444
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 358,
+    "old_verts": 2303,
+    "new_verts": 896,
+    "new_tris": 448,
+    "cards": 224,
+    "aabb_min": [
+     -173.3973,
+     -75.8077,
+     -288.1365
+    ],
+    "aabb_max": [
+     189.0732,
+     55.4643,
+     -40.8482
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 387,
+    "old_verts": 2833,
+    "new_verts": 1112,
+    "new_tris": 556,
+    "cards": 278,
+    "aabb_min": [
+     -291.103,
+     -18.7164,
+     -171.937
+    ],
+    "aabb_max": [
+     -22.0709,
+     63.6333,
+     178.8273
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 407,
+    "old_verts": 3105,
+    "new_verts": 1056,
+    "new_tris": 528,
+    "cards": 264,
+    "aabb_min": [
+     -180.9535,
+     -98.0302,
+     18.7583
+    ],
+    "aabb_max": [
+     200.6346,
+     67.0934,
+     289.0345
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_duneW_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1360,
+    "old_verts": 10048,
+    "new_verts": 2312,
+    "new_tris": 1156,
+    "cards": 578,
+    "aabb_min": [
+     13.8093,
+     -19.7886,
+     -199.3702
+    ],
+    "aabb_max": [
+     287.1524,
+     72.6697,
+     201.8809
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1092,
+    "old_verts": 7825,
+    "new_verts": 2184,
+    "new_tris": 1092,
+    "cards": 546,
+    "aabb_min": [
+     -195.2517,
+     -99.3129,
+     -288.0166
+    ],
+    "aabb_max": [
+     192.5083,
+     59.5818,
+     -12.9676
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1314,
+    "old_verts": 9970,
+    "new_verts": 2256,
+    "new_tris": 1128,
+    "cards": 564,
+    "aabb_min": [
+     -284.7738,
+     -18.0859,
+     -194.6757
+    ],
+    "aabb_max": [
+     -14.9151,
+     73.7525,
+     198.6032
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1044,
+    "old_verts": 7451,
+    "new_verts": 2168,
+    "new_tris": 1084,
+    "cards": 542,
+    "aabb_min": [
+     -191.0112,
+     -98.0763,
+     10.7887
+    ],
+    "aabb_max": [
+     200.0519,
+     73.8535,
+     286.583
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_duneW_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1303,
+    "old_verts": 9780,
+    "new_verts": 2304,
+    "new_tris": 1152,
+    "cards": 576,
+    "aabb_min": [
+     15.5491,
+     -20.1587,
+     -201.6317
+    ],
+    "aabb_max": [
+     287.5332,
+     70.5707,
+     204.5399
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1038,
+    "old_verts": 7418,
+    "new_verts": 2224,
+    "new_tris": 1112,
+    "cards": 556,
+    "aabb_min": [
+     -198.3783,
+     -97.7618,
+     -287.0045
+    ],
+    "aabb_max": [
+     189.0154,
+     59.1441,
+     -11.8849
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1282,
+    "old_verts": 9839,
+    "new_verts": 2224,
+    "new_tris": 1112,
+    "cards": 556,
+    "aabb_min": [
+     -288.8092,
+     -17.1322,
+     -196.812
+    ],
+    "aabb_max": [
+     -13.4851,
+     77.6125,
+     182.1602
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 969,
+    "old_verts": 7012,
+    "new_verts": 2192,
+    "new_tris": 1096,
+    "cards": 548,
+    "aabb_min": [
+     -196.9604,
+     -95.1662,
+     11.5925
+    ],
+    "aabb_max": [
+     198.6705,
+     70.6587,
+     286.8358
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_duneW_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 525,
+    "old_verts": 4183,
+    "new_verts": 1096,
+    "new_tris": 548,
+    "cards": 274,
+    "aabb_min": [
+     15.2381,
+     -20.7632,
+     -192.6428
+    ],
+    "aabb_max": [
+     285.0952,
+     67.1417,
+     202.1102
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 357,
+    "old_verts": 2318,
+    "new_verts": 992,
+    "new_tris": 496,
+    "cards": 248,
+    "aabb_min": [
+     -174.3795,
+     -78.3093,
+     -287.4346
+    ],
+    "aabb_max": [
+     181.7491,
+     58.8103,
+     -11.7385
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 393,
+    "old_verts": 2923,
+    "new_verts": 1160,
+    "new_tris": 580,
+    "cards": 290,
+    "aabb_min": [
+     -287.7428,
+     -18.1005,
+     -176.0314
+    ],
+    "aabb_max": [
+     -17.1958,
+     64.4584,
+     178.1419
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 416,
+    "old_verts": 3210,
+    "new_verts": 1040,
+    "new_tris": 520,
+    "cards": 260,
+    "aabb_min": [
+     -181.1572,
+     -97.7937,
+     12.6177
+    ],
+    "aabb_max": [
+     202.7916,
+     65.8928,
+     286.6962
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_flotsam_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 953,
+    "old_verts": 7711,
+    "new_verts": 1984,
+    "new_tris": 992,
+    "cards": 496,
+    "aabb_min": [
+     17.9771,
+     -19.4598,
+     -183.4493
+    ],
+    "aabb_max": [
+     283.3225,
+     71.1392,
+     181.4315
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 756,
+    "old_verts": 5830,
+    "new_verts": 1824,
+    "new_tris": 912,
+    "cards": 456,
+    "aabb_min": [
+     -193.2896,
+     -99.5424,
+     -289.633
+    ],
+    "aabb_max": [
+     192.5442,
+     61.2983,
+     -17.339
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 967,
+    "old_verts": 7786,
+    "new_verts": 1984,
+    "new_tris": 992,
+    "cards": 496,
+    "aabb_min": [
+     -287.0399,
+     -17.8279,
+     -191.9622
+    ],
+    "aabb_max": [
+     -20.1108,
+     73.8394,
+     182.9067
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 711,
+    "old_verts": 5323,
+    "new_verts": 1896,
+    "new_tris": 948,
+    "cards": 474,
+    "aabb_min": [
+     -186.3988,
+     -98.3325,
+     17.6171
+    ],
+    "aabb_max": [
+     190.9074,
+     71.0913,
+     287.5589
+    ]
+   },
+   {
+    "node": "trees_sea_E_0",
+    "cones": 338,
+    "old_verts": 2541,
+    "new_verts": 656,
+    "new_tris": 328,
+    "cards": 164,
+    "aabb_min": [
+     25.0608,
+     -0.3497,
+     -193.06
+    ],
+    "aabb_max": [
+     209.1007,
+     72.1866,
+     191.4197
+    ]
+   },
+   {
+    "node": "trees_sea_N_0",
+    "cones": 301,
+    "old_verts": 2238,
+    "new_verts": 584,
+    "new_tris": 292,
+    "cards": 146,
+    "aabb_min": [
+     -185.3933,
+     0.1066,
+     -209.6596
+    ],
+    "aabb_max": [
+     186.0005,
+     55.3742,
+     -23.013
+    ]
+   },
+   {
+    "node": "trees_sea_W_0",
+    "cones": 321,
+    "old_verts": 2364,
+    "new_verts": 592,
+    "new_tris": 296,
+    "cards": 148,
+    "aabb_min": [
+     -205.9415,
+     0.6825,
+     -182.0905
+    ],
+    "aabb_max": [
+     -22.7583,
+     62.2125,
+     182.6905
+    ]
+   },
+   {
+    "node": "trees_sea_S_0",
+    "cones": 320,
+    "old_verts": 2265,
+    "new_verts": 640,
+    "new_tris": 320,
+    "cards": 160,
+    "aabb_min": [
+     -183.0316,
+     0.3071,
+     25.9176
+    ],
+    "aabb_max": [
+     188.0261,
+     70.7256,
+     212.1052
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_flotsam_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 819,
+    "old_verts": 6933,
+    "new_verts": 1992,
+    "new_tris": 996,
+    "cards": 498,
+    "aabb_min": [
+     18.6581,
+     -17.3729,
+     -204.4844
+    ],
+    "aabb_max": [
+     283.4197,
+     71.3268,
+     189.5633
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 710,
+    "old_verts": 5600,
+    "new_verts": 1864,
+    "new_tris": 932,
+    "cards": 466,
+    "aabb_min": [
+     -194.7072,
+     -98.6546,
+     -285.6573
+    ],
+    "aabb_max": [
+     171.7122,
+     58.4677,
+     -16.9287
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 904,
+    "old_verts": 7573,
+    "new_verts": 1984,
+    "new_tris": 992,
+    "cards": 496,
+    "aabb_min": [
+     -281.1527,
+     -16.5893,
+     -198.2117
+    ],
+    "aabb_max": [
+     -20.4384,
+     76.1433,
+     189.3353
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 648,
+    "old_verts": 4971,
+    "new_verts": 1824,
+    "new_tris": 912,
+    "cards": 456,
+    "aabb_min": [
+     -197.3139,
+     -96.5762,
+     17.3076
+    ],
+    "aabb_max": [
+     199.9508,
+     69.7979,
+     286.6837
+    ]
+   },
+   {
+    "node": "trees_sea_E_0",
+    "cones": 316,
+    "old_verts": 2455,
+    "new_verts": 592,
+    "new_tris": 296,
+    "cards": 148,
+    "aabb_min": [
+     25.0818,
+     0.3076,
+     -192.8424
+    ],
+    "aabb_max": [
+     208.075,
+     66.4954,
+     192.7329
+    ]
+   },
+   {
+    "node": "trees_sea_N_0",
+    "cones": 258,
+    "old_verts": 2094,
+    "new_verts": 552,
+    "new_tris": 276,
+    "cards": 138,
+    "aabb_min": [
+     -189.1575,
+     -0.0055,
+     -203.0281
+    ],
+    "aabb_max": [
+     186.0063,
+     60.4432,
+     -21.3385
+    ]
+   },
+   {
+    "node": "trees_sea_W_0",
+    "cones": 310,
+    "old_verts": 2281,
+    "new_verts": 672,
+    "new_tris": 336,
+    "cards": 168,
+    "aabb_min": [
+     -213.0484,
+     1.0213,
+     -186.2219
+    ],
+    "aabb_max": [
+     -24.304,
+     61.382,
+     188.3539
+    ]
+   },
+   {
+    "node": "trees_sea_S_0",
+    "cones": 321,
+    "old_verts": 2436,
+    "new_verts": 664,
+    "new_tris": 332,
+    "cards": 166,
+    "aabb_min": [
+     -187.2747,
+     0.2153,
+     22.2389
+    ],
+    "aabb_max": [
+     185.2459,
+     71.3695,
+     207.9716
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_flotsam_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 572,
+    "old_verts": 4836,
+    "new_verts": 1096,
+    "new_tris": 548,
+    "cards": 274,
+    "aabb_min": [
+     17.8311,
+     -20.1168,
+     -195.81
+    ],
+    "aabb_max": [
+     284.2864,
+     69.3719,
+     202.1684
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 362,
+    "old_verts": 2349,
+    "new_verts": 904,
+    "new_tris": 452,
+    "cards": 226,
+    "aabb_min": [
+     -173.4682,
+     -75.1729,
+     -288.1206
+    ],
+    "aabb_max": [
+     184.1396,
+     57.5483,
+     -38.1027
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 402,
+    "old_verts": 2898,
+    "new_verts": 1096,
+    "new_tris": 548,
+    "cards": 274,
+    "aabb_min": [
+     -289.1672,
+     -18.7039,
+     -169.2649
+    ],
+    "aabb_max": [
+     -21.8218,
+     67.0408,
+     177.9092
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 418,
+    "old_verts": 3240,
+    "new_verts": 1000,
+    "new_tris": 500,
+    "cards": 250,
+    "aabb_min": [
+     -180.604,
+     -98.0302,
+     17.2545
+    ],
+    "aabb_max": [
+     201.0164,
+     65.8092,
+     289.023
+    ]
+   },
+   {
+    "node": "trees_sea_E_0",
+    "cones": 79,
+    "old_verts": 663,
+    "new_verts": 216,
+    "new_tris": 108,
+    "cards": 54,
+    "aabb_min": [
+     21.094,
+     -0.0651,
+     -187.6564
+    ],
+    "aabb_max": [
+     194.3859,
+     61.3216,
+     109.7049
+    ]
+   },
+   {
+    "node": "trees_sea_N_0",
+    "cones": 50,
+    "old_verts": 338,
+    "new_verts": 248,
+    "new_tris": 124,
+    "cards": 62,
+    "aabb_min": [
+     -169.8442,
+     0.6161,
+     -202.4349
+    ],
+    "aabb_max": [
+     179.4705,
+     59.0717,
+     -44.512
+    ]
+   },
+   {
+    "node": "trees_sea_W_0",
+    "cones": 64,
+    "old_verts": 422,
+    "new_verts": 232,
+    "new_tris": 116,
+    "cards": 58,
+    "aabb_min": [
+     -202.2272,
+     2.1697,
+     -173.6244
+    ],
+    "aabb_max": [
+     -53.0113,
+     59.1504,
+     174.7644
+    ]
+   },
+   {
+    "node": "trees_sea_S_0",
+    "cones": 85,
+    "old_verts": 633,
+    "new_verts": 240,
+    "new_tris": 120,
+    "cards": 60,
+    "aabb_min": [
+     -180.9259,
+     0.8428,
+     27.4843
+    ],
+    "aabb_max": [
+     171.5693,
+     64.6837,
+     200.5833
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_iron_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1388,
+    "old_verts": 10642,
+    "new_verts": 2232,
+    "new_tris": 1116,
+    "cards": 558,
+    "aabb_min": [
+     16.2667,
+     -19.5281,
+     -199.2558
+    ],
+    "aabb_max": [
+     284.6743,
+     68.9012,
+     201.8893
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1124,
+    "old_verts": 8399,
+    "new_verts": 2176,
+    "new_tris": 1088,
+    "cards": 544,
+    "aabb_min": [
+     -197.6808,
+     -99.7285,
+     -286.3031
+    ],
+    "aabb_max": [
+     192.1376,
+     58.4042,
+     -15.822
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1351,
+    "old_verts": 10436,
+    "new_verts": 2304,
+    "new_tris": 1152,
+    "cards": 576,
+    "aabb_min": [
+     -289.1182,
+     -17.9875,
+     -197.2256
+    ],
+    "aabb_max": [
+     -19.8086,
+     72.385,
+     202.0157
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1068,
+    "old_verts": 7705,
+    "new_verts": 2184,
+    "new_tris": 1092,
+    "cards": 546,
+    "aabb_min": [
+     -199.0363,
+     -96.7753,
+     14.8342
+    ],
+    "aabb_max": [
+     201.0861,
+     70.8175,
+     285.693
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_iron_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1290,
+    "old_verts": 10038,
+    "new_verts": 2304,
+    "new_tris": 1152,
+    "cards": 576,
+    "aabb_min": [
+     18.3148,
+     -17.0185,
+     -194.6632
+    ],
+    "aabb_max": [
+     287.1526,
+     70.996,
+     189.8831
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1068,
+    "old_verts": 7910,
+    "new_verts": 2208,
+    "new_tris": 1104,
+    "cards": 552,
+    "aabb_min": [
+     -194.8527,
+     -99.4798,
+     -285.9588
+    ],
+    "aabb_max": [
+     182.4919,
+     62.1809,
+     -16.0425
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1341,
+    "old_verts": 10539,
+    "new_verts": 2224,
+    "new_tris": 1112,
+    "cards": 556,
+    "aabb_min": [
+     -289.375,
+     -17.5113,
+     -199.336
+    ],
+    "aabb_max": [
+     -19.9522,
+     77.8988,
+     187.9812
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 966,
+    "old_verts": 7105,
+    "new_verts": 2152,
+    "new_tris": 1076,
+    "cards": 538,
+    "aabb_min": [
+     -195.5481,
+     -96.5667,
+     16.2424
+    ],
+    "aabb_max": [
+     198.9412,
+     70.7431,
+     287.257
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_iron_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 575,
+    "old_verts": 4898,
+    "new_verts": 1128,
+    "new_tris": 564,
+    "cards": 282,
+    "aabb_min": [
+     17.3497,
+     -20.2611,
+     -185.3854
+    ],
+    "aabb_max": [
+     287.7881,
+     67.6176,
+     200.9173
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 351,
+    "old_verts": 2293,
+    "new_verts": 928,
+    "new_tris": 464,
+    "cards": 232,
+    "aabb_min": [
+     -172.7995,
+     -75.228,
+     -288.8896
+    ],
+    "aabb_max": [
+     185.9816,
+     57.6425,
+     -39.4055
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 384,
+    "old_verts": 2862,
+    "new_verts": 1120,
+    "new_tris": 560,
+    "cards": 280,
+    "aabb_min": [
+     -289.005,
+     -18.7406,
+     -167.8427
+    ],
+    "aabb_max": [
+     -18.9352,
+     63.0671,
+     177.2734
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 417,
+    "old_verts": 3218,
+    "new_verts": 1072,
+    "new_tris": 536,
+    "cards": 268,
+    "aabb_min": [
+     -180.2551,
+     -97.0897,
+     15.8515
+    ],
+    "aabb_max": [
+     202.6863,
+     66.2786,
+     289.3954
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_isle_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 952,
+    "old_verts": 8066,
+    "new_verts": 1920,
+    "new_tris": 960,
+    "cards": 480,
+    "aabb_min": [
+     48.9488,
+     -18.4255,
+     -191.8533
+    ],
+    "aabb_max": [
+     279.0496,
+     69.3111,
+     186.3611
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 808,
+    "old_verts": 6662,
+    "new_verts": 1848,
+    "new_tris": 924,
+    "cards": 462,
+    "aabb_min": [
+     -190.7688,
+     -98.6487,
+     -288.7463
+    ],
+    "aabb_max": [
+     192.4219,
+     62.9459,
+     -43.0313
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1100,
+    "old_verts": 9240,
+    "new_verts": 1976,
+    "new_tris": 988,
+    "cards": 494,
+    "aabb_min": [
+     -286.5084,
+     -17.6114,
+     -191.4781
+    ],
+    "aabb_max": [
+     -47.0823,
+     73.5469,
+     185.2768
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 716,
+    "old_verts": 5845,
+    "new_verts": 1704,
+    "new_tris": 852,
+    "cards": 426,
+    "aabb_min": [
+     -194.5911,
+     -98.0403,
+     43.6772
+    ],
+    "aabb_max": [
+     190.1298,
+     71.8865,
+     285.4536
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_isle_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 923,
+    "old_verts": 8041,
+    "new_verts": 1960,
+    "new_tris": 980,
+    "cards": 490,
+    "aabb_min": [
+     48.2444,
+     -17.5399,
+     -196.2443
+    ],
+    "aabb_max": [
+     289.9105,
+     67.1622,
+     204.0573
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 721,
+    "old_verts": 6170,
+    "new_verts": 1816,
+    "new_tris": 908,
+    "cards": 454,
+    "aabb_min": [
+     -199.4081,
+     -99.4896,
+     -285.3697
+    ],
+    "aabb_max": [
+     186.5169,
+     57.8053,
+     -42.7019
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 953,
+    "old_verts": 8357,
+    "new_verts": 1984,
+    "new_tris": 992,
+    "cards": 496,
+    "aabb_min": [
+     -289.2597,
+     -17.551,
+     -199.195
+    ],
+    "aabb_max": [
+     -50.6277,
+     72.6082,
+     198.9846
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 702,
+    "old_verts": 5888,
+    "new_verts": 1744,
+    "new_tris": 872,
+    "cards": 436,
+    "aabb_min": [
+     -195.1779,
+     -97.9373,
+     43.0985
+    ],
+    "aabb_max": [
+     187.4078,
+     75.3742,
+     286.1042
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_isle_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 454,
+    "old_verts": 3628,
+    "new_verts": 1064,
+    "new_tris": 532,
+    "cards": 266,
+    "aabb_min": [
+     49.8225,
+     -20.7134,
+     -195.0586
+    ],
+    "aabb_max": [
+     286.394,
+     68.1834,
+     201.3971
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 465,
+    "old_verts": 4063,
+    "new_verts": 920,
+    "new_tris": 460,
+    "cards": 230,
+    "aabb_min": [
+     -170.4921,
+     -84.3262,
+     -287.9606
+    ],
+    "aabb_max": [
+     186.8808,
+     56.4635,
+     -42.8952
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 479,
+    "old_verts": 4063,
+    "new_verts": 1120,
+    "new_tris": 560,
+    "cards": 280,
+    "aabb_min": [
+     -288.2555,
+     -18.2955,
+     -173.4745
+    ],
+    "aabb_max": [
+     -53.2611,
+     67.5724,
+     179.6837
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 372,
+    "old_verts": 2969,
+    "new_verts": 1000,
+    "new_tris": 500,
+    "cards": 250,
+    "aabb_min": [
+     -182.8076,
+     -97.9541,
+     45.8112
+    ],
+    "aabb_max": [
+     201.61,
+     65.9816,
+     288.1357
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_mires_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 955,
+    "old_verts": 7726,
+    "new_verts": 1952,
+    "new_tris": 976,
+    "cards": 488,
+    "aabb_min": [
+     20.1737,
+     -19.4598,
+     -183.6572
+    ],
+    "aabb_max": [
+     283.381,
+     71.1392,
+     181.7676
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 756,
+    "old_verts": 5830,
+    "new_verts": 1824,
+    "new_tris": 912,
+    "cards": 456,
+    "aabb_min": [
+     -193.4909,
+     -99.5424,
+     -289.6696
+    ],
+    "aabb_max": [
+     192.6104,
+     61.2983,
+     -20.2771
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 965,
+    "old_verts": 7759,
+    "new_verts": 2032,
+    "new_tris": 1016,
+    "cards": 508,
+    "aabb_min": [
+     -287.061,
+     -17.8279,
+     -192.1593
+    ],
+    "aabb_max": [
+     -22.5998,
+     73.8394,
+     182.9823
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 711,
+    "old_verts": 5323,
+    "new_verts": 1864,
+    "new_tris": 932,
+    "cards": 466,
+    "aabb_min": [
+     -186.7165,
+     -98.3325,
+     20.5543
+    ],
+    "aabb_max": [
+     191.0465,
+     71.0913,
+     287.6097
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_mires_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 819,
+    "old_verts": 6933,
+    "new_verts": 2000,
+    "new_tris": 1000,
+    "cards": 500,
+    "aabb_min": [
+     21.672,
+     -17.3729,
+     -204.536
+    ],
+    "aabb_max": [
+     283.47,
+     71.3268,
+     189.741
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 710,
+    "old_verts": 5600,
+    "new_verts": 1864,
+    "new_tris": 932,
+    "cards": 466,
+    "aabb_min": [
+     -194.8217,
+     -98.6546,
+     -285.7086
+    ],
+    "aabb_max": [
+     171.8133,
+     58.4677,
+     -19.838
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 900,
+    "old_verts": 7519,
+    "new_verts": 1976,
+    "new_tris": 988,
+    "cards": 494,
+    "aabb_min": [
+     -281.2137,
+     -16.5893,
+     -198.3332
+    ],
+    "aabb_max": [
+     -23.0481,
+     76.1433,
+     189.462
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 648,
+    "old_verts": 4971,
+    "new_verts": 1840,
+    "new_tris": 920,
+    "cards": 460,
+    "aabb_min": [
+     -197.4331,
+     -96.5762,
+     20.1976
+    ],
+    "aabb_max": [
+     199.9927,
+     69.7979,
+     286.7452
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_mires_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 566,
+    "old_verts": 4791,
+    "new_verts": 1112,
+    "new_tris": 556,
+    "cards": 278,
+    "aabb_min": [
+     20.1836,
+     -20.6934,
+     -192.2695
+    ],
+    "aabb_max": [
+     286.6094,
+     67.9007,
+     201.8059
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 370,
+    "old_verts": 2442,
+    "new_verts": 888,
+    "new_tris": 444,
+    "cards": 222,
+    "aabb_min": [
+     -174.8234,
+     -75.8558,
+     -288.6422
+    ],
+    "aabb_max": [
+     186.0206,
+     58.6386,
+     -39.821
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 401,
+    "old_verts": 2857,
+    "new_verts": 1112,
+    "new_tris": 556,
+    "cards": 278,
+    "aabb_min": [
+     -291.548,
+     -18.7427,
+     -171.9184
+    ],
+    "aabb_max": [
+     -20.7948,
+     63.1071,
+     178.37
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 399,
+    "old_verts": 3019,
+    "new_verts": 1008,
+    "new_tris": 504,
+    "cards": 252,
+    "aabb_min": [
+     -181.9221,
+     -97.0844,
+     20.8364
+    ],
+    "aabb_max": [
+     202.9704,
+     66.0609,
+     287.1596
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_ridge_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1433,
+    "old_verts": 11311,
+    "new_verts": 2272,
+    "new_tris": 1136,
+    "cards": 568,
+    "aabb_min": [
+     25.3942,
+     -19.8365,
+     -201.0495
+    ],
+    "aabb_max": [
+     284.6721,
+     70.2213,
+     196.6848
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1162,
+    "old_verts": 8998,
+    "new_verts": 2152,
+    "new_tris": 1076,
+    "cards": 538,
+    "aabb_min": [
+     -199.2333,
+     -98.3848,
+     -288.5809
+    ],
+    "aabb_max": [
+     189.8611,
+     58.6358,
+     -25.7166
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1375,
+    "old_verts": 10922,
+    "new_verts": 2248,
+    "new_tris": 1124,
+    "cards": 562,
+    "aabb_min": [
+     -284.156,
+     -17.6112,
+     -192.2543
+    ],
+    "aabb_max": [
+     -24.4758,
+     71.4138,
+     201.1091
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1101,
+    "old_verts": 8208,
+    "new_verts": 2120,
+    "new_tris": 1060,
+    "cards": 530,
+    "aabb_min": [
+     -189.8824,
+     -98.0847,
+     27.26
+    ],
+    "aabb_max": [
+     201.0344,
+     75.9217,
+     287.1082
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_ridge_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1321,
+    "old_verts": 10710,
+    "new_verts": 2216,
+    "new_tris": 1108,
+    "cards": 554,
+    "aabb_min": [
+     23.786,
+     -19.1206,
+     -196.5531
+    ],
+    "aabb_max": [
+     286.1713,
+     68.4357,
+     198.033
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1069,
+    "old_verts": 8171,
+    "new_verts": 2216,
+    "new_tris": 1108,
+    "cards": 554,
+    "aabb_min": [
+     -201.3582,
+     -98.547,
+     -287.7485
+    ],
+    "aabb_max": [
+     193.5079,
+     57.6443,
+     -24.0253
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1352,
+    "old_verts": 11029,
+    "new_verts": 2256,
+    "new_tris": 1128,
+    "cards": 564,
+    "aabb_min": [
+     -288.9828,
+     -17.1385,
+     -183.7048
+    ],
+    "aabb_max": [
+     -26.4725,
+     77.4834,
+     190.6053
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1012,
+    "old_verts": 7842,
+    "new_verts": 2120,
+    "new_tris": 1060,
+    "cards": 530,
+    "aabb_min": [
+     -196.4326,
+     -96.8113,
+     23.8431
+    ],
+    "aabb_max": [
+     185.7127,
+     76.624,
+     287.481
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_ridge_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 587,
+    "old_verts": 5100,
+    "new_verts": 1120,
+    "new_tris": 560,
+    "cards": 280,
+    "aabb_min": [
+     25.0767,
+     -20.3395,
+     -193.5782
+    ],
+    "aabb_max": [
+     284.743,
+     67.3688,
+     201.3589
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 413,
+    "old_verts": 3056,
+    "new_verts": 976,
+    "new_tris": 488,
+    "cards": 244,
+    "aabb_min": [
+     -170.2309,
+     -78.6022,
+     -288.8319
+    ],
+    "aabb_max": [
+     187.0866,
+     56.9685,
+     -38.295
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 335,
+    "old_verts": 2503,
+    "new_verts": 992,
+    "new_tris": 496,
+    "cards": 248,
+    "aabb_min": [
+     -288.5737,
+     -18.0891,
+     -173.1468
+    ],
+    "aabb_max": [
+     -24.7175,
+     64.3878,
+     176.557
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 385,
+    "old_verts": 3121,
+    "new_verts": 1000,
+    "new_tris": 500,
+    "cards": 250,
+    "aabb_min": [
+     -179.4175,
+     -97.4232,
+     27.1724
+    ],
+    "aabb_max": [
+     201.63,
+     66.7664,
+     287.7708
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_s22x18_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1360,
+    "old_verts": 10048,
+    "new_verts": 2320,
+    "new_tris": 1160,
+    "cards": 580,
+    "aabb_min": [
+     14.6546,
+     -19.7886,
+     -199.3977
+    ],
+    "aabb_max": [
+     287.0826,
+     72.6697,
+     201.8958
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1096,
+    "old_verts": 7879,
+    "new_verts": 2200,
+    "new_tris": 1100,
+    "cards": 550,
+    "aabb_min": [
+     -195.2699,
+     -99.3129,
+     -288.0285
+    ],
+    "aabb_max": [
+     192.5298,
+     59.5818,
+     -10.8384
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1316,
+    "old_verts": 9997,
+    "new_verts": 2256,
+    "new_tris": 1128,
+    "cards": 564,
+    "aabb_min": [
+     -284.7308,
+     -18.0859,
+     -194.7336
+    ],
+    "aabb_max": [
+     -14.7715,
+     73.7525,
+     198.6252
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1044,
+    "old_verts": 7451,
+    "new_verts": 2168,
+    "new_tris": 1084,
+    "cards": 542,
+    "aabb_min": [
+     -191.0583,
+     -98.0763,
+     11.7665
+    ],
+    "aabb_max": [
+     200.069,
+     73.8535,
+     286.5995
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_s22x18_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1303,
+    "old_verts": 9780,
+    "new_verts": 2312,
+    "new_tris": 1156,
+    "cards": 578,
+    "aabb_min": [
+     13.8872,
+     -20.1587,
+     -201.6469
+    ],
+    "aabb_max": [
+     287.5009,
+     70.5707,
+     204.5585
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1038,
+    "old_verts": 7418,
+    "new_verts": 2216,
+    "new_tris": 1108,
+    "cards": 554,
+    "aabb_min": [
+     -198.399,
+     -97.7618,
+     -287.0182
+    ],
+    "aabb_max": [
+     189.0798,
+     59.1441,
+     -12.8399
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1284,
+    "old_verts": 9866,
+    "new_verts": 2240,
+    "new_tris": 1120,
+    "cards": 560,
+    "aabb_min": [
+     -288.7625,
+     -17.1322,
+     -196.8479
+    ],
+    "aabb_max": [
+     -12.919,
+     77.6125,
+     182.2233
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 969,
+    "old_verts": 7012,
+    "new_verts": 2192,
+    "new_tris": 1096,
+    "cards": 548,
+    "aabb_min": [
+     -196.9893,
+     -95.1662,
+     12.5612
+    ],
+    "aabb_max": [
+     198.6841,
+     70.6587,
+     286.8469
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_s22x18_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 516,
+    "old_verts": 4200,
+    "new_verts": 1120,
+    "new_tris": 560,
+    "cards": 280,
+    "aabb_min": [
+     12.9294,
+     -20.1918,
+     -190.6177
+    ],
+    "aabb_max": [
+     284.4589,
+     68.7466,
+     203.0608
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 357,
+    "old_verts": 2289,
+    "new_verts": 1000,
+    "new_tris": 500,
+    "cards": 250,
+    "aabb_min": [
+     -173.4844,
+     -78.0966,
+     -288.208
+    ],
+    "aabb_max": [
+     182.8416,
+     59.3559,
+     -41.6064
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 417,
+    "old_verts": 3166,
+    "new_verts": 1144,
+    "new_tris": 572,
+    "cards": 286,
+    "aabb_min": [
+     -289.1292,
+     -18.0743,
+     -174.6103
+    ],
+    "aabb_max": [
+     -14.0815,
+     64.1713,
+     177.262
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 416,
+    "old_verts": 3215,
+    "new_verts": 1040,
+    "new_tris": 520,
+    "cards": 260,
+    "aabb_min": [
+     -180.0863,
+     -96.7588,
+     12.947
+    ],
+    "aabb_max": [
+     202.5194,
+     64.8243,
+     289.2236
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_waste_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1433,
+    "old_verts": 11311,
+    "new_verts": 2264,
+    "new_tris": 1132,
+    "cards": 566,
+    "aabb_min": [
+     27.9829,
+     -19.8365,
+     -201.0453
+    ],
+    "aabb_max": [
+     284.7175,
+     70.2213,
+     196.6861
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1160,
+    "old_verts": 8971,
+    "new_verts": 2160,
+    "new_tris": 1080,
+    "cards": 540,
+    "aabb_min": [
+     -199.2095,
+     -98.3848,
+     -288.5552
+    ],
+    "aabb_max": [
+     189.7969,
+     58.6358,
+     -24.6148
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1379,
+    "old_verts": 10976,
+    "new_verts": 2240,
+    "new_tris": 1120,
+    "cards": 560,
+    "aabb_min": [
+     -284.2256,
+     -17.6112,
+     -192.2356
+    ],
+    "aabb_max": [
+     -26.0996,
+     71.4138,
+     201.0935
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1101,
+    "old_verts": 8208,
+    "new_verts": 2128,
+    "new_tris": 1064,
+    "cards": 532,
+    "aabb_min": [
+     -189.8028,
+     -98.0847,
+     25.4578
+    ],
+    "aabb_max": [
+     201.0164,
+     75.9217,
+     287.0728
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_waste_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1321,
+    "old_verts": 10710,
+    "new_verts": 2216,
+    "new_tris": 1108,
+    "cards": 554,
+    "aabb_min": [
+     23.1702,
+     -19.1206,
+     -196.5357
+    ],
+    "aabb_max": [
+     286.2184,
+     68.4357,
+     198.0477
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1063,
+    "old_verts": 8090,
+    "new_verts": 2224,
+    "new_tris": 1112,
+    "cards": 556,
+    "aabb_min": [
+     -201.3456,
+     -98.547,
+     -287.7139
+    ],
+    "aabb_max": [
+     193.4387,
+     57.6443,
+     -25.0691
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1359,
+    "old_verts": 11110,
+    "new_verts": 2240,
+    "new_tris": 1120,
+    "cards": 560,
+    "aabb_min": [
+     -289.0336,
+     -17.1385,
+     -183.7482
+    ],
+    "aabb_max": [
+     -25.5846,
+     77.4834,
+     190.6451
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1008,
+    "old_verts": 7788,
+    "new_verts": 2120,
+    "new_tris": 1060,
+    "cards": 530,
+    "aabb_min": [
+     -196.3901,
+     -96.8113,
+     25.5878
+    ],
+    "aabb_max": [
+     185.5958,
+     76.624,
+     287.4569
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_waste_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 592,
+    "old_verts": 5072,
+    "new_verts": 1128,
+    "new_tris": 564,
+    "cards": 282,
+    "aabb_min": [
+     26.9962,
+     -20.5732,
+     -193.1923
+    ],
+    "aabb_max": [
+     284.9846,
+     68.6163,
+     202.4496
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 409,
+    "old_verts": 2948,
+    "new_verts": 1008,
+    "new_tris": 504,
+    "cards": 252,
+    "aabb_min": [
+     -170.318,
+     -78.671,
+     -287.7421
+    ],
+    "aabb_max": [
+     186.0085,
+     58.022,
+     -38.7726
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 333,
+    "old_verts": 2456,
+    "new_verts": 992,
+    "new_tris": 496,
+    "cards": 248,
+    "aabb_min": [
+     -290.6362,
+     -17.9457,
+     -173.8542
+    ],
+    "aabb_max": [
+     -28.4202,
+     66.8961,
+     178.3303
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 397,
+    "old_verts": 3180,
+    "new_verts": 1000,
+    "new_tris": 500,
+    "cards": 250,
+    "aabb_min": [
+     -181.9149,
+     -97.4181,
+     25.427
+    ],
+    "aabb_max": [
+     203.378,
+     66.1034,
+     289.0662
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_weald_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1394,
+    "old_verts": 10729,
+    "new_verts": 2272,
+    "new_tris": 1136,
+    "cards": 568,
+    "aabb_min": [
+     24.8812,
+     -20.263,
+     -200.0153
+    ],
+    "aabb_max": [
+     284.5177,
+     69.4416,
+     201.3056
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1112,
+    "old_verts": 8350,
+    "new_verts": 2192,
+    "new_tris": 1096,
+    "cards": 548,
+    "aabb_min": [
+     -200.1063,
+     -99.2535,
+     -287.7136
+    ],
+    "aabb_max": [
+     193.545,
+     54.2059,
+     -23.4193
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1418,
+    "old_verts": 11097,
+    "new_verts": 2240,
+    "new_tris": 1120,
+    "cards": 560,
+    "aabb_min": [
+     -287.0846,
+     -17.2174,
+     -190.1779
+    ],
+    "aabb_max": [
+     -24.4548,
+     73.5994,
+     201.5222
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 1048,
+    "old_verts": 7830,
+    "new_verts": 2160,
+    "new_tris": 1080,
+    "cards": 540,
+    "aabb_min": [
+     -200.8292,
+     -96.7946,
+     23.4572
+    ],
+    "aabb_max": [
+     202.0852,
+     73.8127,
+     284.7188
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_weald_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 1322,
+    "old_verts": 10583,
+    "new_verts": 2304,
+    "new_tris": 1152,
+    "cards": 576,
+    "aabb_min": [
+     23.0741,
+     -18.7214,
+     -201.6132
+    ],
+    "aabb_max": [
+     287.4145,
+     70.2083,
+     201.5668
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 1040,
+    "old_verts": 7987,
+    "new_verts": 2216,
+    "new_tris": 1108,
+    "cards": 554,
+    "aabb_min": [
+     -190.8724,
+     -99.1987,
+     -286.5341
+    ],
+    "aabb_max": [
+     191.9929,
+     61.1265,
+     -22.9427
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1329,
+    "old_verts": 10467,
+    "new_verts": 2256,
+    "new_tris": 1128,
+    "cards": 564,
+    "aabb_min": [
+     -286.232,
+     -17.8801,
+     -197.6476
+    ],
+    "aabb_max": [
+     -23.6947,
+     79.1803,
+     200.3241
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 998,
+    "old_verts": 7611,
+    "new_verts": 2136,
+    "new_tris": 1068,
+    "cards": 534,
+    "aabb_min": [
+     -195.601,
+     -97.622,
+     23.3124
+    ],
+    "aabb_max": [
+     192.3289,
+     73.0586,
+     286.3048
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_weald_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 563,
+    "old_verts": 4879,
+    "new_verts": 1136,
+    "new_tris": 568,
+    "cards": 284,
+    "aabb_min": [
+     25.1939,
+     -20.0199,
+     -189.4556
+    ],
+    "aabb_max": [
+     285.6165,
+     68.3949,
+     203.9392
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 372,
+    "old_verts": 2478,
+    "new_verts": 976,
+    "new_tris": 488,
+    "cards": 244,
+    "aabb_min": [
+     -176.7623,
+     -78.7216,
+     -288.1724
+    ],
+    "aabb_max": [
+     185.2915,
+     57.8802,
+     -41.6814
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 378,
+    "old_verts": 2897,
+    "new_verts": 1072,
+    "new_tris": 536,
+    "cards": 268,
+    "aabb_min": [
+     -287.3078,
+     -17.8709,
+     -173.4712
+    ],
+    "aabb_max": [
+     -26.2927,
+     66.1954,
+     177.1909
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 400,
+    "old_verts": 3056,
+    "new_verts": 1032,
+    "new_tris": 516,
+    "cards": 258,
+    "aabb_min": [
+     -179.7232,
+     -97.0283,
+     24.0312
+    ],
+    "aabb_max": [
+     202.4569,
+     66.4661,
+     288.7771
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_wild_autumn",
+  "kind": "ring",
+  "season": "autumn",
+  "atlas": "ring_autumn",
+  "material": "ms_bd5_treecard_autumn",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 955,
+    "old_verts": 8093,
+    "new_verts": 1904,
+    "new_tris": 952,
+    "cards": 476,
+    "aabb_min": [
+     37.0699,
+     -18.4255,
+     -191.6196
+    ],
+    "aabb_max": [
+     278.8042,
+     69.3111,
+     185.537
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 814,
+    "old_verts": 6731,
+    "new_verts": 1864,
+    "new_tris": 932,
+    "cards": 466,
+    "aabb_min": [
+     -189.4308,
+     -98.6487,
+     -288.5861
+    ],
+    "aabb_max": [
+     192.1326,
+     62.9459,
+     -31.3151
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 1100,
+    "old_verts": 9240,
+    "new_verts": 2000,
+    "new_tris": 1000,
+    "cards": 500,
+    "aabb_min": [
+     -286.3248,
+     -17.6114,
+     -190.5919
+    ],
+    "aabb_max": [
+     -34.7127,
+     73.5469,
+     184.5665
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 716,
+    "old_verts": 5845,
+    "new_verts": 1824,
+    "new_tris": 912,
+    "cards": 456,
+    "aabb_min": [
+     -194.4112,
+     -98.0403,
+     31.9618
+    ],
+    "aabb_max": [
+     189.5219,
+     71.8865,
+     285.2317
+    ]
+   },
+   {
+    "node": "trees_sea_E_0",
+    "cones": 332,
+    "old_verts": 2773,
+    "new_verts": 632,
+    "new_tris": 316,
+    "cards": 158,
+    "aabb_min": [
+     34.6305,
+     0.0608,
+     -183.0726
+    ],
+    "aabb_max": [
+     207.5538,
+     75.4179,
+     193.0997
+    ]
+   },
+   {
+    "node": "trees_sea_N_0",
+    "cones": 341,
+    "old_verts": 2773,
+    "new_verts": 584,
+    "new_tris": 292,
+    "cards": 146,
+    "aabb_min": [
+     -189.4759,
+     0.0943,
+     -207.0123
+    ],
+    "aabb_max": [
+     191.7817,
+     60.4057,
+     -36.3685
+    ]
+   },
+   {
+    "node": "trees_sea_W_0",
+    "cones": 343,
+    "old_verts": 2645,
+    "new_verts": 592,
+    "new_tris": 296,
+    "cards": 148,
+    "aabb_min": [
+     -211.9548,
+     -0.3766,
+     -183.6273
+    ],
+    "aabb_max": [
+     -40.673,
+     59.5792,
+     190.6477
+    ]
+   },
+   {
+    "node": "trees_sea_S_0",
+    "cones": 329,
+    "old_verts": 2512,
+    "new_verts": 632,
+    "new_tris": 316,
+    "cards": 158,
+    "aabb_min": [
+     -191.377,
+     0.0249,
+     32.9931
+    ],
+    "aabb_max": [
+     178.7658,
+     62.5106,
+     208.1246
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_wild_summer",
+  "kind": "ring",
+  "season": "summer",
+  "atlas": "ring_summer",
+  "material": "ms_bd5_treecard_summer",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 929,
+    "old_verts": 8122,
+    "new_verts": 1984,
+    "new_tris": 992,
+    "cards": 496,
+    "aabb_min": [
+     36.1354,
+     -17.5399,
+     -195.5066
+    ],
+    "aabb_max": [
+     289.7654,
+     67.1622,
+     203.7952
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 728,
+    "old_verts": 6239,
+    "new_verts": 1848,
+    "new_tris": 924,
+    "cards": 462,
+    "aabb_min": [
+     -199.1294,
+     -99.4896,
+     -285.1454
+    ],
+    "aabb_max": [
+     186.3163,
+     57.8053,
+     -30.9573
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 953,
+    "old_verts": 8357,
+    "new_verts": 2008,
+    "new_tris": 1004,
+    "cards": 502,
+    "aabb_min": [
+     -289.1074,
+     -17.551,
+     -198.5694
+    ],
+    "aabb_max": [
+     -38.9541,
+     72.6082,
+     198.6128
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 702,
+    "old_verts": 5888,
+    "new_verts": 1752,
+    "new_tris": 876,
+    "cards": 438,
+    "aabb_min": [
+     -194.7881,
+     -97.9373,
+     31.4088
+    ],
+    "aabb_max": [
+     186.5132,
+     75.3742,
+     285.964
+    ]
+   },
+   {
+    "node": "trees_sea_E_0",
+    "cones": 348,
+    "old_verts": 2856,
+    "new_verts": 656,
+    "new_tris": 328,
+    "cards": 164,
+    "aabb_min": [
+     36.7634,
+     0.1322,
+     -193.6209
+    ],
+    "aabb_max": [
+     208.7255,
+     68.6745,
+     193.6036
+    ]
+   },
+   {
+    "node": "trees_sea_N_0",
+    "cones": 268,
+    "old_verts": 2247,
+    "new_verts": 544,
+    "new_tris": 272,
+    "cards": 136,
+    "aabb_min": [
+     -182.5567,
+     -0.1192,
+     -203.0566
+    ],
+    "aabb_max": [
+     189.1828,
+     56.4974,
+     -36.4085
+    ]
+   },
+   {
+    "node": "trees_sea_W_0",
+    "cones": 308,
+    "old_verts": 2451,
+    "new_verts": 576,
+    "new_tris": 288,
+    "cards": 144,
+    "aabb_min": [
+     -214.8461,
+     -0.2826,
+     -185.7408
+    ],
+    "aabb_max": [
+     -39.2938,
+     62.1156,
+     186.1996
+    ]
+   },
+   {
+    "node": "trees_sea_S_0",
+    "cones": 328,
+    "old_verts": 2640,
+    "new_verts": 664,
+    "new_tris": 332,
+    "cards": 166,
+    "aabb_min": [
+     -192.9791,
+     -0.1088,
+     35.3242
+    ],
+    "aabb_max": [
+     184.9285,
+     72.9812,
+     213.5565
+    ]
+   }
+  ]
+ },
+ {
+  "file": "backdrop_near_rect_wild_winter",
+  "kind": "ring",
+  "season": "winter",
+  "atlas": "ring_winter",
+  "material": "ms_bd5_treecard_winter",
+  "nodes": [
+   {
+    "node": "trees_land_E_0",
+    "cones": 521,
+    "old_verts": 4536,
+    "new_verts": 1056,
+    "new_tris": 528,
+    "cards": 264,
+    "aabb_min": [
+     37.3449,
+     -20.3998,
+     -194.8955
+    ],
+    "aabb_max": [
+     285.8891,
+     69.0648,
+     201.4062
+    ]
+   },
+   {
+    "node": "trees_land_N_0",
+    "cones": 426,
+    "old_verts": 3321,
+    "new_verts": 936,
+    "new_tris": 468,
+    "cards": 234,
+    "aabb_min": [
+     -174.3554,
+     -79.4338,
+     -287.3441
+    ],
+    "aabb_max": [
+     185.6081,
+     52.154,
+     -42.0171
+    ]
+   },
+   {
+    "node": "trees_land_W_0",
+    "cones": 429,
+    "old_verts": 3404,
+    "new_verts": 1048,
+    "new_tris": 524,
+    "cards": 262,
+    "aabb_min": [
+     -287.6554,
+     -17.963,
+     -176.2467
+    ],
+    "aabb_max": [
+     -42.2581,
+     65.1806,
+     176.7859
+    ]
+   },
+   {
+    "node": "trees_land_S_0",
+    "cones": 388,
+    "old_verts": 3193,
+    "new_verts": 1008,
+    "new_tris": 504,
+    "cards": 252,
+    "aabb_min": [
+     -181.7926,
+     -97.9623,
+     31.8905
+    ],
+    "aabb_max": [
+     202.0301,
+     64.1653,
+     289.2472
+    ]
+   },
+   {
+    "node": "trees_sea_E_0",
+    "cones": 80,
+    "old_verts": 715,
+    "new_verts": 216,
+    "new_tris": 108,
+    "cards": 54,
+    "aabb_min": [
+     40.1653,
+     0.4277,
+     -185.994
+    ],
+    "aabb_max": [
+     209.9444,
+     63.8236,
+     130.1304
+    ]
+   },
+   {
+    "node": "trees_sea_N_0",
+    "cones": 88,
+    "old_verts": 870,
+    "new_verts": 264,
+    "new_tris": 132,
+    "cards": 66,
+    "aabb_min": [
+     -175.7789,
+     0.6851,
+     -201.9406
+    ],
+    "aabb_max": [
+     179.2342,
+     42.8041,
+     -41.9729
+    ]
+   },
+   {
+    "node": "trees_sea_W_0",
+    "cones": 85,
+    "old_verts": 623,
+    "new_verts": 312,
+    "new_tris": 156,
+    "cards": 78,
+    "aabb_min": [
+     -203.1709,
+     0.3967,
+     -176.6781
+    ],
+    "aabb_max": [
+     -53.3743,
+     61.0144,
+     183.8405
+    ]
+   },
+   {
+    "node": "trees_sea_S_0",
+    "cones": 90,
+    "old_verts": 677,
+    "new_verts": 280,
+    "new_tris": 140,
+    "cards": 70,
+    "aabb_min": [
+     -181.3074,
+     0.6506,
+     36.8732
+    ],
+    "aabb_max": [
+     174.3606,
+     63.548,
+     200.3587
+    ]
+   }
+  ]
+ }
+]
