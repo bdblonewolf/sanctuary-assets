@@ -1,0 +1,26 @@
+{
+  "file": "dummy_gothic_v2.glb",
+  "tris": 5838,
+  "col_tris": 12,
+  "bytes": 2567688,
+  "nodes": [
+    "col_dummy",
+    "dummy",
+    "hit_center",
+    "dummy_root"
+  ],
+  "materials": [
+    "m_wood_plank",
+    "m_wood_beam",
+    "m_iron_band",
+    "m_sack_burlap",
+    "m_target_paint",
+    "m_rope_hemp",
+    "m_sack_face",
+    "cut_straw",
+    "w_wood",
+    "w_dark",
+    "w_feather"
+  ],
+  "lite": false
+}

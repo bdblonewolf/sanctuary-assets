@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>dummy_gothic_v2 hit preview</title>
+<style>
+  html,body{margin:0;height:100%;background:#1a1510;color:#cbb;font:14px/1.4 system-ui,sans-serif}
+  #c{display:block;width:100%;height:100%}
+  #hud{position:fixed;left:12px;top:12px;background:rgba(0,0,0,.55);padding:10px 12px;border-radius:8px;max-width:320px}
+  #hud b{color:#e8d5a3}
+  a{color:#d4a574}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="hud">
+  <b>Gothic training dummy</b><br/>
+  Click / tap the dummy to smack it (damped spring).<br/>
+  Drag to orbit · scroll to zoom.<br/>
+  <span id="info">loading…</span>
+</div>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { DummyHitPhysics } from './dummy_hit_physics.js';
+
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x1a1510);
+scene.fog = new THREE.Fog(0x1a1510, 6, 18);
+
+const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.05, 50);
+camera.position.set(2.2, 1.4, 2.8);
+
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 0.9, 0);
+controls.enableDamping = true;
+
+scene.add(new THREE.HemisphereLight(0x6a6050, 0x1a1210, 1.1));
+const key = new THREE.DirectionalLight(0xffe2c0, 1.4);
+key.position.set(3, 5, 2);
+scene.add(key);
+const fill = new THREE.DirectionalLight(0x8899aa, 0.35);
+fill.position.set(-3, 2, -2);
+scene.add(fill);
+
+const ground = new THREE.Mesh(
+  new THREE.CircleGeometry(4, 48),
+  new THREE.MeshStandardMaterial({ color: 0x2a2218, roughness: 1, metalness: 0 })
+);
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+let root = null;
+let phys = null;
+const info = document.getElementById('info');
+
+const url = new URLSearchParams(location.search).get('glb') || './dummy_gothic_v2.glb';
+new GLTFLoader().load(url, (gltf) => {
+  root = gltf.scene.getObjectByName('dummy_root') || gltf.scene;
+  gltf.scene.traverse(o => { if (o.name && o.name.startsWith('col_')) { o.visible = false; } });
+  scene.add(gltf.scene);
+  phys = new DummyHitPhysics(root, { stiffness: 28, damping: 6.5, maxAngle: 0.38, mass: 1.0 });
+  info.textContent = 'ready — click dummy to hit';
+}, undefined, (e) => { info.textContent = 'load error: ' + e.message; });
+
+const ray = new THREE.Raycaster();
+const ptr = new THREE.Vector2();
+function onPointer(e) {
+  if (!root || !phys) return;
+  const rect = canvas.getBoundingClientRect();
+  ptr.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+  ptr.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+  ray.setFromCamera(ptr, camera);
+  const hits = ray.intersectObject(root, true);
+  if (!hits.length) return;
+  const n = hits[0].face ? hits[0].face.normal.clone().transformDirection(hits[0].object.matrixWorld) : new THREE.Vector3(0, 0, 1);
+  // Prefer camera-to-hit direction for a satisfying shove
+  const dir = camera.position.clone().sub(hits[0].point).normalize().negate();
+  dir.y = 0;
+  phys.applyHit(dir.lengthSq() ? dir : n, 3.2 + Math.random() * 1.5);
+  info.textContent = `hit force applied · lean ${phys.ax.toFixed(2)}, ${phys.az.toFixed(2)}`;
+}
+canvas.addEventListener('pointerdown', onPointer);
+
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000);
+  last = now;
+  if (phys) phys.update(dt);
+  controls.update();
+  renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+</script>
+</body>
+</html>
