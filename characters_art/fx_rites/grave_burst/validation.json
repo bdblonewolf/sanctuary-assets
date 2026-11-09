@@ -1,0 +1,20 @@
+{
+  "clip": "grave_burst_slam",
+  "ok_in_place": true,
+  "ok_hands_not_below_floor": true,
+  "ok_toes_not_below_floor": true,
+  "ok_hands_reach_floor_at_impact": true,
+  "impact_frame": 19,
+  "impact_time_s": 0.633,
+  "hand_floor_contact": {
+    "impact_LH_y": 0.12931370450105423,
+    "impact_RH_y": 0.05093209558028641,
+    "hand_y_min_over_clip": 0.05093209558028641,
+    "hand_y_max_over_clip": 1.6103220778235738,
+    "any_hand_below_0_02": false,
+    "toe_y_min": 0.013049042576679881,
+    "hips_xz_drift_max": 8.881784197001252e-16,
+    "lowest_avg_hand_t": 0.6333333225477309,
+    "palm_note": "Mixamo hand bone is wrist; palm contact \u2248 wrist_y - ~0.05 m. Target wrists ~0.05\u20130.13 at impact."
+  }
+}

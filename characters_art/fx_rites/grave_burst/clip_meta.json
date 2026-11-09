@@ -1,0 +1,47 @@
+{
+  "clip_name": "grave_burst_slam",
+  "duration_s": 1.4,
+  "fps": 30,
+  "frame_count": 43,
+  "impact_time_s": 0.633,
+  "impact_frame": 19,
+  "source_clip": "m2m_attack_ground_pound",
+  "source_file": "/workspace/sanctuary-assets/models/3d_rigs/m2m_human_anims_mixamo.glb",
+  "source_window_s": [
+    0.0,
+    1.05
+  ],
+  "source_impact_s": 0.75,
+  "source_overhead_peak_s": 0.25,
+  "in_place": true,
+  "hand_tracks_unedited": true,
+  "floor_reach": {
+    "method": "arm_spine_extras_after_source_rotation + mild_hips_y_dip",
+    "hips_dip_peak_m": -0.025,
+    "arm_L_deg": 20.0,
+    "arm_R_deg": 6.0,
+    "spread_deg": 40.0,
+    "forearm_L_deg": 13.0,
+    "forearm_R_deg": 4.0,
+    "spine_degs": [
+      14.0,
+      10.0,
+      6.0
+    ],
+    "note": "Extras target Arm/ForeArm/Shoulder/Spine only. Hand/finger/wrist channels are resampled from source with no value edits."
+  },
+  "channels": 28,
+  "bytes": 43632,
+  "male_female_note": "grave_burst_slam_male.glb and grave_burst_slam_female.glb are byte-identical copies; same mixamorig joint names bind to anim_variant_male / anim_variant_female / hero_anims_m2m_m/f.",
+  "hand_floor_contact": {
+    "impact_LH_y": 0.12931370450105423,
+    "impact_RH_y": 0.05093209558028641,
+    "hand_y_min_over_clip": 0.05093209558028641,
+    "hand_y_max_over_clip": 1.6103220778235738,
+    "any_hand_below_0_02": false,
+    "toe_y_min": 0.013049042576679881,
+    "hips_xz_drift_max": 8.881784197001252e-16,
+    "lowest_avg_hand_t": 0.6333333225477309,
+    "palm_note": "Mixamo hand bone is wrist; palm contact \u2248 wrist_y - ~0.05 m. Target wrists ~0.05\u20130.13 at impact."
+  }
+}
