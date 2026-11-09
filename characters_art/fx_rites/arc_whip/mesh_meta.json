@@ -1,0 +1,45 @@
+{
+  "file": "arc_whip_lightning_whip.glb",
+  "idle_file": "arc_whip_idle.glb",
+  "extended_alias": "arc_whip_extended.glb",
+  "handle_length_m": 0.3,
+  "whip_body_length_m": 3.0,
+  "total_reach_approx_m": 3.3,
+  "origin": "grip / right-hand attach (butt of handle)",
+  "gltf_axis": "whip extends +Z from origin; Y-up",
+  "blender_build_axis": "extends -Y then export_yup",
+  "attach_bone": "mixamorig:RightHand",
+  "suggested_attach_offset_m": [
+    0.0,
+    -0.02,
+    0.04
+  ],
+  "suggested_attach_euler_deg": [
+    90,
+    0,
+    0
+  ],
+  "note_orientation": "Parent to RightHand; rotate so local +Z points along the grip-to-tip direction the hand is aiming. Offset nudges grip into palm.",
+  "materials": {
+    "handle": "dark braided leather, non-emissive, keep blacks",
+    "body": "light-blue emissive ribbon",
+    "core": "pale cyan/white emissive core"
+  },
+  "colors": {
+    "leather": [
+      0.04,
+      0.025,
+      0.018
+    ],
+    "glow": [
+      0.35,
+      0.75,
+      1.0
+    ],
+    "core": [
+      0.85,
+      0.95,
+      1.0
+    ]
+  }
+}

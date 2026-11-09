@@ -1,0 +1,29 @@
+{
+  "clip_name": "arc_whip_swing",
+  "duration_s": 1.0,
+  "fps": 30,
+  "frame_count": 31,
+  "crack_time_s": 0.55,
+  "crack_frame": 16,
+  "source_clip": "m2m_one_hand_slash_combo",
+  "source_file": "/workspace/sanctuary-assets/models/3d_rigs/m2m_human_anims_mixamo.glb",
+  "source_window_s": [
+    0.05,
+    0.78
+  ],
+  "source_crack_s": 0.367,
+  "in_place": true,
+  "hand_tracks_unedited": true,
+  "amplify_bones": {
+    "mixamorig:Hips": 1.25,
+    "mixamorig:Spine": 1.2,
+    "mixamorig:Spine1": 1.15,
+    "mixamorig:Spine2": 1.1,
+    "mixamorig:RightShoulder": 1.1,
+    "mixamorig:RightArm": 1.05,
+    "mixamorig:RightForeArm": 1.05
+  },
+  "channels": 28,
+  "bytes": 38244,
+  "male_female_note": "arc_whip_swing_male.glb and arc_whip_swing_female.glb are byte-identical copies; same mixamorig joint names bind to anim_variant_male / anim_variant_female / hero_anims_m2m_m/f."
+}
