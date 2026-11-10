@@ -1,0 +1,157 @@
+{
+ "file": "bone_swordsman_v2_attacks.glb",
+ "base": "characters_art/monsters/bone_swordsman/bone_swordsman_v2.glb (mobile copy; its 10 original clips untouched; 2 clips appended)",
+ "fps": 30,
+ "in_place": true,
+ "clips": {
+  "skeleton_attack_light": {
+   "frames": 28,
+   "duration_s": 0.9,
+   "impact_frame": 14,
+   "impact_time_s": 0.467,
+   "impact_frac": 0.52,
+   "source": "Mesh2Motion CC0 m2m_sword_regular_a + m2m_sword_regular_a_rec (as downloaded, retargeted)",
+   "notes": "one-hand right-hand slash. Time-warped so the hit lands ~half way (D2 skeleton SK A1 1HS: 16 frames, hit flag frame 10). Frames 0-9 blend from idle f0, last 8 blend back. Feet IK-locked on idle f0 spots. Pelvis kept 65% square so locked feet do not cross. Right upper arm lifted up to 28 deg around f9-f18 so the blade stays >= 3 cm above the floor (was 21 cm under)."
+  },
+  "skeleton_attack_heavy": {
+   "frames": 55,
+   "duration_s": 1.8,
+   "impact_frame": 24,
+   "impact_time_s": 0.8,
+   "source": "Mesh2Motion CC0 m2m_two_handed_overhead_slam (as downloaded, retargeted)",
+   "notes": "both hands on the grip (hand gap 0.09-0.13 m f5-f45), sword overhead ~f9-f18, chop f19-f24, blade lowest (0.17 m) at f24, held to ~f36, recovery to idle f54. Added spine bend 14+10 deg, arm pitch 30 deg, hips dip 0.13 m (f16-f46) so the blade comes all the way down. Feet IK-locked on idle f0 spots the whole clip, so the feet end exactly at the start."
+  }
+ },
+ "first_last_equal_idle_f0": true,
+ "checks": {
+  "skeleton_attack_light": {
+   "frames": 28,
+   "duration_s": 0.9,
+   "peak_tip_speed_frame": 14,
+   "lowest_tip_frame": 14,
+   "tip_y_min_m": 0.22468370050365938,
+   "feet_first_vs_last_cm": 0.0,
+   "feet_first_vs_idle_cm": 2.769626991251562e-05,
+   "max_foot_travel_from_start_cm": 3.696759040223116e-05,
+   "hand_gap_min_m": 0.41276743740017025,
+   "hand_gap_at_frames": {
+    "0": 0.665,
+    "5": 0.795,
+    "10": 0.68,
+    "15": 0.599,
+    "20": 0.678,
+    "25": 0.689
+   },
+   "hips_y": [
+    0.785,
+    0.779,
+    0.615,
+    0.596,
+    0.701,
+    0.802
+   ]
+  },
+  "skeleton_attack_heavy": {
+   "frames": 55,
+   "duration_s": 1.8,
+   "peak_tip_speed_frame": 21,
+   "lowest_tip_frame": 26,
+   "tip_y_min_m": 0.10612002052799069,
+   "feet_first_vs_last_cm": 0.0,
+   "feet_first_vs_idle_cm": 2.769626991251562e-05,
+   "max_foot_travel_from_start_cm": 3.604462297785441e-05,
+   "hand_gap_min_m": 0.08768620982946353,
+   "hand_gap_at_frames": {
+    "0": 0.665,
+    "5": 0.097,
+    "10": 0.109,
+    "15": 0.122,
+    "20": 0.121,
+    "25": 0.097,
+    "30": 0.093,
+    "35": 0.094,
+    "40": 0.103,
+    "45": 0.125,
+    "50": 0.483
+   },
+   "hips_y": [
+    0.785,
+    0.829,
+    0.82,
+    0.82,
+    0.779,
+    0.572,
+    0.556,
+    0.59,
+    0.728,
+    0.836,
+    0.811
+   ]
+  }
+ },
+ "ik": {
+  "light_ik_max_err_m": 2.893322026553584e-07,
+  "heavy_ik_max_err_m": 2.8756277924554986e-07,
+  "light_hips_lowered_for_reach": 0,
+  "heavy_hips_lowered_for_reach": 0.005
+ },
+ "light_blade_lift_deg": {
+  "lift_deg_per_frame": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.1,
+   3.3,
+   9.7,
+   18.9,
+   25.0,
+   28.0,
+   26.3,
+   21.6,
+   13.7,
+   6.0,
+   1.4,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "sword_floor": {
+  "skeleton_attack_light": {
+   "sword_min_y_m": 0.034,
+   "at_frame": 13
+  },
+  "skeleton_attack_heavy": {
+   "sword_min_y_m": 0.171,
+   "at_frame": 24
+  }
+ },
+ "mesh_checks": {
+  "idle": {
+   "edge_stretch_p99.9_vs_idle_f0": 1.399,
+   "min_vertex_y_m": -0.017
+  },
+  "skeleton_attack_light": {
+   "edge_stretch_p99.9_vs_idle_f0": 1.643,
+   "min_vertex_y_m": -0.019
+  },
+  "skeleton_attack_heavy": {
+   "edge_stretch_p99.9_vs_idle_f0": 1.638,
+   "min_vertex_y_m": -0.019
+  }
+ },
+ "not_touched": "finger bones not animated (rest values); hand/wrist rotations come only from the retarget (no wrist value patching); no re-rig; mesh unchanged",
+ "license": "motion: Mesh2Motion CC0; mesh: CC-BY-4.0 danielmclogan (existing credit)",
+ "NOT_TESTED": "not played in game; numpy FK/skinning previews only"
+}

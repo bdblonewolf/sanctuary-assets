@@ -1,0 +1,789 @@
+{
+  "generated": "2026-11-10",
+  "zone": "America/Detroit",
+  "note": "Placeholder mapping only. No game code edited. No files pushed. Allowed assignment sources: characters_art/fx_rites/ and characters_art/fx_status/ only. fx_decals (blood/lava) were searched but not assigned.",
+  "searched": [
+    "/workspace/sanctuary-assets/characters_art/fx_rites/ (arc_whip, behest_banspere, campfire_flame, fireball, grave_burst, heavens_shrapnel)",
+    "/workspace/sanctuary-assets/characters_art/fx_status/ (ice_shards + ice/char textures)",
+    "/workspace/sanctuary-assets/characters_art/fx_decals/ (searched; not used for assignment)",
+    "/workspace/sanctuary_art/handoff/from_art_bot/rites/ (arc_whip, behest_*, fireball, grave_burst, grave_burst_clip, heavens_shrapnel, heavens_shrapnel_v2)",
+    "/workspace/sanctuary_art/handoff/from_art_bot/fx/ (campfire_*, grave_burst_v2, arc_whip_v2 this job)",
+    "/workspace/sanctuary_art/handoff/from_art_bot/ritefx2_inventory/ (SUMMARY, RECOMMENDATIONS, EFFECTS, effects_inventory.json)",
+    "/workspace/sanctuary/desc/rite_table.md and rite_table.json (51 rites)",
+    "/workspace/sanctuary/skills_and_rites.md, skills_and_rites.csv, all_skills.csv (113 rows: 47 rites + 4 auras + passives + item procs)",
+    "/workspace/sanctuary/scratch/rites_live.json (43 rite combat defs)",
+    "/workspace/sanctuary/vfx_spec.md (Canvas 2D rite FX contract; Star Lash described as a spinning 4-point star \u2014 not the 3D pack)",
+    "/workspace/sanctuary/data.json (no FX path fields)",
+    "/workspace/live14/routes-C2sLE0N3.js and /workspace/live_bundle_check/routes-C2sLE0N3.js (live 3D client, 2026-11-09 5:06 PM ET): loads ice_shards, grave_burst_stone_cross, char_ember only; does not reference heavens_shrapnel / fireball / arc_whip / behest packs",
+    "/workspace/ge_handoff/STAGE_RITEFX2.md, STAGE_AIMED1.md, anim_debug/routes-BWHulxh-.js"
+  ],
+  "existing_packs_pushed": {
+    "characters_art/fx_rites/fireball": "Fireball",
+    "characters_art/fx_rites/arc_whip": "Arc Whip (v1; v2 projectile is local handoff only)",
+    "characters_art/fx_rites/behest_banspere": "Bone Spear / Behest Banspere",
+    "characters_art/fx_rites/grave_burst": "Grave Burst",
+    "characters_art/fx_rites/heavens_shrapnel": "Star Lash / Heaven's Shrapnel (not wired in live)",
+    "characters_art/fx_rites/campfire_flame": "Campfire / environmental fire+smoke (used as Cinder Bed placeholder)",
+    "characters_art/fx_status/": "ice_shards + ice/char status maps (Glacier / frost)"
+  },
+  "locked_18": [
+    {
+      "id": "fireball",
+      "name": "Fireball"
+    },
+    {
+      "id": "wolfhowl",
+      "name": "Wolf Howl"
+    },
+    {
+      "id": "glacier",
+      "name": "Glacier"
+    },
+    {
+      "id": "spark",
+      "name": "Volt"
+    },
+    {
+      "id": "arcwhip",
+      "name": "Arc Whip"
+    },
+    {
+      "id": "cinder",
+      "name": "Cinder Bed"
+    },
+    {
+      "id": "bonespear",
+      "name": "Bone Spear / Behest Banspere"
+    },
+    {
+      "id": "fanbone",
+      "name": "Bone Fan"
+    },
+    {
+      "id": "graveburst",
+      "name": "Grave Burst"
+    },
+    {
+      "id": "summon",
+      "name": "Raise Bone"
+    },
+    {
+      "id": "javelin",
+      "name": "Javelin / Soaring Lance"
+    },
+    {
+      "id": "starlash",
+      "name": "Star Lash / Heaven's Shrapnel"
+    },
+    {
+      "id": "aimed",
+      "name": "Aimed Shot"
+    },
+    {
+      "id": "execute",
+      "name": "Execute"
+    },
+    {
+      "id": "rupture",
+      "name": "Rupture"
+    },
+    {
+      "id": "blindrush",
+      "name": "Blind Shield Rush"
+    },
+    {
+      "id": "warcry",
+      "name": "War Cry"
+    },
+    {
+      "id": "bulwark",
+      "name": "Bulwark"
+    }
+  ],
+  "already_assigned_dedicated": [
+    "fireball",
+    "glacier",
+    "arcwhip",
+    "bonespear",
+    "graveburst"
+  ],
+  "placeholders": [
+    {
+      "skill_id": "fireball",
+      "name": "Fireball",
+      "school": "fire",
+      "locked_18": true,
+      "status": "dedicated_pack",
+      "fx_paths": [
+        "characters_art/fx_rites/fireball/fireball_core_flipbook.png",
+        "characters_art/fx_rites/fireball/fireball_trail_strip.png",
+        "characters_art/fx_rites/fireball/fireball_explosion_flipbook.png",
+        "characters_art/fx_rites/fireball/fireball_shockwave_ring.png",
+        "characters_art/fx_rites/fireball/fireball_smoke_flipbook.png",
+        "characters_art/fx_rites/fireball/fireball_sparks_embers.png",
+        "characters_art/fx_rites/fireball/fireball_windup_glow.png"
+      ],
+      "reason": "Dedicated fireball pack already in fx_rites (core, trail, explosion, shockwave, smoke, sparks, windup)."
+    },
+    {
+      "skill_id": "meteor",
+      "name": "Meteor Shower",
+      "school": "fire",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/fireball/fireball_explosion_flipbook.png",
+        "characters_art/fx_rites/fireball/fireball_smoke_flipbook.png",
+        "characters_art/fx_rites/fireball/fireball_shockwave_ring.png",
+        "characters_art/fx_rites/fireball/fireball_sparks_embers.png",
+        "characters_art/fx_rites/fireball/fireball_core_flipbook.png"
+      ],
+      "reason": "Falling fire stones: reuse Fireball core as the stone, explosion + smoke + shockwave on landing. No dedicated meteor pack yet."
+    },
+    {
+      "skill_id": "inferno",
+      "name": "Inferno",
+      "school": "fire",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/fireball/fireball_core_flipbook.png",
+        "characters_art/fx_rites/fireball/fireball_trail_strip.png",
+        "characters_art/fx_rites/campfire_flame/campfire_flame_flipbook.png",
+        "characters_art/fx_rites/fireball/fireball_sparks_embers.png"
+      ],
+      "reason": "Cone of fire: reuse Fireball core/trail/sparks and campfire flame as a ground-stream placeholder."
+    },
+    {
+      "skill_id": "cinder",
+      "name": "Cinder Bed",
+      "school": "fire",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/campfire_flame/campfire_flame_flipbook.png",
+        "characters_art/fx_rites/campfire_flame/campfire_smoke_flipbook_v2.png",
+        "characters_art/fx_rites/fireball/fireball_sparks_embers.png"
+      ],
+      "reason": "Burning bed: campfire flame + smoke v2 is the closest existing ground-fire pack; add fireball embers."
+    },
+    {
+      "skill_id": "thunderkiln",
+      "name": "Thunderkiln Trap",
+      "school": "fire",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/fireball/fireball_core_flipbook.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_crack_flash_4x4_v3.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_sparks_4x4_v3.png",
+        "characters_art/fx_rites/fireball/fireball_sparks_embers.png"
+      ],
+      "reason": "Trap that alternates fire and lightning bolts: Fireball core + Arc Whip crack/sparks as a stand-in until a kiln pack exists."
+    },
+    {
+      "skill_id": "nova",
+      "name": "Frost Nova",
+      "school": "cold",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_status/ice_shards.glb",
+        "characters_art/fx_status/textures/ice_bc.png",
+        "characters_art/fx_rites/behest_banspere/bow_wave_4x4.png"
+      ],
+      "reason": "Frost nova ring: ice_shards + ice maps, bow_wave tinted as a cold ring placeholder."
+    },
+    {
+      "skill_id": "glacier",
+      "name": "Glacier",
+      "school": "cold",
+      "locked_18": true,
+      "status": "dedicated_pack",
+      "fx_paths": [
+        "characters_art/fx_status/ice_shards.glb",
+        "characters_art/fx_status/textures/ice_bc.png",
+        "characters_art/fx_status/textures/ice_n.png",
+        "characters_art/fx_status/textures/ice_orm.png"
+      ],
+      "reason": "fx_status ice_shards + ice maps are the existing ice pack; the live client already loads ice_shards.glb."
+    },
+    {
+      "skill_id": "hoarfrost",
+      "name": "Hoarfrost",
+      "school": "cold",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_status/ice_shards.glb",
+        "characters_art/fx_status/textures/ice_bc.png",
+        "characters_art/fx_status/textures/ice_n.png"
+      ],
+      "reason": "Freezing ground: same ice pack as Glacier, used as a ground rime placeholder."
+    },
+    {
+      "skill_id": "rimecaltrop",
+      "name": "Rime Caltrop",
+      "school": "cold",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_status/ice_shards.glb",
+        "characters_art/fx_status/textures/ice_bc.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_shatter_fragments.png"
+      ],
+      "reason": "Cold caltrops: ice shards + shatter-fragment atlas as tiny ice bits. No dedicated caltrop pack."
+    },
+    {
+      "skill_id": "spark",
+      "name": "Volt",
+      "school": "lightning",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/arc_whip/arc_whip_crack_flash_4x4_v3.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_sparks_4x4_v3.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_snake_lasso_strip_v3.png"
+      ],
+      "reason": "Jumping lightning: reuse Arc Whip crack flash, sparks, and zig-zag strip as a chain-lightning placeholder."
+    },
+    {
+      "skill_id": "stormcall",
+      "name": "Storm Call",
+      "school": "lightning",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/arc_whip/arc_whip_crack_flash_4x4_v3.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_sparks_4x4_v3.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_arc_trail_4x4_v2.png"
+      ],
+      "reason": "Storm bolts from above: Arc Whip flash/sparks/trail as a downward-lightning placeholder."
+    },
+    {
+      "skill_id": "arcwhip",
+      "name": "Arc Whip",
+      "school": "lightning",
+      "locked_18": true,
+      "status": "dedicated_pack",
+      "fx_paths": [
+        "characters_art/fx_rites/arc_whip/arc_whip_arc_trail_4x4_v2.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_crack_flash_4x4_v3.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_snake_lasso_4x4_v3.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_sparks_4x4_v3.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_lightning_whip.glb",
+        "characters_art/fx_rites/arc_whip/arc_whip_swing.glb"
+      ],
+      "reason": "Dedicated Arc Whip pack already in fx_rites. Local add-only v2 projectile (not pushed) is in handoff/from_art_bot/fx/arc_whip_v2/ \u2014 use v2 bolt textures once Brian says go."
+    },
+    {
+      "skill_id": "elemconsume",
+      "name": "Elemental Consume",
+      "school": "lightning",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/arc_whip/arc_whip_sparks_4x4_v3.png",
+        "characters_art/fx_rites/fireball/fireball_sparks_embers.png",
+        "characters_art/fx_status/ice_shards.glb"
+      ],
+      "reason": "Elemental consume: mix Arc Whip sparks, fireball embers, and ice shards as a multi-element placeholder."
+    },
+    {
+      "skill_id": "holy",
+      "name": "Holy Bolt",
+      "school": "holy",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_trail.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_impact_burst_4x4.png"
+      ],
+      "reason": "Holy bolt: Heaven's Shrapnel glint + gold/white trail + impact burst as a holy-projectile placeholder (no dedicated Holy Bolt pack)."
+    },
+    {
+      "skill_id": "consecrate",
+      "name": "Consecrate",
+      "school": "holy",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_ground_glint.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_impact_burst_4x4.png"
+      ],
+      "reason": "Holy ground: ground_glint + sparkle + impact burst as a consecrated-floor placeholder."
+    },
+    {
+      "skill_id": "smite",
+      "name": "Smite",
+      "school": "holy",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_impact_burst_4x4.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png",
+        "characters_art/fx_rites/behest_banspere/impact_flare.png"
+      ],
+      "reason": "Melee holy strike: impact burst + glint + behest flare as a hit-flash placeholder."
+    },
+    {
+      "skill_id": "starlash",
+      "name": "Star Lash / Heaven's Shrapnel",
+      "school": "holy",
+      "locked_18": true,
+      "status": "dedicated_pack_not_wired",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_shard_a.glb",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_shard_b.glb",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_shard_c.glb",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_trail.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_impact_burst_4x4.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_shatter_fragments.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_ground_glint.png"
+      ],
+      "reason": "Dedicated Heaven's Shrapnel pack already in fx_rites, but the live client does not load it (see HEAVENS_SHRAPNEL_FIX.md). Art is assigned; wiring is the gap."
+    },
+    {
+      "skill_id": "kinship",
+      "name": "Kinship Aura",
+      "school": "holy",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_ground_glint.png",
+        "characters_art/fx_rites/behest_banspere/handle_aura.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png"
+      ],
+      "reason": "Holy share aura: ground glint + handle aura + sparkle as a ring placeholder. No dedicated aura mesh."
+    },
+    {
+      "skill_id": "bloodsoaked",
+      "name": "Blood Soaked",
+      "school": "blood",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_impact_burst_4x4.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png"
+      ],
+      "reason": "No blood pack exists in fx_rites or fx_status (blood lives only in fx_decals, which this map was not allowed to assign). Closest: impact burst + sparks as a generic hit placeholder. Engineer can layer fx_decals blood separately."
+    },
+    {
+      "skill_id": "mercy",
+      "name": "Mercy",
+      "school": "blood",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/bow_wave_4x4.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_impact_burst_4x4.png"
+      ],
+      "reason": "Blood nova: no blood pack in the allowed folders. bow_wave + impact burst as a pulse-ring placeholder."
+    },
+    {
+      "skill_id": "crimson",
+      "name": "Crimson Lance",
+      "school": "blood",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/behest_banspere_lance.glb",
+        "characters_art/fx_rites/behest_banspere/trail_v.png",
+        "characters_art/fx_rites/behest_banspere/impact_flare.png"
+      ],
+      "reason": "Blood spear: reuse Behest lance + trail + flare, to be tinted dark red in code. No dedicated crimson pack."
+    },
+    {
+      "skill_id": "bonespear",
+      "name": "Bone Spear",
+      "school": "bone",
+      "locked_18": true,
+      "status": "dedicated_pack",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/behest_banspere_lance.glb",
+        "characters_art/fx_rites/behest_banspere/trail_v.png",
+        "characters_art/fx_rites/behest_banspere/trail_v_4x4.png",
+        "characters_art/fx_rites/behest_banspere/impact_flare.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png",
+        "characters_art/fx_rites/behest_banspere/bow_wave_4x4.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png",
+        "characters_art/fx_rites/behest_banspere/handle_aura.png"
+      ],
+      "reason": "Dedicated Behest Banspere / Bone Spear pack already in fx_rites (lance, trail, impact, sparks, bow wave)."
+    },
+    {
+      "skill_id": "summon",
+      "name": "Raise Bone",
+      "school": "bone",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/grave_burst/grave_burst_stone_cross.glb",
+        "characters_art/fx_rites/fireball/fireball_smoke_flipbook.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png"
+      ],
+      "reason": "Skeleton rise: Grave Burst ground break + smoke (as dust) + swirl wisps as an emerge placeholder. Servant mesh is separate (bone_* GLBs, not assigned here)."
+    },
+    {
+      "skill_id": "graveburst",
+      "name": "Grave Burst",
+      "school": "bone",
+      "locked_18": true,
+      "status": "dedicated_pack",
+      "fx_paths": [
+        "characters_art/fx_rites/grave_burst/grave_burst_stone_cross.glb",
+        "characters_art/fx_rites/grave_burst/grave_burst_slam.glb",
+        "characters_art/fx_rites/grave_burst/grave_burst_slam_male.glb",
+        "characters_art/fx_rites/grave_burst/grave_burst_slam_female.glb"
+      ],
+      "reason": "Dedicated Grave Burst pack already in fx_rites (stone cross + slam clips). Local ground-burst v2 (rocks/dust) is in handoff, not pushed."
+    },
+    {
+      "skill_id": "fanbone",
+      "name": "Bone Fan",
+      "school": "bone",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_shatter_fragments.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_trail.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png"
+      ],
+      "reason": "Fan of bone shards: shatter-fragment atlas + trail + sparks as a shard-spray placeholder (tint off-white / bone)."
+    },
+    {
+      "skill_id": "thorncoat",
+      "name": "Thorn Coat",
+      "school": "nature",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/handle_aura.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_shatter_fragments.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png"
+      ],
+      "reason": "Thorn reflect coat: handle aura + fragment/spark hits as a reflect placeholder. No nature pack."
+    },
+    {
+      "skill_id": "briar",
+      "name": "Briar Snare",
+      "school": "nature",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_shatter_fragments.png",
+        "characters_art/fx_rites/behest_banspere/bow_wave.png"
+      ],
+      "reason": "Snaring thicket: swirl wisps + fragments + bow_wave as a vine/root placeholder. No nature pack."
+    },
+    {
+      "skill_id": "wolfhowl",
+      "name": "Wolf Howl",
+      "school": "nature",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/bow_wave_4x4.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png"
+      ],
+      "reason": "Howl / shout ring: bow_wave + swirl wisps as a roar-ring placeholder. No dedicated howl pack."
+    },
+    {
+      "skill_id": "regrowth",
+      "name": "Regrowth",
+      "school": "nature",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png",
+        "characters_art/fx_rites/behest_banspere/handle_aura.png"
+      ],
+      "reason": "Heal over time: glint + handle aura as a gentle heal glow. No nature/heal pack."
+    },
+    {
+      "skill_id": "locust",
+      "name": "Locust Cloud",
+      "school": "nature",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/campfire_flame/campfire_smoke_flipbook_v2.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png"
+      ],
+      "reason": "Insect cloud: smoke v2 (normal blend, tint later) + swirl + sparks as a swarm placeholder. No locust pack."
+    },
+    {
+      "skill_id": "blightcask",
+      "name": "Blight Cask",
+      "school": "nature",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/campfire_flame/campfire_smoke_flipbook_v2.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png",
+        "characters_art/fx_rites/fireball/fireball_shockwave_ring.png"
+      ],
+      "reason": "Poison cask: smoke v2 as a cloud + sparks as needles + shockwave on burst. No poison pack in fx_rites/fx_status."
+    },
+    {
+      "skill_id": "cleave",
+      "name": "Wide Cut",
+      "school": "steel",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/bow_wave.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png",
+        "characters_art/fx_rites/arc_whip/arc_whip_arc_trail_v2.png"
+      ],
+      "reason": "Wide melee cut: bow_wave + sparks + arc trail as a slash-arc placeholder."
+    },
+    {
+      "skill_id": "bladedance",
+      "name": "Blade Dance",
+      "school": "steel",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/arc_whip/arc_whip_arc_trail_4x4_v2.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png"
+      ],
+      "reason": "Spinning cuts: animated arc trail + sparks + swirl as a whirl placeholder."
+    },
+    {
+      "skill_id": "execute",
+      "name": "Execute",
+      "school": "steel",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_impact_burst_4x4.png",
+        "characters_art/fx_rites/behest_banspere/impact_flare.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png"
+      ],
+      "reason": "Heavy finisher: impact burst + flare + sparks. No blood pack in the allowed folders (fx_decals exist but were not assigned)."
+    },
+    {
+      "skill_id": "rupture",
+      "name": "Rupture",
+      "school": "steel",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/impact_flare.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_shatter_fragments.png"
+      ],
+      "reason": "Stick-and-tug bleed: flare + sparks + fragments as a tear placeholder. Blood decals are in fx_decals only."
+    },
+    {
+      "skill_id": "javelin",
+      "name": "Javelin",
+      "school": "steel",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/behest_banspere_lance.glb",
+        "characters_art/fx_rites/behest_banspere/trail_v_4x4.png",
+        "characters_art/fx_rites/behest_banspere/impact_flare.png"
+      ],
+      "reason": "Thrown spear: same Behest lance + trail + flare, gold-tint in code (live already uses weapon_spear.glb)."
+    },
+    {
+      "skill_id": "aimed",
+      "name": "Aimed Shot",
+      "school": "steel",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/trail_v.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png",
+        "characters_art/fx_rites/behest_banspere/impact_flare.png"
+      ],
+      "reason": "Careful arrow: trail + glint + flare. Arrow mesh is already loaded in live (`loadProp(arrow)`); this is only a particle placeholder."
+    },
+    {
+      "skill_id": "ironjaw",
+      "name": "Ironjaw Trap",
+      "school": "steel",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/fireball/fireball_shockwave_ring.png",
+        "characters_art/fx_rites/behest_banspere/sparks_4x4.png",
+        "characters_art/fx_rites/fireball/fireball_smoke_flipbook.png"
+      ],
+      "reason": "Trap snap: shockwave + sparks + smoke (dust). No trap pack."
+    },
+    {
+      "skill_id": "blindrush",
+      "name": "Blind Shield Rush",
+      "school": "guard",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/fireball/fireball_shockwave_ring.png",
+        "characters_art/fx_rites/fireball/fireball_smoke_flipbook.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png"
+      ],
+      "reason": "Shield slam rush: shockwave + smoke (dust) + a bright glint as a blind-flash placeholder."
+    },
+    {
+      "skill_id": "bulwark",
+      "name": "Bulwark",
+      "school": "guard",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/handle_aura.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_ground_glint.png"
+      ],
+      "reason": "Brace ward: handle aura + ground glint as a rising shell placeholder."
+    },
+    {
+      "skill_id": "warcry",
+      "name": "War Cry",
+      "school": "guard",
+      "locked_18": true,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/bow_wave_4x4.png",
+        "characters_art/fx_rites/fireball/fireball_shockwave_ring.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png"
+      ],
+      "reason": "Shout ring: bow_wave + shockwave + swirl as a roar placeholder (same family as Wolf Howl)."
+    },
+    {
+      "skill_id": "frostward",
+      "name": "Frost Ward",
+      "school": "guard",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_status/ice_shards.glb",
+        "characters_art/fx_status/textures/ice_bc.png",
+        "characters_art/fx_rites/behest_banspere/handle_aura.png"
+      ],
+      "reason": "Cold ward on the caster: ice maps + behest handle aura as a shell placeholder."
+    },
+    {
+      "skill_id": "hearthward",
+      "name": "Hearthward Aura",
+      "school": "guard",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/handle_aura.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_ground_glint.png",
+        "characters_art/fx_rites/campfire_flame/campfire_flame_base_glow.png"
+      ],
+      "reason": "Warm regen aura: handle aura + ground glint + campfire base glow (keep intensity low; do not lift blacks)."
+    },
+    {
+      "skill_id": "wrathbanner",
+      "name": "Wrathbanner Aura",
+      "school": "guard",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/handle_aura.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png",
+        "characters_art/fx_rites/fireball/fireball_sparks_embers.png"
+      ],
+      "reason": "Wrath aura: handle aura + glint + embers as a banner/stack placeholder."
+    },
+    {
+      "skill_id": "telekinesis",
+      "name": "Telekinesis",
+      "school": "mind",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/bow_wave_4x4.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png"
+      ],
+      "reason": "Shove: bow_wave + swirl + glint as a force-pulse placeholder. No mind pack."
+    },
+    {
+      "skill_id": "hex",
+      "name": "Hex",
+      "school": "mind",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png"
+      ],
+      "reason": "Curse: swirl + glint as a hex mark placeholder. No mind pack."
+    },
+    {
+      "skill_id": "snare",
+      "name": "Mind Snare",
+      "school": "mind",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png",
+        "characters_art/fx_rites/behest_banspere/bow_wave.png"
+      ],
+      "reason": "Mind snare: swirl + wave as a bind placeholder."
+    },
+    {
+      "skill_id": "blinkstep",
+      "name": "Blink Step",
+      "school": "mind",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png",
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_impact_burst_4x4.png"
+      ],
+      "reason": "Teleport step: glint + swirl + a small burst at depart and arrive."
+    },
+    {
+      "skill_id": "veil",
+      "name": "Veil",
+      "school": "mind",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/handle_aura.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png"
+      ],
+      "reason": "Dodge veil: handle aura + swirl as a cloak placeholder."
+    },
+    {
+      "skill_id": "dread",
+      "name": "Dread",
+      "school": "mind",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/behest_banspere/bow_wave_4x4.png",
+        "characters_art/fx_rites/behest_banspere/swirl_wisps_4x4.png",
+        "characters_art/fx_rites/campfire_flame/campfire_smoke_flipbook_v2.png"
+      ],
+      "reason": "Fear nova: bow_wave + swirl + a wisp of smoke as a dread pulse. No mind pack."
+    },
+    {
+      "skill_id": "truesight",
+      "name": "Truesight Aura",
+      "school": "mind",
+      "locked_18": false,
+      "status": "placeholder",
+      "fx_paths": [
+        "characters_art/fx_rites/heavens_shrapnel/heavens_shrapnel_glint_sparkle.png",
+        "characters_art/fx_rites/behest_banspere/handle_aura.png"
+      ],
+      "reason": "AR aura: glint + handle aura as an eye/ring placeholder."
+    }
+  ]
+}

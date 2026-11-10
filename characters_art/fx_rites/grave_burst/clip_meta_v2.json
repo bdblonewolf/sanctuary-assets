@@ -1,0 +1,39 @@
+{
+ "clip_name": "grave_burst_slam_v2",
+ "duration_s": 1.8,
+ "fps": 30,
+ "frame_count": 55,
+ "impact_frame": 19,
+ "impact_time_s": 0.633,
+ "phases": {
+  "windup": "f0-f8",
+  "drop_to_squat": "f9-f18",
+  "impact_both_hands": "f19",
+  "hold": "f19-f28",
+  "rise": "f29-f42",
+  "right_foot_lift": "f34",
+  "right_foot_plant_on_start_spot": "f44",
+  "settle_to_start_pose": "f42-f54",
+  "last_frame_equals_frame0": "f54"
+ },
+ "derived_from": "grave_burst_slam (v1, sanctuary-assets commit 794c5b7408bf9755e35f9b21425e7e288ece5b10) <- Mesh2Motion CC0 m2m_attack_ground_pound",
+ "license": "CC0 (Mesh2Motion source CC0; edits by Sanctuary art bot)",
+ "in_place": true,
+ "changes_vs_v1": [
+  "f0-f28 body identical to v1; impact still f19",
+  "legs re-solved with analytic 2-bone IK (UpLeg/Leg/Foot rotations only): left foot ball pinned to its frame-0 spot all clip (v1 slid it ~19 cm back during rise), right foot pinned during squat",
+  "recovery: right foot steps back in a 9 cm arc f34-f44 and plants exactly on its frame-0 position+rotation",
+  "f42-f54 every channel blends to frame 0; last frame == frame 0 so it hands back to idle with no pop",
+  "duration 1.40 s -> 1.80 s (43 -> 55 frames)"
+ ],
+ "untouched": "hands/fingers/wrist tracks (only time-copied, then blended to their own frame-0 values in the settle), no re-rig, same nodes/skin",
+ "files": [
+  "grave_burst_slam_v2.glb",
+  "grave_burst_slam_male_v2.glb",
+  "grave_burst_slam_female_v2.glb"
+ ],
+ "male_female_note": "male/female v2 files are byte-identical (attack/cast clip, same as v1 convention).",
+ "channels": 28,
+ "bytes": 49020,
+ "NOT_TESTED": "not played in game"
+}

@@ -1,0 +1,325 @@
+{
+ "clip": "grave_burst_slam_v2",
+ "authoring_rig": "Mesh2Motion mixamorig (m2m_human_anims_mixamo.glb), same nodes/skin as v1",
+ "checks": {
+  "first_frame_equals_last_frame_all_channels": true,
+  "feet_last_equals_frame0_within_1cm": true,
+  "in_place_hips_xz": true,
+  "no_bone_stretch": true,
+  "toes_not_below_floor_authoring_rig": true,
+  "no_knee_backbend": true,
+  "hand_finger_wrist_tracks": "copied from v1 frame-for-frame f0-f42 (no value edits); f42-f54 slerp back to v1 frame-0 values"
+ },
+ "authoring_rig_metrics": {
+  "frames": 55,
+  "duration_s": 1.7999999523162842,
+  "foot_f0_vs_last": [
+   {
+    "bone": "LeftFoot",
+    "f0": [
+     0.2897,
+     0.1009,
+     0.031
+    ],
+    "last": [
+     0.2897,
+     0.1009,
+     0.031
+    ],
+    "pos_err_cm": 0.0,
+    "rot_err_deg": 0.059,
+    "rot_err_deg_note": "0.03-0.06 deg = float32 acos noise; f0 and last channel values are bit-identical"
+   },
+   {
+    "bone": "RightFoot",
+    "f0": [
+     -0.1934,
+     0.0907,
+     -0.1056
+    ],
+    "last": [
+     -0.1934,
+     0.0907,
+     -0.1056
+    ],
+    "pos_err_cm": 0.0,
+    "rot_err_deg": 0.0274,
+    "rot_err_deg_note": "0.03-0.06 deg = float32 acos noise; f0 and last channel values are bit-identical"
+   },
+   {
+    "bone": "LeftToeBase",
+    "f0": [
+     0.3245,
+     0.0232,
+     0.1785
+    ],
+    "last": [
+     0.3245,
+     0.0232,
+     0.1785
+    ],
+    "pos_err_cm": 0.0,
+    "rot_err_deg": 0.0586,
+    "rot_err_deg_note": "0.03-0.06 deg = float32 acos noise; f0 and last channel values are bit-identical"
+   },
+   {
+    "bone": "RightToeBase",
+    "f0": [
+     -0.2567,
+     0.013,
+     0.0321
+    ],
+    "last": [
+     -0.2567,
+     0.013,
+     0.0321
+    ],
+    "pos_err_cm": 0.0,
+    "rot_err_deg": 0.0279,
+    "rot_err_deg_note": "0.03-0.06 deg = float32 acos noise; f0 and last channel values are bit-identical"
+   },
+   {
+    "bone": "LeftToe_End",
+    "f0": [
+     0.3432,
+     0.0198,
+     0.2575
+    ],
+    "last": [
+     0.3432,
+     0.0198,
+     0.2575
+    ],
+    "pos_err_cm": 0.0,
+    "rot_err_deg": 0.0586,
+    "rot_err_deg_note": "0.03-0.06 deg = float32 acos noise; f0 and last channel values are bit-identical"
+   },
+   {
+    "bone": "RightToe_End",
+    "f0": [
+     -0.2906,
+     0.0097,
+     0.1058
+    ],
+    "last": [
+     -0.2906,
+     0.0097,
+     0.1058
+    ],
+    "pos_err_cm": 0.0,
+    "rot_err_deg": 0.0279,
+    "rot_err_deg_note": "0.03-0.06 deg = float32 acos noise; f0 and last channel values are bit-identical"
+   }
+  ],
+  "foot_f0_vs_f(last-1)_cm": {
+   "LeftFoot": 0.0,
+   "RightFoot": 0.0
+  },
+  "slide_cm": {
+   "LeftToeBase_f0-54(ball pinned)": 0.0,
+   "RightFoot_f12-34(squat plant)": 0.0,
+   "RightFoot_f44-54(after step-back plant)": 0.0,
+   "RightFoot_f0-1": 0.514
+  },
+  "min_y_m": {
+   "LeftToe_End": 0.0119,
+   "RightToe_End": 0.0097,
+   "LeftToeBase": 0.0232,
+   "RightToeBase": 0.013,
+   "LeftFoot": 0.1009,
+   "RightFoot": 0.0907,
+   "LeftLeg": 0.392,
+   "RightLeg": 0.4126,
+   "LeftHand": 0.1293,
+   "RightHand": 0.0509
+  },
+  "hips_xz_drift_max_m": 8.881784197001252e-16,
+  "hips_y": [
+   0.823,
+   0.824,
+   0.826,
+   0.831,
+   0.844,
+   0.865,
+   0.893,
+   0.919,
+   0.916,
+   0.857,
+   0.763,
+   0.665,
+   0.578,
+   0.511,
+   0.462,
+   0.432,
+   0.416,
+   0.406,
+   0.404,
+   0.401,
+   0.402,
+   0.402,
+   0.403,
+   0.404,
+   0.407,
+   0.41,
+   0.414,
+   0.417,
+   0.42,
+   0.444,
+   0.504,
+   0.573,
+   0.64,
+   0.7,
+   0.749,
+   0.787,
+   0.818,
+   0.834,
+   0.847,
+   0.855,
+   0.86,
+   0.863,
+   0.866,
+   0.865,
+   0.863,
+   0.859,
+   0.855,
+   0.85,
+   0.845,
+   0.839,
+   0.834,
+   0.83,
+   0.826,
+   0.824,
+   0.823
+  ],
+  "max_bone_length_change_m": 1.6394525653717906e-07,
+  "max_joint_deg_per_frame": [
+   11,
+   53.92,
+   "mixamorig:RightHand"
+  ],
+  "joint_deg_per_frame_last5": [
+   [
+    50,
+    7.7,
+    "mixamorig:RightArm"
+   ],
+   [
+    51,
+    6.78,
+    "mixamorig:RightArm"
+   ],
+   [
+    52,
+    5.41,
+    "mixamorig:RightArm"
+   ],
+   [
+    53,
+    3.58,
+    "mixamorig:RightArm"
+   ],
+   [
+    54,
+    1.29,
+    "mixamorig:RightArm"
+   ]
+  ],
+  "knee_backbend_frames": []
+ },
+ "hero_rig_check_player_necromancer_with_live_hips_scale": {
+  "mixamorig:LeftFoot": {
+   "f0": [
+    0.3332,
+    0.0763,
+    0.0267
+   ],
+   "last": [
+    0.3332,
+    0.0763,
+    0.0267
+   ],
+   "err_cm": 0.0,
+   "v1_last": [
+    0.3313,
+    0.1456,
+    -0.1586
+   ],
+   "v1_err_cm": 19.78
+  },
+  "mixamorig:RightFoot": {
+   "f0": [
+    -0.2165,
+    0.0613,
+    -0.1303
+   ],
+   "last": [
+    -0.2165,
+    0.0613,
+    -0.1303
+   ],
+   "err_cm": 0.0,
+   "v1_last": [
+    -0.3695,
+    0.4983,
+    0.2343
+   ],
+   "v1_err_cm": 58.93
+  },
+  "hero_rig_slide_cm": {
+   "RightFoot_f44-54": 0.484,
+   "RightFoot_f12-34": 1.028,
+   "LeftFoot_f0-54": 5.459
+  },
+  "hips_y_scale_used": 1.1441226901984178,
+  "min_vertex_y_m": -0.05253518996173297,
+  "min_vertex_y_per_frame_below_-0.01": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   33,
+   34,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   54
+  ]
+ },
+ "build": {
+  "hips_lowered_for_reach_max_m": 0.0,
+  "channels": 28,
+  "bytes": 49020
+ },
+ "NOT_TESTED": "Not played in the game. Numbers are from offline FK/skinning on the box, not the three.js runtime."
+}
