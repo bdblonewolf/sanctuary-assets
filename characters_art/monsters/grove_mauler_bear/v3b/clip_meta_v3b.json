@@ -1,0 +1,105 @@
+{
+ "asset": "grove_mauler_bear_v3",
+ "files": {
+  "grove_mauler_bear_v3b.glb": "current colour, dire head, dim dark-red eyes, all 11 clips",
+  "grove_mauler_bear_v3_darkbrown.glb": "same mesh, rig and clips; dark brown base colour only"
+ },
+ "rig": "same 29-bone rig as grove_mauler_bear_anim_v2.glb (identical rest pose and inverse bind matrices)",
+ "fps": 30,
+ "in_place": true,
+ "status": "NOT TESTED IN GAME",
+ "new_clips": {
+  "bear_attack_heavy_claw_left": {
+   "frames": 43,
+   "duration_s": 1.4,
+   "windup_frames": [
+    0,
+    12
+   ],
+   "swing_frames": [
+    13,
+    23
+   ],
+   "impact_frame": 20,
+   "impact_s": 0.667,
+   "impact_frac": 0.476,
+   "limb": "left front paw",
+   "notes": "heavy weight-shift onto the right fore, paw raised to about head height, sweeps across the front; left paw replanted by f34, holds to idle"
+  },
+  "bear_attack_light_claw_right": {
+   "frames": 22,
+   "duration_s": 0.7,
+   "windup_frames": [
+    0,
+    5
+   ],
+   "swing_frames": [
+    6,
+    11
+   ],
+   "impact_frame": 9,
+   "impact_s": 0.3,
+   "impact_frac": 0.429,
+   "limb": "right front paw",
+   "notes": "fast swipe, small body motion; right paw replanted by f19"
+  },
+  "bear_attack_bite": {
+   "frames": 31,
+   "duration_s": 1.0,
+   "windup_frames": [
+    0,
+    8
+   ],
+   "lunge_frames": [
+    9,
+    15
+   ],
+   "impact_frame": 15,
+   "impact_s": 0.5,
+   "impact_frac": 0.5,
+   "applies_bleed": true,
+   "bleed_note": "the bleed effect itself is game-engineer code; this flag is only the design intent",
+   "notes": "head pulls back, jaw drops, lunge forward and down, jaw snaps shut at f15, short head shake (tear) f15-22, recover to idle"
+  }
+ },
+ "existing_clips_unchanged": [
+  "idle",
+  "walk",
+  "run",
+  "attack",
+  "attack2",
+  "hit",
+  "death",
+  "death_old"
+ ],
+ "checks": {
+  "start_and_end_equal_idle_f0": "max channel difference 0 (bite 5.7e-14)",
+  "planted_foot_ik_error_m": 0.0,
+  "lowest_vertex_below_ground_mm": {
+   "bear_attack_heavy_claw_left": 3.6,
+   "bear_attack_light_claw_right": 2.2,
+   "bear_attack_bite": 3.5,
+   "reference_existing_attack": 21.5,
+   "reference_existing_idle": 1.0
+  },
+  "limb_vs_body_triangle_intersections": 0,
+  "mobile_vs_master_max_rotation_drift_deg": 0.024
+ },
+ "_v3b": {
+  "file": "grove_mauler_bear_v3b.glb",
+  "dark_brown_variant": "swap baseColor image (material grove_mauler_bear_v3b_mat) with grove_mauler_bear_v3b_darkbrown_col.webp (2048x2048, same UVs; loader must decode WebP)",
+  "changed_clips": {
+   "bear_attack_bite": "same timing (31 frames, 1.0 s, impact f15, bleed flag) - jaw now opens to 31 deg on the lunge (f8-f14) and snaps shut at f15"
+  },
+  "unchanged_clips": "attack, attack2, death, death_old, hit, idle, run, walk, bear_attack_heavy_claw_left, bear_attack_light_claw_right: keyframes identical to v3",
+  "materials": [
+   "grove_mauler_bear_v3b_mat (textured body)",
+   "grove_mauler_bear_mouth",
+   "grove_mauler_bear_teeth",
+   "grove_mauler_bear_tongue",
+   "grove_mauler_bear_claw (factor-only, no textures)"
+  ],
+  "tris": 16408,
+  "status": "NOT TESTED IN GAME"
+ }
+}
