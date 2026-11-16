@@ -1,0 +1,1647 @@
+{
+ "zone": "church2",
+ "name": "The Underchapel",
+ "size": [
+  44,
+  30
+ ],
+ "version": "WITCH_CAVES1 v1 (2026-11-15)",
+ "tile_key": {
+  "#": "Q.Wall=11",
+  ".": "Q.Stone=5",
+  ",": "Q.Cave=12",
+  "r": "Q.Rug=13",
+  "b": "Q.Blood=14",
+  "~": "Q.Water=8"
+ },
+ "tiles": [
+  "############################################",
+  "############################################",
+  "##############################,,,###########",
+  "####..................#####~~~~,,,,#########",
+  "####........r.........####,~~~~,,,,#########",
+  "####......rrrrr.......,,,,,,,,,,,,,,,#######",
+  "####.....rrrrrrr......,,,,,,,,,,,,,,,#######",
+  "####.....rrrrrrr......,,,,,,,,,,,,,,,#######",
+  "####.....rrrrrrr......,,,,,,,,,,,,,,,......#",
+  "####......rrrrr.......,,,,,,,,,,,,,,,......#",
+  "####........r.........##,,,,,,,,,,,,,......#",
+  "####..................##,~~,,,,,,,,,,......#",
+  "####.....##....#########,,,,,,,,,,,,,......#",
+  "####.....##....#############,,,,,,,##......#",
+  "###......#......############,,,,,####......#",
+  "###......#......,,,,,,,,,,##,,,,,###########",
+  "###......#......,,,,,,,,,,###,,,############",
+  "###......#......,,,,,,,,,,###,,,############",
+  "###......#......######,,,,##,,,,,###########",
+  "###......#......######,,,,,,,,,,,,,,########",
+  "###..,,..#......######,,,,,,,bbb,,,,########",
+  "###,,,,,.#......######,,,,,,bbbbb,,,########",
+  "##,~~~,,################,,,,bbbbb,,,########",
+  "###,~,,,#################,,,,bbb,,,,########",
+  "#########################,,,,,b,,,,,########",
+  "##########################,,,,,,,,,,########",
+  "##########################,,,,,,,,,,########",
+  "############################################",
+  "############################################",
+  "############################################"
+ ],
+ "solid_rule": "'#' and '~' solid; all other tiles walkable",
+ "props": [
+  {
+   "kind": "stairs",
+   "x": 12.5,
+   "y": 19.2,
+   "label": "UP",
+   "down": false
+  },
+  {
+   "kind": "stairs",
+   "x": 41.0,
+   "y": 11.5,
+   "label": "Thorn Choir",
+   "to": "choir",
+   "sx": 18.5,
+   "sy": 28.5
+  },
+  {
+   "kind": "mark",
+   "x": 12.5,
+   "y": 4.3,
+   "label": "Ash Wraith"
+  },
+  {
+   "kind": "tomb",
+   "x": 4.4,
+   "y": 15.6,
+   "rotY": 1.571,
+   "style": "crypt",
+   "w": 0.85,
+   "d": 1.5,
+   "mesh": "models/env_extra/props_gothic_v1/loot/sarcophagus_small_closed.glb",
+   "mesh_aabb_xz": [
+    -0.43,
+    0.43,
+    -0.75,
+    0.75
+   ]
+  },
+  {
+   "kind": "tomb",
+   "x": 4.4,
+   "y": 18.6,
+   "rotY": 1.571,
+   "style": "crypt",
+   "w": 0.85,
+   "d": 1.5,
+   "mesh": "models/env_extra/props_gothic_v1/loot/sarcophagus_small_closed.glb",
+   "mesh_aabb_xz": [
+    -0.43,
+    0.43,
+    -0.75,
+    0.75
+   ]
+  },
+  {
+   "kind": "tomb",
+   "x": 15.0,
+   "y": 18.4,
+   "rotY": 1.571,
+   "style": "crypt",
+   "w": 0.85,
+   "d": 1.5,
+   "mesh": "models/env_extra/props_gothic_v1/loot/sarcophagus_small_closed.glb",
+   "mesh_aabb_xz": [
+    -0.43,
+    0.43,
+    -0.75,
+    0.75
+   ]
+  },
+  {
+   "kind": "chest",
+   "x": 7.5,
+   "y": 20.6,
+   "rotY": -1.571,
+   "w": 0.74,
+   "d": 1.11,
+   "mesh": "models/props_new/lite/iron_chest_lite_closed.glb",
+   "mesh_aabb_xz": [
+    -0.37,
+    0.35,
+    -0.55,
+    0.55
+   ]
+  },
+  {
+   "kind": "bookshelf",
+   "x": 9.4,
+   "y": 3.4,
+   "label": "SHELF",
+   "w": 1.34,
+   "d": 0.55,
+   "mesh": "models/props_new/lite/bookshelf_worn_lite.glb",
+   "mesh_aabb_xz": [
+    -0.67,
+    0.67,
+    -0.27,
+    0.27
+   ]
+  },
+  {
+   "kind": "body",
+   "x": 5.6,
+   "y": 10.6,
+   "looted": false
+  },
+  {
+   "kind": "body",
+   "x": 19.2,
+   "y": 9.6,
+   "looted": false
+  },
+  {
+   "kind": "body",
+   "x": 27.6,
+   "y": 10.4,
+   "looted": false
+  },
+  {
+   "kind": "body",
+   "x": 33.0,
+   "y": 24.6,
+   "looted": false
+  },
+  {
+   "kind": "body",
+   "x": 19.4,
+   "y": 16.6,
+   "looted": false
+  },
+  {
+   "kind": "torch",
+   "x": 10.3,
+   "y": 14.3,
+   "rotY": 1.571,
+   "phase": 2.68
+  },
+  {
+   "kind": "torch",
+   "x": 15.7,
+   "y": 14.3,
+   "rotY": -1.571,
+   "phase": 2.6
+  },
+  {
+   "kind": "torch",
+   "x": 4.3,
+   "y": 3.4,
+   "rotY": 1.571,
+   "phase": 4.74
+  },
+  {
+   "kind": "torch",
+   "x": 21.7,
+   "y": 10.4,
+   "rotY": -1.571,
+   "phase": 1.46
+  },
+  {
+   "kind": "torch",
+   "x": 37.4,
+   "y": 8.4,
+   "phase": 1.99
+  },
+  {
+   "kind": "torch",
+   "x": 42.7,
+   "y": 12.8,
+   "rotY": -1.571,
+   "phase": 3.9
+  },
+  {
+   "kind": "torch",
+   "x": 3.3,
+   "y": 14.6,
+   "rotY": 1.571,
+   "phase": 4.51
+  },
+  {
+   "kind": "torch",
+   "x": 15.0,
+   "y": 3.3,
+   "phase": 2.77
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/cliff_wall_4m_ledge_roots.glb",
+   "x": 12.5,
+   "y": 13.95,
+   "rotY": 3.142,
+   "style": "wc1",
+   "tag": "roots_face",
+   "lift": 4.0,
+   "note": "over the north lintel of the stair foot, on wall tiles"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1_lite.glb",
+   "x": 10.35,
+   "y": 16.0,
+   "rotY": 1.571,
+   "style": "wc1",
+   "tag": "cobweb"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "x": 10.7,
+   "y": 18.4,
+   "rotY": -2.165,
+   "style": "wc1",
+   "tag": "skull_heap"
+  },
+  {
+   "kind": "urn",
+   "x": 15.3,
+   "y": 16.6,
+   "rotY": 4.726,
+   "breakable": true,
+   "mesh": "models/props_new/breakables/urn_a_intact.glb",
+   "w": 0.6,
+   "d": 0.6,
+   "mesh_aabb_xz": [
+    -0.3,
+    0.3,
+    -0.3,
+    0.3
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/props_new/breakables/urn_c_broken.glb",
+   "x": 15.1,
+   "y": 20.9,
+   "rotY": 1.872,
+   "style": "wc1",
+   "tag": "urn_broken"
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/green_goo_b.glb",
+   "x": 12.0,
+   "y": 13.0,
+   "rotY": 3.099,
+   "style": "wc1",
+   "tag": "decal_moss_goo",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/dead_stump_blighted_dead.glb",
+   "x": 12.5,
+   "y": 7.6,
+   "rotY": 1.528,
+   "style": "wc1",
+   "tag": "stump_heart",
+   "w": 2.78,
+   "d": 2.99,
+   "mesh_aabb_xz": [
+    -1.39,
+    1.39,
+    -1.5,
+    1.49
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/cliff_wall_4m_ledge_roots.glb",
+   "x": 8.5,
+   "y": 2.95,
+   "rotY": 3.142,
+   "style": "wc1",
+   "tag": "roots_face",
+   "lift": 4.0
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/cliff_wall_4m_ledge_roots.glb",
+   "x": 18.0,
+   "y": 2.95,
+   "rotY": 3.142,
+   "style": "wc1",
+   "tag": "roots_face",
+   "lift": 4.0
+  },
+  {
+   "kind": "pillar",
+   "x": 7.0,
+   "y": 4.8,
+   "w": 1.5,
+   "d": 1.7,
+   "mesh": "/assets3d/dungeon/pillar_decorated.gltf.glb (live, not in sanctuary-assets)",
+   "mesh_aabb_xz": [
+    -0.75,
+    0.75,
+    -0.75,
+    0.85
+   ]
+  },
+  {
+   "kind": "pillar",
+   "x": 18.0,
+   "y": 4.6,
+   "w": 1.5,
+   "d": 1.7,
+   "mesh": "/assets3d/dungeon/pillar_decorated.gltf.glb (live, not in sanctuary-assets)",
+   "mesh_aabb_xz": [
+    -0.75,
+    0.75,
+    -0.75,
+    0.85
+   ]
+  },
+  {
+   "kind": "pillar",
+   "x": 17.9,
+   "y": 10.5,
+   "w": 1.5,
+   "d": 1.7,
+   "mesh": "/assets3d/dungeon/pillar_decorated.gltf.glb (live, not in sanctuary-assets)",
+   "mesh_aabb_xz": [
+    -0.75,
+    0.75,
+    -0.75,
+    0.85
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/rubble_cache_closed.glb",
+   "x": 5.6,
+   "y": 8.3,
+   "rotY": 0.6,
+   "style": "wc1",
+   "tag": "rubble",
+   "w": 2.05,
+   "d": 1.98,
+   "mesh_aabb_xz": [
+    -1.03,
+    1.03,
+    -0.99,
+    0.99
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/church_pew_v1_lite.glb",
+   "x": 4.85,
+   "y": 5.9,
+   "rotY": 1.691,
+   "style": "wc1",
+   "tag": "pew",
+   "w": 1.08,
+   "d": 2.52,
+   "mesh_aabb_xz": [
+    -0.54,
+    0.53,
+    -1.26,
+    1.26
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/church_pew_v1_lite.glb",
+   "x": 20.0,
+   "y": 11.45,
+   "rotY": 0.18,
+   "style": "wc1",
+   "tag": "pew",
+   "w": 2.54,
+   "d": 1.22,
+   "mesh_aabb_xz": [
+    -1.27,
+    1.26,
+    -0.61,
+    0.6
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "x": 10.0,
+   "y": 5.0,
+   "rotY": 0.04,
+   "style": "wc1",
+   "tag": "grass_dead"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "x": 15.2,
+   "y": 9.4,
+   "rotY": -0.787,
+   "style": "wc1",
+   "tag": "grass_dead"
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/toxic_pool_a.glb",
+   "x": 14.6,
+   "y": 5.2,
+   "rotY": -0.577,
+   "style": "wc1",
+   "tag": "decal_fungus_glow",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "x": 11.1,
+   "y": 9.6,
+   "rotY": -1.262,
+   "style": "wc1",
+   "tag": "skull_heap"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb",
+   "x": 14.0,
+   "y": 9.7,
+   "rotY": -2.842,
+   "style": "wc1",
+   "tag": "bone_pile"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/wall_niche_saint_v1_lite.glb",
+   "x": 6.0,
+   "y": 3.05,
+   "rotY": 0.0,
+   "style": "wc1",
+   "tag": "niche_saint",
+   "w": 1.4,
+   "d": 1.5,
+   "mesh_aabb_xz": [
+    -0.7,
+    0.7,
+    -0.07,
+    0.75
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1_lite.glb",
+   "x": 4.7,
+   "y": 10.9,
+   "rotY": 0.0,
+   "style": "wc1",
+   "tag": "candelabra",
+   "w": 0.7,
+   "d": 0.7,
+   "mesh_aabb_xz": [
+    -0.35,
+    0.34,
+    -0.35,
+    0.35
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1_lite.glb",
+   "x": 21.6,
+   "y": 9.0,
+   "rotY": -1.571,
+   "style": "wc1",
+   "tag": "cobweb"
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/blood_splatter_thin_b.glb",
+   "x": 18.6,
+   "y": 4.4,
+   "rotY": 0.14,
+   "style": "wc1",
+   "tag": "decal_blood_thin",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "x": 3.6,
+   "y": 20.4,
+   "rotY": -0.472,
+   "style": "wc1",
+   "tag": "skull_heap"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb",
+   "x": 7.7,
+   "y": 17.7,
+   "rotY": 0.46,
+   "style": "wc1",
+   "tag": "bone_pile"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/remains_heap_closed.glb",
+   "x": 6.0,
+   "y": 14.4,
+   "rotY": 0.1,
+   "style": "wc1",
+   "tag": "remains"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/rotten_stump_closed.glb",
+   "x": 7.0,
+   "y": 22.9,
+   "rotY": 2.278,
+   "style": "wc1",
+   "tag": "rotten_stump",
+   "w": 1.55,
+   "d": 1.55,
+   "mesh_aabb_xz": [
+    -0.78,
+    0.78,
+    -0.78,
+    0.78
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "x": 3.9,
+   "y": 21.7,
+   "rotY": -2.611,
+   "style": "wc1",
+   "tag": "grass_dead"
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/toxic_pool_a.glb",
+   "x": 6.4,
+   "y": 21.2,
+   "rotY": 2.696,
+   "style": "wc1",
+   "tag": "decal_fungus_glow",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1_lite.glb",
+   "x": 3.35,
+   "y": 17.2,
+   "rotY": 1.571,
+   "style": "wc1",
+   "tag": "cobweb"
+  },
+  {
+   "kind": "urn",
+   "x": 8.4,
+   "y": 19.3,
+   "rotY": 4.737,
+   "breakable": true,
+   "mesh": "models/props_new/breakables/urn_b_intact.glb",
+   "w": 0.75,
+   "d": 0.75,
+   "mesh_aabb_xz": [
+    -0.37,
+    0.37,
+    -0.37,
+    0.37
+   ]
+  },
+  {
+   "kind": "crate",
+   "x": 8.3,
+   "y": 16.4,
+   "rotY": 0.044,
+   "breakable": true,
+   "mesh": "models/props_new/breakables/crate_intact.glb",
+   "w": 0.99,
+   "d": 0.99,
+   "mesh_aabb_xz": [
+    -0.5,
+    0.5,
+    -0.5,
+    0.5
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/rock_pile_closed.glb",
+   "x": 24.4,
+   "y": 8.9,
+   "rotY": 0.4,
+   "style": "wc1",
+   "tag": "rock_pile",
+   "w": 1.66,
+   "d": 1.61,
+   "mesh_aabb_xz": [
+    -0.83,
+    0.83,
+    -0.81,
+    0.81
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/cliff_wall_4m_ledge_roots.glb",
+   "x": 23.5,
+   "y": 4.95,
+   "rotY": 3.142,
+   "style": "wc1",
+   "tag": "roots_face",
+   "lift": 4.0
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "x": 22.8,
+   "y": 5.6,
+   "rotY": -0.542,
+   "style": "wc1",
+   "tag": "grass_dead"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/outdoor/v5/plants/tree_dead_b_v5.glb",
+   "x": 33.8,
+   "y": 3.9,
+   "rotY": 2.985,
+   "style": "wc1",
+   "tag": "tree_dead_b",
+   "w": 2.49,
+   "d": 2.12,
+   "note": "grew down through the collapsed vault; north side, never in front of the camera",
+   "mesh_aabb_xz": [
+    -1.25,
+    1.11,
+    -0.89,
+    1.06
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/cliff_wall_4m_ledge_roots.glb",
+   "x": 28.5,
+   "y": 2.95,
+   "rotY": 3.142,
+   "style": "wc1",
+   "tag": "roots_face",
+   "lift": 4.0
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/gibbet_cage_v1_lite.glb",
+   "x": 28.0,
+   "y": 4.4,
+   "rotY": 0.2,
+   "style": "wc1",
+   "tag": "gibbet",
+   "note": "cage hangs over the drip pool (pool tiles are solid)"
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/props/corpses/glb/gibbet_corpse.glb",
+   "x": 30.2,
+   "y": 4.2,
+   "rotY": -0.3,
+   "style": "wc1",
+   "tag": "gibbet_corpse",
+   "note": "over the pool"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/ashen_v1/shore_rock_a_boulder.glb",
+   "x": 24.9,
+   "y": 10.5,
+   "rotY": 3.263,
+   "style": "wc1",
+   "tag": "boulder",
+   "w": 1.87,
+   "d": 1.64,
+   "mesh_aabb_xz": [
+    -0.92,
+    0.94,
+    -0.82,
+    0.77
+   ]
+  },
+  {
+   "kind": "log",
+   "x": 36.1,
+   "y": 5.3,
+   "rotY": 3.149,
+   "breakable": true,
+   "mesh": "models/env_extra/props_gothic_v1/loot/hollow_log_closed.glb",
+   "w": 2.51,
+   "d": 1.22,
+   "mesh_aabb_xz": [
+    -1.26,
+    1.15,
+    -0.36,
+    0.61
+   ]
+  },
+  {
+   "kind": "barrel",
+   "x": 30.8,
+   "y": 6.2,
+   "rotY": -0.043,
+   "breakable": true,
+   "mesh": "models/props_new/breakables/barrel_intact.glb",
+   "style": "fire",
+   "w": 0.88,
+   "d": 0.88,
+   "note": "witch oil: the live fire-barrel blast",
+   "mesh_aabb_xz": [
+    -0.44,
+    0.44,
+    -0.44,
+    0.44
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/toxic_pool_a.glb",
+   "x": 27.0,
+   "y": 8.6,
+   "rotY": -0.411,
+   "style": "wc1",
+   "tag": "decal_fungus_glow",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/toxic_pool_a.glb",
+   "x": 34.8,
+   "y": 9.2,
+   "rotY": -0.771,
+   "style": "wc1",
+   "tag": "decal_fungus_glow",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "x": 32.8,
+   "y": 12.6,
+   "rotY": -0.133,
+   "style": "wc1",
+   "tag": "grass_dead"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/outdoor/v5/plants/plant_scrub_bush_a_v5.glb",
+   "x": 24.6,
+   "y": 6.0,
+   "rotY": 0.916,
+   "style": "wc1",
+   "tag": "scrub"
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/props/corpses/glb/fallen_adventurer.glb",
+   "x": 27.6,
+   "y": 10.4,
+   "rotY": 0.8,
+   "style": "wc1",
+   "tag": "fallen"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/cauldron_tripod_v1_lite.glb",
+   "x": 32.2,
+   "y": 7.2,
+   "rotY": 1.285,
+   "style": "wc1",
+   "tag": "cauldron",
+   "w": 1.33,
+   "d": 1.48,
+   "mesh_aabb_xz": [
+    -0.64,
+    0.67,
+    -0.74,
+    0.66
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "x": 33.6,
+   "y": 6.5,
+   "rotY": -1.443,
+   "style": "wc1",
+   "tag": "skull_heap"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb",
+   "x": 30.8,
+   "y": 6.4,
+   "rotY": 1.131,
+   "style": "wc1",
+   "tag": "bone_pile"
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/blackblood_goo_a.glb",
+   "x": 32.2,
+   "y": 8.1,
+   "rotY": 0.465,
+   "style": "wc1",
+   "tag": "decal_blackgoo",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/outdoor/v5/plants/tree_dead_b_v5.glb",
+   "x": 39.4,
+   "y": 8.6,
+   "rotY": 4.393,
+   "style": "wc1",
+   "tag": "tree_dead_b",
+   "w": 1.85,
+   "d": 2.41,
+   "note": "dead tree grown down the crypt stair, north wall",
+   "mesh_aabb_xz": [
+    -0.93,
+    0.92,
+    -1.17,
+    1.21
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/gargoyle_perched_v1_lite.glb",
+   "x": 42.3,
+   "y": 8.6,
+   "rotY": 8.747,
+   "style": "wc1",
+   "tag": "gargoyle",
+   "w": 1.64,
+   "d": 1.6,
+   "mesh_aabb_xz": [
+    -0.82,
+    0.62,
+    -0.62,
+    0.8
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/cliff_wall_4m_ledge_roots.glb",
+   "x": 40.0,
+   "y": 7.95,
+   "rotY": 3.142,
+   "style": "wc1",
+   "tag": "roots_face",
+   "lift": 4.0
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/blood_splatter_thick_a.glb",
+   "x": 40.2,
+   "y": 12.8,
+   "rotY": -1.651,
+   "style": "wc1",
+   "tag": "decal_blood_thick",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1_lite.glb",
+   "x": 42.6,
+   "y": 10.2,
+   "rotY": -1.571,
+   "style": "wc1",
+   "tag": "cobweb"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "x": 38.0,
+   "y": 13.6,
+   "rotY": -1.543,
+   "style": "wc1",
+   "tag": "skull_heap"
+  },
+  {
+   "kind": "gate",
+   "x": 30.5,
+   "y": 16.9,
+   "glb": "models/env_extra/props_gothic_v1/props/iron_gate_gothic_v1_lite.glb",
+   "scale": 1.364,
+   "w": 3.0,
+   "d": 0.3,
+   "label": "COVEN GATE",
+   "style": "hinge",
+   "note": "scaled 1.364 so the two leaves span the 3 m throat exactly; the piers (x+-2.18) sit inside the wall tiles; box = closed leaves only"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/town/martsirt_v2_2/buildings/witch_lair/decal_ritual_circle.png",
+   "x": 30.5,
+   "y": 22.4,
+   "rotY": 0.0,
+   "style": "wc1",
+   "tag": "decal_ritual",
+   "decal": true,
+   "size": 4.0
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/altar_cloth_v1_lite.glb",
+   "x": 30.5,
+   "y": 25.9,
+   "rotY": 0.0,
+   "style": "wc1",
+   "tag": "altar",
+   "w": 2.24,
+   "d": 1.16,
+   "note": "south edge, faces the gate across the circle",
+   "mesh_aabb_xz": [
+    -1.12,
+    1.12,
+    -0.55,
+    0.58
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/blood_pool_a.glb",
+   "x": 30.5,
+   "y": 24.9,
+   "rotY": -0.703,
+   "style": "wc1",
+   "tag": "decal_blood_pool",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "x": 27.6,
+   "y": 23.75,
+   "rotY": -2.453,
+   "style": "wc1",
+   "tag": "skull_heap"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb",
+   "x": 28.24,
+   "y": 20.14,
+   "rotY": 0.724,
+   "style": "wc1",
+   "tag": "bone_pile"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "x": 32.76,
+   "y": 20.14,
+   "rotY": 1.451,
+   "style": "wc1",
+   "tag": "skull_heap"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb",
+   "x": 33.4,
+   "y": 23.75,
+   "rotY": 0.649,
+   "style": "wc1",
+   "tag": "bone_pile"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1_lite.glb",
+   "x": 28.9,
+   "y": 25.6,
+   "rotY": 0.0,
+   "style": "wc1",
+   "tag": "candelabra",
+   "w": 0.7,
+   "d": 0.7,
+   "mesh_aabb_xz": [
+    -0.35,
+    0.34,
+    -0.35,
+    0.35
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1_lite.glb",
+   "x": 32.1,
+   "y": 25.6,
+   "rotY": 0.0,
+   "style": "wc1",
+   "tag": "candelabra",
+   "w": 0.7,
+   "d": 0.7,
+   "mesh_aabb_xz": [
+    -0.35,
+    0.34,
+    -0.35,
+    0.35
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/iron_maiden_v1.glb",
+   "x": 26.2,
+   "y": 25.2,
+   "rotY": 5.298,
+   "style": "wc1",
+   "tag": "iron_maiden",
+   "w": 1.86,
+   "d": 0.68,
+   "mesh_aabb_xz": [
+    -0.23,
+    0.93,
+    -0.34,
+    0.34
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/gibbet_cage_v1_lite.glb",
+   "x": 22.75,
+   "y": 21.5,
+   "rotY": 3.142,
+   "style": "wc1",
+   "tag": "gibbet",
+   "w": 2.53,
+   "d": 0.67,
+   "note": "post against the west wall, cage arm reaching east toward the circle",
+   "mesh_aabb_xz": [
+    -0.69,
+    1.27,
+    -0.33,
+    0.33
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/props/corpses/glb/chained_prisoner.glb",
+   "x": 35.3,
+   "y": 22.6,
+   "rotY": -1.571,
+   "style": "wc1",
+   "tag": "prisoner"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/chains_shackles_v1_lite.glb",
+   "x": 35.85,
+   "y": 24.2,
+   "rotY": -1.571,
+   "style": "wc1",
+   "tag": "chains"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/props/cauldron_tripod_v1_lite.glb",
+   "x": 34.0,
+   "y": 25.4,
+   "rotY": 2.685,
+   "style": "wc1",
+   "tag": "cauldron",
+   "w": 1.46,
+   "d": 1.38,
+   "mesh_aabb_xz": [
+    -0.73,
+    0.67,
+    -0.65,
+    0.69
+   ]
+  },
+  {
+   "kind": "sack",
+   "x": 33.9,
+   "y": 19.8,
+   "rotY": 0.043,
+   "breakable": true,
+   "mesh": "models/props_new/breakables/sack_intact.glb",
+   "w": 0.78,
+   "d": 0.65,
+   "mesh_aabb_xz": [
+    -0.39,
+    0.39,
+    -0.33,
+    0.33
+   ]
+  },
+  {
+   "kind": "urn",
+   "x": 35.2,
+   "y": 20.0,
+   "rotY": 3.134,
+   "breakable": true,
+   "mesh": "models/props_new/breakables/urn_b_intact.glb",
+   "w": 0.74,
+   "d": 0.74,
+   "mesh_aabb_xz": [
+    -0.37,
+    0.37,
+    -0.37,
+    0.37
+   ]
+  },
+  {
+   "kind": "barrel",
+   "x": 34.9,
+   "y": 21.1,
+   "rotY": 0.036,
+   "breakable": true,
+   "mesh": "models/props_new/breakables/barrel_intact.glb",
+   "w": 0.87,
+   "d": 0.87,
+   "mesh_aabb_xz": [
+    -0.43,
+    0.43,
+    -0.43,
+    0.43
+   ]
+  },
+  {
+   "kind": "crate",
+   "x": 32.4,
+   "y": 20.0,
+   "rotY": 0.002,
+   "breakable": true,
+   "mesh": "models/props_new/breakables/crate_intact.glb",
+   "w": 0.95,
+   "d": 0.95,
+   "mesh_aabb_xz": [
+    -0.48,
+    0.48,
+    -0.48,
+    0.48
+   ]
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/remains_heap_closed.glb",
+   "x": 33.0,
+   "y": 24.6,
+   "rotY": 0.4,
+   "style": "wc1",
+   "tag": "remains"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "x": 28.2,
+   "y": 26.0,
+   "rotY": 1.037,
+   "style": "wc1",
+   "tag": "skull_heap"
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/blood_splatter_thin_b.glb",
+   "x": 28.0,
+   "y": 23.4,
+   "rotY": -1.581,
+   "style": "wc1",
+   "tag": "decal_blood_thin",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/rotten_stump_closed.glb",
+   "x": 18.0,
+   "y": 15.5,
+   "rotY": 0.4,
+   "style": "wc1",
+   "tag": "rotten_stump",
+   "note": "low, hugging the north wall of the crawl; no box so the 3 m lane stays clear"
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/cliffkit_v2/sway_dead_grass_patch_2m.glb",
+   "x": 21.0,
+   "y": 16.5,
+   "rotY": 1.621,
+   "style": "wc1",
+   "tag": "grass_dead"
+  },
+  {
+   "kind": "glb",
+   "glb": "characters_art/fx_decals/glb/toxic_pool_a.glb",
+   "x": 23.6,
+   "y": 19.6,
+   "rotY": -0.403,
+   "style": "wc1",
+   "tag": "decal_fungus_glow",
+   "decal": true
+  },
+  {
+   "kind": "glb",
+   "glb": "models/env_extra/props_gothic_v1/loot/rock_pile_closed.glb",
+   "x": 25.4,
+   "y": 15.5,
+   "rotY": 0.9,
+   "style": "wc1",
+   "tag": "rock_pile"
+  }
+ ],
+ "lights": [
+  {
+   "x": 10.3,
+   "y": 14.3,
+   "r": 150,
+   "warm": true
+  },
+  {
+   "x": 15.7,
+   "y": 14.3,
+   "r": 150,
+   "warm": true
+  },
+  {
+   "x": 4.3,
+   "y": 3.4,
+   "r": 150,
+   "warm": true
+  },
+  {
+   "x": 21.7,
+   "y": 10.4,
+   "r": 150,
+   "warm": true
+  },
+  {
+   "x": 37.4,
+   "y": 8.4,
+   "r": 150,
+   "warm": true
+  },
+  {
+   "x": 42.7,
+   "y": 12.8,
+   "r": 150,
+   "warm": true
+  },
+  {
+   "x": 3.3,
+   "y": 14.6,
+   "r": 150,
+   "warm": true
+  },
+  {
+   "x": 15.0,
+   "y": 3.3,
+   "r": 150,
+   "warm": true
+  },
+  {
+   "x": 14.6,
+   "y": 5.2,
+   "r": 70,
+   "warm": false,
+   "note": "fungus glow (cool, dim)"
+  },
+  {
+   "x": 6.4,
+   "y": 21.2,
+   "r": 70,
+   "warm": false,
+   "note": "fungus glow"
+  },
+  {
+   "x": 27.0,
+   "y": 8.6,
+   "r": 70,
+   "warm": false,
+   "note": "fungus glow"
+  },
+  {
+   "x": 32.2,
+   "y": 7.2,
+   "r": 110,
+   "warm": true,
+   "note": "cauldron embers"
+  },
+  {
+   "x": 30.5,
+   "y": 25.2,
+   "r": 120,
+   "warm": true,
+   "note": "two altar candelabra"
+  },
+  {
+   "x": 23.6,
+   "y": 19.6,
+   "r": 70,
+   "warm": false,
+   "note": "fungus glow"
+  }
+ ],
+ "rooms": [
+  {
+   "name": "R1 Stair Foot",
+   "rect": [
+    10,
+    14,
+    15,
+    21
+   ]
+  },
+  {
+   "name": "R2 Root-Split Nave",
+   "rect": [
+    4,
+    3,
+    21,
+    11
+   ]
+  },
+  {
+   "name": "R3 Drowned Ossuary",
+   "rect": [
+    3,
+    14,
+    8,
+    24
+   ]
+  },
+  {
+   "name": "Breach",
+   "rect": [
+    22,
+    5,
+    25,
+    9
+   ]
+  },
+  {
+   "name": "R5 Mire Grotto",
+   "rect": [
+    26,
+    3,
+    36,
+    12
+   ]
+  },
+  {
+   "name": "R6 Coven Hollow",
+   "rect": [
+    26,
+    19,
+    35,
+    26
+   ]
+  },
+  {
+   "name": "R7 Thorn Stair",
+   "rect": [
+    37,
+    8,
+    42,
+    14
+   ]
+  },
+  {
+   "name": "R8 Root Crawl",
+   "rect": [
+    16,
+    15,
+    25,
+    21
+   ]
+  }
+ ],
+ "keep_clear": [
+  {
+   "name": "spawn",
+   "x": 12.5,
+   "y": 16.2,
+   "r": 1.6
+  },
+  {
+   "name": "exit",
+   "x": 12.5,
+   "y": 20.2,
+   "r": 1.4
+  },
+  {
+   "name": "choir stair",
+   "x": 41.0,
+   "y": 11.5,
+   "r": 1.6
+  },
+  {
+   "name": "mark",
+   "x": 12.5,
+   "y": 4.3,
+   "r": 1.2
+  },
+  {
+   "name": "folio fate",
+   "x": 21.2,
+   "y": 4.4,
+   "r": 1.6
+  },
+  {
+   "name": "choir arrival",
+   "x": 38.6,
+   "y": 11.4,
+   "r": 1.2
+  },
+  {
+   "name": "gate swing",
+   "x": 30.5,
+   "y": 16.9,
+   "r": 1.6
+  }
+ ],
+ "lanes": [
+  [
+   [
+    12.5,
+    16.5
+   ],
+   [
+    12.5,
+    12.2
+   ],
+   [
+    9.4,
+    10.2
+   ],
+   [
+    9.4,
+    5.0
+   ],
+   [
+    12.5,
+    4.3
+   ],
+   [
+    15.6,
+    5.0
+   ],
+   [
+    15.6,
+    7.6
+   ],
+   [
+    21.0,
+    7.0
+   ],
+   [
+    24.0,
+    7.0
+   ],
+   [
+    29.0,
+    8.8
+   ],
+   [
+    34.0,
+    9.6
+   ],
+   [
+    38.6,
+    11.4
+   ]
+  ],
+  [
+   [
+    12.5,
+    12.2
+   ],
+   [
+    15.6,
+    10.4
+   ],
+   [
+    15.6,
+    7.6
+   ]
+  ],
+  [
+   [
+    9.4,
+    10.2
+   ],
+   [
+    6.0,
+    12.5
+   ],
+   [
+    5.8,
+    17.0
+   ],
+   [
+    5.6,
+    21.0
+   ]
+  ],
+  [
+   [
+    29.0,
+    8.8
+   ],
+   [
+    30.5,
+    13.5
+   ],
+   [
+    30.5,
+    18.6
+   ],
+   [
+    28.6,
+    22.4
+   ],
+   [
+    30.5,
+    24.6
+   ],
+   [
+    32.6,
+    22.4
+   ],
+   [
+    30.5,
+    18.6
+   ]
+  ],
+  [
+   [
+    28.6,
+    22.4
+   ],
+   [
+    24.0,
+    20.0
+   ],
+   [
+    23.5,
+    16.2
+   ],
+   [
+    17.0,
+    16.2
+   ],
+   [
+    13.0,
+    16.5
+   ]
+  ]
+ ],
+ "validation": [
+  "NOTE box overhang 0.44 m2 on floor: stump_heart @(12.5,7.6)",
+  "NOTE box overhang 0.27 m2 on floor: pillar @(7.0,4.8)",
+  "NOTE box overhang 0.27 m2 on floor: pillar @(18.0,4.6)",
+  "NOTE box overhang 0.27 m2 on floor: pillar @(17.9,10.5)",
+  "NOTE box overhang 0.36 m2 on floor: tree_dead_b @(33.8,3.9)",
+  "NOTE box overhang 0.30 m2 on floor: cauldron @(32.2,7.2)",
+  "PASS 2.5 m lane (12.5, 16.5) -> (38.6, 11.4)",
+  "PASS 2.5 m lane (12.5, 16.5) -> (6.4, 18.0)",
+  "PASS 2.5 m lane (12.5, 16.5) -> (30.5, 22.4)",
+  "PASS 2.5 m lane (38.6, 11.4) -> (30.5, 24.0)",
+  "PASS 2.5 m lane (12.5, 16.5) -> (20.6, 4.6)",
+  "PASS 2.5 m lane (38.6, 11.4) -> (12.5, 16.5)"
+ ],
+ "spawn": {
+  "x": 12.5,
+  "y": 16.2
+ },
+ "entry_from_town": [
+  12.5,
+  16.5
+ ],
+ "exits": [
+  {
+   "x": 12.5,
+   "y": 20.2,
+   "to": "town",
+   "sx": 133.0,
+   "sy": 46.6
+  },
+  {
+   "x": 40.5,
+   "y": 11.5,
+   "to": "choir",
+   "sx": 18.5,
+   "sy": 28.5
+  }
+ ],
+ "enemies": "unchanged call: uj(t,i,4,[skeleton,skeleton,skeleton,ghost,caller],12.5,17,4); nests fj(t,i,3,12.5,17,5); cap 5 danger 7",
+ "dark": 0.82,
+ "library_path": "models/dungeons_v1/witch_caves/church2_layout_v1.json",
+ "field_notes": {
+  "kind glb": "load glb via the dk5-dress path; rotY yaw; optional scale, lift (m, +y), lying (90 deg about local X), decal (flat, no collision), size (m, png decal plane)",
+  "w/d": "axis-aligned box centred on x,y, measured from the GLB triangles at 0.08-1.9 m (trees/stumps 0.08-1.0 m) after yaw/scale; mesh_aabb_xz = the true offset bounds [xmin,xmax,zmin,zmax]. Props without w/d have NO collision. Do not tile-stamp these in WC1 zones.",
+  "breakable": "true on live kinds barrel/crate/sack/urn/log: world_props.json variant (SM hash) swaps base->looted, smashBarrel/smashCrate roll loot; mesh = the variant this x,y hashes to (box sized for it). Box must clear when looted.",
+  "kinds stairs/mark/tomb/chest/body/bookshelf/pillar/torch/gate": "existing live kinds, same handlers as before; tomb/chest/bookshelf/pillar w/d measured from the mesh live renders for them"
+ }
+}
