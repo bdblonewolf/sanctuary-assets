@@ -13,5 +13,12 @@
     "maxX": 72,
     "minZ": 0,
     "maxZ": 56
+  },
+  "coast": {
+    "img": "art_2d/maps/area_minimap_ashen_coast_v1.jpg",
+    "minX": 0,
+    "maxX": 90,
+    "minZ": 0,
+    "maxZ": 180
   }
 }
