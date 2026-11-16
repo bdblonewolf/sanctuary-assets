@@ -1,0 +1,12355 @@
+{
+ "name": "Witch's Lair (rebuilt Chapel of St. Noll keep) v1",
+ "version": 1,
+ "author": "grok_bot art/architect rough pass 2026-11-15",
+ "placement": {
+  "town": "Martsirt",
+  "pos": [
+   30.0,
+   0,
+   -44.25
+  ],
+  "rotY": -0.4898,
+  "tile_center": [
+   111.0,
+   31.75
+  ],
+  "footprint_m": [
+   30,
+   22.5
+  ],
+  "note": "Castle-local frame like a town GLB: origin = footprint centre at ground, +Z = front (gate). Town local pos/rotY as in placements.json. rotY = the live chapel yaw after xk() (-0.0698 clamped to -0.4898), so the gate faces the square."
+ },
+ "grid": {
+  "cell_m": 2.5,
+  "cols": 12,
+  "rows": 9,
+  "x0": -15.0,
+  "z0": -11.25,
+  "kit_scale": 1.25
+ },
+ "levels": [
+  {
+   "level": 0,
+   "floor_y": 0.0,
+   "wall_h": 4.0,
+   "collider_set": "town"
+  },
+  {
+   "level": 1,
+   "floor_y": 4.0,
+   "wall_h": 4.0,
+   "collider_set": "witch_lair:up",
+   "walk_rects_local": [
+    [
+     -15,
+     -7.5,
+     -11.25,
+     1.25
+    ],
+    [
+     -15,
+     -7.5,
+     1.25,
+     11.25
+    ],
+    [
+     -7.5,
+     7.5,
+     -11.25,
+     -6.25
+    ],
+    [
+     -7.5,
+     -5,
+     -6.25,
+     3.75
+    ],
+    [
+     5,
+     7.5,
+     -6.25,
+     -2.25
+    ],
+    [
+     -7.5,
+     7.5,
+     3.75,
+     6.25
+    ],
+    [
+     5,
+     7.5,
+     3.08,
+     3.75
+    ],
+    [
+     -5,
+     5,
+     6.25,
+     11.25
+    ],
+    [
+     -7.5,
+     -5,
+     6.25,
+     11.25
+    ],
+    [
+     5,
+     7.5,
+     6.25,
+     11.25
+    ],
+    [
+     7.5,
+     15,
+     -11.25,
+     -1.25
+    ],
+    [
+     7.5,
+     15,
+     -1.25,
+     11.25
+    ]
+   ],
+   "void_local": [
+    -5,
+    5,
+    -6.25,
+    3.75
+   ],
+   "stairwell_local": [
+    5,
+    7.5,
+    -2.25,
+    3.08
+   ]
+  }
+ ],
+ "stairs": {
+  "footprint_local": [
+   5.0,
+   7.5,
+   -2.25,
+   3.08
+  ],
+  "bottom_y": 0.0,
+  "top_y": 4.0,
+  "rise_axis": "-z",
+  "enter_L1_zone": [
+   5.0,
+   7.5,
+   -3.0,
+   -2.25
+  ],
+  "enter_L0_zone": [
+   5.0,
+   7.5,
+   3.08,
+   3.8
+  ],
+  "ramp": "two ak_stairs_timber_1w_3r pieces scaled (1.25,1.333,1.25); their col_stairs_ramp are walkable, not blockers"
+ },
+ "roof": {
+  "type": "flat battlemented deck at y=8 (roof_* nodes), hidden by the town cutaway when the player is inside"
+ },
+ "camera": {
+  "parts": "node names follow tagCamBuilding(): L0 walls = wall, L1 walls up_*, upper floor floor_upper_*, roof roof_*, stairs stairs_*, upper props/rails up_*"
+ },
+ "rooms": [
+  {
+   "id": "narthex",
+   "level": 0,
+   "name": "Gate Hall",
+   "rect": [
+    -5,
+    5,
+    6.25,
+    11.25
+   ]
+  },
+  {
+   "id": "coven_hall",
+   "level": 0,
+   "name": "Coven Hall (double height)",
+   "rect": [
+    -7.5,
+    7.5,
+    -11.25,
+    6.25
+   ],
+   "extra": [
+    [
+     5,
+     7.5,
+     6.25,
+     11.25
+    ]
+   ]
+  },
+  {
+   "id": "apothecary",
+   "level": 0,
+   "name": "Witch's Apothecary",
+   "rect": [
+    -15,
+    -7.5,
+    -11.25,
+    1.25
+   ],
+   "minus": [
+    [
+     -15,
+     -10,
+     -11.25,
+     -6.25
+    ]
+   ]
+  },
+  {
+   "id": "conservatory",
+   "level": 0,
+   "name": "Thorn Conservatory",
+   "rect": [
+    -15,
+    -7.5,
+    1.25,
+    11.25
+   ]
+  },
+  {
+   "id": "bone_chapel",
+   "level": 0,
+   "name": "Bone Chapel (the old chapel, desecrated)",
+   "rect": [
+    7.5,
+    15,
+    -11.25,
+    -1.25
+   ]
+  },
+  {
+   "id": "larder",
+   "level": 0,
+   "name": "Larder & Bone Store",
+   "rect": [
+    7.5,
+    15,
+    -1.25,
+    11.25
+   ]
+  },
+  {
+   "id": "closet_w",
+   "level": 0,
+   "name": "Ossuary Nook",
+   "rect": [
+    -7.5,
+    -5,
+    6.25,
+    11.25
+   ]
+  },
+  {
+   "id": "quarters",
+   "level": 1,
+   "name": "Witch's Quarters",
+   "rect": [
+    -15,
+    -7.5,
+    -11.25,
+    1.25
+   ],
+   "minus": [
+    [
+     -15,
+     -10,
+     -11.25,
+     -6.25
+    ]
+   ]
+  },
+  {
+   "id": "library",
+   "level": 1,
+   "name": "Grimoire Library",
+   "rect": [
+    -15,
+    -7.5,
+    1.25,
+    11.25
+   ]
+  },
+  {
+   "id": "coven_loft",
+   "level": 1,
+   "name": "Coven Loft (gallery)",
+   "rect": [
+    -7.5,
+    7.5,
+    -11.25,
+    -6.25
+   ]
+  },
+  {
+   "id": "gallery_w",
+   "level": 1,
+   "name": "West Gallery",
+   "rect": [
+    -7.5,
+    -5,
+    -6.25,
+    3.75
+   ]
+  },
+  {
+   "id": "gallery_e",
+   "level": 1,
+   "name": "East Gallery / stair top",
+   "rect": [
+    5,
+    7.5,
+    -6.25,
+    -2.25
+   ]
+  },
+  {
+   "id": "gallery_s",
+   "level": 1,
+   "name": "South Gallery",
+   "rect": [
+    -7.5,
+    7.5,
+    3.75,
+    6.25
+   ],
+   "extra": [
+    [
+     5,
+     7.5,
+     3.08,
+     3.75
+    ]
+   ]
+  },
+  {
+   "id": "solar",
+   "level": 1,
+   "name": "Broken Solar",
+   "rect": [
+    -5,
+    5,
+    6.25,
+    11.25
+   ]
+  },
+  {
+   "id": "solar_w",
+   "level": 1,
+   "name": "Solar alcove W",
+   "rect": [
+    -7.5,
+    -5,
+    6.25,
+    11.25
+   ]
+  },
+  {
+   "id": "solar_e",
+   "level": 1,
+   "name": "Solar alcove E",
+   "rect": [
+    5,
+    7.5,
+    6.25,
+    11.25
+   ]
+  },
+  {
+   "id": "sanctum",
+   "level": 1,
+   "name": "Ritual Sanctum",
+   "rect": [
+    7.5,
+    15,
+    -11.25,
+    -1.25
+   ]
+  },
+  {
+   "id": "cage_hall",
+   "level": 1,
+   "name": "Cage Hall",
+   "rect": [
+    7.5,
+    15,
+    -1.25,
+    11.25
+   ]
+  }
+ ],
+ "nav": {
+  "entry_outside": [
+   0,
+   0,
+   13.0
+  ],
+  "entry_inside": [
+   0,
+   0,
+   9.5
+  ],
+  "stairs_bottom": [
+   6.25,
+   0,
+   4.0
+  ],
+  "stairs_top": [
+   6.25,
+   4.0,
+   -3.0
+  ],
+  "altar": [
+   0,
+   0,
+   -8.0
+  ],
+  "tower_inside": [
+   -12.5,
+   0,
+   -8.75
+  ],
+  "garden_door_outside": [
+   -11.25,
+   0,
+   12.6
+  ]
+ },
+ "doors": [
+  "L0_door_ext_S1",
+  "front_gate",
+  "L0_door_x3_2",
+  "L0_door_x3_6",
+  "L0_door_x9_1",
+  "L0_door_x9_7",
+  "L0_door_z5_1",
+  "L0_door_z4_10",
+  "L1_door_x3_2",
+  "L1_door_x3_7",
+  "L1_door_x9_1",
+  "L1_door_x9_7",
+  "L1_door_z5_1",
+  "L1_door_z4_11"
+ ],
+ "pieces": [
+  {
+   "id": "L0_ext_S0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_square_broken.glb",
+   "level": 0,
+   "pos": [
+    -13.75,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_S1",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 0,
+   "pos": [
+    -11.25,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own",
+   "door": {
+    "id": "L0_door_ext_S1",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L0_ext_S2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_square_broken.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_S3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_S4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_S7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_S8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_S9",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N9",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_S10",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N10",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_S11",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_N11",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_E0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    14.625,
+    0.0,
+    -10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_E1",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 0,
+   "pos": [
+    14.625,
+    0.0,
+    -7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_W2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -14.625,
+    0.0,
+    -5.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_E2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 0,
+   "pos": [
+    14.625,
+    0.0,
+    -5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_W3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -14.625,
+    0.0,
+    -2.5
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_E3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    14.625,
+    0.0,
+    -2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_W4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -14.625,
+    0.0,
+    0.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_E4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    14.625,
+    0.0,
+    0.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_W5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_square_broken.glb",
+   "level": 0,
+   "pos": [
+    -14.625,
+    0.0,
+    2.5
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_E5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    14.625,
+    0.0,
+    2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_W6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -14.625,
+    0.0,
+    5.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_E6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_square_broken.glb",
+   "level": 0,
+   "pos": [
+    14.625,
+    0.0,
+    5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_W7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_square_broken.glb",
+   "level": 0,
+   "pos": [
+    -14.625,
+    0.0,
+    7.5
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_E7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    14.625,
+    0.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_W8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -14.625,
+    0.0,
+    10.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_ext_E8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    14.625,
+    0.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S1",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_square_broken.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_square_broken.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_square_broken.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_square_broken.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S9",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N9",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S10",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N10",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_S11",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_N11",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_E0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    4.0,
+    -10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_E1",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    4.0,
+    -7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_W2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    4.0,
+    -5.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_E2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    4.0,
+    -5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_W3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    4.0,
+    -2.5
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_E3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    4.0,
+    -2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_W4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    4.0,
+    0.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_E4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    4.0,
+    0.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_W5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    4.0,
+    2.5
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_E5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    4.0,
+    2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_W6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    4.0,
+    5.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_E6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    4.0,
+    5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_W7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    4.0,
+    7.5
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_E7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    4.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_W8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_win_gothic.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    4.0,
+    10.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_ext_E8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    4.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L0_front_gate",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_gate_gothic_v1.glb",
+   "level": 0,
+   "pos": [
+    0,
+    0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "gate",
+   "col": "own",
+   "door": {
+    "id": "front_gate",
+    "leaves": [
+     {
+      "node": "gate_leaf_L",
+      "swing_rad": -1.45
+     },
+     {
+      "node": "gate_leaf_R",
+      "swing_rad": 1.45
+     }
+    ],
+    "closed_col": "col_gate_closed",
+    "secs": 0.9
+   }
+  },
+  {
+   "id": "L0_gate_jamb_W",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -2.3,
+    0,
+    10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_gate_jamb_E",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    2.3,
+    0,
+    10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_gate_lintel",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    0,
+    3.7,
+    10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    2.5,
+    0.094,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_corner_+15_-11",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    14.7,
+    0.0,
+    -10.95
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L1_corner_+15_-11",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    14.7,
+    4.0,
+    -10.95
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L0_corner_-15_+11",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -14.7,
+    0.0,
+    10.95
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L1_corner_-15_+11",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -14.7,
+    4.0,
+    10.95
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L0_corner_+15_+11",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    14.7,
+    0.0,
+    10.95
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L1_corner_+15_+11",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    14.7,
+    4.0,
+    10.95
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "witch_spire_tower",
+   "piece": "models/town/martsirt_v2_2/buildings/chapel_st_noll/bld_chapel_st_noll_tower_shared.glb",
+   "level": 0,
+   "pos": [
+    -12.5,
+    0,
+    -8.75
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1,
+    1,
+    1
+   ],
+   "part": "tower",
+   "col": "own",
+   "levels": [
+    0,
+    1
+   ],
+   "note": "Re-used Chapel of St. Noll bell tower. door_tower_arch opens +x into the apothecary. Its col_tower_* go in BOTH level sets; ignore col_tower_floor_*/col_tower_ladder for level 1."
+  },
+  {
+   "id": "buttress_S2",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -10.0,
+    0,
+    11.6
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_S2",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -10.0,
+    5.76,
+    11.6
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_S4",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -5.0,
+    0,
+    11.6
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_S4",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -5.0,
+    5.76,
+    11.6
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_S8",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    5.0,
+    0,
+    11.6
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_S8",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    5.0,
+    5.76,
+    11.6
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_S10",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    10.0,
+    0,
+    11.6
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_S10",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    10.0,
+    5.76,
+    11.6
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_N3",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_N3",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    5.76,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_N5",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -2.5,
+    0,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_N5",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -2.5,
+    5.76,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_N7",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    2.5,
+    0,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_N7",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    2.5,
+    5.76,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_N9",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_N9",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    5.76,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_N11",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    12.5,
+    0,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_N11",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    12.5,
+    5.76,
+    -11.6
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_E3",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    15.35,
+    0,
+    -3.75
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_E3",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    15.35,
+    5.76,
+    -3.75
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_E6",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    15.35,
+    0,
+    3.75
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_E6",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    15.35,
+    5.76,
+    3.75
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_W3",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -15.35,
+    0,
+    -3.75
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_W3",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -15.35,
+    5.76,
+    -3.75
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "buttress_W6",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -15.35,
+    0,
+    3.75
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.2,
+    1.8,
+    2.0
+   ],
+   "part": "wall",
+   "col": "own",
+   "note": "stepped buttress; lower block. A second, shorter block sits on top at 5.8 m"
+  },
+  {
+   "id": "buttress_cap_W6",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -15.35,
+    5.76,
+    3.75
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.0,
+    0.7,
+    1.2
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "L0_wall_x3_0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0.0,
+    -10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x3_1",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0.0,
+    -7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_door_x3_2",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0.0,
+    -5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own",
+   "door": {
+    "id": "L0_door_x3_2",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L0_wall_x3_3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0.0,
+    -2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x3_4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0.0,
+    0.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x3_5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0.0,
+    2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_door_x3_6",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0.0,
+    5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own",
+   "door": {
+    "id": "L0_door_x3_6",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L0_wall_x3_7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x3_8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -7.5,
+    0.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x9_0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0.0,
+    -10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_door_x9_1",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0.0,
+    -7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own",
+   "door": {
+    "id": "L0_door_x9_1",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L0_wall_x9_2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0.0,
+    -5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x9_3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0.0,
+    -2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x9_4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0.0,
+    0.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x9_5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0.0,
+    2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x9_6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0.0,
+    5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_door_x9_7",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own",
+   "door": {
+    "id": "L0_door_x9_7",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L0_wall_x9_8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    7.5,
+    0.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_z5_0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -13.75,
+    0.0,
+    1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_door_z5_1",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 0,
+   "pos": [
+    -11.25,
+    0.0,
+    1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own",
+   "door": {
+    "id": "L0_door_z5_1",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L0_wall_z5_2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_z4_9",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    -1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_door_z4_10",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    -1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own",
+   "door": {
+    "id": "L0_door_z4_10",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L0_wall_z4_11",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    -1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x4_7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -5.0,
+    0.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x4_8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    -5.0,
+    0.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L0_wall_x8_8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    5.0,
+    0.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x3_0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    4.0,
+    -10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x3_1",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    4.0,
+    -7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_door_x3_2",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    4.0,
+    -5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own",
+   "door": {
+    "id": "L1_door_x3_2",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L1_wall_x3_3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    4.0,
+    -2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x3_4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    4.0,
+    0.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x3_5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    4.0,
+    2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x3_6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    4.0,
+    5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_door_x3_7",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    4.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own",
+   "door": {
+    "id": "L1_door_x3_7",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L1_wall_x3_8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -7.5,
+    4.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x9_0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    4.0,
+    -10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_door_x9_1",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    4.0,
+    -7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own",
+   "door": {
+    "id": "L1_door_x9_1",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L1_wall_x9_2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    4.0,
+    -5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x9_3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    4.0,
+    -2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x9_4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    4.0,
+    0.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x9_5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    4.0,
+    2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x9_6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    4.0,
+    5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_door_x9_7",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    4.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own",
+   "door": {
+    "id": "L1_door_x9_7",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L1_wall_x9_8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    7.5,
+    4.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_z5_0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    4.0,
+    1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_door_z5_1",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    4.0,
+    1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own",
+   "door": {
+    "id": "L1_door_z5_1",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L1_wall_z5_2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_z4_9",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    -1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_z4_10",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    -1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_door_z4_11",
+   "piece": "models/town/martsirt/kit/glb/ak_door_frame_stone_2x3.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    -1.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own",
+   "door": {
+    "id": "L1_door_z4_11",
+    "hinge": "sway_door_hinge",
+    "leaf": "door",
+    "closed_col": "col_door",
+    "swing_rad": 1.35,
+    "secs": 0.8
+   }
+  },
+  {
+   "id": "L1_wall_x4_7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -5.0,
+    4.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x4_8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -5.0,
+    4.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x8_7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    5.0,
+    4.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "L1_wall_x8_8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    5.0,
+    4.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "part": "upWall",
+   "col": "own"
+  },
+  {
+   "id": "floor_L0_0_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -13.75,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_0_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -13.75,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_0_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -13.75,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_0_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -13.75,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_0_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -13.75,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_0_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -13.75,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_0_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -13.75,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_1_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -11.25,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_1_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -11.25,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_1_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -11.25,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_1_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -11.25,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_1_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -11.25,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_1_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -11.25,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_1_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -11.25,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_2_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_2_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_2_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_2_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_2_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_2_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_2_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_2_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_2_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -8.75,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_3_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_3_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_3_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_3_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_3_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_3_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_3_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_3_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_3_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -6.25,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_4_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_4_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_4_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_4_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_4_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_4_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_4_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_4_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_4_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -3.75,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_5_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_5_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_5_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_5_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_5_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_5_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_5_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_5_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_5_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    -1.25,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_6_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_6_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_6_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_6_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_6_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_6_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_6_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_6_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_6_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    1.25,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_7_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_7_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_7_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_7_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_7_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_7_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_7_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_7_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_7_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    3.75,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_8_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_8_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_8_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_8_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_8_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_8_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_8_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_8_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_8_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    6.25,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_9_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_9_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_9_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_9_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_9_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_9_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_9_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_9_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_9_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    8.75,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_10_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_10_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_10_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_10_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_10_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_10_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_10_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_10_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_10_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    11.25,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_11_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_11_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_11_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_11_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_11_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_11_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_11_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_11_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_L0_11_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 0,
+   "pos": [
+    13.75,
+    0.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "floor",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_0_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    4.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_0_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    4.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_0_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    4.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_0_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    4.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_0_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_0_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_0_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_1_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    4.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_1_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    4.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_1_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    4.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_1_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    4.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_1_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_1_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_1_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_2_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_2_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_2_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_2_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_2_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_2_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_2_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_2_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_2_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_3_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_3_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_3_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_3_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_3_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_3_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_3_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_3_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_3_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_4_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_4_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_4_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_4_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_4_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_5_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_5_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_5_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_5_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_5_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_6_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_6_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_6_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_6_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_6_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_7_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_7_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_7_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_7_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_7_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_8_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_8_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_8_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_8_3_-3.75",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    -3.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    0.75
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_8_5_+3.08",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    3.415
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    0.335
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_8_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_8_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_8_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_9_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_9_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_9_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_9_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_9_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_9_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_9_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_9_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_9_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_10_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_10_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_10_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_10_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_10_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_10_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_10_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_10_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_10_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_11_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_11_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_11_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_11_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_11_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_11_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_11_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_11_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "floor_upper_11_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_plank_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    4.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "slab",
+   "col": "none"
+  },
+  {
+   "id": "stairs_main_0",
+   "piece": "models/town/martsirt/kit/glb/ak_stairs_timber_1w_3r.glb",
+   "level": 0,
+   "pos": [
+    5.625,
+    0,
+    3.08
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.3333,
+    1.25
+   ],
+   "part": "stair",
+   "col": "ramp",
+   "note": "col_stairs_ramp = walkable ramp (not a blocker). nav_stairs_bottom/top come from the piece."
+  },
+  {
+   "id": "stairs_main_1",
+   "piece": "models/town/martsirt/kit/glb/ak_stairs_timber_1w_3r.glb",
+   "level": 0,
+   "pos": [
+    6.875,
+    0,
+    3.08
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    1.3333,
+    1.25
+   ],
+   "part": "stair",
+   "col": "ramp",
+   "note": "col_stairs_ramp = walkable ramp (not a blocker). nav_stairs_bottom/top come from the piece."
+  },
+  {
+   "id": "stair_stringer_low",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    4.85,
+    0,
+    1.75
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.333,
+    0.75,
+    0.5
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "stair_stringer_high",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 0,
+   "pos": [
+    4.85,
+    0,
+    -0.92
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.333,
+    1.25,
+    0.5
+   ],
+   "part": "wall",
+   "col": "own"
+  },
+  {
+   "id": "pillar_-4.5_-5.8",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -4.55,
+    0,
+    -5.8
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    2.5,
+    1.25
+   ],
+   "part": "pillar",
+   "col": "own",
+   "levels": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "pillar_+4.5_-5.8",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    4.55,
+    0,
+    -5.8
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    2.5,
+    1.25
+   ],
+   "part": "pillar",
+   "col": "own",
+   "levels": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "pillar_-4.5_+3.3",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -4.55,
+    0,
+    3.3
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    2.5,
+    1.25
+   ],
+   "part": "pillar",
+   "col": "own",
+   "levels": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "pillar_+4.5_+3.3",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    4.55,
+    0,
+    3.3
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    2.5,
+    1.25
+   ],
+   "part": "pillar",
+   "col": "own",
+   "levels": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "pillar_-4.5_-1.2",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 0,
+   "pos": [
+    -4.55,
+    0,
+    -1.25
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    2.5,
+    1.25
+   ],
+   "part": "pillar",
+   "col": "own",
+   "levels": [
+    0,
+    1
+   ]
+  },
+  {
+   "id": "up_rail_N_0",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    4.0,
+    -6.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_N_1",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    4.0,
+    -6.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_N_2",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    4.0,
+    -6.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_N_3",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    4.0,
+    -6.25
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_S_0",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    4.0,
+    3.75
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_S_1",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    4.0,
+    3.75
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_S_2",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    4.0,
+    3.75
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_S_3",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    4.0,
+    3.75
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_W_0",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    -5.0,
+    4.0,
+    -5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_W_1",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    -5.0,
+    4.0,
+    -2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_W_2",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    -5.0,
+    4.0,
+    0.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_W_3",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    -5.0,
+    4.0,
+    2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_E_0",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    5.0,
+    4.0,
+    -5.25
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.0,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_E_1",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    5.0,
+    4.0,
+    -3.25
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.0,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_well_S_0",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    4.0,
+    3.08
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "up_rail_well_SW_0",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 1,
+   "pos": [
+    5.0,
+    4.0,
+    3.415
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    0.335,
+    0.6,
+    1.0
+   ],
+   "part": "upRail",
+   "col": "own"
+  },
+  {
+   "id": "roof_deck_0_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_0_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_0_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_0_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_0_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_0_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_0_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_1_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_1_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_1_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_1_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_1_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_1_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_1_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_2_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_2_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_2_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_2_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_2_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_2_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_2_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_2_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_2_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_3_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_3_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_3_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_3_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_3_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_3_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_3_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_3_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_3_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_4_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_4_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_4_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_4_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_4_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_4_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_4_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_4_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_4_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_5_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_5_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_5_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_5_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_5_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_5_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_5_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_5_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_5_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_6_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_6_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_6_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_6_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_6_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_6_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_6_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_6_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_6_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_7_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_7_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_7_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_7_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_7_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_7_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_7_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_7_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_7_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_8_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_8_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_8_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_8_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_8_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_8_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_8_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_8_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_8_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_9_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_9_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_9_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_9_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_9_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_9_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_9_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_9_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_9_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_10_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_10_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_10_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_10_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_10_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_10_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_10_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_10_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_10_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_11_0",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_11_1",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    -7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_11_2",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_11_3",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    -2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_11_4",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_11_5",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    2.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_11_6",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_11_7",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    7.5
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_deck_11_8",
+   "piece": "models/town/martsirt/kit/glb/ak_floor_flag_2x2.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    1,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_S0",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -13.75,
+    8.8,
+    10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S1",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -11.25,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_S2",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.8,
+    10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_N2",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -8.75,
+    8.8,
+    -10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -6.25,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_S4",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.8,
+    10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_N4",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -3.75,
+    8.8,
+    -10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -1.25,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_S6",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.8,
+    10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_N6",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    1.25,
+    8.8,
+    -10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    3.75,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_S8",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.8,
+    10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_N8",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    6.25,
+    8.8,
+    -10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S9",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N9",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    8.75,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S10",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_S10",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.8,
+    10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N10",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_N10",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    11.25,
+    8.8,
+    -10.875
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_S11",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    10.875
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_N11",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    13.75,
+    8.0,
+    -10.875
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_E0",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.0,
+    -10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_E0",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.8,
+    -10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_E1",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.0,
+    -7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_W2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.0,
+    -5.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_W2",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.8,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_E2",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.0,
+    -5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_E2",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.8,
+    -5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_W3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.0,
+    -2.5
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_E3",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.0,
+    -2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_W4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.0,
+    0.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_W4",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.8,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_E4",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.0,
+    0.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_E4",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.8,
+    0.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_W5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.0,
+    2.5
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_E5",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.0,
+    2.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_W6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.0,
+    5.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_W6",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.8,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_E6",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.0,
+    5.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_E6",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.8,
+    5.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_W7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.0,
+    7.5
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_E7",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.0,
+    7.5
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_W8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.0,
+    10.0
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_W8",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    -14.625,
+    8.8,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_parapet_E8",
+   "piece": "models/town/martsirt/kit/glb/ak_wall_stone_2x3_a.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.0,
+    10.0
+   ],
+   "rotY": 1.5708,
+   "scale": [
+    1.25,
+    0.25,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "roof_merlon_E8",
+   "piece": "models/town/martsirt/kit/glb/ak_corner_quoin_3.glb",
+   "level": 1,
+   "pos": [
+    14.625,
+    8.8,
+    10.0
+   ],
+   "rotY": 0,
+   "scale": [
+    1.25,
+    0.35,
+    1.25
+   ],
+   "part": "roof",
+   "col": "none"
+  },
+  {
+   "id": "hall_black_altar",
+   "piece": "models/env_extra/props_gothic_v1/props/altar_cloth_v1.glb",
+   "level": 0,
+   "pos": [
+    0,
+    0.0,
+    -10.3
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_grimoire_lectern",
+   "piece": "models/env_extra/props_gothic_v1/props/lectern_book_v1.glb",
+   "level": 0,
+   "pos": [
+    0.0,
+    0.0,
+    -8.55
+   ],
+   "rotY": 3.1416,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own",
+   "note": "reader stands on the altar side; desk faces the hall"
+  },
+  {
+   "id": "hall_altar_candle_W",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 0,
+   "pos": [
+    -1.8,
+    0.0,
+    -10.2
+   ],
+   "rotY": 0.3,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_altar_candle_E",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 0,
+   "pos": [
+    1.9,
+    0.0,
+    -10.1
+   ],
+   "rotY": -0.2,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_tapestry_NW",
+   "piece": "models/env_extra/props_gothic_v1/props/tapestry_heraldic_v1.glb",
+   "level": 0,
+   "pos": [
+    -3.6,
+    0.0,
+    -10.85
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own",
+   "note": "hang it torn/askew; keep blacks"
+  },
+  {
+   "id": "hall_defaced_saint_NE",
+   "piece": "models/env_extra/props_gothic_v1/props/wall_niche_saint_v1.glb",
+   "level": 0,
+   "pos": [
+    3.7,
+    0.0,
+    -10.85
+   ],
+   "rotY": 0.0,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_ritual_circle",
+   "piece": "models/town/martsirt_v2_2/buildings/witch_lair/decal_ritual_circle.png",
+   "level": 0,
+   "pos": [
+    0,
+    0.02,
+    -1.25
+   ],
+   "rotY": 0.37,
+   "scale": [
+    6.4,
+    1,
+    6.4
+   ],
+   "part": "decal",
+   "col": "none",
+   "note": "flat alpha decal on the floor, polygonOffset, no collision, dark dried-blood/ash lines; never brighten"
+  },
+  {
+   "id": "hall_great_cauldron",
+   "piece": "models/env_extra/props_gothic_v1/props/cauldron_tripod_v1.glb",
+   "level": 0,
+   "pos": [
+    0,
+    0.0,
+    -1.25
+   ],
+   "rotY": 0.52,
+   "scale": [
+    1.35,
+    1.35,
+    1.35
+   ],
+   "part": "prop",
+   "col": "own",
+   "note": "at the circle centre; optional green fx only if LIGHTS1 allows"
+  },
+  {
+   "id": "hall_circle_candle_0",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 0,
+   "pos": [
+    3.55,
+    0.0,
+    -1.25
+   ],
+   "rotY": -1.3826,
+   "scale": [
+    0.82,
+    0.82,
+    0.82
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_circle_candle_1",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 0,
+   "pos": [
+    1.775,
+    0.0,
+    1.824
+   ],
+   "rotY": -2.8096,
+   "scale": [
+    0.82,
+    0.82,
+    0.82
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_circle_candle_2",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 0,
+   "pos": [
+    -1.775,
+    0.0,
+    1.824
+   ],
+   "rotY": -1.7085,
+   "scale": [
+    0.82,
+    0.82,
+    0.82
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_circle_candle_3",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 0,
+   "pos": [
+    -3.55,
+    0.0,
+    -1.25
+   ],
+   "rotY": 0.8241,
+   "scale": [
+    0.82,
+    0.82,
+    0.82
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_circle_candle_4",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 0,
+   "pos": [
+    -1.775,
+    0.0,
+    -4.324
+   ],
+   "rotY": 1.3381,
+   "scale": [
+    0.82,
+    0.82,
+    0.82
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_circle_candle_5",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 0,
+   "pos": [
+    1.775,
+    0.0,
+    -4.324
+   ],
+   "rotY": 0.968,
+   "scale": [
+    0.82,
+    0.82,
+    0.82
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_sconce_W",
+   "piece": "models/env_extra/props_gothic_v1/props/wall_sconce_v1.glb",
+   "level": 0,
+   "pos": [
+    -7.08,
+    0.0,
+    -0.693
+   ],
+   "rotY": 1.5779,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_sconce_E",
+   "piece": "models/env_extra/props_gothic_v1/props/wall_sconce_v1.glb",
+   "level": 0,
+   "pos": [
+    7.08,
+    0.0,
+    -9.501
+   ],
+   "rotY": -1.5518,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_chains",
+   "piece": "models/env_extra/props_gothic_v1/props/chains_shackles_v1.glb",
+   "level": 0,
+   "pos": [
+    -7.08,
+    0.0,
+    -9.63
+   ],
+   "rotY": 1.5386,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_skull_heap",
+   "piece": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "level": 0,
+   "pos": [
+    -1.186,
+    0.0,
+    -2.756
+   ],
+   "rotY": -2.1206,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_bones",
+   "piece": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb",
+   "level": 0,
+   "pos": [
+    -6.184,
+    0.0,
+    -7.973
+   ],
+   "rotY": 1.8711,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "hall_webs",
+   "piece": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1.glb",
+   "level": 0,
+   "pos": [
+    2.717,
+    0.0,
+    -4.266
+   ],
+   "rotY": 2.7525,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "none"
+  },
+  {
+   "id": "narthex_gargoyle_W",
+   "piece": "models/env_extra/props_gothic_v1/props/gargoyle_perched_v1.glb",
+   "level": 0,
+   "pos": [
+    -4.58,
+    0.0,
+    8.481
+   ],
+   "rotY": 1.559,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "narthex_urn",
+   "piece": "models/env_extra/props_gothic_v1/props/urn_plinth_v1.glb",
+   "level": 0,
+   "pos": [
+    4.58,
+    0.0,
+    10.066
+   ],
+   "rotY": -1.5691,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "narthex_sconce",
+   "piece": "models/env_extra/props_gothic_v1/props/wall_sconce_v1.glb",
+   "level": 0,
+   "pos": [
+    -3.821,
+    0.0,
+    10.83
+   ],
+   "rotY": 3.1873,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "nook_skulls",
+   "piece": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "level": 0,
+   "pos": [
+    -7.08,
+    0.0,
+    9.927
+   ],
+   "rotY": 1.583,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "nook_urn",
+   "piece": "models/env_extra/props_gothic_v1/loot/burial_urn_closed.glb",
+   "level": 0,
+   "pos": [
+    -5.977,
+    0.0,
+    10.83
+   ],
+   "rotY": 3.0978,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "nook_webs",
+   "piece": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1.glb",
+   "level": 0,
+   "pos": [
+    -6.01,
+    0.0,
+    8.359
+   ],
+   "rotY": -1.7669,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "none"
+  },
+  {
+   "id": "apoth_shelf_1",
+   "piece": "models/props_new/lite/bookshelf_worn_lite.glb",
+   "level": 0,
+   "pos": [
+    -8.923,
+    0.0,
+    0.83
+   ],
+   "rotY": 3.1876,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": {
+    "box": [
+     1.38,
+     2.06,
+     0.58
+    ]
+   }
+  },
+  {
+   "id": "apoth_shelf_2",
+   "piece": "models/props_new/lite/bookshelf_worn_lite.glb",
+   "level": 0,
+   "pos": [
+    -14.58,
+    0.0,
+    -1.944
+   ],
+   "rotY": 1.564,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": {
+    "box": [
+     1.38,
+     2.06,
+     0.58
+    ]
+   }
+  },
+  {
+   "id": "apoth_cauldron",
+   "piece": "models/env_extra/props_gothic_v1/props/cauldron_tripod_v1.glb",
+   "level": 0,
+   "pos": [
+    -12.086,
+    0.0,
+    -1.649
+   ],
+   "rotY": -0.5578,
+   "scale": [
+    0.9,
+    0.9,
+    0.9
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "apoth_desk",
+   "piece": "models/props_new/desk.glb",
+   "level": 0,
+   "pos": [
+    -14.58,
+    0.0,
+    0.119
+   ],
+   "rotY": 1.5937,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "apoth_sack_0",
+   "piece": "models/props_new/breakables/sack_intact.glb",
+   "level": 0,
+   "pos": [
+    -13.172,
+    0.0,
+    -2.71
+   ],
+   "rotY": -2.4298,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "apoth_sack_1",
+   "piece": "models/props_new/breakables/sack_intact.glb",
+   "level": 0,
+   "pos": [
+    -9.439,
+    0.0,
+    -2.236
+   ],
+   "rotY": 2.5903,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "apoth_urn_a",
+   "piece": "models/props_new/breakables/urn_a_intact.glb",
+   "level": 0,
+   "pos": [
+    -8.548,
+    0.0,
+    -0.669
+   ],
+   "rotY": -0.0093,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "apoth_urn_b",
+   "piece": "models/props_new/breakables/urn_b_intact.glb",
+   "level": 0,
+   "pos": [
+    -8.622,
+    0.0,
+    -10.217
+   ],
+   "rotY": 2.7549,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "apoth_barrels",
+   "piece": "models/props_new/breakables/barrel_group_intact.glb",
+   "level": 0,
+   "pos": [
+    -7.92,
+    0.0,
+    -1.869
+   ],
+   "rotY": -1.6109,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "apoth_webs",
+   "piece": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1.glb",
+   "level": 0,
+   "pos": [
+    -8.589,
+    0.0,
+    -7.425
+   ],
+   "rotY": -2.1861,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "none"
+  },
+  {
+   "id": "cons_rotten_stump",
+   "piece": "models/env_extra/props_gothic_v1/loot/rotten_stump_closed.glb",
+   "level": 0,
+   "pos": [
+    -10.798,
+    0.0,
+    4.685
+   ],
+   "rotY": -0.1855,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "cons_hollow_log",
+   "piece": "models/env_extra/props_gothic_v1/loot/hollow_log_closed.glb",
+   "level": 0,
+   "pos": [
+    -9.542,
+    0.0,
+    7.892
+   ],
+   "rotY": -1.914,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "cons_rubble",
+   "piece": "models/env_extra/props_gothic_v1/loot/rock_pile_closed.glb",
+   "level": 0,
+   "pos": [
+    -13.628,
+    0.0,
+    5.795
+   ],
+   "rotY": -1.9195,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "cons_planter_fence",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_fence_gothic_v1.glb",
+   "level": 0,
+   "pos": [
+    -14.58,
+    0.0,
+    7.826
+   ],
+   "rotY": 1.5415,
+   "scale": [
+    1.0,
+    0.45,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "cons_broken_urn",
+   "piece": "models/props_new/breakables/urn_c_broken.glb",
+   "level": 0,
+   "pos": [
+    -7.92,
+    0.0,
+    3.073
+   ],
+   "rotY": -1.6178,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "cons_webs",
+   "piece": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1.glb",
+   "level": 0,
+   "pos": [
+    -13.28,
+    0.0,
+    3.227
+   ],
+   "rotY": 2.6359,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "none"
+  },
+  {
+   "id": "bonechapel_altar",
+   "piece": "models/env_extra/props_gothic_v1/props/altar_cloth_v1.glb",
+   "level": 0,
+   "pos": [
+    14.0,
+    0.0,
+    -6.25
+   ],
+   "rotY": -1.5708,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "bonechapel_pew_0",
+   "piece": "models/env_extra/props_gothic_v1/props/church_pew_v1.glb",
+   "level": 0,
+   "pos": [
+    10.0,
+    0.0,
+    -8.9
+   ],
+   "rotY": 1.6908,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "bonechapel_pew_1",
+   "piece": "models/env_extra/props_gothic_v1/props/church_pew_v1.glb",
+   "level": 0,
+   "pos": [
+    10.1,
+    0.0,
+    -5.2
+   ],
+   "rotY": 1.3708,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "bonechapel_pew_overturned",
+   "piece": "models/env_extra/props_gothic_v1/props/church_pew_v1.glb",
+   "level": 0,
+   "pos": [
+    11.4,
+    0.0,
+    -3.0
+   ],
+   "rotY": 0.9,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own",
+   "tilt_z": 1.45,
+   "note": "tipped on its back; collider = its own col_pew rotated with it"
+  },
+  {
+   "id": "bonechapel_sarcophagus",
+   "piece": "models/env_extra/props_gothic_v1/props/sarcophagus_carved_v1.glb",
+   "level": 0,
+   "pos": [
+    12.333,
+    0.0,
+    -10.83
+   ],
+   "rotY": -0.0046,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "bonechapel_niche",
+   "piece": "models/env_extra/props_gothic_v1/props/wall_niche_saint_v1.glb",
+   "level": 0,
+   "pos": [
+    8.921,
+    0.0,
+    -1.67
+   ],
+   "rotY": 3.1225,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "bonechapel_bones",
+   "piece": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb",
+   "level": 0,
+   "pos": [
+    11.537,
+    0.0,
+    -6.933
+   ],
+   "rotY": 2.9668,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "bonechapel_remains",
+   "piece": "models/env_extra/props_gothic_v1/loot/remains_heap_closed.glb",
+   "level": 0,
+   "pos": [
+    12.665,
+    0.0,
+    -8.295
+   ],
+   "rotY": -2.0569,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "bonechapel_candle",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 0,
+   "pos": [
+    14.58,
+    0.0,
+    -2.526
+   ],
+   "rotY": -1.5992,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "larder_barrels",
+   "piece": "models/props_new/breakables/barrel_group_intact.glb",
+   "level": 0,
+   "pos": [
+    14.58,
+    0.0,
+    5.964
+   ],
+   "rotY": -1.5926,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "larder_sacks",
+   "piece": "models/props_new/breakables/sack_pile_intact.glb",
+   "level": 0,
+   "pos": [
+    13.239,
+    0.0,
+    -0.83
+   ],
+   "rotY": -0.0351,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "larder_barrel",
+   "piece": "models/props_new/breakables/barrel_intact.glb",
+   "level": 0,
+   "pos": [
+    9.706,
+    0.0,
+    10.83
+   ],
+   "rotY": 3.1668,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "larder_urn",
+   "piece": "models/props_new/breakables/urn_b_intact.glb",
+   "level": 0,
+   "pos": [
+    12.372,
+    0.0,
+    2.957
+   ],
+   "rotY": 2.6378,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "larder_chains",
+   "piece": "models/env_extra/props_gothic_v1/props/chains_shackles_v1.glb",
+   "level": 0,
+   "pos": [
+    14.58,
+    0.0,
+    1.03
+   ],
+   "rotY": -1.5913,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "larder_skulls",
+   "piece": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "level": 0,
+   "pos": [
+    11.803,
+    0.0,
+    9.593
+   ],
+   "rotY": -2.4525,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "own"
+  },
+  {
+   "id": "larder_chest",
+   "piece": "models/props_new/lite/iron_chest_lite_closed.glb",
+   "level": 0,
+   "pos": [
+    13.945,
+    0.0,
+    10.83
+   ],
+   "rotY": 3.1116,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": {
+    "box": [
+     1.0,
+     0.7,
+     0.6
+    ]
+   }
+  },
+  {
+   "id": "larder_webs",
+   "piece": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1.glb",
+   "level": 0,
+   "pos": [
+    11.982,
+    0.0,
+    7.025
+   ],
+   "rotY": 2.422,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "prop",
+   "col": "none"
+  },
+  {
+   "id": "quarters_wardrobe",
+   "piece": "models/props_new/wardrobe.glb",
+   "level": 1,
+   "pos": [
+    -8.602,
+    4.0,
+    0.83
+   ],
+   "rotY": 3.1878,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "quarters_nightstand",
+   "piece": "models/props_new/nightstand.glb",
+   "level": 1,
+   "pos": [
+    -14.58,
+    4.0,
+    -5.031
+   ],
+   "rotY": 1.5989,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "quarters_rug",
+   "piece": "models/props_new/rug.glb",
+   "level": 1,
+   "pos": [
+    -11.759,
+    4.0,
+    -3.572
+   ],
+   "rotY": 2.6414,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "none"
+  },
+  {
+   "id": "quarters_desk",
+   "piece": "models/props_new/desk.glb",
+   "level": 1,
+   "pos": [
+    -14.58,
+    4.0,
+    -3.653
+   ],
+   "rotY": 1.5794,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "quarters_candle",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 1,
+   "pos": [
+    -9.734,
+    4.0,
+    -10.83
+   ],
+   "rotY": 0.0226,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "quarters_tapestry",
+   "piece": "models/env_extra/props_gothic_v1/props/tapestry_heraldic_v1.glb",
+   "level": 1,
+   "pos": [
+    -7.92,
+    4.0,
+    -9.191
+   ],
+   "rotY": -1.564,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "library_shelf_0",
+   "piece": "models/props_new/lite/bookshelf_worn_lite.glb",
+   "level": 1,
+   "pos": [
+    -14.58,
+    4.0,
+    4.608
+   ],
+   "rotY": 1.599,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": {
+    "box": [
+     1.38,
+     2.06,
+     0.58
+    ]
+   }
+  },
+  {
+   "id": "library_shelf_1",
+   "piece": "models/props_new/lite/bookshelf_worn_lite.glb",
+   "level": 1,
+   "pos": [
+    -14.58,
+    4.0,
+    7.73
+   ],
+   "rotY": 1.5992,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": {
+    "box": [
+     1.38,
+     2.06,
+     0.58
+    ]
+   }
+  },
+  {
+   "id": "library_shelf_2",
+   "piece": "models/props_new/lite/bookshelf_worn_lite.glb",
+   "level": 1,
+   "pos": [
+    -7.92,
+    4.0,
+    9.965
+   ],
+   "rotY": -1.5497,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": {
+    "box": [
+     1.38,
+     2.06,
+     0.58
+    ]
+   }
+  },
+  {
+   "id": "library_shelf_3",
+   "piece": "models/props_new/lite/bookshelf_worn_lite.glb",
+   "level": 1,
+   "pos": [
+    -13.468,
+    4.0,
+    10.83
+   ],
+   "rotY": 3.1222,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": {
+    "box": [
+     1.38,
+     2.06,
+     0.58
+    ]
+   }
+  },
+  {
+   "id": "library_lectern",
+   "piece": "models/env_extra/props_gothic_v1/props/lectern_book_v1.glb",
+   "level": 1,
+   "pos": [
+    -9.961,
+    4.0,
+    3.681
+   ],
+   "rotY": 0.3608,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "library_desk",
+   "piece": "models/props_new/desk.glb",
+   "level": 1,
+   "pos": [
+    -10.521,
+    4.0,
+    10.83
+   ],
+   "rotY": 3.1595,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "library_rug",
+   "piece": "models/props_new/rug.glb",
+   "level": 1,
+   "pos": [
+    -11.62,
+    4.0,
+    10.118
+   ],
+   "rotY": -2.917,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "none"
+  },
+  {
+   "id": "library_candle",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 1,
+   "pos": [
+    -13.896,
+    4.0,
+    1.67
+   ],
+   "rotY": -0.0077,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "library_webs",
+   "piece": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1.glb",
+   "level": 1,
+   "pos": [
+    -13.666,
+    4.0,
+    3.495
+   ],
+   "rotY": -2.3941,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "none"
+  },
+  {
+   "id": "loft_gargoyle_W",
+   "piece": "models/env_extra/props_gothic_v1/props/gargoyle_perched_v1.glb",
+   "level": 1,
+   "pos": [
+    5.837,
+    4.0,
+    -10.83
+   ],
+   "rotY": -0.0299,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "loft_gargoyle_E",
+   "piece": "models/env_extra/props_gothic_v1/props/gargoyle_perched_v1.glb",
+   "level": 1,
+   "pos": [
+    -4.53,
+    4.0,
+    -10.83
+   ],
+   "rotY": 0.0478,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "loft_urn",
+   "piece": "models/env_extra/props_gothic_v1/props/urn_plinth_v1.glb",
+   "level": 1,
+   "pos": [
+    -6.038,
+    4.0,
+    -10.83
+   ],
+   "rotY": 0.0169,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "loft_tapestry",
+   "piece": "models/env_extra/props_gothic_v1/props/tapestry_heraldic_v1.glb",
+   "level": 1,
+   "pos": [
+    -0.463,
+    4.0,
+    -10.83
+   ],
+   "rotY": -0.0234,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "sanctum_ritual_circle",
+   "piece": "models/town/martsirt_v2_2/buildings/witch_lair/decal_ritual_circle.png",
+   "level": 1,
+   "pos": [
+    11.25,
+    4.02,
+    -6.0
+   ],
+   "rotY": -0.6,
+   "scale": [
+    4.6,
+    1,
+    4.6
+   ],
+   "part": "decal",
+   "col": "none"
+  },
+  {
+   "id": "sanctum_candle_0",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 1,
+   "pos": [
+    13.737,
+    4.0,
+    -4.949
+   ],
+   "rotY": -0.6373,
+   "scale": [
+    0.75,
+    0.75,
+    0.75
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "sanctum_candle_1",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 1,
+   "pos": [
+    11.019,
+    4.0,
+    -3.31
+   ],
+   "rotY": -0.754,
+   "scale": [
+    0.75,
+    0.75,
+    0.75
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "sanctum_candle_2",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 1,
+   "pos": [
+    8.62,
+    4.0,
+    -5.389
+   ],
+   "rotY": -1.3369,
+   "scale": [
+    0.75,
+    0.75,
+    0.75
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "sanctum_candle_3",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 1,
+   "pos": [
+    9.856,
+    4.0,
+    -8.312
+   ],
+   "rotY": 0.787,
+   "scale": [
+    0.75,
+    0.75,
+    0.75
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "sanctum_candle_4",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 1,
+   "pos": [
+    13.018,
+    4.0,
+    -8.04
+   ],
+   "rotY": -0.7769,
+   "scale": [
+    0.75,
+    0.75,
+    0.75
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "sanctum_altar",
+   "piece": "models/env_extra/props_gothic_v1/props/altar_cloth_v1.glb",
+   "level": 1,
+   "pos": [
+    14.58,
+    4.0,
+    -6.974
+   ],
+   "rotY": -1.5299,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "sanctum_skulls",
+   "piece": "models/env_extra/props_gothic_v1/loot/skull_heap_closed.glb",
+   "level": 1,
+   "pos": [
+    14.58,
+    4.0,
+    -10.224
+   ],
+   "rotY": -1.526,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "sanctum_niche",
+   "piece": "models/env_extra/props_gothic_v1/props/wall_niche_saint_v1.glb",
+   "level": 1,
+   "pos": [
+    11.253,
+    4.0,
+    -10.83
+   ],
+   "rotY": 0.0174,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "cage_gibbet_1",
+   "piece": "models/env_extra/props_gothic_v1/props/gibbet_cage_v1.glb",
+   "level": 1,
+   "pos": [
+    14.58,
+    4.0,
+    3.871
+   ],
+   "rotY": -1.6021,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "cage_gibbet_2",
+   "piece": "models/env_extra/props_gothic_v1/props/gibbet_cage_v1.glb",
+   "level": 1,
+   "pos": [
+    11.215,
+    4.0,
+    10.83
+   ],
+   "rotY": 3.1193,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "cage_iron_maiden",
+   "piece": "models/env_extra/props_gothic_v1/props/iron_maiden_v1.glb",
+   "level": 1,
+   "pos": [
+    11.187,
+    4.0,
+    -0.83
+   ],
+   "rotY": 0.0392,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "cage_chains",
+   "piece": "models/env_extra/props_gothic_v1/props/chains_shackles_v1.glb",
+   "level": 1,
+   "pos": [
+    14.58,
+    4.0,
+    6.532
+   ],
+   "rotY": -1.5758,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "cage_bones",
+   "piece": "models/env_extra/props_gothic_v1/loot/bone_pile_closed.glb",
+   "level": 1,
+   "pos": [
+    12.125,
+    4.0,
+    7.806
+   ],
+   "rotY": -2.2556,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "cage_webs",
+   "piece": "models/env_extra/props_gothic_v1/props/cobweb_cards_v1.glb",
+   "level": 1,
+   "pos": [
+    12.993,
+    4.0,
+    0.958
+   ],
+   "rotY": -2.1385,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "none"
+  },
+  {
+   "id": "solar_candle",
+   "piece": "models/env_extra/props_gothic_v1/props/candelabra_tall_v1.glb",
+   "level": 1,
+   "pos": [
+    4.58,
+    4.0,
+    7.33
+   ],
+   "rotY": -1.5381,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "solar_rug",
+   "piece": "models/props_new/rug.glb",
+   "level": 1,
+   "pos": [
+    -0.348,
+    4.0,
+    9.037
+   ],
+   "rotY": -1.5984,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "none"
+  },
+  {
+   "id": "solar_urn",
+   "piece": "models/env_extra/props_gothic_v1/props/urn_plinth_v1.glb",
+   "level": 1,
+   "pos": [
+    -6.087,
+    4.0,
+    10.83
+   ],
+   "rotY": 3.1735,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  },
+  {
+   "id": "solar_small_sarcophagus",
+   "piece": "models/env_extra/props_gothic_v1/loot/sarcophagus_small_closed.glb",
+   "level": 1,
+   "pos": [
+    6.294,
+    4.0,
+    10.83
+   ],
+   "rotY": 3.1515,
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "part": "upProp",
+   "col": "own"
+  }
+ ],
+ "keep_clear_local": {
+  "0": [
+   [
+    -12.45,
+    -10.05,
+    8.975,
+    12.775
+   ],
+   [
+    -1.9,
+    1.9,
+    8.975,
+    12.775
+   ],
+   [
+    -9.4,
+    -5.6,
+    -6.2,
+    -3.8
+   ],
+   [
+    -9.4,
+    -5.6,
+    3.8,
+    6.2
+   ],
+   [
+    5.6,
+    9.4,
+    -8.7,
+    -6.3
+   ],
+   [
+    5.6,
+    9.4,
+    6.3,
+    8.7
+   ],
+   [
+    -12.45,
+    -10.05,
+    -0.6499999999999999,
+    3.15
+   ],
+   [
+    10.05,
+    12.45,
+    -3.15,
+    0.6499999999999999
+   ],
+   [
+    -1.6,
+    1.6,
+    2.5,
+    11.25
+   ],
+   [
+    -1.6,
+    1.6,
+    -9.0,
+    -5.2
+   ],
+   [
+    -1.6,
+    7.5,
+    2.0,
+    5.0
+   ],
+   [
+    4.9,
+    7.6,
+    -2.4,
+    6.0
+   ],
+   [
+    -15,
+    -7.5,
+    -6.4,
+    -3.6
+   ],
+   [
+    -11.0,
+    -9.2,
+    -9.6,
+    -6.2
+   ]
+  ],
+  "1": [
+   [
+    -9.4,
+    -5.6,
+    -6.2,
+    -3.8
+   ],
+   [
+    -9.4,
+    -5.6,
+    6.3,
+    8.7
+   ],
+   [
+    5.6,
+    9.4,
+    -8.7,
+    -6.3
+   ],
+   [
+    5.6,
+    9.4,
+    6.3,
+    8.7
+   ],
+   [
+    -12.45,
+    -10.05,
+    -0.6499999999999999,
+    3.15
+   ],
+   [
+    12.55,
+    14.95,
+    -3.15,
+    0.6499999999999999
+   ],
+   [
+    -7.5,
+    7.5,
+    -7.9,
+    -6.25
+   ],
+   [
+    -7.5,
+    -5,
+    -6.25,
+    3.75
+   ],
+   [
+    5,
+    7.5,
+    -6.25,
+    -2.25
+   ],
+   [
+    -7.5,
+    7.5,
+    3.75,
+    5.4
+   ],
+   [
+    4.9,
+    7.6,
+    -3.4,
+    -2.0
+   ],
+   [
+    -4.0,
+    4.0,
+    6.0,
+    7.6
+   ]
+  ]
+ }
+}
